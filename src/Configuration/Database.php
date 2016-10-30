@@ -62,6 +62,18 @@ class Database implements DatabaseInterface
     protected $password;
 
     /**
+     * Set's the PDO DSN to use.
+     *
+     * @param string $dsn The PDO DSN
+     *
+     * @return void
+     */
+    public function setDsn($dsn)
+    {
+        $this->dsn = $dsn;
+    }
+
+    /**
      * Return's the PDO DSN to use.
      *
      * @return string The PDO DSN
@@ -72,6 +84,18 @@ class Database implements DatabaseInterface
     }
 
     /**
+     * Set's the DB username to use.
+     *
+     * @return string $username The DB username
+     *
+     * @return void
+     */
+    public function setUsername($username)
+    {
+        $this->username = $username;
+    }
+
+    /**
      * Return's the DB username to use.
      *
      * @return string The DB username
@@ -79,6 +103,18 @@ class Database implements DatabaseInterface
     public function getUsername()
     {
         return $this->username;
+    }
+
+    /**
+     * Set's the DB password to use.
+     *
+     * @param string $password The DB password
+     *
+     * @return void
+     */
+    public function setPassword($password)
+    {
+        $this->password = $password;
     }
 
     /**

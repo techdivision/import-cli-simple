@@ -105,6 +105,12 @@ class ImportProductsCommand extends Command
                  'The directory to query for CSV file(s) that has/have to be imported'
              )
              ->addOption(
+                 InputOptionKeys::PREFIX,
+                 null,
+                 InputOption::VALUE_REQUIRED,
+                 'The prefix of the CSV source file(s) that has/have to be imported'
+             )
+             ->addOption(
                  InputOptionKeys::MAGENTO_EDITION,
                  null,
                  InputOption::VALUE_REQUIRED,

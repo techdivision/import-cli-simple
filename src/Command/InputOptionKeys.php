@@ -40,6 +40,13 @@ class InputOptionKeys
     const CONFIGURATION = 'configuration';
 
     /**
+     * The input option key for the prefix for the import files.
+     *
+     * @var string
+     */
+    const PREFIX = 'prefix';
+
+    /**
      * The input option key for the source directory that has to be watched for new files.
      *
      * @var string

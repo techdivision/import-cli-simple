@@ -91,6 +91,16 @@ class Subject implements SubjectInterface
     }
 
     /**
+     * Return's the array with the subject's callbacks.
+     *
+     * @return array The subject's callbacks
+     */
+    public function getCallbacks()
+    {
+        return $this->callbacks;
+    }
+
+    /**
      * Return's the subject's source date format to use.
      *
      * @return string The source date format
@@ -101,12 +111,14 @@ class Subject implements SubjectInterface
     }
 
     /**
-     * Return's the array with the subject's callbacks.
+     * Set's the subject's source date format to use.
      *
-     * @return array The subject's callbacks
+     * @param string $sourceDateFormat The source date format
+     *
+     * @return void
      */
-    public function getCallbacks()
+    public function setSourceDateFormat($sourceDateFormat)
     {
-        return $this->callbacks;
+        $this->sourceDateFormat = $sourceDateFormat;
     }
 }
