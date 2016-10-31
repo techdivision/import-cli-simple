@@ -105,7 +105,7 @@ class Configuration implements ConfigurationInterface
     {
 
         // load the configuration file to use
-        $configuration = $input->getOption(InputOptionKeys::CONFIGURATION);
+        $filename = $input->getOption(InputOptionKeys::CONFIGURATION);
 
         // load the JSON data
         if (!$jsonData = file_get_contents($filename)) {

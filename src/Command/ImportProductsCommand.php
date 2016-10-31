@@ -162,7 +162,7 @@ class ImportProductsCommand extends Command
         );
 
         // load the specified configuration
-        $configuration = Configuration::factory($input->getOption(InputOptionKeys::CONFIGURATION));
+        $configuration = Configuration::factory($input);
 
         // extract magento Edition/version
         $magentoEdition = $configuration->getMagentoEdition();
