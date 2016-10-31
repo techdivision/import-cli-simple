@@ -22,7 +22,6 @@ namespace TechDivision\Import\Cli\Command;
 
 use Monolog\Logger;
 use Monolog\Handler\ErrorLogHandler;
-use JMS\Serializer\SerializerBuilder;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Input\InputInterface;
@@ -31,8 +30,6 @@ use TechDivision\Import\Cli\Simple;
 use TechDivision\Import\Cli\Configuration;
 use TechDivision\Import\Services\ProductProcessor;
 use TechDivision\Import\Services\RegistryProcessor;
-use TechDivision\Import\Utils\PropertyKeys;
-use TechDivision\Import\Utils\PdoConnectionUtil;
 use TechDivision\Import\Actions\ProductAction;
 use TechDivision\Import\Actions\ProductCategoryAction;
 use TechDivision\Import\Actions\StockItemAction;
@@ -62,6 +59,7 @@ use TechDivision\Import\Actions\Processors\ProductSuperLinkPersistProcessor;
 use TechDivision\Import\Actions\Processors\StockItemPersistProcessor;
 use TechDivision\Import\Actions\Processors\StockStatusPersistProcessor;
 use TechDivision\Import\Repositories\CategoryRepository;
+use TechDivision\Import\Repositories\CategoryVarcharRepository;
 use TechDivision\Import\Repositories\EavAttributeOptionValueRepository;
 use TechDivision\Import\Repositories\EavAttributeRepository;
 use TechDivision\Import\Repositories\EavAttributeSetRepository;
@@ -308,6 +306,13 @@ class ImportProductsCommand extends Command
         $categoryRepository->setConnection($connection);
         $categoryRepository->init();
 
+        // initialize the repository that provides category varchar value query functionality
+        $categoryVarcharRepository = new CategoryVarcharRepository();
+        $categoryVarcharRepository->setMagentoEdition($magentoEdition);
+        $categoryVarcharRepository->setMagentoVersion($magentoVersion);
+        $categoryVarcharRepository->setConnection($connection);
+        $categoryVarcharRepository->init();
+
         // initialize the repository that provides EAV attribute option value query functionality
         $eavAttributeOptionValueRepository = new EavAttributeOptionValueRepository();
         $eavAttributeOptionValueRepository->setMagentoEdition($magentoEdition);
@@ -368,6 +373,7 @@ class ImportProductsCommand extends Command
         $productProcessor->setStockItemAction($stockItemAction);
         $productProcessor->setStockStatusAction($stockStatusAction);
         $productProcessor->setCategoryRepository($categoryRepository);
+        $productProcessor->setCategoryVarcharRepository($categoryVarcharRepository);
         $productProcessor->setEavAttributeOptionValueRepository($eavAttributeOptionValueRepository);
         $productProcessor->setEavAttributeRepository($eavAttributeRepository);
         $productProcessor->setEavAttributeSetRepository($eavAttributeSetRepository);

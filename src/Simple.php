@@ -24,6 +24,9 @@ use Rhumsaa\Uuid\Uuid;
 use Psr\Log\LoggerInterface;
 use TechDivision\Import\Utils\RegistryKeys;
 use TechDivision\Import\ConfigurationInterface;
+use TechDivision\Import\Services\RegistryProcessorInterface;
+use TechDivision\Import\Services\ProductProcessorInterface;
+use TechDivision\Import\Utils\MemberNames;
 
 /**
  * A SLSB that handles the product import process.
@@ -54,14 +57,14 @@ class Simple
     /**
      * The RegistryProcessor instance to handle running threads.
      *
-     * @var \TechDivision\Importer\Services\RegistryProcessor
+     * @var \TechDivision\Import\Services\RegistryProcessorInterface
      */
     protected $registryProcessor;
 
     /**
      * The processor to read/write the necessary product data.
      *
-     * @var \TechDivision\Import\Services\ProductProcessor
+     * @var \TechDivision\Import\Services\ProductProcessorInterface
      */
     protected $productProcessor;
 
@@ -119,11 +122,11 @@ class Simple
     /**
      * Sets's the RegistryProcessor instance to handle the running threads.
      *
-     * @param \TechDivision\Importer\Services\RegistryProcessor $registryProcessor
+     * @param \TechDivision\Import\Services\RegistryProcessorInterface $registryProcessor
      *
      * @return void
      */
-    public function setRegistryProcessor($registryProcessor)
+    public function setRegistryProcessor(RegistryProcessorInterface $registryProcessor)
     {
         $this->registryProcessor = $registryProcessor;
     }
@@ -131,7 +134,7 @@ class Simple
     /**
      * Return's the RegistryProcessor instance to handle the running threads.
      *
-     * @return \TechDivision\Importer\Services\RegistryProcessor The instance
+     * @return \TechDivision\Import\Services\RegistryProcessor The instance
      */
     public function getRegistryProcessor()
     {
@@ -141,11 +144,11 @@ class Simple
     /**
      * Set's the product processor instance.
      *
-     * @param Importer\Csv\Services\Pdo\ProductProcessor $productProcessor The product processor instance
+     * @param \TechDivision\Import\Services\ProductProcessorInterface $productProcessor The product processor instance
      *
      * @return void
      */
-    public function setProductProcessor($productProcessor)
+    public function setProductProcessor(ProductProcessorInterface $productProcessor)
     {
         $this->productProcessor = $productProcessor;
     }
@@ -153,7 +156,7 @@ class Simple
     /**
      * Return's the product processor instance.
      *
-     * @return \Importer\Csv\Services\Pdo\ProductProcessor The product processor instance
+     * @return \TechDivision\Import\Services\ProductProcessorInterface The product processor instance
      */
     public function getProductProcessor()
     {
@@ -271,13 +274,40 @@ class Simple
             $globalData[RegistryKeys::STORE_WEBSITES] = $productProcessor->getStoreWebsites();
             $globalData[RegistryKeys::ATTRIBUTE_SETS] = $eavAttributeSets = $productProcessor->getEavAttributeSetsByEntityTypeId(4);
 
+            // prepare the categories
+            $categories = array();
+            foreach ($productProcessor->getCategories() as $category) {
+                // expload the entity IDs from the category path
+                $entityIds = explode('/', $category[MemberNames::PATH]);
+
+                // cut-off the root category
+                array_shift($entityIds);
+
+                // continue with the next category if no entity IDs are available
+                if (sizeof($entityIds) === 0) {
+                    continue;
+                }
+
+                // initialize the array for the path elements
+                $path = array();
+                foreach ($productProcessor->getCategoryVarcharsByEntityIds($entityIds) as $cat) {
+                    $path[] = $cat[MemberNames::VALUE];
+                }
+
+                // append the catogory with the string path as key
+                $categories[implode('/', $path)] = $category;
+            }
+
+            // initialize the array with the categories
+            $globalData[RegistryKeys::CATEGORIES] = $categories;
+
             // prepare an array with the EAV attributes grouped by their attribute set name as keys
             $eavAttributes = array();
             foreach (array_keys($eavAttributeSets) as $eavAttributeSetName) {
                 $eavAttributes[$eavAttributeSetName] = $productProcessor->getEavAttributesByEntityTypeIdAndAttributeSetName(4, $eavAttributeSetName);
             }
 
-            // initialize the array with theEAV attributes
+            // initialize the array with the EAV attributes
             $globalData[RegistryKeys::EAV_ATTRIBUTES] = $eavAttributes;
 
             // add the status with the global data
