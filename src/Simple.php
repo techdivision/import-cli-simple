@@ -242,11 +242,13 @@ class Simple
     {
 
         // initialize the status
-        $status = array(
-            'status'     => 1,
-            'files'      => array(),
-            'variations' => array()
-        );
+        $status = array('status' => 1);
+
+        // initialize the status information for the subjects */
+        /** @var \TechDivision\Import\Configuration\SubjectInterface $subject */
+        foreach ($this->getConfiguration()->getSubjects() as $subject) {
+            $status[$subject->getIdentifier()] = array();
+        }
 
         // append it to the registry
         $this->getRegistryProcessor()->setAttribute($this->getSerial(), $status);
@@ -456,7 +458,7 @@ class Simple
      *
      * @return object The handler instance
      */
-    protected function subjectFactory($subject)
+    public function subjectFactory($subject)
     {
 
         // load the subject class name

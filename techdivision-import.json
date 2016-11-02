@@ -153,7 +153,42 @@
     },
     {
       "class-name": "TechDivision\\Import\\Subjects\\VariantSubject",
-      "identifier": "variations"
+      "identifier": "variations",
+      "callbacks": [
+        {
+          "import": [
+            "TechDivision\\Import\\Observers\\Product\\VariantObserver"
+          ]
+        }
+      ]
+    },
+    {
+      "class-name": "TechDivision\\Import\\Subjects\\OptionSubject",
+      "identifier": "options"
+    },
+    {
+      "class-name": "TechDivision\\Import\\Subjects\\ImageSubject",
+      "identifier": "images"
+    },
+    {
+      "class-name": "TechDivision\\Import\\Subjects\\GroupedSubject",
+      "identifier": "grouped"
+    },
+    {
+      "class-name": "TechDivision\\Import\\Subjects\\BundleSubject",
+      "identifier": "bundles"
+    },
+    {
+      "class-name": "TechDivision\\Import\\Subjects\\RelatedSubject",
+      "identifier": "relations"
+    },
+    {
+      "class-name": "TechDivision\\Import\\Subjects\\UpsellSubject",
+      "identifier": "upsell"
+    },
+    {
+      "class-name": "TechDivision\\Import\\Subjects\\CrosssellSubject",
+      "identifier": "crosssell"
     }
   ]
 }
