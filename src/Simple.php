@@ -410,17 +410,33 @@ class Simple
     public function processSubjects()
     {
 
-        // load system logger and registry
-        $systemLogger = $this->getSystemLogger();
+        try {
+            // load system logger and registry
+            $systemLogger = $this->getSystemLogger();
+            $productProcessor = $this->getProductProcessor();
 
-        // load the subjects
-        $subjects = $this->getConfiguration()->getSubjects();
+            // load the subjects
+            $subjects = $this->getConfiguration()->getSubjects();
 
-        // process all the subjects found in the system configuration
-        foreach ($subjects as $subject) {
-            // process the subject and and log a message that the subject has been processed
-            $this->processSubject($subject);
-            $systemLogger->info(sprintf('Successfully processed subject %s!', $subject->getClassName()));
+            // start the transaction
+            $productProcessor->getConnection()->beginTransaction();
+
+            // process all the subjects found in the system configuration
+            foreach ($subjects as $subject) {
+                // process the subject and and log a message that the subject has been processed
+                $this->processSubject($subject);
+                $systemLogger->info(sprintf('Successfully processed subject %s!', $subject->getClassName()));
+            }
+
+            // commit the transaction
+            $productProcessor->getConnection()->commit();
+
+        } catch (\Exception $e) {
+            // log a message with the stack trace
+            $systemLogger->error($e->__toString());
+
+            // rollback the transaction
+            $productProcessor->getConnection()->rollBack();
         }
     }
 
