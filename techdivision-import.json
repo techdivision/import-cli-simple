@@ -13,7 +13,7 @@
       "class-name": "TechDivision\\Import\\Subjects\\BunchSubject",
       "identifier": "files",
       "source-date-format": "n/d/y, g:i A",
-      "callbacks": [
+      "observers": [
         {
           "pre-import": [
             "TechDivision\\Import\\Observers\\Product\\PreImport\\AdditionalAttributeObserver",
@@ -34,119 +34,117 @@
           "post-import": [
             "TechDivision\\Import\\Observers\\Product\\PostImport\\CleanUpObserver"
           ]
+        }
+      ],
+      "callbacks": [
+        {
+          "visibility": [
+            "TechDivision\\Import\\Callbacks\\Product\\VisibilityCallback"
+          ]
         },
         {
-          "pre-cast": [
-            {
-              "visibility": [
-                "TechDivision\\Import\\Observers\\Attribute\\VisibilityObserver"
-              ]
-            },
-            {
-              "tax_class_name": [
-                "TechDivision\\Import\\Observers\\Attribute\\TaxClassObserver"
-              ]
-            },
-            {
-              "eco_collection": [
-                "TechDivision\\Import\\Observers\\Attribute\\BooleanObserver"
-              ]
-            },
-            {
-              "performance_fabric": [
-                "TechDivision\\Import\\Observers\\Attribute\\BooleanObserver"
-              ]
-            },
-            {
-              "erin_recommends": [
-                "TechDivision\\Import\\Observers\\Attribute\\BooleanObserver"
-              ]
-            },
-            {
-              "new": [
-                "TechDivision\\Import\\Observers\\Attribute\\BooleanObserver"
-              ]
-            },
-            {
-              "sale": [
-                "TechDivision\\Import\\Observers\\Attribute\\BooleanObserver"
-              ]
-            },
-            {
-              "activity": [
-                "TechDivision\\Import\\Observers\\Attribute\\MultiselectObserver"
-              ]
-            },
-            {
-              "style_bags": [
-                "TechDivision\\Import\\Observers\\Attribute\\MultiselectObserver"
-              ]
-            },
-            {
-              "material": [
-                "TechDivision\\Import\\Observers\\Attribute\\MultiselectObserver"
-              ]
-            },
-            {
-              "strap_bags": [
-                "TechDivision\\Import\\Observers\\Attribute\\MultiselectObserver"
-              ]
-            },
-            {
-              "features_bags": [
-                "TechDivision\\Import\\Observers\\Attribute\\MultiselectObserver"
-              ]
-            },
-            {
-              "gender": [
-                "TechDivision\\Import\\Observers\\Attribute\\MultiselectObserver"
-              ]
-            },
-            {
-              "category_gear": [
-                "TechDivision\\Import\\Observers\\Attribute\\MultiselectObserver"
-              ]
-            },
-            {
-              "style_bottom": [
-                "TechDivision\\Import\\Observers\\Attribute\\MultiselectObserver"
-              ]
-            },
-            {
-              "style_general": [
-                "TechDivision\\Import\\Observers\\Attribute\\MultiselectObserver"
-              ]
-            },
-            {
-              "sleeve": [
-                "TechDivision\\Import\\Observers\\Attribute\\MultiselectObserver"
-              ]
-            },
-            {
-              "collar": [
-                "TechDivision\\Import\\Observers\\Attribute\\MultiselectObserver"
-              ]
-            },
-            {
-              "pattern": [
-                "TechDivision\\Import\\Observers\\Attribute\\MultiselectObserver"
-              ]
-            },
-            {
-              "climate": [
-                "TechDivision\\Import\\Observers\\Attribute\\MultiselectObserver"
-              ]
-            },
-            {
-              "size": [
-                "TechDivision\\Import\\Observers\\Attribute\\SelectObserver"
-              ]
-            },
-            {
-              "color": [
-                "TechDivision\\Import\\Observers\\Attribute\\SelectObserver"
-              ]
-            }
+          "tax_class_name": [
+            "TechDivision\\Import\\Callbacks\\Product\\TaxClassCallback"
+          ]
+        },
+        {
+          "eco_collection": [
+            "TechDivision\\Import\\Callbacks\\Product\\BooleanCallback"
+          ]
+        },
+        {
+          "performance_fabric": [
+            "TechDivision\\Import\\Callbacks\\Product\\BooleanCallback"
+          ]
+        },
+        {
+          "erin_recommends": [
+            "TechDivision\\Import\\Callbacks\\Product\\BooleanCallback"
+          ]
+        },
+        {
+          "new": [
+            "TechDivision\\Import\\Callbacks\\Product\\BooleanCallback"
+          ]
+        },
+        {
+          "sale": [
+            "TechDivision\\Import\\Callbacks\\Product\\BooleanCallback"
+          ]
+        },
+        {
+          "activity": [
+            "TechDivision\\Import\\Callbacks\\Product\\MultiselectCallback"
+          ]
+        },
+        {
+          "style_bags": [
+            "TechDivision\\Import\\Callbacks\\Product\\MultiselectCallback"
+          ]
+        },
+        {
+          "material": [
+            "TechDivision\\Import\\Callbacks\\Product\\MultiselectCallback"
+          ]
+        },
+        {
+          "strap_bags": [
+            "TechDivision\\Import\\Callbacks\\Product\\MultiselectCallback"
+          ]
+        },
+        {
+          "features_bags": [
+            "TechDivision\\Import\\Callbacks\\Product\\MultiselectCallback"
+          ]
+        },
+        {
+          "gender": [
+            "TechDivision\\Import\\Callbacks\\Product\\MultiselectCallback"
+          ]
+        },
+        {
+          "category_gear": [
+            "TechDivision\\Import\\Callbacks\\Product\\MultiselectCallback"
+          ]
+        },
+        {
+          "style_bottom": [
+            "TechDivision\\Import\\Callbacks\\Product\\MultiselectCallback"
+          ]
+        },
+        {
+          "style_general": [
+            "TechDivision\\Import\\Callbacks\\Product\\MultiselectCallback"
+          ]
+        },
+        {
+          "sleeve": [
+            "TechDivision\\Import\\Callbacks\\Product\\MultiselectCallback"
+          ]
+        },
+        {
+          "collar": [
+            "TechDivision\\Import\\Callbacks\\Product\\MultiselectCallback"
+          ]
+        },
+        {
+          "pattern": [
+            "TechDivision\\Import\\Callbacks\\Product\\MultiselectCallback"
+          ]
+        },
+        {
+          "climate": [
+            "TechDivision\\Import\\Callbacks\\Product\\MultiselectCallback"
+          ]
+        },
+        {
+          "size": [
+            "TechDivision\\Import\\Callbacks\\Product\\SelectCallback"
+          ]
+        },
+        {
+          "color": [
+            "TechDivision\\Import\\Callbacks\\Product\\SelectCallback"
           ]
         }
       ]
@@ -154,7 +152,7 @@
     {
       "class-name": "TechDivision\\Import\\Subjects\\VariantSubject",
       "identifier": "variations",
-      "callbacks": [
+      "observers": [
         {
           "import": [
             "TechDivision\\Import\\Observers\\Product\\VariantObserver"

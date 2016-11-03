@@ -63,12 +63,20 @@ class Subject implements SubjectInterface
     protected $sourceDateFormat = 'n/d/y, g:i A';
 
     /**
-     * The array with the subject's callbacks.
+     * The array with the subject's observers.
      *
      * @var array
      * @Type("array")
      */
-    protected $callbacks;
+    protected $observers = array();
+
+    /**
+     * The array with the subject's callbacks.
+     *
+     * @var array
+     * @Type("array<string, array>")
+     */
+    protected $callbacks = array();
 
     /**
      * Return's the subject's class name.
@@ -88,6 +96,16 @@ class Subject implements SubjectInterface
     public function getIdentifier()
     {
         return $this->identifier;
+    }
+
+    /**
+     * Return's the array with the subject's observers.
+     *
+     * @return array The subject's observers
+     */
+    public function getObservers()
+    {
+        return $this->observers;
     }
 
     /**
