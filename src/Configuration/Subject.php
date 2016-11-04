@@ -46,21 +46,30 @@ class Subject implements SubjectInterface
     protected $className;
 
     /**
-     * The subject's identifier.
+     * The file prefix for import files.
      *
-     * @var string
+     * @var string
      * @Type("string")
      */
-    protected $identifier;
+    protected $prefix = 'magento-import';
 
     /**
-     * Return's the source date format to use in the subject.
+     * The source date format to use in the subject.
      *
      * @var string
      * @Type("string")
      * @SerializedName("source-date-format")
      */
     protected $sourceDateFormat = 'n/d/y, g:i A';
+
+    /**
+     * The subject's target directory.
+     *
+     * @var string
+     * @Type("string")
+     * @SerializedName("target-dir")
+     */
+    protected $targetDir;
 
     /**
      * The array with the subject's observers.
@@ -89,13 +98,25 @@ class Subject implements SubjectInterface
     }
 
     /**
-     * Return's the subject's identifier.
+     * Set's the prefix for the import files.
      *
-     * @return string The subject's identifier
+     * @param string $prefix The prefix
+     *
+     * @return void
      */
-    public function getIdentifier()
+    public function setPrefix($prefix)
     {
-        return $this->identifier;
+        $this->prefix = $prefix;
+    }
+
+    /**
+     * Return's the prefix for the import files.
+     *
+     * @return string The prefix
+     */
+    public function getPrefix()
+    {
+        return $this->prefix;
     }
 
     /**
@@ -138,5 +159,27 @@ class Subject implements SubjectInterface
     public function setSourceDateFormat($sourceDateFormat)
     {
         $this->sourceDateFormat = $sourceDateFormat;
+    }
+
+    /**
+     * Return's the subject's target directory to use.
+     *
+     * @return string The target directory
+     */
+    public function getTargetDir()
+    {
+        return $this->targetDir;
+    }
+
+    /**
+     * Set's the subject's target directory to use.
+     *
+     * @param string $targetDir The target directory
+     *
+     * @return void
+     */
+    public function setTargetDir($targetDir)
+    {
+        $this->targetDir = $targetDir;
     }
 }

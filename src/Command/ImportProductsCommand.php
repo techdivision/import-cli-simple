@@ -44,6 +44,7 @@ use TechDivision\Import\Actions\ProductRelationAction;
 use TechDivision\Import\Actions\ProductSuperAttributeAction;
 use TechDivision\Import\Actions\ProductSuperAttributeLabelAction;
 use TechDivision\Import\Actions\ProductSuperLinkAction;
+use TechDivision\Import\Actions\ProductBundleOptionAction;
 use TechDivision\Import\Actions\Processors\ProductPersistProcessor;
 use TechDivision\Import\Actions\Processors\ProductCategoryPersistProcessor;
 use TechDivision\Import\Actions\Processors\ProductDatetimePersistProcessor;
@@ -58,6 +59,7 @@ use TechDivision\Import\Actions\Processors\ProductSuperAttributeLabelPersistProc
 use TechDivision\Import\Actions\Processors\ProductSuperLinkPersistProcessor;
 use TechDivision\Import\Actions\Processors\StockItemPersistProcessor;
 use TechDivision\Import\Actions\Processors\StockStatusPersistProcessor;
+use TechDivision\Import\Actions\Processors\ProductBundleOptionPersistProcessor;
 use TechDivision\Import\Repositories\CategoryRepository;
 use TechDivision\Import\Repositories\CategoryVarcharRepository;
 use TechDivision\Import\Repositories\EavAttributeOptionValueRepository;
@@ -299,6 +301,15 @@ class ImportProductsCommand extends Command
         $productSuperLinkAction = new ProductSuperLinkAction();
         $productSuperLinkAction->setPersistProcessor($productSuperLinkPersistProcessor);
 
+        // initialize the action that provides product bundle option CRUD functionality
+        $productBundleOptionPersistProcessor = new ProductBundleOptionPersistProcessor();
+        $productBundleOptionPersistProcessor->setMagentoEdition($magentoEdition);
+        $productBundleOptionPersistProcessor->setMagentoVersion($magentoVersion);
+        $productBundleOptionPersistProcessor->setConnection($connection);
+        $productBundleOptionPersistProcessor->init();
+        $productBundleOptionAction = new ProductBundleOptionAction();
+        $productBundleOptionAction->setPersistProcessor($productBundleOptionPersistProcessor);
+
         // initialize the repository that provides category query functionality
         $categoryRepository = new CategoryRepository();
         $categoryRepository->setMagentoEdition($magentoEdition);
@@ -372,6 +383,7 @@ class ImportProductsCommand extends Command
         $productProcessor->setProductSuperLinkAction($productSuperLinkAction);
         $productProcessor->setStockItemAction($stockItemAction);
         $productProcessor->setStockStatusAction($stockStatusAction);
+        $productProcessor->setProductBundleOptionAction($productBundleOptionAction);
         $productProcessor->setCategoryRepository($categoryRepository);
         $productProcessor->setCategoryVarcharRepository($categoryVarcharRepository);
         $productProcessor->setEavAttributeOptionValueRepository($eavAttributeOptionValueRepository);

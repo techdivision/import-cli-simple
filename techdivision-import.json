@@ -2,7 +2,6 @@
   "magento-editition": "CE",
   "magento-version": "2.1.2",
   "source-dir": "/opt/appserver/tmp",
-  "prefix": "magento-import",
   "database": {
     "pdo-dsn": "mysql:host=127.0.0.1;dbname=appserver_magento2_ce212",
     "username": "magento",
@@ -13,6 +12,8 @@
       "class-name": "TechDivision\\Import\\Subjects\\BunchSubject",
       "identifier": "files",
       "source-date-format": "n/d/y, g:i A",
+      "prefix": "magento-import",
+      "target-dir" : "/opt/appserver/tmp",
       "observers": [
         {
           "pre-import": [
@@ -152,7 +153,7 @@
     },
     {
       "class-name": "TechDivision\\Import\\Subjects\\VariantSubject",
-      "identifier": "variations",
+      "prefix": "variants",
       "observers": [
         {
           "import": [
@@ -163,7 +164,7 @@
     },
     {
       "class-name": "TechDivision\\Import\\Subjects\\BundleSubject",
-      "identifier": "bundles",
+      "prefix": "bundles",
       "observers": [
         {
           "import": [
@@ -174,27 +175,27 @@
     },
     {
       "class-name": "TechDivision\\Import\\Subjects\\OptionSubject",
-      "identifier": "options"
+      "prefix": "options"
     },
     {
       "class-name": "TechDivision\\Import\\Subjects\\ImageSubject",
-      "identifier": "images"
+      "prefix": "images"
     },
     {
       "class-name": "TechDivision\\Import\\Subjects\\GroupedSubject",
-      "identifier": "grouped"
+      "prefix": "grouped"
     },
     {
       "class-name": "TechDivision\\Import\\Subjects\\RelatedSubject",
-      "identifier": "relations"
+      "prefix": "related"
     },
     {
       "class-name": "TechDivision\\Import\\Subjects\\UpsellSubject",
-      "identifier": "upsell"
+      "prefix": "upsell"
     },
     {
       "class-name": "TechDivision\\Import\\Subjects\\CrosssellSubject",
-      "identifier": "crosssell"
+      "prefix": "crosssell"
     }
   ]
 }

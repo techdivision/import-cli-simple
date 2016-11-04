@@ -40,14 +40,6 @@ class Configuration implements ConfigurationInterface
 {
 
     /**
-     * The file prefix for import files.
-     *
-     * @var string
-     * @Type("string")
-     */
-    protected $prefix = 'magento-import';
-
-    /**
      * The Magento edition, EE or CE.
      *
      * @var string
@@ -190,28 +182,6 @@ class Configuration implements ConfigurationInterface
     public function getSubjects()
     {
         return $this->subjects;
-    }
-
-    /**
-     * Set's the prefix for the import files.
-     *
-     * @param string $prefix The prefix
-     *
-     * @return void
-     */
-    public function setPrefix($prefix)
-    {
-        $this->prefix = $prefix;
-    }
-
-    /**
-     * Return's the prefix for the import files.
-     *
-     * @return string The prefix
-     */
-    public function getPrefix()
-    {
-        return $this->prefix;
     }
 
     /**

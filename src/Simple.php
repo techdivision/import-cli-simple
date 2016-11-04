@@ -22,11 +22,11 @@ namespace TechDivision\Import\Cli;
 
 use Rhumsaa\Uuid\Uuid;
 use Psr\Log\LoggerInterface;
+use TechDivision\Import\Utils\MemberNames;
 use TechDivision\Import\Utils\RegistryKeys;
 use TechDivision\Import\ConfigurationInterface;
 use TechDivision\Import\Services\RegistryProcessorInterface;
 use TechDivision\Import\Services\ProductProcessorInterface;
-use TechDivision\Import\Utils\MemberNames;
 
 /**
  * A SLSB that handles the product import process.
@@ -220,7 +220,6 @@ class Simple
         // prepare the global data for the import process
         $this->start();
         $this->setUp();
-        $this->parseDirectory();
         $this->processSubjects();
         $this->tearDown();
         $this->finish();
@@ -247,7 +246,7 @@ class Simple
         // initialize the status information for the subjects */
         /** @var \TechDivision\Import\Configuration\SubjectInterface $subject */
         foreach ($this->getConfiguration()->getSubjects() as $subject) {
-            $status[$subject->getIdentifier()] = array();
+            $status[$subject->getPrefix()] = array();
         }
 
         // append it to the registry
@@ -321,88 +320,6 @@ class Simple
     }
 
     /**
-     * This method parse's the application server's temporary upload dirctory for
-     * new CSV files with product bunches that have to be imported.
-     *
-     * If a file, that has to be imported, will be found, a flag file with the
-     * suffix .inProgress will be created. That prevents files to imported multiple
-     * times.
-     *
-     * @return void
-     */
-    public function parseDirectory()
-    {
-
-        // load system logger and entity manager
-        $systemLogger = $this->getSystemLogger();
-        $registryProcessor = $this->getRegistryProcessor();
-
-        // init file iterator on deployment directory
-        $fileIterator = new \FilesystemIterator($sourceDir = $this->getSourceDir());
-
-        // clear the filecache
-        clearstatcache();
-
-        // prepare the regex to find the files to be imported
-        $regex = sprintf('/^.*\/%s.*\\.csv$/', $this->getPrefix());
-
-        // log a debug message
-        $systemLogger->debug(
-            sprintf('Now checking directory %s for files with regex %s to import', $sourceDir, $regex)
-        );
-
-        // initialize the array with the files that have to be imported
-        $filesToProcess = array();
-
-        // iterate through all CSV files and start import process
-        foreach (new \RegexIterator($fileIterator, $regex) as $filename) {
-            try {
-                // prepare the flag filenames
-                $inProgressFilename = sprintf('%s.inProgress', $filename);
-                $importedFilename = sprintf('%s.imported', $filename);
-                $failedFilename = sprintf('%s.failed', $filename);
-
-                // query whether or not the file has already been imported
-                if (is_file($failedFilename) ||
-                    is_file($importedFilename) ||
-                    is_file($inProgressFilename)
-                ) {
-                    // log a debug message
-                    $systemLogger->debug(
-                        sprintf('Import running, found inProgress file %s', $inProgressFilename)
-                    );
-                    // ignore the file
-                    continue;
-                }
-
-                // log the filename we'll process now
-                $systemLogger->debug(sprintf('Now start importing file %s!', $filename));
-
-                // flag file as in progress
-                touch($inProgressFilename);
-
-                // add the file to the list with filenames
-                $filesToProcess[Uuid::uuid4()->__toString()] = array('filename' => $filename->getPathname(), 'status' => 0);
-
-                // rename flag file, because import has been successfull
-                rename($inProgressFilename, $importedFilename);
-
-            } catch (\Exception $e) {
-                // rename the flag file, because import failed
-                rename($inProgressFilename, $failedFilename);
-
-                // log a message that the file import failed
-                $this->getSystemLogger()->error($e->__toString());
-            }
-        }
-
-        // query whether or not we've CSV files that has to be processed
-        if (sizeof($filesToProcess) > 0) {
-            $registryProcessor->mergeAttributesRecursive($this->getSerial(), array('files' => $filesToProcess));
-        }
-    }
-
-    /**
      * Process all the subjects defined in the system configuration.
      *
      * @return void
@@ -423,9 +340,7 @@ class Simple
 
             // process all the subjects found in the system configuration
             foreach ($subjects as $subject) {
-                // process the subject and and log a message that the subject has been processed
                 $this->processSubject($subject);
-                $systemLogger->info(sprintf('Successfully processed subject %s!', $subject->getClassName()));
             }
 
             // commit the transaction
@@ -450,21 +365,68 @@ class Simple
     public function processSubject($subject)
     {
 
-        // load the registry instance
-        $registryProcessor = $this->getRegistryProcessor();
+        // load the system logger
+        $systemLogger = $this->getSystemLogger();
 
-        // load the status information of the actual import
-        $status = $registryProcessor->getAttribute($serial = $this->getSerial());
+        // init file iterator on deployment directory
+        $fileIterator = new \FilesystemIterator($sourceDir = $this->getSourceDir());
 
-        // if no files have been found, stop processing
-        if (sizeof($uids = array_keys($status[$subject->getIdentifier()])) === 0) {
-            return;
+        // clear the filecache
+        clearstatcache();
+
+        // prepare the regex to find the files to be imported
+        $regex = sprintf('/^.*\/%s.*\\.csv$/', $subject->getPrefix());
+
+        // log a debug message
+        $systemLogger->debug(
+            sprintf('Now checking directory %s for files with regex %s to import', $sourceDir, $regex)
+        );
+
+        // iterate through all CSV files and start import process
+        foreach (new \RegexIterator($fileIterator, $regex) as $filename) {
+            try {
+                // prepare the flag filenames
+                $inProgressFilename = sprintf('%s.inProgress', $filename);
+                $importedFilename = sprintf('%s.imported', $filename);
+                $failedFilename = sprintf('%s.failed', $filename);
+
+                // query whether or not the file has already been imported
+                if (is_file($failedFilename) ||
+                    is_file($importedFilename) ||
+                    is_file($inProgressFilename)
+                ) {
+                    // log a debug message
+                    $systemLogger->debug(
+                        sprintf('Import running, found inProgress file %s', $inProgressFilename)
+                    );
+
+                    // ignore the file
+                    continue;
+                }
+
+                // log the filename we'll process now
+                $systemLogger->debug(sprintf('Now start importing file %s!', $filename));
+
+                // flag file as in progress
+                touch($inProgressFilename);
+
+                // process the subject
+                $this->subjectFactory($subject)->import($this->getSerial(), $filename->getPathname());
+
+                // rename flag file, because import has been successfull
+                rename($inProgressFilename, $importedFilename);
+
+            } catch (\Exception $e) {
+                // rename the flag file, because import failed
+                rename($inProgressFilename, $failedFilename);
+
+                // log a message that the file import failed
+                $this->getSystemLogger()->error($e->__toString());
+            }
         }
 
-        // start processing the subject on all found UIDs
-        foreach ($uids as $uid) {
-            $this->subjectFactory($subject)->import($serial, $uid);
-        }
+        // and and log a message that the subject has been processed
+        $systemLogger->info(sprintf('Successfully processed subject %s!', $subject->getClassName()));
     }
 
     /**
