@@ -162,6 +162,17 @@
       ]
     },
     {
+      "class-name": "TechDivision\\Import\\Subjects\\BundleSubject",
+      "identifier": "bundles",
+      "observers": [
+        {
+          "import": [
+            "TechDivision\\Import\\Observers\\Product\\BundleObserver"
+          ]
+        }
+      ]
+    },
+    {
       "class-name": "TechDivision\\Import\\Subjects\\OptionSubject",
       "identifier": "options"
     },
@@ -172,10 +183,6 @@
     {
       "class-name": "TechDivision\\Import\\Subjects\\GroupedSubject",
       "identifier": "grouped"
-    },
-    {
-      "class-name": "TechDivision\\Import\\Subjects\\BundleSubject",
-      "identifier": "bundles"
     },
     {
       "class-name": "TechDivision\\Import\\Subjects\\RelatedSubject",
