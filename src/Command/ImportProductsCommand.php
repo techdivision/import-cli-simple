@@ -45,6 +45,9 @@ use TechDivision\Import\Actions\ProductSuperAttributeAction;
 use TechDivision\Import\Actions\ProductSuperAttributeLabelAction;
 use TechDivision\Import\Actions\ProductSuperLinkAction;
 use TechDivision\Import\Actions\ProductBundleOptionAction;
+use TechDivision\Import\Actions\ProductBundleOptionValueAction;
+use TechDivision\Import\Actions\ProductBundleSelectionAction;
+use TechDivision\Import\Actions\ProductBundleSelectionPriceAction;
 use TechDivision\Import\Actions\Processors\ProductPersistProcessor;
 use TechDivision\Import\Actions\Processors\ProductCategoryPersistProcessor;
 use TechDivision\Import\Actions\Processors\ProductDatetimePersistProcessor;
@@ -60,6 +63,9 @@ use TechDivision\Import\Actions\Processors\ProductSuperLinkPersistProcessor;
 use TechDivision\Import\Actions\Processors\StockItemPersistProcessor;
 use TechDivision\Import\Actions\Processors\StockStatusPersistProcessor;
 use TechDivision\Import\Actions\Processors\ProductBundleOptionPersistProcessor;
+use TechDivision\Import\Actions\Processors\ProductBundleOptionValuePersistProcessor;
+use TechDivision\Import\Actions\Processors\ProductBundleSelectionPersistProcessor;
+use TechDivision\Import\Actions\Processors\ProductBundleSelectionPricePersistProcessor;
 use TechDivision\Import\Repositories\CategoryRepository;
 use TechDivision\Import\Repositories\CategoryVarcharRepository;
 use TechDivision\Import\Repositories\EavAttributeOptionValueRepository;
@@ -310,6 +316,33 @@ class ImportProductsCommand extends Command
         $productBundleOptionAction = new ProductBundleOptionAction();
         $productBundleOptionAction->setPersistProcessor($productBundleOptionPersistProcessor);
 
+        // initialize the action that provides product bundle option CRUD functionality
+        $productBundleOptionValuePersistProcessor = new ProductBundleOptionValuePersistProcessor();
+        $productBundleOptionValuePersistProcessor->setMagentoEdition($magentoEdition);
+        $productBundleOptionValuePersistProcessor->setMagentoVersion($magentoVersion);
+        $productBundleOptionValuePersistProcessor->setConnection($connection);
+        $productBundleOptionValuePersistProcessor->init();
+        $productBundleOptionValueAction = new ProductBundleOptionValueAction();
+        $productBundleOptionValueAction->setPersistProcessor($productBundleOptionValuePersistProcessor);
+
+        // initialize the action that provides product bundle option CRUD functionality
+        $productBundleSelectionPersistProcessor = new ProductBundleSelectionPersistProcessor();
+        $productBundleSelectionPersistProcessor->setMagentoEdition($magentoEdition);
+        $productBundleSelectionPersistProcessor->setMagentoVersion($magentoVersion);
+        $productBundleSelectionPersistProcessor->setConnection($connection);
+        $productBundleSelectionPersistProcessor->init();
+        $productBundleSelectionAction = new ProductBundleSelectionAction();
+        $productBundleSelectionAction->setPersistProcessor($productBundleSelectionPersistProcessor);
+
+        // initialize the action that provides product bundle option CRUD functionality
+        $productBundleSelectionPricePersistProcessor = new ProductBundleSelectionPricePersistProcessor();
+        $productBundleSelectionPricePersistProcessor->setMagentoEdition($magentoEdition);
+        $productBundleSelectionPricePersistProcessor->setMagentoVersion($magentoVersion);
+        $productBundleSelectionPricePersistProcessor->setConnection($connection);
+        $productBundleSelectionPricePersistProcessor->init();
+        $productBundleSelectionPriceAction = new ProductBundleSelectionPriceAction();
+        $productBundleSelectionPriceAction->setPersistProcessor($productBundleSelectionPricePersistProcessor);
+
         // initialize the repository that provides category query functionality
         $categoryRepository = new CategoryRepository();
         $categoryRepository->setMagentoEdition($magentoEdition);
@@ -384,6 +417,9 @@ class ImportProductsCommand extends Command
         $productProcessor->setStockItemAction($stockItemAction);
         $productProcessor->setStockStatusAction($stockStatusAction);
         $productProcessor->setProductBundleOptionAction($productBundleOptionAction);
+        $productProcessor->setProductBundleOptionValueAction($productBundleOptionValueAction);
+        $productProcessor->setProductBundleSelectionAction($productBundleSelectionAction);
+        $productProcessor->setProductBundleSelectionPriceAction($productBundleSelectionPriceAction);
         $productProcessor->setCategoryRepository($categoryRepository);
         $productProcessor->setCategoryVarcharRepository($categoryVarcharRepository);
         $productProcessor->setEavAttributeOptionValueRepository($eavAttributeOptionValueRepository);
