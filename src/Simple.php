@@ -25,8 +25,8 @@ use Psr\Log\LoggerInterface;
 use TechDivision\Import\Utils\MemberNames;
 use TechDivision\Import\Utils\RegistryKeys;
 use TechDivision\Import\ConfigurationInterface;
+use TechDivision\Import\Services\ImportProcessorInterface;
 use TechDivision\Import\Services\RegistryProcessorInterface;
-use TechDivision\Import\Services\ProductProcessorInterface;
 
 /**
  * A SLSB that handles the product import process.
@@ -62,11 +62,11 @@ class Simple
     protected $registryProcessor;
 
     /**
-     * The processor to read/write the necessary product data.
+     * The processor to read/write the necessary import data.
      *
-     * @var \TechDivision\Import\Services\ProductProcessorInterface
+     * @var \TechDivision\Import\Services\ImportProcessorInterface
      */
-    protected $productProcessor;
+    protected $importProcessor;
 
     /**
      * The system configuration.
@@ -142,25 +142,25 @@ class Simple
     }
 
     /**
-     * Set's the product processor instance.
+     * Set's the import processor instance.
      *
-     * @param \TechDivision\Import\Services\ProductProcessorInterface $productProcessor The product processor instance
+     * @param \TechDivision\Import\Services\ImportProcessorInterface $importProcessor The import processor instance
      *
      * @return void
      */
-    public function setProductProcessor(ProductProcessorInterface $productProcessor)
+    public function setImportProcessor(ImportProcessorInterface $importProcessor)
     {
-        $this->productProcessor = $productProcessor;
+        $this->importProcessor = $importProcessor;
     }
 
     /**
-     * Return's the product processor instance.
+     * Return's the import processor instance.
      *
-     * @return \TechDivision\Import\Services\ProductProcessorInterface The product processor instance
+     * @return \TechDivision\Import\Services\ImportProcessorInterface The import processor instance
      */
-    public function getProductProcessor()
+    public function getImportProcessor()
     {
-        return $this->productProcessor;
+        return $this->importProcessor;
     }
 
     /**
@@ -263,21 +263,21 @@ class Simple
 
         try {
             // load the registry
-            $productProcessor = $this->getProductProcessor();
+            $importProcessor = $this->getImportProcessor();
             $registryProcessor = $this->getRegistryProcessor();
 
             // initialize the array for the global data
             $globalData = array();
 
             // initialize the global data
-            $globalData[RegistryKeys::STORES] = $productProcessor->getStores();
-            $globalData[RegistryKeys::TAX_CLASSES] = $productProcessor->getTaxClasses();
-            $globalData[RegistryKeys::STORE_WEBSITES] = $productProcessor->getStoreWebsites();
-            $globalData[RegistryKeys::ATTRIBUTE_SETS] = $eavAttributeSets = $productProcessor->getEavAttributeSetsByEntityTypeId(4);
+            $globalData[RegistryKeys::STORES] = $importProcessor->getStores();
+            $globalData[RegistryKeys::TAX_CLASSES] = $importProcessor->getTaxClasses();
+            $globalData[RegistryKeys::STORE_WEBSITES] = $importProcessor->getStoreWebsites();
+            $globalData[RegistryKeys::ATTRIBUTE_SETS] = $eavAttributeSets = $importProcessor->getEavAttributeSetsByEntityTypeId(4);
 
             // prepare the categories
             $categories = array();
-            foreach ($productProcessor->getCategories() as $category) {
+            foreach ($importProcessor->getCategories() as $category) {
                 // expload the entity IDs from the category path
                 $entityIds = explode('/', $category[MemberNames::PATH]);
 
@@ -291,7 +291,7 @@ class Simple
 
                 // initialize the array for the path elements
                 $path = array();
-                foreach ($productProcessor->getCategoryVarcharsByEntityIds($entityIds) as $cat) {
+                foreach ($importProcessor->getCategoryVarcharsByEntityIds($entityIds) as $cat) {
                     $path[] = $cat[MemberNames::VALUE];
                 }
 
@@ -305,7 +305,7 @@ class Simple
             // prepare an array with the EAV attributes grouped by their attribute set name as keys
             $eavAttributes = array();
             foreach (array_keys($eavAttributeSets) as $eavAttributeSetName) {
-                $eavAttributes[$eavAttributeSetName] = $productProcessor->getEavAttributesByEntityTypeIdAndAttributeSetName(4, $eavAttributeSetName);
+                $eavAttributes[$eavAttributeSetName] = $importProcessor->getEavAttributesByEntityTypeIdAndAttributeSetName(4, $eavAttributeSetName);
             }
 
             // initialize the array with the EAV attributes
@@ -330,13 +330,13 @@ class Simple
         try {
             // load system logger and registry
             $systemLogger = $this->getSystemLogger();
-            $productProcessor = $this->getProductProcessor();
+            $importProcessor = $this->getImportProcessor();
 
             // load the subjects
             $subjects = $this->getConfiguration()->getSubjects();
 
             // start the transaction
-            $productProcessor->getConnection()->beginTransaction();
+            $importProcessor->getConnection()->beginTransaction();
 
             // process all the subjects found in the system configuration
             foreach ($subjects as $subject) {
@@ -344,14 +344,14 @@ class Simple
             }
 
             // commit the transaction
-            $productProcessor->getConnection()->commit();
+            $importProcessor->getConnection()->commit();
 
         } catch (\Exception $e) {
             // log a message with the stack trace
             $systemLogger->error($e->__toString());
 
             // rollback the transaction
-            $productProcessor->getConnection()->rollBack();
+            $importProcessor->getConnection()->rollBack();
         }
     }
 
@@ -451,8 +451,15 @@ class Simple
         // $instance the handler instance
         $instance->setConfiguration($subject);
         $instance->setSystemLogger($this->getSystemLogger());
-        $instance->setProductProcessor($this->getProductProcessor());
         $instance->setRegistryProcessor($this->getRegistryProcessor());
+
+        // instanciate and set the product processor
+        $processorFactory = $subject->getProcessorFactory();
+        $productProcessor = $processorFactory::factory(
+            $this->getImportProcessor()->getConnection(),
+            $this->getConfiguration()
+        );
+        $instance->setProductProcessor($productProcessor);
 
         // return the subject instance
         return $instance;

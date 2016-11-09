@@ -10,6 +10,7 @@
   "subjects": [
     {
       "class-name": "TechDivision\\Import\\Product\\Subjects\\BunchSubject",
+      "processor-factory" : "TechDivision\\Import\\Product\\Services\\ProductProcessorFactory",
       "identifier": "files",
       "source-date-format": "n/d/y, g:i A",
       "prefix": "magento-import",
@@ -27,171 +28,173 @@
             "TechDivision\\Import\\Product\\Observers\\ProductWebsiteObserver",
             "TechDivision\\Import\\Product\\Observers\\ProductCategoryObserver",
             "TechDivision\\Import\\Product\\Observers\\ProductInventoryObserver",
-            "TechDivision\\Import\\Product\\Observers\\ProductVariationObserver",
-            "TechDivision\\Import\\Product\\Observers\\ProductBundleObserver",
-            "TechDivision\\Import\\Product\\Observers\\ProductAttributeObserver"
+            "TechDivision\\Import\\Product\\Observers\\ProductAttributeObserver",
+            "TechDivision\\Import\\Product\\Variant\\Observers\\ProductVariantObserver",
+            "TechDivision\\Import\\Product\\Bundle\\Observers\\ProductBundleObserver"
           ]
         },
         {
           "post-import": [
-            "TechDivision\\Import\\Product\\Observers\\Product\\PostImport\\CleanUpObserver"
+            "TechDivision\\Import\\Product\\Observers\\PostImport\\CleanUpObserver"
           ]
         }
       ],
       "callbacks": [
         {
           "visibility": [
-            "TechDivision\\Import\\Product\\Callbacks\\Product\\VisibilityCallback"
+            "TechDivision\\Import\\Product\\Callbacks\\VisibilityCallback"
           ]
         },
         {
           "tax_class_name": [
-            "TechDivision\\Import\\Product\\Callbacks\\Product\\TaxClassCallback"
+            "TechDivision\\Import\\Product\\Callbacks\\TaxClassCallback"
           ]
         },
         {
           "bundle_price_type": [
-            "TechDivision\\Import\\Product\\Bundle\\Callbacks\\Product\\BundleTypeCallback"
+            "TechDivision\\Import\\Product\\Bundle\\Callbacks\\BundleTypeCallback"
           ]
         },
         {
           "bundle_sku_type": [
-            "TechDivision\\Import\\Product\\Bundle\\Callbacks\\Product\\BundleTypeCallback"
+            "TechDivision\\Import\\Product\\Bundle\\Callbacks\\BundleTypeCallback"
           ]
         },
         {
           "bundle_weight_type": [
-            "TechDivision\\Import\\Product\\Bundle\\Callbacks\\Product\\BundleTypeCallback"
+            "TechDivision\\Import\\Product\\Bundle\\Callbacks\\BundleTypeCallback"
           ]
         },
         {
           "bundle_price_view": [
-            "TechDivision\\Import\\Product\\Bundle\\Callbacks\\Product\\BundlePriceViewCallback"
+            "TechDivision\\Import\\Product\\Bundle\\Callbacks\\BundlePriceViewCallback"
           ]
         },
         {
           "eco_collection": [
-            "TechDivision\\Import\\Product\\Callbacks\\Product\\BooleanCallback"
+            "TechDivision\\Import\\Product\\Callbacks\\BooleanCallback"
           ]
         },
         {
           "performance_fabric": [
-            "TechDivision\\Import\\Product\\Callbacks\\Product\\BooleanCallback"
+            "TechDivision\\Import\\Product\\Callbacks\\BooleanCallback"
           ]
         },
         {
           "erin_recommends": [
-            "TechDivision\\Import\\Product\\Callbacks\\Product\\BooleanCallback"
+            "TechDivision\\Import\\Product\\Callbacks\\BooleanCallback"
           ]
         },
         {
           "new": [
-            "TechDivision\\Import\\Product\\Callbacks\\Product\\BooleanCallback"
+            "TechDivision\\Import\\Product\\Callbacks\\BooleanCallback"
           ]
         },
         {
           "sale": [
-            "TechDivision\\Import\\Product\\Callbacks\\Product\\BooleanCallback"
+            "TechDivision\\Import\\Product\\Callbacks\\BooleanCallback"
           ]
         },
         {
           "activity": [
-            "TechDivision\\Import\\Product\\Callbacks\\Product\\MultiselectCallback"
+            "TechDivision\\Import\\Product\\Callbacks\\MultiselectCallback"
           ]
         },
         {
           "style_bags": [
-            "TechDivision\\Import\\Product\\Callbacks\\Product\\MultiselectCallback"
+            "TechDivision\\Import\\Product\\Callbacks\\MultiselectCallback"
           ]
         },
         {
           "material": [
-            "TechDivision\\Import\\Product\\Callbacks\\Product\\MultiselectCallback"
+            "TechDivision\\Import\\Product\\Callbacks\\MultiselectCallback"
           ]
         },
         {
           "strap_bags": [
-            "TechDivision\\Import\\Product\\Callbacks\\Product\\MultiselectCallback"
+            "TechDivision\\Import\\Product\\Callbacks\\MultiselectCallback"
           ]
         },
         {
           "features_bags": [
-            "TechDivision\\Import\\Product\\Callbacks\\Product\\MultiselectCallback"
+            "TechDivision\\Import\\Product\\Callbacks\\MultiselectCallback"
           ]
         },
         {
           "gender": [
-            "TechDivision\\Import\\Product\\Callbacks\\Product\\MultiselectCallback"
+            "TechDivision\\Import\\Product\\Callbacks\\MultiselectCallback"
           ]
         },
         {
           "category_gear": [
-            "TechDivision\\Import\\Product\\Callbacks\\Product\\MultiselectCallback"
+            "TechDivision\\Import\\Product\\Callbacks\\MultiselectCallback"
           ]
         },
         {
           "style_bottom": [
-            "TechDivision\\Import\\Product\\Callbacks\\Product\\MultiselectCallback"
+            "TechDivision\\Import\\Product\\Callbacks\\MultiselectCallback"
           ]
         },
         {
           "style_general": [
-            "TechDivision\\Import\\Product\\Callbacks\\Product\\MultiselectCallback"
+            "TechDivision\\Import\\Product\\Callbacks\\MultiselectCallback"
           ]
         },
         {
           "sleeve": [
-            "TechDivision\\Import\\Product\\Callbacks\\Product\\MultiselectCallback"
+            "TechDivision\\Import\\Product\\Callbacks\\MultiselectCallback"
           ]
         },
         {
           "collar": [
-            "TechDivision\\Import\\Product\\Callbacks\\Product\\MultiselectCallback"
+            "TechDivision\\Import\\Product\\Callbacks\\MultiselectCallback"
           ]
         },
         {
           "pattern": [
-            "TechDivision\\Import\\Product\\Callbacks\\Product\\MultiselectCallback"
+            "TechDivision\\Import\\Product\\Callbacks\\MultiselectCallback"
           ]
         },
         {
           "climate": [
-            "TechDivision\\Import\\Product\\Callbacks\\Product\\MultiselectCallback"
+            "TechDivision\\Import\\Product\\Callbacks\\MultiselectCallback"
           ]
         },
         {
           "size": [
-            "TechDivision\\Import\\Product\\Callbacks\\Product\\SelectCallback"
+            "TechDivision\\Import\\Product\\Callbacks\\SelectCallback"
           ]
         },
         {
           "color": [
-            "TechDivision\\Import\\Product\\Callbacks\\Product\\SelectCallback"
+            "TechDivision\\Import\\Product\\Callbacks\\SelectCallback"
           ]
         }
       ]
     },
     {
       "class-name": "TechDivision\\Import\\Product\\Variant\\Subjects\\VariantSubject",
+      "processor-factory" : "TechDivision\\Import\\Product\\Variant\\Services\\ProductVariantProcessorFactory",
       "prefix": "variants",
       "observers": [
         {
           "import": [
-            "TechDivision\\Import\\Product\\Variant\\Observers\\Product\\VariantObserver"
+            "TechDivision\\Import\\Product\\Variant\\Observers\\VariantObserver"
           ]
         }
       ]
     },
     {
       "class-name": "TechDivision\\Import\\Product\\Bundle\\Subjects\\BundleSubject",
+      "processor-factory" : "TechDivision\\Import\\Product\\Bundle\\Services\\ProductBundleProcessorFactory",
       "prefix": "bundles",
       "observers": [
         {
           "import": [
-            "TechDivision\\Import\\Product\\Bundle\\Observers\\Product\\BundleOptionObserver",
-            "TechDivision\\Import\\Product\\Bundle\\Observers\\Product\\BundleOptionValueObserver",
-            "TechDivision\\Import\\Product\\Bundle\\Observers\\Product\\BundleSelectionObserver",
-            "TechDivision\\Import\\Product\\Bundle\\Observers\\Product\\BundleSelectionPriceObserver"
+            "TechDivision\\Import\\Product\\Bundle\\Observers\\BundleOptionObserver",
+            "TechDivision\\Import\\Product\\Bundle\\Observers\\BundleOptionValueObserver",
+            "TechDivision\\Import\\Product\\Bundle\\Observers\\BundleSelectionObserver",
+            "TechDivision\\Import\\Product\\Bundle\\Observers\\BundleSelectionPriceObserver"
           ]
         }
       ]

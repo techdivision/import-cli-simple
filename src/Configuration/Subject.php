@@ -46,6 +46,15 @@ class Subject implements SubjectInterface
     protected $className;
 
     /**
+     * The subject's processor type to use.
+     *
+     * @var string
+     * @Type("string")
+     * @SerializedName("processor-factory")
+     */
+    protected $processorFactory;
+
+    /**
      * The file prefix for import files.
      *
      * @var string
@@ -95,6 +104,16 @@ class Subject implements SubjectInterface
     public function getClassName()
     {
         return $this->className;
+    }
+
+    /**
+     * Return's the subject's processor factory type to use.
+     *
+     * @return string The subject's processor factory type
+     */
+    public function getProcessorFactory()
+    {
+        return $this->processorFactory;
     }
 
     /**
