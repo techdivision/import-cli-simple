@@ -8,7 +8,8 @@
 		"jms/serializer" : "~1.0",
 		"monolog/monolog" : "~1.0",
 		"symfony/console" : "~3.0",
-		"techdivision/import" : "dev-master"
+		"techdivision/import-product-variant" : "dev-master",
+        "techdivision/import-product-bundle" : "dev-master"
 	},
 	"authors" : [{
 			"name" : "Tim Wagner",
@@ -25,5 +26,15 @@
 	},
 	"bin" : [
 		"bin/import-simple"
+	],
+	"repositories" : [{
+			"type" : "git",
+			"url" : "https://gitlab.tdintern.de/wagnert/techdivision-import-product-variant.git",
+			"name" : "techdivision/import-product-variant"
+		},{
+            "type" : "git",
+            "url" : "https://gitlab.tdintern.de/wagnert/techdivision-import-product-bundle.git",
+            "name" : "techdivision/import-product-bundle"
+        }
 	]
 }

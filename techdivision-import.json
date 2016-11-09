@@ -9,7 +9,7 @@
   },
   "subjects": [
     {
-      "class-name": "TechDivision\\Import\\Subjects\\BunchSubject",
+      "class-name": "TechDivision\\Import\\Product\\Subjects\\BunchSubject",
       "identifier": "files",
       "source-date-format": "n/d/y, g:i A",
       "prefix": "magento-import",
@@ -17,208 +17,184 @@
       "observers": [
         {
           "pre-import": [
-            "TechDivision\\Import\\Observers\\Product\\PreImport\\AdditionalAttributeObserver",
-            "TechDivision\\Import\\Observers\\Product\\PreImport\\QuantityAndStockStatusObserver"
+            "TechDivision\\Import\\Product\\Observers\\PreImport\\AdditionalAttributeObserver",
+            "TechDivision\\Import\\Product\\Observers\\PreImport\\QuantityAndStockStatusObserver"
           ]
         },
         {
           "import": [
-            "TechDivision\\Import\\Observers\\Product\\ProductObserver",
-            "TechDivision\\Import\\Observers\\Product\\ProductWebsiteObserver",
-            "TechDivision\\Import\\Observers\\Product\\ProductCategoryObserver",
-            "TechDivision\\Import\\Observers\\Product\\ProductInventoryObserver",
-            "TechDivision\\Import\\Observers\\Product\\ProductVariationObserver",
-            "TechDivision\\Import\\Observers\\Product\\ProductBundleObserver",
-            "TechDivision\\Import\\Observers\\Product\\ProductAttributeObserver"
+            "TechDivision\\Import\\Product\\Observers\\ProductObserver",
+            "TechDivision\\Import\\Product\\Observers\\ProductWebsiteObserver",
+            "TechDivision\\Import\\Product\\Observers\\ProductCategoryObserver",
+            "TechDivision\\Import\\Product\\Observers\\ProductInventoryObserver",
+            "TechDivision\\Import\\Product\\Observers\\ProductVariationObserver",
+            "TechDivision\\Import\\Product\\Observers\\ProductBundleObserver",
+            "TechDivision\\Import\\Product\\Observers\\ProductAttributeObserver"
           ]
         },
         {
           "post-import": [
-            "TechDivision\\Import\\Observers\\Product\\PostImport\\CleanUpObserver"
+            "TechDivision\\Import\\Product\\Observers\\Product\\PostImport\\CleanUpObserver"
           ]
         }
       ],
       "callbacks": [
         {
           "visibility": [
-            "TechDivision\\Import\\Callbacks\\Product\\VisibilityCallback"
+            "TechDivision\\Import\\Product\\Callbacks\\Product\\VisibilityCallback"
           ]
         },
         {
           "tax_class_name": [
-            "TechDivision\\Import\\Callbacks\\Product\\TaxClassCallback"
+            "TechDivision\\Import\\Product\\Callbacks\\Product\\TaxClassCallback"
           ]
         },
         {
           "bundle_price_type": [
-            "TechDivision\\Import\\Callbacks\\Product\\BundleTypeCallback"
+            "TechDivision\\Import\\Product\\Bundle\\Callbacks\\Product\\BundleTypeCallback"
           ]
         },
         {
           "bundle_sku_type": [
-            "TechDivision\\Import\\Callbacks\\Product\\BundleTypeCallback"
+            "TechDivision\\Import\\Product\\Bundle\\Callbacks\\Product\\BundleTypeCallback"
           ]
         },
         {
           "bundle_weight_type": [
-            "TechDivision\\Import\\Callbacks\\Product\\BundleTypeCallback"
+            "TechDivision\\Import\\Product\\Bundle\\Callbacks\\Product\\BundleTypeCallback"
           ]
         },
         {
           "bundle_price_view": [
-            "TechDivision\\Import\\Callbacks\\Product\\BundlePriceViewCallback"
+            "TechDivision\\Import\\Product\\Bundle\\Callbacks\\Product\\BundlePriceViewCallback"
           ]
         },
         {
           "eco_collection": [
-            "TechDivision\\Import\\Callbacks\\Product\\BooleanCallback"
+            "TechDivision\\Import\\Product\\Callbacks\\Product\\BooleanCallback"
           ]
         },
         {
           "performance_fabric": [
-            "TechDivision\\Import\\Callbacks\\Product\\BooleanCallback"
+            "TechDivision\\Import\\Product\\Callbacks\\Product\\BooleanCallback"
           ]
         },
         {
           "erin_recommends": [
-            "TechDivision\\Import\\Callbacks\\Product\\BooleanCallback"
+            "TechDivision\\Import\\Product\\Callbacks\\Product\\BooleanCallback"
           ]
         },
         {
           "new": [
-            "TechDivision\\Import\\Callbacks\\Product\\BooleanCallback"
+            "TechDivision\\Import\\Product\\Callbacks\\Product\\BooleanCallback"
           ]
         },
         {
           "sale": [
-            "TechDivision\\Import\\Callbacks\\Product\\BooleanCallback"
+            "TechDivision\\Import\\Product\\Callbacks\\Product\\BooleanCallback"
           ]
         },
         {
           "activity": [
-            "TechDivision\\Import\\Callbacks\\Product\\MultiselectCallback"
+            "TechDivision\\Import\\Product\\Callbacks\\Product\\MultiselectCallback"
           ]
         },
         {
           "style_bags": [
-            "TechDivision\\Import\\Callbacks\\Product\\MultiselectCallback"
+            "TechDivision\\Import\\Product\\Callbacks\\Product\\MultiselectCallback"
           ]
         },
         {
           "material": [
-            "TechDivision\\Import\\Callbacks\\Product\\MultiselectCallback"
+            "TechDivision\\Import\\Product\\Callbacks\\Product\\MultiselectCallback"
           ]
         },
         {
           "strap_bags": [
-            "TechDivision\\Import\\Callbacks\\Product\\MultiselectCallback"
+            "TechDivision\\Import\\Product\\Callbacks\\Product\\MultiselectCallback"
           ]
         },
         {
           "features_bags": [
-            "TechDivision\\Import\\Callbacks\\Product\\MultiselectCallback"
+            "TechDivision\\Import\\Product\\Callbacks\\Product\\MultiselectCallback"
           ]
         },
         {
           "gender": [
-            "TechDivision\\Import\\Callbacks\\Product\\MultiselectCallback"
+            "TechDivision\\Import\\Product\\Callbacks\\Product\\MultiselectCallback"
           ]
         },
         {
           "category_gear": [
-            "TechDivision\\Import\\Callbacks\\Product\\MultiselectCallback"
+            "TechDivision\\Import\\Product\\Callbacks\\Product\\MultiselectCallback"
           ]
         },
         {
           "style_bottom": [
-            "TechDivision\\Import\\Callbacks\\Product\\MultiselectCallback"
+            "TechDivision\\Import\\Product\\Callbacks\\Product\\MultiselectCallback"
           ]
         },
         {
           "style_general": [
-            "TechDivision\\Import\\Callbacks\\Product\\MultiselectCallback"
+            "TechDivision\\Import\\Product\\Callbacks\\Product\\MultiselectCallback"
           ]
         },
         {
           "sleeve": [
-            "TechDivision\\Import\\Callbacks\\Product\\MultiselectCallback"
+            "TechDivision\\Import\\Product\\Callbacks\\Product\\MultiselectCallback"
           ]
         },
         {
           "collar": [
-            "TechDivision\\Import\\Callbacks\\Product\\MultiselectCallback"
+            "TechDivision\\Import\\Product\\Callbacks\\Product\\MultiselectCallback"
           ]
         },
         {
           "pattern": [
-            "TechDivision\\Import\\Callbacks\\Product\\MultiselectCallback"
+            "TechDivision\\Import\\Product\\Callbacks\\Product\\MultiselectCallback"
           ]
         },
         {
           "climate": [
-            "TechDivision\\Import\\Callbacks\\Product\\MultiselectCallback"
+            "TechDivision\\Import\\Product\\Callbacks\\Product\\MultiselectCallback"
           ]
         },
         {
           "size": [
-            "TechDivision\\Import\\Callbacks\\Product\\SelectCallback"
+            "TechDivision\\Import\\Product\\Callbacks\\Product\\SelectCallback"
           ]
         },
         {
           "color": [
-            "TechDivision\\Import\\Callbacks\\Product\\SelectCallback"
+            "TechDivision\\Import\\Product\\Callbacks\\Product\\SelectCallback"
           ]
         }
       ]
     },
     {
-      "class-name": "TechDivision\\Import\\Subjects\\VariantSubject",
+      "class-name": "TechDivision\\Import\\Product\\Variant\\Subjects\\VariantSubject",
       "prefix": "variants",
       "observers": [
         {
           "import": [
-            "TechDivision\\Import\\Observers\\Product\\VariantObserver"
+            "TechDivision\\Import\\Product\\Variant\\Observers\\Product\\VariantObserver"
           ]
         }
       ]
     },
     {
-      "class-name": "TechDivision\\Import\\Subjects\\BundleSubject",
+      "class-name": "TechDivision\\Import\\Product\\Bundle\\Subjects\\BundleSubject",
       "prefix": "bundles",
       "observers": [
         {
           "import": [
-            "TechDivision\\Import\\Observers\\Product\\BundleOptionObserver",
-            "TechDivision\\Import\\Observers\\Product\\BundleOptionValueObserver",
-            "TechDivision\\Import\\Observers\\Product\\BundleSelectionObserver",
-            "TechDivision\\Import\\Observers\\Product\\BundleSelectionPriceObserver"
+            "TechDivision\\Import\\Product\\Bundle\\Observers\\Product\\BundleOptionObserver",
+            "TechDivision\\Import\\Product\\Bundle\\Observers\\Product\\BundleOptionValueObserver",
+            "TechDivision\\Import\\Product\\Bundle\\Observers\\Product\\BundleSelectionObserver",
+            "TechDivision\\Import\\Product\\Bundle\\Observers\\Product\\BundleSelectionPriceObserver"
           ]
         }
       ]
-    },
-    {
-      "class-name": "TechDivision\\Import\\Subjects\\OptionSubject",
-      "prefix": "options"
-    },
-    {
-      "class-name": "TechDivision\\Import\\Subjects\\ImageSubject",
-      "prefix": "images"
-    },
-    {
-      "class-name": "TechDivision\\Import\\Subjects\\GroupedSubject",
-      "prefix": "grouped"
-    },
-    {
-      "class-name": "TechDivision\\Import\\Subjects\\RelatedSubject",
-      "prefix": "related"
-    },
-    {
-      "class-name": "TechDivision\\Import\\Subjects\\UpsellSubject",
-      "prefix": "upsell"
-    },
-    {
-      "class-name": "TechDivision\\Import\\Subjects\\CrosssellSubject",
-      "prefix": "crosssell"
     }
   ]
 }
