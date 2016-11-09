@@ -422,6 +422,9 @@ class Simple
 
                 // log a message that the file import failed
                 $this->getSystemLogger()->error($e->__toString());
+
+                // re-throw the exception
+                throw $e;
             }
         }
 

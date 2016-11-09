@@ -50,6 +50,26 @@
           ]
         },
         {
+          "bundle_price_type": [
+            "TechDivision\\Import\\Callbacks\\Product\\BundleTypeCallback"
+          ]
+        },
+        {
+          "bundle_sku_type": [
+            "TechDivision\\Import\\Callbacks\\Product\\BundleTypeCallback"
+          ]
+        },
+        {
+          "bundle_weight_type": [
+            "TechDivision\\Import\\Callbacks\\Product\\BundleTypeCallback"
+          ]
+        },
+        {
+          "bundle_price_view": [
+            "TechDivision\\Import\\Callbacks\\Product\\BundlePriceViewCallback"
+          ]
+        },
+        {
           "eco_collection": [
             "TechDivision\\Import\\Callbacks\\Product\\BooleanCallback"
           ]
@@ -168,7 +188,10 @@
       "observers": [
         {
           "import": [
-            "TechDivision\\Import\\Observers\\Product\\BundleObserver"
+            "TechDivision\\Import\\Observers\\Product\\BundleOptionObserver",
+            "TechDivision\\Import\\Observers\\Product\\BundleOptionValueObserver",
+            "TechDivision\\Import\\Observers\\Product\\BundleSelectionObserver",
+            "TechDivision\\Import\\Observers\\Product\\BundleSelectionPriceObserver"
           ]
         }
       ]
