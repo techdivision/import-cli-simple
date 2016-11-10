@@ -30,7 +30,8 @@
             "TechDivision\\Import\\Product\\Observers\\ProductInventoryObserver",
             "TechDivision\\Import\\Product\\Observers\\ProductAttributeObserver",
             "TechDivision\\Import\\Product\\Variant\\Observers\\ProductVariantObserver",
-            "TechDivision\\Import\\Product\\Bundle\\Observers\\ProductBundleObserver"
+            "TechDivision\\Import\\Product\\Bundle\\Observers\\ProductBundleObserver",
+            "TechDivision\\Import\\Product\\Media\\Observers\\ProductMediaObserver"
           ]
         },
         {
@@ -195,6 +196,19 @@
             "TechDivision\\Import\\Product\\Bundle\\Observers\\BundleOptionValueObserver",
             "TechDivision\\Import\\Product\\Bundle\\Observers\\BundleSelectionObserver",
             "TechDivision\\Import\\Product\\Bundle\\Observers\\BundleSelectionPriceObserver"
+          ]
+        }
+      ]
+    },
+    {
+      "class-name": "TechDivision\\Import\\Product\\Media\\Subjects\\MediaSubject",
+      "processor-factory" : "TechDivision\\Import\\Product\\Media\\Services\\ProductMediaProcessorFactory",
+      "prefix": "media",
+      "observers": [
+        {
+          "import": [
+            "TechDivision\\Import\\Product\\Media\\Observers\\MediaGalleryObserver",
+            "TechDivision\\Import\\Product\\Media\\Observers\\MediaGalleryValueObserver"
           ]
         }
       ]

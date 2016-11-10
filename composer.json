@@ -8,7 +8,8 @@
 		"monolog/monolog" : "~1.0",
 		"symfony/console" : "~3.0",
 		"techdivision/import-product-variant" : "0.1.*",
-        "techdivision/import-product-bundle" : "0.1.*"
+        "techdivision/import-product-bundle" : "0.1.*",
+        "techdivision/import-product-media" : "0.1.*"
 	},
 	"authors" : [{
 			"name" : "Tim Wagner",
@@ -45,6 +46,11 @@
             "type" : "git",
             "url" : "https://gitlab.tdintern.de/wagnert/techdivision-import-product-bundle.git",
             "name" : "techdivision/import-product-bundle"
+        },
+        {
+            "type" : "git",
+            "url" : "https://gitlab.tdintern.de/wagnert/techdivision-import-product-media.git",
+            "name" : "techdivision/import-product-media"
         }
 	]
 }
