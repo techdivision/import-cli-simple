@@ -32,7 +32,8 @@
             "TechDivision\\Import\\Product\\Observers\\ProductAttributeObserver",
             "TechDivision\\Import\\Product\\Variant\\Observers\\ProductVariantObserver",
             "TechDivision\\Import\\Product\\Bundle\\Observers\\ProductBundleObserver",
-            "TechDivision\\Import\\Product\\Media\\Observers\\ProductMediaObserver"
+            "TechDivision\\Import\\Product\\Media\\Observers\\ProductMediaObserver",
+            "TechDivision\\Import\\Product\\Link\\Observers\\ProductLinkObserver"
           ]
         },
         {
@@ -220,6 +221,18 @@
           "import": [
             "TechDivision\\Import\\Product\\Media\\Observers\\MediaGalleryObserver",
             "TechDivision\\Import\\Product\\Media\\Observers\\MediaGalleryValueObserver"
+          ]
+        }
+      ]
+    },
+    {
+      "class-name": "TechDivision\\Import\\Product\\Link\\Subjects\\LinkSubject",
+      "processor-factory" : "TechDivision\\Import\\Product\\Link\\Services\\ProductLinkProcessorFactory",
+      "prefix": "links",
+      "observers": [
+        {
+          "import": [
+            "TechDivision\\Import\\Product\\Link\\Observers\\LinkObserver"
           ]
         }
       ]

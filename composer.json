@@ -10,7 +10,8 @@
         "league/flysystem" : "~1.0",
 		"techdivision/import-product-variant" : "0.1.*",
         "techdivision/import-product-bundle" : "0.1.*",
-        "techdivision/import-product-media" : "0.1.*"
+        "techdivision/import-product-media" : "0.1.*",
+        "techdivision/import-product-link" : "0.1.*"
 	},
 	"authors" : [{
 			"name" : "Tim Wagner",
@@ -52,6 +53,11 @@
             "type" : "git",
             "url" : "https://gitlab.tdintern.de/wagnert/techdivision-import-product-media.git",
             "name" : "techdivision/import-product-media"
+        },
+        {
+            "type" : "git",
+            "url" : "https://gitlab.tdintern.de/wagnert/techdivision-import-product-link.git",
+            "name" : "techdivision/import-product-link"
         }
 	]
 }
