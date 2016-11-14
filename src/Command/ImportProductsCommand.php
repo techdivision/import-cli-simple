@@ -74,6 +74,12 @@ class ImportProductsCommand extends Command
                  'The directory to query for CSV file(s) that has/have to be imported'
              )
              ->addOption(
+                 InputOptionKeys::INSTALLATION_DIR,
+                 null,
+                 InputOption::VALUE_REQUIRED,
+                 'The Magento installation directory to which the files has to be imported'
+             )
+             ->addOption(
                  InputOptionKeys::PREFIX,
                  null,
                  InputOption::VALUE_REQUIRED,

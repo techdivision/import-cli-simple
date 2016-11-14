@@ -54,6 +54,13 @@ class InputOptionKeys
     const SOURCE_DIR = 'source-dir';
 
     /**
+     * The input option key for the Magento installation directory.
+     *
+     * @var string
+     */
+    const INSTALLATION_DIR = 'installation-dir';
+
+    /**
      * The input option key for the Magento edition, EE or CE.
      *
      * @var string

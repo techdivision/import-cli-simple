@@ -1,6 +1,7 @@
 {
   "magento-editition": "CE",
   "magento-version": "2.1.2",
+  "installation-dir" : "/opt/appserver/webapps/magento2_ce212",
   "source-dir": "/opt/appserver/tmp",
   "database": {
     "pdo-dsn": "mysql:host=127.0.0.1;dbname=appserver_magento2_ce212",
@@ -204,8 +205,18 @@
       "class-name": "TechDivision\\Import\\Product\\Media\\Subjects\\MediaSubject",
       "processor-factory" : "TechDivision\\Import\\Product\\Media\\Services\\ProductMediaProcessorFactory",
       "prefix": "media",
+      "params" : [
+        {
+          "root-directory" : "/",
+          "media-directory" : "/opt/appserver/webapps/magento2_ce212/pub/media/catalog/product",
+          "images-file-directory" : "/opt/appserver/webapps/magento2_ce212/var/magento2-sample-data/pub/media/catalog/product"
+        }
+      ],
       "observers": [
         {
+          "pre-import" : [
+            "TechDivision\\Import\\Product\\Media\\Observers\\PreImport\\FileUploadObserver"
+          ],
           "import": [
             "TechDivision\\Import\\Product\\Media\\Observers\\MediaGalleryObserver",
             "TechDivision\\Import\\Product\\Media\\Observers\\MediaGalleryValueObserver"

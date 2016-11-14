@@ -23,6 +23,7 @@ namespace TechDivision\Import\Cli\Configuration;
 use JMS\Serializer\Annotation\Type;
 use JMS\Serializer\Annotation\SerializedName;
 use TechDivision\Import\Configuration\SubjectInterface;
+use TechDivision\Import\ConfigurationInterface;
 
 /**
  * A SLSB that handles the product import process.
@@ -97,6 +98,21 @@ class Subject implements SubjectInterface
     protected $callbacks = array();
 
     /**
+     * The array with the subject's params.
+     *
+     * @var array
+     * @Type("array")
+     */
+    protected $params = array();
+
+    /**
+     * A reference to the parent configuration instance.
+     *
+     * @var \TechDivision\Import\ConfigurationInterface
+     */
+    protected $configuration;
+
+    /**
      * Return's the subject's class name.
      *
      * @return string The subject's class name
@@ -114,6 +130,54 @@ class Subject implements SubjectInterface
     public function getProcessorFactory()
     {
         return $this->processorFactory;
+    }
+
+    /**
+     * Return's the array with the params.
+     *
+     * @return array The params
+     */
+    public function getParams()
+    {
+        return reset($this->params);
+    }
+
+    /**
+     * Return's the param with the passed name.
+     *
+     * @param string $name The name of the param to return
+     *
+     * @return string The requested param
+     * @throws \Exception Is thrown, if the requested param is not available
+     */
+    public function getParam($name)
+    {
+        if (array_key_exists($name, $params = $this->getParams())) {
+            return $params[$name];
+        }
+        throw new \Exception(sprintf('Requested param %s not available', $name));
+    }
+
+    /**
+     * Set's the reference to the configuration instance.
+     *
+     * @param \TechDivision\Import\ConfigurationInterface $configuration The configuration instance
+     *
+     * @return void
+     */
+    public function setConfiguration(ConfigurationInterface $configuration)
+    {
+        $this->configuration = $configuration;
+    }
+
+    /**
+     * Return's the reference to the configuration instance.
+     *
+     * @return \TechDivision\Import\ConfigurationInterface The configuration instance
+     */
+    public function getConfiguration()
+    {
+        return $this->configuration;
     }
 
     /**

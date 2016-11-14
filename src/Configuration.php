@@ -67,6 +67,15 @@ class Configuration implements ConfigurationInterface
     protected $sourceDir;
 
     /**
+     * The Magento installation directory.
+     *
+     * @var string
+     * @Type("string")
+     * @SerializedName("installation-dir")
+     */
+    protected $installationDir;
+
+    /**
      * The database configuration.
      *
      * @var TechDivision\Import\Configuration\Database
@@ -121,6 +130,12 @@ class Configuration implements ConfigurationInterface
             $instance->setSourceDir($sourceDir);
         }
 
+        // query whether or not a Magento installation directory has been specified as command line
+        // option, if yes override the value from the configuration file.
+        if ($installationDir = $input->getOption(InputOptionKeys::INSTALLATION_DIR)) {
+            $instance->setInstallationDir($installationDir);
+        }
+
         // query whether or not a Magento edition has been specified as command line
         // option, if yes override the value from the configuration file.
         if ($magentoEdition = $input->getOption(InputOptionKeys::MAGENTO_EDITION)) {
@@ -158,6 +173,12 @@ class Configuration implements ConfigurationInterface
             foreach ($instance->getSubjects() as $subject) {
                 $subject->setSourceDateFormat($sourceDateFormat);
             }
+        }
+
+        // extend the subjects with the parent configuration instance
+        /** @var \TechDivision\Import\Cli\Configuration\Subject $subject */
+        foreach ($instance->getSubjects() as $subject) {
+            $subject->setConfiguration($instance);
         }
 
         // return the initialized configuration instance
@@ -204,6 +225,28 @@ class Configuration implements ConfigurationInterface
     public function getSourceDir()
     {
         return $this->sourceDir;
+    }
+
+    /**
+     * Set's the Magento installation directory.
+     *
+     * @param string $installationDir The Magento installation directory
+     *
+     * @return void
+     */
+    public function setInstallationDir($installationDir)
+    {
+        $this->installationDir = $installationDir;
+    }
+
+    /**
+     * Return's the Magento installation directory.
+     *
+     * @return string The Magento installation directory
+     */
+    public function getInstallationDir()
+    {
+        return $this->installationDir;
     }
 
     /**
