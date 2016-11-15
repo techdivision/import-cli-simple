@@ -30,13 +30,14 @@ use TechDivision\Import\Cli\Simple;
 use TechDivision\Import\Cli\Configuration;
 use TechDivision\Import\Services\ImportProcessor;
 use TechDivision\Import\Services\RegistryProcessor;
-use TechDivision\Import\Repositories\CategoryRepository;
-use TechDivision\Import\Repositories\CategoryVarcharRepository;
-use TechDivision\Import\Repositories\EavAttributeRepository;
-use TechDivision\Import\Repositories\EavAttributeSetRepository;
 use TechDivision\Import\Repositories\StoreRepository;
-use TechDivision\Import\Repositories\StoreWebsiteRepository;
 use TechDivision\Import\Repositories\TaxClassRepository;
+use TechDivision\Import\Repositories\LinkTypeRepository;
+use TechDivision\Import\Repositories\CategoryRepository;
+use TechDivision\Import\Repositories\StoreWebsiteRepository;
+use TechDivision\Import\Repositories\EavAttributeRepository;
+use TechDivision\Import\Repositories\CategoryVarcharRepository;
+use TechDivision\Import\Repositories\EavAttributeSetRepository;
 
 /**
  * The import command implementation.
@@ -199,6 +200,13 @@ class ImportProductsCommand extends Command
         $taxClassRepository->setConnection($connection);
         $taxClassRepository->init();
 
+        // initialize the repository that provides link type query functionality
+        $linkTypeRepository = new LinkTypeRepository();
+        $linkTypeRepository->setMagentoEdition($magentoEdition);
+        $linkTypeRepository->setMagentoVersion($magentoVersion);
+        $linkTypeRepository->setConnection($connection);
+        $linkTypeRepository->init();
+
         // initialize the product processor
         $importProcessor = new ImportProcessor();
         $importProcessor->setConnection($connection);
@@ -209,6 +217,7 @@ class ImportProductsCommand extends Command
         $importProcessor->setStoreRepository($storeRepository);
         $importProcessor->setStoreWebsiteRepository($storeWebsiteRepository);
         $importProcessor->setTaxClassRepository($taxClassRepository);
+        $importProcessor->setLinkTypeRepository($linkTypeRepository);
 
         // initialize the registry processor
         $registryProcessor = new RegistryProcessor();

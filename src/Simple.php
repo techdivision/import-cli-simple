@@ -271,6 +271,7 @@ class Simple
 
             // initialize the global data
             $globalData[RegistryKeys::STORES] = $importProcessor->getStores();
+            $globalData[RegistryKeys::LINK_TYPES] = $importProcessor->getLinkTypes();
             $globalData[RegistryKeys::TAX_CLASSES] = $importProcessor->getTaxClasses();
             $globalData[RegistryKeys::STORE_WEBSITES] = $importProcessor->getStoreWebsites();
             $globalData[RegistryKeys::ATTRIBUTE_SETS] = $eavAttributeSets = $importProcessor->getEavAttributeSetsByEntityTypeId(4);
