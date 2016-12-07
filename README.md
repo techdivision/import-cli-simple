@@ -30,6 +30,7 @@ The following configuration options are available:
 |:---------------------|:----------------------------------------------------------------|:--------------|
 | --configuration      | Specify the pathname to the configuration file to use | example/ce/212/conf/techdivision-import.json |
 | --installation-dir   | The Magento installation directory to which the files has to be imported | n/a |
+| --utility-class-name | The utility class name with the SQL statements | n/a |
 | --magento-edition    | The Magento edition to be used, either one of CE or EE | n/a |
 | --magento-version    | The Magento version to be used, e. g. 2.1.2 | n/a |
 | --source-date-format | The date format used in the CSV file(s) | n/a |

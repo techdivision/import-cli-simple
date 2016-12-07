@@ -68,6 +68,12 @@ class ImportProductsCommand extends Command
                  'The Magento installation directory to which the files has to be imported'
              )
              ->addOption(
+                 InputOptionKeys::UTILITY_CLASS_NAME,
+                 null,
+                 InputOption::VALUE_REQUIRED,
+                 'The utility class name with the SQL statements'
+             )
+             ->addOption(
                  InputOptionKeys::PREFIX,
                  null,
                  InputOption::VALUE_REQUIRED,

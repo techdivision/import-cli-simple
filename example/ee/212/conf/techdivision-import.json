@@ -1,7 +1,8 @@
 {
-  "magento-editition": "EE",
+  "magento-edition": "EE",
   "magento-version": "2.1.2",
   "installation-dir" : "/var/www/magento",
+  "utility-class-name" : "TechDivision\\Import\\Utils\\Ee\\V212\\SqlStatements",
   "database": {
     "pdo-dsn": "mysql:host=127.0.0.1;dbname=appserver_magento2_ee212",
     "username": "magento",
@@ -11,9 +12,10 @@
     {
       "class-name": "TechDivision\\Import\\Product\\Ee\\Subjects\\EeBunchSubject",
       "processor-factory" : "TechDivision\\Import\\Product\\Ee\\Services\\EeProductProcessorFactory",
+      "utility-class-name" : "TechDivision\\Import\\Product\\Ee\\Utils\\SqlStatements",
       "identifier": "files",
       "source-date-format": "n/d/y, g:i A",
-      "source-dir": "example/ee/212/data",
+      "source-dir": "example/tmp",
       "target-dir": "example/tmp",
       "prefix": "magento-import",
       "observers": [
@@ -179,6 +181,7 @@
     {
       "class-name": "TechDivision\\Import\\Product\\Variant\\Subjects\\VariantSubject",
       "processor-factory" : "TechDivision\\Import\\Product\\Variant\\Services\\ProductVariantProcessorFactory",
+      "utility-class-name" : "TechDivision\\Import\\Product\\Variant\\Utils\\SqlStatements",
       "prefix": "variants",
       "source-dir": "example/tmp",
       "target-dir": "example/tmp",
@@ -193,6 +196,7 @@
     {
       "class-name": "TechDivision\\Import\\Product\\Bundle\\Subjects\\BundleSubject",
       "processor-factory" : "TechDivision\\Import\\Product\\Bundle\\Services\\ProductBundleProcessorFactory",
+      "utility-class-name" : "TechDivision\\Import\\Product\\Bundle\\Utils\\SqlStatements",
       "prefix": "bundles",
       "source-dir": "example/tmp",
       "target-dir": "example/tmp",
@@ -210,14 +214,15 @@
     {
       "class-name": "TechDivision\\Import\\Product\\Media\\Subjects\\MediaSubject",
       "processor-factory" : "TechDivision\\Import\\Product\\Media\\Services\\ProductMediaProcessorFactory",
+      "utility-class-name" : "TechDivision\\Import\\Product\\Media\\Utils\\SqlStatements",
       "prefix": "media",
       "source-dir": "example/tmp",
       "target-dir": "example/tmp",
       "params" : [
         {
           "root-directory" : "/",
-          "media-directory" : "/opt/appserver/webapps/magento2_ce212/pub/media/catalog/product",
-          "images-file-directory" : "/opt/appserver/webapps/magento2_ce212/var/magento2-sample-data/pub/media/catalog/product"
+          "media-directory" : "/opt/appserver/webapps/magento2_ee212/pub/media/catalog/product",
+          "images-file-directory" : "example/magento2-sample-data/pub/media/catalog/product"
         }
       ],
       "observers": [
@@ -235,6 +240,7 @@
     {
       "class-name": "TechDivision\\Import\\Product\\Link\\Subjects\\LinkSubject",
       "processor-factory" : "TechDivision\\Import\\Product\\Link\\Services\\ProductLinkProcessorFactory",
+      "utility-class-name" : "TechDivision\\Import\\Product\\Link\\Utils\\SqlStatements",
       "prefix": "links",
       "source-dir": "example/tmp",
       "target-dir": "example/tmp",

@@ -54,6 +54,13 @@ class InputOptionKeys
     const INSTALLATION_DIR = 'installation-dir';
 
     /**
+     * The input option key for the utility class name.
+     *
+     * @var string
+     */
+    const UTILITY_CLASS_NAME = 'utility-class-name';
+
+    /**
      * The input option key for the Magento edition, EE or CE.
      *
      * @var string

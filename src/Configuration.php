@@ -83,6 +83,15 @@ class Configuration implements ConfigurationInterface
     protected $subjects;
 
     /**
+     * The subject's utility class with the SQL statements to use.
+     *
+     * @var string
+     * @Type("string")
+     * @SerializedName("utility-class-name")
+     */
+    protected $utilityClassName;
+
+    /**
      * Factory implementation to create a new initialized configuration instance.
      *
      * If command line options are specified, they will always override the
@@ -204,6 +213,28 @@ class Configuration implements ConfigurationInterface
     public function getInstallationDir()
     {
         return $this->installationDir;
+    }
+
+    /**
+     * Return's the utility class with the SQL statements to use.
+     *
+     * @param string $utilityClassName The utility class name
+     *
+     * @return void
+     */
+    public function setUtilityClassName($utilityClassName)
+    {
+        return $this->utilityClassName = $utilityClassName;
+    }
+
+    /**
+     * Return's the utility class with the SQL statements to use.
+     *
+     * @return string The utility class name
+     */
+    public function getUtilityClassName()
+    {
+        return $this->utilityClassName;
     }
 
     /**

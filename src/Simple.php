@@ -460,10 +460,7 @@ class Simple
 
         // instanciate and set the product processor
         $processorFactory = $subject->getProcessorFactory();
-        $productProcessor = $processorFactory::factory(
-            $this->getImportProcessor()->getConnection(),
-            $this->getConfiguration()
-        );
+        $productProcessor = $processorFactory::factory($this->getImportProcessor()->getConnection(), $subject);
         $instance->setProductProcessor($productProcessor);
 
         // return the subject instance

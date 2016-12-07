@@ -56,6 +56,15 @@ class Subject implements SubjectInterface
     protected $processorFactory;
 
     /**
+     * The subject's utility class with the SQL statements to use.
+     *
+     * @var string
+     * @Type("string")
+     * @SerializedName("utility-class-name")
+     */
+    protected $utilityClassName;
+
+    /**
      * The file prefix for import files.
      *
      * @var string
@@ -139,6 +148,16 @@ class Subject implements SubjectInterface
     public function getProcessorFactory()
     {
         return $this->processorFactory;
+    }
+
+    /**
+     * Return's the utility class with the SQL statements to use.
+     *
+     * @return string The utility class name
+     */
+    public function getUtilityClassName()
+    {
+        return $this->utilityClassName;
     }
 
     /**
