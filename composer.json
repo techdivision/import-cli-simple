@@ -11,7 +11,8 @@
 		"techdivision/import-product-variant" : "0.1.*",
         "techdivision/import-product-bundle" : "0.1.*",
         "techdivision/import-product-media" : "0.1.*",
-        "techdivision/import-product-link" : "0.1.*"
+        "techdivision/import-product-link" : "0.1.*",
+        "techdivision/import-product-ee" : "0.1.*"
 	},
 	"authors" : [{
 			"name" : "Tim Wagner",
@@ -32,12 +33,17 @@
 	"repositories" : [{
             "type" : "git",
             "url" : "https://gitlab.tdintern.de/wagnert/techdivision-import.git",
-            "name" : "techdivision/import-product-variant"
+            "name" : "techdivision/import"
         },
         {
             "type" : "git",
             "url" : "https://gitlab.tdintern.de/wagnert/techdivision-import-product.git",
-            "name" : "techdivision/import-product-variant"
+            "name" : "techdivision/import-product"
+        },
+        {
+            "type" : "git",
+            "url" : "https://gitlab.tdintern.de/wagnert/techdivision-import-product-ee.git",
+            "name" : "techdivision/import-product-ee"
         },
         {
 			"type" : "git",

@@ -58,15 +58,6 @@ class Configuration implements ConfigurationInterface
     protected $magentoVersion = '2.1.2';
 
     /**
-     * The source directory that has to be watched for new files.
-     *
-     * @var string
-     * @Type("string")
-     * @SerializedName("source-dir")
-     */
-    protected $sourceDir;
-
-    /**
      * The Magento installation directory.
      *
      * @var string
@@ -117,18 +108,6 @@ class Configuration implements ConfigurationInterface
         $serializer = SerializerBuilder::create()->build();
         /** @var \TechDivision\Import\Cli\Configuration $instance */
         $instance = $serializer->deserialize($jsonData, 'TechDivision\Import\Cli\Configuration', 'json');
-
-        // query whether or not a prefix has been specified as command line
-        // option, if yes override the value from the configuration file.
-        if ($prefix = $input->getOption(InputOptionKeys::PREFIX)) {
-            $instance->setPrefix($prefix);
-        }
-
-        // query whether or not a source directory has been specified as command line
-        // option, if yes override the value from the configuration file.
-        if ($sourceDir = $input->getOption(InputOptionKeys::SOURCE_DIR)) {
-            $instance->setSourceDir($sourceDir);
-        }
 
         // query whether or not a Magento installation directory has been specified as command line
         // option, if yes override the value from the configuration file.
@@ -203,28 +182,6 @@ class Configuration implements ConfigurationInterface
     public function getSubjects()
     {
         return $this->subjects;
-    }
-
-    /**
-     * Set's the source directory that has to be watched for new files.
-     *
-     * @param string $sourceDir The source directory
-     *
-     * @return void
-     */
-    public function setSourceDir($sourceDir)
-    {
-        $this->sourceDir = $sourceDir;
-    }
-
-    /**
-     * Return's the source directory that has to be watched for new files.
-     *
-     * @return string The source directory
-     */
-    public function getSourceDir()
-    {
-        return $this->sourceDir;
     }
 
     /**

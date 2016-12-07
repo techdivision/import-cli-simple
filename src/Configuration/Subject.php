@@ -73,7 +73,16 @@ class Subject implements SubjectInterface
     protected $sourceDateFormat = 'n/d/y, g:i A';
 
     /**
-     * The subject's target directory.
+     * The source directory that has to be watched for new files.
+     *
+     * @var string
+     * @Type("string")
+     * @SerializedName("source-dir")
+     */
+    protected $sourceDir;
+
+    /**
+     * The target directory with the files to be imported.
      *
      * @var string
      * @Type("string")
@@ -139,22 +148,47 @@ class Subject implements SubjectInterface
      */
     public function getParams()
     {
-        return reset($this->params);
+        if (!$params = reset($this->params)) {
+            $params = array();
+        }
+        return $params;
+    }
+
+    /**
+     * Query whether or not the param with the passed name exists.
+     *
+     * @param string $name The name of the param to be queried
+     *
+     * @return boolean TRUE if the requested param exists, else FALSE
+     */
+    public function hasParam($name)
+    {
+        return array_key_exists($name, $this->getParams());
     }
 
     /**
      * Return's the param with the passed name.
      *
-     * @param string $name The name of the param to return
+     * @param string $name         The name of the param to return
+     * @param mixed  $defaultValue The default value if the param doesn't exists
      *
      * @return string The requested param
      * @throws \Exception Is thrown, if the requested param is not available
      */
-    public function getParam($name)
+    public function getParam($name, $defaultValue = null)
     {
+
+        // query whether or not, the param is set
         if (array_key_exists($name, $params = $this->getParams())) {
             return $params[$name];
         }
+
+        // if not, query we query if a default value has been passed
+        if ($defaultValue != null) {
+            return $defaultValue;
+        }
+
+        // throw an exception if neither the param exists or a default value has been passed
         throw new \Exception(sprintf('Requested param %s not available', $name));
     }
 
@@ -245,7 +279,29 @@ class Subject implements SubjectInterface
     }
 
     /**
-     * Return's the subject's target directory to use.
+     * Set's the source directory that has to be watched for new files.
+     *
+     * @param string $sourceDir The source directory
+     *
+     * @return void
+     */
+    public function setSourceDir($sourceDir)
+    {
+        $this->sourceDir = $sourceDir;
+    }
+
+    /**
+     * Return's the source directory that has to be watched for new files.
+     *
+     * @return string The source directory
+     */
+    public function getSourceDir()
+    {
+        return $this->sourceDir;
+    }
+
+    /**
+     * Return's the target directory with the files to be imported.
      *
      * @return string The target directory
      */
@@ -255,7 +311,7 @@ class Subject implements SubjectInterface
     }
 
     /**
-     * Set's the subject's target directory to use.
+     * Set's the target directory with the files to be imported.
      *
      * @param string $targetDir The target directory
      *

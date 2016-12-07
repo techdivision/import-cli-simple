@@ -22,11 +22,15 @@ namespace TechDivision\Import\Cli;
 
 use Rhumsaa\Uuid\Uuid;
 use Psr\Log\LoggerInterface;
+use League\Flysystem\Filesystem;
+use League\Flysystem\Adapter\Local;
+use League\Flysystem\FilesystemInterface;
 use TechDivision\Import\Utils\MemberNames;
 use TechDivision\Import\Utils\RegistryKeys;
 use TechDivision\Import\ConfigurationInterface;
 use TechDivision\Import\Services\ImportProcessorInterface;
 use TechDivision\Import\Services\RegistryProcessorInterface;
+use TechDivision\Import\Utils\ConfigurationKeys;
 
 /**
  * A SLSB that handles the product import process.
@@ -370,7 +374,7 @@ class Simple
         $systemLogger = $this->getSystemLogger();
 
         // init file iterator on deployment directory
-        $fileIterator = new \FilesystemIterator($sourceDir = $this->getSourceDir());
+        $fileIterator = new \FilesystemIterator($sourceDir = $subject->getSourceDir());
 
         // clear the filecache
         clearstatcache();

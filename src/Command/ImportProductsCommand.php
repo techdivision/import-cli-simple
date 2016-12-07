@@ -22,22 +22,15 @@ namespace TechDivision\Import\Cli\Command;
 
 use Monolog\Logger;
 use Monolog\Handler\ErrorLogHandler;
+use TechDivision\Import\Cli\Simple;
+use TechDivision\Import\Cli\Configuration;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
-use TechDivision\Import\Cli\Simple;
-use TechDivision\Import\Cli\Configuration;
-use TechDivision\Import\Services\ImportProcessor;
-use TechDivision\Import\Services\RegistryProcessor;
-use TechDivision\Import\Repositories\StoreRepository;
-use TechDivision\Import\Repositories\TaxClassRepository;
-use TechDivision\Import\Repositories\LinkTypeRepository;
-use TechDivision\Import\Repositories\CategoryRepository;
-use TechDivision\Import\Repositories\StoreWebsiteRepository;
-use TechDivision\Import\Repositories\EavAttributeRepository;
-use TechDivision\Import\Repositories\CategoryVarcharRepository;
-use TechDivision\Import\Repositories\EavAttributeSetRepository;
+use TechDivision\Import\Services\ImportProcessorFactory;
+use TechDivision\Import\Services\RegistryProcessorFactory;
+use Psr\Log\LogLevel;
 
 /**
  * The import command implementation.
@@ -66,13 +59,7 @@ class ImportProductsCommand extends Command
                  null,
                  InputOption::VALUE_REQUIRED,
                  'Specify the pathname to the configuration file to use',
-                 sprintf('%s/techdivision-import.json', getcwd())
-             )
-             ->addOption(
-                 InputOptionKeys::SOURCE_DIR,
-                 null,
-                 InputOption::VALUE_REQUIRED,
-                 'The directory to query for CSV file(s) that has/have to be imported'
+                 sprintf('%s/example/ce/212/conf/techdivision-import.json', getcwd())
              )
              ->addOption(
                  InputOptionKeys::INSTALLATION_DIR,
@@ -140,10 +127,6 @@ class ImportProductsCommand extends Command
         // load the specified configuration
         $configuration = Configuration::factory($input);
 
-        // extract magento Edition/version
-        $magentoEdition = $configuration->getMagentoEdition();
-        $magentoVersion = $configuration->getMagentoVersion();
-
         // initialize the PDO connection
         $dsn = $configuration->getDatabase()->getDsn();
         $username = $configuration->getDatabase()->getUsername();
@@ -151,87 +134,16 @@ class ImportProductsCommand extends Command
         $connection = new \PDO($dsn, $username, $password);
         $connection->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
 
-        // initialize the repository that provides category query functionality
-        $categoryRepository = new CategoryRepository();
-        $categoryRepository->setMagentoEdition($magentoEdition);
-        $categoryRepository->setMagentoVersion($magentoVersion);
-        $categoryRepository->setConnection($connection);
-        $categoryRepository->init();
-
-        // initialize the repository that provides category varchar value query functionality
-        $categoryVarcharRepository = new CategoryVarcharRepository();
-        $categoryVarcharRepository->setMagentoEdition($magentoEdition);
-        $categoryVarcharRepository->setMagentoVersion($magentoVersion);
-        $categoryVarcharRepository->setConnection($connection);
-        $categoryVarcharRepository->init();
-
-        // initialize the repository that provides EAV attribute query functionality
-        $eavAttributeRepository = new EavAttributeRepository();
-        $eavAttributeRepository->setMagentoEdition($magentoEdition);
-        $eavAttributeRepository->setMagentoVersion($magentoVersion);
-        $eavAttributeRepository->setConnection($connection);
-        $eavAttributeRepository->init();
-
-        // initialize the repository that provides EAV attribute set query functionality
-        $eavAttributeSetRepository = new EavAttributeSetRepository();
-        $eavAttributeSetRepository->setMagentoEdition($magentoEdition);
-        $eavAttributeSetRepository->setMagentoVersion($magentoVersion);
-        $eavAttributeSetRepository->setConnection($connection);
-        $eavAttributeSetRepository->init();
-
-        // initialize the repository that provides store query functionality
-        $storeRepository = new StoreRepository();
-        $storeRepository->setMagentoEdition($magentoEdition);
-        $storeRepository->setMagentoVersion($magentoVersion);
-        $storeRepository->setConnection($connection);
-        $storeRepository->init();
-
-        // initialize the repository that provides store website query functionality
-        $storeWebsiteRepository = new StoreWebsiteRepository();
-        $storeWebsiteRepository->setMagentoEdition($magentoEdition);
-        $storeWebsiteRepository->setMagentoVersion($magentoVersion);
-        $storeWebsiteRepository->setConnection($connection);
-        $storeWebsiteRepository->init();
-
-        // initialize the repository that provides tax class query functionality
-        $taxClassRepository = new TaxClassRepository();
-        $taxClassRepository->setMagentoEdition($magentoEdition);
-        $taxClassRepository->setMagentoVersion($magentoVersion);
-        $taxClassRepository->setConnection($connection);
-        $taxClassRepository->init();
-
-        // initialize the repository that provides link type query functionality
-        $linkTypeRepository = new LinkTypeRepository();
-        $linkTypeRepository->setMagentoEdition($magentoEdition);
-        $linkTypeRepository->setMagentoVersion($magentoVersion);
-        $linkTypeRepository->setConnection($connection);
-        $linkTypeRepository->init();
-
-        // initialize the product processor
-        $importProcessor = new ImportProcessor();
-        $importProcessor->setConnection($connection);
-        $importProcessor->setCategoryRepository($categoryRepository);
-        $importProcessor->setCategoryVarcharRepository($categoryVarcharRepository);
-        $importProcessor->setEavAttributeRepository($eavAttributeRepository);
-        $importProcessor->setEavAttributeSetRepository($eavAttributeSetRepository);
-        $importProcessor->setStoreRepository($storeRepository);
-        $importProcessor->setStoreWebsiteRepository($storeWebsiteRepository);
-        $importProcessor->setTaxClassRepository($taxClassRepository);
-        $importProcessor->setLinkTypeRepository($linkTypeRepository);
-
-        // initialize the registry processor
-        $registryProcessor = new RegistryProcessor();
-
         // initialize the system logger
         $systemLogger = new Logger('techdivision/import');
-        $systemLogger->pushHandler(new ErrorLogHandler());
+        $systemLogger->pushHandler(new ErrorLogHandler(ErrorLogHandler::OPERATING_SYSTEM, LogLevel::INFO));
 
         // initialize and run the importer
         $importer = new Simple();
         $importer->setSystemLogger($systemLogger);
         $importer->setConfiguration($configuration);
-        $importer->setImportProcessor($importProcessor);
-        $importer->setRegistryProcessor($registryProcessor);
+        $importer->setImportProcessor(ImportProcessorFactory::factory($connection, $configuration));
+        $importer->setRegistryProcessor(RegistryProcessorFactory::factory($connection, $configuration));
         $importer->import();
     }
 }

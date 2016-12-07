@@ -1,21 +1,21 @@
 {
-  "magento-editition": "CE",
+  "magento-editition": "EE",
   "magento-version": "2.1.2",
-  "installation-dir" : "/opt/appserver/webapps/magento2_ce212",
-  "source-dir": "/opt/appserver/tmp",
+  "installation-dir" : "/var/www/magento",
   "database": {
-    "pdo-dsn": "mysql:host=127.0.0.1;dbname=appserver_magento2_ce212",
+    "pdo-dsn": "mysql:host=127.0.0.1;dbname=appserver_magento2_ee212",
     "username": "magento",
     "password": "eraZor"
   },
   "subjects": [
     {
-      "class-name": "TechDivision\\Import\\Product\\Subjects\\BunchSubject",
-      "processor-factory" : "TechDivision\\Import\\Product\\Services\\ProductProcessorFactory",
+      "class-name": "TechDivision\\Import\\Product\\Ee\\Subjects\\EeBunchSubject",
+      "processor-factory" : "TechDivision\\Import\\Product\\Ee\\Services\\EeProductProcessorFactory",
       "identifier": "files",
       "source-date-format": "n/d/y, g:i A",
+      "source-dir": "example/ee/212/data",
+      "target-dir": "example/tmp",
       "prefix": "magento-import",
-      "target-dir" : "/opt/appserver/tmp",
       "observers": [
         {
           "pre-import": [
@@ -26,7 +26,7 @@
         },
         {
           "import": [
-            "TechDivision\\Import\\Product\\Observers\\ProductObserver",
+            "TechDivision\\Import\\Product\\Ee\\Observers\\EeProductObserver",
             "TechDivision\\Import\\Product\\Observers\\ProductWebsiteObserver",
             "TechDivision\\Import\\Product\\Observers\\ProductCategoryObserver",
             "TechDivision\\Import\\Product\\Observers\\ProductInventoryObserver",
@@ -180,6 +180,8 @@
       "class-name": "TechDivision\\Import\\Product\\Variant\\Subjects\\VariantSubject",
       "processor-factory" : "TechDivision\\Import\\Product\\Variant\\Services\\ProductVariantProcessorFactory",
       "prefix": "variants",
+      "source-dir": "example/tmp",
+      "target-dir": "example/tmp",
       "observers": [
         {
           "import": [
@@ -192,6 +194,8 @@
       "class-name": "TechDivision\\Import\\Product\\Bundle\\Subjects\\BundleSubject",
       "processor-factory" : "TechDivision\\Import\\Product\\Bundle\\Services\\ProductBundleProcessorFactory",
       "prefix": "bundles",
+      "source-dir": "example/tmp",
+      "target-dir": "example/tmp",
       "observers": [
         {
           "import": [
@@ -207,6 +211,8 @@
       "class-name": "TechDivision\\Import\\Product\\Media\\Subjects\\MediaSubject",
       "processor-factory" : "TechDivision\\Import\\Product\\Media\\Services\\ProductMediaProcessorFactory",
       "prefix": "media",
+      "source-dir": "example/tmp",
+      "target-dir": "example/tmp",
       "params" : [
         {
           "root-directory" : "/",
@@ -230,6 +236,8 @@
       "class-name": "TechDivision\\Import\\Product\\Link\\Subjects\\LinkSubject",
       "processor-factory" : "TechDivision\\Import\\Product\\Link\\Services\\ProductLinkProcessorFactory",
       "prefix": "links",
+      "source-dir": "example/tmp",
+      "target-dir": "example/tmp",
       "observers": [
         {
           "import": [
