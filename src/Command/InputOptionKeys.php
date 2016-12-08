@@ -1,7 +1,7 @@
 <?php
 
 /**
- * TechDivision\Import\Cli\Command
+ * TechDivision\Import\Cli\Command\InputOptionKeys
  *
  * NOTICE OF LICENSE
  *
@@ -11,11 +11,11 @@
  *
  * PHP version 5
  *
- * @author    Tim Wagner <tw@appserver.io>
- * @copyright 2015 TechDivision GmbH <info@appserver.io>
+ * @author    Tim Wagner <t.wagner@techdivision.com>
+ * @copyright 2016 TechDivision GmbH <info@techdivision.com>
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
- * @link      https://github.com/wagnert/csv-import
- * @link      http://www.appserver.io
+ * @link      https://github.com/techdivision/import-cli-simple
+ * @link      http://www.techdivision.com
  */
 
 namespace TechDivision\Import\Cli\Command;
@@ -23,14 +23,31 @@ namespace TechDivision\Import\Cli\Command;
 /**
  * Utility class containing the available visibility keys.
  *
- * @author    Tim Wagner <tw@appserver.io>
- * @copyright 2015 TechDivision GmbH <info@appserver.io>
+ * @author    Tim Wagner <t.wagner@techdivision.com>
+ * @copyright 2016 TechDivision GmbH <info@techdivision.com>
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
- * @link      https://github.com/wagnert/csv-import
- * @link      http://www.appserver.io
+ * @link      https://github.com/techdivision/import-cli-simple
+ * @link      http://www.techdivision.com
  */
 class InputOptionKeys
 {
+
+    /**
+     * This is a utility class, so protect it against direct
+     * instantiation.
+     */
+    private function __construct()
+    {
+    }
+
+    /**
+     * This is a utility class, so protect it against cloning.
+     *
+     * @return void
+     */
+    private function __clone()
+    {
+    }
 
     /**
      * The input option key for the path to the configuration file to use.
@@ -101,21 +118,4 @@ class InputOptionKeys
      * @var string
      */
     const DB_PASSWORD = 'db-password';
-
-    /**
-     * This is a utility class, so protect it against direct
-     * instantiation.
-     */
-    private function __construct()
-    {
-    }
-
-    /**
-     * This is a utility class, so protect it against cloning.
-     *
-     * @return void
-     */
-    private function __clone()
-    {
-    }
 }

@@ -11,7 +11,7 @@
   "subjects": [
     {
       "class-name": "TechDivision\\Import\\Product\\Subjects\\BunchSubject",
-      "processor-factory" : "TechDivision\\Import\\Product\\Services\\ProductProcessorFactory",
+      "processor-factory" : "TechDivision\\Import\\Cli\\Services\\ProductProcessorFactory",
       "utility-class-name" : "TechDivision\\Import\\Product\\Utils\\SqlStatements",
       "identifier": "files",
       "source-date-format": "n/d/y, g:i A",
@@ -180,7 +180,7 @@
     },
     {
       "class-name": "TechDivision\\Import\\Product\\Variant\\Subjects\\VariantSubject",
-      "processor-factory" : "TechDivision\\Import\\Product\\Variant\\Services\\ProductVariantProcessorFactory",
+      "processor-factory" : "TechDivision\\Import\\Cli\\Services\\ProductVariantProcessorFactory",
       "utility-class-name" : "TechDivision\\Import\\Product\\Variant\\Utils\\SqlStatements",
       "prefix": "variants",
       "source-dir": "example/tmp",
@@ -195,7 +195,7 @@
     },
     {
       "class-name": "TechDivision\\Import\\Product\\Bundle\\Subjects\\BundleSubject",
-      "processor-factory" : "TechDivision\\Import\\Product\\Bundle\\Services\\ProductBundleProcessorFactory",
+      "processor-factory" : "TechDivision\\Import\\Cli\\Services\\ProductBundleProcessorFactory",
       "utility-class-name" : "TechDivision\\Import\\Product\\Bundle\\Utils\\SqlStatements",
       "prefix": "bundles",
       "source-dir": "example/tmp",
@@ -213,7 +213,7 @@
     },
     {
       "class-name": "TechDivision\\Import\\Product\\Media\\Subjects\\MediaSubject",
-      "processor-factory" : "TechDivision\\Import\\Product\\Media\\Services\\ProductMediaProcessorFactory",
+      "processor-factory" : "TechDivision\\Import\\Cli\\Services\\ProductMediaProcessorFactory",
       "utility-class-name" : "TechDivision\\Import\\Product\\Media\\Utils\\SqlStatements",
       "prefix": "media",
       "source-dir": "example/tmp",
@@ -239,7 +239,7 @@
     },
     {
       "class-name": "TechDivision\\Import\\Product\\Link\\Subjects\\LinkSubject",
-      "processor-factory" : "TechDivision\\Import\\Product\\Link\\Services\\ProductLinkProcessorFactory",
+      "processor-factory" : "TechDivision\\Import\\Cli\\Services\\ProductLinkProcessorFactory",
       "utility-class-name" : "TechDivision\\Import\\Product\\Links\\Utils\\SqlStatements",
       "prefix": "links",
       "source-dir": "example/tmp",

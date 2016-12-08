@@ -11,11 +11,11 @@
  *
  * PHP version 5
  *
- * @author    Tim Wagner <tw@appserver.io>
- * @copyright 2015 TechDivision GmbH <info@appserver.io>
+ * @author    Tim Wagner <t.wagner@techdivision.com>
+ * @copyright 2016 TechDivision GmbH <info@techdivision.com>
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
- * @link      https://github.com/wagnert/csv-import
- * @link      http://www.appserver.io
+ * @link      https://github.com/techdivision/import-cli-simple
+ * @link      http://www.techdivision.com
  */
 
 namespace TechDivision\Import\Cli;
@@ -27,19 +27,19 @@ use League\Flysystem\Adapter\Local;
 use League\Flysystem\FilesystemInterface;
 use TechDivision\Import\Utils\MemberNames;
 use TechDivision\Import\Utils\RegistryKeys;
+use TechDivision\Import\Utils\ConfigurationKeys;
 use TechDivision\Import\ConfigurationInterface;
 use TechDivision\Import\Services\ImportProcessorInterface;
 use TechDivision\Import\Services\RegistryProcessorInterface;
-use TechDivision\Import\Utils\ConfigurationKeys;
 
 /**
  * A SLSB that handles the product import process.
  *
- * @author    Tim Wagner <tw@appserver.io>
- * @copyright 2015 TechDivision GmbH <info@appserver.io>
+ * @author    Tim Wagner <t.wagner@techdivision.com>
+ * @copyright 2016 TechDivision GmbH <info@techdivision.com>
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
- * @link      https://github.com/wagnert/csv-import
- * @link      http://www.appserver.io
+ * @link      https://github.com/techdivision/import-cli-simple
+ * @link      http://www.techdivision.com
  */
 class Simple
 {
@@ -232,7 +232,7 @@ class Simple
         $endTime = microtime(true) - $startTime;
 
         // log a message that import has been finished
-        $this->getSystemLogger()->debug(sprintf('Successfully finished import with serial %s in %f s', $this->getSerial(), $endTime));
+        $this->getSystemLogger()->info(sprintf('Successfully finished import with serial %s in %f s', $this->getSerial(), $endTime));
     }
 
     /**
@@ -243,6 +243,9 @@ class Simple
      */
     public function start()
     {
+
+        // log a message that import has been started
+        $this->getSystemLogger()->info(sprintf('Now start import with serial %s', $this->getSerial()));
 
         // initialize the status
         $status = array('status' => 1);
@@ -409,9 +412,6 @@ class Simple
                     continue;
                 }
 
-                // log the filename we'll process now
-                $systemLogger->debug(sprintf('Now start importing file %s!', $filename));
-
                 // flag file as in progress
                 touch($inProgressFilename);
 
@@ -450,6 +450,9 @@ class Simple
         // load the subject class name
         $className = $subject->getClassName();
 
+        // the database connection to use
+        $connection = $this->getImportProcessor()->getConnection();
+
         // initialize a new handler with the passed class name
         $instance = new $className();
 
@@ -460,7 +463,7 @@ class Simple
 
         // instanciate and set the product processor
         $processorFactory = $subject->getProcessorFactory();
-        $productProcessor = $processorFactory::factory($this->getImportProcessor()->getConnection(), $subject);
+        $productProcessor = $processorFactory::factory($connection, $subject);
         $instance->setProductProcessor($productProcessor);
 
         // return the subject instance
