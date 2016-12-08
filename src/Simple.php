@@ -247,7 +247,7 @@ class Simple
         $this->getSystemLogger()->info(sprintf('Now start import with serial %s', $this->getSerial()));
 
         // initialize the status
-        $status = array('status' => 1);
+        $status = array(RegistryKeys::STATUS => 1);
 
         // initialize the status information for the subjects */
         /** @var \TechDivision\Import\Configuration\SubjectInterface $subject */
@@ -319,7 +319,7 @@ class Simple
             $globalData[RegistryKeys::EAV_ATTRIBUTES] = $eavAttributes;
 
             // add the status with the global data
-            $registryProcessor->mergeAttributesRecursive($this->getSerial(), array('globalData' => $globalData));
+            $registryProcessor->mergeAttributesRecursive($this->getSerial(), array(RegistryKeys::GLOBAL_DATA => $globalData));
 
         } catch (\Exception $e) {
             $this->getSystemLogger()->error($e->__toString());
