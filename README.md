@@ -1,4 +1,4 @@
-# M2IF - Magento 2 Import Framework
+# M2IF - Simple Console
 
 ## Installation
 
@@ -67,20 +67,3 @@ $ sudo rm -rf example/tmp \
        --installation-dir=/var/www/magento \
        --configuration=example/ce/212/conf/techdivision-import.json
 ```
-
-## The Workflow
-
-The importer has a component based architecture and provides a plug-in mechanism to add new functionality.
-Each component is provided by it's own composer library whereas the libraries will have dependencies to each
-other, at least to the core library `techdivision/import`.
-
-Each component **MUST** at least provide a subject that'll be executed synchronously by the command. When a 
-subject is executed, it's `import()` method will be invoked and a uniuque ID for the actualy import process, 
-as well as the name of the file that has to be imported, will be passed. The save memory, the `import()` 
-method opens a stream to parse the passed file line by line. For each line found, a `importRow()` method 
-will be invoked, that has exactly one parameter, which is the actual row that has to be processed.
-
-As described above, a subject can implement the import functionality, it is responsible for, by itself. A 
-better and more generic solution are observers, that can be registered in the configuration file. A subject 
-can have one or more observers, that will be invoked, by the subject's `importRow()` method. This means, for
-each row in the CSV file, all registered observers are executed synchronously.
