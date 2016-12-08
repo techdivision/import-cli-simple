@@ -32,7 +32,7 @@
             "TechDivision\\Import\\Product\\Observers\\ProductWebsiteObserver",
             "TechDivision\\Import\\Product\\Observers\\ProductCategoryObserver",
             "TechDivision\\Import\\Product\\Observers\\ProductInventoryObserver",
-            "TechDivision\\Import\\Product\\Observers\\ProductAttributeObserver",
+            "TechDivision\\Import\\Product\\Ee\\Observers\\EeProductAttributeObserver",
             "TechDivision\\Import\\Product\\Variant\\Observers\\ProductVariantObserver",
             "TechDivision\\Import\\Product\\Bundle\\Observers\\ProductBundleObserver",
             "TechDivision\\Import\\Product\\Media\\Observers\\ProductMediaObserver",
@@ -41,7 +41,7 @@
         },
         {
           "post-import": [
-            "TechDivision\\Import\\Product\\Observers\\PostImport\\CleanUpObserver"
+            "TechDivision\\Import\\Product\\Ee\\Observers\\PostImport\\EeCleanUpObserver"
           ]
         }
       ],
@@ -179,7 +179,7 @@
       ]
     },
     {
-      "class-name": "TechDivision\\Import\\Product\\Variant\\Subjects\\VariantSubject",
+      "class-name": "TechDivision\\Import\\Product\\Variant\\Ee\\Subjects\\EeVariantSubject",
       "processor-factory" : "TechDivision\\Import\\Product\\Variant\\Services\\ProductVariantProcessorFactory",
       "utility-class-name" : "TechDivision\\Import\\Product\\Variant\\Utils\\SqlStatements",
       "prefix": "variants",
@@ -188,13 +188,13 @@
       "observers": [
         {
           "import": [
-            "TechDivision\\Import\\Product\\Variant\\Observers\\VariantObserver"
+            "TechDivision\\Import\\Product\\Variant\\Ee\\Observers\\EeVariantObserver"
           ]
         }
       ]
     },
     {
-      "class-name": "TechDivision\\Import\\Product\\Bundle\\Subjects\\BundleSubject",
+      "class-name": "TechDivision\\Import\\Product\\Bundle\\Ee\\Subjects\\EeBundleSubject",
       "processor-factory" : "TechDivision\\Import\\Product\\Bundle\\Services\\ProductBundleProcessorFactory",
       "utility-class-name" : "TechDivision\\Import\\Product\\Bundle\\Utils\\SqlStatements",
       "prefix": "bundles",
@@ -203,7 +203,7 @@
       "observers": [
         {
           "import": [
-            "TechDivision\\Import\\Product\\Bundle\\Observers\\BundleOptionObserver",
+            "TechDivision\\Import\\Product\\Bundle\\Ee\\Observers\\EeBundleOptionObserver",
             "TechDivision\\Import\\Product\\Bundle\\Observers\\BundleOptionValueObserver",
             "TechDivision\\Import\\Product\\Bundle\\Observers\\BundleSelectionObserver",
             "TechDivision\\Import\\Product\\Bundle\\Observers\\BundleSelectionPriceObserver"
@@ -212,9 +212,9 @@
       ]
     },
     {
-      "class-name": "TechDivision\\Import\\Product\\Media\\Subjects\\MediaSubject",
+      "class-name": "TechDivision\\Import\\Product\\Media\\Ee\\Subjects\\EeMediaSubject",
       "processor-factory" : "TechDivision\\Import\\Product\\Media\\Services\\ProductMediaProcessorFactory",
-      "utility-class-name" : "TechDivision\\Import\\Product\\Media\\Utils\\SqlStatements",
+      "utility-class-name" : "TechDivision\\Import\\Product\\Media\\Ee\\Utils\\SqlStatements",
       "prefix": "media",
       "source-dir": "example/tmp",
       "target-dir": "example/tmp",
@@ -231,8 +231,8 @@
             "TechDivision\\Import\\Product\\Media\\Observers\\PreImport\\FileUploadObserver"
           ],
           "import": [
-            "TechDivision\\Import\\Product\\Media\\Observers\\MediaGalleryObserver",
-            "TechDivision\\Import\\Product\\Media\\Observers\\MediaGalleryValueObserver"
+            "TechDivision\\Import\\Product\\Media\\Ee\\Observers\\EeMediaGalleryObserver",
+            "TechDivision\\Import\\Product\\Media\\Ee\\Observers\\EeMediaGalleryValueObserver"
           ]
         }
       ]

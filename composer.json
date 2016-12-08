@@ -9,8 +9,11 @@
 		"symfony/console" : "~3.0",
         "league/flysystem" : "~1.0",
 		"techdivision/import-product-variant" : "0.1.*",
+        "techdivision/import-product-variant-ee" : "0.1.*",
         "techdivision/import-product-bundle" : "0.1.*",
+        "techdivision/import-product-bundle-ee" : "0.1.*",
         "techdivision/import-product-media" : "0.1.*",
+        "techdivision/import-product-media-ee" : "0.1.*",
         "techdivision/import-product-link" : "0.1.*",
         "techdivision/import-product-ee" : "0.1.*"
 	},
@@ -50,6 +53,11 @@
 			"url" : "https://gitlab.tdintern.de/wagnert/techdivision-import-product-variant.git",
 			"name" : "techdivision/import-product-variant"
 		},
+        {
+            "type" : "git",
+            "url" : "https://gitlab.tdintern.de/wagnert/techdivision-import-product-variant-ee.git",
+            "name" : "techdivision/import-product-variant-ee"
+        },
 		{
             "type" : "git",
             "url" : "https://gitlab.tdintern.de/wagnert/techdivision-import-product-bundle.git",
@@ -57,8 +65,18 @@
         },
         {
             "type" : "git",
+            "url" : "https://gitlab.tdintern.de/wagnert/techdivision-import-product-bundle-ee.git",
+            "name" : "techdivision/import-product-bundle-ee"
+        },
+        {
+            "type" : "git",
             "url" : "https://gitlab.tdintern.de/wagnert/techdivision-import-product-media.git",
             "name" : "techdivision/import-product-media"
+        },
+        {
+            "type" : "git",
+            "url" : "https://gitlab.tdintern.de/wagnert/techdivision-import-product-media-ee.git",
+            "name" : "techdivision/import-product-media-ee"
         },
         {
             "type" : "git",
