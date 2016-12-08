@@ -22,13 +22,12 @@ namespace TechDivision\Import\Cli;
 
 use Rhumsaa\Uuid\Uuid;
 use Psr\Log\LoggerInterface;
-use League\Flysystem\Filesystem;
-use League\Flysystem\Adapter\Local;
-use League\Flysystem\FilesystemInterface;
 use TechDivision\Import\Utils\MemberNames;
 use TechDivision\Import\Utils\RegistryKeys;
-use TechDivision\Import\Utils\ConfigurationKeys;
 use TechDivision\Import\ConfigurationInterface;
+use TechDivision\Import\Subjects\SubjectInterface;
+use TechDivision\Import\Cli\Callbacks\CallbackVisitor;
+use TechDivision\Import\Cli\Observers\ObserverVisitor;
 use TechDivision\Import\Services\ImportProcessorInterface;
 use TechDivision\Import\Services\RegistryProcessorInterface;
 
@@ -465,6 +464,10 @@ class Simple
         $processorFactory = $subject->getProcessorFactory();
         $productProcessor = $processorFactory::factory($connection, $subject);
         $instance->setProductProcessor($productProcessor);
+
+        // initialize the callbacks/visitors
+        CallbackVisitor::get()->visit($instance);
+        ObserverVisitor::get()->visit($instance);
 
         // return the subject instance
         return $instance;
