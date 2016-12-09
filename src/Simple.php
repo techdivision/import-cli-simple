@@ -125,7 +125,7 @@ class Simple
     /**
      * Sets's the RegistryProcessor instance to handle the running threads.
      *
-     * @param \TechDivision\Import\Services\RegistryProcessorInterface $registryProcessor
+     * @param \TechDivision\Import\Services\RegistryProcessorInterface $registryProcessor The registry processor instance
      *
      * @return void
      */
@@ -137,7 +137,7 @@ class Simple
     /**
      * Return's the RegistryProcessor instance to handle the running threads.
      *
-     * @return \TechDivision\Import\Services\RegistryProcessor The instance
+     * @return \TechDivision\Import\Services\RegistryProcessor The registry processor instance
      */
     public function getRegistryProcessor()
     {
@@ -170,6 +170,8 @@ class Simple
      * Set's the system configuration.
      *
      * @param \TechDivision\Import\ConfigurationInterface $configuration The system configuration
+     *
+     * @return void
      */
     public function setConfiguration(ConfigurationInterface $configuration)
     {

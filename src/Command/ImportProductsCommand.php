@@ -45,7 +45,9 @@ class ImportProductsCommand extends Command
 {
 
     /**
-     * {@inheritDoc}
+     * Configures the current command.
+     *
+     * @return void
      * @see \Symfony\Component\Console\Command\Command::configure()
      */
     protected function configure()
@@ -118,7 +120,18 @@ class ImportProductsCommand extends Command
     }
 
     /**
-     * {@inheritDoc}
+     * Executes the current command.
+     *
+     * This method is not abstract because you can use this class
+     * as a concrete class. In this case, instead of defining the
+     * execute() method, you set the code to execute by passing
+     * a Closure to the setCode() method.
+     *
+     * @param \Symfony\Component\Console\Input\InputInterface   $input  An InputInterface instance
+     * @param \Symfony\Component\Console\Output\OutputInterface $output An OutputInterface instance
+     *
+     * @return null|int null or 0 if everything went fine, or an error code
+     * @throws \LogicException When this abstract method is not implemented
      * @see \Symfony\Component\Console\Command\Command::execute()
      */
     protected function execute(InputInterface $input, OutputInterface $output)
@@ -151,5 +164,8 @@ class ImportProductsCommand extends Command
         $importer->setImportProcessor(ImportProcessorFactory::factory($connection, $configuration));
         $importer->setRegistryProcessor(RegistryProcessorFactory::factory($connection, $configuration));
         $importer->import();
+
+        // write a message to the console
+        $output->writeln('Successfully finished import!');
     }
 }

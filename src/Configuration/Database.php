@@ -86,7 +86,7 @@ class Database implements DatabaseInterface
     /**
      * Set's the DB username to use.
      *
-     * @return string $username The DB username
+     * @param string $username The DB username
      *
      * @return void
      */

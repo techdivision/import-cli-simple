@@ -37,5 +37,5 @@ abstract class AbstractProductProcessorFactory implements ProductProcessorFactor
      *
      * @return string The processor class name
      */
-    protected abstract static function getProcessorType();
+    abstract protected static function getProcessorType();
 }
