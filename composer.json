@@ -10,22 +10,20 @@
 		"monolog/monolog" : "~1.0",
 		"symfony/console" : "~3.0",
 		"league/flysystem" : "~1.0",
-		"techdivision/import-product-variant" : "~1.0",
-		"techdivision/import-product-bundle" : "~1.0",
+		"techdivision/import-product-link" : "~1.0",
 		"techdivision/import-product-media" : "~1.0",
-		"techdivision/import-product-link" : "~1.0"
+		"techdivision/import-product-bundle" : "~1.0",
+		"techdivision/import-product-variant" : "~1.0",
+		"techdivision/import-product-ee" : "~1.0",
+		"techdivision/import-product-media-ee" : "~1.0",
+		"techdivision/import-product-bundle-ee" : "~1.0",
+		"techdivision/import-product-variant-ee" : "~1.0"
 	},
 	"require-dev" : {
 		"phpmd/phpmd" : "2.5.*",
 		"phpunit/phpunit" : "4.4.*",
 		"sebastian/phpcpd" : "2.0.*",
 		"squizlabs/php_codesniffer" : "2.2.*"
-	},
-	"suggest" : {
-		"techdivision/import-product-ee" : "M2IF library providing basic Magento 2 EE product import functionality",
-		"techdivision/import-product-media-ee" : "M2IF library providing basic Magento 2 EE product media import functionality",
-		"techdivision/import-product-bundle-ee" : "M2IF library providing basic Magento 2 EE bundle product import functionality",
-		"techdivision/import-product-variant-ee" : "M2IF library providing basic Magento 2 EE configurable product import functionality"
 	},
 	"authors" : [{
 			"name" : "Tim Wagner",

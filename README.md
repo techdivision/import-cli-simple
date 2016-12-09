@@ -10,8 +10,8 @@ files.
 To install the package, assuming composer is available, open a console and enter
 
 ```sh
-$ git clone https://gitlab.tdintern.de/wagnert/techdivision-import-cli-simple.git
-$ cd techdivision-import-cli-simple
+$ git clone https://github.com/techdivision/import-cli-simple.git
+$ cd import-cli-simple
 $ composer install
 ```
 
