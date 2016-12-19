@@ -282,6 +282,7 @@ class Simple
             $globalData[RegistryKeys::LINK_TYPES] = $importProcessor->getLinkTypes();
             $globalData[RegistryKeys::TAX_CLASSES] = $importProcessor->getTaxClasses();
             $globalData[RegistryKeys::STORE_WEBSITES] = $importProcessor->getStoreWebsites();
+            $globalData[RegistryKeys::ROOT_CATEGORIES] = $importProcessor->getRootCategories();
             $globalData[RegistryKeys::ATTRIBUTE_SETS] = $eavAttributeSets = $importProcessor->getEavAttributeSetsByEntityTypeId(4);
 
             // prepare the categories

@@ -43,6 +43,10 @@ use TechDivision\Import\Product\Actions\Processors\ProductVarcharPersistProcesso
 use TechDivision\Import\Product\Actions\Processors\ProductWebsitePersistProcessor;
 use TechDivision\Import\Product\Actions\Processors\StockItemPersistProcessor;
 use TechDivision\Import\Product\Actions\Processors\StockStatusPersistProcessor;
+use TechDivision\Import\Product\Repositories\UrlRewriteRepository;
+use TechDivision\Import\Product\Actions\UrlRewriteAction;
+use TechDivision\Import\Product\Actions\Processors\UrlRewritePersistProcessor;
+use TechDivision\Import\Product\Actions\Processors\UrlRewriteRemoveProcessor;
 
 /**
  * A SLSB providing methods to load product data using a PDO connection.
@@ -85,6 +89,12 @@ class ProductProcessorFactory extends AbstractProductProcessorFactory
         $eavAttributeOptionValueRepository->setUtilityClassName($utilityClassName);
         $eavAttributeOptionValueRepository->setConnection($connection);
         $eavAttributeOptionValueRepository->init();
+
+        // initialize the repository that provides URL rewrite query functionality
+        $urlRewriteRepository = new UrlRewriteRepository();
+        $urlRewriteRepository->setUtilityClassName($utilityClassName);
+        $urlRewriteRepository->setConnection($connection);
+        $urlRewriteRepository->init();
 
         // initialize the action that provides product category CRUD functionality
         $productCategoryPersistProcessor = new ProductCategoryPersistProcessor();
@@ -171,11 +181,25 @@ class ProductProcessorFactory extends AbstractProductProcessorFactory
         $stockStatusAction = new StockStatusAction();
         $stockStatusAction->setPersistProcessor($stockStatusPersistProcessor);
 
+        // initialize the action that provides URL rewrite CRUD functionality
+        $urlRewritePersistProcessor = new UrlRewritePersistProcessor();
+        $urlRewritePersistProcessor->setUtilityClassName($utilityClassName);
+        $urlRewritePersistProcessor->setConnection($connection);
+        $urlRewritePersistProcessor->init();
+        $urlRewriteRemoveProcessor = new UrlRewriteRemoveProcessor();
+        $urlRewriteRemoveProcessor->setUtilityClassName($utilityClassName);
+        $urlRewriteRemoveProcessor->setConnection($connection);
+        $urlRewriteRemoveProcessor->init();
+        $urlRewriteAction = new UrlRewriteAction();
+        $urlRewriteAction->setPersistProcessor($urlRewritePersistProcessor);
+        $urlRewriteAction->setRemoveProcessor($urlRewriteRemoveProcessor);
+
         // initialize the product processor
         $processorType = static::getProcessorType();
         $productProcessor = new $processorType();
         $productProcessor->setConnection($connection);
         $productProcessor->setEavAttributeOptionValueRepository($eavAttributeOptionValueRepository);
+        $productProcessor->setUrlRewriteRepository($urlRewriteRepository);
         $productProcessor->setProductCategoryAction($productCategoryAction);
         $productProcessor->setProductDatetimeAction($productDatetimeAction);
         $productProcessor->setProductDecimalAction($productDecimalAction);
@@ -186,6 +210,7 @@ class ProductProcessorFactory extends AbstractProductProcessorFactory
         $productProcessor->setProductWebsiteAction($productWebsiteAction);
         $productProcessor->setStockItemAction($stockItemAction);
         $productProcessor->setStockStatusAction($stockStatusAction);
+        $productProcessor->setUrlRewriteAction($urlRewriteAction);
 
         // return the instance
         return $productProcessor;
