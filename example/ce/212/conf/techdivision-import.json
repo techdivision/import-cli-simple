@@ -21,6 +21,7 @@
       "observers": [
         {
           "pre-import": [
+            "TechDivision\\Import\\Product\\Observers\\PreImport\\ClearUrlRewriteObserver",
             "TechDivision\\Import\\Product\\Observers\\PreImport\\ClearProductObserver",
             "TechDivision\\Import\\Product\\Observers\\PreImport\\AdditionalAttributeObserver",
             "TechDivision\\Import\\Product\\Observers\\PreImport\\QuantityAndStockStatusObserver"
@@ -32,6 +33,7 @@
             "TechDivision\\Import\\Product\\Observers\\ProductWebsiteObserver",
             "TechDivision\\Import\\Product\\Observers\\ProductCategoryObserver",
             "TechDivision\\Import\\Product\\Observers\\ProductInventoryObserver",
+            "TechDivision\\Import\\Product\\Observers\\UrlRewriteObserver",
             "TechDivision\\Import\\Product\\Observers\\ProductAttributeObserver",
             "TechDivision\\Import\\Product\\Variant\\Observers\\ProductVariantObserver",
             "TechDivision\\Import\\Product\\Bundle\\Observers\\ProductBundleObserver",
