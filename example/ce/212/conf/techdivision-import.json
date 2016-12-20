@@ -21,7 +21,6 @@
       "observers": [
         {
           "pre-import": [
-            "TechDivision\\Import\\Product\\Observers\\PreImport\\ClearUrlRewriteObserver",
             "TechDivision\\Import\\Product\\Observers\\PreImport\\ClearProductObserver",
             "TechDivision\\Import\\Product\\Observers\\PreImport\\AdditionalAttributeObserver",
             "TechDivision\\Import\\Product\\Observers\\PreImport\\QuantityAndStockStatusObserver"

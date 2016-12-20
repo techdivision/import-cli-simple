@@ -34,14 +34,18 @@ use TechDivision\Import\Product\Actions\ProductDecimalAction;
 use TechDivision\Import\Product\Actions\ProductDatetimeAction;
 use TechDivision\Import\Product\Actions\Processors\ProductRemoveProcessor;
 use TechDivision\Import\Product\Actions\Processors\ProductPersistProcessor;
+use TechDivision\Import\Product\Actions\Processors\ProductCategoryRemoveProcessor;
 use TechDivision\Import\Product\Actions\Processors\ProductCategoryPersistProcessor;
 use TechDivision\Import\Product\Actions\Processors\ProductDatetimePersistProcessor;
 use TechDivision\Import\Product\Actions\Processors\ProductDecimalPersistProcessor;
 use TechDivision\Import\Product\Actions\Processors\ProductIntPersistProcessor;
 use TechDivision\Import\Product\Actions\Processors\ProductTextPersistProcessor;
 use TechDivision\Import\Product\Actions\Processors\ProductVarcharPersistProcessor;
+use TechDivision\Import\Product\Actions\Processors\ProductWebsiteRemoveProcessor;
 use TechDivision\Import\Product\Actions\Processors\ProductWebsitePersistProcessor;
+use TechDivision\Import\Product\Actions\Processors\StockItemRemoveProcessor;
 use TechDivision\Import\Product\Actions\Processors\StockItemPersistProcessor;
+use TechDivision\Import\Product\Actions\Processors\StockStatusRemoveProcessor;
 use TechDivision\Import\Product\Actions\Processors\StockStatusPersistProcessor;
 use TechDivision\Import\Product\Repositories\UrlRewriteRepository;
 use TechDivision\Import\Product\Actions\UrlRewriteAction;
@@ -101,8 +105,13 @@ class ProductProcessorFactory extends AbstractProductProcessorFactory
         $productCategoryPersistProcessor->setUtilityClassName($utilityClassName);
         $productCategoryPersistProcessor->setConnection($connection);
         $productCategoryPersistProcessor->init();
+        $productCategoryRemoveProcessor = new ProductCategoryRemoveProcessor();
+        $productCategoryRemoveProcessor->setUtilityClassName($utilityClassName);
+        $productCategoryRemoveProcessor->setConnection($connection);
+        $productCategoryRemoveProcessor->init();
         $productCategoryAction = new ProductCategoryAction();
         $productCategoryAction->setPersistProcessor($productCategoryPersistProcessor);
+        $productCategoryAction->setRemoveProcessor($productCategoryRemoveProcessor);
 
         // initialize the action that provides product datetime attribute CRUD functionality
         $productDatetimePersistProcessor = new ProductDatetimePersistProcessor();
@@ -162,24 +171,39 @@ class ProductProcessorFactory extends AbstractProductProcessorFactory
         $productWebsitePersistProcessor->setUtilityClassName($utilityClassName);
         $productWebsitePersistProcessor->setConnection($connection);
         $productWebsitePersistProcessor->init();
+        $productWebsiteRemoveProcessor = new ProductWebsiteRemoveProcessor();
+        $productWebsiteRemoveProcessor->setUtilityClassName($utilityClassName);
+        $productWebsiteRemoveProcessor->setConnection($connection);
+        $productWebsiteRemoveProcessor->init();
         $productWebsiteAction = new ProductWebsiteAction();
         $productWebsiteAction->setPersistProcessor($productWebsitePersistProcessor);
+        $productWebsiteAction->setRemoveProcessor($productWebsiteRemoveProcessor);
 
         // initialize the action that provides stock item CRUD functionality
         $stockItemPersistProcessor = new StockItemPersistProcessor();
         $stockItemPersistProcessor->setUtilityClassName($utilityClassName);
         $stockItemPersistProcessor->setConnection($connection);
         $stockItemPersistProcessor->init();
+        $stockItemRemoveProcessor = new StockItemRemoveProcessor();
+        $stockItemRemoveProcessor->setUtilityClassName($utilityClassName);
+        $stockItemRemoveProcessor->setConnection($connection);
+        $stockItemRemoveProcessor->init();
         $stockItemAction = new StockItemAction();
         $stockItemAction->setPersistProcessor($stockItemPersistProcessor);
+        $stockItemAction->setRemoveProcessor($stockItemRemoveProcessor);
 
         // initialize the action that provides stock status CRUD functionality
         $stockStatusPersistProcessor = new StockStatusPersistProcessor();
         $stockStatusPersistProcessor->setUtilityClassName($utilityClassName);
         $stockStatusPersistProcessor->setConnection($connection);
         $stockStatusPersistProcessor->init();
+        $stockStatusRemoveProcessor = new StockItemRemoveProcessor();
+        $stockStatusRemoveProcessor->setUtilityClassName($utilityClassName);
+        $stockStatusRemoveProcessor->setConnection($connection);
+        $stockStatusRemoveProcessor->init();
         $stockStatusAction = new StockStatusAction();
         $stockStatusAction->setPersistProcessor($stockStatusPersistProcessor);
+        $stockStatusAction->setRemoveProcessor($stockStatusRemoveProcessor);
 
         // initialize the action that provides URL rewrite CRUD functionality
         $urlRewritePersistProcessor = new UrlRewritePersistProcessor();
