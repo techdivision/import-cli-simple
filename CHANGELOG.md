@@ -1,3 +1,13 @@
+# Version 1.0.0-alpha5
+
+## Bugfixes
+
+* None
+
+## Features
+
+* Add robo.li dependency + configuration, integrate create:phar command to create PHAR archive
+
 # Version 1.0.0-alpha4
 
 ## Bugfixes

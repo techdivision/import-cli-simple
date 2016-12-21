@@ -10,9 +10,7 @@ files.
 To install the package, assuming composer is available, open a console and enter
 
 ```sh
-$ git clone https://github.com/techdivision/import-cli-simple.git
-$ cd import-cli-simple
-$ composer install
+$ composer create-project techdivision/import-cli-simple --no-dev --stability=alpha
 ```
 
 This will clone the repository from the internal Gitlab and install the M2IF, that's all.
