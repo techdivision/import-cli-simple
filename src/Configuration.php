@@ -26,6 +26,8 @@ use JMS\Serializer\Annotation\SerializedName;
 use TechDivision\Import\ConfigurationInterface;
 use Symfony\Component\Console\Input\InputInterface;
 use TechDivision\Import\Cli\Command\InputOptionKeys;
+use TechDivision\Import\Cli\Command\InputArgumentKeys;
+use TechDivision\Import\Cli\Configuration\Operation;
 
 /**
  * A simple configuration implementation.
@@ -38,6 +40,15 @@ use TechDivision\Import\Cli\Command\InputOptionKeys;
  */
 class Configuration implements ConfigurationInterface
 {
+
+    /**
+     * The operation name to use.
+     *
+     * @var string
+     * @Type("string")
+     * @SerializedName("operation-name")
+     */
+    protected $operationName;
 
     /**
      * The Magento edition, EE or CE.
@@ -75,12 +86,12 @@ class Configuration implements ConfigurationInterface
     protected $database;
 
     /**
-     * ArrayCollection with the information of the configured subjects.
+     * ArrayCollection with the information of the configured operations.
      *
      * @var \Doctrine\Common\Collections\ArrayCollection
-     * @Type("ArrayCollection<TechDivision\Import\Cli\Configuration\Subject>")
+     * @Type("ArrayCollection<TechDivision\Import\Cli\Configuration\Operation>")
      */
-    protected $subjects;
+    protected $operations;
 
     /**
      * The subject's utility class with the SQL statements to use.
@@ -105,7 +116,7 @@ class Configuration implements ConfigurationInterface
     public static function factory(InputInterface $input)
     {
 
-        // load the configuration file to use
+        // load the configuration filename we want to use
         $filename = $input->getOption(InputOptionKeys::CONFIGURATION);
 
         // load the JSON data
@@ -118,55 +129,62 @@ class Configuration implements ConfigurationInterface
         /** @var \TechDivision\Import\Cli\Configuration $instance */
         $instance = $serializer->deserialize($jsonData, 'TechDivision\Import\Cli\Configuration', 'json');
 
+        // query whether or not an operation name has been specified as command line
+        // option, if yes override the value from the configuration file
+        if ($operationName = $input->getArgument(InputArgumentKeys::OPERATION_NAME)) {
+            $instance->setOperationName($operationName);
+        }
+
         // query whether or not a Magento installation directory has been specified as command line
-        // option, if yes override the value from the configuration file.
+        // option, if yes override the value from the configuration file
         if ($installationDir = $input->getOption(InputOptionKeys::INSTALLATION_DIR)) {
             $instance->setInstallationDir($installationDir);
         }
 
         // query whether or not a Magento edition has been specified as command line
-        // option, if yes override the value from the configuration file.
+        // option, if yes override the value from the configuration file
         if ($magentoEdition = $input->getOption(InputOptionKeys::MAGENTO_EDITION)) {
             $instance->setMagentoEdition($magentoEdition);
         }
 
         // query whether or not a Magento version has been specified as command line
-        // option, if yes override the value from the configuration file.
+        // option, if yes override the value from the configuration file
         if ($magentoVersion = $input->getOption(InputOptionKeys::MAGENTO_VERSION)) {
             $instance->setMagentoVersion($magentoVersion);
         }
 
         // query whether or not a PDO DSN has been specified as command line
-        // option, if yes override the value from the configuration file.
+        // option, if yes override the value from the configuration file
         if ($dsn = $input->getOption(InputOptionKeys::DB_PDO_DSN)) {
             $instance->getDatabase()->setDsn($dsn);
         }
 
         // query whether or not a DB username has been specified as command line
-        // option, if yes override the value from the configuration file.
+        // option, if yes override the value from the configuration file
         if ($username = $input->getOption(InputOptionKeys::DB_USERNAME)) {
             $instance->getDatabase()->setUsername($username);
         }
 
         // query whether or not a DB password has been specified as command line
-        // option, if yes override the value from the configuration file.
+        // option, if yes override the value from the configuration file
         if ($password = $input->getOption(InputOptionKeys::DB_PASSWORD)) {
             $instance->getDatabase()->setPassword($password);
         }
 
-        // query whether or not a source date format has been specified as command line
-        // option, if yes override the value from the configuration file.
-        if ($sourceDateFormat = $input->getOption(InputOptionKeys::SOURCE_DATE_FORMAT)) {
-            /** @var \TechDivision\Import\Cli\Configuration\Subject $subject */
-            foreach ($instance->getSubjects() as $subject) {
-                $subject->setSourceDateFormat($sourceDateFormat);
-            }
-        }
+        // load the source date format to use
+        $sourceDateFormat = $input->getOption(InputOptionKeys::SOURCE_DATE_FORMAT);
 
         // extend the subjects with the parent configuration instance
         /** @var \TechDivision\Import\Cli\Configuration\Subject $subject */
         foreach ($instance->getSubjects() as $subject) {
+            // set the configuration instance on the subject
             $subject->setConfiguration($instance);
+
+            // query whether or not a source date format has been specified as command
+            // line  option, if yes override the value from the configuration file
+            if (!empty($sourceDateFormat)) {
+                $subject->setSourceDateFormat($sourceDateFormat);
+            }
         }
 
         // return the initialized configuration instance
@@ -184,13 +202,66 @@ class Configuration implements ConfigurationInterface
     }
 
     /**
-     * Return's the ArrayCollection with the subjects.
+     * Return's the ArrayCollection with the configured operations.
+     *
+     * @return \Doctrine\Common\Collections\ArrayCollection The ArrayCollection with the operations
+     */
+    public function getOperations()
+    {
+        return $this->operations;
+    }
+
+    /**
+     * Return's the array with the subjects of the operation to use.
      *
      * @return \Doctrine\Common\Collections\ArrayCollection The ArrayCollection with the subjects
+     * @throws \Exception Is thrown, if no subjects are available for the actual operation
      */
     public function getSubjects()
     {
-        return $this->subjects;
+
+        // iterate over the operations and return the subjects of the actual one
+        /** @var TechDivision\Import\Configuration\OperationInterface $operation */
+        foreach ($this->getOperations() as $operation) {
+            if ($this->getOperation()->equals($operation)) {
+                return $operation->getSubjects();
+            }
+        }
+
+        // throw an exception if no subjects are available
+        throw new \Exception(sprintf('Can\'t find any subjects for operation %s', $this->getOperation()));
+    }
+
+    /**
+     * Return's the operation, initialize from the actual operation name.
+     *
+     * @return \TechDivision\Import\Configuration\OperationInterface The operation instance
+     */
+    protected function getOperation()
+    {
+        return new Operation($this->getOperationName());
+    }
+
+    /**
+     * Return's the operation name that has to be used.
+     *
+     * @param string $operationName The operation name that has to be used
+     *
+     * @return void
+     */
+    public function setOperationName($operationName)
+    {
+        return $this->operationName = $operationName;
+    }
+
+    /**
+     * Return's the operation name that has to be used.
+     *
+     * @return string The operation name that has to be used
+     */
+    public function getOperationName()
+    {
+        return $this->operationName;
     }
 
     /**

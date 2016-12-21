@@ -22,13 +22,25 @@ This will clone the repository from the internal Gitlab and install the M2IF, th
 The necessary configuration has to be defined in a simple JSON file. An example that imports the Magento 2 
 sample data in a Magento 2 CE version 2.1.2 can be found in `example/ce/212/conf/techdivision-import.json`
 
-The configuration file **MUST** to be specified whenever data has to be imported.
+The configuration file (option `--configuration`) **MUST** to be specified whenever data has to be imported.
+
+The import command allows arguments (actually only one) as well as options.
+
+### Arguments
+
+The following configuration arguments are available:
+
+| Argument             | Description                                                     | Default value |
+|:---------------------|:----------------------------------------------------------------|:--------------|
+| operation            | Specify the operation name to execute, either one of add-update, replace or delete | n/a |
+
+### Options
 
 The following configuration options are available:
 
 | Option               | Description                                                     | Default value |
 |:---------------------|:----------------------------------------------------------------|:--------------|
-| --configuration      | Specify the pathname to the configuration file to use | example/ce/212/conf/techdivision-import.json |
+| --configuration      | Specify the pathname to the configuration file to use | ./techdivision-import.json |
 | --installation-dir   | The Magento installation directory to which the files has to be imported | n/a |
 | --utility-class-name | The utility class name with the Magento edition/version specific SQL statements | n/a |
 | --magento-edition    | The Magento edition to be used, either one of CE or EE | n/a |
@@ -40,6 +52,25 @@ The following configuration options are available:
 
 All values can and **SHOULD** be defined in the configuration file. The commandline options should only be 
 used to override these values in some circumstances.
+
+## Operations
+
+As well as the Magento 2 standard import functionality, M2IF will provide 3 different import operations:
+
+| Operation                 | Description
+|:--------------------------|:-----------------------------------------------------------------------------------|
+| add-update (**NOT YET**)  | New product data is added to the existing product data for the existing entries in 
+the database. All fields except sku can be updated. New tax classes that are specified in the import data are 
+created automatically. New SKUs that are specified in the import file are created automatically. |
+| replace                   | The existing product data is replaced with new data. If a SKU in the import data 
+matches the SKU of an existing entity, all fields, including the SKU are deleted, and a new record is created 
+using the CSV data. An error occurs if the CSV file references a SKU that does not exist in the database. |
+| delete                    | Any entities in the import data that already exist in the database are deleted from the 
+database. Delete ignores all columns in the import data, except for SKU. You can disregard all other attributes 
+in the data. An error occurs if the CSV file references a SKU that does not exist in the database. |
+
+> Exercise caution when replacing data because the existing product data will be completely cleared and all 
+> references in the system will be lost.
 
 ## Preparation
 
