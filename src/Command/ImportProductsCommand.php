@@ -31,6 +31,7 @@ use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
+use Symfony\Component\Console\Input\InputArgument;
 
 /**
  * The import command implementation.
@@ -56,12 +57,17 @@ class ImportProductsCommand extends Command
         // initialize the command with the required/optional options
         $this->setName('import:products')
              ->setDescription('Imports products in the configured Magento 2 instance')
+             ->addArgument(
+                 InputArgumentKeys::OPERATION_NAME,
+                 InputArgument::OPTIONAL,
+                 'The operation that has to be used for the import, one of "add-update", "replace" or "delete"'
+             )
              ->addOption(
                  InputOptionKeys::CONFIGURATION,
                  null,
                  InputOption::VALUE_REQUIRED,
                  'Specify the pathname to the configuration file to use',
-                 sprintf('%s/example/ce/212/conf/techdivision-import.json', getcwd())
+                 sprintf('%s/techdivision-import.json', getcwd())
              )
              ->addOption(
                  InputOptionKeys::INSTALLATION_DIR,

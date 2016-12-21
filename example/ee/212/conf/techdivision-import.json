@@ -1,6 +1,7 @@
 {
   "magento-edition": "EE",
   "magento-version": "2.1.2",
+  "operation-name" : "replace",
   "installation-dir" : "/var/www/magento",
   "utility-class-name" : "TechDivision\\Import\\Utils\\Ee\\V212\\SqlStatements",
   "database": {
@@ -8,247 +9,274 @@
     "username": "magento",
     "password": "eraZor"
   },
-  "subjects": [
+  "operations" : [
     {
-      "class-name": "TechDivision\\Import\\Product\\Ee\\Subjects\\EeBunchSubject",
-      "processor-factory" : "TechDivision\\Import\\Cli\\Services\\EeProductProcessorFactory",
-      "utility-class-name" : "TechDivision\\Import\\Product\\Ee\\Utils\\SqlStatements",
-      "identifier": "files",
-      "source-date-format": "n/d/y, g:i A",
-      "source-dir": "example/tmp",
-      "target-dir": "example/tmp",
-      "prefix": "magento-import",
-      "observers": [
+      "name" : "delete",
+      "subjects" : [
         {
-          "pre-import": [
-            "TechDivision\\Import\\Product\\Observers\\PreImport\\ClearProductObserver",
-            "TechDivision\\Import\\Product\\Observers\\PreImport\\AdditionalAttributeObserver",
-            "TechDivision\\Import\\Product\\Observers\\PreImport\\QuantityAndStockStatusObserver"
-          ]
-        },
-        {
-          "import": [
-            "TechDivision\\Import\\Product\\Ee\\Observers\\EeProductObserver",
-            "TechDivision\\Import\\Product\\Observers\\ProductWebsiteObserver",
-            "TechDivision\\Import\\Product\\Observers\\ProductCategoryObserver",
-            "TechDivision\\Import\\Product\\Observers\\ProductInventoryObserver",
-            "TechDivision\\Import\\Product\\Observers\\UrlRewriteObserver",
-            "TechDivision\\Import\\Product\\Ee\\Observers\\EeProductAttributeObserver",
-            "TechDivision\\Import\\Product\\Variant\\Observers\\ProductVariantObserver",
-            "TechDivision\\Import\\Product\\Bundle\\Observers\\ProductBundleObserver",
-            "TechDivision\\Import\\Product\\Media\\Observers\\ProductMediaObserver",
-            "TechDivision\\Import\\Product\\Link\\Observers\\ProductLinkObserver"
-          ]
-        },
-        {
-          "post-import": [
-            "TechDivision\\Import\\Product\\Ee\\Observers\\PostImport\\EeCleanUpObserver"
-          ]
-        }
-      ],
-      "callbacks": [
-        {
-          "visibility": [
-            "TechDivision\\Import\\Product\\Callbacks\\VisibilityCallback"
-          ]
-        },
-        {
-          "tax_class_name": [
-            "TechDivision\\Import\\Product\\Callbacks\\TaxClassCallback"
-          ]
-        },
-        {
-          "bundle_price_type": [
-            "TechDivision\\Import\\Product\\Bundle\\Callbacks\\BundleTypeCallback"
-          ]
-        },
-        {
-          "bundle_sku_type": [
-            "TechDivision\\Import\\Product\\Bundle\\Callbacks\\BundleTypeCallback"
-          ]
-        },
-        {
-          "bundle_weight_type": [
-            "TechDivision\\Import\\Product\\Bundle\\Callbacks\\BundleTypeCallback"
-          ]
-        },
-        {
-          "bundle_price_view": [
-            "TechDivision\\Import\\Product\\Bundle\\Callbacks\\BundlePriceViewCallback"
-          ]
-        },
-        {
-          "eco_collection": [
-            "TechDivision\\Import\\Product\\Callbacks\\BooleanCallback"
-          ]
-        },
-        {
-          "performance_fabric": [
-            "TechDivision\\Import\\Product\\Callbacks\\BooleanCallback"
-          ]
-        },
-        {
-          "erin_recommends": [
-            "TechDivision\\Import\\Product\\Callbacks\\BooleanCallback"
-          ]
-        },
-        {
-          "new": [
-            "TechDivision\\Import\\Product\\Callbacks\\BooleanCallback"
-          ]
-        },
-        {
-          "sale": [
-            "TechDivision\\Import\\Product\\Callbacks\\BooleanCallback"
-          ]
-        },
-        {
-          "activity": [
-            "TechDivision\\Import\\Product\\Callbacks\\MultiselectCallback"
-          ]
-        },
-        {
-          "style_bags": [
-            "TechDivision\\Import\\Product\\Callbacks\\MultiselectCallback"
-          ]
-        },
-        {
-          "material": [
-            "TechDivision\\Import\\Product\\Callbacks\\MultiselectCallback"
-          ]
-        },
-        {
-          "strap_bags": [
-            "TechDivision\\Import\\Product\\Callbacks\\MultiselectCallback"
-          ]
-        },
-        {
-          "features_bags": [
-            "TechDivision\\Import\\Product\\Callbacks\\MultiselectCallback"
-          ]
-        },
-        {
-          "gender": [
-            "TechDivision\\Import\\Product\\Callbacks\\MultiselectCallback"
-          ]
-        },
-        {
-          "category_gear": [
-            "TechDivision\\Import\\Product\\Callbacks\\MultiselectCallback"
-          ]
-        },
-        {
-          "style_bottom": [
-            "TechDivision\\Import\\Product\\Callbacks\\MultiselectCallback"
-          ]
-        },
-        {
-          "style_general": [
-            "TechDivision\\Import\\Product\\Callbacks\\MultiselectCallback"
-          ]
-        },
-        {
-          "sleeve": [
-            "TechDivision\\Import\\Product\\Callbacks\\MultiselectCallback"
-          ]
-        },
-        {
-          "collar": [
-            "TechDivision\\Import\\Product\\Callbacks\\MultiselectCallback"
-          ]
-        },
-        {
-          "pattern": [
-            "TechDivision\\Import\\Product\\Callbacks\\MultiselectCallback"
-          ]
-        },
-        {
-          "climate": [
-            "TechDivision\\Import\\Product\\Callbacks\\MultiselectCallback"
-          ]
-        },
-        {
-          "size": [
-            "TechDivision\\Import\\Product\\Callbacks\\SelectCallback"
-          ]
-        },
-        {
-          "color": [
-            "TechDivision\\Import\\Product\\Callbacks\\SelectCallback"
+          "class-name": "TechDivision\\Import\\Product\\Ee\\Subjects\\EeBunchSubject",
+          "processor-factory" : "TechDivision\\Import\\Cli\\Services\\EeProductProcessorFactory",
+          "utility-class-name" : "TechDivision\\Import\\Product\\Ee\\Utils\\SqlStatements",
+          "identifier": "files",
+          "source-date-format": "n/d/y, g:i A",
+          "source-dir": "example/tmp",
+          "target-dir": "example/tmp",
+          "prefix": "magento-import",
+          "observers": [
+            {
+              "import": [
+                "TechDivision\\Import\\Product\\Observers\\ClearProductObserver"
+              ]
+            }
           ]
         }
       ]
     },
     {
-      "class-name": "TechDivision\\Import\\Product\\Variant\\Ee\\Subjects\\EeVariantSubject",
-      "processor-factory" : "TechDivision\\Import\\Cli\\Services\\ProductVariantProcessorFactory",
-      "utility-class-name" : "TechDivision\\Import\\Product\\Variant\\Utils\\SqlStatements",
-      "prefix": "variants",
-      "source-dir": "example/tmp",
-      "target-dir": "example/tmp",
-      "observers": [
+      "name" : "replace",
+      "subjects": [
         {
-          "import": [
-            "TechDivision\\Import\\Product\\Variant\\Ee\\Observers\\EeVariantObserver"
-          ]
-        }
-      ]
-    },
-    {
-      "class-name": "TechDivision\\Import\\Product\\Bundle\\Ee\\Subjects\\EeBundleSubject",
-      "processor-factory" : "TechDivision\\Import\\Cli\\Services\\ProductBundleProcessorFactory",
-      "utility-class-name" : "TechDivision\\Import\\Product\\Bundle\\Utils\\SqlStatements",
-      "prefix": "bundles",
-      "source-dir": "example/tmp",
-      "target-dir": "example/tmp",
-      "observers": [
-        {
-          "import": [
-            "TechDivision\\Import\\Product\\Bundle\\Ee\\Observers\\EeBundleOptionObserver",
-            "TechDivision\\Import\\Product\\Bundle\\Observers\\BundleOptionValueObserver",
-            "TechDivision\\Import\\Product\\Bundle\\Observers\\BundleSelectionObserver",
-            "TechDivision\\Import\\Product\\Bundle\\Observers\\BundleSelectionPriceObserver"
-          ]
-        }
-      ]
-    },
-    {
-      "class-name": "TechDivision\\Import\\Product\\Media\\Ee\\Subjects\\EeMediaSubject",
-      "processor-factory" : "TechDivision\\Import\\Cli\\Services\\ProductMediaProcessorFactory",
-      "utility-class-name" : "TechDivision\\Import\\Product\\Media\\Ee\\Utils\\SqlStatements",
-      "prefix": "media",
-      "source-dir": "example/tmp",
-      "target-dir": "example/tmp",
-      "params" : [
-        {
-          "root-directory" : "/",
-          "media-directory" : "/opt/appserver/webapps/magento2_ee212/pub/media/catalog/product",
-          "images-file-directory" : "example/magento2-sample-data/pub/media/catalog/product"
-        }
-      ],
-      "observers": [
-        {
-          "pre-import" : [
-            "TechDivision\\Import\\Product\\Media\\Observers\\PreImport\\FileUploadObserver"
+          "class-name": "TechDivision\\Import\\Product\\Ee\\Subjects\\EeBunchSubject",
+          "processor-factory" : "TechDivision\\Import\\Cli\\Services\\EeProductProcessorFactory",
+          "utility-class-name" : "TechDivision\\Import\\Product\\Ee\\Utils\\SqlStatements",
+          "identifier": "files",
+          "source-date-format": "n/d/y, g:i A",
+          "source-dir": "example/tmp",
+          "target-dir": "example/tmp",
+          "prefix": "magento-import",
+          "observers": [
+            {
+              "pre-import": [
+                "TechDivision\\Import\\Product\\Observers\\ClearProductObserver",
+                "TechDivision\\Import\\Product\\Observers\\AdditionalAttributeObserver",
+                "TechDivision\\Import\\Product\\Observers\\QuantityAndStockStatusObserver"
+              ]
+            },
+            {
+              "import": [
+                "TechDivision\\Import\\Product\\Ee\\Observers\\EeProductObserver",
+                "TechDivision\\Import\\Product\\Observers\\ProductWebsiteObserver",
+                "TechDivision\\Import\\Product\\Observers\\ProductCategoryObserver",
+                "TechDivision\\Import\\Product\\Observers\\ProductInventoryObserver",
+                "TechDivision\\Import\\Product\\Observers\\UrlRewriteObserver",
+                "TechDivision\\Import\\Product\\Ee\\Observers\\EeProductAttributeObserver",
+                "TechDivision\\Import\\Product\\Variant\\Observers\\ProductVariantObserver",
+                "TechDivision\\Import\\Product\\Bundle\\Observers\\ProductBundleObserver",
+                "TechDivision\\Import\\Product\\Media\\Observers\\ProductMediaObserver",
+                "TechDivision\\Import\\Product\\Link\\Observers\\ProductLinkObserver"
+              ]
+            },
+            {
+              "post-import": [
+                "TechDivision\\Import\\Product\\Ee\\Observers\\EeCleanUpObserver"
+              ]
+            }
           ],
-          "import": [
-            "TechDivision\\Import\\Product\\Media\\Ee\\Observers\\EeMediaGalleryObserver",
-            "TechDivision\\Import\\Product\\Media\\Ee\\Observers\\EeMediaGalleryValueObserver"
+          "callbacks": [
+            {
+              "visibility": [
+                "TechDivision\\Import\\Product\\Callbacks\\VisibilityCallback"
+              ]
+            },
+            {
+              "tax_class_name": [
+                "TechDivision\\Import\\Product\\Callbacks\\TaxClassCallback"
+              ]
+            },
+            {
+              "bundle_price_type": [
+                "TechDivision\\Import\\Product\\Bundle\\Callbacks\\BundleTypeCallback"
+              ]
+            },
+            {
+              "bundle_sku_type": [
+                "TechDivision\\Import\\Product\\Bundle\\Callbacks\\BundleTypeCallback"
+              ]
+            },
+            {
+              "bundle_weight_type": [
+                "TechDivision\\Import\\Product\\Bundle\\Callbacks\\BundleTypeCallback"
+              ]
+            },
+            {
+              "bundle_price_view": [
+                "TechDivision\\Import\\Product\\Bundle\\Callbacks\\BundlePriceViewCallback"
+              ]
+            },
+            {
+              "eco_collection": [
+                "TechDivision\\Import\\Product\\Callbacks\\BooleanCallback"
+              ]
+            },
+            {
+              "performance_fabric": [
+                "TechDivision\\Import\\Product\\Callbacks\\BooleanCallback"
+              ]
+            },
+            {
+              "erin_recommends": [
+                "TechDivision\\Import\\Product\\Callbacks\\BooleanCallback"
+              ]
+            },
+            {
+              "new": [
+                "TechDivision\\Import\\Product\\Callbacks\\BooleanCallback"
+              ]
+            },
+            {
+              "sale": [
+                "TechDivision\\Import\\Product\\Callbacks\\BooleanCallback"
+              ]
+            },
+            {
+              "activity": [
+                "TechDivision\\Import\\Product\\Callbacks\\MultiselectCallback"
+              ]
+            },
+            {
+              "style_bags": [
+                "TechDivision\\Import\\Product\\Callbacks\\MultiselectCallback"
+              ]
+            },
+            {
+              "material": [
+                "TechDivision\\Import\\Product\\Callbacks\\MultiselectCallback"
+              ]
+            },
+            {
+              "strap_bags": [
+                "TechDivision\\Import\\Product\\Callbacks\\MultiselectCallback"
+              ]
+            },
+            {
+              "features_bags": [
+                "TechDivision\\Import\\Product\\Callbacks\\MultiselectCallback"
+              ]
+            },
+            {
+              "gender": [
+                "TechDivision\\Import\\Product\\Callbacks\\MultiselectCallback"
+              ]
+            },
+            {
+              "category_gear": [
+                "TechDivision\\Import\\Product\\Callbacks\\MultiselectCallback"
+              ]
+            },
+            {
+              "style_bottom": [
+                "TechDivision\\Import\\Product\\Callbacks\\MultiselectCallback"
+              ]
+            },
+            {
+              "style_general": [
+                "TechDivision\\Import\\Product\\Callbacks\\MultiselectCallback"
+              ]
+            },
+            {
+              "sleeve": [
+                "TechDivision\\Import\\Product\\Callbacks\\MultiselectCallback"
+              ]
+            },
+            {
+              "collar": [
+                "TechDivision\\Import\\Product\\Callbacks\\MultiselectCallback"
+              ]
+            },
+            {
+              "pattern": [
+                "TechDivision\\Import\\Product\\Callbacks\\MultiselectCallback"
+              ]
+            },
+            {
+              "climate": [
+                "TechDivision\\Import\\Product\\Callbacks\\MultiselectCallback"
+              ]
+            },
+            {
+              "size": [
+                "TechDivision\\Import\\Product\\Callbacks\\SelectCallback"
+              ]
+            },
+            {
+              "color": [
+                "TechDivision\\Import\\Product\\Callbacks\\SelectCallback"
+              ]
+            }
           ]
-        }
-      ]
-    },
-    {
-      "class-name": "TechDivision\\Import\\Product\\Link\\Subjects\\LinkSubject",
-      "processor-factory" : "TechDivision\\Import\\Cli\\Services\\ProductLinkProcessorFactory",
-      "utility-class-name" : "TechDivision\\Import\\Product\\Link\\Utils\\SqlStatements",
-      "prefix": "links",
-      "source-dir": "example/tmp",
-      "target-dir": "example/tmp",
-      "observers": [
+        },
         {
-          "import": [
-            "TechDivision\\Import\\Product\\Link\\Observers\\LinkObserver"
+          "class-name": "TechDivision\\Import\\Product\\Variant\\Ee\\Subjects\\EeVariantSubject",
+          "processor-factory" : "TechDivision\\Import\\Cli\\Services\\ProductVariantProcessorFactory",
+          "utility-class-name" : "TechDivision\\Import\\Product\\Variant\\Utils\\SqlStatements",
+          "prefix": "variants",
+          "source-dir": "example/tmp",
+          "target-dir": "example/tmp",
+          "observers": [
+            {
+              "import": [
+                "TechDivision\\Import\\Product\\Variant\\Ee\\Observers\\EeVariantObserver"
+              ]
+            }
+          ]
+        },
+        {
+          "class-name": "TechDivision\\Import\\Product\\Bundle\\Ee\\Subjects\\EeBundleSubject",
+          "processor-factory" : "TechDivision\\Import\\Cli\\Services\\ProductBundleProcessorFactory",
+          "utility-class-name" : "TechDivision\\Import\\Product\\Bundle\\Utils\\SqlStatements",
+          "prefix": "bundles",
+          "source-dir": "example/tmp",
+          "target-dir": "example/tmp",
+          "observers": [
+            {
+              "import": [
+                "TechDivision\\Import\\Product\\Bundle\\Ee\\Observers\\EeBundleOptionObserver",
+                "TechDivision\\Import\\Product\\Bundle\\Observers\\BundleOptionValueObserver",
+                "TechDivision\\Import\\Product\\Bundle\\Observers\\BundleSelectionObserver",
+                "TechDivision\\Import\\Product\\Bundle\\Observers\\BundleSelectionPriceObserver"
+              ]
+            }
+          ]
+        },
+        {
+          "class-name": "TechDivision\\Import\\Product\\Media\\Ee\\Subjects\\EeMediaSubject",
+          "processor-factory" : "TechDivision\\Import\\Cli\\Services\\ProductMediaProcessorFactory",
+          "utility-class-name" : "TechDivision\\Import\\Product\\Media\\Ee\\Utils\\SqlStatements",
+          "prefix": "media",
+          "source-dir": "example/tmp",
+          "target-dir": "example/tmp",
+          "params" : [
+            {
+              "root-directory" : "/",
+              "media-directory" : "/opt/appserver/webapps/magento2_ee212/pub/media/catalog/product",
+              "images-file-directory" : "example/magento2-sample-data/pub/media/catalog/product"
+            }
+          ],
+          "observers": [
+            {
+              "pre-import" : [
+                "TechDivision\\Import\\Product\\Media\\Observers\\FileUploadObserver"
+              ],
+              "import": [
+                "TechDivision\\Import\\Product\\Media\\Ee\\Observers\\EeMediaGalleryObserver",
+                "TechDivision\\Import\\Product\\Media\\Ee\\Observers\\EeMediaGalleryValueObserver"
+              ]
+            }
+          ]
+        },
+        {
+          "class-name": "TechDivision\\Import\\Product\\Link\\Subjects\\LinkSubject",
+          "processor-factory" : "TechDivision\\Import\\Cli\\Services\\ProductLinkProcessorFactory",
+          "utility-class-name" : "TechDivision\\Import\\Product\\Link\\Utils\\SqlStatements",
+          "prefix": "links",
+          "source-dir": "example/tmp",
+          "target-dir": "example/tmp",
+          "observers": [
+            {
+              "import": [
+                "TechDivision\\Import\\Product\\Link\\Observers\\LinkObserver"
+              ]
+            }
           ]
         }
       ]
