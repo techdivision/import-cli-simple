@@ -2,10 +2,10 @@
 
 ## Installation
 
-To install the Magnento 2 Import Framework, composer is necessary. The framework itself is a set of components
-that provide import functionality for Magento 2. The package `techdivision/import-cli-simple`, based on Symfony 
-Console, uses de M2IF and provides a command line tool with import functionality for Magento 2 standard CSV 
-files.
+To install the Magnento 2 Import Framework, composer is necessary. The framework itself is a set of components 
+that provide import functionality for Magento 2. This repository, based on Symfony Console, uses the the package 
+[M2IF](https://github.com/techdivision/import) and provides a command line tool with import functionality for 
+Magento 2 standard CSV files.
 
 To install the package, assuming composer is available, open a console and enter
 
@@ -23,7 +23,7 @@ sample data in a Magento 2 CE version 2.1.2 can be found in `example/ce/212/conf
 The configuration file (option `--configuration`) **MUST** to be specified whenever data has to be imported,
 as it contains the operations, subjects and callbacks configuration.
 
-The import command allows arguments (actually only one) as well as options.
+The import command itself supports a argument as well as several options.
 
 ### Arguments
 
@@ -72,6 +72,49 @@ for the available operations.
 }
 ```
 
+The operations are simply a container, that allows to have a custom subject configuration for each operation.
+This makes sense, as the `delete` operation only needs the `ClearProductObserver`, that removes the product
+with the SKU found in each row of the CSV file as well as all it's relations. The `delete` operation therefore
+is small a configuration variation out of the available subjects, observers and callbacks and looks like this
+
+```json
+{
+  "magento-edition": "CE",
+  "magento-version": "2.1.2",
+  "operation-name" : "replace",
+  "installation-dir" : "/var/www/magento",
+  "utility-class-name" : "TechDivision\\Import\\Utils\\SqlStatements",
+  "database" : { ... },
+  "operations" : [
+    {
+      "name" : "delete",
+      "subjects" : [
+        {
+          "class-name": "TechDivision\\Import\\Product\\Ee\\Subjects\\EeBunchSubject",
+          "processor-factory" : "TechDivision\\Import\\Cli\\Services\\EeProductBunchProcessorFactory",
+          "utility-class-name" : "TechDivision\\Import\\Product\\Ee\\Utils\\SqlStatements",
+          "identifier": "files",
+          "source-date-format": "n/d/y, g:i A",
+          "source-dir": "projects/sample-data/tmp",
+          "target-dir": "projects/sample-data/tmp",
+          "prefix": "magento-import",
+          "observers": [
+            {
+              "import": [
+                "TechDivision\\Import\\Product\\Observers\\ClearProductObserver"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+```
+
+Most of the available configuration options can be specified on the subjects itself, which are nested under the
+operations.
+
 ## Operations
 
 As well as the Magento 2 standard import functionality, M2IF will provide 3 different import operations:
@@ -99,9 +142,11 @@ on the command line.
 ## Running the Import
 
 The command doesn't implement any directory clean-up or archiving functionality, what means that the files
-have to copied to the source directory specified for the subjects. When running the example, this will be
-`example/tmp`. To make sure, that all old import files will be removed, we'll delete and re-create the 
-directory before.
+have to copied to the source directory specified for the subjects. Assuming a Magento 2 CE 2.1.2 instance, 
+with sample data installed, is available under `/var/www/magento` the configuration file, as well as the
+CSV files, can be found under `projects/sample-data/ce/212`.
+
+The command to re-import the sample data including the images, would look like this:
 
 ```sh
 $ sudo rm -rf projects/sample-data/tmp \ 
@@ -111,3 +156,6 @@ $ sudo rm -rf projects/sample-data/tmp \
        --installation-dir=/var/www/magento \
        --configuration=projects/sample-data/ce/212/conf/techdivision-import.json
 ```
+
+To make sure, that all old import files will be removed, we'll delete and re-create the directory that contains
+the import files `projects/sample-data/tmp`, before.
