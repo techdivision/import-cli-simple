@@ -20,7 +20,8 @@ This will clone the repository from the internal Gitlab and install the M2IF, th
 The necessary configuration has to be defined in a simple JSON file. An example that imports the Magento 2 
 sample data in a Magento 2 CE version 2.1.2 can be found in `example/ce/212/conf/techdivision-import.json`
 
-The configuration file (option `--configuration`) **MUST** to be specified whenever data has to be imported.
+The configuration file (option `--configuration`) **MUST** to be specified whenever data has to be imported,
+as it contains the operations, subjects and callbacks configuration.
 
 The import command allows arguments (actually only one) as well as options.
 
@@ -51,21 +52,35 @@ The following configuration options are available:
 All values can and **SHOULD** be defined in the configuration file. The commandline options should only be 
 used to override these values in some circumstances.
 
+### Configuration File
+
+The configuration file **MUST** be in JSON format. Beside itself, all necessary configuration options/arguemnts
+the can be passed on on the commandline, can and **SHOULD** be defined in the configuration file, instead.
+
+The structure is separated into a general configuration section, the database configuration and the configuration
+for the available operations.
+
+```json
+{
+  "magento-edition": "CE",
+  "magento-version": "2.1.2",
+  "operation-name" : "replace",
+  "installation-dir" : "/var/www/magento",
+  "utility-class-name" : "TechDivision\\Import\\Utils\\SqlStatements",
+  "database" : { ... },
+  "operations" : { ... }
+}
+```
+
 ## Operations
 
 As well as the Magento 2 standard import functionality, M2IF will provide 3 different import operations:
 
 | Operation                 | Description
 |:--------------------------|:-----------------------------------------------------------------------------------|
-| add-update (**NOT YET**)  | New product data is added to the existing product data for the existing entries in 
-the database. All fields except sku can be updated. New tax classes that are specified in the import data are 
-created automatically. New SKUs that are specified in the import file are created automatically. |
-| replace                   | The existing product data is replaced with new data. If a SKU in the import data 
-matches the SKU of an existing entity, all fields, including the SKU are deleted, and a new record is created 
-using the CSV data. An error occurs if the CSV file references a SKU that does not exist in the database. |
-| delete                    | Any entities in the import data that already exist in the database are deleted from the 
-database. Delete ignores all columns in the import data, except for SKU. You can disregard all other attributes 
-in the data. An error occurs if the CSV file references a SKU that does not exist in the database. |
+| add-update (**NOT YET**)  | New product data is added to the existing product data for the existing entries in the database. All fields except sku can be updated. New tax classes that are specified in the import data are created automatically. New SKUs that are specified in the import file are created automatically. |
+| replace                   | The existing product data is replaced with new data. If a SKU in the import data matches the SKU of an existing entity, all fields, including the SKU are deleted, and a new record is created using the CSV data. An error occurs if the CSV file references a SKU that does not exist in the database. |
+| delete                    | Any entities in the import data that already exist in the database are deleted from the database. Delete ignores all columns in the import data, except for SKU. You can disregard all other attributes in the data. An error occurs if the CSV file references a SKU that does not exist in the database. |
 
 > Exercise caution when replacing data because the existing product data will be completely cleared and all 
 > references in the system will be lost.
