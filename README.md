@@ -76,7 +76,7 @@ To run the example import, it is necessary to get a copy of the Magento 2 sample
 from Github, assumed you're in the root folder of this repository, by invoking
 
 ```sh
-$ git clone https://github.com/magento/magento2-sample-data.git example/magento2-sample-data
+$ git clone https://github.com/magento/magento2-sample-data.git projects/sample-data/magento2-sample-data
 ```
 
 on the command line.
@@ -89,10 +89,10 @@ have to copied to the source directory specified for the subjects. When running 
 directory before.
 
 ```sh
-$ sudo rm -rf example/tmp \ 
-    && sudo mkdir example/tmp \
-    && sudo cp example/ce/212/data/*.csv example/tmp \
+$ sudo rm -rf projects/sample-data/tmp \ 
+    && sudo mkdir projects/sample-data/tmp \
+    && sudo cp projects/sample-data/ce/212/data/*.csv projects/sample-data/tmp \
     && sudo bin/import-simple import:products \
        --installation-dir=/var/www/magento \
-       --configuration=example/ce/212/conf/techdivision-import.json
+       --configuration=projects/sample-data/ce/212/conf/techdivision-import.json
 ```

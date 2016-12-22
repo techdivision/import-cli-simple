@@ -1,3 +1,13 @@
+# Version 1.0.0-alpha6
+
+## Bugfixes
+
+* None
+
+## Features
+
+* Rename example => projects folder + re-order directory structure to support multiple projects
+
 # Version 1.0.0-alpha5
 
 ## Bugfixes

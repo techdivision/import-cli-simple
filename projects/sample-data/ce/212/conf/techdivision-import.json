@@ -1,11 +1,11 @@
 {
-  "magento-edition": "EE",
+  "magento-edition": "CE",
   "magento-version": "2.1.2",
   "operation-name" : "replace",
   "installation-dir" : "/var/www/magento",
-  "utility-class-name" : "TechDivision\\Import\\Utils\\Ee\\V212\\SqlStatements",
+  "utility-class-name" : "TechDivision\\Import\\Utils\\SqlStatements",
   "database": {
-    "pdo-dsn": "mysql:host=127.0.0.1;dbname=appserver_magento2_ee212",
+    "pdo-dsn": "mysql:host=127.0.0.1;dbname=appserver_magento2_ce212",
     "username": "magento",
     "password": "eraZor"
   },
@@ -14,13 +14,13 @@
       "name" : "delete",
       "subjects" : [
         {
-          "class-name": "TechDivision\\Import\\Product\\Ee\\Subjects\\EeBunchSubject",
-          "processor-factory" : "TechDivision\\Import\\Cli\\Services\\EeProductProcessorFactory",
-          "utility-class-name" : "TechDivision\\Import\\Product\\Ee\\Utils\\SqlStatements",
+          "class-name": "TechDivision\\Import\\Product\\Subjects\\BunchSubject",
+          "processor-factory" : "TechDivision\\Import\\Cli\\Services\\ProductProcessorFactory",
+          "utility-class-name" : "TechDivision\\Import\\Product\\Utils\\SqlStatements",
           "identifier": "files",
           "source-date-format": "n/d/y, g:i A",
-          "source-dir": "example/tmp",
-          "target-dir": "example/tmp",
+          "source-dir": "projects/sample-data/tmp",
+          "target-dir": "projects/sample-data/tmp",
           "prefix": "magento-import",
           "observers": [
             {
@@ -36,13 +36,13 @@
       "name" : "replace",
       "subjects": [
         {
-          "class-name": "TechDivision\\Import\\Product\\Ee\\Subjects\\EeBunchSubject",
-          "processor-factory" : "TechDivision\\Import\\Cli\\Services\\EeProductProcessorFactory",
-          "utility-class-name" : "TechDivision\\Import\\Product\\Ee\\Utils\\SqlStatements",
+          "class-name": "TechDivision\\Import\\Product\\Subjects\\BunchSubject",
+          "processor-factory" : "TechDivision\\Import\\Cli\\Services\\ProductProcessorFactory",
+          "utility-class-name" : "TechDivision\\Import\\Product\\Utils\\SqlStatements",
           "identifier": "files",
           "source-date-format": "n/d/y, g:i A",
-          "source-dir": "example/tmp",
-          "target-dir": "example/tmp",
+          "source-dir": "projects/sample-data/tmp",
+          "target-dir": "projects/sample-data/tmp",
           "prefix": "magento-import",
           "observers": [
             {
@@ -54,12 +54,12 @@
             },
             {
               "import": [
-                "TechDivision\\Import\\Product\\Ee\\Observers\\EeProductObserver",
+                "TechDivision\\Import\\Product\\Observers\\ProductObserver",
                 "TechDivision\\Import\\Product\\Observers\\ProductWebsiteObserver",
                 "TechDivision\\Import\\Product\\Observers\\ProductCategoryObserver",
                 "TechDivision\\Import\\Product\\Observers\\ProductInventoryObserver",
                 "TechDivision\\Import\\Product\\Observers\\UrlRewriteObserver",
-                "TechDivision\\Import\\Product\\Ee\\Observers\\EeProductAttributeObserver",
+                "TechDivision\\Import\\Product\\Observers\\ProductAttributeObserver",
                 "TechDivision\\Import\\Product\\Variant\\Observers\\ProductVariantObserver",
                 "TechDivision\\Import\\Product\\Bundle\\Observers\\ProductBundleObserver",
                 "TechDivision\\Import\\Product\\Media\\Observers\\ProductMediaObserver",
@@ -68,7 +68,7 @@
             },
             {
               "post-import": [
-                "TechDivision\\Import\\Product\\Ee\\Observers\\EeCleanUpObserver"
+                "TechDivision\\Import\\Product\\Observers\\CleanUpObserver"
               ]
             }
           ],
@@ -206,31 +206,31 @@
           ]
         },
         {
-          "class-name": "TechDivision\\Import\\Product\\Variant\\Ee\\Subjects\\EeVariantSubject",
+          "class-name": "TechDivision\\Import\\Product\\Variant\\Subjects\\VariantSubject",
           "processor-factory" : "TechDivision\\Import\\Cli\\Services\\ProductVariantProcessorFactory",
           "utility-class-name" : "TechDivision\\Import\\Product\\Variant\\Utils\\SqlStatements",
           "prefix": "variants",
-          "source-dir": "example/tmp",
-          "target-dir": "example/tmp",
+          "source-dir": "projects/sample-data/tmp",
+          "target-dir": "projects/sample-data/tmp",
           "observers": [
             {
               "import": [
-                "TechDivision\\Import\\Product\\Variant\\Ee\\Observers\\EeVariantObserver"
+                "TechDivision\\Import\\Product\\Variant\\Observers\\VariantObserver"
               ]
             }
           ]
         },
         {
-          "class-name": "TechDivision\\Import\\Product\\Bundle\\Ee\\Subjects\\EeBundleSubject",
+          "class-name": "TechDivision\\Import\\Product\\Bundle\\Subjects\\BundleSubject",
           "processor-factory" : "TechDivision\\Import\\Cli\\Services\\ProductBundleProcessorFactory",
           "utility-class-name" : "TechDivision\\Import\\Product\\Bundle\\Utils\\SqlStatements",
           "prefix": "bundles",
-          "source-dir": "example/tmp",
-          "target-dir": "example/tmp",
+          "source-dir": "projects/sample-data/tmp",
+          "target-dir": "projects/sample-data/tmp",
           "observers": [
             {
               "import": [
-                "TechDivision\\Import\\Product\\Bundle\\Ee\\Observers\\EeBundleOptionObserver",
+                "TechDivision\\Import\\Product\\Bundle\\Observers\\BundleOptionObserver",
                 "TechDivision\\Import\\Product\\Bundle\\Observers\\BundleOptionValueObserver",
                 "TechDivision\\Import\\Product\\Bundle\\Observers\\BundleSelectionObserver",
                 "TechDivision\\Import\\Product\\Bundle\\Observers\\BundleSelectionPriceObserver"
@@ -239,17 +239,17 @@
           ]
         },
         {
-          "class-name": "TechDivision\\Import\\Product\\Media\\Ee\\Subjects\\EeMediaSubject",
+          "class-name": "TechDivision\\Import\\Product\\Media\\Subjects\\MediaSubject",
           "processor-factory" : "TechDivision\\Import\\Cli\\Services\\ProductMediaProcessorFactory",
-          "utility-class-name" : "TechDivision\\Import\\Product\\Media\\Ee\\Utils\\SqlStatements",
+          "utility-class-name" : "TechDivision\\Import\\Product\\Media\\Utils\\SqlStatements",
           "prefix": "media",
-          "source-dir": "example/tmp",
-          "target-dir": "example/tmp",
+          "source-dir": "projects/sample-data/tmp",
+          "target-dir": "projects/sample-data/tmp",
           "params" : [
             {
               "root-directory" : "/",
-              "media-directory" : "/opt/appserver/webapps/magento2_ee212/pub/media/catalog/product",
-              "images-file-directory" : "example/magento2-sample-data/pub/media/catalog/product"
+              "media-directory" : "/opt/appserver/webapps/magento2_ce212/pub/media/catalog/product",
+              "images-file-directory" : "projects/sample-data/magento2-sample-data/pub/media/catalog/product"
             }
           ],
           "observers": [
@@ -258,8 +258,8 @@
                 "TechDivision\\Import\\Product\\Media\\Observers\\FileUploadObserver"
               ],
               "import": [
-                "TechDivision\\Import\\Product\\Media\\Ee\\Observers\\EeMediaGalleryObserver",
-                "TechDivision\\Import\\Product\\Media\\Ee\\Observers\\EeMediaGalleryValueObserver"
+                "TechDivision\\Import\\Product\\Media\\Observers\\MediaGalleryObserver",
+                "TechDivision\\Import\\Product\\Media\\Observers\\MediaGalleryValueObserver"
               ]
             }
           ]
@@ -267,10 +267,10 @@
         {
           "class-name": "TechDivision\\Import\\Product\\Link\\Subjects\\LinkSubject",
           "processor-factory" : "TechDivision\\Import\\Cli\\Services\\ProductLinkProcessorFactory",
-          "utility-class-name" : "TechDivision\\Import\\Product\\Link\\Utils\\SqlStatements",
+          "utility-class-name" : "TechDivision\\Import\\Product\\Links\\Utils\\SqlStatements",
           "prefix": "links",
-          "source-dir": "example/tmp",
-          "target-dir": "example/tmp",
+          "source-dir": "projects/sample-data/tmp",
+          "target-dir": "projects/sample-data/tmp",
           "observers": [
             {
               "import": [
