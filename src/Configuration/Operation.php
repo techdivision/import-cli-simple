@@ -21,9 +21,6 @@
 namespace TechDivision\Import\Cli\Configuration;
 
 use JMS\Serializer\Annotation\Type;
-use JMS\Serializer\Annotation\SerializedName;
-use TechDivision\Import\Configuration\SubjectInterface;
-use TechDivision\Import\ConfigurationInterface;
 use TechDivision\Import\Configuration\OperationInterface;
 
 /**

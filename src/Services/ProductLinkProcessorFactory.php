@@ -109,7 +109,7 @@ class ProductLinkProcessorFactory extends AbstractProductProcessorFactory
         $productLinkAttributeVarcharAction->setPersistProcessor($productLinkAttributeVarcharPersistProcessor);
 
         // initialize the product link processor
-        $processorType = ProductProcessorFactory::getProcessorType();
+        $processorType = ProductLinkProcessorFactory::getProcessorType();
         $productLinkProcessor = new $processorType();
         $productLinkProcessor->setConnection($connection);
         $productLinkProcessor->setProductLinkAction($productLinkAction);
