@@ -1,3 +1,14 @@
+# Version 1.0.0-alpha7
+
+## Bugfixes
+
+* Fixed invalid creation of ProductLinkProcessor in ProductLinkProcessorFactory
+* Remove unnecessary use statements in Operation configuration
+
+## Features
+
+* None
+
 # Version 1.0.0-alpha6
 
 ## Bugfixes
