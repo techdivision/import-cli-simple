@@ -1,7 +1,7 @@
 <?php
 
 /**
- * TechDivision\Import\Cli\Services\ProductProcessorFactory
+ * TechDivision\Import\Cli\Services\EeProductBunchProcessorFactory
  *
  * NOTICE OF LICENSE
  *
@@ -21,7 +21,6 @@
 namespace TechDivision\Import\Cli\Services;
 
 use TechDivision\Import\Configuration\SubjectInterface;
-use TechDivision\Import\Cli\Services\ProductProcessorFactory;
 use TechDivision\Import\Product\Ee\Actions\SequenceProductAction;
 use TechDivision\Import\Product\Ee\Actions\Processors\SequenceProductPersistProcessor;
 
@@ -34,7 +33,7 @@ use TechDivision\Import\Product\Ee\Actions\Processors\SequenceProductPersistProc
  * @link      https://github.com/techdivision/import-cli-simple
  * @link      http://www.techdivision.com
  */
-class EeProductProcessorFactory extends ProductProcessorFactory
+class EeProductBunchProcessorFactory extends ProductBunchProcessorFactory
 {
 
     /**
@@ -44,7 +43,7 @@ class EeProductProcessorFactory extends ProductProcessorFactory
      */
     protected static function getProcessorType()
     {
-        return 'TechDivision\Import\Product\Ee\Services\EeProductProcessor';
+        return 'TechDivision\Import\Product\Ee\Services\EeProductBunchProcessor';
     }
 
     /**

@@ -31,7 +31,7 @@ use TechDivision\Import\Product\Bundle\Actions\Processors\ProductBundleSelection
 use TechDivision\Import\Product\Bundle\Actions\Processors\ProductBundleSelectionPricePersistProcessor;
 
 /**
- * A SLSB providing methods to load product data using a PDO connection.
+ * Factory to create a new product bundle processor.
  *
  * @author    Tim Wagner <t.wagner@techdivision.com>
  * @copyright 2016 TechDivision GmbH <info@techdivision.com>

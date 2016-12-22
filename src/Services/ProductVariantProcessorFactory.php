@@ -33,7 +33,7 @@ use TechDivision\Import\Product\Variant\Actions\Processors\ProductSuperAttribute
 use TechDivision\Import\Product\Variant\Actions\Processors\ProductSuperLinkPersistProcessor;
 
 /**
- * A SLSB providing methods to load product data using a PDO connection.
+ * Factory to create a new product variant processor.
  *
  * @author    Tim Wagner <t.wagner@techdivision.com>
  * @copyright 2016 TechDivision GmbH <info@techdivision.com>

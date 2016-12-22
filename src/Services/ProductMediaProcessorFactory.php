@@ -31,7 +31,7 @@ use TechDivision\Import\Product\Media\Actions\ProductMediaGalleryValueVideoActio
 use TechDivision\Import\Product\Media\Actions\ProductMediaGalleryValueToEntityAction;
 
 /**
- * A SLSB providing methods to load product data using a PDO connection.
+ * Factory to create a new product media processor.
  *
  * @author    Tim Wagner <t.wagner@techdivision.com>
  * @copyright 2016 TechDivision GmbH <info@techdivision.com>
