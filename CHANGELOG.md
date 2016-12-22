@@ -6,7 +6,10 @@
 
 ## Features
 
+* Now load default store on start-up
 * Rename example => projects folder + re-order directory structure to support multiple projects
+* Rename ProductProcessorFactory => ProductBunchProcessorFactory
+* Fixed some typos
 
 # Version 1.0.0-alpha5
 

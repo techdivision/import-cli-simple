@@ -281,6 +281,7 @@ class Simple
             $globalData[RegistryKeys::STORES] = $importProcessor->getStores();
             $globalData[RegistryKeys::LINK_TYPES] = $importProcessor->getLinkTypes();
             $globalData[RegistryKeys::TAX_CLASSES] = $importProcessor->getTaxClasses();
+            $globalData[RegistryKeys::DEFAULT_STORE] = $importProcessor->getDefaultStore();
             $globalData[RegistryKeys::STORE_WEBSITES] = $importProcessor->getStoreWebsites();
             $globalData[RegistryKeys::ROOT_CATEGORIES] = $importProcessor->getRootCategories();
             $globalData[RegistryKeys::ATTRIBUTE_SETS] = $eavAttributeSets = $importProcessor->getEavAttributeSetsByEntityTypeId(4);
@@ -322,7 +323,10 @@ class Simple
             $globalData[RegistryKeys::EAV_ATTRIBUTES] = $eavAttributes;
 
             // add the status with the global data
-            $registryProcessor->mergeAttributesRecursive($this->getSerial(), array(RegistryKeys::GLOBAL_DATA => $globalData));
+            $registryProcessor->mergeAttributesRecursive(
+                $this->getSerial(),
+                array(RegistryKeys::GLOBAL_DATA => $globalData)
+            );
 
         } catch (\Exception $e) {
             $this->getSystemLogger()->error($e->__toString());

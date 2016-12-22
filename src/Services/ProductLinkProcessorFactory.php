@@ -33,7 +33,7 @@ use TechDivision\Import\Product\Link\Actions\Processors\ProductLinkAttributeDeci
 use TechDivision\Import\Product\Link\Actions\Processors\ProductLinkAttributeVarcharPersistProcessor;
 
 /**
- * A SLSB providing methods to load product link data using a PDO connection.
+ * Factory to create a new product link processor.
  *
  * @author    Tim Wagner <t.wagner@techdivision.com>
  * @copyright 2016 TechDivision GmbH <info@techdivision.com>

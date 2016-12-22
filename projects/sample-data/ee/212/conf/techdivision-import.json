@@ -15,7 +15,7 @@
       "subjects" : [
         {
           "class-name": "TechDivision\\Import\\Product\\Ee\\Subjects\\EeBunchSubject",
-          "processor-factory" : "TechDivision\\Import\\Cli\\Services\\EeProductProcessorFactory",
+          "processor-factory" : "TechDivision\\Import\\Cli\\Services\\EeProductBunchProcessorFactory",
           "utility-class-name" : "TechDivision\\Import\\Product\\Ee\\Utils\\SqlStatements",
           "identifier": "files",
           "source-date-format": "n/d/y, g:i A",
@@ -37,7 +37,7 @@
       "subjects": [
         {
           "class-name": "TechDivision\\Import\\Product\\Ee\\Subjects\\EeBunchSubject",
-          "processor-factory" : "TechDivision\\Import\\Cli\\Services\\EeProductProcessorFactory",
+          "processor-factory" : "TechDivision\\Import\\Cli\\Services\\EeProductBunchProcessorFactory",
           "utility-class-name" : "TechDivision\\Import\\Product\\Ee\\Utils\\SqlStatements",
           "identifier": "files",
           "source-date-format": "n/d/y, g:i A",

@@ -1,7 +1,7 @@
 <?php
 
 /**
- * TechDivision\Import\Cli\Services\ProductProcessorFactory
+ * TechDivision\Import\Cli\Services\ProductBunchProcessorFactory
  *
  * NOTICE OF LICENSE
  *
@@ -53,7 +53,7 @@ use TechDivision\Import\Product\Actions\Processors\UrlRewritePersistProcessor;
 use TechDivision\Import\Product\Actions\Processors\UrlRewriteRemoveProcessor;
 
 /**
- * A SLSB providing methods to load product data using a PDO connection.
+ * Factory to create a new product bunch processor.
  *
  * @author    Tim Wagner <t.wagner@techdivision.com>
  * @copyright 2016 TechDivision GmbH <info@techdivision.com>
@@ -61,7 +61,7 @@ use TechDivision\Import\Product\Actions\Processors\UrlRewriteRemoveProcessor;
  * @link      https://github.com/techdivision/import-cli-simple
  * @link      http://www.techdivision.com
  */
-class ProductProcessorFactory extends AbstractProductProcessorFactory
+class ProductBunchProcessorFactory extends AbstractProductProcessorFactory
 {
 
     /**
@@ -71,7 +71,7 @@ class ProductProcessorFactory extends AbstractProductProcessorFactory
      */
     protected static function getProcessorType()
     {
-        return 'TechDivision\Import\Product\Services\ProductProcessor';
+        return 'TechDivision\Import\Product\Services\ProductBunchProcessor';
     }
 
     /**
@@ -220,23 +220,23 @@ class ProductProcessorFactory extends AbstractProductProcessorFactory
 
         // initialize the product processor
         $processorType = static::getProcessorType();
-        $productProcessor = new $processorType();
-        $productProcessor->setConnection($connection);
-        $productProcessor->setEavAttributeOptionValueRepository($eavAttributeOptionValueRepository);
-        $productProcessor->setUrlRewriteRepository($urlRewriteRepository);
-        $productProcessor->setProductCategoryAction($productCategoryAction);
-        $productProcessor->setProductDatetimeAction($productDatetimeAction);
-        $productProcessor->setProductDecimalAction($productDecimalAction);
-        $productProcessor->setProductIntAction($productIntAction);
-        $productProcessor->setProductAction($productAction);
-        $productProcessor->setProductTextAction($productTextAction);
-        $productProcessor->setProductVarcharAction($productVarcharAction);
-        $productProcessor->setProductWebsiteAction($productWebsiteAction);
-        $productProcessor->setStockItemAction($stockItemAction);
-        $productProcessor->setStockStatusAction($stockStatusAction);
-        $productProcessor->setUrlRewriteAction($urlRewriteAction);
+        $productBunchProcessor = new $processorType();
+        $productBunchProcessor->setConnection($connection);
+        $productBunchProcessor->setEavAttributeOptionValueRepository($eavAttributeOptionValueRepository);
+        $productBunchProcessor->setUrlRewriteRepository($urlRewriteRepository);
+        $productBunchProcessor->setProductCategoryAction($productCategoryAction);
+        $productBunchProcessor->setProductDatetimeAction($productDatetimeAction);
+        $productBunchProcessor->setProductDecimalAction($productDecimalAction);
+        $productBunchProcessor->setProductIntAction($productIntAction);
+        $productBunchProcessor->setProductAction($productAction);
+        $productBunchProcessor->setProductTextAction($productTextAction);
+        $productBunchProcessor->setProductVarcharAction($productVarcharAction);
+        $productBunchProcessor->setProductWebsiteAction($productWebsiteAction);
+        $productBunchProcessor->setStockItemAction($stockItemAction);
+        $productBunchProcessor->setStockStatusAction($stockStatusAction);
+        $productBunchProcessor->setUrlRewriteAction($urlRewriteAction);
 
         // return the instance
-        return $productProcessor;
+        return $productBunchProcessor;
     }
 }
