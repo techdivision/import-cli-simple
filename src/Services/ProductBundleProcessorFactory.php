@@ -25,10 +25,10 @@ use TechDivision\Import\Product\Bundle\Actions\ProductBundleOptionAction;
 use TechDivision\Import\Product\Bundle\Actions\ProductBundleOptionValueAction;
 use TechDivision\Import\Product\Bundle\Actions\ProductBundleSelectionAction;
 use TechDivision\Import\Product\Bundle\Actions\ProductBundleSelectionPriceAction;
-use TechDivision\Import\Product\Bundle\Actions\Processors\ProductBundleOptionPersistProcessor;
-use TechDivision\Import\Product\Bundle\Actions\Processors\ProductBundleOptionValuePersistProcessor;
-use TechDivision\Import\Product\Bundle\Actions\Processors\ProductBundleSelectionPersistProcessor;
-use TechDivision\Import\Product\Bundle\Actions\Processors\ProductBundleSelectionPricePersistProcessor;
+use TechDivision\Import\Product\Bundle\Actions\Processors\ProductBundleOptionCreateProcessor;
+use TechDivision\Import\Product\Bundle\Actions\Processors\ProductBundleOptionValueCreateProcessor;
+use TechDivision\Import\Product\Bundle\Actions\Processors\ProductBundleSelectionCreateProcessor;
+use TechDivision\Import\Product\Bundle\Actions\Processors\ProductBundleSelectionPriceCreateProcessor;
 
 /**
  * Factory to create a new product bundle processor.
@@ -67,36 +67,36 @@ class ProductBundleProcessorFactory extends AbstractProductProcessorFactory
         $utilityClassName = $configuration->getUtilityClassName();
 
         // initialize the action that provides product bundle option CRUD functionality
-        $productBundleOptionPersistProcessor = new ProductBundleOptionPersistProcessor();
-        $productBundleOptionPersistProcessor->setUtilityClassName($utilityClassName);
-        $productBundleOptionPersistProcessor->setConnection($connection);
-        $productBundleOptionPersistProcessor->init();
+        $productBundleOptionCreateProcessor = new ProductBundleOptionCreateProcessor();
+        $productBundleOptionCreateProcessor->setUtilityClassName($utilityClassName);
+        $productBundleOptionCreateProcessor->setConnection($connection);
+        $productBundleOptionCreateProcessor->init();
         $productBundleOptionAction = new ProductBundleOptionAction();
-        $productBundleOptionAction->setPersistProcessor($productBundleOptionPersistProcessor);
+        $productBundleOptionAction->setCreateProcessor($productBundleOptionCreateProcessor);
 
         // initialize the action that provides product bundle option CRUD functionality
-        $productBundleOptionValuePersistProcessor = new ProductBundleOptionValuePersistProcessor();
-        $productBundleOptionValuePersistProcessor->setUtilityClassName($utilityClassName);
-        $productBundleOptionValuePersistProcessor->setConnection($connection);
-        $productBundleOptionValuePersistProcessor->init();
+        $productBundleOptionValueCreateProcessor = new ProductBundleOptionValueCreateProcessor();
+        $productBundleOptionValueCreateProcessor->setUtilityClassName($utilityClassName);
+        $productBundleOptionValueCreateProcessor->setConnection($connection);
+        $productBundleOptionValueCreateProcessor->init();
         $productBundleOptionValueAction = new ProductBundleOptionValueAction();
-        $productBundleOptionValueAction->setPersistProcessor($productBundleOptionValuePersistProcessor);
+        $productBundleOptionValueAction->setCreateProcessor($productBundleOptionValueCreateProcessor);
 
         // initialize the action that provides product bundle option CRUD functionality
-        $productBundleSelectionPersistProcessor = new ProductBundleSelectionPersistProcessor();
-        $productBundleSelectionPersistProcessor->setUtilityClassName($utilityClassName);
-        $productBundleSelectionPersistProcessor->setConnection($connection);
-        $productBundleSelectionPersistProcessor->init();
+        $productBundleSelectionCreateProcessor = new ProductBundleSelectionCreateProcessor();
+        $productBundleSelectionCreateProcessor->setUtilityClassName($utilityClassName);
+        $productBundleSelectionCreateProcessor->setConnection($connection);
+        $productBundleSelectionCreateProcessor->init();
         $productBundleSelectionAction = new ProductBundleSelectionAction();
-        $productBundleSelectionAction->setPersistProcessor($productBundleSelectionPersistProcessor);
+        $productBundleSelectionAction->setCreateProcessor($productBundleSelectionCreateProcessor);
 
         // initialize the action that provides product bundle option CRUD functionality
-        $productBundleSelectionPricePersistProcessor = new ProductBundleSelectionPricePersistProcessor();
-        $productBundleSelectionPricePersistProcessor->setUtilityClassName($utilityClassName);
-        $productBundleSelectionPricePersistProcessor->setConnection($connection);
-        $productBundleSelectionPricePersistProcessor->init();
+        $productBundleSelectionPriceCreateProcessor = new ProductBundleSelectionPriceCreateProcessor();
+        $productBundleSelectionPriceCreateProcessor->setUtilityClassName($utilityClassName);
+        $productBundleSelectionPriceCreateProcessor->setConnection($connection);
+        $productBundleSelectionPriceCreateProcessor->init();
         $productBundleSelectionPriceAction = new ProductBundleSelectionPriceAction();
-        $productBundleSelectionPriceAction->setPersistProcessor($productBundleSelectionPricePersistProcessor);
+        $productBundleSelectionPriceAction->setCreateProcessor($productBundleSelectionPriceCreateProcessor);
 
         // initialize the product bundle processor
         $processorType = ProductBundleProcessorFactory::getProcessorType();
