@@ -21,7 +21,10 @@
 namespace TechDivision\Import\Cli\Services;
 
 use TechDivision\Import\Configuration\SubjectInterface;
+use TechDivision\Import\Product\Repositories\ProductRepository;
+use TechDivision\Import\Product\Repositories\UrlRewriteRepository;
 use TechDivision\Import\Repositories\EavAttributeOptionValueRepository;
+use TechDivision\Import\Product\Actions\UrlRewriteAction;
 use TechDivision\Import\Product\Actions\ProductAction;
 use TechDivision\Import\Product\Actions\ProductCategoryAction;
 use TechDivision\Import\Product\Actions\StockItemAction;
@@ -32,25 +35,24 @@ use TechDivision\Import\Product\Actions\ProductTextAction;
 use TechDivision\Import\Product\Actions\ProductIntAction;
 use TechDivision\Import\Product\Actions\ProductDecimalAction;
 use TechDivision\Import\Product\Actions\ProductDatetimeAction;
-use TechDivision\Import\Product\Actions\Processors\ProductRemoveProcessor;
-use TechDivision\Import\Product\Actions\Processors\ProductPersistProcessor;
-use TechDivision\Import\Product\Actions\Processors\ProductCategoryRemoveProcessor;
-use TechDivision\Import\Product\Actions\Processors\ProductCategoryPersistProcessor;
-use TechDivision\Import\Product\Actions\Processors\ProductDatetimePersistProcessor;
-use TechDivision\Import\Product\Actions\Processors\ProductDecimalPersistProcessor;
-use TechDivision\Import\Product\Actions\Processors\ProductIntPersistProcessor;
-use TechDivision\Import\Product\Actions\Processors\ProductTextPersistProcessor;
-use TechDivision\Import\Product\Actions\Processors\ProductVarcharPersistProcessor;
-use TechDivision\Import\Product\Actions\Processors\ProductWebsiteRemoveProcessor;
-use TechDivision\Import\Product\Actions\Processors\ProductWebsitePersistProcessor;
-use TechDivision\Import\Product\Actions\Processors\StockItemRemoveProcessor;
-use TechDivision\Import\Product\Actions\Processors\StockItemPersistProcessor;
-use TechDivision\Import\Product\Actions\Processors\StockStatusRemoveProcessor;
-use TechDivision\Import\Product\Actions\Processors\StockStatusPersistProcessor;
-use TechDivision\Import\Product\Repositories\UrlRewriteRepository;
-use TechDivision\Import\Product\Actions\UrlRewriteAction;
-use TechDivision\Import\Product\Actions\Processors\UrlRewritePersistProcessor;
-use TechDivision\Import\Product\Actions\Processors\UrlRewriteRemoveProcessor;
+use TechDivision\Import\Product\Actions\Processors\ProductDeleteProcessor;
+use TechDivision\Import\Product\Actions\Processors\ProductUpdateProcessor;
+use TechDivision\Import\Product\Actions\Processors\ProductCreateProcessor;
+use TechDivision\Import\Product\Actions\Processors\ProductCategoryDeleteProcessor;
+use TechDivision\Import\Product\Actions\Processors\ProductCategoryCreateProcessor;
+use TechDivision\Import\Product\Actions\Processors\ProductDatetimeCreateProcessor;
+use TechDivision\Import\Product\Actions\Processors\ProductDecimalCreateProcessor;
+use TechDivision\Import\Product\Actions\Processors\ProductIntCreateProcessor;
+use TechDivision\Import\Product\Actions\Processors\ProductTextCreateProcessor;
+use TechDivision\Import\Product\Actions\Processors\ProductVarcharCreateProcessor;
+use TechDivision\Import\Product\Actions\Processors\ProductWebsiteDeleteProcessor;
+use TechDivision\Import\Product\Actions\Processors\ProductWebsiteCreateProcessor;
+use TechDivision\Import\Product\Actions\Processors\StockItemDeleteProcessor;
+use TechDivision\Import\Product\Actions\Processors\StockItemCreateProcessor;
+use TechDivision\Import\Product\Actions\Processors\StockStatusDeleteProcessor;
+use TechDivision\Import\Product\Actions\Processors\StockStatusCreateProcessor;
+use TechDivision\Import\Product\Actions\Processors\UrlRewriteCreateProcessor;
+use TechDivision\Import\Product\Actions\Processors\UrlRewriteDeleteProcessor;
 
 /**
  * Factory to create a new product bunch processor.
@@ -100,130 +102,142 @@ class ProductBunchProcessorFactory extends AbstractProductProcessorFactory
         $urlRewriteRepository->setConnection($connection);
         $urlRewriteRepository->init();
 
+        // initialize the repository that provides product query functionality
+        $productRepository = new ProductRepository();
+        $productRepository->setUtilityClassName($utilityClassName);
+        $productRepository->setConnection($connection);
+        $productRepository->init();
+
         // initialize the action that provides product category CRUD functionality
-        $productCategoryPersistProcessor = new ProductCategoryPersistProcessor();
-        $productCategoryPersistProcessor->setUtilityClassName($utilityClassName);
-        $productCategoryPersistProcessor->setConnection($connection);
-        $productCategoryPersistProcessor->init();
-        $productCategoryRemoveProcessor = new ProductCategoryRemoveProcessor();
-        $productCategoryRemoveProcessor->setUtilityClassName($utilityClassName);
-        $productCategoryRemoveProcessor->setConnection($connection);
-        $productCategoryRemoveProcessor->init();
+        $productCategoryCreateProcessor = new ProductCategoryCreateProcessor();
+        $productCategoryCreateProcessor->setUtilityClassName($utilityClassName);
+        $productCategoryCreateProcessor->setConnection($connection);
+        $productCategoryCreateProcessor->init();
+        $productCategoryDeleteProcessor = new ProductCategoryDeleteProcessor();
+        $productCategoryDeleteProcessor->setUtilityClassName($utilityClassName);
+        $productCategoryDeleteProcessor->setConnection($connection);
+        $productCategoryDeleteProcessor->init();
         $productCategoryAction = new ProductCategoryAction();
-        $productCategoryAction->setPersistProcessor($productCategoryPersistProcessor);
-        $productCategoryAction->setRemoveProcessor($productCategoryRemoveProcessor);
+        $productCategoryAction->setCreateProcessor($productCategoryCreateProcessor);
+        $productCategoryAction->setDeleteProcessor($productCategoryDeleteProcessor);
 
         // initialize the action that provides product datetime attribute CRUD functionality
-        $productDatetimePersistProcessor = new ProductDatetimePersistProcessor();
-        $productDatetimePersistProcessor->setUtilityClassName($utilityClassName);
-        $productDatetimePersistProcessor->setConnection($connection);
-        $productDatetimePersistProcessor->init();
+        $productDatetimeCreateProcessor = new ProductDatetimeCreateProcessor();
+        $productDatetimeCreateProcessor->setUtilityClassName($utilityClassName);
+        $productDatetimeCreateProcessor->setConnection($connection);
+        $productDatetimeCreateProcessor->init();
         $productDatetimeAction = new ProductDatetimeAction();
-        $productDatetimeAction->setPersistProcessor($productDatetimePersistProcessor);
+        $productDatetimeAction->setCreateProcessor($productDatetimeCreateProcessor);
 
         // initialize the action that provides product decimal attribute CRUD functionality
-        $productDecimalPersistProcessor = new ProductDecimalPersistProcessor();
-        $productDecimalPersistProcessor->setUtilityClassName($utilityClassName);
-        $productDecimalPersistProcessor->setConnection($connection);
-        $productDecimalPersistProcessor->init();
+        $productDecimalCreateProcessor = new ProductDecimalCreateProcessor();
+        $productDecimalCreateProcessor->setUtilityClassName($utilityClassName);
+        $productDecimalCreateProcessor->setConnection($connection);
+        $productDecimalCreateProcessor->init();
         $productDecimalAction = new ProductDecimalAction();
-        $productDecimalAction->setPersistProcessor($productDecimalPersistProcessor);
+        $productDecimalAction->setCreateProcessor($productDecimalCreateProcessor);
 
         // initialize the action that provides product integer attribute CRUD functionality
-        $productIntPersistProcessor = new ProductIntPersistProcessor();
-        $productIntPersistProcessor->setUtilityClassName($utilityClassName);
-        $productIntPersistProcessor->setConnection($connection);
-        $productIntPersistProcessor->init();
+        $productIntCreateProcessor = new ProductIntCreateProcessor();
+        $productIntCreateProcessor->setUtilityClassName($utilityClassName);
+        $productIntCreateProcessor->setConnection($connection);
+        $productIntCreateProcessor->init();
         $productIntAction = new ProductIntAction();
-        $productIntAction->setPersistProcessor($productIntPersistProcessor);
+        $productIntAction->setCreateProcessor($productIntCreateProcessor);
 
         // initialize the action that provides product CRUD functionality
-        $productPersistProcessor = new ProductPersistProcessor();
-        $productPersistProcessor->setUtilityClassName($utilityClassName);
-        $productPersistProcessor->setConnection($connection);
-        $productPersistProcessor->init();
-        $productRemoveProcessor = new ProductRemoveProcessor();
-        $productRemoveProcessor->setUtilityClassName($utilityClassName);
-        $productRemoveProcessor->setConnection($connection);
-        $productRemoveProcessor->init();
+        $productCreateProcessor = new ProductCreateProcessor();
+        $productCreateProcessor->setUtilityClassName($utilityClassName);
+        $productCreateProcessor->setConnection($connection);
+        $productCreateProcessor->init();
+        $productDeleteProcessor = new ProductDeleteProcessor();
+        $productDeleteProcessor->setUtilityClassName($utilityClassName);
+        $productDeleteProcessor->setConnection($connection);
+        $productDeleteProcessor->init();
+        $productUpdateProcessor = new ProductUpdateProcessor();
+        $productUpdateProcessor->setUtilityClassName($utilityClassName);
+        $productUpdateProcessor->setConnection($connection);
+        $productUpdateProcessor->init();
         $productAction = new ProductAction();
-        $productAction->setPersistProcessor($productPersistProcessor);
-        $productAction->setRemoveProcessor($productRemoveProcessor);
+        $productAction->setCreateProcessor($productCreateProcessor);
+        $productAction->setDeleteProcessor($productDeleteProcessor);
+        $productAction->setUpdateProcessor($productUpdateProcessor);
 
         // initialize the action that provides product text attribute CRUD functionality
-        $productTextPersistProcessor = new ProductTextPersistProcessor();
-        $productTextPersistProcessor->setUtilityClassName($utilityClassName);
-        $productTextPersistProcessor->setConnection($connection);
-        $productTextPersistProcessor->init();
+        $productTextCreateProcessor = new ProductTextCreateProcessor();
+        $productTextCreateProcessor->setUtilityClassName($utilityClassName);
+        $productTextCreateProcessor->setConnection($connection);
+        $productTextCreateProcessor->init();
         $productTextAction = new ProductTextAction();
-        $productTextAction->setPersistProcessor($productTextPersistProcessor);
+        $productTextAction->setCreateProcessor($productTextCreateProcessor);
 
         // initialize the action that provides product varchar attribute CRUD functionality
-        $productVarcharPersistProcessor = new ProductVarcharPersistProcessor();
-        $productVarcharPersistProcessor->setUtilityClassName($utilityClassName);
-        $productVarcharPersistProcessor->setConnection($connection);
-        $productVarcharPersistProcessor->init();
+        $productVarcharCreateProcessor = new ProductVarcharCreateProcessor();
+        $productVarcharCreateProcessor->setUtilityClassName($utilityClassName);
+        $productVarcharCreateProcessor->setConnection($connection);
+        $productVarcharCreateProcessor->init();
         $productVarcharAction = new ProductVarcharAction();
-        $productVarcharAction->setPersistProcessor($productVarcharPersistProcessor);
+        $productVarcharAction->setCreateProcessor($productVarcharCreateProcessor);
 
         // initialize the action that provides provides product website CRUD functionality
-        $productWebsitePersistProcessor = new ProductWebsitePersistProcessor();
-        $productWebsitePersistProcessor->setUtilityClassName($utilityClassName);
-        $productWebsitePersistProcessor->setConnection($connection);
-        $productWebsitePersistProcessor->init();
-        $productWebsiteRemoveProcessor = new ProductWebsiteRemoveProcessor();
-        $productWebsiteRemoveProcessor->setUtilityClassName($utilityClassName);
-        $productWebsiteRemoveProcessor->setConnection($connection);
-        $productWebsiteRemoveProcessor->init();
+        $productWebsiteCreateProcessor = new ProductWebsiteCreateProcessor();
+        $productWebsiteCreateProcessor->setUtilityClassName($utilityClassName);
+        $productWebsiteCreateProcessor->setConnection($connection);
+        $productWebsiteCreateProcessor->init();
+        $productWebsiteDeleteProcessor = new ProductWebsiteDeleteProcessor();
+        $productWebsiteDeleteProcessor->setUtilityClassName($utilityClassName);
+        $productWebsiteDeleteProcessor->setConnection($connection);
+        $productWebsiteDeleteProcessor->init();
         $productWebsiteAction = new ProductWebsiteAction();
-        $productWebsiteAction->setPersistProcessor($productWebsitePersistProcessor);
-        $productWebsiteAction->setRemoveProcessor($productWebsiteRemoveProcessor);
+        $productWebsiteAction->setCreateProcessor($productWebsiteCreateProcessor);
+        $productWebsiteAction->setDeleteProcessor($productWebsiteDeleteProcessor);
 
         // initialize the action that provides stock item CRUD functionality
-        $stockItemPersistProcessor = new StockItemPersistProcessor();
-        $stockItemPersistProcessor->setUtilityClassName($utilityClassName);
-        $stockItemPersistProcessor->setConnection($connection);
-        $stockItemPersistProcessor->init();
-        $stockItemRemoveProcessor = new StockItemRemoveProcessor();
-        $stockItemRemoveProcessor->setUtilityClassName($utilityClassName);
-        $stockItemRemoveProcessor->setConnection($connection);
-        $stockItemRemoveProcessor->init();
+        $stockItemCreateProcessor = new StockItemCreateProcessor();
+        $stockItemCreateProcessor->setUtilityClassName($utilityClassName);
+        $stockItemCreateProcessor->setConnection($connection);
+        $stockItemCreateProcessor->init();
+        $stockItemDeleteProcessor = new StockItemDeleteProcessor();
+        $stockItemDeleteProcessor->setUtilityClassName($utilityClassName);
+        $stockItemDeleteProcessor->setConnection($connection);
+        $stockItemDeleteProcessor->init();
         $stockItemAction = new StockItemAction();
-        $stockItemAction->setPersistProcessor($stockItemPersistProcessor);
-        $stockItemAction->setRemoveProcessor($stockItemRemoveProcessor);
+        $stockItemAction->setCreateProcessor($stockItemCreateProcessor);
+        $stockItemAction->setDeleteProcessor($stockItemDeleteProcessor);
 
         // initialize the action that provides stock status CRUD functionality
-        $stockStatusPersistProcessor = new StockStatusPersistProcessor();
-        $stockStatusPersistProcessor->setUtilityClassName($utilityClassName);
-        $stockStatusPersistProcessor->setConnection($connection);
-        $stockStatusPersistProcessor->init();
-        $stockStatusRemoveProcessor = new StockItemRemoveProcessor();
-        $stockStatusRemoveProcessor->setUtilityClassName($utilityClassName);
-        $stockStatusRemoveProcessor->setConnection($connection);
-        $stockStatusRemoveProcessor->init();
+        $stockStatusCreateProcessor = new StockStatusCreateProcessor();
+        $stockStatusCreateProcessor->setUtilityClassName($utilityClassName);
+        $stockStatusCreateProcessor->setConnection($connection);
+        $stockStatusCreateProcessor->init();
+        $stockStatusDeleteProcessor = new StockItemDeleteProcessor();
+        $stockStatusDeleteProcessor->setUtilityClassName($utilityClassName);
+        $stockStatusDeleteProcessor->setConnection($connection);
+        $stockStatusDeleteProcessor->init();
         $stockStatusAction = new StockStatusAction();
-        $stockStatusAction->setPersistProcessor($stockStatusPersistProcessor);
-        $stockStatusAction->setRemoveProcessor($stockStatusRemoveProcessor);
+        $stockStatusAction->setCreateProcessor($stockStatusCreateProcessor);
+        $stockStatusAction->setDeleteProcessor($stockStatusDeleteProcessor);
 
         // initialize the action that provides URL rewrite CRUD functionality
-        $urlRewritePersistProcessor = new UrlRewritePersistProcessor();
-        $urlRewritePersistProcessor->setUtilityClassName($utilityClassName);
-        $urlRewritePersistProcessor->setConnection($connection);
-        $urlRewritePersistProcessor->init();
-        $urlRewriteRemoveProcessor = new UrlRewriteRemoveProcessor();
-        $urlRewriteRemoveProcessor->setUtilityClassName($utilityClassName);
-        $urlRewriteRemoveProcessor->setConnection($connection);
-        $urlRewriteRemoveProcessor->init();
+        $urlRewriteCreateProcessor = new UrlRewriteCreateProcessor();
+        $urlRewriteCreateProcessor->setUtilityClassName($utilityClassName);
+        $urlRewriteCreateProcessor->setConnection($connection);
+        $urlRewriteCreateProcessor->init();
+        $urlRewriteDeleteProcessor = new UrlRewriteDeleteProcessor();
+        $urlRewriteDeleteProcessor->setUtilityClassName($utilityClassName);
+        $urlRewriteDeleteProcessor->setConnection($connection);
+        $urlRewriteDeleteProcessor->init();
         $urlRewriteAction = new UrlRewriteAction();
-        $urlRewriteAction->setPersistProcessor($urlRewritePersistProcessor);
-        $urlRewriteAction->setRemoveProcessor($urlRewriteRemoveProcessor);
+        $urlRewriteAction->setCreateProcessor($urlRewriteCreateProcessor);
+        $urlRewriteAction->setDeleteProcessor($urlRewriteDeleteProcessor);
 
         // initialize the product processor
         $processorType = static::getProcessorType();
         $productBunchProcessor = new $processorType();
         $productBunchProcessor->setConnection($connection);
-        $productBunchProcessor->setEavAttributeOptionValueRepository($eavAttributeOptionValueRepository);
+        $productBunchProcessor->setProductRepository($productRepository);
         $productBunchProcessor->setUrlRewriteRepository($urlRewriteRepository);
+        $productBunchProcessor->setEavAttributeOptionValueRepository($eavAttributeOptionValueRepository);
         $productBunchProcessor->setProductCategoryAction($productCategoryAction);
         $productBunchProcessor->setProductDatetimeAction($productDatetimeAction);
         $productBunchProcessor->setProductDecimalAction($productDecimalAction);

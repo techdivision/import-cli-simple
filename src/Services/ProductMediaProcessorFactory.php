@@ -21,10 +21,10 @@
 namespace TechDivision\Import\Cli\Services;
 
 use TechDivision\Import\Configuration\SubjectInterface;
-use TechDivision\Import\Product\Media\Actions\Processors\ProductMediaGalleryPersistProcessor;
-use TechDivision\Import\Product\Media\Actions\Processors\ProductMediaGalleryValuePersistProcessor;
-use TechDivision\Import\Product\Media\Actions\Processors\ProductMediaGalleryValueVideoPersistProcessor;
-use TechDivision\Import\Product\Media\Actions\Processors\ProductMediaGalleryValueToEntityPersistProcessor;
+use TechDivision\Import\Product\Media\Actions\Processors\ProductMediaGalleryCreateProcessor;
+use TechDivision\Import\Product\Media\Actions\Processors\ProductMediaGalleryValueCreateProcessor;
+use TechDivision\Import\Product\Media\Actions\Processors\ProductMediaGalleryValueVideoCreateProcessor;
+use TechDivision\Import\Product\Media\Actions\Processors\ProductMediaGalleryValueToEntityCreateProcessor;
 use TechDivision\Import\Product\Media\Actions\ProductMediaGalleryAction;
 use TechDivision\Import\Product\Media\Actions\ProductMediaGalleryValueAction;
 use TechDivision\Import\Product\Media\Actions\ProductMediaGalleryValueVideoAction;
@@ -67,36 +67,36 @@ class ProductMediaProcessorFactory extends AbstractProductProcessorFactory
         $utilityClassName = $configuration->getUtilityClassName();
 
         // initialize the action that provides product media gallery CRUD functionality
-        $productMediaGalleryPersistProcessor = new ProductMediaGalleryPersistProcessor();
-        $productMediaGalleryPersistProcessor->setUtilityClassName($utilityClassName);
-        $productMediaGalleryPersistProcessor->setConnection($connection);
-        $productMediaGalleryPersistProcessor->init();
+        $productMediaGalleryCreateProcessor = new ProductMediaGalleryCreateProcessor();
+        $productMediaGalleryCreateProcessor->setUtilityClassName($utilityClassName);
+        $productMediaGalleryCreateProcessor->setConnection($connection);
+        $productMediaGalleryCreateProcessor->init();
         $productMediaGalleryAction = new ProductMediaGalleryAction();
-        $productMediaGalleryAction->setPersistProcessor($productMediaGalleryPersistProcessor);
+        $productMediaGalleryAction->setCreateProcessor($productMediaGalleryCreateProcessor);
 
         // initialize the action that provides product media gallery value CRUD functionality
-        $productMediaGalleryValuePersistProcessor = new ProductMediaGalleryValuePersistProcessor();
-        $productMediaGalleryValuePersistProcessor->setUtilityClassName($utilityClassName);
-        $productMediaGalleryValuePersistProcessor->setConnection($connection);
-        $productMediaGalleryValuePersistProcessor->init();
+        $productMediaGalleryValueCreateProcessor = new ProductMediaGalleryValueCreateProcessor();
+        $productMediaGalleryValueCreateProcessor->setUtilityClassName($utilityClassName);
+        $productMediaGalleryValueCreateProcessor->setConnection($connection);
+        $productMediaGalleryValueCreateProcessor->init();
         $productMediaGalleryValueAction = new ProductMediaGalleryValueAction();
-        $productMediaGalleryValueAction->setPersistProcessor($productMediaGalleryValuePersistProcessor);
+        $productMediaGalleryValueAction->setCreateProcessor($productMediaGalleryValueCreateProcessor);
 
         // initialize the action that provides product media gallery value to entity CRUD functionality
-        $productMediaGalleryValueToEntityPersistProcessor = new ProductMediaGalleryValueToEntityPersistProcessor();
-        $productMediaGalleryValueToEntityPersistProcessor->setUtilityClassName($utilityClassName);
-        $productMediaGalleryValueToEntityPersistProcessor->setConnection($connection);
-        $productMediaGalleryValueToEntityPersistProcessor->init();
+        $productMediaGalleryValueToEntityCreateProcessor = new ProductMediaGalleryValueToEntityCreateProcessor();
+        $productMediaGalleryValueToEntityCreateProcessor->setUtilityClassName($utilityClassName);
+        $productMediaGalleryValueToEntityCreateProcessor->setConnection($connection);
+        $productMediaGalleryValueToEntityCreateProcessor->init();
         $productMediaGalleryValueToEntityAction = new ProductMediaGalleryValueToEntityAction();
-        $productMediaGalleryValueToEntityAction->setPersistProcessor($productMediaGalleryValueToEntityPersistProcessor);
+        $productMediaGalleryValueToEntityAction->setCreateProcessor($productMediaGalleryValueToEntityCreateProcessor);
 
         // initialize the action that provides product media gallery value video CRUD functionality
-        $productMediaGalleryValueVideoPersistProcessor = new ProductMediaGalleryValueVideoPersistProcessor();
-        $productMediaGalleryValueVideoPersistProcessor->setUtilityClassName($utilityClassName);
-        $productMediaGalleryValueVideoPersistProcessor->setConnection($connection);
-        $productMediaGalleryValueVideoPersistProcessor->init();
+        $productMediaGalleryValueVideoCreateProcessor = new ProductMediaGalleryValueVideoCreateProcessor();
+        $productMediaGalleryValueVideoCreateProcessor->setUtilityClassName($utilityClassName);
+        $productMediaGalleryValueVideoCreateProcessor->setConnection($connection);
+        $productMediaGalleryValueVideoCreateProcessor->init();
         $productMediaGalleryValueVideoAction = new ProductMediaGalleryValueVideoAction();
-        $productMediaGalleryValueVideoAction->setPersistProcessor($productMediaGalleryValueVideoPersistProcessor);
+        $productMediaGalleryValueVideoAction->setCreateProcessor($productMediaGalleryValueVideoCreateProcessor);
 
         // initialize the product media processor
         $processorType = ProductMediaProcessorFactory::getProcessorType();

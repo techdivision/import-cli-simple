@@ -27,10 +27,10 @@ use TechDivision\Import\Product\Variant\Actions\ProductRelationAction;
 use TechDivision\Import\Product\Variant\Actions\ProductSuperAttributeAction;
 use TechDivision\Import\Product\Variant\Actions\ProductSuperAttributeLabelAction;
 use TechDivision\Import\Product\Variant\Actions\ProductSuperLinkAction;
-use TechDivision\Import\Product\Variant\Actions\Processors\ProductRelationPersistProcessor;
-use TechDivision\Import\Product\Variant\Actions\Processors\ProductSuperAttributePersistProcessor;
-use TechDivision\Import\Product\Variant\Actions\Processors\ProductSuperAttributeLabelPersistProcessor;
-use TechDivision\Import\Product\Variant\Actions\Processors\ProductSuperLinkPersistProcessor;
+use TechDivision\Import\Product\Variant\Actions\Processors\ProductRelationCreateProcessor;
+use TechDivision\Import\Product\Variant\Actions\Processors\ProductSuperLinkCreateProcessor;
+use TechDivision\Import\Product\Variant\Actions\Processors\ProductSuperAttributeCreateProcessor;
+use TechDivision\Import\Product\Variant\Actions\Processors\ProductSuperAttributeLabelCreateProcessor;
 
 /**
  * Factory to create a new product variant processor.
@@ -81,36 +81,36 @@ class ProductVariantProcessorFactory extends AbstractProductProcessorFactory
         $eavAttributeOptionValueRepository->init();
 
         // initialize the action that provides product relation CRUD functionality
-        $productRelationPersistProcessor = new ProductRelationPersistProcessor();
-        $productRelationPersistProcessor->setUtilityClassName($utilityClassName);
-        $productRelationPersistProcessor->setConnection($connection);
-        $productRelationPersistProcessor->init();
+        $productRelationCreateProcessor = new ProductRelationCreateProcessor();
+        $productRelationCreateProcessor->setUtilityClassName($utilityClassName);
+        $productRelationCreateProcessor->setConnection($connection);
+        $productRelationCreateProcessor->init();
         $productRelationAction = new ProductRelationAction();
-        $productRelationAction->setPersistProcessor($productRelationPersistProcessor);
+        $productRelationAction->setCreateProcessor($productRelationCreateProcessor);
 
         // initialize the action that provides product super attribute CRUD functionality
-        $productSuperAttributePersistProcessor = new ProductSuperAttributePersistProcessor();
-        $productSuperAttributePersistProcessor->setUtilityClassName($utilityClassName);
-        $productSuperAttributePersistProcessor->setConnection($connection);
-        $productSuperAttributePersistProcessor->init();
+        $productSuperAttributeCreateProcessor = new ProductSuperAttributeCreateProcessor();
+        $productSuperAttributeCreateProcessor->setUtilityClassName($utilityClassName);
+        $productSuperAttributeCreateProcessor->setConnection($connection);
+        $productSuperAttributeCreateProcessor->init();
         $productSuperAttributeAction = new ProductSuperAttributeAction();
-        $productSuperAttributeAction->setPersistProcessor($productSuperAttributePersistProcessor);
+        $productSuperAttributeAction->setCreateProcessor($productSuperAttributeCreateProcessor);
 
         // initialize the action that provides product super attribute label CRUD functionality
-        $productSuperAttributeLabelPersistProcessor = new ProductSuperAttributeLabelPersistProcessor();
-        $productSuperAttributeLabelPersistProcessor->setUtilityClassName($utilityClassName);
-        $productSuperAttributeLabelPersistProcessor->setConnection($connection);
-        $productSuperAttributeLabelPersistProcessor->init();
+        $productSuperAttributeLabelCreateProcessor = new ProductSuperAttributeLabelCreateProcessor();
+        $productSuperAttributeLabelCreateProcessor->setUtilityClassName($utilityClassName);
+        $productSuperAttributeLabelCreateProcessor->setConnection($connection);
+        $productSuperAttributeLabelCreateProcessor->init();
         $productSuperAttributeLabelAction = new ProductSuperAttributeLabelAction();
-        $productSuperAttributeLabelAction->setPersistProcessor($productSuperAttributeLabelPersistProcessor);
+        $productSuperAttributeLabelAction->setCreateProcessor($productSuperAttributeLabelCreateProcessor);
 
         // initialize the action that provides product super link CRUD functionality
-        $productSuperLinkPersistProcessor = new ProductSuperLinkPersistProcessor();
-        $productSuperLinkPersistProcessor->setUtilityClassName($utilityClassName);
-        $productSuperLinkPersistProcessor->setConnection($connection);
-        $productSuperLinkPersistProcessor->init();
+        $productSuperLinkCreateProcessor = new ProductSuperLinkCreateProcessor();
+        $productSuperLinkCreateProcessor->setUtilityClassName($utilityClassName);
+        $productSuperLinkCreateProcessor->setConnection($connection);
+        $productSuperLinkCreateProcessor->init();
         $productSuperLinkAction = new ProductSuperLinkAction();
-        $productSuperLinkAction->setPersistProcessor($productSuperLinkPersistProcessor);
+        $productSuperLinkAction->setCreateProcessor($productSuperLinkCreateProcessor);
 
         // initialize the product variant processor
         $processorType = ProductVariantProcessorFactory::getProcessorType();

@@ -22,7 +22,7 @@ namespace TechDivision\Import\Cli\Services;
 
 use TechDivision\Import\Configuration\SubjectInterface;
 use TechDivision\Import\Product\Ee\Actions\SequenceProductAction;
-use TechDivision\Import\Product\Ee\Actions\Processors\SequenceProductPersistProcessor;
+use TechDivision\Import\Product\Ee\Actions\Processors\SequenceProductCreateProcessor;
 
 /**
  * A SLSB providing methods to load product data using a PDO connection.
@@ -64,12 +64,12 @@ class EeProductBunchProcessorFactory extends ProductBunchProcessorFactory
         $utilityClassName = $configuration->getUtilityClassName();
 
         // initialize the action that provides sequence product CRUD functionality
-        $sequenceProductPersistProcessor = new SequenceProductPersistProcessor();
-        $sequenceProductPersistProcessor->setUtilityClassName($utilityClassName);
-        $sequenceProductPersistProcessor->setConnection($connection);
-        $sequenceProductPersistProcessor->init();
+        $sequenceProductCreateProcessor = new SequenceProductCreateProcessor();
+        $sequenceProductCreateProcessor->setUtilityClassName($utilityClassName);
+        $sequenceProductCreateProcessor->setConnection($connection);
+        $sequenceProductCreateProcessor->init();
         $sequenceProductAction = new SequenceProductAction();
-        $sequenceProductAction->setPersistProcessor($sequenceProductPersistProcessor);
+        $sequenceProductAction->setCreateProcessor($sequenceProductCreateProcessor);
 
         // initialize the product processor
         $productProcessor->setSequenceProductAction($sequenceProductAction);

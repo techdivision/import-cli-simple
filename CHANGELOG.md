@@ -1,3 +1,14 @@
+# Version 1.0.0-alpha8
+
+## Bugfixes
+
+* None
+
+## Features
+
+* Switch to new create/delete naming convention
+* Add basic product update functionality for add-update operation
+
 # Version 1.0.0-alpha7
 
 ## Bugfixes
