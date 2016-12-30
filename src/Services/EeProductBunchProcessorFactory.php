@@ -21,6 +21,12 @@
 namespace TechDivision\Import\Cli\Services;
 
 use TechDivision\Import\Configuration\SubjectInterface;
+use TechDivision\Import\Product\Ee\Repositories\ProductRepository;
+use TechDivision\Import\Product\Ee\Repositories\ProductDatetimeRepository;
+use TechDivision\Import\Product\Ee\Repositories\ProductDecimalRepository;
+use TechDivision\Import\Product\Ee\Repositories\ProductIntRepository;
+use TechDivision\Import\Product\Ee\Repositories\ProductTextRepository;
+use TechDivision\Import\Product\Ee\Repositories\ProductVarcharRepository;
 use TechDivision\Import\Product\Ee\Actions\SequenceProductAction;
 use TechDivision\Import\Product\Ee\Actions\Processors\SequenceProductCreateProcessor;
 
@@ -58,7 +64,7 @@ class EeProductBunchProcessorFactory extends ProductBunchProcessorFactory
     {
 
         // initialize the product processor
-        $productProcessor = parent::factory($connection, $configuration);
+        $productBunchProcessor = parent::factory($connection, $configuration);
 
         // load the utility class name
         $utilityClassName = $configuration->getUtilityClassName();
@@ -71,10 +77,52 @@ class EeProductBunchProcessorFactory extends ProductBunchProcessorFactory
         $sequenceProductAction = new SequenceProductAction();
         $sequenceProductAction->setCreateProcessor($sequenceProductCreateProcessor);
 
+        // initialize the repository that provides product query functionality
+        $productRepository = new ProductRepository();
+        $productRepository->setUtilityClassName($utilityClassName);
+        $productRepository->setConnection($connection);
+        $productRepository->init();
+
+        // initialize the repository that provides product datetime attribute query functionality
+        $productDatetimeRepository = new ProductDatetimeRepository();
+        $productDatetimeRepository->setUtilityClassName($utilityClassName);
+        $productDatetimeRepository->setConnection($connection);
+        $productDatetimeRepository->init();
+
+        // initialize the repository that provides product decimal attribute query functionality
+        $productDecimalRepository = new ProductDecimalRepository();
+        $productDecimalRepository->setUtilityClassName($utilityClassName);
+        $productDecimalRepository->setConnection($connection);
+        $productDecimalRepository->init();
+
+        // initialize the repository that provides product integer attribute query functionality
+        $productIntRepository = new ProductIntRepository();
+        $productIntRepository->setUtilityClassName($utilityClassName);
+        $productIntRepository->setConnection($connection);
+        $productIntRepository->init();
+
+        // initialize the repository that provides product text attribute query functionality
+        $productTextRepository = new ProductTextRepository();
+        $productTextRepository->setUtilityClassName($utilityClassName);
+        $productTextRepository->setConnection($connection);
+        $productTextRepository->init();
+
+        // initialize the repository that provides product varchar attribute query functionality
+        $productVarcharRepository = new ProductVarcharRepository();
+        $productVarcharRepository->setUtilityClassName($utilityClassName);
+        $productVarcharRepository->setConnection($connection);
+        $productVarcharRepository->init();
+
         // initialize the product processor
-        $productProcessor->setSequenceProductAction($sequenceProductAction);
+        $productBunchProcessor->setProductRepository($productRepository);
+        $productBunchProcessor->setProductDatetimeRepository($productDatetimeRepository);
+        $productBunchProcessor->setProductDecimalRepository($productDecimalRepository);
+        $productBunchProcessor->setProductIntRepository($productIntRepository);
+        $productBunchProcessor->setProductTextRepository($productTextRepository);
+        $productBunchProcessor->setProductVarcharRepository($productVarcharRepository);
+        $productBunchProcessor->setSequenceProductAction($sequenceProductAction);
 
         // return the instance
-        return $productProcessor;
+        return $productBunchProcessor;
     }
 }

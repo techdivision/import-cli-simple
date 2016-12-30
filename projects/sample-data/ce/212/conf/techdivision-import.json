@@ -56,7 +56,7 @@
               "import": [
                 "TechDivision\\Import\\Product\\Observers\\ProductObserver",
                 "TechDivision\\Import\\Product\\Observers\\ProductWebsiteObserver",
-                "TechDivision\\Import\\Product\\Observers\\ProductCategoryObserver",
+                "TechDivision\\Import\\Product\\Observers\\CategoryProductObserver",
                 "TechDivision\\Import\\Product\\Observers\\ProductInventoryObserver",
                 "TechDivision\\Import\\Product\\Observers\\UrlRewriteObserver",
                 "TechDivision\\Import\\Product\\Observers\\ProductAttributeObserver",
@@ -303,11 +303,11 @@
             {
               "import": [
                 "TechDivision\\Import\\Product\\Observers\\ProductUpdateObserver",
-                "TechDivision\\Import\\Product\\Observers\\ProductWebsiteObserver",
-                "TechDivision\\Import\\Product\\Observers\\ProductCategoryObserver",
-                "TechDivision\\Import\\Product\\Observers\\ProductInventoryObserver",
-                "TechDivision\\Import\\Product\\Observers\\UrlRewriteObserver",
-                "TechDivision\\Import\\Product\\Observers\\ProductAttributeObserver",
+                "TechDivision\\Import\\Product\\Observers\\ProductWebsiteUpdateObserver",
+                "TechDivision\\Import\\Product\\Observers\\CategoryProductUpdateObserver",
+                "TechDivision\\Import\\Product\\Observers\\ProductInventoryUpdateObserver",
+                "TechDivision\\Import\\Product\\Observers\\UrlRewriteUpdateObserver",
+                "TechDivision\\Import\\Product\\Observers\\ProductAttributeUpdateObserver",
                 "TechDivision\\Import\\Product\\Variant\\Observers\\ProductVariantObserver",
                 "TechDivision\\Import\\Product\\Bundle\\Observers\\ProductBundleObserver",
                 "TechDivision\\Import\\Product\\Media\\Observers\\ProductMediaObserver",
@@ -449,80 +449,6 @@
             {
               "color": [
                 "TechDivision\\Import\\Product\\Callbacks\\SelectCallback"
-              ]
-            }
-          ]
-        },
-        {
-          "class-name": "TechDivision\\Import\\Product\\Variant\\Subjects\\VariantSubject",
-          "processor-factory" : "TechDivision\\Import\\Cli\\Services\\ProductVariantProcessorFactory",
-          "utility-class-name" : "TechDivision\\Import\\Product\\Variant\\Utils\\SqlStatements",
-          "prefix": "variants",
-          "source-dir": "projects/sample-data/tmp",
-          "target-dir": "projects/sample-data/tmp",
-          "observers": [
-            {
-              "import": [
-                "TechDivision\\Import\\Product\\Variant\\Observers\\VariantObserver"
-              ]
-            }
-          ]
-        },
-        {
-          "class-name": "TechDivision\\Import\\Product\\Bundle\\Subjects\\BundleSubject",
-          "processor-factory" : "TechDivision\\Import\\Cli\\Services\\ProductBundleProcessorFactory",
-          "utility-class-name" : "TechDivision\\Import\\Product\\Bundle\\Utils\\SqlStatements",
-          "prefix": "bundles",
-          "source-dir": "projects/sample-data/tmp",
-          "target-dir": "projects/sample-data/tmp",
-          "observers": [
-            {
-              "import": [
-                "TechDivision\\Import\\Product\\Bundle\\Observers\\BundleOptionObserver",
-                "TechDivision\\Import\\Product\\Bundle\\Observers\\BundleOptionValueObserver",
-                "TechDivision\\Import\\Product\\Bundle\\Observers\\BundleSelectionObserver",
-                "TechDivision\\Import\\Product\\Bundle\\Observers\\BundleSelectionPriceObserver"
-              ]
-            }
-          ]
-        },
-        {
-          "class-name": "TechDivision\\Import\\Product\\Media\\Subjects\\MediaSubject",
-          "processor-factory" : "TechDivision\\Import\\Cli\\Services\\ProductMediaProcessorFactory",
-          "utility-class-name" : "TechDivision\\Import\\Product\\Media\\Utils\\SqlStatements",
-          "prefix": "media",
-          "source-dir": "projects/sample-data/tmp",
-          "target-dir": "projects/sample-data/tmp",
-          "params" : [
-            {
-              "root-directory" : "/",
-              "media-directory" : "/opt/appserver/webapps/magento2_ce212/pub/media/catalog/product",
-              "images-file-directory" : "projects/sample-data/magento2-sample-data/pub/media/catalog/product"
-            }
-          ],
-          "observers": [
-            {
-              "pre-import" : [
-                "TechDivision\\Import\\Product\\Media\\Observers\\FileUploadObserver"
-              ],
-              "import": [
-                "TechDivision\\Import\\Product\\Media\\Observers\\MediaGalleryObserver",
-                "TechDivision\\Import\\Product\\Media\\Observers\\MediaGalleryValueObserver"
-              ]
-            }
-          ]
-        },
-        {
-          "class-name": "TechDivision\\Import\\Product\\Link\\Subjects\\LinkSubject",
-          "processor-factory" : "TechDivision\\Import\\Cli\\Services\\ProductLinkProcessorFactory",
-          "utility-class-name" : "TechDivision\\Import\\Product\\Links\\Utils\\SqlStatements",
-          "prefix": "links",
-          "source-dir": "projects/sample-data/tmp",
-          "target-dir": "projects/sample-data/tmp",
-          "observers": [
-            {
-              "import": [
-                "TechDivision\\Import\\Product\\Link\\Observers\\LinkObserver"
               ]
             }
           ]
