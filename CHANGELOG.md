@@ -1,3 +1,13 @@
+# Version 1.0.0-alpha9
+
+## Bugfixes
+
+* None
+
+## Features
+
+* Implement add-update operation for product import (NOT bundle, link, media + variant)
+
 # Version 1.0.0-alpha8
 
 ## Bugfixes

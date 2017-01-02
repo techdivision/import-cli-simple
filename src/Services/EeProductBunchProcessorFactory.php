@@ -21,13 +21,13 @@
 namespace TechDivision\Import\Cli\Services;
 
 use TechDivision\Import\Configuration\SubjectInterface;
-use TechDivision\Import\Product\Ee\Repositories\ProductRepository;
 use TechDivision\Import\Product\Ee\Repositories\ProductDatetimeRepository;
 use TechDivision\Import\Product\Ee\Repositories\ProductDecimalRepository;
 use TechDivision\Import\Product\Ee\Repositories\ProductIntRepository;
 use TechDivision\Import\Product\Ee\Repositories\ProductTextRepository;
 use TechDivision\Import\Product\Ee\Repositories\ProductVarcharRepository;
 use TechDivision\Import\Product\Ee\Actions\SequenceProductAction;
+use TechDivision\Import\Product\Ee\Actions\Processors\ProductUpdateProcessor;
 use TechDivision\Import\Product\Ee\Actions\Processors\SequenceProductCreateProcessor;
 
 /**
@@ -69,6 +69,15 @@ class EeProductBunchProcessorFactory extends ProductBunchProcessorFactory
         // load the utility class name
         $utilityClassName = $configuration->getUtilityClassName();
 
+        // initialize the action that provides product CRUD functionality
+        $productUpdateProcessor = new ProductUpdateProcessor();
+        $productUpdateProcessor->setUtilityClassName($utilityClassName);
+        $productUpdateProcessor->setConnection($connection);
+        $productUpdateProcessor->init();
+
+        // override the product update processor to support Magento 2 EE scheduled updates functionality
+        $productBunchProcessor->getProductAction()->setUpdateProcessor($productUpdateProcessor);
+
         // initialize the action that provides sequence product CRUD functionality
         $sequenceProductCreateProcessor = new SequenceProductCreateProcessor();
         $sequenceProductCreateProcessor->setUtilityClassName($utilityClassName);
@@ -76,12 +85,6 @@ class EeProductBunchProcessorFactory extends ProductBunchProcessorFactory
         $sequenceProductCreateProcessor->init();
         $sequenceProductAction = new SequenceProductAction();
         $sequenceProductAction->setCreateProcessor($sequenceProductCreateProcessor);
-
-        // initialize the repository that provides product query functionality
-        $productRepository = new ProductRepository();
-        $productRepository->setUtilityClassName($utilityClassName);
-        $productRepository->setConnection($connection);
-        $productRepository->init();
 
         // initialize the repository that provides product datetime attribute query functionality
         $productDatetimeRepository = new ProductDatetimeRepository();
@@ -114,7 +117,6 @@ class EeProductBunchProcessorFactory extends ProductBunchProcessorFactory
         $productVarcharRepository->init();
 
         // initialize the product processor
-        $productBunchProcessor->setProductRepository($productRepository);
         $productBunchProcessor->setProductDatetimeRepository($productDatetimeRepository);
         $productBunchProcessor->setProductDecimalRepository($productDecimalRepository);
         $productBunchProcessor->setProductIntRepository($productIntRepository);
