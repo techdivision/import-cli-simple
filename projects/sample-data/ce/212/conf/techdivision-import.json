@@ -452,6 +452,24 @@
               ]
             }
           ]
+        },
+        {
+          "class-name": "TechDivision\\Import\\Product\\Bundle\\Subjects\\BundleSubject",
+          "processor-factory" : "TechDivision\\Import\\Cli\\Services\\ProductBundleProcessorFactory",
+          "utility-class-name" : "TechDivision\\Import\\Product\\Bundle\\Utils\\SqlStatements",
+          "prefix": "bundles",
+          "source-dir": "projects/sample-data/tmp",
+          "target-dir": "projects/sample-data/tmp",
+          "observers": [
+            {
+              "import": [
+                "TechDivision\\Import\\Product\\Bundle\\Observers\\BundleOptionUpdateObserver",
+                "TechDivision\\Import\\Product\\Bundle\\Observers\\BundleOptionValueUpdateObserver",
+                "TechDivision\\Import\\Product\\Bundle\\Observers\\BundleSelectionUpdateObserver",
+                "TechDivision\\Import\\Product\\Bundle\\Observers\\BundleSelectionPriceUpdateObserver"
+              ]
+            }
+          ]
         }
       ]
     }
