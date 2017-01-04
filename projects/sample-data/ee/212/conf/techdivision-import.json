@@ -265,7 +265,7 @@
           ]
         },
         {
-          "class-name": "TechDivision\\Import\\Product\\Link\\Subjects\\LinkSubject",
+          "class-name": "TechDivision\\Import\\Product\\Link\\Ee\\Subjects\\EeLinkSubject",
           "processor-factory" : "TechDivision\\Import\\Cli\\Services\\ProductLinkProcessorFactory",
           "utility-class-name" : "TechDivision\\Import\\Product\\Link\\Utils\\SqlStatements",
           "prefix": "links",
@@ -274,7 +274,8 @@
           "observers": [
             {
               "import": [
-                "TechDivision\\Import\\Product\\Link\\Observers\\LinkObserver"
+                "TechDivision\\Import\\Product\\Link\\Ee\\Observers\\EeLinkObserver",
+                "TechDivision\\Import\\Product\\Link\\Observers\\LinkAttributePositionObserver"
               ]
             }
           ]
@@ -467,6 +468,22 @@
                 "TechDivision\\Import\\Product\\Bundle\\Ee\\Observers\\EeBundleOptionValueUpdateObserver",
                 "TechDivision\\Import\\Product\\Bundle\\Observers\\BundleSelectionObserver",
                 "TechDivision\\Import\\Product\\Bundle\\Observers\\BundleSelectionPriceObserver"
+              ]
+            }
+          ]
+        },
+        {
+          "class-name": "TechDivision\\Import\\Product\\Link\\Ee\\Subjects\\EeLinkSubject",
+          "processor-factory" : "TechDivision\\Import\\Cli\\Services\\ProductLinkProcessorFactory",
+          "utility-class-name" : "TechDivision\\Import\\Product\\Link\\Utils\\SqlStatements",
+          "prefix": "links",
+          "source-dir": "projects/sample-data/tmp",
+          "target-dir": "projects/sample-data/tmp",
+          "observers": [
+            {
+              "import": [
+                "TechDivision\\Import\\Product\\Link\\Ee\\Observers\\EeLinkUpdateObserver",
+                "TechDivision\\Import\\Product\\Link\\Observers\\LinkAttributePositionUpdateObserver"
               ]
             }
           ]

@@ -1,3 +1,13 @@
+# Version 1.0.0-alpha11
+
+## Bugfixes
+
+* None
+
+## Features
+
+* Implement add-update operation for product link import
+
 # Version 1.0.0-alpha10
 
 ## Bugfixes

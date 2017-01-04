@@ -28,6 +28,7 @@ use TechDivision\Import\Repositories\LinkTypeRepository;
 use TechDivision\Import\Repositories\CategoryRepository;
 use TechDivision\Import\Repositories\StoreWebsiteRepository;
 use TechDivision\Import\Repositories\EavAttributeRepository;
+use TechDivision\Import\Repositories\LinkAttributeRepository;
 use TechDivision\Import\Repositories\CoreConfigDataRepository;
 use TechDivision\Import\Repositories\CategoryVarcharRepository;
 use TechDivision\Import\Repositories\EavAttributeSetRepository;
@@ -106,6 +107,12 @@ class ImportProcessorFactory
         $linkTypeRepository->setConnection($connection);
         $linkTypeRepository->init();
 
+        // initialize the repository that provides link attribute query functionality
+        $linkAttributeRepository = new LinkAttributeRepository();
+        $linkAttributeRepository->setUtilityClassName($utilityClassName);
+        $linkAttributeRepository->setConnection($connection);
+        $linkAttributeRepository->init();
+
         // initialize the repository that provides core config data functionality
         $coreConfigDataRepository = new CoreConfigDataRepository();
         $coreConfigDataRepository->setUtilityClassName($utilityClassName);
@@ -123,6 +130,7 @@ class ImportProcessorFactory
         $importProcessor->setStoreWebsiteRepository($storeWebsiteRepository);
         $importProcessor->setTaxClassRepository($taxClassRepository);
         $importProcessor->setLinkTypeRepository($linkTypeRepository);
+        $importProcessor->setLinkAttributeRepository($linkAttributeRepository);
         $importProcessor->setCoreConfigDataRepository($coreConfigDataRepository);
 
         // return the initialize import processor instance

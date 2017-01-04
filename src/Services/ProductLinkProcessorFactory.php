@@ -21,16 +21,14 @@
 namespace TechDivision\Import\Cli\Services;
 
 use TechDivision\Import\Configuration\SubjectInterface;
+use TechDivision\Import\Product\Link\Repositories\ProductLinkRepository;
+use TechDivision\Import\Product\Link\Repositories\ProductLinkAttributeIntRepository;
 use TechDivision\Import\Product\Link\Actions\ProductLinkAction;
-use TechDivision\Import\Product\Link\Actions\ProductLinkAttributeAction;
 use TechDivision\Import\Product\Link\Actions\ProductLinkAttributeIntAction;
-use TechDivision\Import\Product\Link\Actions\ProductLinkAttributeDecimalAction;
-use TechDivision\Import\Product\Link\Actions\ProductLinkAttributeVarcharAction;
 use TechDivision\Import\Product\Link\Actions\Processors\ProductLinkCreateProcessor;
-use TechDivision\Import\Product\Link\Actions\Processors\ProductLinkAttributeCreateProcessor;
+use TechDivision\Import\Product\Link\Actions\Processors\ProductLinkUpdateProcessor;
 use TechDivision\Import\Product\Link\Actions\Processors\ProductLinkAttributeIntCreateProcessor;
-use TechDivision\Import\Product\Link\Actions\Processors\ProductLinkAttributeDecimalCreateProcessor;
-use TechDivision\Import\Product\Link\Actions\Processors\ProductLinkAttributeVarcharCreateProcessor;
+use TechDivision\Import\Product\Link\Actions\Processors\ProductLinkAttributeIntUpdateProcessor;
 
 /**
  * Factory to create a new product link processor.
@@ -68,55 +66,52 @@ class ProductLinkProcessorFactory extends AbstractProductProcessorFactory
         // load the utility class name
         $utilityClassName = $configuration->getUtilityClassName();
 
+        // initialize the repository that provides product link query functionality
+        $productLinkRepository = new ProductLinkRepository();
+        $productLinkRepository->setUtilityClassName($utilityClassName);
+        $productLinkRepository->setConnection($connection);
+        $productLinkRepository->init();
+
+        // initialize the repository that provides product link attribute integer query functionality
+        $productLinkAttributeIntRepository = new ProductLinkAttributeIntRepository();
+        $productLinkAttributeIntRepository->setUtilityClassName($utilityClassName);
+        $productLinkAttributeIntRepository->setConnection($connection);
+        $productLinkAttributeIntRepository->init();
+
         // initialize the action that provides product link CRUD functionality
         $productLinkCreateProcessor = new ProductLinkCreateProcessor();
         $productLinkCreateProcessor->setUtilityClassName($utilityClassName);
         $productLinkCreateProcessor->setConnection($connection);
         $productLinkCreateProcessor->init();
+        $productLinkUpdateProcessor = new ProductLinkUpdateProcessor();
+        $productLinkUpdateProcessor->setUtilityClassName($utilityClassName);
+        $productLinkUpdateProcessor->setConnection($connection);
+        $productLinkUpdateProcessor->init();
         $productLinkAction = new ProductLinkAction();
         $productLinkAction->setCreateProcessor($productLinkCreateProcessor);
-
-        // initialize the action that provides product link attribute CRUD functionality
-        $productLinkAttributeCreateProcessor = new ProductLinkAttributeCreateProcessor();
-        $productLinkAttributeCreateProcessor->setUtilityClassName($utilityClassName);
-        $productLinkAttributeCreateProcessor->setConnection($connection);
-        $productLinkAttributeCreateProcessor->init();
-        $productLinkAttributeAction = new ProductLinkAttributeAction();
-        $productLinkAttributeAction->setCreateProcessor($productLinkAttributeCreateProcessor);
-
-        // initialize the action that provides product link attribute decimal CRUD functionality
-        $productLinkAttributeDecimalCreateProcessor = new ProductLinkAttributeDecimalCreateProcessor();
-        $productLinkAttributeDecimalCreateProcessor->setUtilityClassName($utilityClassName);
-        $productLinkAttributeDecimalCreateProcessor->setConnection($connection);
-        $productLinkAttributeDecimalCreateProcessor->init();
-        $productLinkAttributeDecimalAction = new ProductLinkAttributeDecimalAction();
-        $productLinkAttributeDecimalAction->setCreateProcessor($productLinkAttributeDecimalCreateProcessor);
+        $productLinkAction->setUpdateProcessor($productLinkUpdateProcessor);
 
         // initialize the action that provides product link attribute integer CRUD functionality
         $productLinkAttributeIntCreateProcessor = new ProductLinkAttributeIntCreateProcessor();
         $productLinkAttributeIntCreateProcessor->setUtilityClassName($utilityClassName);
         $productLinkAttributeIntCreateProcessor->setConnection($connection);
         $productLinkAttributeIntCreateProcessor->init();
+        $productLinkAttributeIntUpdateProcessor = new ProductLinkAttributeIntUpdateProcessor();
+        $productLinkAttributeIntUpdateProcessor->setUtilityClassName($utilityClassName);
+        $productLinkAttributeIntUpdateProcessor->setConnection($connection);
+        $productLinkAttributeIntUpdateProcessor->init();
         $productLinkAttributeIntAction = new ProductLinkAttributeIntAction();
         $productLinkAttributeIntAction->setCreateProcessor($productLinkAttributeIntCreateProcessor);
-
-        // initialize the action that provides product link attribute varchar CRUD functionality
-        $productLinkAttributeVarcharCreateProcessor = new ProductLinkAttributeVarcharCreateProcessor();
-        $productLinkAttributeVarcharCreateProcessor->setUtilityClassName($utilityClassName);
-        $productLinkAttributeVarcharCreateProcessor->setConnection($connection);
-        $productLinkAttributeVarcharCreateProcessor->init();
-        $productLinkAttributeVarcharAction = new ProductLinkAttributeVarcharAction();
-        $productLinkAttributeVarcharAction->setCreateProcessor($productLinkAttributeVarcharCreateProcessor);
+        $productLinkAttributeIntAction->setUpdateProcessor($productLinkAttributeIntUpdateProcessor);
 
         // initialize the product link processor
         $processorType = ProductLinkProcessorFactory::getProcessorType();
         $productLinkProcessor = new $processorType();
         $productLinkProcessor->setConnection($connection);
+        $productLinkProcessor->setProductLinkRepository($productLinkRepository);
+        $productLinkProcessor->setProductLinkAttributeIntRepository($productLinkAttributeIntRepository);
         $productLinkProcessor->setProductLinkAction($productLinkAction);
-        $productLinkProcessor->setProductLinkAttributeAction($productLinkAttributeAction);
         $productLinkProcessor->setProductLinkAttributeIntAction($productLinkAttributeIntAction);
-        $productLinkProcessor->setProductLinkAttributeDecimalAction($productLinkAttributeDecimalAction);
-        $productLinkProcessor->setProductLinkAttributeVarcharAction($productLinkAttributeVarcharAction);
 
         // return the instance
         return $productLinkProcessor;
