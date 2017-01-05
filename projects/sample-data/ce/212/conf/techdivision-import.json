@@ -215,7 +215,8 @@
           "observers": [
             {
               "import": [
-                "TechDivision\\Import\\Product\\Variant\\Observers\\VariantObserver"
+                "TechDivision\\Import\\Product\\Variant\\Observers\\VariantObserver",
+                "TechDivision\\Import\\Product\\Variant\\Observers\\VariantSuperAttributeObserver"
               ]
             }
           ]
@@ -450,6 +451,22 @@
             {
               "color": [
                 "TechDivision\\Import\\Product\\Callbacks\\SelectCallback"
+              ]
+            }
+          ]
+        },
+        {
+          "class-name": "TechDivision\\Import\\Product\\Variant\\Subjects\\VariantSubject",
+          "processor-factory" : "TechDivision\\Import\\Cli\\Services\\ProductVariantProcessorFactory",
+          "utility-class-name" : "TechDivision\\Import\\Product\\Variant\\Utils\\SqlStatements",
+          "prefix": "variants",
+          "source-dir": "projects/sample-data/tmp",
+          "target-dir": "projects/sample-data/tmp",
+          "observers": [
+            {
+              "import": [
+                "TechDivision\\Import\\Product\\Variant\\Observers\\VariantUpdateObserver",
+                "TechDivision\\Import\\Product\\Variant\\Observers\\VariantSuperAttributeUpdateObserver"
               ]
             }
           ]

@@ -1,3 +1,13 @@
+# Version 1.0.0-alpha12
+
+## Bugfixes
+
+* None
+
+## Features
+
+* Implement add-update operation for product variants
+
 # Version 1.0.0-alpha11
 
 ## Bugfixes
