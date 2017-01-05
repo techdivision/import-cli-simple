@@ -23,6 +23,10 @@ namespace TechDivision\Import\Cli\Services;
 use TechDivision\Import\Configuration\SubjectInterface;
 use TechDivision\Import\Repositories\EavAttributeRepository;
 use TechDivision\Import\Repositories\EavAttributeOptionValueRepository;
+use TechDivision\Import\Product\Variant\Repositories\ProductRelationRepository;
+use TechDivision\Import\Product\Variant\Repositories\ProductSuperLinkRepository;
+use TechDivision\Import\Product\Variant\Repositories\ProductSuperAttributeRepository;
+use TechDivision\Import\Product\Variant\Repositories\ProductSuperAttributeLabelRepository;
 use TechDivision\Import\Product\Variant\Actions\ProductRelationAction;
 use TechDivision\Import\Product\Variant\Actions\ProductSuperAttributeAction;
 use TechDivision\Import\Product\Variant\Actions\ProductSuperAttributeLabelAction;
@@ -30,7 +34,9 @@ use TechDivision\Import\Product\Variant\Actions\ProductSuperLinkAction;
 use TechDivision\Import\Product\Variant\Actions\Processors\ProductRelationCreateProcessor;
 use TechDivision\Import\Product\Variant\Actions\Processors\ProductSuperLinkCreateProcessor;
 use TechDivision\Import\Product\Variant\Actions\Processors\ProductSuperAttributeCreateProcessor;
+use TechDivision\Import\Product\Variant\Actions\Processors\ProductSuperAttributeUpdateProcessor;
 use TechDivision\Import\Product\Variant\Actions\Processors\ProductSuperAttributeLabelCreateProcessor;
+use TechDivision\Import\Product\Variant\Actions\Processors\ProductSuperAttributeLabelUpdateProcessor;
 
 /**
  * Factory to create a new product variant processor.
@@ -80,6 +86,30 @@ class ProductVariantProcessorFactory extends AbstractProductProcessorFactory
         $eavAttributeOptionValueRepository->setConnection($connection);
         $eavAttributeOptionValueRepository->init();
 
+        // initialize the repository that provides product relation query functionality
+        $productRelationRepository = new ProductRelationRepository();
+        $productRelationRepository->setUtilityClassName($utilityClassName);
+        $productRelationRepository->setConnection($connection);
+        $productRelationRepository->init();
+
+        // initialize the repository that provides product super link query functionality
+        $productSuperLinkRepository = new ProductSuperLinkRepository();
+        $productSuperLinkRepository->setUtilityClassName($utilityClassName);
+        $productSuperLinkRepository->setConnection($connection);
+        $productSuperLinkRepository->init();
+
+        // initialize the repository that provides product super attribute query functionality
+        $productSuperAttributeRepository = new ProductSuperAttributeRepository();
+        $productSuperAttributeRepository->setUtilityClassName($utilityClassName);
+        $productSuperAttributeRepository->setConnection($connection);
+        $productSuperAttributeRepository->init();
+
+        // initialize the repository that provides product super attribute label query functionality
+        $productSuperAttributeLabelRepository = new ProductSuperAttributeLabelRepository();
+        $productSuperAttributeLabelRepository->setUtilityClassName($utilityClassName);
+        $productSuperAttributeLabelRepository->setConnection($connection);
+        $productSuperAttributeLabelRepository->init();
+
         // initialize the action that provides product relation CRUD functionality
         $productRelationCreateProcessor = new ProductRelationCreateProcessor();
         $productRelationCreateProcessor->setUtilityClassName($utilityClassName);
@@ -93,16 +123,26 @@ class ProductVariantProcessorFactory extends AbstractProductProcessorFactory
         $productSuperAttributeCreateProcessor->setUtilityClassName($utilityClassName);
         $productSuperAttributeCreateProcessor->setConnection($connection);
         $productSuperAttributeCreateProcessor->init();
+        $productSuperAttributeUpdateProcessor = new ProductSuperAttributeUpdateProcessor();
+        $productSuperAttributeUpdateProcessor->setUtilityClassName($utilityClassName);
+        $productSuperAttributeUpdateProcessor->setConnection($connection);
+        $productSuperAttributeUpdateProcessor->init();
         $productSuperAttributeAction = new ProductSuperAttributeAction();
         $productSuperAttributeAction->setCreateProcessor($productSuperAttributeCreateProcessor);
+        $productSuperAttributeAction->setUpdateProcessor($productSuperAttributeUpdateProcessor);
 
         // initialize the action that provides product super attribute label CRUD functionality
         $productSuperAttributeLabelCreateProcessor = new ProductSuperAttributeLabelCreateProcessor();
         $productSuperAttributeLabelCreateProcessor->setUtilityClassName($utilityClassName);
         $productSuperAttributeLabelCreateProcessor->setConnection($connection);
         $productSuperAttributeLabelCreateProcessor->init();
+        $productSuperAttributeLabelUpdateProcessor = new ProductSuperAttributeLabelUpdateProcessor();
+        $productSuperAttributeLabelUpdateProcessor->setUtilityClassName($utilityClassName);
+        $productSuperAttributeLabelUpdateProcessor->setConnection($connection);
+        $productSuperAttributeLabelUpdateProcessor->init();
         $productSuperAttributeLabelAction = new ProductSuperAttributeLabelAction();
         $productSuperAttributeLabelAction->setCreateProcessor($productSuperAttributeLabelCreateProcessor);
+        $productSuperAttributeLabelAction->setUpdateProcessor($productSuperAttributeLabelUpdateProcessor);
 
         // initialize the action that provides product super link CRUD functionality
         $productSuperLinkCreateProcessor = new ProductSuperLinkCreateProcessor();
@@ -118,6 +158,10 @@ class ProductVariantProcessorFactory extends AbstractProductProcessorFactory
         $productVariantProcessor->setConnection($connection);
         $productVariantProcessor->setEavAttributeOptionValueRepository($eavAttributeOptionValueRepository);
         $productVariantProcessor->setEavAttributeRepository($eavAttributeRepository);
+        $productVariantProcessor->setProductRelationRepository($productRelationRepository);
+        $productVariantProcessor->setProductSuperLinkRepository($productSuperLinkRepository);
+        $productVariantProcessor->setProductSuperAttributeRepository($productSuperAttributeRepository);
+        $productVariantProcessor->setProductSuperAttributeLabelRepository($productSuperAttributeLabelRepository);
         $productVariantProcessor->setProductRelationAction($productRelationAction);
         $productVariantProcessor->setProductSuperLinkAction($productSuperLinkAction);
         $productVariantProcessor->setProductSuperAttributeAction($productSuperAttributeAction);
