@@ -1,3 +1,13 @@
+# Version 1.0.0-alpha13
+
+## Bugfixes
+
+* None
+
+## Features
+
+* Implement add-update operation for product media (no EE)
+
 # Version 1.0.0-alpha12
 
 ## Bugfixes
