@@ -145,7 +145,7 @@ class ProductBundleProcessorFactory extends AbstractProductProcessorFactory
         $productBundleSelectionPriceAction->setUpdateProcessor($productBundleSelectionPriceUpdateProcessor);
 
         // initialize the product bundle processor
-        $processorType = ProductBundleProcessorFactory::getProcessorType();
+        $processorType = static::getProcessorType();
         $productBundleProcessor = new $processorType();
         $productBundleProcessor->setConnection($connection);
         $productBundleProcessor->setBundleOptionRepository($bundleOptionRepository);

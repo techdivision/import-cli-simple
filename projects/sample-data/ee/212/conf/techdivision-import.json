@@ -104,6 +104,11 @@
               ]
             },
             {
+              "bundle_shipment_type": [
+                "TechDivision\\Import\\Product\\Bundle\\Callbacks\\BundleShipmentTypeCallback"
+              ]
+            },
+            {
               "eco_collection": [
                 "TechDivision\\Import\\Product\\Callbacks\\BooleanCallback"
               ]
@@ -241,7 +246,7 @@
         },
         {
           "class-name": "TechDivision\\Import\\Product\\Media\\Ee\\Subjects\\EeMediaSubject",
-          "processor-factory" : "TechDivision\\Import\\Cli\\Services\\ProductMediaProcessorFactory",
+          "processor-factory" : "TechDivision\\Import\\Cli\\Services\\EeProductMediaProcessorFactory",
           "utility-class-name" : "TechDivision\\Import\\Product\\Media\\Ee\\Utils\\SqlStatements",
           "prefix": "media",
           "source-dir": "projects/sample-data/tmp",
@@ -351,6 +356,11 @@
             {
               "bundle_price_view": [
                 "TechDivision\\Import\\Product\\Bundle\\Callbacks\\BundlePriceViewCallback"
+              ]
+            },
+            {
+              "bundle_shipment_type": [
+                "TechDivision\\Import\\Product\\Bundle\\Callbacks\\BundleShipmentTypeCallback"
               ]
             },
             {
@@ -485,6 +495,32 @@
                 "TechDivision\\Import\\Product\\Bundle\\Ee\\Observers\\EeBundleOptionValueUpdateObserver",
                 "TechDivision\\Import\\Product\\Bundle\\Observers\\BundleSelectionObserver",
                 "TechDivision\\Import\\Product\\Bundle\\Observers\\BundleSelectionPriceObserver"
+              ]
+            }
+          ]
+        },
+        {
+          "class-name": "TechDivision\\Import\\Product\\Media\\Ee\\Subjects\\EeMediaSubject",
+          "processor-factory" : "TechDivision\\Import\\Cli\\Services\\EeProductMediaProcessorFactory",
+          "utility-class-name" : "TechDivision\\Import\\Product\\Media\\Ee\\Utils\\SqlStatements",
+          "prefix": "media",
+          "source-dir": "projects/sample-data/tmp",
+          "target-dir": "projects/sample-data/tmp",
+          "params" : [
+            {
+              "root-directory" : "/",
+              "media-directory" : "/opt/appserver/webapps/magento2_ee212/pub/media/catalog/product",
+              "images-file-directory" : "projects/sample-data/magento2-sample-data/pub/media/catalog/product"
+            }
+          ],
+          "observers": [
+            {
+              "pre-import" : [
+                "TechDivision\\Import\\Product\\Media\\Observers\\FileUploadObserver"
+              ],
+              "import": [
+                "TechDivision\\Import\\Product\\Media\\Ee\\Observers\\EeMediaGalleryUpdateObserver",
+                "TechDivision\\Import\\Product\\Media\\Ee\\Observers\\EeMediaGalleryValueUpdateObserver"
               ]
             }
           ]
