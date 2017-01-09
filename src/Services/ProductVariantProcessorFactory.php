@@ -153,7 +153,7 @@ class ProductVariantProcessorFactory extends AbstractProductProcessorFactory
         $productSuperLinkAction->setCreateProcessor($productSuperLinkCreateProcessor);
 
         // initialize the product variant processor
-        $processorType = ProductVariantProcessorFactory::getProcessorType();
+        $processorType = static::getProcessorType();
         $productVariantProcessor = new $processorType();
         $productVariantProcessor->setConnection($connection);
         $productVariantProcessor->setEavAttributeOptionValueRepository($eavAttributeOptionValueRepository);

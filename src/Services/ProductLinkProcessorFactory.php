@@ -105,7 +105,7 @@ class ProductLinkProcessorFactory extends AbstractProductProcessorFactory
         $productLinkAttributeIntAction->setUpdateProcessor($productLinkAttributeIntUpdateProcessor);
 
         // initialize the product link processor
-        $processorType = ProductLinkProcessorFactory::getProcessorType();
+        $processorType = static::getProcessorType();
         $productLinkProcessor = new $processorType();
         $productLinkProcessor->setConnection($connection);
         $productLinkProcessor->setProductLinkRepository($productLinkRepository);

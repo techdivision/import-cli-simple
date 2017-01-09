@@ -132,7 +132,7 @@ class ProductMediaProcessorFactory extends AbstractProductProcessorFactory
         $productMediaGalleryValueVideoAction->setCreateProcessor($productMediaGalleryValueVideoCreateProcessor);
 
         // initialize the product media processor
-        $processorType = ProductMediaProcessorFactory::getProcessorType();
+        $processorType = static::getProcessorType();
         $productMediaProcessor = new $processorType();
         $productMediaProcessor->setConnection($connection);
         $productMediaProcessor->setProductMediaGalleryRepository($productMediaGalleryRepository);

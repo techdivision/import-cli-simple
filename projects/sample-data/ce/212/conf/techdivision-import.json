@@ -104,6 +104,11 @@
               ]
             },
             {
+              "bundle_shipment_type": [
+                "TechDivision\\Import\\Product\\Bundle\\Callbacks\\BundleShipmentTypeCallback"
+              ]
+            },
+            {
               "eco_collection": [
                 "TechDivision\\Import\\Product\\Callbacks\\BooleanCallback"
               ]
@@ -351,6 +356,11 @@
             {
               "bundle_price_view": [
                 "TechDivision\\Import\\Product\\Bundle\\Callbacks\\BundlePriceViewCallback"
+              ]
+            },
+            {
+              "bundle_shipment_type": [
+                "TechDivision\\Import\\Product\\Bundle\\Callbacks\\BundleShipmentTypeCallback"
               ]
             },
             {

@@ -116,7 +116,7 @@ class EeProductBunchProcessorFactory extends ProductBunchProcessorFactory
         $productVarcharRepository->setConnection($connection);
         $productVarcharRepository->init();
 
-        // initialize the product processor
+        // initialize the product bunch processor
         $productBunchProcessor->setProductDatetimeRepository($productDatetimeRepository);
         $productBunchProcessor->setProductDecimalRepository($productDecimalRepository);
         $productBunchProcessor->setProductIntRepository($productIntRepository);
