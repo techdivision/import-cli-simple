@@ -1,3 +1,13 @@
+# Version 1.0.0-alpha15
+
+## Bugfixes
+
+* None
+
+## Features
+
+* Optimize exeception/error handling
+
 # Version 1.0.0-alpha14
 
 ## Bugfixes

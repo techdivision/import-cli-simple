@@ -54,8 +54,8 @@ used to override these values in some circumstances.
 
 ### Configuration File
 
-The configuration file **MUST** be in JSON format. Beside itself, all necessary configuration options/arguemnts
-the can be passed on on the commandline, can and **SHOULD** be defined in the configuration file, instead.
+The configuration file **MUST** be in JSON format. Beside itself, all necessary configuration options/arguments
+that can be passed on on the commandline, can and **SHOULD** be defined in the configuration file, instead.
 
 The structure is separated into a general configuration section, the database configuration and the configuration
 for the available operations.
