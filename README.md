@@ -151,7 +151,7 @@ The command to re-import the sample data including the images, would look like t
 ```sh
 $ sudo rm -rf projects/sample-data/tmp \ 
     && sudo mkdir projects/sample-data/tmp \
-    && sudo cp projects/sample-data/ce/212/data/*.csv projects/sample-data/tmp \
+    && sudo cp projects/sample-data/ce/212/data/replace/*.csv projects/sample-data/tmp \
     && sudo bin/import-simple import:products \
        --installation-dir=/var/www/magento \
        --configuration=projects/sample-data/ce/212/conf/techdivision-import.json
