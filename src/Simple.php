@@ -212,6 +212,7 @@ class Simple
      * Parse the temporary upload directory for new files to be imported.
      *
      * @return void
+     * @throws \Exception Is thrown, if the import process can't be finished successfully
      */
     public function import()
     {
@@ -219,21 +220,41 @@ class Simple
         // track the start time
         $startTime = microtime(true);
 
-        // generate the serial for the new job
-        $this->setSerial(Uuid::uuid4()->__toString());
+        try {
+            // generate the serial for the new job
+            $this->setSerial(Uuid::uuid4()->__toString());
 
-        // prepare the global data for the import process
-        $this->start();
-        $this->setUp();
-        $this->processSubjects();
-        $this->tearDown();
-        $this->finish();
+            // prepare the global data for the import process
+            $this->start();
+            $this->setUp();
+            $this->processSubjects();
+            $this->tearDown();
+            $this->finish();
 
-        // track the time needed for the import in seconds
-        $endTime = microtime(true) - $startTime;
+            // track the time needed for the import in seconds
+            $endTime = microtime(true) - $startTime;
 
-        // log a message that import has been finished
-        $this->getSystemLogger()->info(sprintf('Successfully finished import with serial %s in %f s', $this->getSerial(), $endTime));
+            // log a message that import has been finished
+            $this->getSystemLogger()->info(sprintf('Successfully finished import with serial %s in %f s', $this->getSerial(), $endTime));
+
+        } catch (\Exception $e) {
+
+            // tear down
+            $this->tearDown();
+            $this->finish();
+
+            // track the time needed for the import in seconds
+            $endTime = microtime(true) - $startTime;
+
+            // log a message that the file import failed
+            $this->getSystemLogger()->error($e->__toString());
+
+            // log a message that import has been finished
+            $this->getSystemLogger()->error(sprintf('Can\'t finish import with serial %s in %f s', $this->getSerial(), $endTime));
+
+            // re-throw the exception
+            throw $e;
+        }
     }
 
     /**
@@ -269,76 +290,72 @@ class Simple
     public function setUp()
     {
 
-        try {
-            // load the registry
-            $importProcessor = $this->getImportProcessor();
-            $registryProcessor = $this->getRegistryProcessor();
+        // load the registry
+        $importProcessor = $this->getImportProcessor();
+        $registryProcessor = $this->getRegistryProcessor();
 
-            // initialize the array for the global data
-            $globalData = array();
+        // initialize the array for the global data
+        $globalData = array();
 
-            // initialize the global data
-            $globalData[RegistryKeys::STORES] = $importProcessor->getStores();
-            $globalData[RegistryKeys::LINK_TYPES] = $importProcessor->getLinkTypes();
-            $globalData[RegistryKeys::TAX_CLASSES] = $importProcessor->getTaxClasses();
-            $globalData[RegistryKeys::DEFAULT_STORE] = $importProcessor->getDefaultStore();
-            $globalData[RegistryKeys::STORE_WEBSITES] = $importProcessor->getStoreWebsites();
-            $globalData[RegistryKeys::LINK_ATTRIBUTES] = $importProcessor->getLinkAttributes();
-            $globalData[RegistryKeys::ROOT_CATEGORIES] = $importProcessor->getRootCategories();
-            $globalData[RegistryKeys::CORE_CONFIG_DATA] = $importProcessor->getCoreConfigData();
-            $globalData[RegistryKeys::ATTRIBUTE_SETS] = $eavAttributeSets = $importProcessor->getEavAttributeSetsByEntityTypeId(4);
+        // initialize the global data
+        $globalData[RegistryKeys::STORES] = $importProcessor->getStores();
+        $globalData[RegistryKeys::LINK_TYPES] = $importProcessor->getLinkTypes();
+        $globalData[RegistryKeys::TAX_CLASSES] = $importProcessor->getTaxClasses();
+        $globalData[RegistryKeys::DEFAULT_STORE] = $importProcessor->getDefaultStore();
+        $globalData[RegistryKeys::STORE_WEBSITES] = $importProcessor->getStoreWebsites();
+        $globalData[RegistryKeys::LINK_ATTRIBUTES] = $importProcessor->getLinkAttributes();
+        $globalData[RegistryKeys::ROOT_CATEGORIES] = $importProcessor->getRootCategories();
+        $globalData[RegistryKeys::CORE_CONFIG_DATA] = $importProcessor->getCoreConfigData();
+        $globalData[RegistryKeys::ATTRIBUTE_SETS] = $eavAttributeSets = $importProcessor->getEavAttributeSetsByEntityTypeId(4);
 
-            // prepare the categories
-            $categories = array();
-            foreach ($importProcessor->getCategories() as $category) {
-                // expload the entity IDs from the category path
-                $entityIds = explode('/', $category[MemberNames::PATH]);
+        // prepare the categories
+        $categories = array();
+        foreach ($importProcessor->getCategories() as $category) {
+            // expload the entity IDs from the category path
+            $entityIds = explode('/', $category[MemberNames::PATH]);
 
-                // cut-off the root category
-                array_shift($entityIds);
+            // cut-off the root category
+            array_shift($entityIds);
 
-                // continue with the next category if no entity IDs are available
-                if (sizeof($entityIds) === 0) {
-                    continue;
-                }
-
-                // initialize the array for the path elements
-                $path = array();
-                foreach ($importProcessor->getCategoryVarcharsByEntityIds($entityIds) as $cat) {
-                    $path[] = $cat[MemberNames::VALUE];
-                }
-
-                // append the catogory with the string path as key
-                $categories[implode('/', $path)] = $category;
+            // continue with the next category if no entity IDs are available
+            if (sizeof($entityIds) === 0) {
+                continue;
             }
 
-            // initialize the array with the categories
-            $globalData[RegistryKeys::CATEGORIES] = $categories;
-
-            // prepare an array with the EAV attributes grouped by their attribute set name as keys
-            $eavAttributes = array();
-            foreach (array_keys($eavAttributeSets) as $eavAttributeSetName) {
-                $eavAttributes[$eavAttributeSetName] = $importProcessor->getEavAttributesByEntityTypeIdAndAttributeSetName(4, $eavAttributeSetName);
+            // initialize the array for the path elements
+            $path = array();
+            foreach ($importProcessor->getCategoryVarcharsByEntityIds($entityIds) as $cat) {
+                $path[] = $cat[MemberNames::VALUE];
             }
 
-            // initialize the array with the EAV attributes
-            $globalData[RegistryKeys::EAV_ATTRIBUTES] = $eavAttributes;
-
-            // add the status with the global data
-            $registryProcessor->mergeAttributesRecursive(
-                $this->getSerial(),
-                array(RegistryKeys::GLOBAL_DATA => $globalData)
-            );
-
-        } catch (\Exception $e) {
-            $this->getSystemLogger()->error($e->__toString());
+            // append the catogory with the string path as key
+            $categories[implode('/', $path)] = $category;
         }
+
+        // initialize the array with the categories
+        $globalData[RegistryKeys::CATEGORIES] = $categories;
+
+        // prepare an array with the EAV attributes grouped by their attribute set name as keys
+        $eavAttributes = array();
+        foreach (array_keys($eavAttributeSets) as $eavAttributeSetName) {
+            $eavAttributes[$eavAttributeSetName] = $importProcessor->getEavAttributesByEntityTypeIdAndAttributeSetName(4, $eavAttributeSetName);
+        }
+
+        // initialize the array with the EAV attributes
+        $globalData[RegistryKeys::EAV_ATTRIBUTES] = $eavAttributes;
+
+        // add the status with the global data
+        $registryProcessor->mergeAttributesRecursive(
+            $this->getSerial(),
+            array(RegistryKeys::GLOBAL_DATA => $globalData)
+        );
     }
 
     /**
      * Process all the subjects defined in the system configuration.
      *
      * @return void
+     * @throws \Exception Is thrown, if one of the subjects can't be processed
      */
     public function processSubjects()
     {
@@ -363,11 +380,11 @@ class Simple
             $importProcessor->getConnection()->commit();
 
         } catch (\Exception $e) {
-            // log a message with the stack trace
-            $systemLogger->error($e->__toString());
-
             // rollback the transaction
             $importProcessor->getConnection()->rollBack();
+
+            // re-throw the exception
+            throw $e;
         }
     }
 
@@ -377,6 +394,7 @@ class Simple
      * @param \TechDivision\Import\Configuration\Subject $subject The subject configuration
      *
      * @return void
+     * @throws \Exception Is thrown, if the subject can't be processed
      */
     public function processSubject($subject)
     {
@@ -430,11 +448,9 @@ class Simple
                 rename($inProgressFilename, $importedFilename);
 
             } catch (\Exception $e) {
-                // rename the flag file, because import failed
+                // rename the flag file, because import failed and write the stack trace
                 rename($inProgressFilename, $failedFilename);
-
-                // log a message that the file import failed
-                $this->getSystemLogger()->error($e->__toString());
+                file_put_contents($failedFilename, $e->__toString());
 
                 // re-throw the exception
                 throw $e;
