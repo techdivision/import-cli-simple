@@ -238,7 +238,6 @@ class Simple
             $this->getSystemLogger()->info(sprintf('Successfully finished import with serial %s in %f s', $this->getSerial(), $endTime));
 
         } catch (\Exception $e) {
-
             // tear down
             $this->tearDown();
             $this->finish();
