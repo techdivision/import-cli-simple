@@ -26,7 +26,7 @@ use TechDivision\Import\ConfigurationInterface;
 use TechDivision\Import\Configuration\SubjectInterface;
 
 /**
- * A SLSB that handles the product import process.
+ * The subject configuration implementation.
  *
  * @author    Tim Wagner <t.wagner@techdivision.com>
  * @copyright 2016 TechDivision GmbH <info@techdivision.com>
@@ -36,66 +36,6 @@ use TechDivision\Import\Configuration\SubjectInterface;
  */
 class Subject implements SubjectInterface
 {
-
-    /**
-     * The subject's delimiter character for CSV files.
-     *
-     * @var string
-     * @Type("string")
-     */
-    protected $delimiter;
-
-    /**
-     * The subject's enclosure character for CSV files.
-     *
-     * @var string
-     * @Type("string")
-     */
-    protected $enclosure;
-
-    /**
-     * The subject's escape character for CSV files.
-     *
-     * @var string
-     * @Type("string")
-     */
-    protected $escape;
-
-    /**
-     * The subject's source charset for the CSV file.
-     *
-     * @var string
-     * @Type("string")
-     * @SerializedName("from-charset")
-     */
-    protected $fromCharset;
-
-    /**
-     * The subject's target charset for a CSV file.
-     *
-     * @var string
-     * @Type("string")
-     * @SerializedName("to-charset")
-     */
-    protected $toCharset;
-
-    /**
-     * The subject's file mode for a CSV target file.
-     *
-     * @var string
-     * @Type("string")
-     * @SerializedName("file-mode")
-     */
-    protected $fileMode;
-
-    /**
-     * The flag to signal that the subject has to use the strict mode or not.
-     *
-     * @var boolean
-     * @Type("boolean")
-     * @SerializedName("strict-mode")
-     */
-    protected $strictMode;
 
     /**
      * The subject's class name.
@@ -133,33 +73,6 @@ class Subject implements SubjectInterface
     protected $prefix = 'magento-import';
 
     /**
-     * The source date format to use in the subject.
-     *
-     * @var string
-     * @Type("string")
-     * @SerializedName("source-date-format")
-     */
-    protected $sourceDateFormat = 'n/d/y, g:i A';
-
-    /**
-     * The source directory that has to be watched for new files.
-     *
-     * @var string
-     * @Type("string")
-     * @SerializedName("source-dir")
-     */
-    protected $sourceDir;
-
-    /**
-     * The target directory with the files to be imported.
-     *
-     * @var string
-     * @Type("string")
-     * @SerializedName("target-dir")
-     */
-    protected $targetDir;
-
-    /**
      * The array with the subject's observers.
      *
      * @var array
@@ -191,13 +104,23 @@ class Subject implements SubjectInterface
     protected $configuration;
 
     /**
+     * Return's the multiple field delimiter character to use, default value is comma (,).
+     *
+     * @return string The multiple field delimiter character
+     */
+    public function getMultipleFieldDelimiter()
+    {
+        return $this->getConfiguration()->getMultipleFieldDelimiter();
+    }
+
+    /**
      * Return's the delimiter character to use, default value is comma (,).
      *
      * @return string The delimiter character
      */
     public function getDelimiter()
     {
-        return $this->delimiter;
+        return $this->getConfiguration()->getDelimiter();
     }
 
     /**
@@ -207,7 +130,7 @@ class Subject implements SubjectInterface
      */
     public function getEnclosure()
     {
-        return $this->enclosure;
+        return $this->getConfiguration()->getEnclosure();
     }
 
     /**
@@ -217,7 +140,7 @@ class Subject implements SubjectInterface
      */
     public function getEscape()
     {
-        return $this->escape;
+        return $this->getConfiguration()->getEscape();
     }
 
     /**
@@ -227,7 +150,7 @@ class Subject implements SubjectInterface
      */
     public function getFromCharset()
     {
-        return $this->fromCharset;
+        return $this->getConfiguration()->getFromCharset();
     }
 
     /**
@@ -237,7 +160,7 @@ class Subject implements SubjectInterface
      */
     public function getToCharset()
     {
-        return $this->toCharset;
+        return $this->getConfiguration()->getToCharset();
     }
 
     /**
@@ -247,7 +170,7 @@ class Subject implements SubjectInterface
      */
     public function getFileMode()
     {
-        return $this->fileMode;
+        return $this->getConfiguration()->getFileMode();
     }
 
     /**
@@ -257,7 +180,37 @@ class Subject implements SubjectInterface
      */
     public function isStrictMode()
     {
-        return $this->strictMode;
+        return $this->getConfiguration()->isStrictMode();
+    }
+
+    /**
+     * Return's the subject's source date format to use.
+     *
+     * @return string The source date format
+     */
+    public function getSourceDateFormat()
+    {
+        return $this->getConfiguration()->getSourceDateFormat();
+    }
+
+    /**
+     * Return's the source directory that has to be watched for new files.
+     *
+     * @return string The source directory
+     */
+    public function getSourceDir()
+    {
+        return $this->getConfiguration()->getSourceDir();
+    }
+
+    /**
+     * Return's the target directory with the files that has been imported.
+     *
+     * @return string The target directory
+     */
+    public function getTargetDir()
+    {
+        return $this->getConfiguration()->getTargetDir();
     }
 
     /**
@@ -403,71 +356,5 @@ class Subject implements SubjectInterface
     public function getCallbacks()
     {
         return $this->callbacks;
-    }
-
-    /**
-     * Return's the subject's source date format to use.
-     *
-     * @return string The source date format
-     */
-    public function getSourceDateFormat()
-    {
-        return $this->sourceDateFormat;
-    }
-
-    /**
-     * Set's the subject's source date format to use.
-     *
-     * @param string $sourceDateFormat The source date format
-     *
-     * @return void
-     */
-    public function setSourceDateFormat($sourceDateFormat)
-    {
-        $this->sourceDateFormat = $sourceDateFormat;
-    }
-
-    /**
-     * Set's the source directory that has to be watched for new files.
-     *
-     * @param string $sourceDir The source directory
-     *
-     * @return void
-     */
-    public function setSourceDir($sourceDir)
-    {
-        $this->sourceDir = $sourceDir;
-    }
-
-    /**
-     * Return's the source directory that has to be watched for new files.
-     *
-     * @return string The source directory
-     */
-    public function getSourceDir()
-    {
-        return $this->sourceDir;
-    }
-
-    /**
-     * Return's the target directory with the files to be imported.
-     *
-     * @return string The target directory
-     */
-    public function getTargetDir()
-    {
-        return $this->targetDir;
-    }
-
-    /**
-     * Set's the target directory with the files to be imported.
-     *
-     * @param string $targetDir The target directory
-     *
-     * @return void
-     */
-    public function setTargetDir($targetDir)
-    {
-        $this->targetDir = $targetDir;
     }
 }
