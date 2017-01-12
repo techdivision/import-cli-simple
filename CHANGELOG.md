@@ -1,3 +1,13 @@
+# Version 1.0.0-alpha16
+
+## Bugfixes
+
+* None
+
+## Features
+
+* Make source/target folder as well as multiple field delimiter configurable
+
 # Version 1.0.0-alpha15
 
 ## Bugfixes

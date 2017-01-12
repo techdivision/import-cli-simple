@@ -76,6 +76,18 @@ class ImportProductsCommand extends Command
                  'The Magento installation directory to which the files has to be imported'
              )
              ->addOption(
+                 InputOptionKeys::SOURCE_DIR,
+                 null,
+                 InputOption::VALUE_REQUIRED,
+                 'The directory that has to be watched for new files'
+             )
+             ->addOption(
+                 InputOptionKeys::TARGET_DIR,
+                 null,
+                 InputOption::VALUE_REQUIRED,
+                 'The target directory with the files that has been imported'
+             )
+             ->addOption(
                  InputOptionKeys::UTILITY_CLASS_NAME,
                  null,
                  InputOption::VALUE_REQUIRED,

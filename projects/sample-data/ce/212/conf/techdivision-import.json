@@ -3,6 +3,9 @@
   "magento-version": "2.1.2",
   "operation-name" : "replace",
   "installation-dir" : "/var/www/magento",
+  "source-dir": "projects/sample-data/tmp",
+  "target-dir": "projects/sample-data/tmp",
+  "source-date-format": "n/d/y, g:i A",
   "utility-class-name" : "TechDivision\\Import\\Utils\\SqlStatements",
   "database": {
     "pdo-dsn": "mysql:host=127.0.0.1;dbname=appserver_magento2_ce212",
@@ -18,9 +21,6 @@
           "processor-factory" : "TechDivision\\Import\\Cli\\Services\\ProductBunchProcessorFactory",
           "utility-class-name" : "TechDivision\\Import\\Product\\Utils\\SqlStatements",
           "identifier": "files",
-          "source-date-format": "n/d/y, g:i A",
-          "source-dir": "projects/sample-data/tmp",
-          "target-dir": "projects/sample-data/tmp",
           "prefix": "magento-import",
           "observers": [
             {
@@ -40,9 +40,6 @@
           "processor-factory" : "TechDivision\\Import\\Cli\\Services\\ProductBunchProcessorFactory",
           "utility-class-name" : "TechDivision\\Import\\Product\\Utils\\SqlStatements",
           "identifier": "files",
-          "source-date-format": "n/d/y, g:i A",
-          "source-dir": "projects/sample-data/tmp",
-          "target-dir": "projects/sample-data/tmp",
           "prefix": "magento-import",
           "observers": [
             {
@@ -215,8 +212,6 @@
           "processor-factory" : "TechDivision\\Import\\Cli\\Services\\ProductVariantProcessorFactory",
           "utility-class-name" : "TechDivision\\Import\\Product\\Variant\\Utils\\SqlStatements",
           "prefix": "variants",
-          "source-dir": "projects/sample-data/tmp",
-          "target-dir": "projects/sample-data/tmp",
           "observers": [
             {
               "import": [
@@ -231,8 +226,6 @@
           "processor-factory" : "TechDivision\\Import\\Cli\\Services\\ProductBundleProcessorFactory",
           "utility-class-name" : "TechDivision\\Import\\Product\\Bundle\\Utils\\SqlStatements",
           "prefix": "bundles",
-          "source-dir": "projects/sample-data/tmp",
-          "target-dir": "projects/sample-data/tmp",
           "observers": [
             {
               "import": [
@@ -249,8 +242,6 @@
           "processor-factory" : "TechDivision\\Import\\Cli\\Services\\ProductMediaProcessorFactory",
           "utility-class-name" : "TechDivision\\Import\\Product\\Media\\Utils\\SqlStatements",
           "prefix": "media",
-          "source-dir": "projects/sample-data/tmp",
-          "target-dir": "projects/sample-data/tmp",
           "params" : [
             {
               "root-directory" : "/",
@@ -275,8 +266,6 @@
           "processor-factory" : "TechDivision\\Import\\Cli\\Services\\ProductLinkProcessorFactory",
           "utility-class-name" : "TechDivision\\Import\\Product\\Link\\Utils\\SqlStatements",
           "prefix": "links",
-          "source-dir": "projects/sample-data/tmp",
-          "target-dir": "projects/sample-data/tmp",
           "observers": [
             {
               "import": [
@@ -296,9 +285,6 @@
           "processor-factory" : "TechDivision\\Import\\Cli\\Services\\ProductBunchProcessorFactory",
           "utility-class-name" : "TechDivision\\Import\\Product\\Utils\\SqlStatements",
           "identifier": "files",
-          "source-date-format": "n/d/y, g:i A",
-          "source-dir": "projects/sample-data/tmp",
-          "target-dir": "projects/sample-data/tmp",
           "prefix": "magento-import",
           "observers": [
             {
@@ -470,8 +456,6 @@
           "processor-factory" : "TechDivision\\Import\\Cli\\Services\\ProductVariantProcessorFactory",
           "utility-class-name" : "TechDivision\\Import\\Product\\Variant\\Utils\\SqlStatements",
           "prefix": "variants",
-          "source-dir": "projects/sample-data/tmp",
-          "target-dir": "projects/sample-data/tmp",
           "observers": [
             {
               "import": [
@@ -486,8 +470,6 @@
           "processor-factory" : "TechDivision\\Import\\Cli\\Services\\ProductBundleProcessorFactory",
           "utility-class-name" : "TechDivision\\Import\\Product\\Bundle\\Utils\\SqlStatements",
           "prefix": "bundles",
-          "source-dir": "projects/sample-data/tmp",
-          "target-dir": "projects/sample-data/tmp",
           "observers": [
             {
               "import": [
@@ -504,8 +486,6 @@
           "processor-factory" : "TechDivision\\Import\\Cli\\Services\\ProductMediaProcessorFactory",
           "utility-class-name" : "TechDivision\\Import\\Product\\Media\\Utils\\SqlStatements",
           "prefix": "media",
-          "source-dir": "projects/sample-data/tmp",
-          "target-dir": "projects/sample-data/tmp",
           "params" : [
             {
               "root-directory" : "/",
@@ -530,8 +510,6 @@
           "processor-factory" : "TechDivision\\Import\\Cli\\Services\\ProductLinkProcessorFactory",
           "utility-class-name" : "TechDivision\\Import\\Product\\Link\\Utils\\SqlStatements",
           "prefix": "links",
-          "source-dir": "projects/sample-data/tmp",
-          "target-dir": "projects/sample-data/tmp",
           "observers": [
             {
               "import": [

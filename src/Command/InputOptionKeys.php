@@ -71,6 +71,20 @@ class InputOptionKeys
     const INSTALLATION_DIR = 'installation-dir';
 
     /**
+     * The input option key for the directory containing the files to be imported.
+     *
+     * @var string
+     */
+    const SOURCE_DIR = 'source-dir';
+
+    /**
+     * The input option key for the directory containing the imported files.
+     *
+     * @var string
+     */
+    const TARGET_DIR = 'target-dir';
+
+    /**
      * The input option key for the utility class name.
      *
      * @var string

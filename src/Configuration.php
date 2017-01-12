@@ -78,6 +78,24 @@ class Configuration implements ConfigurationInterface
     protected $installationDir;
 
     /**
+     * The source directory that has to be watched for new files.
+     *
+     * @var string
+     * @Type("string")
+     * @SerializedName("source-dir")
+     */
+    protected $sourceDir;
+
+    /**
+     * The target directory with the files that has been imported.
+     *
+     * @var string
+     * @Type("string")
+     * @SerializedName("target-dir")
+     */
+    protected $targetDir;
+
+    /**
      * The database configuration.
      *
      * @var TechDivision\Import\Configuration\Database
@@ -101,6 +119,84 @@ class Configuration implements ConfigurationInterface
      * @SerializedName("utility-class-name")
      */
     protected $utilityClassName;
+
+    /**
+     * The source date format to use in the subject.
+     *
+     * @var string
+     * @Type("string")
+     * @SerializedName("source-date-format")
+     */
+    protected $sourceDateFormat = 'n/d/y, g:i A';
+
+    /**
+     * The subject's multiple field delimiter character for fields with multiple values, defaults to (,).
+     *
+     * @var string
+     * @Type("string")
+     * @SerializedName("multiple-field-delimiter")
+     */
+    protected $multipleFieldDelimiter = ',';
+
+    /**
+     * The subject's delimiter character for CSV files.
+     *
+     * @var string
+     * @Type("string")
+     */
+    protected $delimiter;
+
+    /**
+     * The subject's enclosure character for CSV files.
+     *
+     * @var string
+     * @Type("string")
+     */
+    protected $enclosure;
+
+    /**
+     * The subject's escape character for CSV files.
+     *
+     * @var string
+     * @Type("string")
+     */
+    protected $escape;
+
+    /**
+     * The subject's source charset for the CSV file.
+     *
+     * @var string
+     * @Type("string")
+     * @SerializedName("from-charset")
+     */
+    protected $fromCharset;
+
+    /**
+     * The subject's target charset for a CSV file.
+     *
+     * @var string
+     * @Type("string")
+     * @SerializedName("to-charset")
+     */
+    protected $toCharset;
+
+    /**
+     * The subject's file mode for a CSV target file.
+     *
+     * @var string
+     * @Type("string")
+     * @SerializedName("file-mode")
+     */
+    protected $fileMode;
+
+    /**
+     * The flag to signal that the subject has to use the strict mode or not.
+     *
+     * @var boolean
+     * @Type("boolean")
+     * @SerializedName("strict-mode")
+     */
+    protected $strictMode;
 
     /**
      * Factory implementation to create a new initialized configuration instance.
@@ -141,6 +237,24 @@ class Configuration implements ConfigurationInterface
             $instance->setInstallationDir($installationDir);
         }
 
+        // query whether or not a directory for the source files has been specified as command line
+        // option, if yes override the value from the configuration file
+        if ($sourceDir = $input->getOption(InputOptionKeys::SOURCE_DIR)) {
+            $instance->setSourceDir($sourceDir);
+        }
+
+        // query whether or not a directory containing the imported files has been specified as command line
+        // option, if yes override the value from the configuration file
+        if ($targetDir = $input->getOption(InputOptionKeys::TARGET_DIR)) {
+            $instance->setTargetDir($targetDir);
+        }
+
+        // query whether or not a source date format has been specified as command
+        // line  option, if yes override the value from the configuration file
+        if ($sourceDateFormat = $input->getOption(InputOptionKeys::SOURCE_DATE_FORMAT)) {
+            $instance->setSourceDateFormat($sourceDateFormat);
+        }
+
         // query whether or not a Magento edition has been specified as command line
         // option, if yes override the value from the configuration file
         if ($magentoEdition = $input->getOption(InputOptionKeys::MAGENTO_EDITION)) {
@@ -171,44 +285,15 @@ class Configuration implements ConfigurationInterface
             $instance->getDatabase()->setPassword($password);
         }
 
-        // load the source date format to use
-        $sourceDateFormat = $input->getOption(InputOptionKeys::SOURCE_DATE_FORMAT);
-
         // extend the subjects with the parent configuration instance
         /** @var \TechDivision\Import\Cli\Configuration\Subject $subject */
         foreach ($instance->getSubjects() as $subject) {
             // set the configuration instance on the subject
             $subject->setConfiguration($instance);
-
-            // query whether or not a source date format has been specified as command
-            // line  option, if yes override the value from the configuration file
-            if (!empty($sourceDateFormat)) {
-                $subject->setSourceDateFormat($sourceDateFormat);
-            }
         }
 
         // return the initialized configuration instance
         return $instance;
-    }
-
-    /**
-     * Return's the database configuration.
-     *
-     * @return \TechDivision\Import\Cli\Configuration\Database The database configuration
-     */
-    public function getDatabase()
-    {
-        return $this->database;
-    }
-
-    /**
-     * Return's the ArrayCollection with the configured operations.
-     *
-     * @return \Doctrine\Common\Collections\ArrayCollection The ArrayCollection with the operations
-     */
-    public function getOperations()
-    {
-        return $this->operations;
     }
 
     /**
@@ -287,6 +372,50 @@ class Configuration implements ConfigurationInterface
     }
 
     /**
+     * Set's the source directory that has to be watched for new files.
+     *
+     * @param string $sourceDir The source directory
+     *
+     * @return void
+     */
+    public function setSourceDir($sourceDir)
+    {
+        $this->sourceDir = $sourceDir;
+    }
+
+    /**
+     * Return's the source directory that has to be watched for new files.
+     *
+     * @return string The source directory
+     */
+    public function getSourceDir()
+    {
+        return $this->sourceDir;
+    }
+
+    /**
+     * Return's the target directory with the files that has been imported.
+     *
+     * @return string The target directory
+     */
+    public function getTargetDir()
+    {
+        return $this->targetDir;
+    }
+
+    /**
+     * Set's the target directory with the files that has been imported.
+     *
+     * @param string $targetDir The target directory
+     *
+     * @return void
+     */
+    public function setTargetDir($targetDir)
+    {
+        $this->targetDir = $targetDir;
+    }
+
+    /**
      * Return's the utility class with the SQL statements to use.
      *
      * @param string $utilityClassName The utility class name
@@ -350,5 +479,127 @@ class Configuration implements ConfigurationInterface
     public function getMagentoVersion()
     {
         return $this->magentoVersion;
+    }
+
+    /**
+     * Return's the subject's source date format to use.
+     *
+     * @return string The source date format
+     */
+    public function getSourceDateFormat()
+    {
+        return $this->sourceDateFormat;
+    }
+
+    /**
+     * Set's the subject's source date format to use.
+     *
+     * @param string $sourceDateFormat The source date format
+     *
+     * @return void
+     */
+    public function setSourceDateFormat($sourceDateFormat)
+    {
+        $this->sourceDateFormat = $sourceDateFormat;
+    }
+
+    /**
+     * Return's the multiple field delimiter character to use, default value is comma (,).
+     *
+     * @return string The multiple field delimiter character
+     */
+    public function getMultipleFieldDelimiter()
+    {
+        return $this->multipleFieldDelimiter;
+    }
+
+    /**
+     * Return's the delimiter character to use, default value is comma (,).
+     *
+     * @return string The delimiter character
+     */
+    public function getDelimiter()
+    {
+        return $this->delimiter;
+    }
+
+    /**
+     * The enclosure character to use, default value is double quotation (").
+     *
+     * @return string The enclosure character
+     */
+    public function getEnclosure()
+    {
+        return $this->enclosure;
+    }
+
+    /**
+     * The escape character to use, default value is backslash (\).
+     *
+     * @return string The escape character
+     */
+    public function getEscape()
+    {
+        return $this->escape;
+    }
+
+    /**
+     * The file encoding of the CSV source file, default value is UTF-8.
+     *
+     * @return string The charset used by the CSV source file
+     */
+    public function getFromCharset()
+    {
+        return $this->fromCharset;
+    }
+
+    /**
+     * The file encoding of the CSV targetfile, default value is UTF-8.
+     *
+     * @return string The charset used by the CSV target file
+     */
+    public function getToCharset()
+    {
+        return $this->toCharset;
+    }
+
+    /**
+     * The file mode of the CSV target file, either one of write or append, default is write.
+     *
+     * @return string The file mode of the CSV target file
+     */
+    public function getFileMode()
+    {
+        return $this->fileMode;
+    }
+
+    /**
+     * Queries whether or not strict mode is enabled or not, default is TRUE.
+     *
+     * @return boolean TRUE if strict mode is enabled, else FALSE
+     */
+    public function isStrictMode()
+    {
+        return $this->strictMode;
+    }
+
+    /**
+     * Return's the database configuration.
+     *
+     * @return \TechDivision\Import\Cli\Configuration\Database The database configuration
+     */
+    public function getDatabase()
+    {
+        return $this->database;
+    }
+
+    /**
+     * Return's the ArrayCollection with the configured operations.
+     *
+     * @return \Doctrine\Common\Collections\ArrayCollection The ArrayCollection with the operations
+     */
+    public function getOperations()
+    {
+        return $this->operations;
     }
 }
