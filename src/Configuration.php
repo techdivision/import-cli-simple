@@ -199,6 +199,24 @@ class Configuration implements ConfigurationInterface
     protected $strictMode;
 
     /**
+     * The flag whether or not the import artefacts have to be archived.
+     *
+     * @var boolean
+     * @Type("boolean")
+     * @SerializedName("archive-artefacts")
+     */
+    protected $archiveArtefacts;
+
+    /**
+     * The directory where the archives will be stored.
+     *
+     * @var string
+     * @Type("string")
+     * @SerializedName("archive-dir")
+     */
+    protected $archiveDir;
+
+    /**
      * Factory implementation to create a new initialized configuration instance.
      *
      * If command line options are specified, they will always override the
@@ -601,5 +619,25 @@ class Configuration implements ConfigurationInterface
     public function getOperations()
     {
         return $this->operations;
+    }
+
+    /**
+     * Return's the TRUE if the import artefacts have to be archived.
+     *
+     * @return boolean TRUE if the import artefacts have to be archived
+     */
+    public function haveArchiveArtefacts()
+    {
+        return $this->archiveArtefacts;
+    }
+
+    /**
+     * The directory where the archives will be stored.
+     *
+     * @return string The archive directory
+     */
+    public function getArchiveDir()
+    {
+        return $this->archiveDir;
     }
 }
