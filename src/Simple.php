@@ -193,7 +193,7 @@ class Simple
      *
      * @return string The prefix
      */
-    public function getPrefix()
+    protected function getPrefix()
     {
         return $this->getConfiguration()->getPrefix();
     }
@@ -203,7 +203,7 @@ class Simple
      *
      * @return string The source directory
      */
-    public function getSourceDir()
+    protected function getSourceDir()
     {
         return $this->getConfiguration()->getSourceDir();
     }
@@ -262,14 +262,17 @@ class Simple
      *
      * @return void
      */
-    public function start()
+    protected function start()
     {
 
         // log a message that import has been started
         $this->getSystemLogger()->info(sprintf('Now start import with serial %s', $this->getSerial()));
 
         // initialize the status
-        $status = array(RegistryKeys::STATUS => 1);
+        $status = array(
+            RegistryKeys::STATUS => 1,
+            RegistryKeys::SOURCE_DIRECTORY => $this->getConfiguration()->getSourceDir()
+        );
 
         // initialize the status information for the subjects */
         /** @var \TechDivision\Import\Configuration\SubjectInterface $subject */
@@ -286,7 +289,7 @@ class Simple
      *
      * @return void
      */
-    public function setUp()
+    protected function setUp()
     {
 
         // load the registry
@@ -356,7 +359,7 @@ class Simple
      * @return void
      * @throws \Exception Is thrown, if one of the subjects can't be processed
      */
-    public function processSubjects()
+    protected function processSubjects()
     {
 
         try {
@@ -390,70 +393,38 @@ class Simple
     /**
      * Process the subject with the passed name/identifier.
      *
+     * We create a new, fresh and separate subject for EVERY file here, because this would be
+     * the starting point to parallelize the import process in a multithreaded/multiprocessed
+     * environment.
+     *
      * @param \TechDivision\Import\Configuration\Subject $subject The subject configuration
      *
      * @return void
      * @throws \Exception Is thrown, if the subject can't be processed
      */
-    public function processSubject($subject)
+    protected function processSubject($subject)
     {
-
-        // load the system logger
-        $systemLogger = $this->getSystemLogger();
-
-        // init file iterator on deployment directory
-        $fileIterator = new \FilesystemIterator($sourceDir = $subject->getSourceDir());
 
         // clear the filecache
         clearstatcache();
 
-        // prepare the regex to find the files to be imported
-        $regex = sprintf('/^.*\/%s.*\\.csv$/', $subject->getPrefix());
+        // load the system logger
+        $systemLogger = $this->getSystemLogger();
+
+        // load the actual status
+        $status = $this->getRegistryProcessor()->getAttribute($this->getSerial());
+
+        // init file iterator on source directory
+        $fileIterator = new \FilesystemIterator($sourceDir = $status[RegistryKeys::SOURCE_DIRECTORY]);
 
         // log a debug message
         $systemLogger->debug(
-            sprintf('Now checking directory %s for files with regex %s to import', $sourceDir, $regex)
+            sprintf('Now checking directory %s for files to be imported', $sourceDir)
         );
 
-        // iterate through all CSV files and start import process
-        foreach (new \RegexIterator($fileIterator, $regex) as $filename) {
-            try {
-                // prepare the flag filenames
-                $inProgressFilename = sprintf('%s.inProgress', $filename);
-                $importedFilename = sprintf('%s.imported', $filename);
-                $failedFilename = sprintf('%s.failed', $filename);
-
-                // query whether or not the file has already been imported
-                if (is_file($failedFilename) ||
-                    is_file($importedFilename) ||
-                    is_file($inProgressFilename)
-                ) {
-                    // log a debug message
-                    $systemLogger->debug(
-                        sprintf('Import running, found inProgress file %s', $inProgressFilename)
-                    );
-
-                    // ignore the file
-                    continue;
-                }
-
-                // flag file as in progress
-                touch($inProgressFilename);
-
-                // process the subject
-                $this->subjectFactory($subject)->import($this->getSerial(), $filename->getPathname());
-
-                // rename flag file, because import has been successfull
-                rename($inProgressFilename, $importedFilename);
-
-            } catch (\Exception $e) {
-                // rename the flag file, because import failed and write the stack trace
-                rename($inProgressFilename, $failedFilename);
-                file_put_contents($failedFilename, $e->__toString());
-
-                // re-throw the exception
-                throw $e;
-            }
+        // iterate through all CSV files and process the subjects
+        foreach ($fileIterator as $filename) {
+            $this->subjectFactory($subject)->import($this->getSerial(), $filename->getPathname());
         }
 
         // and and log a message that the subject has been processed
@@ -484,10 +455,11 @@ class Simple
         $instance->setSystemLogger($this->getSystemLogger());
         $instance->setRegistryProcessor($this->getRegistryProcessor());
 
-        // instanciate and set the product processor
-        $processorFactory = $subject->getProcessorFactory();
-        $productProcessor = $processorFactory::factory($connection, $subject);
-        $instance->setProductProcessor($productProcessor);
+        // instanciate and set the product processor, if specified
+        if ($processorFactory = $subject->getProcessorFactory()) {
+            $productProcessor = $processorFactory::factory($connection, $subject);
+            $instance->setProductProcessor($productProcessor);
+        }
 
         // initialize the callbacks/visitors
         CallbackVisitor::get()->visit($instance);
@@ -503,9 +475,86 @@ class Simple
      *
      * @return void
      */
-    public function tearDown()
+    protected function tearDown()
     {
-        // clean up here
+
+        // load the system logger
+        $systemLogger = $this->getSystemLogger();
+
+        // query whether or not, the import artefacts have to be archived
+        if (!$this->getConfiguration()->haveArchiveArtefacts()) {
+            return;
+        }
+
+        // clear the filecache
+        clearstatcache();
+
+        // load the actual status
+        $status = $this->getRegistryProcessor()->getAttribute($this->getSerial());
+
+        // init file iterator on source directory
+        $fileIterator = new \FilesystemIterator($sourceDir = $status[RegistryKeys::SOURCE_DIRECTORY]);
+
+        // log a debug message
+        $systemLogger->debug(
+            sprintf('Now checking directory %s for files to be archived', $sourceDir)
+        );
+
+        // initialize the directory to create the archive in
+        $archiveDir = sprintf('%s/%s', $this->getConfiguration()->getTargetDir(), $this->getConfiguration()->getArchiveDir());
+
+        // query whether or not the directory already exists
+        if (!is_dir($archiveDir)) {
+            mkdir($archiveDir);
+        }
+
+        // create the ZIP archive
+        $archive = new \ZipArchive();
+        $archive->open($archiveFile = sprintf('%s/%s.zip', $archiveDir, $this->getSerial()), \ZipArchive::CREATE);
+
+        // iterate through all files and add them to the ZIP archive
+        foreach ($fileIterator as $filename) {
+            $archive->addFile($filename);
+        }
+
+        // save the ZIP archive
+        $archive->close();
+
+        // finally remove the directory with the imported files
+        $this->removeDir($sourceDir);
+
+        // and and log a message that the import artefacts have been archived
+        $systemLogger->info(sprintf('Successfully archived imported files to %s!', $archiveFile));
+    }
+
+    /**
+     * Removes the passed directory recursively.
+     *
+     * @param string $src Name of the directory to remove
+     *
+     * @return void
+     */
+    protected function removeDir($src)
+    {
+
+        // open the directory
+        $dir = opendir($src);
+
+        // remove files/folders recursively
+        while (false !== ($file = readdir($dir))) {
+            if (($file != '.') && ($file != '..')) {
+                $full = $src . '/' . $file;
+                if (is_dir($full)) {
+                    FileSystem::removeDir($full);
+                } else {
+                    unlink($full);
+                }
+            }
+        }
+
+        // close handle and remove directory itself
+        closedir($dir);
+        rmdir($src);
     }
 
     /**
@@ -513,7 +562,7 @@ class Simple
      *
      * @return void
      */
-    public function finish()
+    protected function finish()
     {
         $this->getRegistryProcessor()->removeAttribute($this->getSerial());
     }

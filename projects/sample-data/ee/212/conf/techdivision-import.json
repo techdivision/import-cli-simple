@@ -6,6 +6,8 @@
   "source-dir": "projects/sample-data/tmp",
   "target-dir": "projects/sample-data/tmp",
   "source-date-format": "n/d/y, g:i A",
+  "archive-artefacts" : false,
+  "archive-dir" : "archive",
   "utility-class-name" : "TechDivision\\Import\\Utils\\Ee\\V212\\SqlStatements",
   "database": {
     "pdo-dsn": "mysql:host=127.0.0.1;dbname=appserver_magento2_ee212",
@@ -16,6 +18,11 @@
     {
       "name" : "delete",
       "subjects" : [
+        {
+          "class-name": "TechDivision\\Import\\Subjects\\MoveFilesSubject",
+          "identifier": "move-files",
+          "prefix": "magento-import"
+        },
         {
           "class-name": "TechDivision\\Import\\Product\\Ee\\Subjects\\EeBunchSubject",
           "processor-factory" : "TechDivision\\Import\\Cli\\Services\\EeProductBunchProcessorFactory",
@@ -35,6 +42,11 @@
     {
       "name" : "replace",
       "subjects": [
+        {
+          "class-name": "TechDivision\\Import\\Subjects\\MoveFilesSubject",
+          "identifier": "move-files",
+          "prefix": "magento-import"
+        },
         {
           "class-name": "TechDivision\\Import\\Product\\Ee\\Subjects\\EeBunchSubject",
           "processor-factory" : "TechDivision\\Import\\Cli\\Services\\EeProductBunchProcessorFactory",
@@ -280,6 +292,11 @@
     {
       "name" : "add-update",
       "subjects": [
+        {
+          "class-name": "TechDivision\\Import\\Subjects\\MoveFilesSubject",
+          "identifier": "move-files",
+          "prefix": "magento-import"
+        },
         {
           "class-name": "TechDivision\\Import\\Product\\Ee\\Subjects\\EeBunchSubject",
           "processor-factory" : "TechDivision\\Import\\Cli\\Services\\EeProductBunchProcessorFactory",
