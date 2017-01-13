@@ -1,3 +1,13 @@
+# Version 1.0.0-alpha18
+
+## Bugfixes
+
+* Removing invalid class name in Simple::removeDir() method
+
+## Features
+
+* None
+
 # Version 1.0.0-alpha17
 
 ## Bugfixes

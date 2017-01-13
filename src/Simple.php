@@ -545,7 +545,7 @@ class Simple
             if (($file != '.') && ($file != '..')) {
                 $full = $src . '/' . $file;
                 if (is_dir($full)) {
-                    FileSystem::removeDir($full);
+                    Simple::removeDir($full);
                 } else {
                     unlink($full);
                 }
