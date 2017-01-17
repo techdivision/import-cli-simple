@@ -228,6 +228,7 @@ class Simple
             $this->start();
             $this->setUp();
             $this->processSubjects();
+            $this->archive();
             $this->tearDown();
             $this->finish();
 
@@ -414,8 +415,13 @@ class Simple
         // load the actual status
         $status = $this->getRegistryProcessor()->getAttribute($this->getSerial());
 
-        // init file iterator on source directory
-        $fileIterator = new \FilesystemIterator($sourceDir = $status[RegistryKeys::SOURCE_DIRECTORY]);
+        // query whether or not the configured source directory is available
+        if (!is_dir($sourceDir = $status[RegistryKeys::SOURCE_DIRECTORY])) {
+            throw new \Exception(sprintf('Configured source directory %s is not available!', $sourceDir));
+        }
+
+        // initialize the file iterator on source directory
+        $fileIterator = new \FilesystemIterator($sourceDir);
 
         // log a debug message
         $systemLogger->debug(
@@ -474,17 +480,18 @@ class Simple
      * import process has been finished.
      *
      * @return void
+     * @throws \Exception Is thrown, if the
      */
-    protected function tearDown()
+    protected function archive()
     {
-
-        // load the system logger
-        $systemLogger = $this->getSystemLogger();
 
         // query whether or not, the import artefacts have to be archived
         if (!$this->getConfiguration()->haveArchiveArtefacts()) {
             return;
         }
+
+        // load the system logger
+        $systemLogger = $this->getSystemLogger();
 
         // clear the filecache
         clearstatcache();
@@ -492,13 +499,26 @@ class Simple
         // load the actual status
         $status = $this->getRegistryProcessor()->getAttribute($this->getSerial());
 
-        // init file iterator on source directory
-        $fileIterator = new \FilesystemIterator($sourceDir = $status[RegistryKeys::SOURCE_DIRECTORY]);
+        // query whether or not the configured source directory is available
+        if (!is_dir($sourceDir = $status[RegistryKeys::SOURCE_DIRECTORY])) {
+            throw new \Exception(sprintf('Configured source directory %s is not available!', $sourceDir));
+        }
 
-        // log a debug message
-        $systemLogger->debug(
-            sprintf('Now checking directory %s for files to be archived', $sourceDir)
-        );
+        // init file iterator on source directory
+        $fileIterator = new \FilesystemIterator($sourceDir);
+
+        // log the number of files that has to be archived
+        $fileCounter = iterator_count($fileIterator);
+
+        // if no files are available, return
+        if ($fileCounter == 0) {
+            // log the number of files that has to be archived
+            $systemLogger->info(sprintf('Found no files to archive'));
+            return;
+        }
+
+        // log the number of files that has to be archived
+        $systemLogger->info(sprintf('Found %d files to archive in directory %s', $fileCounter, $sourceDir));
 
         // initialize the directory to create the archive in
         $archiveDir = sprintf('%s/%s', $this->getConfiguration()->getTargetDir(), $this->getConfiguration()->getArchiveDir());
@@ -555,6 +575,17 @@ class Simple
         // close handle and remove directory itself
         closedir($dir);
         rmdir($src);
+    }
+
+    /**
+     * Lifecycle callback that will be inovked after the
+     * import process has been finished.
+     *
+     * @return void
+     * @throws \Exception Is thrown, if the
+     */
+    protected function tearDown()
+    {
     }
 
     /**

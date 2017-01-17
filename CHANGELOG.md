@@ -1,3 +1,13 @@
+# Version 1.0.0-alpha19
+
+## Bugfixes
+
+* Bugfix archive functionality to avoid deleting import folder on exception during import
+
+## Features
+
+* None
+
 # Version 1.0.0-alpha18
 
 ## Bugfixes
