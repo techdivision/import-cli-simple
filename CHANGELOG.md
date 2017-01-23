@@ -1,3 +1,13 @@
+# Version 1.0.0-alpha20
+
+## Bugfixes
+
+* None
+
+## Features
+
+* Add flag to upload images file to CE/EE configuration
+
 # Version 1.0.0-alpha19
 
 ## Bugfixes
