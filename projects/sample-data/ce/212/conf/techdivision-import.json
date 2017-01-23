@@ -256,6 +256,7 @@
           "prefix": "media",
           "params" : [
             {
+              "copy-images" : true,
               "root-directory" : "/",
               "media-directory" : "/opt/appserver/webapps/magento2_ce212/pub/media/catalog/product",
               "images-file-directory" : "projects/sample-data/magento2-sample-data/pub/media/catalog/product"
@@ -505,6 +506,7 @@
           "prefix": "media",
           "params" : [
             {
+              "copy-images" : true,
               "root-directory" : "/",
               "media-directory" : "/opt/appserver/webapps/magento2_ce212/pub/media/catalog/product",
               "images-file-directory" : "projects/sample-data/magento2-sample-data/pub/media/catalog/product"
