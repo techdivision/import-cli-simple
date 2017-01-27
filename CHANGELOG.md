@@ -1,3 +1,14 @@
+# Version 1.0.0-alpha21
+
+## Bugfixes
+
+* None
+
+## Features
+
+* Make log level configurable
+* Add debug mode to ignore missing SKUs in product relations and missing categories in product category relations
+
 # Version 1.0.0-alpha20
 
 ## Bugfixes

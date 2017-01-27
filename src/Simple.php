@@ -21,7 +21,11 @@
 namespace TechDivision\Import\Cli;
 
 use Rhumsaa\Uuid\Uuid;
+use Psr\Log\LogLevel;
 use Psr\Log\LoggerInterface;
+use Symfony\Component\Console\Input\InputInterface;
+use Symfony\Component\Console\Output\OutputInterface;
+use Symfony\Component\Console\Helper\FormatterHelper;
 use TechDivision\Import\Utils\MemberNames;
 use TechDivision\Import\Utils\RegistryKeys;
 use TechDivision\Import\ConfigurationInterface;
@@ -42,6 +46,42 @@ use TechDivision\Import\Services\RegistryProcessorInterface;
  */
 class Simple
 {
+
+    /**
+     * The default style to write messages to the symfony console.
+     *
+     * @var string
+     */
+    const DEFAULT_STYLE = 'info';
+
+    /**
+     * The TechDivision company name as ANSI art.
+     *
+     * @var string
+     */
+    protected $ansiArt = ' _______        _     _____  _       _     _
+|__   __|      | |   |  __ \(_)     (_)   (_)
+   | | ___  ___| |__ | |  | |___   ___ ___ _  ___  _ __
+   | |/ _ \/ __| \'_ \| |  | | \ \ / / / __| |/ _ \| \'_ \
+   | |  __/ (__| | | | |__| | |\ V /| \__ \ | (_) | | | |
+   |_|\___|\___|_| |_|_____/|_| \_/ |_|___/_|\___/|_| |_|
+';
+
+    /**
+     * The log level => console style mapping.
+     *
+     * @var array
+     */
+    protected $logLevelStyleMapping = array(
+        LogLevel::INFO      => 'info',
+        LogLevel::DEBUG     => 'comment',
+        LogLevel::ERROR     => 'error',
+        LogLevel::ALERT     => 'error',
+        LogLevel::CRITICAL  => 'error',
+        LogLevel::EMERGENCY => 'error',
+        LogLevel::WARNING   => 'error',
+        LogLevel::NOTICE    => 'info'
+    );
 
     /**
      * The actions unique serial.
@@ -77,6 +117,20 @@ class Simple
      * @var \TechDivision\Import\ConfigurationInterface
      */
     protected $configuration;
+
+    /**
+     * The input stream to read console information from.
+     *
+     * @var \Symfony\Component\Console\Input\InputInterface
+     */
+    protected $input;
+
+    /**
+     * The output stream to write console information to.
+     *
+     * @var \Symfony\Component\Console\Output\OutputInterface
+     */
+    protected $output;
 
     /**
      * Set's the unique serial for this import process.
@@ -189,6 +243,50 @@ class Simple
     }
 
     /**
+     * Set's the input stream to read console information from.
+     *
+     * @param \Symfony\Component\Console\Input\InputInterface $input An IutputInterface instance
+     *
+     * @return void
+     */
+    public function setInput(InputInterface $input)
+    {
+        $this->input = $input;
+    }
+
+    /**
+     * Return's the input stream to read console information from.
+     *
+     * @return \Symfony\Component\Console\Input\InputInterface An IutputInterface instance
+     */
+    protected function getInput()
+    {
+        return $this->input;
+    }
+
+    /**
+     * Set's the output stream to write console information to.
+     *
+     * @param \Symfony\Component\Console\Output\OutputInterface $output An OutputInterface instance
+     *
+     * @return void
+     */
+    public function setOutput(OutputInterface $output)
+    {
+        $this->output = $output;
+    }
+
+    /**
+     * Return's the output stream to write console information to.
+     *
+     * @return \Symfony\Component\Console\Output\OutputInterface An OutputInterface instance
+     */
+    protected function getOutput()
+    {
+        return $this->output;
+    }
+
+    /**
      * Return's the prefix for the import files.
      *
      * @return string The prefix
@@ -212,7 +310,7 @@ class Simple
      * Parse the temporary upload directory for new files to be imported.
      *
      * @return void
-     * @throws \Exception Is thrown, if the import process can't be finished successfully
+     * @throws \Exception Is thrown if the import can't be finished successfully
      */
     public function import()
     {
@@ -236,7 +334,7 @@ class Simple
             $endTime = microtime(true) - $startTime;
 
             // log a message that import has been finished
-            $this->getSystemLogger()->info(sprintf('Successfully finished import with serial %s in %f s', $this->getSerial(), $endTime));
+            $this->log(sprintf('Successfully finished import with serial %s in %f s', $this->getSerial(), $endTime), LogLevel::INFO);
 
         } catch (\Exception $e) {
             // tear down
@@ -250,7 +348,7 @@ class Simple
             $this->getSystemLogger()->error($e->__toString());
 
             // log a message that import has been finished
-            $this->getSystemLogger()->error(sprintf('Can\'t finish import with serial %s in %f s', $this->getSerial(), $endTime));
+            $this->log(sprintf('Can\'t finish import with serial %s in %f s', $this->getSerial(), $endTime), LogLevel::ERROR);
 
             // re-throw the exception
             throw $e;
@@ -266,8 +364,25 @@ class Simple
     protected function start()
     {
 
+        // write the TechDivision ANSI art icon to the console
+        $this->log($this->ansiArt);
+
+        // log the debug information, if debug mode is enabled
+        if ($this->getConfiguration()->isDebugMode()) {
+            // log the system's PHP configuration
+            $this->log(sprintf('PHP version: %s', phpversion()), LogLevel::DEBUG);
+            $this->log('-------------------- Loaded Extensions -----------------------', LogLevel::DEBUG);
+            $this->log(implode(', ', get_loaded_extensions()), LogLevel::DEBUG);
+            $this->log('--------------------------------------------------------------', LogLevel::DEBUG);
+
+            // write a warning for low performance, if XDebug extension is activated
+            if (in_array('xdebug', $loadedExtensions)) {
+                $this->log('Low performance exptected, as result of enabled XDebug extension!', LogLevel::WARNING);
+            }
+        }
+
         // log a message that import has been started
-        $this->getSystemLogger()->info(sprintf('Now start import with serial %s', $this->getSerial()));
+        $this->log(sprintf('Now start import with serial %s', $this->getSerial()), LogLevel::INFO);
 
         // initialize the status
         $status = array(
@@ -352,6 +467,9 @@ class Simple
             $this->getSerial(),
             array(RegistryKeys::GLOBAL_DATA => $globalData)
         );
+
+        // log a message that the global data has been prepared
+        $this->log(sprintf('Successfully prepared global data for import with serial %s', $this->getSerial()), LogLevel::INFO);
     }
 
     /**
@@ -365,7 +483,6 @@ class Simple
 
         try {
             // load system logger and registry
-            $systemLogger = $this->getSystemLogger();
             $importProcessor = $this->getImportProcessor();
 
             // load the subjects
@@ -409,9 +526,6 @@ class Simple
         // clear the filecache
         clearstatcache();
 
-        // load the system logger
-        $systemLogger = $this->getSystemLogger();
-
         // load the actual status
         $status = $this->getRegistryProcessor()->getAttribute($this->getSerial());
 
@@ -424,9 +538,7 @@ class Simple
         $fileIterator = new \FilesystemIterator($sourceDir);
 
         // log a debug message
-        $systemLogger->debug(
-            sprintf('Now checking directory %s for files to be imported', $sourceDir)
-        );
+        $this->log(sprintf('Now checking directory %s for files to be imported', $sourceDir), LogLevel::DEBUG);
 
         // iterate through all CSV files and process the subjects
         foreach ($fileIterator as $filename) {
@@ -434,7 +546,7 @@ class Simple
         }
 
         // and and log a message that the subject has been processed
-        $systemLogger->info(sprintf('Successfully processed subject %s!', $subject->getClassName()));
+        $this->log(sprintf('Successfully processed subject %s!', $subject->getClassName()), LogLevel::DEBUG);
     }
 
     /**
@@ -490,9 +602,6 @@ class Simple
             return;
         }
 
-        // load the system logger
-        $systemLogger = $this->getSystemLogger();
-
         // clear the filecache
         clearstatcache();
 
@@ -513,12 +622,12 @@ class Simple
         // if no files are available, return
         if ($fileCounter == 0) {
             // log the number of files that has to be archived
-            $systemLogger->info(sprintf('Found no files to archive'));
+            $this->log(sprintf('Found no files to archive'), LogLevel::INFO);
             return;
         }
 
         // log the number of files that has to be archived
-        $systemLogger->info(sprintf('Found %d files to archive in directory %s', $fileCounter, $sourceDir));
+        $this->log(sprintf('Found %d files to archive in directory %s', $fileCounter, $sourceDir), LogLevel::INFO);
 
         // initialize the directory to create the archive in
         $archiveDir = sprintf('%s/%s', $this->getConfiguration()->getTargetDir(), $this->getConfiguration()->getArchiveDir());
@@ -544,7 +653,7 @@ class Simple
         $this->removeDir($sourceDir);
 
         // and and log a message that the import artefacts have been archived
-        $systemLogger->info(sprintf('Successfully archived imported files to %s!', $archiveFile));
+        $this->log(sprintf('Successfully archived imported files to %s!', $archiveFile), LogLevel::INFO);
     }
 
     /**
@@ -575,6 +684,52 @@ class Simple
         // close handle and remove directory itself
         closedir($dir);
         rmdir($src);
+    }
+
+    /**
+     * Simple method that writes the passed method the the console and the
+     * system logger, if configured and a log level has been passed.
+     *
+     * @param string $msg      The message to log
+     * @param string $logLevel The log level to use
+     *
+     * @return void
+     */
+    protected function log($msg, $logLevel = null)
+    {
+
+        // initialize the formatter helper
+        $helper = new FormatterHelper();
+
+        // map the log level to the console style
+        $style = $this->mapLogLevelToStyle($logLevel);
+
+        // format the message, according to the passed log level and write it to the console
+        $this->getOutput()->writeln($logLevel ? $helper->formatBlock($msg, $style) : $msg);
+
+        // log the message if a log level has been passed
+        if ($logLevel && $systemLogger = $this->getSystemLogger()) {
+            $systemLogger->log($logLevel, $msg);
+        }
+    }
+
+    /**
+     * Map's the passed log level to a valid symfony console style.
+     *
+     * @param string $logLevel The log level to map
+     *
+     * @return string The apropriate symfony console style
+     */
+    protected function mapLogLevelToStyle($logLevel)
+    {
+
+        // query whether or not the log level is mapped
+        if (isset($this->logLevelStyleMapping[$logLevel])) {
+            return $this->logLevelStyleMapping[$logLevel];
+        }
+
+        // return the default style => info
+        return Simple::DEFAULT_STYLE;
     }
 
     /**

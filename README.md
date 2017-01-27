@@ -41,6 +41,8 @@ The following configuration options are available:
 |:---------------------|:----------------------------------------------------------------|:--------------|
 | --configuration      | Specify the pathname to the configuration file to use | ./techdivision-import.json |
 | --installation-dir   | The Magento installation directory to which the files has to be imported | n/a |
+| --source-dir         | The directory that has to be watched for new files | n/a |
+| --target-dir         | The target directory with the files that has been imported | n/a |
 | --utility-class-name | The utility class name with the Magento edition/version specific SQL statements | n/a |
 | --magento-edition    | The Magento edition to be used, either one of CE or EE | n/a |
 | --magento-version    | The Magento version to be used, e. g. 2.1.2 | n/a |
@@ -48,6 +50,8 @@ The following configuration options are available:
 | --db-pdo-dsn         | The DSN used to connect to the Magento database where the data has to be imported, e. g. mysql:host=127.0.0.1;dbname=magento | n/a |
 | --db-username        | The username used to connect to the Magento database | n/a |
 | --db-password        | The password used to connect to the Magento database | n/a |
+| --debug-mode         | The flag to activate the debug mode | false |
+| --log-level          | The log level to use (see Monolog documentation for further information) | info |
 
 All values can and **SHOULD** be defined in the configuration file. The commandline options should only be 
 used to override these values in some circumstances.
@@ -159,3 +163,14 @@ $ sudo rm -rf projects/sample-data/tmp \
 
 To make sure, that all old import files will be removed, we'll delete and re-create the directory that contains
 the import files `projects/sample-data/tmp`, before.
+
+## Debug Mode
+
+The debug mode provides a more detailed logging output, by automatically setting the Monolog log level to 
+`LogLevel::DEBUG` if **NOT** overwritten with the commandline option `--log-level`. Additionally it ignores
+
+* product category relations to categories that not exists 
+* product links (related, upsell, crosssell, etc.) for SKUs which are **NOT** available
+
+but logs these issues as warnings to the console. This will help developers to test imports with partially
+invalid CSV files which do **NOT** break data consistency.

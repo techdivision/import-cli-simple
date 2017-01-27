@@ -132,4 +132,18 @@ class InputOptionKeys
      * @var string
      */
     const DB_PASSWORD = 'db-password';
+
+    /**
+     * The input option key for the debug mode.
+     *
+     * @var string
+     */
+    const DEBUG_MODE = 'debug-mode';
+
+    /**
+     * The input option key for the log level to use.
+     *
+     * @var string
+     */
+    const LOG_LEVEL = 'log-level';
 }
