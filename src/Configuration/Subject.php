@@ -214,6 +214,16 @@ class Subject implements SubjectInterface
     }
 
     /**
+     * Queries whether or not debug mode is enabled or not, default is TRUE.
+     *
+     * @return boolean TRUE if debug mode is enabled, else FALSE
+     */
+    public function isDebugMode()
+    {
+        return $this->getConfiguration()->isDebugMode();
+    }
+
+    /**
      * Return's the subject's class name.
      *
      * @return string The subject's class name

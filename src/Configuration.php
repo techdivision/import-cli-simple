@@ -20,6 +20,7 @@
 
 namespace TechDivision\Import\Cli;
 
+use Psr\Log\LogLevel;
 use JMS\Serializer\Annotation\Type;
 use JMS\Serializer\SerializerBuilder;
 use JMS\Serializer\Annotation\SerializedName;
@@ -40,6 +41,20 @@ use TechDivision\Import\Cli\Configuration\Operation;
  */
 class Configuration implements ConfigurationInterface
 {
+
+    /**
+     * Mapping for boolean values passed on the console.
+     *
+     * @var array
+     */
+    protected $booleanMapping = array(
+        'true'  => true,
+        'false' => false,
+        '1'     => true,
+        '0'     => false,
+        'on'    => true,
+        'off'   => false
+    );
 
     /**
      * The operation name to use.
@@ -217,6 +232,24 @@ class Configuration implements ConfigurationInterface
     protected $archiveDir;
 
     /**
+     * The flag to signal that the subject has to use the debug mode or not.
+     *
+     * @var boolean
+     * @Type("boolean")
+     * @SerializedName("debug-mode")
+     */
+    protected $debugMode = false;
+
+    /**
+     * The log level to use (see Monolog documentation).
+     *
+     * @var string
+     * @Type("string")
+     * @SerializedName("log-level")
+     */
+    protected $logLevel = LogLevel::INFO;
+
+    /**
      * Factory implementation to create a new initialized configuration instance.
      *
      * If command line options are specified, they will always override the
@@ -235,7 +268,7 @@ class Configuration implements ConfigurationInterface
 
         // load the JSON data
         if (!$jsonData = file_get_contents($filename)) {
-            throw new \Exception('Can\'t load configuration file $filename');
+            throw new \Exception(sprintf('Can\'t load configuration file %s', $filename));
         }
 
         // initialize the JMS serializer and load the configuration
@@ -303,6 +336,18 @@ class Configuration implements ConfigurationInterface
             $instance->getDatabase()->setPassword($password);
         }
 
+        // query whether or not the debug mode has been specified as command line
+        // option, if yes override the value from the configuration file
+        if ($debugMode = $input->getOption(InputOptionKeys::DEBUG_MODE)) {
+            $instance->setDebugMode($instance->mapBoolean($debugMode));
+        }
+
+        // query whether or not the log level has been specified as command line
+        // option, if yes override the value from the configuration file
+        if ($logLevel = $input->getOption(InputOptionKeys::LOG_LEVEL)) {
+            $instance->setLogLevel($logLevel);
+        }
+
         // extend the subjects with the parent configuration instance
         /** @var \TechDivision\Import\Cli\Configuration\Subject $subject */
         foreach ($instance->getSubjects() as $subject) {
@@ -333,6 +378,26 @@ class Configuration implements ConfigurationInterface
 
         // throw an exception if no subjects are available
         throw new \Exception(sprintf('Can\'t find any subjects for operation %s', $this->getOperation()));
+    }
+
+    /**
+     * Map's the passed value to a boolean.
+     *
+     * @param string $value The value to map
+     *
+     * @return boolean The mapped value
+     * @throws \Exception Is thrown, if the value can't be mapped
+     */
+    public function mapBoolean($value)
+    {
+
+        // try to map the passed value to a boolean
+        if (isset($this->booleanMapping[$value])) {
+            return $this->booleanMapping[$value];
+        }
+
+        // throw an exception if we can't convert the passed value
+        throw new \Exception(sprintf('Can\'t convert %s to boolean', $value));
     }
 
     /**
@@ -639,5 +704,49 @@ class Configuration implements ConfigurationInterface
     public function getArchiveDir()
     {
         return $this->archiveDir;
+    }
+
+    /**
+     * Set's the debug mode.
+     *
+     * @param boolean $debugMode TRUE if debug mode is enabled, else FALSE
+     *
+     * @return void
+     */
+    public function setDebugMode($debugMode)
+    {
+        $this->debugMode = $debugMode;
+    }
+
+    /**
+     * Queries whether or not debug mode is enabled or not, default is TRUE.
+     *
+     * @return boolean TRUE if debug mode is enabled, else FALSE
+     */
+    public function isDebugMode()
+    {
+        return $this->debugMode;
+    }
+
+    /**
+     * Set's the log level to use.
+     *
+     * @param string $logLevel The log level to use
+     *
+     * @return void
+     */
+    public function setLogLevel($logLevel)
+    {
+        $this->logLevel = $logLevel;
+    }
+
+    /**
+     * Return's the log level to use.
+     *
+     * @return string The log level to use
+     */
+    public function getLogLevel()
+    {
+        return $this->logLevel;
     }
 }
