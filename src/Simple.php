@@ -716,7 +716,7 @@ class Simple
     /**
      * Map's the passed log level to a valid symfony console style.
      *
-     * @param string The log level to map
+     * @param string $logLevel The log level to map
      *
      * @return string The apropriate symfony console style
      */
