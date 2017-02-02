@@ -171,6 +171,7 @@ The debug mode provides a more detailed logging output, by automatically setting
 
 * product category relations to categories that not exists 
 * product links (related, upsell, crosssell, etc.) for SKUs which are **NOT** available
+* configurable products for SKUs which are **NOT** available or available more than one time
 
 but logs these issues as warnings to the console. This will help developers to test imports with partially
 invalid CSV files which do **NOT** break data consistency.

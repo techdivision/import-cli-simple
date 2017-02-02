@@ -1,3 +1,13 @@
+# Version 1.0.0-alpha22
+
+## Bugfixes
+
+* Fixed invalid log level setting in debug mode
+
+## Features
+
+* Optimize debug output of installed PHP extensions
+
 # Version 1.0.0-alpha21
 
 ## Bugfixes
