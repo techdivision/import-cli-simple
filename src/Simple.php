@@ -372,7 +372,7 @@ class Simple
             // log the system's PHP configuration
             $this->log(sprintf('PHP version: %s', phpversion()), LogLevel::DEBUG);
             $this->log('-------------------- Loaded Extensions -----------------------', LogLevel::DEBUG);
-            $this->log(implode(', ', get_loaded_extensions()), LogLevel::DEBUG);
+            $this->log(implode(', ', $loadedExtensions = get_loaded_extensions()), LogLevel::DEBUG);
             $this->log('--------------------------------------------------------------', LogLevel::DEBUG);
 
             // write a warning for low performance, if XDebug extension is activated

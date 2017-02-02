@@ -188,7 +188,7 @@ class ImportProductsCommand extends Command
 
         // query whether or not the debug mode is enabled and log level
         // has NOT been overwritten with a commandline option
-        if ($configuration->isDebugMode() && !$input->hasOption(InputOptionKeys::DEBUG_MODE)) {
+        if ($configuration->isDebugMode() && !$input->getOption(InputOptionKeys::LOG_LEVEL)) {
             // set debug log level, if log level has NOT been overwritten on command line
             $logLevel = LogLevel::DEBUG;
         }
