@@ -563,8 +563,8 @@ class Simple
     /**
      * Queries whether or not, the passed filename is part of a bunch or not.
      *
-     * @param string $prefix   The prefix of the files to import
-     * @param string $filename The filename to query
+     * @param string $prefix   The prefix to query for
+     * @param string $filename The filename to query for
      *
      * @return boolean TRUE if the filename is part, else FALSE
      */
