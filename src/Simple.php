@@ -597,6 +597,9 @@ class Simple
             );
         }
 
+        // initialize the array for the matches
+        $matches = array();
+
         // update the matches, if the pattern matches
         if ($result = preg_match($pattern, $filename, $matches)) {
             $this->matches = $matches;
