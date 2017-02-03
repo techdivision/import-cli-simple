@@ -34,6 +34,7 @@ use TechDivision\Import\Cli\Callbacks\CallbackVisitor;
 use TechDivision\Import\Cli\Observers\ObserverVisitor;
 use TechDivision\Import\Services\ImportProcessorInterface;
 use TechDivision\Import\Services\RegistryProcessorInterface;
+use TechDivision\Import\Cli\Utils\BunchKeys;
 
 /**
  * A SLSB that handles the product import process.
@@ -131,6 +132,13 @@ class Simple
      * @var \Symfony\Component\Console\Output\OutputInterface
      */
     protected $output;
+
+    /**
+     * The matches for the last processed CSV filename.
+     *
+     * @var array
+     */
+    protected $matches = array();
 
     /**
      * Set's the unique serial for this import process.
@@ -284,16 +292,6 @@ class Simple
     protected function getOutput()
     {
         return $this->output;
-    }
-
-    /**
-     * Return's the prefix for the import files.
-     *
-     * @return string The prefix
-     */
-    protected function getPrefix()
-    {
-        return $this->getConfiguration()->getPrefix();
     }
 
     /**
@@ -540,13 +538,72 @@ class Simple
         // log a debug message
         $this->log(sprintf('Now checking directory %s for files to be imported', $sourceDir), LogLevel::DEBUG);
 
+        // initialize the counter for the bunches that has been imported
+        $bunches = 0;
+
         // iterate through all CSV files and process the subjects
         foreach ($fileIterator as $filename) {
-            $this->subjectFactory($subject)->import($this->getSerial(), $filename->getPathname());
+            // initialize prefix + pathname
+            $prefix = $subject->getPrefix();
+            $pathname = $filename->getPathname();
+
+            // query whether or not we've a file that is part of a bunch here
+            if ($this->isPartOfBunch($prefix, $pathname)) {
+                // import the bunch
+                $this->subjectFactory($subject)->import($this->getSerial(), $pathname);
+                // raise the number of imported bunches
+                $bunches++;
+            }
         }
 
         // and and log a message that the subject has been processed
-        $this->log(sprintf('Successfully processed subject %s!', $subject->getClassName()), LogLevel::DEBUG);
+        $this->log(sprintf('Successfully processed subject %s with %d bunch(es)!', $subject->getClassName(), $bunches), LogLevel::DEBUG);
+    }
+
+    /**
+     * Queries whether or not, the passed filename is part of a bunch or not.
+     *
+     * @param string $prefix   The prefix of the files to import
+     * @param string $filename The filename to query
+     *
+     * @return boolean TRUE if the filename is part, else FALSE
+     */
+    public function isPartOfBunch($prefix, $filename)
+    {
+
+        // initialize the pattern
+        $pattern = '';
+
+        // query whether or not, this is the first file to be processed
+        if (sizeof($this->matches) === 0) {
+            // initialize the pattern to query whether the FIRST file has to be processed or not
+            $pattern = sprintf(
+                '/^.*\/(?<%s>%s)_(?<%s>.*)_(?<%s>\d+)\\.csv$/',
+                BunchKeys::PREFIX,
+                $prefix,
+                BunchKeys::FILENAME,
+                BunchKeys::COUNTER
+            );
+
+        } else {
+            // initialize the pattern to query whether the NEXT file is part of a bunch or not
+            $pattern = sprintf(
+                '/^.*\/(?<%s>%s)_(?<%s>%s)_(?<%s>\d+)\\.csv$/',
+                BunchKeys::PREFIX,
+                $this->matches[BunchKeys::PREFIX],
+                BunchKeys::FILENAME,
+                $this->matches[BunchKeys::FILENAME],
+                BunchKeys::COUNTER
+            );
+        }
+
+        // update the matches, if the pattern matches
+        if ($result = preg_match($pattern, $filename, $matches)) {
+            $this->matches = $matches;
+        }
+
+        // stop processing, if the filename doesn't match
+        return (boolean) $result;
     }
 
     /**

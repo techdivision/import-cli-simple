@@ -70,4 +70,56 @@ class SimpleTest extends \PHPUnit_Framework_TestCase
         $this->instance->setImportProcessor($mockImportProcessor);
         $this->assertSame($mockImportProcessor, $this->instance->getImportProcessor());
     }
+
+    /**
+     * Test's if the passed file is NOT part of a bunch.
+     *
+     * @return void
+     */
+    public function testIsPartOfBunchWithNoBunch()
+    {
+
+        // initialize the prefix and the actual date
+        $prefix = 'magento-import';
+        $actualDate = date('Ymd');
+
+        // prepare some files which are NOT part of a bunch
+        $data = array(
+            array(sprintf('import/add-update/%s_%s-172_01.csv', $prefix, $actualDate), true),
+            array(sprintf('import/add-update/%s_%s-173_01.csv', $prefix, $actualDate), false),
+            array(sprintf('import/add-update/%s_%s-174_01.csv', $prefix, $actualDate), false),
+        );
+
+        // make sure, that the method return's FALSE
+        foreach ($data as $row) {
+            list ($filename, $result) = $row;
+            $this->assertSame($result, $this->instance->isPartOfBunch($prefix, $filename));
+        }
+    }
+
+    /**
+     * Test's if the passed file IS part of a bunch.
+     *
+     * @return void
+     */
+    public function testIsPartOfBunchWithBunch()
+    {
+
+        // initialize the prefix and the actual date
+        $prefix = 'magento-import';
+        $actualDate = date('Ymd');
+
+        // prepare some files which are NOT part of a bunch
+        $data = array(
+            array(sprintf('import/add-update/%s_%s-172_01.csv', $prefix, $actualDate), true),
+            array(sprintf('import/add-update/%s_%s-172_02.csv', $prefix, $actualDate), true),
+            array(sprintf('import/add-update/%s_%s-172_03.csv', $prefix, $actualDate), true),
+        );
+
+        // make sure, that the method return's FALSE
+        foreach ($data as $row) {
+            list ($filename, $result) = $row;
+            $this->assertSame($result, $this->instance->isPartOfBunch($prefix, $filename));
+        }
+    }
 }

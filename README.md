@@ -143,6 +143,37 @@ $ git clone https://github.com/magento/magento2-sample-data.git projects/sample-
 
 on the command line.
 
+## Bunches
+
+The import is able to handle bunches. In general this is a functionality that will only make sense in a
+multithreaded or multiprocessed environment where the bunches can be imported in parallel. In this case,
+it should only give the developer an idea, on how a multiprocessed functionality can be implemented.
+
+A bunch is a CSV file which is only a part of a complete import. It doesn't matter, what a kind of data a
+bunch contains, as the importer handles the data in the necessary order. This means, that the first step 
+is to import all simple products found in a bunch. After that, information like the created entity IDs 
+related with the imported SKUs, which is necessary to import all other product data (Bunches, Configurables, 
+Images, Related etc.) will be shared, so it'll be possible to import these data step-by-step, but each 
+step also in parallel.
+
+To split a import into multiple bunches, the bunched files **MUST** follow these pattern:
+
+1. The prefix has to equal, e. g. `magento-product-import`
+2. The prefix has to be followed by an underscore `_`
+3. A random number of alphanumeric charaters has to follow
+4. These characters has also to be followed by an underscore `_`
+5. Finally, each bunch **MUST** have a sequential number, followed by `.csv`
+
+For example, the following files will be imported as a bunch:
+
+* tmp/magento-import_20170203-1234_01.csv
+* tmp/magento-import_20170203-1234_02.csv
+* tmp/magento-import_20170203-1234_03.csv
+* tmp/magento-import_20170203-1234_04.csv
+
+When starting the import process by invoking the apropriate command, these files will be imported like one
+file. It is **NOT** necessary to invoke the importer four times.
+
 ## Running the Import
 
 The command doesn't implement any directory clean-up or archiving functionality, what means that the files
