@@ -35,6 +35,7 @@ use TechDivision\Import\Cli\Callbacks\CallbackVisitor;
 use TechDivision\Import\Cli\Observers\ObserverVisitor;
 use TechDivision\Import\Services\ImportProcessorInterface;
 use TechDivision\Import\Services\RegistryProcessorInterface;
+use TechDivision\Import\Subjects\ExportableSubjectInterface;
 
 /**
  * The M2IF - Console Tool implementation.
@@ -516,12 +517,12 @@ class Simple
      * the starting point to parallelize the import process in a multithreaded/multiprocessed
      * environment.
      *
-     * @param \TechDivision\Import\Configuration\Subject $subject The subject configuration
+     * @param \TechDivision\Import\Configuration\SubjectInterface $subject The subject configuration
      *
      * @return void
      * @throws \Exception Is thrown, if the subject can't be processed
      */
-    protected function processSubject($subject)
+    protected function processSubject(\TechDivision\Import\Configuration\SubjectInterface $subject)
     {
 
         // clear the filecache
@@ -552,12 +553,22 @@ class Simple
 
             // query whether or not we've a file that is part of a bunch here
             if ($this->isPartOfBunch($prefix, $pathname)) {
-                // import the bunch
-                $this->subjectFactory($subject)->import($this->getSerial(), $pathname);
-                // raise the number of imported bunches
+                // initialize the subject and import the bunch
+                $subjectInstance = $this->subjectFactory($subject);
+                $subjectInstance->import($this->getSerial(), $pathname);
+
+                // query whether or not, we've to export artefacts
+                if ($subjectInstance instanceof ExportableSubjectInterface) {
+                    $subjectInstance->export($this->matches[BunchKeys::FILENAME], $this->matches[BunchKeys::COUNTER]);
+                }
+
+                // raise the number of the imported bunches
                 $bunches++;
             }
         }
+
+        // reset the matches, because the exported artefacts
+        $this->matches = array();
 
         // and and log a message that the subject has been processed
         $this->log(sprintf('Successfully processed subject %s with %d bunch(es)!', $subject->getClassName(), $bunches), LogLevel::DEBUG);
