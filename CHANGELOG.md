@@ -1,17 +1,8 @@
-# Version 1.0.0-alpha25
-
-## Bugfixes
-
-* Fixed issue that prevents processing artefact exports
-
-## Features
-
-* None
-
 # Version 1.0.0-alpha24
 
 ## Bugfixes
 
+* Fixed issue that prevents processing artefact exports
 * Throw exceptions in Simple::removeDir() method, when directories/files can not be deleted
 
 ## Features
