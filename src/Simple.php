@@ -30,14 +30,17 @@ use TechDivision\Import\Utils\MemberNames;
 use TechDivision\Import\Utils\RegistryKeys;
 use TechDivision\Import\ConfigurationInterface;
 use TechDivision\Import\Subjects\SubjectInterface;
+use TechDivision\Import\Cli\Utils\BunchKeys;
 use TechDivision\Import\Cli\Callbacks\CallbackVisitor;
 use TechDivision\Import\Cli\Observers\ObserverVisitor;
 use TechDivision\Import\Services\ImportProcessorInterface;
 use TechDivision\Import\Services\RegistryProcessorInterface;
-use TechDivision\Import\Cli\Utils\BunchKeys;
 
 /**
- * A SLSB that handles the product import process.
+ * The M2IF - Console Tool implementation.
+ *
+ * This is a example console tool implementation that should give developers an impression
+ * on how the M2IF could be used to implement their own Magento 2 importer.
  *
  * @author    Tim Wagner <t.wagner@techdivision.com>
  * @copyright 2016 TechDivision GmbH <info@techdivision.com>
@@ -597,6 +600,9 @@ class Simple
             );
         }
 
+        // initialize the array for the matches
+        $matches = array();
+
         // update the matches, if the pattern matches
         if ($result = preg_match($pattern, $filename, $matches)) {
             $this->matches = $matches;
@@ -719,6 +725,7 @@ class Simple
      * @param string $src Name of the directory to remove
      *
      * @return void
+     * @throws \Exception Is thrown, if the directory can not be removed
      */
     protected function removeDir($src)
     {
@@ -731,16 +738,20 @@ class Simple
             if (($file != '.') && ($file != '..')) {
                 $full = $src . '/' . $file;
                 if (is_dir($full)) {
-                    Simple::removeDir($full);
+                    $this->removeDir($full);
                 } else {
-                    unlink($full);
+                    if (!unlink($full)) {
+                        throw new \Exception(sprintf('Can\'t remove file %s', $full));
+                    }
                 }
             }
         }
 
         // close handle and remove directory itself
         closedir($dir);
-        rmdir($src);
+        if (!rmdir($src)) {
+            throw new \Exception(sprintf('Can\'t remove directory %s', $src));
+        }
     }
 
     /**

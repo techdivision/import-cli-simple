@@ -2,6 +2,16 @@
 
 ## Bugfixes
 
+* Throw exceptions in Simple::removeDir() method, when directories/files can not be deleted
+
+## Features
+
+* None
+
+# Version 1.0.0-alpha23
+
+## Bugfixes
+
 * None
 
 ## Features
