@@ -34,6 +34,7 @@ use TechDivision\Import\Product\Repositories\StockItemRepository;
 use TechDivision\Import\Product\Repositories\UrlRewriteRepository;
 use TechDivision\Import\Repositories\EavAttributeOptionValueRepository;
 use TechDivision\Import\Product\Actions\UrlRewriteAction;
+use TechDivision\Import\Product\Actions\UrlRewriteProductCategoryAction;
 use TechDivision\Import\Product\Actions\ProductAction;
 use TechDivision\Import\Product\Actions\CategoryProductAction;
 use TechDivision\Import\Product\Actions\StockItemAction;
@@ -71,6 +72,9 @@ use TechDivision\Import\Product\Actions\Processors\StockStatusUpdateProcessor;
 use TechDivision\Import\Product\Actions\Processors\UrlRewriteCreateProcessor;
 use TechDivision\Import\Product\Actions\Processors\UrlRewriteDeleteProcessor;
 use TechDivision\Import\Product\Actions\Processors\UrlRewriteUpdateProcessor;
+use TechDivision\Import\Product\Actions\Processors\UrlRewriteProductCategoryCreateProcessor;
+use TechDivision\Import\Product\Actions\Processors\UrlRewriteProductCategoryDeleteProcessor;
+use TechDivision\Import\Product\Actions\Processors\UrlRewriteProductCategoryUpdateProcessor;
 
 /**
  * Factory to create a new product bunch processor.
@@ -348,6 +352,24 @@ class ProductBunchProcessorFactory extends AbstractProductProcessorFactory
         $urlRewriteAction->setDeleteProcessor($urlRewriteDeleteProcessor);
         $urlRewriteAction->setUpdateProcessor($urlRewriteUpdateProcessor);
 
+        // initialize the action that provides URL rewrite CRUD functionality
+        $urlRewriteProductCategoryCreateProcessor = new UrlRewriteProductCategoryCreateProcessor();
+        $urlRewriteProductCategoryCreateProcessor->setUtilityClassName($utilityClassName);
+        $urlRewriteProductCategoryCreateProcessor->setConnection($connection);
+        $urlRewriteProductCategoryCreateProcessor->init();
+        $urlRewriteProductCategoryDeleteProcessor = new UrlRewriteProductCategoryDeleteProcessor();
+        $urlRewriteProductCategoryDeleteProcessor->setUtilityClassName($utilityClassName);
+        $urlRewriteProductCategoryDeleteProcessor->setConnection($connection);
+        $urlRewriteProductCategoryDeleteProcessor->init();
+        $urlRewriteProductCategoryUpdateProcessor = new UrlRewriteProductCategoryUpdateProcessor();
+        $urlRewriteProductCategoryUpdateProcessor->setUtilityClassName($utilityClassName);
+        $urlRewriteProductCategoryUpdateProcessor->setConnection($connection);
+        $urlRewriteProductCategoryUpdateProcessor->init();
+        $urlRewriteProductCategoryAction = new UrlRewriteProductCategoryAction();
+        $urlRewriteProductCategoryAction->setCreateProcessor($urlRewriteProductCategoryCreateProcessor);
+        $urlRewriteProductCategoryAction->setDeleteProcessor($urlRewriteProductCategoryDeleteProcessor);
+        $urlRewriteProductCategoryAction->setUpdateProcessor($urlRewriteProductCategoryUpdateProcessor);
+
         // initialize the product processor
         $processorType = static::getProcessorType();
         $productBunchProcessor = new $processorType();
@@ -375,6 +397,7 @@ class ProductBunchProcessorFactory extends AbstractProductProcessorFactory
         $productBunchProcessor->setStockItemAction($stockItemAction);
         $productBunchProcessor->setStockStatusAction($stockStatusAction);
         $productBunchProcessor->setUrlRewriteAction($urlRewriteAction);
+        $productBunchProcessor->setUrlRewriteProductCategoryAction($urlRewriteProductCategoryAction);
 
         // return the instance
         return $productBunchProcessor;

@@ -1,3 +1,13 @@
+# Version 1.0.0-alpha25
+
+## Bugfixes
+
+* Fixed invalid name of sample data CSV files
+
+## Features
+
+* Initialize and inject new UrlRewriteProductCategoryAction to handle missing URL rewrite product => category relations
+
 # Version 1.0.0-alpha24
 
 ## Bugfixes
