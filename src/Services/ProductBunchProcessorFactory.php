@@ -32,6 +32,7 @@ use TechDivision\Import\Product\Repositories\CategoryProductRepository;
 use TechDivision\Import\Product\Repositories\StockStatusRepository;
 use TechDivision\Import\Product\Repositories\StockItemRepository;
 use TechDivision\Import\Product\Repositories\UrlRewriteRepository;
+use TechDivision\Import\Product\Repositories\UrlRewriteProductCategoryRepository;
 use TechDivision\Import\Repositories\EavAttributeOptionValueRepository;
 use TechDivision\Import\Product\Actions\UrlRewriteAction;
 use TechDivision\Import\Product\Actions\UrlRewriteProductCategoryAction;
@@ -183,6 +184,12 @@ class ProductBunchProcessorFactory extends AbstractProductProcessorFactory
         $urlRewriteRepository->setUtilityClassName($utilityClassName);
         $urlRewriteRepository->setConnection($connection);
         $urlRewriteRepository->init();
+
+        // initialize the repository that provides URL rewrite product category query functionality
+        $urlRewriteProductCategoryRepository = new UrlRewriteProductCategoryRepository();
+        $urlRewriteProductCategoryRepository->setUtilityClassName($utilityClassName);
+        $urlRewriteProductCategoryRepository->setConnection($connection);
+        $urlRewriteProductCategoryRepository->init();
 
         // initialize the action that provides category product relation CRUD functionality
         $categoryProductCreateProcessor = new CategoryProductCreateProcessor();
@@ -385,6 +392,7 @@ class ProductBunchProcessorFactory extends AbstractProductProcessorFactory
         $productBunchProcessor->setStockStatusRepository($stockStatusRepository);
         $productBunchProcessor->setStockItemRepository($stockItemRepository);
         $productBunchProcessor->setUrlRewriteRepository($urlRewriteRepository);
+        $productBunchProcessor->setUrlRewriteProductCategoryRepository($urlRewriteProductCategoryRepository);
         $productBunchProcessor->setEavAttributeOptionValueRepository($eavAttributeOptionValueRepository);
         $productBunchProcessor->setCategoryProductAction($categoryProductAction);
         $productBunchProcessor->setProductDatetimeAction($productDatetimeAction);
