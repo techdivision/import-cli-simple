@@ -6,6 +6,16 @@
 
 ## Features
 
+* Add Dockerfile
+
+# Version 1.0.0-alpha26
+
+## Bugfixes
+
+* None
+
+## Features
+
 * Add initialisation for UrlRewriteProductCategory repository
 
 # Version 1.0.0-alpha25
