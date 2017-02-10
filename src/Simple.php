@@ -711,7 +711,7 @@ class Simple
         $fileIterator = new \FilesystemIterator($sourceDir);
 
         // log the number of files that has to be archived
-        $this->log(sprintf('Found %d files to archive in directory %s', $fileCounter, $sourceDir), LogLevel::INFO);
+        $this->log(sprintf('Found %d files to archive in directory %s', $this->bunches, $sourceDir), LogLevel::INFO);
 
         // initialize the directory to create the archive in
         $archiveDir = sprintf('%s/%s', $this->getConfiguration()->getTargetDir(), $this->getConfiguration()->getArchiveDir());
