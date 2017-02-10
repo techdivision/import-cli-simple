@@ -1,3 +1,13 @@
+# Version 1.0.0-alpha29
+
+## Bugfixes
+
+* Fixed invalid sorting for import files on Linux in a Docker container
+
+## Features
+
+* None
+
 # Version 1.0.0-alpha28
 
 ## Bugfixes
