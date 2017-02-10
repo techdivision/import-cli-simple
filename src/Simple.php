@@ -145,6 +145,13 @@ class Simple
     protected $matches = array();
 
     /**
+     * The number of imported bunches.
+     *
+     * @var integer
+     */
+    protected $bunches = 0;
+
+    /**
      * Set's the unique serial for this import process.
      *
      * @param string $serial The unique serial
@@ -362,6 +369,7 @@ class Simple
      * the status and appends it to the registry.
      *
      * @return void
+     * @throws \Exception Is thrown, an import process is already running
      */
     protected function start()
     {
@@ -382,6 +390,14 @@ class Simple
                 $this->log('Low performance exptected, as result of enabled XDebug extension!', LogLevel::WARNING);
             }
         }
+
+        // query whether or not an import is running
+        if (file_exists($pid = sprintf('%s/importer.pid', sys_get_temp_dir()))) {
+            throw \Exception(sprintf('A import process with serial %s is already running', file_get_contents($pid)));
+        }
+
+        // write the PID to the temporay directory
+        file_put_contents($pid, $this->getSerial());
 
         // log a message that import has been started
         $this->log(sprintf('Now start import with serial %s', $this->getSerial()), LogLevel::INFO);
@@ -542,9 +558,6 @@ class Simple
         // log a debug message
         $this->log(sprintf('Now checking directory %s for files to be imported', $sourceDir), LogLevel::DEBUG);
 
-        // initialize the counter for the bunches that has been imported
-        $bunches = 0;
-
         // iterate through all CSV files and process the subjects
         foreach ($fileIterator as $filename) {
             // initialize prefix + pathname
@@ -563,7 +576,7 @@ class Simple
                 }
 
                 // raise the number of the imported bunches
-                $bunches++;
+                $this->bunches++;
             }
         }
 
@@ -571,7 +584,7 @@ class Simple
         $this->matches = array();
 
         // and and log a message that the subject has been processed
-        $this->log(sprintf('Successfully processed subject %s with %d bunch(es)!', $subject->getClassName(), $bunches), LogLevel::DEBUG);
+        $this->log(sprintf('Successfully processed subject %s with %d bunch(es)!', $subject->getClassName(), $this->bunches), LogLevel::DEBUG);
     }
 
     /**
@@ -673,6 +686,13 @@ class Simple
 
         // query whether or not, the import artefacts have to be archived
         if (!$this->getConfiguration()->haveArchiveArtefacts()) {
+            $this->log(sprintf('Archiving functionality has not been activated'), LogLevel::INFO);
+            return;
+        }
+
+        // if no files have been imported, return immediately
+        if ($this->bunches === 0) {
+            $this->log(sprintf('Found no files to archive'), LogLevel::INFO);
             return;
         }
 
@@ -689,16 +709,6 @@ class Simple
 
         // init file iterator on source directory
         $fileIterator = new \FilesystemIterator($sourceDir);
-
-        // log the number of files that has to be archived
-        $fileCounter = iterator_count($fileIterator);
-
-        // if no files are available, return
-        if ($fileCounter == 0) {
-            // log the number of files that has to be archived
-            $this->log(sprintf('Found no files to archive'), LogLevel::INFO);
-            return;
-        }
 
         // log the number of files that has to be archived
         $this->log(sprintf('Found %d files to archive in directory %s', $fileCounter, $sourceDir), LogLevel::INFO);
@@ -829,6 +839,11 @@ class Simple
      */
     protected function finish()
     {
+
+        // remove the import status from the registry
         $this->getRegistryProcessor()->removeAttribute($this->getSerial());
+
+        // remove the PID to the temporay directory
+        unlink(sprintf('%s/importer.pid', sys_get_temp_dir()));
     }
 }

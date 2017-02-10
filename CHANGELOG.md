@@ -1,3 +1,13 @@
+# Version 1.0.0-alpha28
+
+## Bugfixes
+
+* Fixed issue that import folders are deleted, when NO files for import are available
+
+## Features
+
+* Use PID file to make sure, that only one import can be processed at a time
+
 # Version 1.0.0-alpha27
 
 ## Bugfixes
