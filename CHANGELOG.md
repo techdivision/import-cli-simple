@@ -6,7 +6,7 @@
 
 ## Features
 
-* None
+* Use PID file to make sure, that only one import can be processed at a time
 
 # Version 1.0.0-alpha27
 
