@@ -1,3 +1,13 @@
+# Version 1.0.0-alpha28
+
+## Bugfixes
+
+* Fixed issue that import folders are deleted, when NO files for import are available
+
+## Features
+
+* None
+
 # Version 1.0.0-alpha27
 
 ## Bugfixes
