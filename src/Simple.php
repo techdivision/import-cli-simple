@@ -393,7 +393,7 @@ class Simple
 
         // query whether or not an import is running
         if (file_exists($pid = sprintf('%s/importer.pid', sys_get_temp_dir()))) {
-            throw \Exception(sprintf('A import process with serial %s is already running', file_get_contents($pid)));
+            throw new \Exception(sprintf('A import process with serial %s is already running (PID: %s)', file_get_contents($pid), $pid));
         }
 
         // write the PID to the temporay directory
@@ -843,7 +843,9 @@ class Simple
         // remove the import status from the registry
         $this->getRegistryProcessor()->removeAttribute($this->getSerial());
 
-        // remove the PID to the temporay directory
-        unlink(sprintf('%s/importer.pid', sys_get_temp_dir()));
+        // remove the PID to the temporay directory, if it has been created by THIS import
+        if (file_get_contents($pid = sprintf('%s/importer.pid', sys_get_temp_dir())) === $this->getSerial()) {
+            unlink($pid);
+        }
     }
 }
