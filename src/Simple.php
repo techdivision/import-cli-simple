@@ -553,19 +553,21 @@ class Simple
         }
 
         // initialize the file iterator on source directory
-        $fileIterator = new \FilesystemIterator($sourceDir);
+        $files = glob(sprintf('%s/*.csv', $sourceDir));
+
+        // sorting the files for the apropriate order
+        usort($files, function ($a, $b) {
+            return strcmp($a, $b);
+        });
 
         // log a debug message
         $this->log(sprintf('Now checking directory %s for files to be imported', $sourceDir), LogLevel::DEBUG);
 
         // iterate through all CSV files and process the subjects
-        foreach ($fileIterator as $filename) {
-            // initialize prefix + pathname
-            $prefix = $subject->getPrefix();
-            $pathname = $filename->getPathname();
-
-            // query whether or not we've a file that is part of a bunch here
-            if ($this->isPartOfBunch($prefix, $pathname)) {
+        foreach ($files as $pathname) {
+            // initialize the prefix and query whether or not we've a file
+            // that is part of a bunch here
+            if ($this->isPartOfBunch($subject->getPrefix(), $pathname)) {
                 // initialize the subject and import the bunch
                 $subjectInstance = $this->subjectFactory($subject);
                 $subjectInstance->import($this->getSerial(), $pathname);
@@ -711,7 +713,7 @@ class Simple
         $fileIterator = new \FilesystemIterator($sourceDir);
 
         // log the number of files that has to be archived
-        $this->log(sprintf('Found %d files to archive in directory %s', $fileCounter, $sourceDir), LogLevel::INFO);
+        $this->log(sprintf('Found %d files to archive in directory %s', $this->bunches, $sourceDir), LogLevel::INFO);
 
         // initialize the directory to create the archive in
         $archiveDir = sprintf('%s/%s', $this->getConfiguration()->getTargetDir(), $this->getConfiguration()->getArchiveDir());
