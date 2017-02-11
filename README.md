@@ -52,6 +52,7 @@ The following configuration options are available:
 | --db-password        | The password used to connect to the Magento database | n/a |
 | --debug-mode         | The flag to activate the debug mode | false |
 | --log-level          | The log level to use (see Monolog documentation for further information) | info |
+| --ignore-pid         | The flag to signal that the an existing PID should be ignored, whether or import process is running or not | false |
 
 All values can and **SHOULD** be defined in the configuration file. The commandline options should only be 
 used to override these values in some circumstances.
@@ -87,7 +88,14 @@ is small a configuration variation out of the available subjects, observers and 
   "magento-version": "2.1.2",
   "operation-name" : "replace",
   "installation-dir" : "/var/www/magento",
-  "utility-class-name" : "TechDivision\\Import\\Utils\\SqlStatements",
+  "source-dir": "projects/sample-data/tmp",
+  "target-dir": "projects/sample-data/tmp",
+  "source-date-format": "n/d/y, g:i A",
+  "archive-artefacts" : false,
+  "archive-dir" : "archive",
+  "utility-class-name" : "TechDivision\\Import\\Utils\\Ee\\V212\\SqlStatements",
+  "debug-mode" : false,
+  "ignore-pid" : false,
   "database" : { ... },
   "operations" : [
     {
@@ -108,6 +116,13 @@ is small a configuration variation out of the available subjects, observers and 
                 "TechDivision\\Import\\Product\\Observers\\ClearProductObserver"
               ]
             }
+          ],
+          "callbacks": [
+            {
+              "visibility": [
+                "TechDivision\\Import\\Product\\Callbacks\\VisibilityCallback"
+              ]
+            }
           ]
         }
       ]
@@ -118,6 +133,76 @@ is small a configuration variation out of the available subjects, observers and 
 
 Most of the available configuration options can be specified on the subjects itself, which are nested under the
 operations.
+
+### Database
+
+```json
+"database": {
+  "pdo-dsn": "mysql:host=127.0.0.1;dbname=appserver_magento2_ee212",
+  "username": "magento",
+  "password": "eraZor"
+}
+```
+
+### Observers
+
+Observers provides the basic functionality of each subject and can be registered for a subject by a adding
+them to the observers array like
+
+```json
+"observers": [
+  {... },
+  {
+    "import": [
+      "TechDivision\\Import\\Product\\Observers\\ClearProductObserver"
+    ]
+  }
+]
+```
+
+> Please be aware, that by default no standard subjects are registered, so they **ALWAYS** need to be specified in 
+> the default configuration file. With the upcoming versions, this behaviour will possbile change like the one of
+> the callbacks.
+
+### Callbacks
+
+Callbacks can be used to transform values, found in the CSV file into the necessary types that needs to be stored
+into the database. For example, the default Magento 2 CSV format allows the values
+
+* `Catalog`
+* `Search`
+* `Catalog, Search`
+* `Not Visible Individually`
+
+for the column `visibility`. These values can not be stored in the appropriate database column, as this expects
+integer values. Therefore, a callback can be use to transform the string into the correct integer value, in this
+case the class `TechDivision\\Import\\Product\\Callbacks\\VisibilityCallback`.
+
+By default, the necessary callbacks to transform the Magento 2 standard attributes found in the CSV file are 
+already defined. When a new, user defined attribute will be added, e. g. with a setup script, the M2IF tries to
+find the best matching callback, depending on the `frontend_input` value of the attribute. Actually M2IF comes
+whith callbacks for
+
+* `select`
+* `multiselect`
+* `boolean`
+
+`frontend_input` types. Callbacks for other input types will be part of upcoming versions, but can always be
+implemented by the developers using M2IF in their project. To register a custom callback, it has to be added
+to the array with the callbacks of a subject, like
+
+```json
+"callbacks": [
+  {... },
+  {
+    "visibility": [
+      "TechDivision\\Import\\Product\\Callbacks\\VisibilityCallback"
+    ]
+  }
+]
+```
+
+> Please be aware, that a custom callback will **REPLACE** the default callback and will **NOT** be appended!
 
 ## Operations
 
@@ -206,3 +291,14 @@ The debug mode provides a more detailed logging output, by automatically setting
 
 but logs these issues as warnings to the console. This will help developers to test imports with partially
 invalid CSV files which do **NOT** break data consistency.
+
+## Running Parallel Imports
+
+To avoid unwanted behaviour, only one import process can be started at a time. To make sure, that only one
+process is running, a PID file in the system's temporary directory (`sys_get_temp_dir()`) is created which
+contains the UUID of the actual import process. After the import process has been finished, the file will
+be deleted and a new process can be started.
+
+The default behaviour can be overwritten by appending the option `--ingore-pid=true`. This will ignore the
+PID file and appends the UUID to it. After the import process has been finished, the UUID will be removed 
+from the PID file. When the last import process has been finished, the PID file will be deleted.

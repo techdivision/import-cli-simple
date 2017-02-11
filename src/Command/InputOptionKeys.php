@@ -141,6 +141,13 @@ class InputOptionKeys
     const DEBUG_MODE = 'debug-mode';
 
     /**
+     * The input option key for ignoring an existing PID.
+     *
+     * @var string
+     */
+    const IGNORE_PID = 'ignore-pid';
+
+    /**
      * The input option key for the log level to use.
      *
      * @var string

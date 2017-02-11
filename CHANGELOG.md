@@ -1,3 +1,15 @@
+# Version 1.0.0-alpha30
+
+## Bugfixes
+
+* None
+
+## Features
+
+* Move callbacks/observers initialisation to AbstractSubject class
+* Add --ignore-pid=true option to allow multiple import processes, e. g. for debugging purposes
+* Define default callbacks and implement default callbacks for user defined attributes based on attributes frontend_input value
+
 # Version 1.0.0-alpha29
 
 ## Bugfixes
