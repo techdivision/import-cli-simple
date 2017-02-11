@@ -872,6 +872,7 @@ class Simple
      *
      * @param string $pid The PID of the actual import process to be removed
      *
+     * @return void
      * @throws \Exception Is thrown, if the PID can not be removed
      */
     protected function removePid($pid)
