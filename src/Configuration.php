@@ -241,6 +241,15 @@ class Configuration implements ConfigurationInterface
     protected $debugMode = false;
 
     /**
+     * The flag to signal that the an existing PID should be ignored, whether or import process is running or not.
+     *
+     * @var boolean
+     * @Type("boolean")
+     * @SerializedName("ignore-pid")
+     */
+    protected $ignorePid = false;
+
+    /**
      * The log level to use (see Monolog documentation).
      *
      * @var string
@@ -342,6 +351,12 @@ class Configuration implements ConfigurationInterface
             $instance->setDebugMode($instance->mapBoolean($debugMode));
         }
 
+        // query whether or not the ignore PID flag has been specified as command line
+        // option, if yes override the value from the configuration file
+        if ($ignorePid = $input->getOption(InputOptionKeys::IGNORE_PID)) {
+            $instance->setIgnorePid($instance->mapBoolean($ignorePid));
+        }
+
         // query whether or not the log level has been specified as command line
         // option, if yes override the value from the configuration file
         if ($logLevel = $input->getOption(InputOptionKeys::LOG_LEVEL)) {
@@ -353,6 +368,13 @@ class Configuration implements ConfigurationInterface
         foreach ($instance->getSubjects() as $subject) {
             // set the configuration instance on the subject
             $subject->setConfiguration($instance);
+        }
+
+        // query whether or not the debug mode is enabled and log level
+        // has NOT been overwritten with a commandline option
+        if ($instance->isDebugMode() && !$input->getOption(InputOptionKeys::LOG_LEVEL)) {
+            // set debug log level, if log level has NOT been overwritten on command line
+            $instance->setLogLevel(LogLevel::DEBUG);
         }
 
         // return the initialized configuration instance
@@ -726,6 +748,29 @@ class Configuration implements ConfigurationInterface
     public function isDebugMode()
     {
         return $this->debugMode;
+    }
+
+    /**
+     * Set's the flag to signal that the an existing PID hast to be ignored, whether a
+     * import process is running or not.
+     *
+     * @param boolean $ignorePid TRUE if the PID has to be ignored, else FALSE
+     *
+     * @return void
+     */
+    public function setIgnorePid($ignorePid)
+    {
+        $this->ignorePid = $ignorePid;
+    }
+
+    /**
+     * Queries whether or not that the an existing PID has to be ignored.
+     *
+     * @return boolean TRUE if an existing PID has to be ignored, else FALSE
+     */
+    public function isIgnorePid()
+    {
+        return $this->ignorePid;
     }
 
     /**

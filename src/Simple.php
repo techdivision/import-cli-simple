@@ -21,6 +21,7 @@
 namespace TechDivision\Import\Cli;
 
 use Rhumsaa\Uuid\Uuid;
+use Monolog\Logger;
 use Psr\Log\LogLevel;
 use Psr\Log\LoggerInterface;
 use Symfony\Component\Console\Input\InputInterface;
@@ -31,8 +32,6 @@ use TechDivision\Import\Utils\RegistryKeys;
 use TechDivision\Import\ConfigurationInterface;
 use TechDivision\Import\Subjects\SubjectInterface;
 use TechDivision\Import\Cli\Utils\BunchKeys;
-use TechDivision\Import\Cli\Callbacks\CallbackVisitor;
-use TechDivision\Import\Cli\Observers\ObserverVisitor;
 use TechDivision\Import\Services\ImportProcessorInterface;
 use TechDivision\Import\Services\RegistryProcessorInterface;
 use TechDivision\Import\Subjects\ExportableSubjectInterface;
@@ -58,6 +57,13 @@ class Simple
      * @var string
      */
     const DEFAULT_STYLE = 'info';
+
+    /**
+     * The PID filename to use.
+     *
+     * @var string
+     */
+    const PID_FILENAME = 'importer.pid';
 
     /**
      * The TechDivision company name as ANSI art.
@@ -150,6 +156,13 @@ class Simple
      * @var integer
      */
     protected $bunches = 0;
+
+    /**
+     * The PID for the running processes.
+     *
+     * @var array
+     */
+    protected $pid = null;
 
     /**
      * Set's the unique serial for this import process.
@@ -374,6 +387,16 @@ class Simple
     protected function start()
     {
 
+        // query whether or not an import is running AND an existing PID has to be ignored
+        if (file_exists($pidFilename = $this->getPidFilename()) && !$this->getConfiguration()->isIgnorePid()) {
+            throw new \Exception(sprintf('At least one import process is already running (PID: %s)', $pidFilename));
+        } elseif (file_exists($pidFilename = $this->getPidFilename()) && $this->getConfiguration()->isIgnorePid()) {
+            $this->log(sprintf('At least one import process is already running (PID: %s)', $pidFilename), LogLevel::WARNING);
+        }
+
+        // immediately add the PID to lock this import process
+        $this->addPid($this->getSerial());
+
         // write the TechDivision ANSI art icon to the console
         $this->log($this->ansiArt);
 
@@ -390,14 +413,6 @@ class Simple
                 $this->log('Low performance exptected, as result of enabled XDebug extension!', LogLevel::WARNING);
             }
         }
-
-        // query whether or not an import is running
-        if (file_exists($pid = sprintf('%s/importer.pid', sys_get_temp_dir()))) {
-            throw new \Exception(sprintf('A import process with serial %s is already running (PID: %s)', file_get_contents($pid), $pid));
-        }
-
-        // write the PID to the temporay directory
-        file_put_contents($pid, $this->getSerial());
 
         // log a message that import has been started
         $this->log(sprintf('Now start import with serial %s', $this->getSerial()), LogLevel::INFO);
@@ -668,10 +683,6 @@ class Simple
             $instance->setProductProcessor($productProcessor);
         }
 
-        // initialize the callbacks/visitors
-        CallbackVisitor::get()->visit($instance);
-        ObserverVisitor::get()->visit($instance);
-
         // return the subject instance
         return $instance;
     }
@@ -824,6 +835,91 @@ class Simple
     }
 
     /**
+     * Return's the PID filename to use.
+     *
+     * @return string The PID filename
+     */
+    protected function getPidFilename()
+    {
+        return sprintf('%s/%s', sys_get_temp_dir(), Simple::PID_FILENAME);
+    }
+
+    /**
+     * Persist the passed PID to PID filename.
+     *
+     * @param string $pid The PID of the actual import process to added
+     *
+     * @return void
+     * @throws \Exception Is thrown, if the PID can not be added
+     */
+    protected function addPid($pid)
+    {
+
+        // open the PID file
+        $fh = fopen($pidFilename = $this->getPidFilename(), 'a');
+
+        // append the PID to the PID file
+        if (fwrite($fh, $pid . PHP_EOL) === false) {
+            throw new \Exception(sprintf('Can\'t write PID %s to PID file %s', $pid, $pidFilename));
+        }
+
+        // close the file handle
+        fclose($fh);
+    }
+
+    /**
+     * Remove's the actual PID from the PID file.
+     *
+     * @param string $pid The PID of the actual import process to be removed
+     *
+     * @throws \Exception Is thrown, if the PID can not be removed
+     */
+    protected function removePid($pid)
+    {
+
+        // open the PID file
+        $fh = fopen($pidFilename = $this->getPidFilename(), 'rw');
+
+        // initialize the array for the PIDs found in the PID file
+        $pids = array();
+
+        // read the lines with the PIDs from the PID file
+        while (($buffer = fgets($fh, 4096)) !== false) {
+            // remove the new line
+            $line = trim($buffer, PHP_EOL);
+            // if the PID is the one to be removed
+            if ($pid === $line) {
+                // do NOT add it the array
+                continue;
+            }
+
+            // add the found PID to the array
+            $pids[] = $line;
+        }
+
+        // if there are NO more PIDs, delete the file
+        if (sizeof($pids) === 0) {
+            fclose($fh);
+            unlink($pidFilename);
+            return;
+        }
+
+        // empty the PID file and rewind the file pointer
+        ftruncate($fh, 0);
+        rewind($fh);
+
+        // append the existing PIDs to the PID file
+        foreach ($pids as $pid) {
+            if (fwrite($fh, $pid . PHP_EOL) === false) {
+                throw new \Exception(sprintf('Can\'t write PID %s to PID file %s', $pid, $pidFilename));
+            }
+        }
+
+        // finally close the PID file
+        fclose($fh);
+    }
+
+    /**
      * Lifecycle callback that will be inovked after the
      * import process has been finished.
      *
@@ -832,6 +928,8 @@ class Simple
      */
     protected function tearDown()
     {
+        // finally remove the PID from the file and the PID file itself, if empty
+        $this->removePid($this->getSerial());
     }
 
     /**
@@ -843,11 +941,6 @@ class Simple
     {
 
         // remove the import status from the registry
-        $this->getRegistryProcessor()->removeAttribute($this->getSerial());
-
-        // remove the PID to the temporay directory, if it has been created by THIS import
-        if (file_get_contents($pid = sprintf('%s/importer.pid', sys_get_temp_dir())) === $this->getSerial()) {
-            unlink($pid);
-        }
+        $this->getRegistryProcessor()->removeAttribute($serial = $this->getSerial());
     }
 }

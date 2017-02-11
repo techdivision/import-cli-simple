@@ -142,6 +142,12 @@ class ImportProductsCommand extends Command
                  'The log level to use'
              )
              ->addOption(
+                 InputOptionKeys::IGNORE_PID,
+                 null,
+                 InputOption::VALUE_REQUIRED,
+                 'Whether or not an existing PID should be ignored or not'
+             )
+             ->addOption(
                  InputOptionKeys::DEBUG_MODE,
                  null,
                  InputOption::VALUE_REQUIRED,
@@ -183,19 +189,14 @@ class ImportProductsCommand extends Command
         $connection = new \PDO($dsn, $username, $password);
         $connection->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
 
-        // initialize the log level
-        $logLevel = $configuration->getLogLevel();
-
-        // query whether or not the debug mode is enabled and log level
-        // has NOT been overwritten with a commandline option
-        if ($configuration->isDebugMode() && !$input->getOption(InputOptionKeys::LOG_LEVEL)) {
-            // set debug log level, if log level has NOT been overwritten on command line
-            $logLevel = LogLevel::DEBUG;
-        }
-
         // initialize the system logger
         $systemLogger = new Logger('techdivision/import');
-        $systemLogger->pushHandler(new ErrorLogHandler(ErrorLogHandler::OPERATING_SYSTEM, $logLevel));
+        $systemLogger->pushHandler(
+            new ErrorLogHandler(
+                ErrorLogHandler::OPERATING_SYSTEM,
+                $configuration->getLogLevel()
+            )
+        );
 
         // initialize and run the importer
         $importer = new Simple();

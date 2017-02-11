@@ -21,6 +21,8 @@
 namespace TechDivision\Import\Cli\Services;
 
 use TechDivision\Import\Configuration\SubjectInterface;
+use TechDivision\Import\Repositories\EavAttributeRepository;
+use TechDivision\Import\Repositories\EavAttributeOptionValueRepository;
 use TechDivision\Import\Product\Repositories\ProductRepository;
 use TechDivision\Import\Product\Repositories\ProductWebsiteRepository;
 use TechDivision\Import\Product\Repositories\ProductDatetimeRepository;
@@ -33,7 +35,6 @@ use TechDivision\Import\Product\Repositories\StockStatusRepository;
 use TechDivision\Import\Product\Repositories\StockItemRepository;
 use TechDivision\Import\Product\Repositories\UrlRewriteRepository;
 use TechDivision\Import\Product\Repositories\UrlRewriteProductCategoryRepository;
-use TechDivision\Import\Repositories\EavAttributeOptionValueRepository;
 use TechDivision\Import\Product\Actions\UrlRewriteAction;
 use TechDivision\Import\Product\Actions\UrlRewriteProductCategoryAction;
 use TechDivision\Import\Product\Actions\ProductAction;
@@ -118,6 +119,12 @@ class ProductBunchProcessorFactory extends AbstractProductProcessorFactory
         $eavAttributeOptionValueRepository->setUtilityClassName($utilityClassName);
         $eavAttributeOptionValueRepository->setConnection($connection);
         $eavAttributeOptionValueRepository->init();
+
+        // initialize the repository that provides EAV attribute query functionality
+        $eavAttributeRepository = new EavAttributeRepository();
+        $eavAttributeRepository->setUtilityClassName($utilityClassName);
+        $eavAttributeRepository->setConnection($connection);
+        $eavAttributeRepository->init();
 
         // initialize the repository that provides product query functionality
         $productRepository = new ProductRepository();
@@ -394,6 +401,7 @@ class ProductBunchProcessorFactory extends AbstractProductProcessorFactory
         $productBunchProcessor->setUrlRewriteRepository($urlRewriteRepository);
         $productBunchProcessor->setUrlRewriteProductCategoryRepository($urlRewriteProductCategoryRepository);
         $productBunchProcessor->setEavAttributeOptionValueRepository($eavAttributeOptionValueRepository);
+        $productBunchProcessor->setEavAttributeRepository($eavAttributeRepository);
         $productBunchProcessor->setCategoryProductAction($categoryProductAction);
         $productBunchProcessor->setProductDatetimeAction($productDatetimeAction);
         $productBunchProcessor->setProductDecimalAction($productDecimalAction);
