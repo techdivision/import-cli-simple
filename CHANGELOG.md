@@ -1,3 +1,13 @@
+# Version 1.0.0-alpha31
+
+## Bugfixes
+
+* None
+
+## Features
+
+* Add OK flagfile functionality
+
 # Version 1.0.0-alpha30
 
 ## Bugfixes

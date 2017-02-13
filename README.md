@@ -251,10 +251,10 @@ To split a import into multiple bunches, the bunched files **MUST** follow these
 
 For example, the following files will be imported as a bunch:
 
-* tmp/magento-import_20170203-1234_01.csv
-* tmp/magento-import_20170203-1234_02.csv
-* tmp/magento-import_20170203-1234_03.csv
-* tmp/magento-import_20170203-1234_04.csv
+* `tmp/magento-import_20170203-1234_01.csv`
+* `tmp/magento-import_20170203-1234_02.csv`
+* `tmp/magento-import_20170203-1234_03.csv`
+* `tmp/magento-import_20170203-1234_04.csv`
 
 When starting the import process by invoking the apropriate command, these files will be imported like one
 file. It is **NOT** necessary to invoke the importer four times.
@@ -280,6 +280,35 @@ $ sudo rm -rf projects/sample-data/tmp \
 To make sure, that all old import files will be removed, we'll delete and re-create the directory that contains
 the import files `projects/sample-data/tmp`, before.
 
+The import process only starts, when an OK flagfile is available in the same directory where the CSV files are 
+located. The naming convention for the OK flagfile **MUST** follow one of these naming conventions
+
+* `<IMPORT-DIRECTORY>/<PREFIX>.ok`
+* `<IMPORT-DIRECTORY>/<PREFIX>_<FILENAME>.ok`
+* `<IMPORT-DIRECTORY>/<PREFIX>_<FILENAME>_<COUNTER>.ok`
+
+which results in one of
+
+* `projects/sample-data/tmp/magento-import.ok`
+* `projects/sample-data/tmp/magento-import_20170203.ok`
+* `projects/sample-data/tmp/magento-import_20170203_01.ok`
+
+The flagfile **MUST** contain the name of the CSV files that have to be imported within the next iterations. If
+the flagfile would be named `projects/sample-data/tmp/magento-import_20170203-1234.ok` for example and contains
+the following lines
+
+```sh
+magento-import_20170203-1234_01.csv
+magento-import_20170203-1234_02.csv
+magento-import_20170203-1234_03.csv
+magento-import_20170203-1234_04.csv
+```
+
+the importer has to be invoked four times (because the example above is **NO** bunch), whereas on each invovation, 
+the next file will be imported and removed from the flagfile.
+
+Have a look in subdirectories of `project/sample-data/*` for a working example.
+
 ## Debug Mode
 
 The debug mode provides a more detailed logging output, by automatically setting the Monolog log level to 
@@ -301,4 +330,5 @@ be deleted and a new process can be started.
 
 The default behaviour can be overwritten by appending the option `--ingore-pid=true`. This will ignore the
 PID file and appends the UUID to it. After the import process has been finished, the UUID will be removed 
-from the PID file. When the last import process has been finished, the PID file will be deleted.
+from the PID file. When the last import process has been finished and it's UUID has been removed, the PID 
+file itself will be deleted.

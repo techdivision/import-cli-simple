@@ -27,14 +27,15 @@ use Psr\Log\LoggerInterface;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Helper\FormatterHelper;
+use TechDivision\Import\Utils\BunchKeys;
 use TechDivision\Import\Utils\MemberNames;
 use TechDivision\Import\Utils\RegistryKeys;
 use TechDivision\Import\ConfigurationInterface;
 use TechDivision\Import\Subjects\SubjectInterface;
-use TechDivision\Import\Cli\Utils\BunchKeys;
 use TechDivision\Import\Services\ImportProcessorInterface;
 use TechDivision\Import\Services\RegistryProcessorInterface;
 use TechDivision\Import\Subjects\ExportableSubjectInterface;
+use TechDivision\Import\Cli\Exceptions\LineNotFoundException;
 
 /**
  * The M2IF - Console Tool implementation.
@@ -389,7 +390,7 @@ class Simple
 
         // query whether or not an import is running AND an existing PID has to be ignored
         if (file_exists($pidFilename = $this->getPidFilename()) && !$this->getConfiguration()->isIgnorePid()) {
-            throw new \Exception(sprintf('At least one import process is already running (PID: %s)', $pidFilename));
+            throw new \Exception(sprintf('At least one import process is already running (check PID: %s)', $pidFilename));
         } elseif (file_exists($pidFilename = $this->getPidFilename()) && $this->getConfiguration()->isIgnorePid()) {
             $this->log(sprintf('At least one import process is already running (PID: %s)', $pidFilename), LogLevel::WARNING);
         }
@@ -580,16 +581,25 @@ class Simple
 
         // iterate through all CSV files and process the subjects
         foreach ($files as $pathname) {
-            // initialize the prefix and query whether or not we've a file
-            // that is part of a bunch here
+            // query whether or not that the file is part of the actual bunch
             if ($this->isPartOfBunch($subject->getPrefix(), $pathname)) {
                 // initialize the subject and import the bunch
                 $subjectInstance = $this->subjectFactory($subject);
+
+                // query whether or not the subject needs an OK file, if yes remove the filename from the file
+                if ($subjectInstance->needsOkFile()) {
+                    $this->removeFromOkFile($pathname);
+                }
+
+                // finally import the CSV file
                 $subjectInstance->import($this->getSerial(), $pathname);
 
                 // query whether or not, we've to export artefacts
                 if ($subjectInstance instanceof ExportableSubjectInterface) {
-                    $subjectInstance->export($this->matches[BunchKeys::FILENAME], $this->matches[BunchKeys::COUNTER]);
+                    $subjectInstance->export(
+                        $this->matches[BunchKeys::FILENAME],
+                        $this->matches[BunchKeys::COUNTER]
+                    );
                 }
 
                 // raise the number of the imported bunches
@@ -651,6 +661,71 @@ class Simple
 
         // stop processing, if the filename doesn't match
         return (boolean) $result;
+    }
+
+    /**
+     * Return's an array with the names of the expected OK files for the actual subject.
+     *
+     * @return array The array with the expected OK filenames
+     */
+    protected function getOkFilenames()
+    {
+
+        // load the array with the available bunch keys
+        $bunchKeys = BunchKeys::getAllKeys();
+
+        // initialize the array for the available okFilenames
+        $okFilenames = array();
+
+        // prepare the OK filenames based on the found CSV file information
+        for ($i = 1; $i < sizeof($bunchKeys); $i++) {
+            // intialize the array for the parts of the names (prefix, filename + counter)
+            $parts = array();
+            // load the parts from the matches
+            for ($z = 0; $z < $i; $z++) {
+                $parts[] = $this->matches[$bunchKeys[$z]];
+            }
+
+            // query whether or not, the OK file exists, if yes append it
+            if (file_exists($okFilename = sprintf('%s/%s.ok', $this->getSourceDir(), implode('_', $parts)))) {
+                $okFilenames[] = $okFilename;
+            }
+        }
+
+        // prepare and return the pattern for the OK file
+        return $okFilenames;
+    }
+
+    /**
+     * Query whether or not, the passed CSV filename is in the OK file. If the filename was found,
+     * it'll be returned and the method return TRUE.
+     *
+     * If the filename is NOT in the OK file, the method return's FALSE and the CSV should NOT be
+     * imported/moved.
+     *
+     * @param string $filename The CSV filename to query for
+     *
+     * @return void
+     * @throws \Exception Is thrown, if the passed filename is NOT in the OK file or it can NOT be removed from it
+     */
+    protected function removeFromOkFile($filename)
+    {
+
+        try {
+            // load the expected OK filenames
+            $okFilenames = $this->getOkFilenames();
+
+            // remove the filename from the firs OK file that can be found
+            foreach ($okFilenames as $okFilename) {
+                $this->removeLineFromFile(basename($filename), $okFilename);
+                return;
+            }
+
+            throw new \Exception(sprintf('Can\'t remove filename %s from one of the expected OK files: %s', $filename, implode(', ', $okFilenames)));
+
+        } catch (\Exception $e) {
+            throw new \Exception(sprintf('Can\'t remove filename %s from OK file: %s', $filename, $okFilename), null, $e);
+        }
     }
 
     /**
@@ -877,47 +952,14 @@ class Simple
      */
     protected function removePid($pid)
     {
-
-        // open the PID file
-        $fh = fopen($pidFilename = $this->getPidFilename(), 'rw');
-
-        // initialize the array for the PIDs found in the PID file
-        $pids = array();
-
-        // read the lines with the PIDs from the PID file
-        while (($buffer = fgets($fh, 4096)) !== false) {
-            // remove the new line
-            $line = trim($buffer, PHP_EOL);
-            // if the PID is the one to be removed
-            if ($pid === $line) {
-                // do NOT add it the array
-                continue;
-            }
-
-            // add the found PID to the array
-            $pids[] = $line;
+        try {
+            // remove the PID from the PID file
+            $this->removeLineFromFile($pid, $this->getPidFilename());
+        } catch (LineNotFoundException $lnfe) {
+            $this->getSystemLogger()->notice(sprintf('PID % is can not be found in PID file %s', $pid, $this->getPidFilename()));
+        } catch (\Exception $e) {
+            throw new \Exception(sprintf('Can\'t remove PID %s from PID file %s', $pid, $this->getPidFilename()), null, $e);
         }
-
-        // if there are NO more PIDs, delete the file
-        if (sizeof($pids) === 0) {
-            fclose($fh);
-            unlink($pidFilename);
-            return;
-        }
-
-        // empty the PID file and rewind the file pointer
-        ftruncate($fh, 0);
-        rewind($fh);
-
-        // append the existing PIDs to the PID file
-        foreach ($pids as $pid) {
-            if (fwrite($fh, $pid . PHP_EOL) === false) {
-                throw new \Exception(sprintf('Can\'t write PID %s to PID file %s', $pid, $pidFilename));
-            }
-        }
-
-        // finally close the PID file
-        fclose($fh);
     }
 
     /**
@@ -925,7 +967,6 @@ class Simple
      * import process has been finished.
      *
      * @return void
-     * @throws \Exception Is thrown, if the
      */
     protected function tearDown()
     {
@@ -940,8 +981,70 @@ class Simple
      */
     protected function finish()
     {
-
         // remove the import status from the registry
-        $this->getRegistryProcessor()->removeAttribute($serial = $this->getSerial());
+        $this->getRegistryProcessor()->removeAttribute($this->getSerial());
+    }
+
+
+    /**
+     * Remove's the passed line from the file with the passed name.
+     *
+     * @param string $line     The line to be removed
+     * @param string $filename The name of the file the line has to be removed
+     *
+     * @return void
+     * @throws \Exception Is thrown, if the line is not found or can not be removed
+     */
+    protected function removeLineFromFile($line, $filename)
+    {
+
+        // open the PID file
+        $fh = fopen($filename, 'r+');
+
+        // initialize the array for the PIDs found in the PID file
+        $lines = array();
+
+        // initialize the flag if the line has been found
+        $found = false;
+
+        // read the lines with the PIDs from the PID file
+        while (($buffer = fgets($fh, 4096)) !== false) {
+            // remove the new line
+            $buffer = trim($buffer, PHP_EOL);
+            // if the line is the one to be removed, ignore the line
+            if ($line === $buffer) {
+                $found = true;
+                continue;
+            }
+
+            // add the found PID to the array
+            $lines[] = $buffer;
+        }
+
+        // query whether or not, we found the line
+        if (!$found) {
+            throw new LineNotFoundException(sprintf('Line %s can not be found in file %s', $line, $file));
+        }
+
+        // if there are NO more lines, delete the file
+        if (sizeof($lines) === 0) {
+            fclose($fh);
+            unlink($filename);
+            return;
+        }
+
+        // empty the file and rewind the file pointer
+        ftruncate($fh, 0);
+        rewind($fh);
+
+        // append the existing lines to the file
+        foreach ($lines as $ln) {
+            if (fwrite($fh, $ln . PHP_EOL) === false) {
+                throw new \Exception(sprintf('Can\'t write %s to file %s', $ln, $filename));
+            }
+        }
+
+        // finally close the file
+        fclose($fh);
     }
 }
