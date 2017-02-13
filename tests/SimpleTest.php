@@ -90,7 +90,7 @@ class SimpleTest extends \PHPUnit_Framework_TestCase
             array(sprintf('import/add-update/%s_%s-174_01.csv', $prefix, $actualDate), false),
         );
 
-        // make sure, that the method return's FALSE
+        // make sure, that only the FIRST file is part of the bunch
         foreach ($data as $row) {
             list ($filename, $result) = $row;
             $this->assertSame($result, $this->instance->isPartOfBunch($prefix, $filename));
@@ -116,7 +116,7 @@ class SimpleTest extends \PHPUnit_Framework_TestCase
             array(sprintf('import/add-update/%s_%s-172_03.csv', $prefix, $actualDate), true),
         );
 
-        // make sure, that the method return's FALSE
+        // make sure, that the file IS part of the bunch
         foreach ($data as $row) {
             list ($filename, $result) = $row;
             $this->assertSame($result, $this->instance->isPartOfBunch($prefix, $filename));
