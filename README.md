@@ -251,10 +251,10 @@ To split a import into multiple bunches, the bunched files **MUST** follow these
 
 For example, the following files will be imported as a bunch:
 
-* tmp/magento-import_20170203-1234_01.csv
-* tmp/magento-import_20170203-1234_02.csv
-* tmp/magento-import_20170203-1234_03.csv
-* tmp/magento-import_20170203-1234_04.csv
+* `tmp/magento-import_20170203-1234_01.csv`
+* `tmp/magento-import_20170203-1234_02.csv`
+* `tmp/magento-import_20170203-1234_03.csv`
+* `tmp/magento-import_20170203-1234_04.csv`
 
 When starting the import process by invoking the apropriate command, these files will be imported like one
 file. It is **NOT** necessary to invoke the importer four times.
@@ -283,15 +283,15 @@ the import files `projects/sample-data/tmp`, before.
 The import process only starts, when an OK flagfile is available in the same directory where the CSV files are 
 located. The naming convention for the OK flagfile **MUST** follow one of these naming conventions
 
-* <IMPORT-DIRECTORY>/<PREFIX>.ok
-* <IMPORT-DIRECTORY>/<PREFIX>_<FILENAME>.ok
-* <IMPORT-DIRECTORY>/<PREFIX>_<FILENAME>_<COUNTER>.ok
+* `<IMPORT-DIRECTORY>/<PREFIX>.ok`
+* `<IMPORT-DIRECTORY>/<PREFIX>_<FILENAME>.ok`
+* `<IMPORT-DIRECTORY>/<PREFIX>_<FILENAME>_<COUNTER>.ok`
 
 which results in one of
 
-* projects/sample-data/tmp/magento-import.ok
-* projects/sample-data/tmp/magento-import_20170203.ok
-* projects/sample-data/tmp/magento-import_20170203_01.ok
+* `projects/sample-data/tmp/magento-import.ok`
+* `projects/sample-data/tmp/magento-import_20170203.ok`
+* `projects/sample-data/tmp/magento-import_20170203_01.ok`
 
 The flagfile **MUST** contain the name of the CSV files that have to be imported within the next iterations. If
 the flagfile would be named `projects/sample-data/tmp/magento-import_20170203-1234.ok` for example and contains
