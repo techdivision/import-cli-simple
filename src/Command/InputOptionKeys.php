@@ -113,6 +113,13 @@ class InputOptionKeys
     const SOURCE_DATE_FORMAT = 'source-date-format';
 
     /**
+     * The input option key for the database ID to use.
+     *
+     * @var string
+     */
+    const DB_ID = 'db-id';
+
+    /**
      * The input option key for the PDO DSN to use.
      *
      * @var string

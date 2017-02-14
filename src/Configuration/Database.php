@@ -25,7 +25,7 @@ use JMS\Serializer\Annotation\SerializedName;
 use TechDivision\Import\Configuration\DatabaseInterface;
 
 /**
- * A SLSB that handles the product import process.
+ * The database configuration.
  *
  * @author    Tim Wagner <t.wagner@techdivision.com>
  * @copyright 2016 TechDivision GmbH <info@techdivision.com>
@@ -35,6 +35,15 @@ use TechDivision\Import\Configuration\DatabaseInterface;
  */
 class Database implements DatabaseInterface
 {
+
+    /**
+     * The database identifier for this database connection.
+     *
+     * @var string
+     * @Type("string")
+     * @SerializedName("id")
+     */
+    protected $id;
 
     /**
      * The PDO DSN to use.
@@ -60,6 +69,37 @@ class Database implements DatabaseInterface
      * @Type("string")
      */
     protected $password;
+
+    /**
+     * The flag to signal the default datasource or not.
+     *
+     * @var boolean
+     * @Type("boolean")
+     * @SerializedName("default")
+     */
+    protected $default = false;
+
+    /**
+     * Set's the database identifier for this database connection.
+     *
+     * @param string $id The database identifier
+     *
+     * @return void
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+    }
+
+    /**
+     * Return's the database identifier for this database connection.
+     *
+     * @return string The database identifier
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
 
     /**
      * Set's the PDO DSN to use.
@@ -125,5 +165,27 @@ class Database implements DatabaseInterface
     public function getPassword()
     {
         return $this->password;
+    }
+
+    /**
+     * Set's the flag to signal that this is the default datasource or not.
+     *
+     * @param boolean $default TRUE if this is the default datasource, else FALSE
+     *
+     * @return void
+     */
+    public function setDefault($default)
+    {
+        $this->default = $default;
+    }
+
+    /**
+     * Return's the flag to signal that this is the default datasource or not.
+     *
+     * @return boolean TRUE if this is the default datasource, else FALSE
+     */
+    public function isDefault()
+    {
+        return $this->default;
     }
 }

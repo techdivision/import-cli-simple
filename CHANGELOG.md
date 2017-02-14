@@ -1,3 +1,13 @@
+# Version 1.0.0-alpha32
+
+## Bugfixes
+
+* None
+
+## Features
+
+* Add handling for multiple database configurations
+
 # Version 1.0.0-alpha31
 
 ## Bugfixes
