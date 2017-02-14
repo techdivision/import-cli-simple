@@ -11,11 +11,15 @@
   "utility-class-name" : "TechDivision\\Import\\Utils\\SqlStatements",
   "debug-mode" : false,
   "ignore-pid" : false,
-  "database": {
-    "pdo-dsn": "mysql:host=127.0.0.1;dbname=appserver_magento2_ce212",
-    "username": "magento",
-    "password": "eraZor"
-  },
+  "databases": [
+    {
+      "id": "ce",
+      "default": false,
+      "pdo-dsn": "mysql:host=127.0.0.1;dbname=appserver_magento2_ce212",
+      "username": "magento",
+      "password": "eraZor"
+    }
+  ],
   "operations" : [
     {
       "name" : "delete",

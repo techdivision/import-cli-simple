@@ -47,6 +47,7 @@ The following configuration options are available:
 | --magento-edition    | The Magento edition to be used, either one of CE or EE | n/a |
 | --magento-version    | The Magento version to be used, e. g. 2.1.2 | n/a |
 | --source-date-format | The date format used in the CSV file(s) | n/a |
+| --db-id              | The ID of the database to use, if not specified, the database with the default flag will be used | n/a |
 | --db-pdo-dsn         | The DSN used to connect to the Magento database where the data has to be imported, e. g. mysql:host=127.0.0.1;dbname=magento | n/a |
 | --db-username        | The username used to connect to the Magento database | n/a |
 | --db-password        | The password used to connect to the Magento database | n/a |
@@ -136,13 +137,29 @@ operations.
 
 ### Database
 
+The configuration allows the registration of multiple databases like
+
 ```json
-"database": {
-  "pdo-dsn": "mysql:host=127.0.0.1;dbname=appserver_magento2_ee212",
-  "username": "magento",
-  "password": "eraZor"
-}
+"databases": [
+  {
+    "id": "local",
+    "default": false,
+    "pdo-dsn": "mysql:host=127.0.0.1;dbname=appserver_magento2_ee212",
+    "username": "magento",
+    "password": "eraZor"
+  },
+  {
+    "id": "remote",
+    "default": true,
+    "pdo-dsn": "mysql:host=127.0.0.130;dbname=appserver_magento2_ee212",
+    "username": "magento",
+    "password": "eraZor"
+  }
+]
 ```
+
+Depending whether the commandline option `--db-id` and the specified value, the database with the given ID will
+be used. If the commandline options is **NOT** specified, the one with the  flag `"default": true` will be used.
 
 ### Observers
 

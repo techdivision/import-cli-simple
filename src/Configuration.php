@@ -111,12 +111,12 @@ class Configuration implements ConfigurationInterface
     protected $targetDir;
 
     /**
-     * The database configuration.
+     * ArrayCollection with the information of the configured databases.
      *
-     * @var TechDivision\Import\Configuration\Database
-     * @Type("TechDivision\Import\Cli\Configuration\Database")
+     * @var \Doctrine\Common\Collections\ArrayCollection
+     * @Type("ArrayCollection<TechDivision\Import\Cli\Configuration\Database>")
      */
-    protected $database;
+    protected $databases;
 
     /**
      * ArrayCollection with the information of the configured operations.
@@ -691,11 +691,35 @@ class Configuration implements ConfigurationInterface
     /**
      * Return's the database configuration.
      *
+     * @param string $id The ID of the database connection to return
+     *
      * @return \TechDivision\Import\Cli\Configuration\Database The database configuration
+     * @throws \Exception Is thrown, if the database with the passed ID is not configured
      */
-    public function getDatabase()
+    public function getDatabase($id = null)
     {
-        return $this->database;
+
+        // if no ID has been passed, try to load the default database
+        if ($id === null) {
+            // iterate over the configured databases and return the default database
+            /** @var TechDivision\Import\Configuration\DatabaseInterface  $database */
+            foreach ($this->databases as $database) {
+                if ($database->isDefault()) {
+                    return $database;
+                }
+            }
+        }
+
+        // iterate over the configured databases and return the one with the passed ID
+        /** @var TechDivision\Import\Configuration\DatabaseInterface  $database */
+        foreach ($this->databases as $database) {
+            if ($database->getId() === $id) {
+                return $database;
+            }
+        }
+
+        // throw an exception, if the database with the passed ID is NOT configured
+        throw new \Exception(sprintf('Database with ID %s can not be found', $id));
     }
 
     /**

@@ -118,6 +118,12 @@ class ImportProductsCommand extends Command
                  'The date format used in the CSV file(s)'
              )
              ->addOption(
+                 InputOptionKeys::DB_ID,
+                 null,
+                 InputOption::VALUE_REQUIRED,
+                 'The explicit database ID used for the actual import process'
+             )
+             ->addOption(
                  InputOptionKeys::DB_PDO_DSN,
                  null,
                  InputOption::VALUE_REQUIRED,
