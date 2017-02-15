@@ -117,7 +117,7 @@ class InputOptionKeys
      *
      * @var string
      */
-    const DB_ID = 'db-id';
+    const USE_DB_ID = 'use-db-id';
 
     /**
      * The input option key for the PDO DSN to use.

@@ -22,13 +22,10 @@ namespace TechDivision\Import\Cli;
 
 use Psr\Log\LogLevel;
 use JMS\Serializer\Annotation\Type;
-use JMS\Serializer\SerializerBuilder;
 use JMS\Serializer\Annotation\SerializedName;
 use TechDivision\Import\ConfigurationInterface;
-use Symfony\Component\Console\Input\InputInterface;
-use TechDivision\Import\Cli\Command\InputOptionKeys;
-use TechDivision\Import\Cli\Command\InputArgumentKeys;
 use TechDivision\Import\Cli\Configuration\Operation;
+use TechDivision\Import\Configuration\DatabaseInterface;
 
 /**
  * A simple configuration implementation.
@@ -259,127 +256,13 @@ class Configuration implements ConfigurationInterface
     protected $logLevel = LogLevel::INFO;
 
     /**
-     * Factory implementation to create a new initialized configuration instance.
+     * The explicit DB ID to use.
      *
-     * If command line options are specified, they will always override the
-     * values found in the configuration file.
-     *
-     * @param \Symfony\Component\Console\Input\InputInterface $input The Symfony console input instance
-     *
-     * @return \TechDivision\Import\Cli\Configuration The configuration instance
-     * @throws \Exception Is thrown, if the specified configuration file doesn't exist
+     * @var string
+     * @Type("string")
+     * @SerializedName("use-db-id")
      */
-    public static function factory(InputInterface $input)
-    {
-
-        // load the configuration filename we want to use
-        $filename = $input->getOption(InputOptionKeys::CONFIGURATION);
-
-        // load the JSON data
-        if (!$jsonData = file_get_contents($filename)) {
-            throw new \Exception(sprintf('Can\'t load configuration file %s', $filename));
-        }
-
-        // initialize the JMS serializer and load the configuration
-        $serializer = SerializerBuilder::create()->build();
-        /** @var \TechDivision\Import\Cli\Configuration $instance */
-        $instance = $serializer->deserialize($jsonData, 'TechDivision\Import\Cli\Configuration', 'json');
-
-        // query whether or not an operation name has been specified as command line
-        // option, if yes override the value from the configuration file
-        if ($operationName = $input->getArgument(InputArgumentKeys::OPERATION_NAME)) {
-            $instance->setOperationName($operationName);
-        }
-
-        // query whether or not a Magento installation directory has been specified as command line
-        // option, if yes override the value from the configuration file
-        if ($installationDir = $input->getOption(InputOptionKeys::INSTALLATION_DIR)) {
-            $instance->setInstallationDir($installationDir);
-        }
-
-        // query whether or not a directory for the source files has been specified as command line
-        // option, if yes override the value from the configuration file
-        if ($sourceDir = $input->getOption(InputOptionKeys::SOURCE_DIR)) {
-            $instance->setSourceDir($sourceDir);
-        }
-
-        // query whether or not a directory containing the imported files has been specified as command line
-        // option, if yes override the value from the configuration file
-        if ($targetDir = $input->getOption(InputOptionKeys::TARGET_DIR)) {
-            $instance->setTargetDir($targetDir);
-        }
-
-        // query whether or not a source date format has been specified as command
-        // line  option, if yes override the value from the configuration file
-        if ($sourceDateFormat = $input->getOption(InputOptionKeys::SOURCE_DATE_FORMAT)) {
-            $instance->setSourceDateFormat($sourceDateFormat);
-        }
-
-        // query whether or not a Magento edition has been specified as command line
-        // option, if yes override the value from the configuration file
-        if ($magentoEdition = $input->getOption(InputOptionKeys::MAGENTO_EDITION)) {
-            $instance->setMagentoEdition($magentoEdition);
-        }
-
-        // query whether or not a Magento version has been specified as command line
-        // option, if yes override the value from the configuration file
-        if ($magentoVersion = $input->getOption(InputOptionKeys::MAGENTO_VERSION)) {
-            $instance->setMagentoVersion($magentoVersion);
-        }
-
-        // query whether or not a PDO DSN has been specified as command line
-        // option, if yes override the value from the configuration file
-        if ($dsn = $input->getOption(InputOptionKeys::DB_PDO_DSN)) {
-            $instance->getDatabase()->setDsn($dsn);
-        }
-
-        // query whether or not a DB username has been specified as command line
-        // option, if yes override the value from the configuration file
-        if ($username = $input->getOption(InputOptionKeys::DB_USERNAME)) {
-            $instance->getDatabase()->setUsername($username);
-        }
-
-        // query whether or not a DB password has been specified as command line
-        // option, if yes override the value from the configuration file
-        if ($password = $input->getOption(InputOptionKeys::DB_PASSWORD)) {
-            $instance->getDatabase()->setPassword($password);
-        }
-
-        // query whether or not the debug mode has been specified as command line
-        // option, if yes override the value from the configuration file
-        if ($debugMode = $input->getOption(InputOptionKeys::DEBUG_MODE)) {
-            $instance->setDebugMode($instance->mapBoolean($debugMode));
-        }
-
-        // query whether or not the ignore PID flag has been specified as command line
-        // option, if yes override the value from the configuration file
-        if ($ignorePid = $input->getOption(InputOptionKeys::IGNORE_PID)) {
-            $instance->setIgnorePid($instance->mapBoolean($ignorePid));
-        }
-
-        // query whether or not the log level has been specified as command line
-        // option, if yes override the value from the configuration file
-        if ($logLevel = $input->getOption(InputOptionKeys::LOG_LEVEL)) {
-            $instance->setLogLevel($logLevel);
-        }
-
-        // extend the subjects with the parent configuration instance
-        /** @var \TechDivision\Import\Cli\Configuration\Subject $subject */
-        foreach ($instance->getSubjects() as $subject) {
-            // set the configuration instance on the subject
-            $subject->setConfiguration($instance);
-        }
-
-        // query whether or not the debug mode is enabled and log level
-        // has NOT been overwritten with a commandline option
-        if ($instance->isDebugMode() && !$input->getOption(InputOptionKeys::LOG_LEVEL)) {
-            // set debug log level, if log level has NOT been overwritten on command line
-            $instance->setLogLevel(LogLevel::DEBUG);
-        }
-
-        // return the initialized configuration instance
-        return $instance;
-    }
+    protected $useDbId;
 
     /**
      * Return's the array with the subjects of the operation to use.
@@ -689,37 +572,71 @@ class Configuration implements ConfigurationInterface
     }
 
     /**
+     * Remove's all configured database configuration.
+     *
+     * @return void
+     */
+    public function clearDatabases()
+    {
+        $this->databases->clear();
+    }
+
+    /**
+     * Add's the passed database configuration.
+     *
+     * @param \TechDivision\Import\Configuration\DatabaseInterface $database The database configuration
+     *
+     * @return void
+     */
+    public function addDatabase(DatabaseInterface $database)
+    {
+        $this->databases->add($database);
+    }
+
+    /**
      * Return's the database configuration.
      *
-     * @param string $id The ID of the database connection to return
+     * If an explicit DB ID is specified, the method tries to return the database with this ID. If
+     * the database configuration is NOT available, an execption is thrown.
+     *
+     * If no explicit DB ID is specified, the method tries to return the default database configuration,
+     * if not available the first one.
      *
      * @return \TechDivision\Import\Cli\Configuration\Database The database configuration
-     * @throws \Exception Is thrown, if the database with the passed ID is not configured
+     * @throws \Exception Is thrown, if no database configuration is available
      */
-    public function getDatabase($id = null)
+    public function getDatabase()
     {
 
-        // if no ID has been passed, try to load the default database
-        if ($id === null) {
-            // iterate over the configured databases and return the default database
+        // if a DB ID has been set, try to load the database
+        if ($useDbId = $this->getUseDbId()) {
+            // iterate over the configured databases and return the one with the passed ID
             /** @var TechDivision\Import\Configuration\DatabaseInterface  $database */
             foreach ($this->databases as $database) {
-                if ($database->isDefault()) {
+                if ($database->getId() === $useDbId) {
                     return $database;
                 }
             }
+
+            // throw an exception, if the database with the passed ID is NOT configured
+            throw new \Exception(sprintf('Database with ID %s can not be found', $useDbId));
         }
 
-        // iterate over the configured databases and return the one with the passed ID
+        // iterate over the configured databases and try return the default database
         /** @var TechDivision\Import\Configuration\DatabaseInterface  $database */
         foreach ($this->databases as $database) {
-            if ($database->getId() === $id) {
+            if ($database->isDefault()) {
                 return $database;
             }
         }
 
-        // throw an exception, if the database with the passed ID is NOT configured
-        throw new \Exception(sprintf('Database with ID %s can not be found', $id));
+        // try to return the first database configurtion
+        if ($this->databases->count() > 0) {
+            return $this->databases->first();
+        }
+
+        // throw an exception, if no database configuration is available
+        throw new \Exception('There is no database configuration available');
     }
 
     /**
@@ -817,5 +734,27 @@ class Configuration implements ConfigurationInterface
     public function getLogLevel()
     {
         return $this->logLevel;
+    }
+
+    /**
+     * Set's the explicit DB ID to use.
+     *
+     * @param string $useDbId The explicit DB ID to use
+     *
+     * @return void
+     */
+    public function setUseDbId($useDbId)
+    {
+        $this->useDbId = $useDbId;
+    }
+
+    /**
+     * Return's the explicit DB ID to use.
+     *
+     * @return string The explicit DB ID to use
+     */
+    public function getUseDbId()
+    {
+        return $this->useDbId;
     }
 }
