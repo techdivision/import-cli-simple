@@ -47,7 +47,7 @@ The following configuration options are available:
 | --magento-edition    | The Magento edition to be used, either one of CE or EE | n/a |
 | --magento-version    | The Magento version to be used, e. g. 2.1.2 | n/a |
 | --source-date-format | The date format used in the CSV file(s) | n/a |
-| --db-id              | The ID of the database to use, if not specified, the database with the default flag will be used | n/a |
+| --use-db-id          | The ID of the database to use, if not specified, the database with the default flag will be used | n/a |
 | --db-pdo-dsn         | The DSN used to connect to the Magento database where the data has to be imported, e. g. mysql:host=127.0.0.1;dbname=magento | n/a |
 | --db-username        | The username used to connect to the Magento database | n/a |
 | --db-password        | The password used to connect to the Magento database | n/a |
@@ -158,8 +158,13 @@ The configuration allows the registration of multiple databases like
 ]
 ```
 
-Depending whether the commandline option `--db-id` and the specified value, the database with the given ID will
-be used. If the commandline options is **NOT** specified, the one with the  flag `"default": true` will be used.
+Depending whether the commandline option `--use-db-id` and the specified value, the database with the given ID will
+be used. If the commandline options is **NOT** specified, the one with the  flag `"default": true` will be used, if
+not found, the first configured database will be use.
+
+If a value for the commandline option `--db-pdo-dsn` has been specified, the `--use-db-id` option will be ignored
+and the given DSN value will be used for database connection instead. Additionally the credentials, by using the
+`--db-username` and `--db-password` options also needs to be specified.
 
 ### Observers
 

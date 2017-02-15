@@ -33,6 +33,8 @@ use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Input\InputArgument;
+use TechDivision\Import\Cli\Configuration\Database;
+use Rhumsaa\Uuid\Uuid;
 
 /**
  * The import command implementation.
@@ -119,7 +121,7 @@ class ImportProductsCommand extends Command
                  'The date format used in the CSV file(s)'
              )
              ->addOption(
-                 InputOptionKeys::DB_ID,
+                 InputOptionKeys::USE_DB_ID,
                  null,
                  InputOption::VALUE_REQUIRED,
                  'The explicit database ID used for the actual import process'
@@ -231,22 +233,38 @@ class ImportProductsCommand extends Command
             $instance->setMagentoVersion($magentoVersion);
         }
 
-        // query whether or not a PDO DSN has been specified as command line
+        // query whether or not a DB ID has been specified as command line
         // option, if yes override the value from the configuration file
-        if ($dsn = $input->getOption(InputOptionKeys::DB_PDO_DSN)) {
-            $instance->getDatabase()->setDsn($dsn);
-        }
+        if ($useDbId = $input->getOption(InputOptionKeys::USE_DB_ID)) {
+            $instance->setUseDbId($useDbId);
+        } else {
+            // query whether or not a PDO DSN has been specified as command line
+            // option, if yes override the value from the configuration file
+            if ($dsn = $input->getOption(InputOptionKeys::DB_PDO_DSN)) {
+                // first REMOVE all other database configurations
+                $instance->clearDatabases();
 
-        // query whether or not a DB username has been specified as command line
-        // option, if yes override the value from the configuration file
-        if ($username = $input->getOption(InputOptionKeys::DB_USERNAME)) {
-            $instance->getDatabase()->setUsername($username);
-        }
+                // initialize a new database configuration
+                $database = new Database();
+                $database->setId(Uuid::uuid4()->__toString());
+                $database->setDefault(true);
+                $database->setDsn($dsn);
 
-        // query whether or not a DB password has been specified as command line
-        // option, if yes override the value from the configuration file
-        if ($password = $input->getOption(InputOptionKeys::DB_PASSWORD)) {
-            $instance->getDatabase()->setPassword($password);
+                // query whether or not a DB username has been specified as command line
+                // option, if yes override the value from the configuration file
+                if ($username = $input->getOption(InputOptionKeys::DB_USERNAME)) {
+                    $database->setUsername($username);
+                }
+
+                // query whether or not a DB password has been specified as command line
+                // option, if yes override the value from the configuration file
+                if ($password = $input->getOption(InputOptionKeys::DB_PASSWORD)) {
+                    $database->setPassword($password);
+                }
+
+                // add the database configuration
+                $instance->addDatabase($database);
+            }
         }
 
         // query whether or not the debug mode has been specified as command line

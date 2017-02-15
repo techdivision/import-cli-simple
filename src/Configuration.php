@@ -25,6 +25,7 @@ use JMS\Serializer\Annotation\Type;
 use JMS\Serializer\Annotation\SerializedName;
 use TechDivision\Import\ConfigurationInterface;
 use TechDivision\Import\Cli\Configuration\Operation;
+use TechDivision\Import\Configuration\DatabaseInterface;
 
 /**
  * A simple configuration implementation.
@@ -253,6 +254,15 @@ class Configuration implements ConfigurationInterface
      * @SerializedName("log-level")
      */
     protected $logLevel = LogLevel::INFO;
+
+    /**
+     * The explicit DB ID to use.
+     *
+     * @var string
+     * @Type("string")
+     * @SerializedName("use-db-id")
+     */
+    protected $useDbId;
 
     /**
      * Return's the array with the subjects of the operation to use.
@@ -562,37 +572,71 @@ class Configuration implements ConfigurationInterface
     }
 
     /**
+     * Remove's all configured database configuration.
+     *
+     * @return void
+     */
+    public function clearDatabases()
+    {
+        $this->databases->clear();
+    }
+
+    /**
+     * Add's the passed database configuration.
+     *
+     * @param \TechDivision\Import\Configuration\DatabaseInterface $database The database configuration
+     *
+     * @return void
+     */
+    public function addDatabase(DatabaseInterface $database)
+    {
+        $this->databases->add($database);
+    }
+
+    /**
      * Return's the database configuration.
      *
-     * @param string $id The ID of the database connection to return
+     * If an explicit DB ID is specified, the method tries to return the database with this ID. If
+     * the database configuration is NOT available, an execption is thrown.
+     *
+     * If no explicit DB ID is specified, the method tries to return the default database configuration,
+     * if not available the first one.
      *
      * @return \TechDivision\Import\Cli\Configuration\Database The database configuration
-     * @throws \Exception Is thrown, if the database with the passed ID is not configured
+     * @throws \Exception Is thrown, if no database configuration is available
      */
-    public function getDatabase($id = null)
+    public function getDatabase()
     {
 
-        // if no ID has been passed, try to load the default database
-        if ($id === null) {
-            // iterate over the configured databases and return the default database
+        // if a DB ID has been set, try to load the database
+        if ($useDbId = $this->getUseDbId()) {
+            // iterate over the configured databases and return the one with the passed ID
             /** @var TechDivision\Import\Configuration\DatabaseInterface  $database */
             foreach ($this->databases as $database) {
-                if ($database->isDefault()) {
+                if ($database->getId() === $useDbId) {
                     return $database;
                 }
             }
+
+            // throw an exception, if the database with the passed ID is NOT configured
+            throw new \Exception(sprintf('Database with ID %s can not be found', $useDbId));
         }
 
-        // iterate over the configured databases and return the one with the passed ID
+        // iterate over the configured databases and try return the default database
         /** @var TechDivision\Import\Configuration\DatabaseInterface  $database */
         foreach ($this->databases as $database) {
-            if ($database->getId() === $id) {
+            if ($database->isDefault()) {
                 return $database;
             }
         }
 
-        // throw an exception, if the database with the passed ID is NOT configured
-        throw new \Exception(sprintf('Database with ID %s can not be found', $id));
+        // try to return the first database configurtion
+        if ($this->databases->count() > 0) {
+            return $this->databases->first();
+        }
+
+        // throw an exception, if no database configuration is available
+        throw new \Exception('There is no database configuration available');
     }
 
     /**
@@ -690,5 +734,27 @@ class Configuration implements ConfigurationInterface
     public function getLogLevel()
     {
         return $this->logLevel;
+    }
+
+    /**
+     * Set's the explicit DB ID to use.
+     *
+     * @param string $useDbId The explicit DB ID to use
+     *
+     * @return void
+     */
+    public function setUseDbId($useDbId)
+    {
+        $this->useDbId = $useDbId;
+    }
+
+    /**
+     * Return's the explicit DB ID to use.
+     *
+     * @return string The explicit DB ID to use
+     */
+    public function getUseDbId()
+    {
+        return $this->useDbId;
     }
 }
