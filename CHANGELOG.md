@@ -1,3 +1,14 @@
+
+# Version 1.0.0-alpha33
+
+## Bugfixes
+
+* Refactoring log output + fixed invalid variable name
+
+## Features
+
+* None
+
 # Version 1.0.0-alpha32
 
 ## Bugfixes
