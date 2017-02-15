@@ -357,7 +357,14 @@ class Simple
             $endTime = microtime(true) - $startTime;
 
             // log a message that import has been finished
-            $this->log(sprintf('Successfully finished import with serial %s in %f s', $this->getSerial(), $endTime), LogLevel::INFO);
+            $this->log(
+                sprintf(
+                    'Successfully finished import with serial %s in %f s',
+                    $this->getSerial(),
+                    $endTime
+                ),
+                LogLevel::INFO
+            );
 
         } catch (\Exception $e) {
             // tear down
@@ -371,7 +378,54 @@ class Simple
             $this->getSystemLogger()->error($e->__toString());
 
             // log a message that import has been finished
-            $this->log(sprintf('Can\'t finish import with serial %s in %f s', $this->getSerial(), $endTime), LogLevel::ERROR);
+            $this->getSystemLogger()->info(
+                sprintf(
+                    'Can\'t finish import with serial %s in %f s',
+                    $this->getSerial(),
+                    $endTime
+                )
+            );
+
+            // re-throw the exception
+            throw $e;
+        }
+    }
+
+    /**
+     * Clears the PID file from a previous import process, if it has not
+     * been cleaned up properly.
+     *
+     * @return void
+     */
+    public function clearPid()
+    {
+
+        // track the start time
+        $startTime = microtime(true);
+
+        try {
+            // query whether or not a PID file exists and delete it
+            if (file_exists($pidFilename = $this->getPidFilename())) {
+                if (!unlink($pidFilename)) {
+                    throw new \Exception(sprintf('Can\'t delete PID file %s', $pidFilename));
+                }
+            }
+
+            // track the time needed for the import in seconds
+            $endTime = microtime(true) - $startTime;
+
+            // log a message that PID file has successfully been removed
+            $this->log(sprintf('Successfully removed PID file %s in %f s', $pidFilename, $endTime), LogLevel::INFO);
+
+        } catch (\Exception $e) {
+            // track the time needed for the import in seconds
+            $endTime = microtime(true) - $startTime;
+
+            // log a message that the file import failed
+            $this->getSystemLogger()->error($e->__toString());
+
+            // log a message that PID file has not been removed
+            $this->getSystemLogger()->error(sprintf('Can\'t remove PID file %s in %f s', $this->getPidFilename(), $endTime));
 
             // re-throw the exception
             throw $e;
@@ -987,7 +1041,7 @@ class Simple
             // remove the PID from the PID file
             $this->removeLineFromFile($pid, $this->getPidFilename());
         } catch (LineNotFoundException $lnfe) {
-            $this->getSystemLogger()->notice(sprintf('PID % is can not be found in PID file %s', $pid, $this->getPidFilename()));
+            $this->getSystemLogger()->notice(sprintf('PID %s is can not be found in PID file %s', $pid, $this->getPidFilename()));
         } catch (\Exception $e) {
             throw new \Exception(sprintf('Can\'t remove PID %s from PID file %s', $pid, $this->getPidFilename()), null, $e);
         }

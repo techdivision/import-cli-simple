@@ -5,7 +5,9 @@ require dirname(__DIR__) . '/vendor/autoload.php';
 
 use Symfony\Component\Console\Application;
 use TechDivision\Import\Cli\Command\ImportProductsCommand;
+use TechDivision\Import\Cli\Command\ImportClearPidCommand;
 
 $application = new Application();
 $application->add(new ImportProductsCommand());
+$application->add(new ImportClearPidCommand());
 $application->run();

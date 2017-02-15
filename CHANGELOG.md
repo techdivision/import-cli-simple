@@ -1,3 +1,13 @@
+# Version 1.0.0-alpha35
+
+## Bugfixes
+
+* None
+
+## Features
+
+* Add products:clear:pid command to remove an unused PID file
+
 # Version 1.0.0-alpha34
 
 ## Bugfixes

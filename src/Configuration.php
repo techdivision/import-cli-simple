@@ -22,12 +22,8 @@ namespace TechDivision\Import\Cli;
 
 use Psr\Log\LogLevel;
 use JMS\Serializer\Annotation\Type;
-use JMS\Serializer\SerializerBuilder;
 use JMS\Serializer\Annotation\SerializedName;
 use TechDivision\Import\ConfigurationInterface;
-use Symfony\Component\Console\Input\InputInterface;
-use TechDivision\Import\Cli\Command\InputOptionKeys;
-use TechDivision\Import\Cli\Command\InputArgumentKeys;
 use TechDivision\Import\Cli\Configuration\Operation;
 
 /**
@@ -257,129 +253,6 @@ class Configuration implements ConfigurationInterface
      * @SerializedName("log-level")
      */
     protected $logLevel = LogLevel::INFO;
-
-    /**
-     * Factory implementation to create a new initialized configuration instance.
-     *
-     * If command line options are specified, they will always override the
-     * values found in the configuration file.
-     *
-     * @param \Symfony\Component\Console\Input\InputInterface $input The Symfony console input instance
-     *
-     * @return \TechDivision\Import\Cli\Configuration The configuration instance
-     * @throws \Exception Is thrown, if the specified configuration file doesn't exist
-     */
-    public static function factory(InputInterface $input)
-    {
-
-        // load the configuration filename we want to use
-        $filename = $input->getOption(InputOptionKeys::CONFIGURATION);
-
-        // load the JSON data
-        if (!$jsonData = file_get_contents($filename)) {
-            throw new \Exception(sprintf('Can\'t load configuration file %s', $filename));
-        }
-
-        // initialize the JMS serializer and load the configuration
-        $serializer = SerializerBuilder::create()->build();
-        /** @var \TechDivision\Import\Cli\Configuration $instance */
-        $instance = $serializer->deserialize($jsonData, 'TechDivision\Import\Cli\Configuration', 'json');
-
-        // query whether or not an operation name has been specified as command line
-        // option, if yes override the value from the configuration file
-        if ($operationName = $input->getArgument(InputArgumentKeys::OPERATION_NAME)) {
-            $instance->setOperationName($operationName);
-        }
-
-        // query whether or not a Magento installation directory has been specified as command line
-        // option, if yes override the value from the configuration file
-        if ($installationDir = $input->getOption(InputOptionKeys::INSTALLATION_DIR)) {
-            $instance->setInstallationDir($installationDir);
-        }
-
-        // query whether or not a directory for the source files has been specified as command line
-        // option, if yes override the value from the configuration file
-        if ($sourceDir = $input->getOption(InputOptionKeys::SOURCE_DIR)) {
-            $instance->setSourceDir($sourceDir);
-        }
-
-        // query whether or not a directory containing the imported files has been specified as command line
-        // option, if yes override the value from the configuration file
-        if ($targetDir = $input->getOption(InputOptionKeys::TARGET_DIR)) {
-            $instance->setTargetDir($targetDir);
-        }
-
-        // query whether or not a source date format has been specified as command
-        // line  option, if yes override the value from the configuration file
-        if ($sourceDateFormat = $input->getOption(InputOptionKeys::SOURCE_DATE_FORMAT)) {
-            $instance->setSourceDateFormat($sourceDateFormat);
-        }
-
-        // query whether or not a Magento edition has been specified as command line
-        // option, if yes override the value from the configuration file
-        if ($magentoEdition = $input->getOption(InputOptionKeys::MAGENTO_EDITION)) {
-            $instance->setMagentoEdition($magentoEdition);
-        }
-
-        // query whether or not a Magento version has been specified as command line
-        // option, if yes override the value from the configuration file
-        if ($magentoVersion = $input->getOption(InputOptionKeys::MAGENTO_VERSION)) {
-            $instance->setMagentoVersion($magentoVersion);
-        }
-
-        // query whether or not a PDO DSN has been specified as command line
-        // option, if yes override the value from the configuration file
-        if ($dsn = $input->getOption(InputOptionKeys::DB_PDO_DSN)) {
-            $instance->getDatabase()->setDsn($dsn);
-        }
-
-        // query whether or not a DB username has been specified as command line
-        // option, if yes override the value from the configuration file
-        if ($username = $input->getOption(InputOptionKeys::DB_USERNAME)) {
-            $instance->getDatabase()->setUsername($username);
-        }
-
-        // query whether or not a DB password has been specified as command line
-        // option, if yes override the value from the configuration file
-        if ($password = $input->getOption(InputOptionKeys::DB_PASSWORD)) {
-            $instance->getDatabase()->setPassword($password);
-        }
-
-        // query whether or not the debug mode has been specified as command line
-        // option, if yes override the value from the configuration file
-        if ($debugMode = $input->getOption(InputOptionKeys::DEBUG_MODE)) {
-            $instance->setDebugMode($instance->mapBoolean($debugMode));
-        }
-
-        // query whether or not the ignore PID flag has been specified as command line
-        // option, if yes override the value from the configuration file
-        if ($ignorePid = $input->getOption(InputOptionKeys::IGNORE_PID)) {
-            $instance->setIgnorePid($instance->mapBoolean($ignorePid));
-        }
-
-        // query whether or not the log level has been specified as command line
-        // option, if yes override the value from the configuration file
-        if ($logLevel = $input->getOption(InputOptionKeys::LOG_LEVEL)) {
-            $instance->setLogLevel($logLevel);
-        }
-
-        // extend the subjects with the parent configuration instance
-        /** @var \TechDivision\Import\Cli\Configuration\Subject $subject */
-        foreach ($instance->getSubjects() as $subject) {
-            // set the configuration instance on the subject
-            $subject->setConfiguration($instance);
-        }
-
-        // query whether or not the debug mode is enabled and log level
-        // has NOT been overwritten with a commandline option
-        if ($instance->isDebugMode() && !$input->getOption(InputOptionKeys::LOG_LEVEL)) {
-            // set debug log level, if log level has NOT been overwritten on command line
-            $instance->setLogLevel(LogLevel::DEBUG);
-        }
-
-        // return the initialized configuration instance
-        return $instance;
-    }
 
     /**
      * Return's the array with the subjects of the operation to use.
