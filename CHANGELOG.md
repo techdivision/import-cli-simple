@@ -1,3 +1,12 @@
+# Version 1.0.0-alpha34
+
+## Bugfixes
+
+* Fixed issue in expected OK filename preparation
+
+## Features
+
+* None
 
 # Version 1.0.0-alpha33
 

@@ -685,7 +685,8 @@ class Simple
         $okFilenames = array();
 
         // prepare the OK filenames based on the found CSV file information
-        for ($i = 1; $i < sizeof($bunchKeys); $i++) {
+        for ($i = 1; $i <= sizeof($bunchKeys); $i++) {
+
             // intialize the array for the parts of the names (prefix, filename + counter)
             $parts = array();
             // load the parts from the matches
