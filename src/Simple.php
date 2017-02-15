@@ -416,7 +416,14 @@ class Simple
         }
 
         // log a message that import has been started
-        $this->log(sprintf('Now start import with serial %s', $this->getSerial()), LogLevel::INFO);
+        $this->log(
+            sprintf(
+                'Now start import with serial %s (operation: %s)',
+                $this->getSerial(),
+                $this->getConfiguration()->getOperationName()
+            ),
+            LogLevel::INFO
+        );
 
         // initialize the status
         $status = array(
@@ -1023,7 +1030,7 @@ class Simple
 
         // query whether or not, we found the line
         if (!$found) {
-            throw new LineNotFoundException(sprintf('Line %s can not be found in file %s', $line, $file));
+            throw new LineNotFoundException(sprintf('Line %s can not be found in file %s', $line, $filename));
         }
 
         // if there are NO more lines, delete the file

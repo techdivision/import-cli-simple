@@ -20,7 +20,6 @@
 
 namespace TechDivision\Import\Cli\Command;
 
-use Psr\Log\LogLevel;
 use Monolog\Logger;
 use Monolog\Handler\ErrorLogHandler;
 use TechDivision\Import\Cli\Simple;
