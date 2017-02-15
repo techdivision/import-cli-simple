@@ -685,7 +685,7 @@ class Simple
         $okFilenames = array();
 
         // prepare the OK filenames based on the found CSV file information
-        for ($i = 1; $i < sizeof($bunchKeys); $i++) {
+        for ($i = 1; $i <= sizeof($bunchKeys); $i++) {
             // intialize the array for the parts of the names (prefix, filename + counter)
             $parts = array();
             // load the parts from the matches
@@ -722,16 +722,40 @@ class Simple
             // load the expected OK filenames
             $okFilenames = $this->getOkFilenames();
 
-            // remove the filename from the firs OK file that can be found
+            // iterate over the found OK filenames (should usually be only one, but could be more)
             foreach ($okFilenames as $okFilename) {
+                // if the OK filename matches the CSV filename AND the OK file is empty
+                if (basename($filename, '.csv') === basename($okFilename, '.ok') && filesize($okFilename) === 0) {
+                    unlink($okFilename);
+                    return;
+                }
+
+                // else, remove the CSV filename from the OK file
                 $this->removeLineFromFile(basename($filename), $okFilename);
                 return;
             }
 
-            throw new \Exception(sprintf('Can\'t remove filename %s from one of the expected OK files: %s', $filename, implode(', ', $okFilenames)));
+            // throw an exception if either no OK file has been found,
+            // or the CSV file is not in one of the OK files
+            throw new \Exception(
+                sprintf(
+                    'Can\'t found filename %s in one of the expected OK files: %s',
+                    $filename,
+                    implode(', ', $okFilenames)
+                )
+            );
 
         } catch (\Exception $e) {
-            throw new \Exception(sprintf('Can\'t remove filename %s from OK file: %s', $filename, $okFilename), null, $e);
+            // wrap and re-throw the exception
+            throw new \Exception(
+                sprintf(
+                    'Can\'t remove filename %s from OK file: %s',
+                    $filename,
+                    $okFilename
+                ),
+                null,
+                $e
+            );
         }
     }
 
