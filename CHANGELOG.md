@@ -2,7 +2,7 @@
 
 ## Bugfixes
 
-* None
+* Added missing --use-db-id option to explicitly specify database configuration to use
 
 ## Features
 
