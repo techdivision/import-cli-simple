@@ -166,6 +166,13 @@ class Simple
     protected $pid = null;
 
     /**
+     * The CSV files that has to be imported.
+     *
+     * @var array
+     */
+    protected $files = array();
+
+    /**
      * Set's the unique serial for this import process.
      *
      * @param string $serial The unique serial
@@ -449,9 +456,6 @@ class Simple
             $this->log(sprintf('At least one import process is already running (PID: %s)', $pidFilename), LogLevel::WARNING);
         }
 
-        // immediately add the PID to lock this import process
-        $this->addPid($this->getSerial());
-
         // write the TechDivision ANSI art icon to the console
         $this->log($this->ansiArt);
 
@@ -564,7 +568,13 @@ class Simple
         );
 
         // log a message that the global data has been prepared
-        $this->log(sprintf('Successfully prepared global data for import with serial %s', $this->getSerial()), LogLevel::INFO);
+        $this->log(
+            sprintf(
+                'Successfully prepared global data for import with serial %s',
+                $this->getSerial()
+            ),
+            LogLevel::INFO
+        );
     }
 
     /**
@@ -622,15 +632,32 @@ class Simple
         clearstatcache();
 
         // load the actual status
-        $status = $this->getRegistryProcessor()->getAttribute($this->getSerial());
+        $status = $this->getRegistryProcessor()->getAttribute($serial = $this->getSerial());
 
         // query whether or not the configured source directory is available
         if (!is_dir($sourceDir = $status[RegistryKeys::SOURCE_DIRECTORY])) {
             throw new \Exception(sprintf('Configured source directory %s is not available!', $sourceDir));
         }
 
-        // initialize the file iterator on source directory
-        $files = glob(sprintf('%s/*.csv', $sourceDir));
+        // initialize the array with the CSV files found in the source directory
+        $this->files = glob(sprintf('%s/*.csv', $sourceDir));
+
+        // query whether or not CSV files to be imported are available
+        if (sizeof($this->files) === 0) {
+            // log a message that no files to be imported are found
+            $this->log(
+                sprintf(
+                    'Can\'t find any CSV files for subject %s to be imported in directory %s',
+                    $subject->getClassName(),
+                    $sourceDir
+                ),
+                LogLevel::INFO
+            );
+            return;
+        }
+
+        // immediately add the PID to lock this import process
+        $this->addPid($this->getSerial());
 
         // sorting the files for the apropriate order
         usort($files, function ($a, $b) {
@@ -638,22 +665,29 @@ class Simple
         });
 
         // log a debug message
-        $this->log(sprintf('Now checking directory %s for files to be imported', $sourceDir), LogLevel::DEBUG);
+        $this->log(
+            sprintf(
+                'Now checking directory %s for files to be imported',
+                $sourceDir
+            ),
+            LogLevel::DEBUG
+        );
 
         // iterate through all CSV files and process the subjects
-        foreach ($files as $pathname) {
+        foreach ($this->files as $pathname) {
             // query whether or not that the file is part of the actual bunch
             if ($this->isPartOfBunch($subject->getPrefix(), $pathname)) {
                 // initialize the subject and import the bunch
                 $subjectInstance = $this->subjectFactory($subject);
 
-                // query whether or not the subject needs an OK file, if yes remove the filename from the file
+                // query whether or not the subject needs an OK file,
+                // if yes remove the filename from the file
                 if ($subjectInstance->needsOkFile()) {
                     $this->removeFromOkFile($pathname);
                 }
 
                 // finally import the CSV file
-                $subjectInstance->import($this->getSerial(), $pathname);
+                $subjectInstance->import($serial, $pathname);
 
                 // query whether or not, we've to export artefacts
                 if ($subjectInstance instanceof ExportableSubjectInterface) {
@@ -668,11 +702,21 @@ class Simple
             }
         }
 
+        // finally remove the PID from the file and the PID file itself, if empty
+        $this->removePid($serial);
+
         // reset the matches, because the exported artefacts
         $this->matches = array();
 
         // and and log a message that the subject has been processed
-        $this->log(sprintf('Successfully processed subject %s with %d bunch(es)!', $subject->getClassName(), $this->bunches), LogLevel::DEBUG);
+        $this->log(
+            sprintf(
+                'Successfully processed subject %s with %d bunch(es)!',
+                $subject->getClassName(),
+                $this->bunches
+            ),
+            LogLevel::DEBUG
+        );
     }
 
     /**
@@ -1055,8 +1099,6 @@ class Simple
      */
     protected function tearDown()
     {
-        // finally remove the PID from the file and the PID file itself, if empty
-        $this->removePid($this->getSerial());
     }
 
     /**

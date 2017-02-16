@@ -1,8 +1,19 @@
-# Version 1.0.0-alpha35
+# Version 1.0.0-alpha36
 
 ## Bugfixes
 
 * None
+
+## Features
+
+* Lock import process only, when CSV files are available
+* Switch to appserver-io/dist:1.1.4-beta6 to fix CRON issue
+
+# Version 1.0.0-alpha35
+
+## Bugfixes
+
+* Added missing --use-db-id option to explicitly specify database configuration to use
 
 ## Features
 
