@@ -40,6 +40,13 @@ class Configuration implements ConfigurationInterface
 {
 
     /**
+     * The default PID filename to use.
+     *
+     * @var string
+     */
+    const PID_FILENAME = 'importer.pid';
+
+    /**
      * Mapping for boolean values passed on the console.
      *
      * @var array
@@ -263,6 +270,15 @@ class Configuration implements ConfigurationInterface
      * @SerializedName("use-db-id")
      */
     protected $useDbId;
+
+    /**
+     * The explicit PID filename to use.
+     *
+     * @var string
+     * @Type("string")
+     * @SerializedName("pid-filename")
+     */
+    protected $pidFilename;
 
     /**
      * Return's the array with the subjects of the operation to use.
@@ -692,7 +708,7 @@ class Configuration implements ConfigurationInterface
     }
 
     /**
-     * Set's the flag to signal that the an existing PID hast to be ignored, whether a
+     * Set's the flag to signal that the an existing PID has to be ignored, whether a
      * import process is running or not.
      *
      * @param boolean $ignorePid TRUE if the PID has to be ignored, else FALSE
@@ -756,5 +772,27 @@ class Configuration implements ConfigurationInterface
     public function getUseDbId()
     {
         return $this->useDbId;
+    }
+
+    /**
+     * Set's the PID filename to use.
+     *
+     * @param string $pidFilename The PID filename to use
+     *
+     * @return void
+     */
+    public function setPidFilename($pidFilename)
+    {
+        $this->pidFilename = $pidFilename;
+    }
+
+    /**
+     * Return's the PID filename to use.
+     *
+     * @return string The PID filename to use
+     */
+    public function getPidFilename()
+    {
+        return $this->pidFilename;
     }
 }

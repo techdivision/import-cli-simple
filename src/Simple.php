@@ -36,6 +36,7 @@ use TechDivision\Import\Services\ImportProcessorInterface;
 use TechDivision\Import\Services\RegistryProcessorInterface;
 use TechDivision\Import\Subjects\ExportableSubjectInterface;
 use TechDivision\Import\Cli\Exceptions\LineNotFoundException;
+use TechDivision\Import\Cli\Exceptions\FileNotFoundException;
 
 /**
  * The M2IF - Console Tool implementation.
@@ -58,13 +59,6 @@ class Simple
      * @var string
      */
     const DEFAULT_STYLE = 'info';
-
-    /**
-     * The PID filename to use.
-     *
-     * @var string
-     */
-    const PID_FILENAME = 'importer.pid';
 
     /**
      * The TechDivision company name as ANSI art.
@@ -166,11 +160,47 @@ class Simple
     protected $pid = null;
 
     /**
-     * The CSV files that has to be imported.
+     * The flag that the next steps has to be skipped.
      *
-     * @var array
+     * @var string
      */
-    protected $files = array();
+    protected $skipSteps = false;
+
+    /**
+     * The constructor to initialize the instance.
+     */
+    public function __construct()
+    {
+        register_shutdown_function(array($this, 'shutdown'));
+    }
+
+    /**
+     * The shutdown handler to catch fatal errors.
+     *
+     * This method is need to make sure, that an existing PID file will be removed
+     * if a fatal error has been triggered.
+     *
+     * @return void
+     */
+    public function shutdown()
+    {
+
+        // check if there was a fatal error caused shutdown
+        if ($lastError = error_get_last()) {
+            // initialize error type and message
+            $type = 0;
+            $message = '';
+            // extract the last error values
+            extract($lastError);
+            // query whether we've a fatal/user error
+            if ($type === E_ERROR || $type === E_USER_ERROR) {
+                // clean-up the PID file
+                $this->unlock();
+                // log the fatal error message
+                $this->log($message, LogLevel::ERROR);
+            }
+        }
+    }
 
     /**
      * Set's the unique serial for this import process.
@@ -504,7 +534,7 @@ class Simple
      *
      * @return void
      */
-    protected function setUp()
+    protected function prepareGlobalData()
     {
 
         // load the registry
@@ -578,6 +608,66 @@ class Simple
     }
 
     /**
+     * This method queries whether or not the next step has to be processed or not.
+     *
+     * @return boolean TRUE if the next step has to be skipped, else FALSE
+     * @throws \Exception Is thrown, if the configured source directory is not available
+     */
+    protected function skipStep()
+    {
+
+        // query whether or not, the method has already been
+        // processed with a negative result
+        if ($this->skipSteps) {
+            return $this->skipSteps;
+        }
+
+        // clear the filecache
+        clearstatcache();
+
+        // load the actual status
+        $status = $this->getRegistryProcessor()->getAttribute($serial = $this->getSerial());
+
+        // query whether or not the configured source directory is available
+        if (!is_dir($sourceDir = $status[RegistryKeys::SOURCE_DIRECTORY])) {
+            throw new \Exception(sprintf('Configured source directory %s is not available!', $sourceDir));
+        }
+
+        // load the subjects
+        $subjects = $this->getConfiguration()->getSubjects();
+
+        // query whether or not at least one subject has been configured
+        if ($subjects->count() === 0) {
+            // log a message that no OK files are available
+            $this->log(sprintf('Can\'t find any subject configured', $sourceDir), LogLevel::WARNING);
+            return $this->skipSteps = true;
+        }
+
+        // load the OK filenames from the source directory
+        $okFiles = glob(sprintf('%s/*.ok', $sourceDir));
+
+        // load the first configured subject
+        $firstSubject = $subjects->first();
+
+        // query whether or not at least one OK file is available if the FIRST subject needs one
+        if (sizeof($okFiles) === 0 && $firstSubject->isOkFileNeeded()) {
+            // log a message that no OK files are available
+            $this->log(
+                sprintf(
+                    'Can\'t find any OK files for first subject %s in source directory %s',
+                    $firstSubject->getClassName(),
+                    $sourceDir
+                ),
+                LogLevel::WARNING
+            );
+            return $this->skipSteps = true;
+        }
+
+        // return FALSE the step should be processed
+        return $this->skipSteps;
+    }
+
+    /**
      * Process all the subjects defined in the system configuration.
      *
      * @return void
@@ -587,24 +677,42 @@ class Simple
     {
 
         try {
+            // query whether or not this step has to be skipped
+            if ($this->skipStep()) {
+                return;
+            }
+
+            // immediately add the PID to lock this import process
+            $this->lock();
+
+            // prepare the global data
+            $this->prepareGlobalData();
+
             // load system logger and registry
             $importProcessor = $this->getImportProcessor();
 
-            // load the subjects
-            $subjects = $this->getConfiguration()->getSubjects();
-
             // start the transaction
             $importProcessor->getConnection()->beginTransaction();
+
+            // load the subjects
+            $subjects = $this->getConfiguration()->getSubjects();
 
             // process all the subjects found in the system configuration
             foreach ($subjects as $subject) {
                 $this->processSubject($subject);
             }
 
+            // finally, if a PID has been set (because CSV files has been found),
+            // remove it from the PID file to unlock the importer
+            $this->unlock();
+
             // commit the transaction
             $importProcessor->getConnection()->commit();
 
         } catch (\Exception $e) {
+            // finally, if a PID has been set (because CSV files has been found),
+            // remove it from the PID file to unlock the importer
+            $this->unlock();
             // rollback the transaction
             $importProcessor->getConnection()->rollBack();
 
@@ -636,28 +744,11 @@ class Simple
 
         // query whether or not the configured source directory is available
         if (!is_dir($sourceDir = $status[RegistryKeys::SOURCE_DIRECTORY])) {
-            throw new \Exception(sprintf('Configured source directory %s is not available!', $sourceDir));
+            throw new \Exception(sprintf('Source directory %s for subject %s is not available!', $sourceDir, $subject->getClassName()));
         }
 
         // initialize the array with the CSV files found in the source directory
-        $this->files = glob(sprintf('%s/*.csv', $sourceDir));
-
-        // query whether or not CSV files to be imported are available
-        if (sizeof($this->files) === 0) {
-            // log a message that no files to be imported are found
-            $this->log(
-                sprintf(
-                    'Can\'t find any CSV files for subject %s to be imported in directory %s',
-                    $subject->getClassName(),
-                    $sourceDir
-                ),
-                LogLevel::INFO
-            );
-            return;
-        }
-
-        // immediately add the PID to lock this import process
-        $this->addPid($this->getSerial());
+        $files = glob(sprintf('%s/*.csv', $sourceDir));
 
         // sorting the files for the apropriate order
         usort($files, function ($a, $b) {
@@ -674,7 +765,7 @@ class Simple
         );
 
         // iterate through all CSV files and process the subjects
-        foreach ($this->files as $pathname) {
+        foreach ($files as $pathname) {
             // query whether or not that the file is part of the actual bunch
             if ($this->isPartOfBunch($subject->getPrefix(), $pathname)) {
                 // initialize the subject and import the bunch
@@ -682,7 +773,7 @@ class Simple
 
                 // query whether or not the subject needs an OK file,
                 // if yes remove the filename from the file
-                if ($subjectInstance->needsOkFile()) {
+                if ($subjectInstance->isOkFileNeeded()) {
                     $this->removeFromOkFile($pathname);
                 }
 
@@ -701,9 +792,6 @@ class Simple
                 $this->bunches++;
             }
         }
-
-        // finally remove the PID from the file and the PID file itself, if empty
-        $this->removePid($serial);
 
         // reset the matches, because the exported artefacts
         $this->matches = array();
@@ -1045,26 +1133,32 @@ class Simple
      */
     protected function getPidFilename()
     {
-        return sprintf('%s/%s', sys_get_temp_dir(), Simple::PID_FILENAME);
+        return $this->getConfiguration()->getPidFilename();
     }
 
     /**
-     * Persist the passed PID to PID filename.
-     *
-     * @param string $pid The PID of the actual import process to added
+     * Persist the UUID of the actual import process to the PID file.
      *
      * @return void
      * @throws \Exception Is thrown, if the PID can not be added
      */
-    protected function addPid($pid)
+    protected function lock()
     {
+
+        // query whether or not, the PID has already been set
+        if ($this->pid === $this->getSerial()) {
+            return;
+        }
+
+        // if not, initialize the PID
+        $this->pid = $this->getSerial();
 
         // open the PID file
         $fh = fopen($pidFilename = $this->getPidFilename(), 'a');
 
         // append the PID to the PID file
-        if (fwrite($fh, $pid . PHP_EOL) === false) {
-            throw new \Exception(sprintf('Can\'t write PID %s to PID file %s', $pid, $pidFilename));
+        if (fwrite($fh, $this->pid . PHP_EOL) === false) {
+            throw new \Exception(sprintf('Can\'t write PID %s to PID file %s', $this->pid, $pidFilename));
         }
 
         // close the file handle
@@ -1072,23 +1166,36 @@ class Simple
     }
 
     /**
-     * Remove's the actual PID from the PID file.
-     *
-     * @param string $pid The PID of the actual import process to be removed
+     * Remove's the UUID of the actual import process from the PID file.
      *
      * @return void
      * @throws \Exception Is thrown, if the PID can not be removed
      */
-    protected function removePid($pid)
+    protected function unlock()
     {
         try {
-            // remove the PID from the PID file
-            $this->removeLineFromFile($pid, $this->getPidFilename());
+            // remove the PID from the PID file if set
+            if ($this->pid === $this->getSerial()) {
+                $this->removeLineFromFile($this->pid, $this->getPidFilename());
+            }
+
+        } catch (FileNotFoundException $fnfe) {
+            $this->getSystemLogger()->notice(sprintf('PID file %s doesn\'t exist', $this->getPidFilename()));
         } catch (LineNotFoundException $lnfe) {
-            $this->getSystemLogger()->notice(sprintf('PID %s is can not be found in PID file %s', $pid, $this->getPidFilename()));
+            $this->getSystemLogger()->notice(sprintf('PID %s is can not be found in PID file %s', $this->pid, $this->getPidFilename()));
         } catch (\Exception $e) {
-            throw new \Exception(sprintf('Can\'t remove PID %s from PID file %s', $pid, $this->getPidFilename()), null, $e);
+            throw new \Exception(sprintf('Can\'t remove PID %s from PID file %s', $this->pid, $this->getPidFilename()), null, $e);
         }
+    }
+
+    /**
+     * Lifecycle callback that will be inovked before the
+     * import process has been started.
+     *
+     * @return void
+     */
+    protected function setUp()
+    {
     }
 
     /**
@@ -1120,10 +1227,15 @@ class Simple
      * @param string $filename The name of the file the line has to be removed
      *
      * @return void
-     * @throws \Exception Is thrown, if the line is not found or can not be removed
+     * @throws \Exception Is thrown, if the file doesn't exists, the line is not found or can not be removed
      */
     protected function removeLineFromFile($line, $filename)
     {
+
+        // query whether or not the filename
+        if (!file_exists($filename)) {
+            throw new FileNotFoundException(sprintf('File %s doesn\' exists', $filename));
+        }
 
         // open the PID file
         $fh = fopen($filename, 'r+');

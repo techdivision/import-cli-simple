@@ -20,6 +20,7 @@
 
 namespace TechDivision\Import\Cli\Command;
 
+use Rhumsaa\Uuid\Uuid;
 use Psr\Log\LogLevel;
 use Monolog\Logger;
 use Monolog\Handler\ErrorLogHandler;
@@ -34,7 +35,6 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Input\InputArgument;
 use TechDivision\Import\Cli\Configuration\Database;
-use Rhumsaa\Uuid\Uuid;
 
 /**
  * The import command implementation.
@@ -161,6 +161,13 @@ class ImportProductsCommand extends Command
                  null,
                  InputOption::VALUE_REQUIRED,
                  'Whether use the debug mode or not'
+             )
+             ->addOption(
+                 InputOptionKeys::PID_FILENAME,
+                 null,
+                 InputOption::VALUE_REQUIRED,
+                 'The explicit PID filename to use',
+                 sprintf('%s/%s', sys_get_temp_dir(), Configuration::PID_FILENAME)
              );
     }
 
@@ -283,6 +290,12 @@ class ImportProductsCommand extends Command
         // option, if yes override the value from the configuration file
         if ($logLevel = $input->getOption(InputOptionKeys::LOG_LEVEL)) {
             $instance->setLogLevel($logLevel);
+        }
+
+        // query whether or not a PID filename has been specified as command line
+        // option, if yes override the value from the configuration file
+        if ($pidFilename = $input->getOption(InputOptionKeys::PID_FILENAME)) {
+            $instance->setPidFilename($pidFilename);
         }
 
         // extend the subjects with the parent configuration instance

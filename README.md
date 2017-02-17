@@ -39,7 +39,7 @@ The following configuration options are available:
 
 | Option               | Description                                                     | Default value |
 |:---------------------|:----------------------------------------------------------------|:--------------|
-| --configuration      | Specify the pathname to the configuration file to use | ./techdivision-import.json |
+| --configuration      | Specify the pathname to the configuration file to use | `./techdivision-import.json` |
 | --installation-dir   | The Magento installation directory to which the files has to be imported | n/a |
 | --source-dir         | The directory that has to be watched for new files | n/a |
 | --target-dir         | The target directory with the files that has been imported | n/a |
@@ -48,12 +48,13 @@ The following configuration options are available:
 | --magento-version    | The Magento version to be used, e. g. 2.1.2 | n/a |
 | --source-date-format | The date format used in the CSV file(s) | n/a |
 | --use-db-id          | The ID of the database to use, if not specified, the database with the default flag will be used | n/a |
-| --db-pdo-dsn         | The DSN used to connect to the Magento database where the data has to be imported, e. g. mysql:host=127.0.0.1;dbname=magento | n/a |
+| --db-pdo-dsn         | The DSN used to connect to the Magento database where the data has to be imported, e. g. `mysql:host=127.0.0.1;dbname=magento` | n/a |
 | --db-username        | The username used to connect to the Magento database | n/a |
 | --db-password        | The password used to connect to the Magento database | n/a |
-| --debug-mode         | The flag to activate the debug mode | false |
-| --log-level          | The log level to use (see Monolog documentation for further information) | info |
-| --ignore-pid         | The flag to signal that the an existing PID should be ignored, whether or import process is running or not | false |
+| --debug-mode         | The flag to activate the debug mode | `false` |
+| --log-level          | The log level to use (see Monolog documentation for further information) | `info` |
+| --ignore-pid         | The flag to signal that the an existing PID should be ignored, whether or import process is running or not | `false` |
+| --pid-filename       | The explicit PID filename to use | `<system-temp-dir>/importer.pid` |
 
 All values can and **SHOULD** be defined in the configuration file. The commandline options should only be 
 used to override these values in some circumstances.
@@ -73,7 +74,7 @@ for the available operations.
   "operation-name" : "replace",
   "installation-dir" : "/var/www/magento",
   "utility-class-name" : "TechDivision\\Import\\Utils\\SqlStatements",
-  "database" : { ... },
+  "databases" : [ ... ],
   "operations" : { ... }
 }
 ```
@@ -97,7 +98,8 @@ is small a configuration variation out of the available subjects, observers and 
   "utility-class-name" : "TechDivision\\Import\\Utils\\Ee\\V212\\SqlStatements",
   "debug-mode" : false,
   "ignore-pid" : false,
-  "database" : { ... },
+  "pid-filename" : "projects/sample-data/tmp/importer.pid",
+  "databases" : [ ... ],
   "operations" : [
     {
       "name" : "delete",

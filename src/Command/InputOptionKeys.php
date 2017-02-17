@@ -160,4 +160,11 @@ class InputOptionKeys
      * @var string
      */
     const LOG_LEVEL = 'log-level';
+
+    /**
+     * The input option key for the PID filename to use.
+     *
+     * @var string
+     */
+    const PID_FILENAME = 'pid-filename';
 }
