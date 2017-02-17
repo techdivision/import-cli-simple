@@ -25,7 +25,7 @@ use JMS\Serializer\Annotation\Type;
 use JMS\Serializer\Annotation\SerializedName;
 use TechDivision\Import\ConfigurationInterface;
 use TechDivision\Import\Cli\Configuration\Operation;
-use TechDivision\Import\Configuration\DatabaseInterface;
+use TechDivision\Import\Configuration\DatabaseConfigurationInterface;
 
 /**
  * A simple configuration implementation.
@@ -281,24 +281,24 @@ class Configuration implements ConfigurationInterface
     protected $pidFilename;
 
     /**
-     * Return's the array with the subjects of the operation to use.
+     * Return's the array with the plugins of the operation to use.
      *
-     * @return \Doctrine\Common\Collections\ArrayCollection The ArrayCollection with the subjects
-     * @throws \Exception Is thrown, if no subjects are available for the actual operation
+     * @return \Doctrine\Common\Collections\ArrayCollection The ArrayCollection with the plugins
+     * @throws \Exception Is thrown, if no plugins are available for the actual operation
      */
-    public function getSubjects()
+    public function getPlugins()
     {
 
         // iterate over the operations and return the subjects of the actual one
         /** @var TechDivision\Import\Configuration\OperationInterface $operation */
         foreach ($this->getOperations() as $operation) {
             if ($this->getOperation()->equals($operation)) {
-                return $operation->getSubjects();
+                return $operation->getPlugins();
             }
         }
 
-        // throw an exception if no subjects are available
-        throw new \Exception(sprintf('Can\'t find any subjects for operation %s', $this->getOperation()));
+        // throw an exception if no plugins are available
+        throw new \Exception(sprintf('Can\'t find any plugins for operation %s', $this->getOperation()));
     }
 
     /**
@@ -600,11 +600,11 @@ class Configuration implements ConfigurationInterface
     /**
      * Add's the passed database configuration.
      *
-     * @param \TechDivision\Import\Configuration\DatabaseInterface $database The database configuration
+     * @param \TechDivision\Import\Configuration\DatabaseConfigurationInterface $database The database configuration
      *
      * @return void
      */
-    public function addDatabase(DatabaseInterface $database)
+    public function addDatabase(DatabaseConfigurationInterface $database)
     {
         $this->databases->add($database);
     }

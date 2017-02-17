@@ -50,76 +50,55 @@ class SimpleTest extends \PHPUnit_Framework_TestCase
      */
     protected function setUp()
     {
-        $this->instance = new Simple();
-    }
 
-    /**
-     * Test's the getter/setter for the import processor.
-     *
-     * @return void
-     */
-    public function testSetGetImportProcessor()
-    {
+        // create a mock logger
+        $mockLogger = $this->getMockBuilder('Psr\Log\LoggerInterface')
+                           ->setMethods(get_class_methods('Psr\Log\LoggerInterface'))
+                           ->getMock();
 
-        // create a import processor mock instance
-        $mockImportProcessor = $this->getMockBuilder($processorInterface = 'TechDivision\Import\Services\ImportProcessorInterface')
-                                    ->setMethods(get_class_methods($processorInterface))
+        // create a mock registry processor
+        $mockRegistryProcessor = $this->getMockBuilder('TechDivision\Import\Services\RegistryProcessorInterface')
+                                      ->setMethods(get_class_methods('TechDivision\Import\Services\RegistryProcessorInterface'))
+                                      ->getMock();
+
+        // create a mock import processor
+        $mockImportProcessor = $this->getMockBuilder('TechDivision\Import\Services\ImportProcessorInterface')
+                                    ->setMethods(get_class_methods('TechDivision\Import\Services\ImportProcessorInterface'))
                                     ->getMock();
 
-        // test the setter/getter for the import processor
-        $this->instance->setImportProcessor($mockImportProcessor);
-        $this->assertSame($mockImportProcessor, $this->instance->getImportProcessor());
+        // create a mock configuration
+        $mockConfiguration = $this->getMockBuilder('TechDivision\Import\ConfigurationInterface')
+                                  ->setMethods(get_class_methods('TechDivision\Import\ConfigurationInterface'))
+                                  ->getMock();
+
+        // create a mock input
+        $mockInput = $this->getMockBuilder('Symfony\Component\Console\Input\InputInterface')
+                                  ->setMethods(get_class_methods('Symfony\Component\Console\Input\InputInterface'))
+                                  ->getMock();
+
+        // create a mock output
+        $mockOutput = $this->getMockBuilder('Symfony\Component\Console\Output\OutputInterface')
+                                  ->setMethods(get_class_methods('Symfony\Component\Console\Output\OutputInterface'))
+                                  ->getMock();
+
+        // create the subject to be tested
+        $this->instance = new Simple(
+            $mockLogger,
+            $mockRegistryProcessor,
+            $mockImportProcessor,
+            $mockConfiguration,
+            $mockInput,
+            $mockOutput
+        );
     }
 
     /**
-     * Test's if the passed file is NOT part of a bunch.
+     * Test's the getOutput() method.
      *
      * @return void
      */
-    public function testIsPartOfBunchWithNoBunch()
+    public function testGetOutput()
     {
-
-        // initialize the prefix and the actual date
-        $prefix = 'magento-import';
-        $actualDate = date('Ymd');
-
-        // prepare some files which are NOT part of a bunch
-        $data = array(
-            array(sprintf('import/add-update/%s_%s-172_01.csv', $prefix, $actualDate), true),
-            array(sprintf('import/add-update/%s_%s-173_01.csv', $prefix, $actualDate), false),
-            array(sprintf('import/add-update/%s_%s-174_01.csv', $prefix, $actualDate), false),
-        );
-
-        // make sure, that only the FIRST file is part of the bunch
-        foreach ($data as $row) {
-            list ($filename, $result) = $row;
-            $this->assertSame($result, $this->instance->isPartOfBunch($prefix, $filename));
-        }
-    }
-
-    /**
-     * Test's if the passed file IS part of a bunch.
-     *
-     * @return void
-     */
-    public function testIsPartOfBunchWithBunch()
-    {
-
-        // initialize the prefix and the actual date
-        $prefix = 'magento-import';
-        $actualDate = date('Ymd');
-
-        // prepare some files which are NOT part of a bunch
-        $data = array(
-            array(sprintf('import/add-update/%s_%s-172_01.csv', $prefix, $actualDate), true),
-            array(sprintf('import/add-update/%s_%s-172_02.csv', $prefix, $actualDate), true),
-            array(sprintf('import/add-update/%s_%s-172_03.csv', $prefix, $actualDate), true),
-        );
-
-        // make sure, that the file IS part of the bunch
-        foreach ($data as $row) {
-            list ($filename, $result) = $row;
-            $this->assertSame($result, $this->instance->isPartOfBunch($prefix, $filename));
-        }
+        $this->assertInstanceOf('Symfony\Component\Console\Output\OutputInterface', $this->instance->getOutput());
     }
 }

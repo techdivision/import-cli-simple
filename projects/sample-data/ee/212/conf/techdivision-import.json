@@ -6,7 +6,7 @@
   "source-dir": "projects/sample-data/tmp",
   "target-dir": "projects/sample-data/tmp",
   "source-date-format": "n/d/y, g:i A",
-  "archive-artefacts" : false,
+  "archive-artefacts" : true,
   "archive-dir" : "archive",
   "utility-class-name" : "TechDivision\\Import\\Utils\\Ee\\V212\\SqlStatements",
   "debug-mode" : false,
@@ -23,255 +23,288 @@
   "operations" : [
     {
       "name" : "delete",
-      "subjects" : [
+      "plugins" : [
         {
-          "class-name": "TechDivision\\Import\\Subjects\\MoveFilesSubject",
-          "identifier": "move-files",
-          "prefix": "magento-import",
-          "ok-file-needed": true
+          "class-name": "TechDivision\\Import\\Plugins\\GlobalDataPlugin"
         },
         {
-          "class-name": "TechDivision\\Import\\Product\\Ee\\Subjects\\EeBunchSubject",
-          "processor-factory" : "TechDivision\\Import\\Cli\\Services\\EeProductBunchProcessorFactory",
-          "utility-class-name" : "TechDivision\\Import\\Product\\Ee\\Utils\\SqlStatements",
-          "identifier": "files",
-          "prefix": "magento-import",
-          "observers": [
+          "class-name": "TechDivision\\Import\\Plugins\\SubjectPlugin",
+          "subjects" : [
             {
-              "import": [
-                "TechDivision\\Import\\Product\\Observers\\ClearProductObserver"
+              "class-name": "TechDivision\\Import\\Subjects\\MoveFilesSubject",
+              "identifier": "move-files",
+              "prefix": "magento-import",
+              "ok-file-needed": true
+            },
+            {
+              "class-name": "TechDivision\\Import\\Product\\Ee\\Subjects\\EeBunchSubject",
+              "processor-factory" : "TechDivision\\Import\\Cli\\Services\\EeProductBunchProcessorFactory",
+              "utility-class-name" : "TechDivision\\Import\\Product\\Ee\\Utils\\SqlStatements",
+              "identifier": "files",
+              "prefix": "magento-import",
+              "observers": [
+                {
+                  "import": [
+                    "TechDivision\\Import\\Product\\Observers\\ClearProductObserver"
+                  ]
+                }
               ]
             }
           ]
+        },
+        {
+          "class-name": "TechDivision\\Import\\Plugins\\ArchivePlugin"
         }
       ]
     },
     {
       "name" : "replace",
-      "subjects": [
+      "plugins" : [
         {
-          "class-name": "TechDivision\\Import\\Subjects\\MoveFilesSubject",
-          "identifier": "move-files",
-          "prefix": "magento-import",
-          "ok-file-needed": true
+          "class-name": "TechDivision\\Import\\Plugins\\GlobalDataPlugin"
         },
         {
-          "class-name": "TechDivision\\Import\\Product\\Ee\\Subjects\\EeBunchSubject",
-          "processor-factory" : "TechDivision\\Import\\Cli\\Services\\EeProductBunchProcessorFactory",
-          "utility-class-name" : "TechDivision\\Import\\Product\\Ee\\Utils\\SqlStatements",
-          "identifier": "files",
-          "prefix": "magento-import",
-          "observers": [
+          "class-name": "TechDivision\\Import\\Plugins\\SubjectPlugin",
+          "subjects": [
             {
-              "pre-import": [
-                "TechDivision\\Import\\Product\\Observers\\ClearProductObserver",
-                "TechDivision\\Import\\Product\\Observers\\AdditionalAttributeObserver",
-                "TechDivision\\Import\\Product\\Observers\\QuantityAndStockStatusObserver"
+              "class-name": "TechDivision\\Import\\Subjects\\MoveFilesSubject",
+              "identifier": "move-files",
+              "prefix": "magento-import",
+              "ok-file-needed": true
+            },
+            {
+              "class-name": "TechDivision\\Import\\Product\\Ee\\Subjects\\EeBunchSubject",
+              "processor-factory" : "TechDivision\\Import\\Cli\\Services\\EeProductBunchProcessorFactory",
+              "utility-class-name" : "TechDivision\\Import\\Product\\Ee\\Utils\\SqlStatements",
+              "identifier": "files",
+              "prefix": "magento-import",
+              "observers": [
+                {
+                  "pre-import": [
+                    "TechDivision\\Import\\Product\\Observers\\ClearProductObserver",
+                    "TechDivision\\Import\\Product\\Observers\\AdditionalAttributeObserver",
+                    "TechDivision\\Import\\Product\\Observers\\QuantityAndStockStatusObserver"
+                  ]
+                },
+                {
+                  "import": [
+                    "TechDivision\\Import\\Product\\Ee\\Observers\\EeProductObserver",
+                    "TechDivision\\Import\\Product\\Observers\\ProductWebsiteObserver",
+                    "TechDivision\\Import\\Product\\Observers\\CategoryProductObserver",
+                    "TechDivision\\Import\\Product\\Observers\\ProductInventoryObserver",
+                    "TechDivision\\Import\\Product\\Observers\\UrlRewriteObserver",
+                    "TechDivision\\Import\\Product\\Ee\\Observers\\EeProductAttributeObserver",
+                    "TechDivision\\Import\\Product\\Variant\\Observers\\ProductVariantObserver",
+                    "TechDivision\\Import\\Product\\Bundle\\Observers\\ProductBundleObserver",
+                    "TechDivision\\Import\\Product\\Media\\Observers\\ProductMediaObserver",
+                    "TechDivision\\Import\\Product\\Link\\Observers\\ProductLinkObserver"
+                  ]
+                },
+                {
+                  "post-import": [
+                    "TechDivision\\Import\\Product\\Ee\\Observers\\EeCleanUpObserver"
+                  ]
+                }
               ]
             },
             {
-              "import": [
-                "TechDivision\\Import\\Product\\Ee\\Observers\\EeProductObserver",
-                "TechDivision\\Import\\Product\\Observers\\ProductWebsiteObserver",
-                "TechDivision\\Import\\Product\\Observers\\CategoryProductObserver",
-                "TechDivision\\Import\\Product\\Observers\\ProductInventoryObserver",
-                "TechDivision\\Import\\Product\\Observers\\UrlRewriteObserver",
-                "TechDivision\\Import\\Product\\Ee\\Observers\\EeProductAttributeObserver",
-                "TechDivision\\Import\\Product\\Variant\\Observers\\ProductVariantObserver",
-                "TechDivision\\Import\\Product\\Bundle\\Observers\\ProductBundleObserver",
-                "TechDivision\\Import\\Product\\Media\\Observers\\ProductMediaObserver",
-                "TechDivision\\Import\\Product\\Link\\Observers\\ProductLinkObserver"
+              "class-name": "TechDivision\\Import\\Product\\Variant\\Ee\\Subjects\\EeVariantSubject",
+              "processor-factory" : "TechDivision\\Import\\Cli\\Services\\ProductVariantProcessorFactory",
+              "utility-class-name" : "TechDivision\\Import\\Product\\Variant\\Utils\\SqlStatements",
+              "prefix": "variants",
+              "observers": [
+                {
+                  "import": [
+                    "TechDivision\\Import\\Product\\Variant\\Ee\\Observers\\EeVariantObserver",
+                    "TechDivision\\Import\\Product\\Variant\\Ee\\Observers\\EeVariantSuperAttributeObserver"
+                  ]
+                }
               ]
             },
             {
-              "post-import": [
-                "TechDivision\\Import\\Product\\Ee\\Observers\\EeCleanUpObserver"
+              "class-name": "TechDivision\\Import\\Product\\Bundle\\Ee\\Subjects\\EeBundleSubject",
+              "processor-factory" : "TechDivision\\Import\\Cli\\Services\\ProductBundleProcessorFactory",
+              "utility-class-name" : "TechDivision\\Import\\Product\\Bundle\\Utils\\SqlStatements",
+              "prefix": "bundles",
+              "observers": [
+                {
+                  "import": [
+                    "TechDivision\\Import\\Product\\Bundle\\Ee\\Observers\\EeBundleOptionObserver",
+                    "TechDivision\\Import\\Product\\Bundle\\Observers\\BundleOptionValueObserver",
+                    "TechDivision\\Import\\Product\\Bundle\\Observers\\BundleSelectionObserver",
+                    "TechDivision\\Import\\Product\\Bundle\\Observers\\BundleSelectionPriceObserver"
+                  ]
+                }
               ]
-            }
-          ]
-        },
-        {
-          "class-name": "TechDivision\\Import\\Product\\Variant\\Ee\\Subjects\\EeVariantSubject",
-          "processor-factory" : "TechDivision\\Import\\Cli\\Services\\ProductVariantProcessorFactory",
-          "utility-class-name" : "TechDivision\\Import\\Product\\Variant\\Utils\\SqlStatements",
-          "prefix": "variants",
-          "observers": [
+            },
             {
-              "import": [
-                "TechDivision\\Import\\Product\\Variant\\Ee\\Observers\\EeVariantObserver",
-                "TechDivision\\Import\\Product\\Variant\\Ee\\Observers\\EeVariantSuperAttributeObserver"
-              ]
-            }
-          ]
-        },
-        {
-          "class-name": "TechDivision\\Import\\Product\\Bundle\\Ee\\Subjects\\EeBundleSubject",
-          "processor-factory" : "TechDivision\\Import\\Cli\\Services\\ProductBundleProcessorFactory",
-          "utility-class-name" : "TechDivision\\Import\\Product\\Bundle\\Utils\\SqlStatements",
-          "prefix": "bundles",
-          "observers": [
-            {
-              "import": [
-                "TechDivision\\Import\\Product\\Bundle\\Ee\\Observers\\EeBundleOptionObserver",
-                "TechDivision\\Import\\Product\\Bundle\\Observers\\BundleOptionValueObserver",
-                "TechDivision\\Import\\Product\\Bundle\\Observers\\BundleSelectionObserver",
-                "TechDivision\\Import\\Product\\Bundle\\Observers\\BundleSelectionPriceObserver"
-              ]
-            }
-          ]
-        },
-        {
-          "class-name": "TechDivision\\Import\\Product\\Media\\Ee\\Subjects\\EeMediaSubject",
-          "processor-factory" : "TechDivision\\Import\\Cli\\Services\\EeProductMediaProcessorFactory",
-          "utility-class-name" : "TechDivision\\Import\\Product\\Media\\Ee\\Utils\\SqlStatements",
-          "prefix": "media",
-          "params" : [
-            {
-              "copy-images" : true,
-              "root-directory" : "/",
-              "media-directory" : "/opt/appserver/webapps/magento2_ee212/pub/media/catalog/product",
-              "images-file-directory" : "projects/sample-data/magento2-sample-data/pub/media/catalog/product"
-            }
-          ],
-          "observers": [
-            {
-              "pre-import" : [
-                "TechDivision\\Import\\Product\\Media\\Observers\\FileUploadObserver"
+              "class-name": "TechDivision\\Import\\Product\\Media\\Ee\\Subjects\\EeMediaSubject",
+              "processor-factory" : "TechDivision\\Import\\Cli\\Services\\EeProductMediaProcessorFactory",
+              "utility-class-name" : "TechDivision\\Import\\Product\\Media\\Ee\\Utils\\SqlStatements",
+              "prefix": "media",
+              "params" : [
+                {
+                  "copy-images" : true,
+                  "root-directory" : "/",
+                  "media-directory" : "/opt/appserver/webapps/magento2_ee212/pub/media/catalog/product",
+                  "images-file-directory" : "projects/sample-data/magento2-sample-data/pub/media/catalog/product"
+                }
               ],
-              "import": [
-                "TechDivision\\Import\\Product\\Media\\Ee\\Observers\\EeMediaGalleryObserver",
-                "TechDivision\\Import\\Product\\Media\\Ee\\Observers\\EeMediaGalleryValueObserver"
+              "observers": [
+                {
+                  "pre-import" : [
+                    "TechDivision\\Import\\Product\\Media\\Observers\\FileUploadObserver"
+                  ],
+                  "import": [
+                    "TechDivision\\Import\\Product\\Media\\Ee\\Observers\\EeMediaGalleryObserver",
+                    "TechDivision\\Import\\Product\\Media\\Ee\\Observers\\EeMediaGalleryValueObserver"
+                  ]
+                }
+              ]
+            },
+            {
+              "class-name": "TechDivision\\Import\\Product\\Link\\Ee\\Subjects\\EeLinkSubject",
+              "processor-factory" : "TechDivision\\Import\\Cli\\Services\\ProductLinkProcessorFactory",
+              "utility-class-name" : "TechDivision\\Import\\Product\\Link\\Utils\\SqlStatements",
+              "prefix": "links",
+              "observers": [
+                {
+                  "import": [
+                    "TechDivision\\Import\\Product\\Link\\Ee\\Observers\\EeLinkObserver",
+                    "TechDivision\\Import\\Product\\Link\\Observers\\LinkAttributePositionObserver"
+                  ]
+                }
               ]
             }
           ]
         },
         {
-          "class-name": "TechDivision\\Import\\Product\\Link\\Ee\\Subjects\\EeLinkSubject",
-          "processor-factory" : "TechDivision\\Import\\Cli\\Services\\ProductLinkProcessorFactory",
-          "utility-class-name" : "TechDivision\\Import\\Product\\Link\\Utils\\SqlStatements",
-          "prefix": "links",
-          "observers": [
-            {
-              "import": [
-                "TechDivision\\Import\\Product\\Link\\Ee\\Observers\\EeLinkObserver",
-                "TechDivision\\Import\\Product\\Link\\Observers\\LinkAttributePositionObserver"
-              ]
-            }
-          ]
+          "class-name": "TechDivision\\Import\\Plugins\\ArchivePlugin"
         }
       ]
     },
     {
       "name" : "add-update",
-      "subjects": [
+      "plugins" : [
         {
-          "class-name": "TechDivision\\Import\\Subjects\\MoveFilesSubject",
-          "identifier": "move-files",
-          "prefix": "magento-import",
-          "ok-file-needed": true
+          "class-name": "TechDivision\\Import\\Plugins\\GlobalDataPlugin"
         },
         {
-          "class-name": "TechDivision\\Import\\Product\\Ee\\Subjects\\EeBunchSubject",
-          "processor-factory" : "TechDivision\\Import\\Cli\\Services\\EeProductBunchProcessorFactory",
-          "utility-class-name" : "TechDivision\\Import\\Product\\Ee\\Utils\\SqlStatements",
-          "identifier": "files",
-          "prefix": "magento-import",
-          "observers": [
+          "class-name": "TechDivision\\Import\\Plugins\\SubjectPlugin",
+          "subjects": [
             {
-              "pre-import": [
-                "TechDivision\\Import\\Product\\Observers\\AdditionalAttributeObserver",
-                "TechDivision\\Import\\Product\\Observers\\QuantityAndStockStatusObserver"
+              "class-name": "TechDivision\\Import\\Subjects\\MoveFilesSubject",
+              "identifier": "move-files",
+              "prefix": "magento-import",
+              "ok-file-needed": true
+            },
+            {
+              "class-name": "TechDivision\\Import\\Product\\Ee\\Subjects\\EeBunchSubject",
+              "processor-factory" : "TechDivision\\Import\\Cli\\Services\\EeProductBunchProcessorFactory",
+              "utility-class-name" : "TechDivision\\Import\\Product\\Ee\\Utils\\SqlStatements",
+              "identifier": "files",
+              "prefix": "magento-import",
+              "observers": [
+                {
+                  "pre-import": [
+                    "TechDivision\\Import\\Product\\Observers\\AdditionalAttributeObserver",
+                    "TechDivision\\Import\\Product\\Observers\\QuantityAndStockStatusObserver"
+                  ]
+                },
+                {
+                  "import": [
+                    "TechDivision\\Import\\Product\\Ee\\Observers\\EeProductUpdateObserver",
+                    "TechDivision\\Import\\Product\\Observers\\ProductWebsiteUpdateObserver",
+                    "TechDivision\\Import\\Product\\Observers\\CategoryProductUpdateObserver",
+                    "TechDivision\\Import\\Product\\Observers\\ProductInventoryUpdateObserver",
+                    "TechDivision\\Import\\Product\\Observers\\UrlRewriteUpdateObserver",
+                    "TechDivision\\Import\\Product\\Ee\\Observers\\EeProductAttributeUpdateObserver",
+                    "TechDivision\\Import\\Product\\Variant\\Observers\\ProductVariantObserver",
+                    "TechDivision\\Import\\Product\\Bundle\\Observers\\ProductBundleObserver",
+                    "TechDivision\\Import\\Product\\Media\\Observers\\ProductMediaObserver",
+                    "TechDivision\\Import\\Product\\Link\\Observers\\ProductLinkObserver"
+                  ]
+                },
+                {
+                  "post-import": [
+                    "TechDivision\\Import\\Product\\Ee\\Observers\\EeCleanUpObserver"
+                  ]
+                }
               ]
             },
             {
-              "import": [
-                "TechDivision\\Import\\Product\\Ee\\Observers\\EeProductUpdateObserver",
-                "TechDivision\\Import\\Product\\Observers\\ProductWebsiteUpdateObserver",
-                "TechDivision\\Import\\Product\\Observers\\CategoryProductUpdateObserver",
-                "TechDivision\\Import\\Product\\Observers\\ProductInventoryUpdateObserver",
-                "TechDivision\\Import\\Product\\Observers\\UrlRewriteUpdateObserver",
-                "TechDivision\\Import\\Product\\Ee\\Observers\\EeProductAttributeUpdateObserver",
-                "TechDivision\\Import\\Product\\Variant\\Observers\\ProductVariantObserver",
-                "TechDivision\\Import\\Product\\Bundle\\Observers\\ProductBundleObserver",
-                "TechDivision\\Import\\Product\\Media\\Observers\\ProductMediaObserver",
-                "TechDivision\\Import\\Product\\Link\\Observers\\ProductLinkObserver"
+              "class-name": "TechDivision\\Import\\Product\\Variant\\Ee\\Subjects\\EeVariantSubject",
+              "processor-factory" : "TechDivision\\Import\\Cli\\Services\\ProductVariantProcessorFactory",
+              "utility-class-name" : "TechDivision\\Import\\Product\\Variant\\Utils\\SqlStatements",
+              "prefix": "variants",
+              "observers": [
+                {
+                  "import": [
+                    "TechDivision\\Import\\Product\\Variant\\Ee\\Observers\\EeVariantUpdateObserver",
+                    "TechDivision\\Import\\Product\\Variant\\Ee\\Observers\\EeVariantSuperAttributeUpdateObserver"
+                  ]
+                }
               ]
             },
             {
-              "post-import": [
-                "TechDivision\\Import\\Product\\Ee\\Observers\\EeCleanUpObserver"
+              "class-name": "TechDivision\\Import\\Product\\Bundle\\Ee\\Subjects\\EeBundleSubject",
+              "processor-factory" : "TechDivision\\Import\\Cli\\Services\\ProductBundleProcessorFactory",
+              "utility-class-name" : "TechDivision\\Import\\Product\\Bundle\\Utils\\SqlStatements",
+              "prefix": "bundles",
+              "observers": [
+                {
+                  "import": [
+                    "TechDivision\\Import\\Product\\Bundle\\Ee\\Observers\\EeBundleOptionUpdateObserver",
+                    "TechDivision\\Import\\Product\\Bundle\\Ee\\Observers\\EeBundleOptionValueUpdateObserver",
+                    "TechDivision\\Import\\Product\\Bundle\\Observers\\BundleSelectionObserver",
+                    "TechDivision\\Import\\Product\\Bundle\\Observers\\BundleSelectionPriceObserver"
+                  ]
+                }
               ]
-            }
-          ]
-        },
-        {
-          "class-name": "TechDivision\\Import\\Product\\Variant\\Ee\\Subjects\\EeVariantSubject",
-          "processor-factory" : "TechDivision\\Import\\Cli\\Services\\ProductVariantProcessorFactory",
-          "utility-class-name" : "TechDivision\\Import\\Product\\Variant\\Utils\\SqlStatements",
-          "prefix": "variants",
-          "observers": [
+            },
             {
-              "import": [
-                "TechDivision\\Import\\Product\\Variant\\Ee\\Observers\\EeVariantUpdateObserver",
-                "TechDivision\\Import\\Product\\Variant\\Ee\\Observers\\EeVariantSuperAttributeUpdateObserver"
-              ]
-            }
-          ]
-        },
-        {
-          "class-name": "TechDivision\\Import\\Product\\Bundle\\Ee\\Subjects\\EeBundleSubject",
-          "processor-factory" : "TechDivision\\Import\\Cli\\Services\\ProductBundleProcessorFactory",
-          "utility-class-name" : "TechDivision\\Import\\Product\\Bundle\\Utils\\SqlStatements",
-          "prefix": "bundles",
-          "observers": [
-            {
-              "import": [
-                "TechDivision\\Import\\Product\\Bundle\\Ee\\Observers\\EeBundleOptionUpdateObserver",
-                "TechDivision\\Import\\Product\\Bundle\\Ee\\Observers\\EeBundleOptionValueUpdateObserver",
-                "TechDivision\\Import\\Product\\Bundle\\Observers\\BundleSelectionObserver",
-                "TechDivision\\Import\\Product\\Bundle\\Observers\\BundleSelectionPriceObserver"
-              ]
-            }
-          ]
-        },
-        {
-          "class-name": "TechDivision\\Import\\Product\\Media\\Ee\\Subjects\\EeMediaSubject",
-          "processor-factory" : "TechDivision\\Import\\Cli\\Services\\EeProductMediaProcessorFactory",
-          "utility-class-name" : "TechDivision\\Import\\Product\\Media\\Ee\\Utils\\SqlStatements",
-          "prefix": "media",
-          "params" : [
-            {
-              "copy-images" : true,
-              "root-directory" : "/",
-              "media-directory" : "/opt/appserver/webapps/magento2_ee212/pub/media/catalog/product",
-              "images-file-directory" : "projects/sample-data/magento2-sample-data/pub/media/catalog/product"
-            }
-          ],
-          "observers": [
-            {
-              "pre-import" : [
-                "TechDivision\\Import\\Product\\Media\\Observers\\FileUploadObserver"
+              "class-name": "TechDivision\\Import\\Product\\Media\\Ee\\Subjects\\EeMediaSubject",
+              "processor-factory" : "TechDivision\\Import\\Cli\\Services\\EeProductMediaProcessorFactory",
+              "utility-class-name" : "TechDivision\\Import\\Product\\Media\\Ee\\Utils\\SqlStatements",
+              "prefix": "media",
+              "params" : [
+                {
+                  "copy-images" : true,
+                  "root-directory" : "/",
+                  "media-directory" : "/opt/appserver/webapps/magento2_ee212/pub/media/catalog/product",
+                  "images-file-directory" : "projects/sample-data/magento2-sample-data/pub/media/catalog/product"
+                }
               ],
-              "import": [
-                "TechDivision\\Import\\Product\\Media\\Ee\\Observers\\EeMediaGalleryUpdateObserver",
-                "TechDivision\\Import\\Product\\Media\\Ee\\Observers\\EeMediaGalleryValueUpdateObserver"
+              "observers": [
+                {
+                  "pre-import" : [
+                    "TechDivision\\Import\\Product\\Media\\Observers\\FileUploadObserver"
+                  ],
+                  "import": [
+                    "TechDivision\\Import\\Product\\Media\\Ee\\Observers\\EeMediaGalleryUpdateObserver",
+                    "TechDivision\\Import\\Product\\Media\\Ee\\Observers\\EeMediaGalleryValueUpdateObserver"
+                  ]
+                }
+              ]
+            },
+            {
+              "class-name": "TechDivision\\Import\\Product\\Link\\Ee\\Subjects\\EeLinkSubject",
+              "processor-factory" : "TechDivision\\Import\\Cli\\Services\\ProductLinkProcessorFactory",
+              "utility-class-name" : "TechDivision\\Import\\Product\\Link\\Utils\\SqlStatements",
+              "prefix": "links",
+              "observers": [
+                {
+                  "import": [
+                    "TechDivision\\Import\\Product\\Link\\Ee\\Observers\\EeLinkUpdateObserver",
+                    "TechDivision\\Import\\Product\\Link\\Observers\\LinkAttributePositionUpdateObserver"
+                  ]
+                }
               ]
             }
           ]
         },
         {
-          "class-name": "TechDivision\\Import\\Product\\Link\\Ee\\Subjects\\EeLinkSubject",
-          "processor-factory" : "TechDivision\\Import\\Cli\\Services\\ProductLinkProcessorFactory",
-          "utility-class-name" : "TechDivision\\Import\\Product\\Link\\Utils\\SqlStatements",
-          "prefix": "links",
-          "observers": [
-            {
-              "import": [
-                "TechDivision\\Import\\Product\\Link\\Ee\\Observers\\EeLinkUpdateObserver",
-                "TechDivision\\Import\\Product\\Link\\Observers\\LinkAttributePositionUpdateObserver"
-              ]
-            }
-          ]
+          "class-name": "TechDivision\\Import\\Plugins\\ArchivePlugin"
         }
       ]
     }

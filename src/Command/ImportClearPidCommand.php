@@ -104,12 +104,6 @@ class ImportClearPidCommand extends Command
         /** @var \TechDivision\Import\Cli\Configuration $instance */
         $instance = $serializer->deserialize($jsonData, 'TechDivision\Import\Cli\Configuration', 'json');
 
-        // query whether or not the log level has been specified as command line
-        // option, if yes override the value from the configuration file
-        if ($logLevel = $input->getOption(InputOptionKeys::LOG_LEVEL)) {
-            $instance->setLogLevel($logLevel);
-        }
-
         // query whether or not a PID filename has been specified as command line
         // option, if yes override the value from the configuration file
         if ($pidFilename = $input->getOption(InputOptionKeys::PID_FILENAME)) {
@@ -147,21 +141,18 @@ class ImportClearPidCommand extends Command
         // load the specified configuration
         $configuration = $this->configurationFactory($input);
 
-        // initialize the system logger
-        $systemLogger = new Logger('techdivision/import');
-        $systemLogger->pushHandler(
-            new ErrorLogHandler(
-                ErrorLogHandler::OPERATING_SYSTEM,
-                $configuration->getLogLevel()
-            )
-        );
+        // query whether or not a PID file exists and delete it
+        if (file_exists($pidFilename = $configuration->getPidFilename())) {
+            if (!unlink($pidFilename)) {
+                throw new \Exception(sprintf('Can\'t delete PID file %s', $pidFilename));
+            }
 
-        // initialize and run the importer
-        $importer = new Simple();
-        $importer->setInput($input);
-        $importer->setOutput($output);
-        $importer->setSystemLogger($systemLogger);
-        $importer->setConfiguration($configuration);
-        $importer->clearPid();
+            // write a message to the console
+            $output->writeln(sprintf('<info>Successfully deleted PID file %s</info>', $pidFilename));
+
+        } else {
+            // write a message to the console
+            $output->writeln(sprintf('<error>PID file %s not available</error>', $pidFilename));
+        }
     }
 }
