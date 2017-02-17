@@ -67,6 +67,13 @@ class ImportClearPidCommand extends Command
                  null,
                  InputOption::VALUE_REQUIRED,
                  'The log level to use'
+             )
+             ->addOption(
+                 InputOptionKeys::PID_FILENAME,
+                 null,
+                 InputOption::VALUE_REQUIRED,
+                 'The explicit PID filename to use',
+                 sprintf('%s/%s', sys_get_temp_dir(), Configuration::PID_FILENAME)
              );
     }
 
@@ -101,6 +108,12 @@ class ImportClearPidCommand extends Command
         // option, if yes override the value from the configuration file
         if ($logLevel = $input->getOption(InputOptionKeys::LOG_LEVEL)) {
             $instance->setLogLevel($logLevel);
+        }
+
+        // query whether or not a PID filename has been specified as command line
+        // option, if yes override the value from the configuration file
+        if ($pidFilename = $input->getOption(InputOptionKeys::PID_FILENAME)) {
+            $instance->setPidFilename($pidFilename);
         }
 
         // return the initialized configuration instance

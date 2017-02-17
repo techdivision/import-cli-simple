@@ -1,3 +1,15 @@
+# Version 1.0.0-alpha37
+
+## Bugfixes
+
+* None
+
+## Features
+
+* Allow subject configuration to specify if an OK file is necessary to be processed
+* Add possibility to specify PID filename in configuration file and override it with a commandline option
+* Optimize PID file handling to lock import process only when subjects are configured and an OK file is available if needed by the subject
+
 # Version 1.0.0-alpha36
 
 ## Bugfixes

@@ -104,6 +104,15 @@ class Subject implements SubjectInterface
     protected $configuration;
 
     /**
+     * The flag to signal that the subjects needs a OK file to be processed or not.
+     *
+     * @var boolean
+     * @Type("boolean")
+     * @SerializedName("ok-file-needed")
+     */
+    protected $okFileNeeded = false;
+
+    /**
      * Return's the multiple field delimiter character to use, default value is comma (,).
      *
      * @return string The multiple field delimiter character
@@ -366,5 +375,28 @@ class Subject implements SubjectInterface
     public function getCallbacks()
     {
         return $this->callbacks;
+    }
+
+    /**
+     * Set's the flag to signal that the an OK file is needed for the subject
+     * to be processed.
+     *
+     * @param boolean $okFileNeeded TRUE if the subject needs an OK file, else FALSE
+     *
+     * @return void
+     */
+    public function setOkFileNeeded($okFileNeeded)
+    {
+        $this->okFileNeeded = $okFileNeeded;
+    }
+
+    /**
+     * Queries whether or not that the subject needs an OK file to be processed.
+     *
+     * @return boolean TRUE if the subject needs an OK file, else FALSE
+     */
+    public function isOkFileNeeded()
+    {
+        return $this->okFileNeeded;
     }
 }
