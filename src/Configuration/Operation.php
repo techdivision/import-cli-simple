@@ -21,7 +21,7 @@
 namespace TechDivision\Import\Cli\Configuration;
 
 use JMS\Serializer\Annotation\Type;
-use TechDivision\Import\Configuration\OperationInterface;
+use TechDivision\Import\Configuration\OperationConfigurationInterface;
 
 /**
  * The configuration implementation for the options.
@@ -32,7 +32,7 @@ use TechDivision\Import\Configuration\OperationInterface;
  * @link      https://github.com/techdivision/import-cli-simple
  * @link      http://www.techdivision.com
  */
-class Operation implements OperationInterface
+class Operation implements OperationConfigurationInterface
 {
 
     /**
@@ -44,12 +44,12 @@ class Operation implements OperationInterface
     protected $name;
 
     /**
-     * ArrayCollection with the information of the configured subjects.
+     * ArrayCollection with the information of the configured plugins.
      *
      * @var \Doctrine\Common\Collections\ArrayCollection
-     * @Type("ArrayCollection<TechDivision\Import\Cli\Configuration\Subject>")
+     * @Type("ArrayCollection<TechDivision\Import\Cli\Configuration\Plugin>")
      */
-    protected $subjects;
+    protected $plugins;
 
     /**
      * Initialize the operation with the passed name.
@@ -66,11 +66,11 @@ class Operation implements OperationInterface
     /**
      * Query's whether or not the passed operation equals this instance.
      *
-     * @param \TechDivision\Import\Cli\Configuration\Operation $operation The operation to query
+     * @param \TechDivision\Import\Configuration\OperationConfigurationInterface $operation The operation to query
      *
      * @return boolean TRUE if the operations are equal, else FALSE
      */
-    public function equals(OperationInterface $operation)
+    public function equals(OperationConfigurationInterface $operation)
     {
         return strcasecmp($this->getName(), $operation->getName()) === 0;
     }
@@ -86,13 +86,13 @@ class Operation implements OperationInterface
     }
 
     /**
-     * Return's the ArrayCollection with the operation's subjects.
+     * Return's the ArrayCollection with the operation's plugins.
      *
-     * @return \Doctrine\Common\Collections\ArrayCollection The ArrayCollection with the operation's subjects
+     * @return \Doctrine\Common\Collections\ArrayCollection The ArrayCollection with the operation's plugins
      */
-    public function getSubjects()
+    public function getPlugins()
     {
-        return $this->subjects;
+        return $this->plugins;
     }
 
     /**

@@ -23,7 +23,7 @@ namespace TechDivision\Import\Cli\Configuration;
 use JMS\Serializer\Annotation\Type;
 use JMS\Serializer\Annotation\SerializedName;
 use TechDivision\Import\ConfigurationInterface;
-use TechDivision\Import\Configuration\SubjectInterface;
+use TechDivision\Import\Configuration\SubjectConfigurationInterface;
 
 /**
  * The subject configuration implementation.
@@ -34,7 +34,7 @@ use TechDivision\Import\Configuration\SubjectInterface;
  * @link      https://github.com/techdivision/import-cli-simple
  * @link      http://www.techdivision.com
  */
-class Subject implements SubjectInterface
+class Subject implements SubjectConfigurationInterface
 {
 
     /**

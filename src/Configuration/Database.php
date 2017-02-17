@@ -22,7 +22,7 @@ namespace TechDivision\Import\Cli\Configuration;
 
 use JMS\Serializer\Annotation\Type;
 use JMS\Serializer\Annotation\SerializedName;
-use TechDivision\Import\Configuration\DatabaseInterface;
+use TechDivision\Import\Configuration\DatabaseConfigurationInterface;
 
 /**
  * The database configuration.
@@ -33,7 +33,7 @@ use TechDivision\Import\Configuration\DatabaseInterface;
  * @link      https://github.com/techdivision/import-cli-simple
  * @link      http://www.techdivision.com
  */
-class Database implements DatabaseInterface
+class Database implements DatabaseConfigurationInterface
 {
 
     /**

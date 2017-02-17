@@ -20,7 +20,7 @@
 
 namespace TechDivision\Import\Cli\Services;
 
-use TechDivision\Import\Configuration\SubjectInterface;
+use TechDivision\Import\Configuration\SubjectConfigurationInterface;
 use TechDivision\Import\Product\Media\Repositories\ProductMediaGalleryRepository;
 use TechDivision\Import\Product\Media\Repositories\ProductMediaGalleryValueRepository;
 use TechDivision\Import\Product\Media\Repositories\ProductMediaGalleryValueToEntityRepository;
@@ -60,12 +60,12 @@ class ProductMediaProcessorFactory extends AbstractProductProcessorFactory
     /**
      * Factory method to create a new product media processor instance.
      *
-     * @param \PDO                                               $connection    The PDO connection to use
-     * @param TechDivision\Import\Configuration\SubjectInterface $configuration The subject configuration
+     * @param \PDO                                                            $connection    The PDO connection to use
+     * @param TechDivision\Import\Configuration\SubjectConfigurationInterface $configuration The subject configuration
      *
      * @return \TechDivision\Import\Product\Media\Services\ProductMediaProcessor The processor instance
      */
-    public static function factory(\PDO $connection, SubjectInterface $configuration)
+    public static function factory(\PDO $connection, SubjectConfigurationInterface $configuration)
     {
 
         // load the utility class name

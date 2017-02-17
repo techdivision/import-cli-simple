@@ -20,7 +20,7 @@
 
 namespace TechDivision\Import\Cli\Services;
 
-use TechDivision\Import\Configuration\SubjectInterface;
+use TechDivision\Import\Configuration\SubjectConfigurationInterface;
 use TechDivision\Import\Repositories\EavAttributeRepository;
 use TechDivision\Import\Repositories\EavAttributeOptionValueRepository;
 use TechDivision\Import\Product\Variant\Repositories\ProductRelationRepository;
@@ -63,12 +63,12 @@ class ProductVariantProcessorFactory extends AbstractProductProcessorFactory
     /**
      * Factory method to create a new product variant processor instance.
      *
-     * @param \PDO                                               $connection    The PDO connection to use
-     * @param TechDivision\Import\Configuration\SubjectInterface $configuration The subject configuration
+     * @param \PDO                                                            $connection    The PDO connection to use
+     * @param TechDivision\Import\Configuration\SubjectConfigurationInterface $configuration The subject configuration
      *
      * @return \TechDivision\Import\Product\Variant\Services\ProductVariantProcessor The processor instance
      */
-    public static function factory(\PDO $connection, SubjectInterface $configuration)
+    public static function factory(\PDO $connection, SubjectConfigurationInterface $configuration)
     {
 
         // load the utility class name

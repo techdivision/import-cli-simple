@@ -298,11 +298,21 @@ class ImportProductsCommand extends Command
             $instance->setPidFilename($pidFilename);
         }
 
-        // extend the subjects with the parent configuration instance
+        // extend the plugins with the main configuration instance
         /** @var \TechDivision\Import\Cli\Configuration\Subject $subject */
-        foreach ($instance->getSubjects() as $subject) {
-            // set the configuration instance on the subject
-            $subject->setConfiguration($instance);
+        foreach ($instance->getPlugins() as $plugin) {
+            // set the configuration instance on the plugin
+            $plugin->setConfiguration($instance);
+
+            // query whether or not the plugin has subjects configured
+            if ($subjects = $plugin->getSubjects()) {
+                // extend the plugin's subjects with the main configuration instance
+                /** @var \TechDivision\Import\Cli\Configuration\Subject $subject */
+                foreach ($subjects as $subject) {
+                    // set the configuration instance on the subject
+                    $subject->setConfiguration($instance);
+                }
+            }
         }
 
         // query whether or not the debug mode is enabled and log level
@@ -359,14 +369,21 @@ class ImportProductsCommand extends Command
             )
         );
 
-        // initialize and run the importer
-        $importer = new Simple();
-        $importer->setInput($input);
-        $importer->setOutput($output);
-        $importer->setSystemLogger($systemLogger);
-        $importer->setConfiguration($configuration);
-        $importer->setImportProcessor(ImportProcessorFactory::factory($connection, $configuration));
-        $importer->setRegistryProcessor(RegistryProcessorFactory::factory($connection, $configuration));
-        $importer->import();
+        // initialize the registry/import processor
+        $registryProcessor = RegistryProcessorFactory::factory($connection, $configuration);
+        $importProcessor = ImportProcessorFactory::factory($connection, $configuration);
+
+        // initialize the importer
+        $importer = new Simple(
+            $systemLogger,
+            $registryProcessor,
+            $importProcessor,
+            $configuration,
+            $input,
+            $output
+        );
+
+        // start the process
+        $importer->process();
     }
 }
