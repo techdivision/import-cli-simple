@@ -1,7 +1,7 @@
 <?php
 
 /**
- * TechDivision\Import\Cli\Services\ProductProcessorFactoryInterface
+ * TechDivision\Import\Cli\Services\CategoryProcessorFactoryInterface
  *
  * NOTICE OF LICENSE
  *
@@ -23,7 +23,7 @@ namespace TechDivision\Import\Cli\Services;
 use TechDivision\Import\Configuration\ProcessorConfigurationInterface;
 
 /**
- * The interface for new product processor instances.
+ * The interface for new category processor instances.
  *
  * @author    Tim Wagner <t.wagner@techdivision.com>
  * @copyright 2016 TechDivision GmbH <info@techdivision.com>
@@ -31,11 +31,11 @@ use TechDivision\Import\Configuration\ProcessorConfigurationInterface;
  * @link      https://github.com/techdivision/import-cli-simple
  * @link      http://www.techdivision.com
  */
-interface ProductProcessorFactoryInterface
+interface CategoryProcessorFactoryInterface
 {
 
     /**
-     * Factory method to create a new product processor instance.
+     * Factory method to create a new category processor instance.
      *
      * @param \PDO                                                              $connection    The PDO connection to use
      * @param TechDivision\Import\Configuration\ProcessorConfigurationInterface $configuration The subject configuration

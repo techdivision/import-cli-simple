@@ -1,3 +1,13 @@
+# Version 1.0.0-alpha39
+
+## Bugfixes
+
+* None
+
+## Features
+
+* Add basic category import functionality for Magento 2 CE
+
 # Version 1.0.0-alpha38
 
 ## Bugfixes

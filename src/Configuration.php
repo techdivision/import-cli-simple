@@ -281,6 +281,15 @@ class Configuration implements ConfigurationInterface
     protected $pidFilename;
 
     /**
+     * The entity type code to use.
+     *
+     * @var string
+     * @Type("string")
+     * @SerializedName("entity-type-code")
+     */
+    protected $entityTypeCode;
+
+    /**
      * Return's the array with the plugins of the operation to use.
      *
      * @return \Doctrine\Common\Collections\ArrayCollection The ArrayCollection with the plugins
@@ -585,6 +594,16 @@ class Configuration implements ConfigurationInterface
     public function isStrictMode()
     {
         return $this->strictMode;
+    }
+
+    /**
+     * Return's the entity type code to be used.
+     *
+     * @return string The entity type code to be used
+     */
+    public function getEntityTypeCode()
+    {
+        return $this->entityTypeCode;
     }
 
     /**

@@ -20,9 +20,6 @@
 
 namespace TechDivision\Import\Cli\Command;
 
-use Psr\Log\LogLevel;
-use Monolog\Logger;
-use Monolog\Handler\ErrorLogHandler;
 use JMS\Serializer\SerializerBuilder;
 use TechDivision\Import\Cli\Simple;
 use TechDivision\Import\Cli\Configuration;

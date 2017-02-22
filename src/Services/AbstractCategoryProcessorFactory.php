@@ -1,7 +1,7 @@
 <?php
 
 /**
- * TechDivision\Import\Cli\Services\ProductProcessorFactoryInterface
+ * TechDivision\Import\Cli\Services\AbstractCategoryProcessorFactory
  *
  * NOTICE OF LICENSE
  *
@@ -20,10 +20,8 @@
 
 namespace TechDivision\Import\Cli\Services;
 
-use TechDivision\Import\Configuration\ProcessorConfigurationInterface;
-
 /**
- * The interface for new product processor instances.
+ * Abstract processor factory implementation.
  *
  * @author    Tim Wagner <t.wagner@techdivision.com>
  * @copyright 2016 TechDivision GmbH <info@techdivision.com>
@@ -31,16 +29,13 @@ use TechDivision\Import\Configuration\ProcessorConfigurationInterface;
  * @link      https://github.com/techdivision/import-cli-simple
  * @link      http://www.techdivision.com
  */
-interface ProductProcessorFactoryInterface
+abstract class AbstractCategoryProcessorFactory implements CategoryProcessorFactoryInterface
 {
 
     /**
-     * Factory method to create a new product processor instance.
+     * Return's the processor class name.
      *
-     * @param \PDO                                                              $connection    The PDO connection to use
-     * @param TechDivision\Import\Configuration\ProcessorConfigurationInterface $configuration The subject configuration
-     *
-     * @return object The processor instance
+     * @return string The processor class name
      */
-    public static function factory(\PDO $connection, ProcessorConfigurationInterface $configuration);
+    abstract protected static function getProcessorType();
 }

@@ -62,6 +62,44 @@ class Plugin implements PluginConfigurationInterface
     protected $subjects;
 
     /**
+     * The plugin's processor type to use.
+     *
+     * @var string
+     * @Type("string")
+     * @SerializedName("processor-factory")
+     */
+    protected $processorFactory;
+
+    /**
+     * The plugin's utility class with the SQL statements to use.
+     *
+     * @var string
+     * @Type("string")
+     * @SerializedName("utility-class-name")
+     */
+    protected $utilityClassName;
+
+    /**
+     * Return's the plugin's processor factory type to use.
+     *
+     * @return string The plugin's processor factory type
+     */
+    public function getProcessorFactory()
+    {
+        return $this->processorFactory;
+    }
+
+    /**
+     * Return's the utility class with the SQL statements to use.
+     *
+     * @return string The utility class name
+     */
+    public function getUtilityClassName()
+    {
+        return $this->utilityClassName;
+    }
+
+    /**
      * Set's the reference to the configuration instance.
      *
      * @param \TechDivision\Import\ConfigurationInterface $configuration The configuration instance

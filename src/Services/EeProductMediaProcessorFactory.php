@@ -20,7 +20,7 @@
 
 namespace TechDivision\Import\Cli\Services;
 
-use TechDivision\Import\Configuration\SubjectConfigurationInterface;
+use TechDivision\Import\Configuration\ProcessorConfigurationInterface;
 use TechDivision\Import\Product\Media\Ee\Repositories\ProductMediaGalleryValueRepository;
 use TechDivision\Import\Product\Media\Ee\Repositories\ProductMediaGalleryValueToEntityRepository;
 
@@ -49,12 +49,12 @@ class EeProductMediaProcessorFactory extends ProductMediaProcessorFactory
     /**
      * Factory method to create a new product processor instance.
      *
-     * @param \PDO                                                            $connection    The PDO connection to use
-     * @param TechDivision\Import\Configuration\SubjectConfigurationInterface $configuration The subject configuration
+     * @param \PDO                                                              $connection    The PDO connection to use
+     * @param TechDivision\Import\Configuration\ProcessorConfigurationInterface $configuration The subject configuration
      *
      * @return \TechDivision\Import\Product\Services\ProductProcessor The processor instance
      */
-    public static function factory(\PDO $connection, SubjectConfigurationInterface $configuration)
+    public static function factory(\PDO $connection, ProcessorConfigurationInterface $configuration)
     {
 
         // initialize the product processor
