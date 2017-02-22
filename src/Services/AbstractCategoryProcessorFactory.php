@@ -1,7 +1,7 @@
 <?php
 
 /**
- * TechDivision\Import\Cli\Command\ImportProductsCommand
+ * TechDivision\Import\Cli\Services\AbstractCategoryProcessorFactory
  *
  * NOTICE OF LICENSE
  *
@@ -18,10 +18,10 @@
  * @link      http://www.techdivision.com
  */
 
-namespace TechDivision\Import\Cli\Command;
+namespace TechDivision\Import\Cli\Services;
 
 /**
- * The import command implementation.
+ * Abstract processor factory implementation.
  *
  * @author    Tim Wagner <t.wagner@techdivision.com>
  * @copyright 2016 TechDivision GmbH <info@techdivision.com>
@@ -29,23 +29,13 @@ namespace TechDivision\Import\Cli\Command;
  * @link      https://github.com/techdivision/import-cli-simple
  * @link      http://www.techdivision.com
  */
-class ImportProductsCommand extends AbstractImportCommand
+abstract class AbstractCategoryProcessorFactory implements CategoryProcessorFactoryInterface
 {
 
     /**
-     * Configures the current command.
+     * Return's the processor class name.
      *
-     * @return void
-     * @see \Symfony\Component\Console\Command\Command::configure()
+     * @return string The processor class name
      */
-    protected function configure()
-    {
-
-        // initialize the command with the required/optional options
-        $this->setName('import:products')
-             ->setDescription('Imports products in the configured Magento 2 instance');
-
-        // invoke the parent method
-        parent::configure();
-    }
+    abstract protected static function getProcessorType();
 }

@@ -20,7 +20,7 @@
 
 namespace TechDivision\Import\Cli\Services;
 
-use TechDivision\Import\Configuration\SubjectConfigurationInterface;
+use TechDivision\Import\Configuration\ProcessorConfigurationInterface;
 use TechDivision\Import\Product\Link\Repositories\ProductLinkRepository;
 use TechDivision\Import\Product\Link\Repositories\ProductLinkAttributeIntRepository;
 use TechDivision\Import\Product\Link\Actions\ProductLinkAction;
@@ -55,12 +55,12 @@ class ProductLinkProcessorFactory extends AbstractProductProcessorFactory
     /**
      * Factory method to create a new product link processor instance.
      *
-     * @param \PDO                                                            $connection    The PDO connection to use
-     * @param TechDivision\Import\Configuration\SubjectConfigurationInterface $configuration The subject configuration
+     * @param \PDO                                                              $connection    The PDO connection to use
+     * @param TechDivision\Import\Configuration\ProcessorConfigurationInterface $configuration The subject configuration
      *
      * @return \TechDivision\Import\Product\Link\Services\ProducLinkProcessor The processor instance
      */
-    public static function factory(\PDO $connection, SubjectConfigurationInterface $configuration)
+    public static function factory(\PDO $connection, ProcessorConfigurationInterface $configuration)
     {
 
         // load the utility class name

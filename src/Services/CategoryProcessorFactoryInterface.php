@@ -1,7 +1,7 @@
 <?php
 
 /**
- * TechDivision\Import\Cli\Command\ImportProductsCommand
+ * TechDivision\Import\Cli\Services\CategoryProcessorFactoryInterface
  *
  * NOTICE OF LICENSE
  *
@@ -18,10 +18,12 @@
  * @link      http://www.techdivision.com
  */
 
-namespace TechDivision\Import\Cli\Command;
+namespace TechDivision\Import\Cli\Services;
+
+use TechDivision\Import\Configuration\ProcessorConfigurationInterface;
 
 /**
- * The import command implementation.
+ * The interface for new category processor instances.
  *
  * @author    Tim Wagner <t.wagner@techdivision.com>
  * @copyright 2016 TechDivision GmbH <info@techdivision.com>
@@ -29,23 +31,16 @@ namespace TechDivision\Import\Cli\Command;
  * @link      https://github.com/techdivision/import-cli-simple
  * @link      http://www.techdivision.com
  */
-class ImportProductsCommand extends AbstractImportCommand
+interface CategoryProcessorFactoryInterface
 {
 
     /**
-     * Configures the current command.
+     * Factory method to create a new category processor instance.
      *
-     * @return void
-     * @see \Symfony\Component\Console\Command\Command::configure()
+     * @param \PDO                                                              $connection    The PDO connection to use
+     * @param TechDivision\Import\Configuration\ProcessorConfigurationInterface $configuration The subject configuration
+     *
+     * @return object The processor instance
      */
-    protected function configure()
-    {
-
-        // initialize the command with the required/optional options
-        $this->setName('import:products')
-             ->setDescription('Imports products in the configured Magento 2 instance');
-
-        // invoke the parent method
-        parent::configure();
-    }
+    public static function factory(\PDO $connection, ProcessorConfigurationInterface $configuration);
 }

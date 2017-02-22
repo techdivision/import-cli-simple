@@ -1,7 +1,7 @@
 <?php
 
 /**
- * TechDivision\Import\Cli\Command\ImportProductsCommand
+ * TechDivision\Import\Cli\Command\ImportCategoriesCommand
  *
  * NOTICE OF LICENSE
  *
@@ -29,7 +29,7 @@ namespace TechDivision\Import\Cli\Command;
  * @link      https://github.com/techdivision/import-cli-simple
  * @link      http://www.techdivision.com
  */
-class ImportProductsCommand extends AbstractImportCommand
+class ImportCategoriesCommand extends AbstractImportCommand
 {
 
     /**
@@ -42,8 +42,8 @@ class ImportProductsCommand extends AbstractImportCommand
     {
 
         // initialize the command with the required/optional options
-        $this->setName('import:products')
-             ->setDescription('Imports products in the configured Magento 2 instance');
+        $this->setName('import:categories')
+             ->setDescription('Imports categories in the configured Magento 2 instance');
 
         // invoke the parent method
         parent::configure();

@@ -79,64 +79,6 @@ for the available operations.
 }
 ```
 
-The operations are simply a container, that allows to have a custom subject configuration for each operation.
-This makes sense, as the `delete` operation only needs the `ClearProductObserver`, that removes the product
-with the SKU found in each row of the CSV file as well as all it's relations. The `delete` operation therefore
-is small a configuration variation out of the available subjects, observers and callbacks and looks like this
-
-```json
-{
-  "magento-edition": "CE",
-  "magento-version": "2.1.2",
-  "operation-name" : "replace",
-  "installation-dir" : "/var/www/magento",
-  "source-dir": "projects/sample-data/tmp",
-  "target-dir": "projects/sample-data/tmp",
-  "source-date-format": "n/d/y, g:i A",
-  "archive-artefacts" : false,
-  "archive-dir" : "archive",
-  "utility-class-name" : "TechDivision\\Import\\Utils\\Ee\\V212\\SqlStatements",
-  "debug-mode" : false,
-  "ignore-pid" : false,
-  "pid-filename" : "projects/sample-data/tmp/importer.pid",
-  "databases" : [ ... ],
-  "operations" : [
-    {
-      "name" : "delete",
-      "subjects" : [
-        {
-          "class-name": "TechDivision\\Import\\Product\\Ee\\Subjects\\EeBunchSubject",
-          "processor-factory" : "TechDivision\\Import\\Cli\\Services\\EeProductBunchProcessorFactory",
-          "utility-class-name" : "TechDivision\\Import\\Product\\Ee\\Utils\\SqlStatements",
-          "identifier": "files",
-          "source-date-format": "n/d/y, g:i A",
-          "source-dir": "projects/sample-data/tmp",
-          "target-dir": "projects/sample-data/tmp",
-          "prefix": "magento-import",
-          "observers": [
-            {
-              "import": [
-                "TechDivision\\Import\\Product\\Observers\\ClearProductObserver"
-              ]
-            }
-          ],
-          "callbacks": [
-            {
-              "visibility": [
-                "TechDivision\\Import\\Product\\Callbacks\\VisibilityCallback"
-              ]
-            }
-          ]
-        }
-      ]
-    }
-  ]
-}
-```
-
-Most of the available configuration options can be specified on the subjects itself, which are nested under the
-operations.
-
 ### Database
 
 The configuration allows the registration of multiple databases like
@@ -168,25 +110,142 @@ If a value for the commandline option `--db-pdo-dsn` has been specified, the `--
 and the given DSN value will be used for database connection instead. Additionally the credentials, by using the
 `--db-username` and `--db-password` options also needs to be specified.
 
-### Observers
+### Operations
 
-Observers provides the basic functionality of each subject and can be registered for a subject by a adding
-them to the observers array like
+A operation reflects an import command like the `delete` operation and combines the necessary functionality as as 
+simple container, that allows to have a custom plugin configuration. Usually, most of the operations are at least 
+build out of the tree plugins
+
+* TechDivision\Import\Plugins\GlobalDataPlugin
+* TechDivision\Import\Plugins\SubjectPlugin
+* TechDivision\Import\Plugins\ArchivePlugin
+
+Each plugin usually implements a specific functionality like the `GlobalDataPlugin` that pre-loads the global data 
+like attributes or attribute sets. Other plugins like the `SubjectPlugin` are again only a container that can be 
+configured with several subjects, that'll be executed synchronously for each matching file a subject can find.
+
+The example above shows a short excerpt of a complete configuration file and should give a impression how the 
+`delete` operation for products is configured by default.
+
+The `GlobalDataPlugin` loads the global data that'll be needed in other plugins into the memory. This prevents
+other plugins to load these data again and again and avoids unnecessary database traffic therfore. 
+
+The next plugin, called `SubjectPlugin`, is configured with two subject. The `MoveFilesSubject` simply moves the CSV 
+files into a temporary folder, where the `BunchSubject` starts to import them into the database.
+
+Finally, the `ArchivePlugin` archives the imported files additionally artefacts into a ZIP archive and moves it to 
+the configured archive directory.
 
 ```json
-"observers": [
-  {... },
+{
+  "magento-edition": "CE",
+  "magento-version": "2.1.2",
+  "operation-name" : "replace",
+  "installation-dir" : "/var/www/magento",
+  "source-dir": "projects/sample-data/tmp",
+  "target-dir": "projects/sample-data/tmp",
+  "source-date-format": "n/d/y, g:i A",
+  "archive-artefacts" : false,
+  "archive-dir" : "archive",
+  "utility-class-name" : "TechDivision\\Import\\Utils\\Ee\\V212\\SqlStatements",
+  "debug-mode" : false,
+  "ignore-pid" : false,
+  "pid-filename" : "projects/sample-data/tmp/importer.pid",
+  "databases" : [ ... ],
+  "operations" : [
+    {
+      "name" : "delete",
+      "plugins" : [
+        {
+          "class-name": "TechDivision\\Import\\Plugins\\GlobalDataPlugin"
+        },
+        {
+          "class-name": "TechDivision\\Import\\Plugins\\SubjectPlugin",
+          "subjects" : [
+            {
+              "class-name": "TechDivision\\Import\\Subjects\\MoveFilesSubject",
+              "identifier": "move-files",
+              "prefix": "magento-import",
+              "ok-file-needed": true
+            },
+            {
+              "class-name": "TechDivision\\Import\\Product\\Subjects\\BunchSubject",
+              "processor-factory" : "TechDivision\\Import\\Cli\\Services\\ProductBunchProcessorFactory",
+              "utility-class-name" : "TechDivision\\Import\\Product\\Utils\\SqlStatements",
+              "identifier": "files",
+              "prefix": "magento-import",
+              "observers": [
+                {
+                  "import": [
+                    "TechDivision\\Import\\Product\\Observers\\ClearProductObserver"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "class-name": "TechDivision\\Import\\Plugins\\ArchivePlugin"
+        }
+      ]
+    }
+  ]
+}
+```
+
+Most of the available configuration options has to be specified on the subject level, which is nested under the
+plugins.
+
+### Plugins
+
+Plugins are usually used to implement the workflow itself and are not bound to a special context like subjects
+that are invoked on each matching CSV file, found in the configured source directory. As shown in the example
+above, the plugins can be used to implement functionality that has to be invoked before or after the data has
+been imported from the CSV files.
+
+```json
+"plugins" : [
   {
-    "import": [
+    "class-name" : "TechDivision\\Import\\Plugins\\SubjectPlugin",
+    "subjects" : [ ... ]
+  }
+]
+```
+
+### Subjects
+
+The `SubjectPlugin` is the plugin that provides the real import functionality. It can be configured with an
+endless number of subjects which invokes the configured observers on each line of a CSV file, extracts the 
+data and writes it to the database, if needed.
+
+```json
+"subjects" : [
+  {
+    "class-name" : "TechDivision\\Import\\Product\\Subjects\\BunchSubject",
+    "processor-factory" : "TechDivision\\Import\\Cli\\Services\\ProductBunchProcessorFactory",
+    "utility-class-name" : "TechDivision\\Import\\Product\\Utils\\SqlStatements",
+    "identifier" : "files",
+    "prefix" : "magento-import",
+    "observers" : [ ... ],
+    "callbacks" : [ ... ]
+  }
+]
+```
+
+### Observers
+
+Observers provides the functionality of a subject **ON ROW LEVEL** and need to be registered for a subject by 
+a adding them to the list of observers like
+
+```json
+"observers" : [
+  {
+    "import" : [
       "TechDivision\\Import\\Product\\Observers\\ClearProductObserver"
     ]
   }
 ]
 ```
-
-> Please be aware, that by default no standard subjects are registered, so they **ALWAYS** need to be specified in 
-> the default configuration file. With the upcoming versions, this behaviour will possbile change like the one of
-> the callbacks.
 
 ### Callbacks
 
@@ -217,7 +276,6 @@ to the array with the callbacks of a subject, like
 
 ```json
 "callbacks": [
-  {... },
   {
     "visibility": [
       "TechDivision\\Import\\Product\\Callbacks\\VisibilityCallback"

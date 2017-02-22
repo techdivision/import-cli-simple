@@ -22,12 +22,14 @@ namespace TechDivision\Import\Cli\Services;
 
 use TechDivision\Import\ConfigurationInterface;
 use TechDivision\Import\Services\ImportProcessor;
+use TechDivision\Import\Assembler\CategoryAssembler;
 use TechDivision\Import\Repositories\StoreRepository;
 use TechDivision\Import\Repositories\TaxClassRepository;
 use TechDivision\Import\Repositories\LinkTypeRepository;
 use TechDivision\Import\Repositories\CategoryRepository;
 use TechDivision\Import\Repositories\StoreWebsiteRepository;
 use TechDivision\Import\Repositories\EavAttributeRepository;
+use TechDivision\Import\Repositories\EavEntityTypeRepository;
 use TechDivision\Import\Repositories\LinkAttributeRepository;
 use TechDivision\Import\Repositories\CoreConfigDataRepository;
 use TechDivision\Import\Repositories\CategoryVarcharRepository;
@@ -83,6 +85,12 @@ class ImportProcessorFactory
         $eavAttributeSetRepository->setConnection($connection);
         $eavAttributeSetRepository->init();
 
+        // initialize the repository that provides EAV entity type query functionality
+        $eavEntityTypeRepository = new EavEntityTypeRepository();
+        $eavEntityTypeRepository->setUtilityClassName($utilityClassName);
+        $eavEntityTypeRepository->setConnection($connection);
+        $eavEntityTypeRepository->init();
+
         // initialize the repository that provides store query functionality
         $storeRepository = new StoreRepository();
         $storeRepository->setUtilityClassName($utilityClassName);
@@ -119,6 +127,9 @@ class ImportProcessorFactory
         $coreConfigDataRepository->setConnection($connection);
         $coreConfigDataRepository->init();
 
+        // initialize the category assembler
+        $categoryAssembler = new CategoryAssembler($categoryRepository, $categoryVarcharRepository);
+
         // initialize the import processor
         $importProcessor = new ImportProcessor();
         $importProcessor->setConnection($connection);
@@ -126,12 +137,14 @@ class ImportProcessorFactory
         $importProcessor->setCategoryVarcharRepository($categoryVarcharRepository);
         $importProcessor->setEavAttributeRepository($eavAttributeRepository);
         $importProcessor->setEavAttributeSetRepository($eavAttributeSetRepository);
+        $importProcessor->setEavEntityTypeRepository($eavEntityTypeRepository);
         $importProcessor->setStoreRepository($storeRepository);
         $importProcessor->setStoreWebsiteRepository($storeWebsiteRepository);
         $importProcessor->setTaxClassRepository($taxClassRepository);
         $importProcessor->setLinkTypeRepository($linkTypeRepository);
         $importProcessor->setLinkAttributeRepository($linkAttributeRepository);
         $importProcessor->setCoreConfigDataRepository($coreConfigDataRepository);
+        $importProcessor->setCategoryAssembler($categoryAssembler);
 
         // return the initialize import processor instance
         return $importProcessor;

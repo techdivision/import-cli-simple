@@ -20,7 +20,7 @@
 
 namespace TechDivision\Import\Cli\Services;
 
-use TechDivision\Import\Configuration\SubjectConfigurationInterface;
+use TechDivision\Import\Configuration\ProcessorConfigurationInterface;
 use TechDivision\Import\Product\Bundle\Actions\ProductBundleOptionAction;
 use TechDivision\Import\Product\Bundle\Actions\ProductBundleOptionValueAction;
 use TechDivision\Import\Product\Bundle\Actions\ProductBundleSelectionAction;
@@ -62,12 +62,12 @@ class ProductBundleProcessorFactory extends AbstractProductProcessorFactory
     /**
      * Factory method to create a new product bundle processor instance.
      *
-     * @param \PDO                                                            $connection    The PDO connection to use
-     * @param TechDivision\Import\Configuration\SubjectConfigurationInterface $configuration The subject configuration
+     * @param \PDO                                                              $connection    The PDO connection to use
+     * @param TechDivision\Import\Configuration\ProcessorConfigurationInterface $configuration The subject configuration
      *
      * @return \TechDivision\Import\Product\Bundle\Services\ProductBundleProcessor The processor instance
      */
-    public static function factory(\PDO $connection, SubjectConfigurationInterface $configuration)
+    public static function factory(\PDO $connection, ProcessorConfigurationInterface $configuration)
     {
 
         // load the utility class name
