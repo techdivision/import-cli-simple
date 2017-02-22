@@ -59,115 +59,115 @@ abstract class AbstractImportCommand extends Command
 
         // initialize the command with the required/optional options
         $this->addArgument(
-                 InputArgumentKeys::OPERATION_NAME,
-                 InputArgument::OPTIONAL,
-                 'The operation that has to be used for the import, one of "add-update", "replace" or "delete"',
-                 InputArgumentKeys::OPERATION_NAME_ARG_REPLACE
-             )
-             ->addOption(
-                 InputOptionKeys::CONFIGURATION,
-                 null,
-                 InputOption::VALUE_REQUIRED,
-                 'Specify the pathname to the configuration file to use',
-                 sprintf('%s/techdivision-import.json', getcwd())
-             )
-             ->addOption(
-                 InputOptionKeys::INSTALLATION_DIR,
-                 null,
-                 InputOption::VALUE_REQUIRED,
-                 'The Magento installation directory to which the files has to be imported'
-             )
-             ->addOption(
-                 InputOptionKeys::SOURCE_DIR,
-                 null,
-                 InputOption::VALUE_REQUIRED,
-                 'The directory that has to be watched for new files'
-             )
-             ->addOption(
-                 InputOptionKeys::TARGET_DIR,
-                 null,
-                 InputOption::VALUE_REQUIRED,
-                 'The target directory with the files that has been imported'
-             )
-             ->addOption(
-                 InputOptionKeys::UTILITY_CLASS_NAME,
-                 null,
-                 InputOption::VALUE_REQUIRED,
-                 'The utility class name with the SQL statements'
-             )
-             ->addOption(
-                 InputOptionKeys::PREFIX,
-                 null,
-                 InputOption::VALUE_REQUIRED,
-                 'The prefix of the CSV source file(s) that has/have to be imported'
-             )
-             ->addOption(
-                 InputOptionKeys::MAGENTO_EDITION,
-                 null,
-                 InputOption::VALUE_REQUIRED,
-                 'The Magento edition to be used, either one of CE or EE'
-             )
-             ->addOption(
-                 InputOptionKeys::MAGENTO_VERSION,
-                 null,
-                 InputOption::VALUE_REQUIRED,
-                 'The Magento version to be used, e. g. 2.1.2'
-             )
-             ->addOption(
-                 InputOptionKeys::SOURCE_DATE_FORMAT,
-                 null,
-                 InputOption::VALUE_REQUIRED,
-                 'The date format used in the CSV file(s)'
-             )
-             ->addOption(
-                 InputOptionKeys::USE_DB_ID,
-                 null,
-                 InputOption::VALUE_REQUIRED,
-                 'The explicit database ID used for the actual import process'
-             )
-             ->addOption(
-                 InputOptionKeys::DB_PDO_DSN,
-                 null,
-                 InputOption::VALUE_REQUIRED,
-                 'The DSN used to connect to the Magento database where the data has to be imported, e. g. mysql:host=127.0.0.1;dbname=magento'
-             )
-             ->addOption(
-                 InputOptionKeys::DB_USERNAME,
-                 null,
-                 InputOption::VALUE_REQUIRED,
-                 'The username used to connect to the Magento database'
-             )
-             ->addOption(
-                 InputOptionKeys::DB_PASSWORD,
-                 null,
-                 InputOption::VALUE_REQUIRED,
-                 'The password used to connect to the Magento database'
-             )
-             ->addOption(
-                 InputOptionKeys::LOG_LEVEL,
-                 null,
-                 InputOption::VALUE_REQUIRED,
-                 'The log level to use'
-             )
-             ->addOption(
-                 InputOptionKeys::IGNORE_PID,
-                 null,
-                 InputOption::VALUE_REQUIRED,
-                 'Whether or not an existing PID should be ignored or not'
-             )
-             ->addOption(
-                 InputOptionKeys::DEBUG_MODE,
-                 null,
-                 InputOption::VALUE_REQUIRED,
-                 'Whether use the debug mode or not'
-             )
-             ->addOption(
-                 InputOptionKeys::PID_FILENAME,
-                 null,
-                 InputOption::VALUE_REQUIRED,
-                 'The explicit PID filename to use',
-                 sprintf('%s/%s', sys_get_temp_dir(), Configuration::PID_FILENAME)
-             );
+            InputArgumentKeys::OPERATION_NAME,
+            InputArgument::OPTIONAL,
+            'The operation that has to be used for the import, one of "add-update", "replace" or "delete"',
+            InputArgumentKeys::OPERATION_NAME_ARG_REPLACE
+        )
+        ->addOption(
+            InputOptionKeys::CONFIGURATION,
+            null,
+            InputOption::VALUE_REQUIRED,
+            'Specify the pathname to the configuration file to use',
+            sprintf('%s/techdivision-import.json', getcwd())
+        )
+        ->addOption(
+            InputOptionKeys::INSTALLATION_DIR,
+            null,
+            InputOption::VALUE_REQUIRED,
+            'The Magento installation directory to which the files has to be imported'
+        )
+        ->addOption(
+            InputOptionKeys::SOURCE_DIR,
+            null,
+            InputOption::VALUE_REQUIRED,
+            'The directory that has to be watched for new files'
+        )
+        ->addOption(
+            InputOptionKeys::TARGET_DIR,
+            null,
+            InputOption::VALUE_REQUIRED,
+            'The target directory with the files that has been imported'
+        )
+        ->addOption(
+            InputOptionKeys::UTILITY_CLASS_NAME,
+            null,
+            InputOption::VALUE_REQUIRED,
+            'The utility class name with the SQL statements'
+        )
+        ->addOption(
+            InputOptionKeys::PREFIX,
+            null,
+            InputOption::VALUE_REQUIRED,
+            'The prefix of the CSV source file(s) that has/have to be imported'
+        )
+        ->addOption(
+            InputOptionKeys::MAGENTO_EDITION,
+            null,
+            InputOption::VALUE_REQUIRED,
+            'The Magento edition to be used, either one of CE or EE'
+        )
+        ->addOption(
+            InputOptionKeys::MAGENTO_VERSION,
+            null,
+            InputOption::VALUE_REQUIRED,
+            'The Magento version to be used, e. g. 2.1.2'
+        )
+        ->addOption(
+            InputOptionKeys::SOURCE_DATE_FORMAT,
+            null,
+            InputOption::VALUE_REQUIRED,
+            'The date format used in the CSV file(s)'
+        )
+        ->addOption(
+            InputOptionKeys::USE_DB_ID,
+            null,
+            InputOption::VALUE_REQUIRED,
+            'The explicit database ID used for the actual import process'
+        )
+        ->addOption(
+            InputOptionKeys::DB_PDO_DSN,
+            null,
+            InputOption::VALUE_REQUIRED,
+            'The DSN used to connect to the Magento database where the data has to be imported, e. g. mysql:host=127.0.0.1;dbname=magento'
+        )
+        ->addOption(
+            InputOptionKeys::DB_USERNAME,
+            null,
+            InputOption::VALUE_REQUIRED,
+            'The username used to connect to the Magento database'
+        )
+        ->addOption(
+            InputOptionKeys::DB_PASSWORD,
+            null,
+            InputOption::VALUE_REQUIRED,
+            'The password used to connect to the Magento database'
+        )
+        ->addOption(
+            InputOptionKeys::LOG_LEVEL,
+            null,
+            InputOption::VALUE_REQUIRED,
+            'The log level to use'
+        )
+        ->addOption(
+            InputOptionKeys::IGNORE_PID,
+            null,
+            InputOption::VALUE_REQUIRED,
+            'Whether or not an existing PID should be ignored or not'
+        )
+        ->addOption(
+            InputOptionKeys::DEBUG_MODE,
+            null,
+            InputOption::VALUE_REQUIRED,
+            'Whether use the debug mode or not'
+        )
+        ->addOption(
+            InputOptionKeys::PID_FILENAME,
+            null,
+            InputOption::VALUE_REQUIRED,
+            'The explicit PID filename to use',
+            sprintf('%s/%s', sys_get_temp_dir(), Configuration::PID_FILENAME)
+        );
     }
 
     /**
