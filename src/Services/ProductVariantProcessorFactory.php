@@ -63,7 +63,7 @@ class ProductVariantProcessorFactory extends AbstractProductProcessorFactory
     /**
      * Factory method to create a new product variant processor instance.
      *
-     * @param \PDO                                                            $connection    The PDO connection to use
+     * @param \PDO                                                              $connection    The PDO connection to use
      * @param TechDivision\Import\Configuration\ProcessorConfigurationInterface $configuration The subject configuration
      *
      * @return \TechDivision\Import\Product\Variant\Services\ProductVariantProcessor The processor instance

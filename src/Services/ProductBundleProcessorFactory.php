@@ -62,7 +62,7 @@ class ProductBundleProcessorFactory extends AbstractProductProcessorFactory
     /**
      * Factory method to create a new product bundle processor instance.
      *
-     * @param \PDO                                                            $connection    The PDO connection to use
+     * @param \PDO                                                              $connection    The PDO connection to use
      * @param TechDivision\Import\Configuration\ProcessorConfigurationInterface $configuration The subject configuration
      *
      * @return \TechDivision\Import\Product\Bundle\Services\ProductBundleProcessor The processor instance
