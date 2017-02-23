@@ -97,7 +97,7 @@
                 {
                   "pre-import": [
                     "TechDivision\\Import\\Category\\Observers\\CategoryNameObserver",
-                    "TechDivision\\Import\\Category\\Observers\\CategoryUrlObserver",
+                    "TechDivision\\Import\\Observers\\UrlObserver",
                     "TechDivision\\Import\\Observers\\AttributeSetObserver",
                     "TechDivision\\Import\\Observers\\AdditionalAttributeObserver"
                   ]
@@ -105,7 +105,8 @@
                 {
                   "import": [
                     "TechDivision\\Import\\Category\\Observers\\CategoryObserver",
-                    "TechDivision\\Import\\Category\\Observers\\CategoryAttributeObserver"
+                    "TechDivision\\Import\\Category\\Observers\\CategoryAttributeObserver",
+                    "TechDivision\\Import\\Category\\Observers\\UrlRewriteObserver"
                   ]
                 },
                 {
@@ -166,7 +167,7 @@
                 {
                   "pre-import": [
                     "TechDivision\\Import\\Category\\Observers\\CategoryNameObserver",
-                    "TechDivision\\Import\\Category\\Observers\\CategoryUrlObserver",
+                    "TechDivision\\Import\\Observers\\UrlObserver",
                     "TechDivision\\Import\\Observers\\AttributeSetObserver",
                     "TechDivision\\Import\\Observers\\AdditionalAttributeObserver"
                   ]
@@ -174,7 +175,8 @@
                 {
                   "import": [
                     "TechDivision\\Import\\Category\\Observers\\CategoryObserver",
-                    "TechDivision\\Import\\Category\\Observers\\CategoryAttributeObserver"
+                    "TechDivision\\Import\\Category\\Observers\\CategoryAttributeObserver",
+                    "TechDivision\\Import\\Category\\Observers\\UrlRewriteObserver"
                   ]
                 },
                 {

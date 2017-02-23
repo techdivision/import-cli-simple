@@ -22,6 +22,10 @@ namespace TechDivision\Import\Cli\Services;
 
 use TechDivision\Import\Configuration\ProcessorConfigurationInterface;
 use TechDivision\Import\Assembler\CategoryAssembler;
+use TechDivision\Import\Actions\UrlRewriteAction;
+use TechDivision\Import\Actions\Processors\UrlRewriteCreateProcessor;
+use TechDivision\Import\Actions\Processors\UrlRewriteDeleteProcessor;
+use TechDivision\Import\Actions\Processors\UrlRewriteUpdateProcessor;
 use TechDivision\Import\Repositories\EavAttributeRepository;
 use TechDivision\Import\Category\Repositories\CategoryRepository;
 use TechDivision\Import\Category\Repositories\CategoryDatetimeRepository;
@@ -210,6 +214,24 @@ class CategoryBunchProcessorFactory extends AbstractCategoryProcessorFactory
         $categoryAction->setDeleteProcessor($categoryDeleteProcessor);
         $categoryAction->setUpdateProcessor($categoryUpdateProcessor);
 
+        // initialize the action that provides URL rewrite CRUD functionality
+        $urlRewriteCreateProcessor = new UrlRewriteCreateProcessor();
+        $urlRewriteCreateProcessor->setUtilityClassName($utilityClassName);
+        $urlRewriteCreateProcessor->setConnection($connection);
+        $urlRewriteCreateProcessor->init();
+        $urlRewriteDeleteProcessor = new UrlRewriteDeleteProcessor();
+        $urlRewriteDeleteProcessor->setUtilityClassName($utilityClassName);
+        $urlRewriteDeleteProcessor->setConnection($connection);
+        $urlRewriteDeleteProcessor->init();
+        $urlRewriteUpdateProcessor = new UrlRewriteUpdateProcessor();
+        $urlRewriteUpdateProcessor->setUtilityClassName($utilityClassName);
+        $urlRewriteUpdateProcessor->setConnection($connection);
+        $urlRewriteUpdateProcessor->init();
+        $urlRewriteAction = new UrlRewriteAction();
+        $urlRewriteAction->setCreateProcessor($urlRewriteCreateProcessor);
+        $urlRewriteAction->setDeleteProcessor($urlRewriteDeleteProcessor);
+        $urlRewriteAction->setUpdateProcessor($urlRewriteUpdateProcessor);
+
         // initialize the category assembler
         $categoryAssembler = new CategoryAssembler($categoryRepository, $categoryVarcharRepository);
 
@@ -230,6 +252,7 @@ class CategoryBunchProcessorFactory extends AbstractCategoryProcessorFactory
         $categoryBunchProcessor->setCategoryAction($categoryAction);
         $categoryBunchProcessor->setCategoryTextAction($categoryTextAction);
         $categoryBunchProcessor->setCategoryVarcharAction($categoryVarcharAction);
+        $categoryBunchProcessor->setUrlRewriteAction($urlRewriteAction);
         $categoryBunchProcessor->setCategoryAssembler($categoryAssembler);
 
         // return the instance
