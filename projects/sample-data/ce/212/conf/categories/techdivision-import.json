@@ -97,7 +97,7 @@
                 {
                   "pre-import": [
                     "TechDivision\\Import\\Category\\Observers\\CategoryNameObserver",
-                    "TechDivision\\Import\\Observers\\UrlObserver",
+                    "TechDivision\\Import\\Category\\Observers\\UrlKeyAndPathObserver",
                     "TechDivision\\Import\\Observers\\AttributeSetObserver",
                     "TechDivision\\Import\\Observers\\AdditionalAttributeObserver"
                   ]
@@ -167,7 +167,7 @@
                 {
                   "pre-import": [
                     "TechDivision\\Import\\Category\\Observers\\CategoryNameObserver",
-                    "TechDivision\\Import\\Observers\\UrlObserver",
+                    "TechDivision\\Import\\Category\\Observers\\UrlKeyAndPathObserver",
                     "TechDivision\\Import\\Observers\\AttributeSetObserver",
                     "TechDivision\\Import\\Observers\\AdditionalAttributeObserver"
                   ]

@@ -1,3 +1,13 @@
+# Version 1.0.0-alpha41
+
+## Bugfixes
+
+* None
+
+## Features
+
+* Minor changes for category import functionality
+
 # Version 1.0.0-alpha40
 
 ## Bugfixes
