@@ -85,6 +85,7 @@
                     "TechDivision\\Import\\Product\\Observers\\ClearProductObserver",
                     "TechDivision\\Import\\Observers\\AttributeSetObserver",
                     "TechDivision\\Import\\Observers\\AdditionalAttributeObserver",
+                    "TechDivision\\Import\\Product\\Observers\\UrlKeyObserver",
                     "TechDivision\\Import\\Product\\Observers\\QuantityAndStockStatusObserver"
                   ]
                 },
@@ -216,6 +217,7 @@
                   "pre-import": [
                     "TechDivision\\Import\\Observers\\AttributeSetObserver",
                     "TechDivision\\Import\\Observers\\AdditionalAttributeObserver",
+                    "TechDivision\\Import\\Product\\Observers\\UrlKeyObserver",
                     "TechDivision\\Import\\Product\\Observers\\QuantityAndStockStatusObserver"
                   ]
                 },
