@@ -129,6 +129,27 @@
                   ]
                 }
               ]
+            },
+            {
+              "class-name": "TechDivision\\Import\\Category\\Subjects\\MediaSubject",
+              "processor-factory" : "TechDivision\\Import\\Cli\\Services\\CategoryBunchProcessorFactory",
+              "utility-class-name" : "TechDivision\\Import\\Category\\Utils\\SqlStatements",
+              "prefix": "media",
+              "params" : [
+                {
+                  "copy-images" : true,
+                  "root-directory" : "/",
+                  "media-directory" : "/opt/appserver/webapps/magento2_ce212/pub/media/catalog/category",
+                  "images-file-directory" : "projects/sample-data/magento2-sample-data/pub/media/catalog/category"
+                }
+              ],
+              "observers": [
+                {
+                  "import" : [
+                    "TechDivision\\Import\\Category\\Observers\\FileUploadObserver"
+                  ]
+                }
+              ]
             }
           ]
         },
@@ -196,6 +217,27 @@
                 {
                   "import": [
                     "TechDivision\\Import\\Category\\Observers\\CategoryPathObserver"
+                  ]
+                }
+              ]
+            },
+            {
+              "class-name": "TechDivision\\Import\\Category\\Subjects\\MediaSubject",
+              "processor-factory" : "TechDivision\\Import\\Cli\\Services\\CategoryBunchProcessorFactory",
+              "utility-class-name" : "TechDivision\\Import\\Category\\Utils\\SqlStatements",
+              "prefix": "media",
+              "params" : [
+                {
+                  "copy-images" : true,
+                  "root-directory" : "/",
+                  "media-directory" : "/opt/appserver/webapps/magento2_ce212/pub/media/catalog/category",
+                  "images-file-directory" : "projects/sample-data/magento2-sample-data/pub/media/catalog/category"
+                }
+              ],
+              "observers": [
+                {
+                  "import" : [
+                    "TechDivision\\Import\\Category\\Observers\\FileUploadObserver"
                   ]
                 }
               ]
