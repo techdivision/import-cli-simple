@@ -105,6 +105,7 @@
                 {
                   "import": [
                     "TechDivision\\Import\\Category\\Observers\\CategoryObserver",
+                    "TechDivision\\Import\\Category\\Observers\\CategoryImageObserver",
                     "TechDivision\\Import\\Category\\Observers\\CategoryAttributeObserver",
                     "TechDivision\\Import\\Category\\Observers\\UrlRewriteObserver"
                   ]
@@ -140,7 +141,7 @@
                   "copy-images" : true,
                   "root-directory" : "/",
                   "media-directory" : "/opt/appserver/webapps/magento2_ce212/pub/media/catalog/category",
-                  "images-file-directory" : "projects/sample-data/magento2-sample-data/pub/media/catalog/category"
+                  "images-file-directory" : "projects/sample-data/magento2-sample-data/pub/media/wysiwyg"
                 }
               ],
               "observers": [
@@ -196,6 +197,7 @@
                 {
                   "import": [
                     "TechDivision\\Import\\Category\\Observers\\CategoryObserver",
+                    "TechDivision\\Import\\Category\\Observers\\CategoryImageObserver",
                     "TechDivision\\Import\\Category\\Observers\\CategoryAttributeObserver",
                     "TechDivision\\Import\\Category\\Observers\\UrlRewriteObserver"
                   ]
@@ -231,7 +233,7 @@
                   "copy-images" : true,
                   "root-directory" : "/",
                   "media-directory" : "/opt/appserver/webapps/magento2_ce212/pub/media/catalog/category",
-                  "images-file-directory" : "projects/sample-data/magento2-sample-data/pub/media/catalog/category"
+                  "images-file-directory" : "projects/sample-data/magento2-sample-data/pub/media/wysiwyg"
                 }
               ],
               "observers": [
