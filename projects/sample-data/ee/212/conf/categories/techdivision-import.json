@@ -1,5 +1,5 @@
 {
-  "magento-edition": "CE",
+  "magento-edition": "EE",
   "magento-version": "2.1.2",
   "operation-name" : "replace",
   "installation-dir" : "/var/www/magento",
@@ -8,15 +8,15 @@
   "source-date-format": "n/d/y, g:i A",
   "archive-artefacts" : false,
   "archive-dir" : "archive",
-  "utility-class-name" : "TechDivision\\Import\\Utils\\SqlStatements",
+  "utility-class-name" : "TechDivision\\Import\\Ee\\Utils\\SqlStatements",
   "debug-mode" : false,
   "ignore-pid" : false,
   "entity-type-code" : "catalog_category",
   "databases": [
     {
-      "id": "ce",
+      "id": "ee",
       "default": false,
-      "pdo-dsn": "mysql:host=127.0.0.1;dbname=appserver_magento2_ce212",
+      "pdo-dsn": "mysql:host=127.0.0.1;dbname=appserver_magento2_ee212",
       "username": "appserver",
       "password": "appserver.i0"
     }
@@ -38,9 +38,9 @@
               "ok-file-needed": true
             },
             {
-              "class-name": "TechDivision\\Import\\Category\\Subjects\\BunchSubject",
-              "processor-factory" : "TechDivision\\Import\\Cli\\Services\\CategoryBunchProcessorFactory",
-              "utility-class-name" : "TechDivision\\Import\\Category\\Utils\\SqlStatements",
+              "class-name": "TechDivision\\Import\\Category\\Ee\\Subjects\\EeBunchSubject",
+              "processor-factory" : "TechDivision\\Import\\Cli\\Services\\EeCategoryBunchProcessorFactory",
+              "utility-class-name" : "TechDivision\\Import\\Category\\Ee\\Utils\\SqlStatements",
               "identifier": "files",
               "prefix": "category-import",
               "observers": [
@@ -74,9 +74,9 @@
               "ok-file-needed": true
             },
             {
-              "class-name": "TechDivision\\Import\\Category\\Subjects\\BunchSubject",
-              "processor-factory" : "TechDivision\\Import\\Cli\\Services\\CategoryBunchProcessorFactory",
-              "utility-class-name" : "TechDivision\\Import\\Category\\Utils\\SqlStatements",
+              "class-name": "TechDivision\\Import\\Category\\Ee\\Subjects\\EeBunchSubject",
+              "processor-factory" : "TechDivision\\Import\\Cli\\Services\\EeCategoryBunchProcessorFactory",
+              "utility-class-name" : "TechDivision\\Import\\Category\\Ee\\Utils\\SqlStatements",
               "identifier": "files",
               "prefix": "category-import",
               "observers": [
@@ -88,9 +88,9 @@
               ]
             },
             {
-              "class-name": "TechDivision\\Import\\Category\\Subjects\\BunchSubject",
-              "processor-factory" : "TechDivision\\Import\\Cli\\Services\\CategoryBunchProcessorFactory",
-              "utility-class-name" : "TechDivision\\Import\\Category\\Utils\\SqlStatements",
+              "class-name": "TechDivision\\Import\\Category\\Ee\\Subjects\\EeBunchSubject",
+              "processor-factory" : "TechDivision\\Import\\Cli\\Services\\EeCategoryBunchProcessorFactory",
+              "utility-class-name" : "TechDivision\\Import\\Category\\Ee\\Utils\\SqlStatements",
               "identifier": "files",
               "prefix": "category-create",
               "observers": [
@@ -104,37 +104,37 @@
                 },
                 {
                   "import": [
-                    "TechDivision\\Import\\Category\\Observers\\CategoryObserver",
+                    "TechDivision\\Import\\Category\\Ee\\Observers\\EeCategoryObserver",
                     "TechDivision\\Import\\Category\\Observers\\CategoryImageObserver",
-                    "TechDivision\\Import\\Category\\Observers\\CategoryAttributeObserver",
+                    "TechDivision\\Import\\Category\\Ee\\Observers\\EeCategoryAttributeObserver",
                     "TechDivision\\Import\\Category\\Observers\\UrlRewriteObserver"
                   ]
                 },
                 {
                   "post-import": [
-                    "TechDivision\\Import\\Category\\Observers\\CleanUpObserver"
+                    "TechDivision\\Import\\Category\\Ee\\Observers\\EeCleanUpObserver"
                   ]
                 }
               ]
             },
             {
-              "class-name": "TechDivision\\Import\\Category\\Subjects\\BunchSubject",
-              "processor-factory" : "TechDivision\\Import\\Cli\\Services\\CategoryBunchProcessorFactory",
-              "utility-class-name" : "TechDivision\\Import\\Category\\Utils\\SqlStatements",
+              "class-name": "TechDivision\\Import\\Category\\Ee\\Subjects\\BunchSubject",
+              "processor-factory" : "TechDivision\\Import\\Cli\\Services\\EeCategoryBunchProcessorFactory",
+              "utility-class-name" : "TechDivision\\Import\\Category\\Ee\\Utils\\SqlStatements",
               "identifier": "files",
               "prefix": "category-path",
               "observers": [
                 {
                   "import": [
-                    "TechDivision\\Import\\Category\\Observers\\CategoryPathObserver"
+                    "TechDivision\\Import\\Category\\Ee\\Observers\\EeCategoryPathObserver"
                   ]
                 }
               ]
             },
             {
-              "class-name": "TechDivision\\Import\\Category\\Subjects\\MediaSubject",
-              "processor-factory" : "TechDivision\\Import\\Cli\\Services\\CategoryBunchProcessorFactory",
-              "utility-class-name" : "TechDivision\\Import\\Category\\Utils\\SqlStatements",
+              "class-name": "TechDivision\\Import\\Category\\Ee\\Subjects\\EeBunchSubject",
+              "processor-factory" : "TechDivision\\Import\\Cli\\Services\\EeCategoryBunchProcessorFactory",
+              "utility-class-name" : "TechDivision\\Import\\Category\\Ee\\Utils\\SqlStatements",
               "prefix": "media",
               "params" : [
                 {
@@ -155,9 +155,9 @@
           ]
         },
         {
-          "class-name": "TechDivision\\Import\\Category\\Plugins\\ChildrenCountPlugin",
-          "utility-class-name" : "TechDivision\\Import\\Category\\Utils\\SqlStatements",
-          "processor-factory" : "TechDivision\\Import\\Cli\\Services\\CategoryBunchProcessorFactory"
+          "class-name": "TechDivision\\Import\\Category\\Ee\\Plugins\\EeChildrenCountPlugin",
+          "utility-class-name" : "TechDivision\\Import\\Category\\Ee\\Utils\\SqlStatements",
+          "processor-factory" : "TechDivision\\Import\\Cli\\Services\\EeCategoryBunchProcessorFactory"
         },
         {
           "class-name": "TechDivision\\Import\\Plugins\\ArchivePlugin"
@@ -180,9 +180,9 @@
               "ok-file-needed": true
             },
             {
-              "class-name": "TechDivision\\Import\\Category\\Subjects\\BunchSubject",
-              "processor-factory" : "TechDivision\\Import\\Cli\\Services\\CategoryBunchProcessorFactory",
-              "utility-class-name" : "TechDivision\\Import\\Category\\Utils\\SqlStatements",
+              "class-name": "TechDivision\\Import\\Category\\Ee\\Subjects\\EeBunchSubject",
+              "processor-factory" : "TechDivision\\Import\\Cli\\Services\\EeCategoryBunchProcessorFactory",
+              "utility-class-name" : "TechDivision\\Import\\Category\\Ee\\Utils\\SqlStatements",
               "identifier": "files",
               "prefix": "category-import",
               "observers": [
@@ -196,36 +196,36 @@
                 },
                 {
                   "import": [
-                    "TechDivision\\Import\\Category\\Observers\\CategoryUpdateObserver",
+                    "TechDivision\\Import\\Category\\Ee\\Observers\\EeCategoryUpdateObserver",
                     "TechDivision\\Import\\Category\\Observers\\CategoryImageObserver",
-                    "TechDivision\\Import\\Category\\Observers\\CategoryAttributeUpdateObserver"
+                    "TechDivision\\Import\\Category\\Ee\\Observers\\EeCategoryAttributeUpdateObserver"
                   ]
                 },
                 {
                   "post-import": [
-                    "TechDivision\\Import\\Category\\Observers\\CleanUpObserver"
+                    "TechDivision\\Import\\Category\\Ee\\Observers\\EeCleanUpObserver"
                   ]
                 }
               ]
             },
             {
-              "class-name": "TechDivision\\Import\\Category\\Subjects\\BunchSubject",
-              "processor-factory" : "TechDivision\\Import\\Cli\\Services\\CategoryBunchProcessorFactory",
-              "utility-class-name" : "TechDivision\\Import\\Category\\Utils\\SqlStatements",
+              "class-name": "TechDivision\\Import\\Category\\Ee\\Subjects\\EeBunchSubject",
+              "processor-factory" : "TechDivision\\Import\\Cli\\Services\\EeCategoryBunchProcessorFactory",
+              "utility-class-name" : "TechDivision\\Import\\Category\\Ee\\Utils\\SqlStatements",
               "identifier": "files",
               "prefix": "category-path",
               "observers": [
                 {
                   "import": [
-                    "TechDivision\\Import\\Category\\Observers\\CategoryPathObserver"
+                    "TechDivision\\Import\\Category\\Ee\\Observers\\EeCategoryPathObserver"
                   ]
                 }
               ]
             },
             {
               "class-name": "TechDivision\\Import\\Category\\Subjects\\MediaSubject",
-              "processor-factory" : "TechDivision\\Import\\Cli\\Services\\CategoryBunchProcessorFactory",
-              "utility-class-name" : "TechDivision\\Import\\Category\\Utils\\SqlStatements",
+              "processor-factory" : "TechDivision\\Import\\Cli\\Services\\EeCategoryBunchProcessorFactory",
+              "utility-class-name" : "TechDivision\\Import\\Category\\Ee\\Utils\\SqlStatements",
               "prefix": "media",
               "params" : [
                 {
@@ -246,9 +246,9 @@
           ]
         },
         {
-          "class-name": "TechDivision\\Import\\Category\\Plugins\\ChildrenCountPlugin",
-          "utility-class-name" : "TechDivision\\Import\\Category\\Utils\\SqlStatements",
-          "processor-factory" : "TechDivision\\Import\\Cli\\Services\\CategoryBunchProcessorFactory"
+          "class-name": "TechDivision\\Import\\Category\\Ee\\Plugins\\EeChildrenCountPlugin",
+          "utility-class-name" : "TechDivision\\Import\\Category\\Ee\\Utils\\SqlStatements",
+          "processor-factory" : "TechDivision\\Import\\Cli\\Services\\EeCategoryBunchProcessorFactory"
         },
         {
           "class-name": "TechDivision\\Import\\Plugins\\ArchivePlugin"

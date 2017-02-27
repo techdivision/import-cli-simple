@@ -411,6 +411,9 @@ class Simple implements ApplicationInterface
             // track the start time
             $startTime = microtime(true);
 
+            // start the transaction
+            $this->getImportProcessor()->getConnection()->beginTransaction();
+
             // prepare the global data for the import process
             $this->setUp();
 
@@ -421,6 +424,9 @@ class Simple implements ApplicationInterface
 
             // tear down the  instance
             $this->tearDown();
+
+            // commit the transaction
+            $this->getImportProcessor()->getConnection()->commit();
 
             // track the time needed for the import in seconds
             $endTime = microtime(true) - $startTime;
@@ -438,6 +444,9 @@ class Simple implements ApplicationInterface
         } catch (\Exception $e) {
             // tear down
             $this->tearDown();
+
+            // rollback the transaction
+            $this->getImportProcessor()->getConnection()->rollBack();
 
             // track the time needed for the import in seconds
             $endTime = microtime(true) - $startTime;
