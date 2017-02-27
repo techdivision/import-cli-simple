@@ -1,3 +1,13 @@
+# Version 1.0.0-alpha42
+
+## Bugfixes
+
+* None
+
+## Features
+
+* Integrate category import functionality for CE/EE without URL rewrite update
+
 # Version 1.0.0-alpha41
 
 ## Bugfixes

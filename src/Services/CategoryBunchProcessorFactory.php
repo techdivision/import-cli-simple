@@ -78,8 +78,8 @@ class CategoryBunchProcessorFactory extends AbstractCategoryProcessorFactory
     /**
      * Factory method to create a new category processor instance.
      *
-     * @param \PDO                                                              $connection    The PDO connection to use
-     * @param TechDivision\Import\Configuration\ProcessorConfigurationInterface $configuration The subject configuration
+     * @param \PDO                                                               $connection    The PDO connection to use
+     * @param \TechDivision\Import\Configuration\ProcessorConfigurationInterface $configuration The subject configuration
      *
      * @return \TechDivision\Import\Category\Services\CategoryProcessorInterface The processor instance
      */
