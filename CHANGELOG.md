@@ -1,3 +1,13 @@
+# Version 1.0.0-alpha44
+
+## Bugfixes
+
+* None
+
+## Features
+
+* Update configuration files for CE/EE category/product import
+
 # Version 1.0.0-alpha43
 
 ## Bugfixes
