@@ -1,4 +1,14 @@
-# Version 1.0.0-alpha44
+# Version 1.0.0-alpha45
+
+## Bugfixes
+
+* None
+
+## Features
+
+* Switch to latest techdivision/import-product version
+#
+ Version 1.0.0-alpha44
 
 ## Bugfixes
 
