@@ -1,3 +1,13 @@
+# Version 1.0.0-alpha46
+
+## Bugfixes
+
+* None
+
+## Features
+
+* Switch to latest techdivision/import and techdivision/import-product version
+
 # Version 1.0.0-alpha45
 
 ## Bugfixes
