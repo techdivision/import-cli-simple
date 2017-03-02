@@ -1,4 +1,4 @@
-# Version 1.0.0-alpha46
+# Version 1.0.0-alpha47
 
 ## Bugfixes
 
@@ -6,7 +6,7 @@
 
 ## Features
 
-* Switch to latest techdivision/import and techdivision/import-product version
+* Unlock PID file when a plugin fails execution
 
 # Version 1.0.0-alpha45
 

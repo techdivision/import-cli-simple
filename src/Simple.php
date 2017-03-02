@@ -448,6 +448,10 @@ class Simple implements ApplicationInterface
             // rollback the transaction
             $this->getImportProcessor()->getConnection()->rollBack();
 
+            // finally, if a PID has been set (because CSV files has been found),
+            // remove it from the PID file to unlock the importer
+            $this->unlock();
+
             // track the time needed for the import in seconds
             $endTime = microtime(true) - $startTime;
 
