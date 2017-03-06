@@ -1,3 +1,13 @@
+# Version 1.0.0-alpha48
+
+## Bugfixes
+
+* None
+
+## Features
+
+* Inject core config data UID generator in import processor
+
 # Version 1.0.0-alpha47
 
 ## Bugfixes

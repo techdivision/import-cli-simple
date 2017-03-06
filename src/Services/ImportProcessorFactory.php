@@ -34,6 +34,7 @@ use TechDivision\Import\Repositories\LinkAttributeRepository;
 use TechDivision\Import\Repositories\CoreConfigDataRepository;
 use TechDivision\Import\Repositories\CategoryVarcharRepository;
 use TechDivision\Import\Repositories\EavAttributeSetRepository;
+use TechDivision\Import\Utils\Generators\CoreConfigDataUidGenerator;
 
 /**
  * Factory to create a new import processor.
@@ -122,7 +123,7 @@ class ImportProcessorFactory
         $linkAttributeRepository->init();
 
         // initialize the repository that provides core config data functionality
-        $coreConfigDataRepository = new CoreConfigDataRepository();
+        $coreConfigDataRepository = new CoreConfigDataRepository(new CoreConfigDataUidGenerator());
         $coreConfigDataRepository->setUtilityClassName($utilityClassName);
         $coreConfigDataRepository->setConnection($connection);
         $coreConfigDataRepository->init();
