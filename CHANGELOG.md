@@ -1,3 +1,13 @@
+# Version 1.0.0-alpha49
+
+## Bugfixes
+
+* Fixed missing Generator injection in CoreConfigDataRepository
+
+## Features
+
+* None
+
 # Version 1.0.0-alpha48
 
 ## Bugfixes
