@@ -16,7 +16,7 @@
     {
       "id": "ee",
       "default": false,
-      "pdo-dsn": "mysql:host=127.0.0.1;dbname=appserver_magento2_ee212",
+      "pdo-dsn": "mysql:host=127.0.0.1;dbname=appserver_magento2_ee212;charset=utf8",
       "username": "appserver",
       "password": "appserver.i0"
     }
@@ -117,7 +117,7 @@
               ]
             },
             {
-              "class-name": "TechDivision\\Import\\Category\\Ee\\Subjects\\BunchSubject",
+              "class-name": "TechDivision\\Import\\Category\\Ee\\Subjects\\EeBunchSubject",
               "processor-factory" : "TechDivision\\Import\\Cli\\Services\\EeCategoryBunchProcessorFactory",
               "utility-class-name" : "TechDivision\\Import\\Category\\Ee\\Utils\\SqlStatements",
               "identifier": "files",

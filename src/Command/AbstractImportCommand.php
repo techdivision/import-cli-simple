@@ -61,8 +61,7 @@ abstract class AbstractImportCommand extends Command
         $this->addArgument(
             InputArgumentKeys::OPERATION_NAME,
             InputArgument::OPTIONAL,
-            'The operation that has to be used for the import, one of "add-update", "replace" or "delete"',
-            InputArgumentKeys::OPERATION_NAME_ARG_REPLACE
+            'The operation that has to be used for the import, one of "add-update", "replace" or "delete"'
         )
         ->addOption(
             InputOptionKeys::CONFIGURATION,
@@ -199,8 +198,8 @@ abstract class AbstractImportCommand extends Command
 
         // query whether or not an operation name has been specified as command line
         // option, if yes override the value from the configuration file
-        if ($input->hasArgument(InputArgumentKeys::OPERATION_NAME)) {
-            $instance->setOperationName($input->getArgument(InputArgumentKeys::OPERATION_NAME));
+        if ($operationName = $input->getArgument(InputArgumentKeys::OPERATION_NAME)) {
+            $instance->setOperationName($operationName);
         }
 
         // query whether or not a Magento installation directory has been specified as command line

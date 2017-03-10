@@ -151,6 +151,13 @@ class Simple implements ApplicationInterface
     protected $plugins = array();
 
     /**
+     * The flag that stop's processing the operation.
+     *
+     * @var boolean
+     */
+    protected $stopped = false;
+
+    /**
      * The constructor to initialize the instance.
      *
      * @param \Psr\Log\LoggerInterface                                 $systemLogger      The system logger
@@ -419,6 +426,11 @@ class Simple implements ApplicationInterface
 
             // process the plugins defined in the configuration
             foreach ($this->getConfiguration()->getPlugins() as $pluginConfiguration) {
+                // query whether or not the operation has been stopped
+                if ($this->isStopped()) {
+                    break;
+                }
+                // process the plugin if not
                 $this->pluginFactory($pluginConfiguration)->process();
             }
 
@@ -470,6 +482,33 @@ class Simple implements ApplicationInterface
             // re-throw the exception
             throw $e;
         }
+    }
+
+    /**
+     * Stop processing the operation.
+     *
+     * @param string $reason The reason why the operation has been stopped
+     *
+     * @return void
+     */
+    public function stop($reason)
+    {
+
+        // log a message that the operation has been stopped
+        $this->log($reason, LogLevel::INFO);
+
+        // stop processing the plugins by setting the flag to TRUE
+        $this->stopped = true;
+    }
+
+    /**
+     * Return's TRUE if the operation has been stopped, else FALSE.
+     *
+     * @return boolean TRUE if the process has been stopped, else FALSE
+     */
+    public function isStopped()
+    {
+        return $this->stopped;
     }
 
     /**

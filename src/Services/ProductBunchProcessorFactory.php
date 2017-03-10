@@ -21,6 +21,7 @@
 namespace TechDivision\Import\Cli\Services;
 
 use TechDivision\Import\Configuration\ProcessorConfigurationInterface;
+use TechDivision\Import\Repositories\UrlRewriteRepository;
 use TechDivision\Import\Repositories\EavAttributeRepository;
 use TechDivision\Import\Repositories\EavAttributeOptionValueRepository;
 use TechDivision\Import\Actions\UrlRewriteAction;
@@ -37,7 +38,6 @@ use TechDivision\Import\Product\Repositories\ProductVarcharRepository;
 use TechDivision\Import\Product\Repositories\CategoryProductRepository;
 use TechDivision\Import\Product\Repositories\StockStatusRepository;
 use TechDivision\Import\Product\Repositories\StockItemRepository;
-use TechDivision\Import\Product\Repositories\UrlRewriteRepository;
 use TechDivision\Import\Product\Repositories\UrlRewriteProductCategoryRepository;
 use TechDivision\Import\Product\Actions\UrlRewriteProductCategoryAction;
 use TechDivision\Import\Product\Actions\ProductAction;
