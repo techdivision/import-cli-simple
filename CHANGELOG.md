@@ -1,3 +1,14 @@
+# Version 1.0.0-alpha50
+
+## Bugfixes
+
+* None
+
+## Features
+
+* Add functionality to stop processing the operation by a plugin
+* Add category import functionality
+
 # Version 1.0.0-alpha49
 
 ## Bugfixes

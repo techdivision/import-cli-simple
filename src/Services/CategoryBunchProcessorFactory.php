@@ -26,6 +26,7 @@ use TechDivision\Import\Actions\UrlRewriteAction;
 use TechDivision\Import\Actions\Processors\UrlRewriteCreateProcessor;
 use TechDivision\Import\Actions\Processors\UrlRewriteDeleteProcessor;
 use TechDivision\Import\Actions\Processors\UrlRewriteUpdateProcessor;
+use TechDivision\Import\Repositories\UrlRewriteRepository;
 use TechDivision\Import\Repositories\EavAttributeRepository;
 use TechDivision\Import\Category\Repositories\CategoryRepository;
 use TechDivision\Import\Category\Repositories\CategoryDatetimeRepository;
@@ -130,6 +131,12 @@ class CategoryBunchProcessorFactory extends AbstractCategoryProcessorFactory
         $categoryVarcharRepository->setUtilityClassName($utilityClassName);
         $categoryVarcharRepository->setConnection($connection);
         $categoryVarcharRepository->init();
+
+        // initialize the repository that provides URL rewrite query functionality
+        $urlRewriteRepository = new UrlRewriteRepository();
+        $urlRewriteRepository->setUtilityClassName($utilityClassName);
+        $urlRewriteRepository->setConnection($connection);
+        $urlRewriteRepository->init();
 
         // initialize the action that provides category datetime attribute CRUD functionality
         $categoryDatetimeCreateProcessor = new CategoryDatetimeCreateProcessor();
@@ -246,6 +253,7 @@ class CategoryBunchProcessorFactory extends AbstractCategoryProcessorFactory
         $categoryBunchProcessor->setCategoryTextRepository($categoryTextRepository);
         $categoryBunchProcessor->setCategoryVarcharRepository($categoryVarcharRepository);
         $categoryBunchProcessor->setEavAttributeRepository($eavAttributeRepository);
+        $categoryBunchProcessor->setUrlRewriteRepository($urlRewriteRepository);
         $categoryBunchProcessor->setCategoryDatetimeAction($categoryDatetimeAction);
         $categoryBunchProcessor->setCategoryDecimalAction($categoryDecimalAction);
         $categoryBunchProcessor->setCategoryIntAction($categoryIntAction);
