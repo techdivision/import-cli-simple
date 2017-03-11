@@ -1,7 +1,7 @@
 {
   "magento-edition": "EE",
   "magento-version": "2.1.2",
-  "operation-name" : "replace",
+  "operation-name" : "add-update",
   "installation-dir" : "/var/www/magento",
   "source-dir": "projects/sample-data/tmp",
   "target-dir": "projects/sample-data/tmp",
@@ -82,6 +82,7 @@
               "observers": [
                 {
                   "pre-import": [
+                    "TechDivision\\Import\\Product\\Observers\\PreLoadEntityIdObserver",
                     "TechDivision\\Import\\Product\\Observers\\ClearProductObserver",
                     "TechDivision\\Import\\Observers\\AttributeSetObserver",
                     "TechDivision\\Import\\Observers\\AdditionalAttributeObserver",
