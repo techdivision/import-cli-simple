@@ -1,3 +1,13 @@
+# Version 1.0.0-alpha51
+
+## Bugfixes
+
+* Set default operation to add-update instead of replace to avoid data loss
+
+## Features
+
+* Add functionality to temporary store the entity IDs of deleted products, provided by techdivision/import-product:1.0.0-alpha41
+
 # Version 1.0.0-alpha50
 
 ## Bugfixes
