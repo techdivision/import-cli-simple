@@ -24,9 +24,13 @@ use Rhumsaa\Uuid\Uuid;
 use Psr\Log\LogLevel;
 use Monolog\Logger;
 use Monolog\Handler\ErrorLogHandler;
+use Monolog\Handler\NativeMailerHandler;
 use JMS\Serializer\SerializerBuilder;
+use TechDivision\Import\Utils\LoggerKeys;
 use TechDivision\Import\Cli\Simple;
 use TechDivision\Import\Cli\Configuration;
+use TechDivision\Import\Cli\Configuration\Database;
+use TechDivision\Import\Cli\Configuration\LoggerFactory;
 use TechDivision\Import\Cli\Services\ImportProcessorFactory;
 use TechDivision\Import\Cli\Services\RegistryProcessorFactory;
 use Symfony\Component\Console\Command\Command;
@@ -34,7 +38,6 @@ use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Input\InputArgument;
-use TechDivision\Import\Cli\Configuration\Database;
 
 /**
  * The abstract import command implementation.
@@ -359,6 +362,9 @@ abstract class AbstractImportCommand extends Command
         $connection->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
 
         // initialize the system logger
+        $loggers = array();
+
+        // initialize the default system logger
         $systemLogger = new Logger('techdivision/import');
         $systemLogger->pushHandler(
             new ErrorLogHandler(
@@ -367,18 +373,26 @@ abstract class AbstractImportCommand extends Command
             )
         );
 
+        // add it to the array
+        $loggers[LoggerKeys::SYSTEM] = $systemLogger;
+
+        // append the configured loggers or override the default one
+        foreach ($configuration->getLoggers() as $loggerConfiguration) {
+            $loggers[$loggerConfiguration->getName()] = LoggerFactory::factory($loggerConfiguration);
+        }
+
         // initialize the registry/import processor
         $registryProcessor = RegistryProcessorFactory::factory($connection, $configuration);
         $importProcessor = ImportProcessorFactory::factory($connection, $configuration);
 
         // initialize the importer
         $importer = new Simple(
-            $systemLogger,
             $registryProcessor,
             $importProcessor,
             $configuration,
             $input,
-            $output
+            $output,
+            $loggers
         );
 
         // start the process

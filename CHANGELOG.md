@@ -1,3 +1,13 @@
+# Version 1.0.0-alpha52
+
+## Bugfixes
+
+* None
+
+## Features
+
+* Make logger configuration customizable
+
 # Version 1.0.0-alpha51
 
 ## Bugfixes
