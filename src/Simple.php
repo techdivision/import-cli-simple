@@ -23,10 +23,10 @@ namespace TechDivision\Import\Cli;
 use Rhumsaa\Uuid\Uuid;
 use Monolog\Logger;
 use Psr\Log\LogLevel;
-use Psr\Log\LoggerInterface;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Helper\FormatterHelper;
+use TechDivision\Import\Utils\LoggerKeys;
 use TechDivision\Import\Utils\RegistryKeys;
 use TechDivision\Import\ApplicationInterface;
 use TechDivision\Import\ConfigurationInterface;
@@ -102,11 +102,11 @@ class Simple implements ApplicationInterface
     protected $serial;
 
     /**
-     * The system logger implementation.
+     * The array with the system logger instances.
      *
-     * @var \Psr\Log\LoggerInterface
+     * @var array
      */
-    protected $systemLogger;
+    protected $systemLoggers;
 
     /**
      * The RegistryProcessor instance to handle running threads.
@@ -160,32 +160,32 @@ class Simple implements ApplicationInterface
     /**
      * The constructor to initialize the instance.
      *
-     * @param \Psr\Log\LoggerInterface                                 $systemLogger      The system logger
      * @param \TechDivision\Import\Services\RegistryProcessorInterface $registryProcessor The registry processor instance
      * @param \TechDivision\Import\Services\ImportProcessorInterface   $importProcessor   The import processor instance
      * @param \TechDivision\Import\ConfigurationInterface              $configuration     The system configuration
      * @param \Symfony\Component\Console\Input\InputInterface          $input             An InputInterface instance
      * @param \Symfony\Component\Console\Output\OutputInterface        $output            An OutputInterface instance
+     * @param array                                                    $systemLoggers     The array with the system logger instances
      */
     public function __construct(
-        LoggerInterface $systemLogger,
         RegistryProcessorInterface $registryProcessor,
         ImportProcessorInterface $importProcessor,
         ConfigurationInterface $configuration,
         InputInterface $input,
-        OutputInterface $output
+        OutputInterface $output,
+        array $systemLoggers
     ) {
 
         // register the shutdown function
         register_shutdown_function(array($this, 'shutdown'));
 
         // initialize the values
-        $this->systemLogger = $systemLogger;
         $this->registryProcessor = $registryProcessor;
         $this->importProcessor = $importProcessor;
         $this->configuration = $configuration;
         $this->input = $input;
         $this->output = $output;
+        $this->systemLoggers = $systemLoggers;
     }
 
     /**
@@ -217,13 +217,33 @@ class Simple implements ApplicationInterface
     }
 
     /**
-     * Return's the system logger.
+     * Return's the logger with the passed name, by default the system logger.
      *
-     * @return \Psr\Log\LoggerInterface The system logger instance
+     * @param string $name The name of the requested system logger
+     *
+     * @return \Psr\Log\LoggerInterface The logger instance
+     * @throws \Exception Is thrown, if the requested logger is NOT available
      */
-    public function getSystemLogger()
+    public function getSystemLogger($name = LoggerKeys::SYSTEM)
     {
-        return $this->systemLogger;
+
+        // query whether or not, the requested logger is available
+        if (isset($this->systemLoggers[$name])) {
+            return $this->systemLoggers[$name];
+        }
+
+        // throw an exception if the requested logger is NOT available
+        throw new \Exception(sprintf('The requested logger \'%s\' is not available', $name));
+    }
+
+    /**
+     * Return's the array with the system logger instances.
+     *
+     * @return array The logger instance
+     */
+    public function getSystemLoggers()
+    {
+        return $this->systemLoggers;
     }
 
     /**
@@ -468,7 +488,9 @@ class Simple implements ApplicationInterface
             $endTime = microtime(true) - $startTime;
 
             // log a message that the file import failed
-            $this->getSystemLogger()->error($e->__toString());
+            foreach ($this->systemLoggers as $systemLogger) {
+                $systemLogger->error($e->__toString());
+            }
 
             // log a message that import has been finished
             $this->getSystemLogger()->info(

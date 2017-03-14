@@ -38,6 +38,13 @@ class Subject implements SubjectConfigurationInterface
 {
 
     /**
+     * The trait that provides parameter handling functionality.
+     *
+     * @var \TechDivision\Import\Cli\Configuration\ParamsTrait
+     */
+    use ParamsTrait;
+
+    /**
      * The subject's class name.
      *
      * @var string
@@ -87,14 +94,6 @@ class Subject implements SubjectConfigurationInterface
      * @Type("array<string, array>")
      */
     protected $callbacks = array();
-
-    /**
-     * The array with the subject's params.
-     *
-     * @var array
-     * @Type("array")
-     */
-    protected $params = array();
 
     /**
      * A reference to the parent configuration instance.
@@ -260,57 +259,6 @@ class Subject implements SubjectConfigurationInterface
     public function getUtilityClassName()
     {
         return $this->utilityClassName;
-    }
-
-    /**
-     * Return's the array with the params.
-     *
-     * @return array The params
-     */
-    public function getParams()
-    {
-        if (!$params = reset($this->params)) {
-            $params = array();
-        }
-        return $params;
-    }
-
-    /**
-     * Query whether or not the param with the passed name exists.
-     *
-     * @param string $name The name of the param to be queried
-     *
-     * @return boolean TRUE if the requested param exists, else FALSE
-     */
-    public function hasParam($name)
-    {
-        return array_key_exists($name, $this->getParams());
-    }
-
-    /**
-     * Return's the param with the passed name.
-     *
-     * @param string $name         The name of the param to return
-     * @param mixed  $defaultValue The default value if the param doesn't exists
-     *
-     * @return string The requested param
-     * @throws \Exception Is thrown, if the requested param is not available
-     */
-    public function getParam($name, $defaultValue = null)
-    {
-
-        // query whether or not, the param is set
-        if (array_key_exists($name, $params = $this->getParams())) {
-            return $params[$name];
-        }
-
-        // if not, query we query if a default value has been passed
-        if ($defaultValue != null) {
-            return $defaultValue;
-        }
-
-        // throw an exception if neither the param exists or a default value has been passed
-        throw new \Exception(sprintf('Requested param %s not available', $name));
     }
 
     /**

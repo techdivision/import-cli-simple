@@ -123,6 +123,14 @@ class Configuration implements ConfigurationInterface
     protected $databases;
 
     /**
+     * ArrayCollection with the information of the configured loggers.
+     *
+     * @var \Doctrine\Common\Collections\ArrayCollection
+     * @Type("ArrayCollection<TechDivision\Import\Cli\Configuration\Logger>")
+     */
+    protected $loggers;
+
+    /**
      * ArrayCollection with the information of the configured operations.
      *
      * @var \Doctrine\Common\Collections\ArrayCollection
@@ -682,6 +690,16 @@ class Configuration implements ConfigurationInterface
     public function getOperations()
     {
         return $this->operations;
+    }
+
+    /**
+     * Return's the ArrayCollection with the configured loggers.
+     *
+     * @return \Doctrine\Common\Collections\ArrayCollection The ArrayCollection with the loggers
+     */
+    public function getLoggers()
+    {
+        return $this->loggers;
     }
 
     /**

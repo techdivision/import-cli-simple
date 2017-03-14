@@ -110,6 +110,38 @@ If a value for the commandline option `--db-pdo-dsn` has been specified, the `--
 and the given DSN value will be used for database connection instead. Additionally the credentials, by using the
 `--db-username` and `--db-password` options also needs to be specified.
 
+### Loggers
+
+M2IF uses [Monolog](https://github.com/Seldaek/monolog) to provide the basic logging functionality. Therefore, at 
+least one logger instance is necessary. By default, if no logger has been configured, a system logger will be 
+instanciated, that writes log messages to the error log that has been configured in the `php.ini` file of the used
+PHP installation.
+
+To add additional loggers, or override the default one, the configuration file can be extended like
+
+```json
+"loggers": [
+  {
+    "name": "system",
+    "channel-name": "logger/system",
+    "type": "Monolog\\Logger",
+    "handlers": [
+      {
+        "type": "Monolog\\Handler\\ErrorLogHandler",
+        "params" : [
+          {
+            "message-type" : 0,
+            "log-level" : "debug"
+          }
+        ]
+      }
+    ]
+  }
+]
+```
+
+This will override the system logger, as the name is `system`, and set the default log level to **debug**.
+
 ### Operations
 
 A operation reflects an import command like the `delete` operation and combines the necessary functionality as as 
