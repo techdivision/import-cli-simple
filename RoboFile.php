@@ -138,7 +138,7 @@ class RoboFile extends \Robo\Tasks
 
         // iterate over the source files of the vendor directory and add them to the PHAR archive
         foreach ($finder as $file) {
-            $pharTask->addStripped('vendor/' . $file->getRelativePathname(), $file->getRealPath());
+            $pharTask->addFile('vendor/' . $file->getRelativePathname(), $file->getRealPath());
         }
 
         // create the PHAR archive

@@ -21,10 +21,14 @@ if (strpos(basename(__FILE__), 'phar')) {
 
 use Symfony\Component\Console\Application;
 use TechDivision\Import\Cli\Command\ImportProductsCommand;
+use TechDivision\Import\Cli\Command\ImportClearPidCommand;
+use TechDivision\Import\Cli\Command\ImportCategoriesCommand;
 
 // initialize the application
 $application = new Application();
 $application->add(new ImportProductsCommand());
+$application->add(new ImportClearPidCommand());
+$application->add(new ImportCategoriesCommand());
 
 // execute the command
 $statusCode = $application->run();
