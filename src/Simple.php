@@ -237,6 +237,18 @@ class Simple implements ApplicationInterface
     }
 
     /**
+     * Query whether or not the system logger with the passed name is available.
+     *
+     * @param string $name The name of the requested system logger
+     *
+     * @return boolean TRUE if the logger with the passed name exists, else FALSE
+     */
+    public function hasSystemLogger($name = LoggerKeys::SYSTEM)
+    {
+        return isset($this->systemLoggers[$name]);
+    }
+
+    /**
      * Return's the array with the system logger instances.
      *
      * @return array The logger instance
@@ -600,7 +612,8 @@ class Simple implements ApplicationInterface
         $status = array(
             RegistryKeys::STATUS => 1,
             RegistryKeys::BUNCHES => 0,
-            RegistryKeys::SOURCE_DIRECTORY => $this->getConfiguration()->getSourceDir()
+            RegistryKeys::SOURCE_DIRECTORY => $this->getConfiguration()->getSourceDir(),
+            RegistryKeys::MISSING_OPTION_VALUES => array()
         );
 
         // append it to the registry

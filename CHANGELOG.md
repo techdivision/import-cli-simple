@@ -1,3 +1,14 @@
+# Version 1.0.0-alpha53
+
+## Bugfixes
+
+* None
+
+## Features
+
+* Add optimised error messages/output
+* Add generic SwiftMailer logging/mail functionality
+
 # Version 1.0.0-alpha52
 
 ## Bugfixes

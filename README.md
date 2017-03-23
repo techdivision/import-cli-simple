@@ -136,6 +136,47 @@ To add additional loggers, or override the default one, the configuration file c
         ]
       }
     ]
+  },
+  {
+    "name": "mail",
+    "channel-name" : "logger/mail",
+    "type" : "Monolog\\Logger",
+    "handlers" : [
+      {
+        "type": "Monolog\\Handler\\SwiftMailerHandler",
+        "params" : [
+          {
+            "log-level" : "error",
+            "bubble" : false
+          }
+        ],
+        "swift-mailer" : {
+          "factory" : "TechDivision\\Import\\Utils\\SwiftMailer\\SmtpTransportMailerFactory",
+          "mailer-factory" : "\\Swift_Mailer",
+          "params" : [
+            {
+              "to" : "info@my-domain.tld",
+              "from" : "info@my-domain.tld",
+              "subject": "Something Went Wrong",
+              "content-type" : "text/plain"
+            }
+          ],
+          "transport" : {
+            "transport-factory" : "\\Swift_SmtpTransport",
+            "params" : [
+              {
+                "smtp-host" : "my-domain.tld",
+                "smtp-port" : 25,
+                "smtp-security" : "tls",
+                "smtp-auth-mode" : "LOGIN",
+                "smtp-username" : "your-username",
+                "smtp-password" : "your-password"
+              }
+            ]
+          }
+        }
+      }
+    ]
   }
 ]
 ```

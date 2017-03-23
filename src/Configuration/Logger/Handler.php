@@ -61,6 +61,15 @@ class Handler implements HandlerConfigurationInterface
     protected $formatter;
 
     /**
+     * The swift mailer logger configuration to use.
+     *
+     * @var \TechDivision\Import\Cli\Configuration\SwiftMailer
+     * @Type("TechDivision\Import\Cli\Configuration\SwiftMailer")
+     * @SerializedName("swift-mailer")
+     */
+    protected $swiftMailer;
+
+    /**
      * Return's the handler's type to use.
      *
      * @return string The type
@@ -78,5 +87,15 @@ class Handler implements HandlerConfigurationInterface
     public function getFormatter()
     {
         return $this->formatter;
+    }
+
+    /**
+     * Return's the swift mailer configuration to use.
+     *
+     * @return TechDivision\Import\Cli\Configuration\SwiftMailer The swift mailer configuration to use
+     */
+    public function getSwiftMailer()
+    {
+        return $this->swiftMailer;
     }
 }
