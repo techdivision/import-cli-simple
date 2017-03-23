@@ -128,7 +128,7 @@ class Configuration implements ConfigurationInterface
      * @var \Doctrine\Common\Collections\ArrayCollection
      * @Type("ArrayCollection<TechDivision\Import\Cli\Configuration\Logger>")
      */
-    protected $loggers;
+    protected $loggers = array();
 
     /**
      * ArrayCollection with the information of the configured operations.

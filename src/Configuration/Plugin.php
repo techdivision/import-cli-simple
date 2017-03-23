@@ -80,6 +80,15 @@ class Plugin implements PluginConfigurationInterface
     protected $utilityClassName;
 
     /**
+     * The swift mailer configuration to use.
+     *
+     * @var \TechDivision\Import\Cli\Configuration\SwiftMailer
+     * @Type("TechDivision\Import\Cli\Configuration\SwiftMailer")
+     * @SerializedName("swift-mailer")
+     */
+    protected $swiftMailer;
+
+    /**
      * Return's the plugin's processor factory type to use.
      *
      * @return string The plugin's processor factory type
@@ -139,5 +148,15 @@ class Plugin implements PluginConfigurationInterface
     public function getSubjects()
     {
         return $this->subjects;
+    }
+
+    /**
+     * Return's the swift mailer configuration to use.
+     *
+     * @return TechDivision\Import\Cli\Configuration\SwiftMailer The swift mailer configuration to use
+     */
+    public function getSwiftMailer()
+    {
+        return $this->swiftMailer;
     }
 }

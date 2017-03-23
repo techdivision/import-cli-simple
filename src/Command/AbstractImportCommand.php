@@ -378,7 +378,10 @@ abstract class AbstractImportCommand extends Command
 
         // append the configured loggers or override the default one
         foreach ($configuration->getLoggers() as $loggerConfiguration) {
-            $loggers[$loggerConfiguration->getName()] = LoggerFactory::factory($loggerConfiguration);
+            // load the factory class that creates the logger instance
+            $loggerFactory = $loggerConfiguration->getFactory();
+            // create the logger instance and add it to the available loggers
+            $loggers[$loggerConfiguration->getName()] = $loggerFactory::factory($loggerConfiguration);
         }
 
         // initialize the registry/import processor

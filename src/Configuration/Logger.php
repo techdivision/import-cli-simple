@@ -70,6 +70,14 @@ class Logger implements LoggerConfigurationInterface
     protected $type;
 
     /**
+     * The factory used to create the logger instance.
+     *
+     * @var string
+     * @Type("string")
+     */
+    protected $factory = 'TechDivision\Import\Cli\Configuration\LoggerFactory';
+
+    /**
      * ArrayCollection with the information of the configured processors.
      *
      * @var \Doctrine\Common\Collections\ArrayCollection
@@ -112,6 +120,16 @@ class Logger implements LoggerConfigurationInterface
     public function getName()
     {
         return $this->name;
+    }
+
+    /**
+     * Return's the factory used to create the logger instance.
+     *
+     * @return string The factory to use
+     */
+    public function getFactory()
+    {
+        return $this->factory;
     }
 
     /**

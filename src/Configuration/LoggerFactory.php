@@ -20,6 +20,8 @@
 
 namespace TechDivision\Import\Cli\Configuration;
 
+use TechDivision\Import\Utils\LoggerKeys;
+use TechDivision\Import\Utils\SwiftMailerKeys;
 use TechDivision\Import\Configuration\LoggerConfigurationInterface;
 
 /**
@@ -56,9 +58,39 @@ class LoggerFactory
         $handlers = array();
         /** @var \TechDivision\Import\Configuration\Logger\HandlerConfigurationInterface $handlerConfiguration */
         foreach ($loggerConfiguration->getHandlers() as $handlerConfiguration) {
-            // initialize the handler node
-            $reflectionClass = new \ReflectionClass($handlerConfiguration->getType());
-            $handler = $reflectionClass->newInstanceArgs($handlerConfiguration->getParams());
+            // query whether or not, we've a swift mailer configuration
+            if ($swiftMailerConfiguration = $handlerConfiguration->getSwiftMailer()) {
+                // load the factory that creates the swift mailer instance
+                $factory = $swiftMailerConfiguration->getFactory();
+                // create the swift mailer instance
+                $swiftMailer = $factory::factory($swiftMailerConfiguration);
+
+                // load the generic logger configuration
+                $bubble = $handlerConfiguration->getParam(LoggerKeys::BUBBLE);
+                $logLevel = $handlerConfiguration->getParam(LoggerKeys::LOG_LEVEL);
+
+                // load sender/receiver configuration
+                $to = $swiftMailerConfiguration->getParam(SwiftMailerKeys::TO);
+                $from = $swiftMailerConfiguration->getParam(SwiftMailerKeys::FROM);
+                $subject = $swiftMailerConfiguration->getParam(SwiftMailerKeys::SUBJECT);
+                $contentType = $swiftMailerConfiguration->getParam(SwiftMailerKeys::CONTENT_TYPE);
+
+                // initialize the message template
+                $message = $swiftMailer->createMessage()
+                    ->setSubject($subject)
+                    ->setFrom($from)
+                    ->setTo($to)
+                    ->setBody('', $contentType);
+
+                // initialize the handler node
+                $reflectionClass = new \ReflectionClass($handlerConfiguration->getType());
+                $handler = $reflectionClass->newInstanceArgs(array($swiftMailer, $message, $logLevel, $bubble));
+
+            } else {
+                // initialize the handler node
+                $reflectionClass = new \ReflectionClass($handlerConfiguration->getType());
+                $handler = $reflectionClass->newInstanceArgs($handlerConfiguration->getParams());
+            }
 
             // if we've a formatter, initialize the formatter also
             if ($formatterConfiguration = $handlerConfiguration->getFormatter()) {
