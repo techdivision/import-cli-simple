@@ -1,3 +1,15 @@
+# Version 1.0.0-alpha54
+
+## Bugfixes
+
+* Fixed issue that JMS docblocks are remove when creating PHAR
+* Fixed issue that autoloader can not be required when using as library
+
+## Features
+
+* None
+
+
 # Version 1.0.0-alpha53
 
 ## Bugfixes
