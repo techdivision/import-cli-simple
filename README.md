@@ -519,7 +519,7 @@ but logs these issues as warnings to the console.
 
 When the debug mode has been enabled, missing attribute option values will **NOT** throw an exception, instead
 they will logged and put on an internal stack. If the [MissingOptionValuesPlugin](https://github.com/techdivision/import#missing-option-values) 
-has been enabled, a CSV file with the missiong option values will be created in the temporary import folder. If 
+has been enabled, a CSV file with the missing option values will be created in the temporary import folder. If 
 a Swift Mailer has been enabled by the plugin configuration, the CSV file will be sent to the given mail addresses.
 
 This will help developers to test imports with partially invalid CSV files which do **NOT** break data consistency.
