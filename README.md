@@ -7,13 +7,53 @@ that provide import functionality for Magento 2. This repository, based on Symfo
 [M2IF](https://github.com/techdivision/import) and provides a command line tool with import functionality for 
 Magento 2 standard CSV files.
 
-To install the package, assuming composer is available, open a console and enter
+### Install as Composer Project
+
+To install the package as a new project, assuming composer is available, open a console and enter
 
 ```sh
 $ composer create-project techdivision/import-cli-simple --no-dev --stability=alpha
 ```
 
 This will clone the repository from the internal Gitlab and install the M2IF, that's all.
+
+### Install as Composer Library
+
+The second option will be the installation as a Composer library. For example, if you want to deliver it with
+your Magento 2 project, simply add
+
+```json
+{
+  "require": {
+    "techdivision/import-cli-simple" : "1.0.0-alpha56"
+  }
+}
+```
+
+to your Magento 2 composer.json file. Then run
+
+```sh
+$ composer update
+```
+
+from your Magento 2 root directory and your're all setup.
+
+### Use as PHAR
+
+The last, but for sure not the worst installation option, is to download the latest PHAR from our 
+[Github](https://github.com/techdivision/import-cli-simple/releases) release page, e. g. with `wget`
+
+```sh
+$ wget https://github.com/techdivision/import-cli-simple/releases/download/1.0.0-alpha56/import-cli-simple.phar
+```
+
+To install globally put `import-cli-simple.phar` in `/usr/bin`, e. g.
+
+```sh
+sudo chmod +x import-cli-simple.phar && mv import-cli-simple.phar /usr/bin/import-cli-simple
+```
+
+Now you can use it just like `import-cli-simple`.
 
 ## Configuration
 
@@ -75,6 +115,7 @@ for the available operations.
   "installation-dir" : "/var/www/magento",
   "utility-class-name" : "TechDivision\\Import\\Utils\\SqlStatements",
   "databases" : [ ... ],
+  "loggers" : [ ... ],
   "operations" : { ... }
 }
 ```
@@ -117,7 +158,8 @@ least one logger instance is necessary. By default, if no logger has been config
 instanciated, that writes log messages to the error log that has been configured in the `php.ini` file of the used
 PHP installation.
 
-To add additional loggers, or override the default one, the configuration file can be extended like
+To add additional loggers, or override the default one with name `system, the configuration file can be extended 
+like
 
 ```json
 "loggers": [
@@ -473,8 +515,14 @@ The debug mode provides a more detailed logging output, by automatically setting
 * product links (related, upsell, crosssell, etc.) for SKUs which are **NOT** available
 * configurable products for SKUs which are **NOT** available or available more than one time
 
-but logs these issues as warnings to the console. This will help developers to test imports with partially
-invalid CSV files which do **NOT** break data consistency.
+but logs these issues as warnings to the console.
+
+When the debug mode has been enabled, missing attribute option values will **NOT** throw an exception, instead
+they will logged and put on an internal stack. If the [MissingOptionValuesPlugin](https://github.com/techdivision/import#missing-option-values) 
+has been enabled, a CSV file will be created in the temporary import folder. If a Swift Mailer has been enabled 
+by the plugin configuration, the CSV file will be sent to the given mail addresses.
+
+This will help developers to test imports with partially invalid CSV files which do **NOT** break data consistency.
 
 ## Running Parallel Imports
 
