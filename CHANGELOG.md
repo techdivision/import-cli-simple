@@ -1,3 +1,13 @@
+# Version 1.0.0-alpha56
+
+## Bugfixes
+
+* None
+
+## Features
+
+* Add Swift Mailer configuration for logger and MissingOptionValuesPlugin
+
 # Version 1.0.0-alpha55
 
 ## Bugfixes

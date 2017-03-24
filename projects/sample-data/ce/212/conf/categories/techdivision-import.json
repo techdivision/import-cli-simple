@@ -21,6 +21,39 @@
       "password": "appserver.i0"
     }
   ],
+  "loggers": [
+    {
+      "name": "mail",
+      "channel-name" : "logger/mail",
+      "type" : "Monolog\\Logger",
+      "handlers" : [
+        {
+          "type": "Monolog\\Handler\\SwiftMailerHandler",
+          "params" : [
+            {
+              "log-level" : "error",
+              "bubble" : false
+            }
+          ],
+          "swift-mailer" : {
+            "factory" : "TechDivision\\Import\\Utils\\SwiftMailer\\SendmailTransportMailerFactory",
+            "mailer-factory" : "\\Swift_Mailer",
+            "params" : [
+              {
+                "to" : "tw@appserver.io",
+                "from" : "tw@appserver.io",
+                "subject": "Importer Error",
+                "content-type" : "text/plain"
+              }
+            ],
+            "transport" : {
+              "transport-factory" : "\\Swift_SendmailTransport"
+            }
+          }
+        }
+      ]
+    }
+  ],
   "operations" : [
     {
       "name" : "delete",
