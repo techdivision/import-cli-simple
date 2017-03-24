@@ -1,3 +1,13 @@
+# Version 1.0.0-alpha55
+
+## Bugfixes
+
+* Fixed path to JMS serializer annotation for Doctrine AnnotationRegistry
+
+## Features
+
+* None
+
 # Version 1.0.0-alpha54
 
 ## Bugfixes
@@ -8,7 +18,6 @@
 ## Features
 
 * None
-
 
 # Version 1.0.0-alpha53
 

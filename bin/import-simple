@@ -4,8 +4,8 @@
 $loaded = false;
 
 $autoloadFiles = array(
-    __DIR__ . '/../../../autoload.php',
-    __DIR__ . '/../vendor/autoload.php'
+    dirname(__DIR__) . '/../../autoload.php',
+    dirname(__DIR__) . '/vendor/autoload.php'
 );
 
 foreach ($autoloadFiles as $file) {

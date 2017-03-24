@@ -345,11 +345,36 @@ abstract class AbstractImportCommand extends Command
     protected function execute(InputInterface $input, OutputInterface $output)
     {
 
-        // register the JMS Serializer annotations
-        \Doctrine\Common\Annotations\AnnotationRegistry::registerAutoloadNamespace(
-            'JMS\Serializer\Annotation',
-            dirname(__DIR__).'/../vendor/jms/serializer/src'
+        // initialize the flag, whether the JMS annotations has been loaded or not
+        $loaded = false;
+
+        // the possible paths to the JMS annotations
+        $annotationDirectories = array(
+            dirname(__DIR__) . '/../../../jms/serializer/src',
+            dirname(__DIR__) . '/../vendor/jms/serializer/src'
         );
+
+        // register the JMS Serializer annotations
+        foreach ($annotationDirectories as $annotationDirectory) {
+            if (file_exists($annotationDirectory)) {
+                \Doctrine\Common\Annotations\AnnotationRegistry::registerAutoloadNamespace(
+                    'JMS\Serializer\Annotation',
+                    $annotationDirectory
+                );
+                $loaded = true;
+                break;
+            }
+        }
+
+        // stop processing, if the JMS annotations can't be loaded
+        if (!$loaded) {
+            throw new \Exception(
+                sprintf(
+                    'The JMS annotations can not be found in one of paths %s',
+                    implode(', ', $annotationDirectories)
+                )
+            );
+        }
 
         // load the specified configuration
         $configuration = $this->configurationFactory($input);
