@@ -24,7 +24,6 @@ use Rhumsaa\Uuid\Uuid;
 use Psr\Log\LogLevel;
 use Monolog\Logger;
 use Monolog\Handler\ErrorLogHandler;
-use Monolog\Handler\NativeMailerHandler;
 use JMS\Serializer\SerializerBuilder;
 use TechDivision\Import\Utils\LoggerKeys;
 use TechDivision\Import\Cli\Simple;
@@ -38,6 +37,8 @@ use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Input\InputArgument;
+use Symfony\Component\DependencyInjection\ContainerBuilder;
+use Symfony\Component\DependencyInjection\Loader\XmlFileLoader;
 
 /**
  * The abstract import command implementation.
@@ -410,8 +411,8 @@ abstract class AbstractImportCommand extends Command
         }
 
         // initialize the registry/import processor
-        $registryProcessor = RegistryProcessorFactory::factory($connection, $configuration);
-        $importProcessor = ImportProcessorFactory::factory($connection, $configuration);
+        $registryProcessor = $container->get('registry.processor');
+        $importProcessor = $container->get('import.processor');
 
         // initialize the importer
         $importer = new Simple(

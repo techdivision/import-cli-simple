@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<container xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+    
+    <parameters>
+        <parameter key="pdo.username">appserver</parameter>
+        <parameter key="pdo.password">appserver.i0</parameter>
+        <parameter key="pdo.dsn">mysql:host=127.0.0.1;dbname=appserver_magento2_ce212;charset=utf8</parameter>
+        <parameter key="utility.class.name">TechDivision\Import\Utils\SqlStatements</parameter>
+        <parameter key="application.name">M2IF - Simple Console Tool</parameter>
+        <parameter key="application.version">1.0.0-alpha56</parameter>
+    </parameters>
+
+    <services>
+
+        <service id="connection" class="\PDO">
+            <argument>%pdo.dsn%</argument>
+            <argument>%pdo.username%</argument>
+            <argument>%pdo.password%</argument>
+        </service>
+
+        <service id="core.config.data.uid.generator" class="TechDivision\Import\Utils\Generators\CoreConfigDataUidGenerator"/>
+
+        <service id="category.repository" class="TechDivision\Import\Repositories\CategoryRepository">
+            <argument type="service" id="connection"/>
+            <argument>%utility.class.name%</argument>
+        </service>
+        <service id="category.varchar.repository" class="TechDivision\Import\Repositories\CategoryVarcharRepository">
+            <argument type="service" id="connection"/>
+            <argument>%utility.class.name%</argument>
+        </service>
+        <service id="eav.attribute.repository" class="TechDivision\Import\Repositories\EavAttributeRepository">
+            <argument type="service" id="connection"/>
+            <argument>%utility.class.name%</argument>
+        </service>
+        <service id="eav.attribute.set.repository" class="TechDivision\Import\Repositories\EavAttributeSetRepository">
+            <argument type="service" id="connection"/>
+            <argument>%utility.class.name%</argument>
+        </service>
+        <service id="eav.entity.type.repository" class="TechDivision\Import\Repositories\EavEntityTypeRepository">
+            <argument type="service" id="connection"/>
+            <argument>%utility.class.name%</argument>
+        </service>
+        <service id="store.repository" class="TechDivision\Import\Repositories\StoreRepository">
+            <argument type="service" id="connection"/>
+            <argument>%utility.class.name%</argument>
+        </service>
+        <service id="store.website.repository" class="TechDivision\Import\Repositories\StoreWebsiteRepository">
+            <argument type="service" id="connection"/>
+            <argument>%utility.class.name%</argument>
+        </service>
+        <service id="tax.class.repository" class="TechDivision\Import\Repositories\TaxClassRepository">
+            <argument type="service" id="connection"/>
+            <argument>%utility.class.name%</argument>
+        </service>
+        <service id="link.type.repository" class="TechDivision\Import\Repositories\LinkTypeRepository">
+            <argument type="service" id="connection"/>
+            <argument>%utility.class.name%</argument>
+        </service>
+        <service id="link.attribute.repository" class="TechDivision\Import\Repositories\LinkAttributeRepository">
+            <argument type="service" id="connection"/>
+            <argument>%utility.class.name%</argument>
+        </service>
+        <service id="core.config.data.repository" class="TechDivision\Import\Repositories\CoreConfigDataRepository">
+            <argument type="service" id="core.config.data.uid.generator"/>
+            <argument type="service" id="connection"/>
+            <argument>%utility.class.name%</argument>
+        </service>
+        
+        <service id="category.assembler" class="TechDivision\Import\Assembler\CategoryAssembler">
+            <argument type="service" id="category.repository"/>
+            <argument type="service" id="category.varchar.repository"/>
+        </service>
+
+        <service id="import.processor" class="TechDivision\Import\Services\ImportProcessor">
+            <argument type="service" id="connection"/>
+            <argument type="service" id="category.assembler"/>
+            <argument type="service" id="category.repository"/>
+            <argument type="service" id="category.varchar.repository"/>
+            <argument type="service" id="eav.attribute.repository"/>
+            <argument type="service" id="eav.attribute.set.repository"/>
+            <argument type="service" id="eav.entity.type.repository"/>
+            <argument type="service" id="store.repository"/>
+            <argument type="service" id="store.website.repository"/>
+            <argument type="service" id="tax.class.repository"/>
+            <argument type="service" id="link.type.repository"/>
+            <argument type="service" id="link.attribute.repository"/>
+            <argument type="service" id="core.config.data.repository"/>
+        </service>
+
+        <service id="registry.processor" class="TechDivision\Import\Services\RegistryProcessor"/>
+        
+        <service id="application" class="TechDivision\Import\Cli\Simple">
+            <argument>%application.name%</argument>
+            <argument>%application.version%</argument>
+            <argument type="service" id="container"/>
+            <argument type="service" id="registry.processor"/>
+            <argument type="service" id="import.processor"/>
+        </service>
+        
+    </services>
+
+</container>

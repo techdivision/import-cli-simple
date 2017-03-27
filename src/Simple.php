@@ -23,6 +23,7 @@ namespace TechDivision\Import\Cli;
 use Rhumsaa\Uuid\Uuid;
 use Monolog\Logger;
 use Psr\Log\LogLevel;
+use Symfony\Component\Console\Application;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Helper\FormatterHelper;
@@ -35,6 +36,7 @@ use TechDivision\Import\Services\ImportProcessorInterface;
 use TechDivision\Import\Services\RegistryProcessorInterface;
 use TechDivision\Import\Cli\Exceptions\LineNotFoundException;
 use TechDivision\Import\Cli\Exceptions\FileNotFoundException;
+use Symfony\Component\DependencyInjection\TaggedContainerInterface;
 
 /**
  * The M2IF - Console Tool implementation.
@@ -48,7 +50,7 @@ use TechDivision\Import\Cli\Exceptions\FileNotFoundException;
  * @link      https://github.com/techdivision/import-cli-simple
  * @link      http://www.techdivision.com
  */
-class Simple implements ApplicationInterface
+class Simple extends Application implements ApplicationInterface
 {
 
     /**
@@ -158,16 +160,29 @@ class Simple implements ApplicationInterface
     protected $stopped = false;
 
     /**
+     * The DI container builder instance.
+     *
+     * @var \Symfony\Component\DependencyInjection\TaggedContainerInterface
+     */
+    protected $container;
+
+    /**
      * The constructor to initialize the instance.
      *
-     * @param \TechDivision\Import\Services\RegistryProcessorInterface $registryProcessor The registry processor instance
-     * @param \TechDivision\Import\Services\ImportProcessorInterface   $importProcessor   The import processor instance
-     * @param \TechDivision\Import\ConfigurationInterface              $configuration     The system configuration
-     * @param \Symfony\Component\Console\Input\InputInterface          $input             An InputInterface instance
-     * @param \Symfony\Component\Console\Output\OutputInterface        $output            An OutputInterface instance
-     * @param array                                                    $systemLoggers     The array with the system logger instances
+     * @param string                                                          $name              The application name
+     * @param string                                                          $version           The application version
+     * @param \Symfony\Component\DependencyInjection\TaggedContainerInterface $container         The DI container builder instance
+     * @param \TechDivision\Import\Services\RegistryProcessorInterface        $registryProcessor The registry processor instance
+     * @param \TechDivision\Import\Services\ImportProcessorInterface          $importProcessor   The import processor instance
+     * @param \TechDivision\Import\ConfigurationInterface                     $configuration     The system configuration
+     * @param \Symfony\Component\Console\Input\InputInterface                 $input             An InputInterface instance
+     * @param \Symfony\Component\Console\Output\OutputInterface               $output            An OutputInterface instance
+     * @param array                                                           $systemLoggers     The array with the system logger instances
      */
     public function __construct(
+        $name = 'UNKNOWN',
+        $version = 'UNKNOWN',
+        TaggedContainerInterface $container,
         RegistryProcessorInterface $registryProcessor,
         ImportProcessorInterface $importProcessor,
         ConfigurationInterface $configuration,
@@ -176,16 +191,23 @@ class Simple implements ApplicationInterface
         array $systemLoggers
     ) {
 
+        // invoke parent constructor
+        parent::__construct($name, $version);
+
         // register the shutdown function
         register_shutdown_function(array($this, 'shutdown'));
 
         // initialize the values
+        $this->container = $container;
+
+        /*
         $this->registryProcessor = $registryProcessor;
         $this->importProcessor = $importProcessor;
         $this->configuration = $configuration;
         $this->input = $input;
         $this->output = $output;
         $this->systemLoggers = $systemLoggers;
+        */
     }
 
     /**
