@@ -1,3 +1,13 @@
+# Version 1.0.0-alpha57
+
+## Bugfixes
+
+* None
+
+## Features
+
+* Refactor Import + RegistryProcessor initialization
+
 # Version 1.0.0-alpha56
 
 ## Bugfixes

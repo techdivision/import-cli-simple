@@ -21,7 +21,6 @@
 namespace TechDivision\Import\Cli\Configuration\Logger;
 
 use JMS\Serializer\Annotation\Type;
-use JMS\Serializer\Annotation\SerializedName;
 use TechDivision\Import\Cli\Configuration\ParamsTrait;
 use TechDivision\Import\Configuration\Logger\FormatterConfigurationInterface;
 
