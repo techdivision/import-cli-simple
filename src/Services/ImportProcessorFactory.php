@@ -63,89 +63,68 @@ class ImportProcessorFactory
         $utilityClassName = $configuration->getUtilityClassName();
 
         // initialize the repository that provides category query functionality
-        $categoryRepository = new CategoryRepository();
-        $categoryRepository->setUtilityClassName($utilityClassName);
-        $categoryRepository->setConnection($connection);
+        $categoryRepository = new CategoryRepository($connection, $utilityClassName);
         $categoryRepository->init();
 
         // initialize the repository that provides category varchar value query functionality
-        $categoryVarcharRepository = new CategoryVarcharRepository();
-        $categoryVarcharRepository->setUtilityClassName($utilityClassName);
-        $categoryVarcharRepository->setConnection($connection);
+        $categoryVarcharRepository = new CategoryVarcharRepository($connection, $utilityClassName);
         $categoryVarcharRepository->init();
 
         // initialize the repository that provides EAV attribute query functionality
-        $eavAttributeRepository = new EavAttributeRepository();
-        $eavAttributeRepository->setUtilityClassName($utilityClassName);
-        $eavAttributeRepository->setConnection($connection);
+        $eavAttributeRepository = new EavAttributeRepository($connection, $utilityClassName);
         $eavAttributeRepository->init();
 
         // initialize the repository that provides EAV attribute set query functionality
-        $eavAttributeSetRepository = new EavAttributeSetRepository();
-        $eavAttributeSetRepository->setUtilityClassName($utilityClassName);
-        $eavAttributeSetRepository->setConnection($connection);
+        $eavAttributeSetRepository = new EavAttributeSetRepository($connection, $utilityClassName);
         $eavAttributeSetRepository->init();
 
         // initialize the repository that provides EAV entity type query functionality
-        $eavEntityTypeRepository = new EavEntityTypeRepository();
-        $eavEntityTypeRepository->setUtilityClassName($utilityClassName);
-        $eavEntityTypeRepository->setConnection($connection);
+        $eavEntityTypeRepository = new EavEntityTypeRepository($connection, $utilityClassName);
         $eavEntityTypeRepository->init();
 
         // initialize the repository that provides store query functionality
-        $storeRepository = new StoreRepository();
-        $storeRepository->setUtilityClassName($utilityClassName);
-        $storeRepository->setConnection($connection);
+        $storeRepository = new StoreRepository($connection, $utilityClassName);
         $storeRepository->init();
 
         // initialize the repository that provides store website query functionality
-        $storeWebsiteRepository = new StoreWebsiteRepository();
-        $storeWebsiteRepository->setUtilityClassName($utilityClassName);
-        $storeWebsiteRepository->setConnection($connection);
+        $storeWebsiteRepository = new StoreWebsiteRepository($connection, $utilityClassName);
         $storeWebsiteRepository->init();
 
         // initialize the repository that provides tax class query functionality
-        $taxClassRepository = new TaxClassRepository();
-        $taxClassRepository->setUtilityClassName($utilityClassName);
-        $taxClassRepository->setConnection($connection);
+        $taxClassRepository = new TaxClassRepository($connection, $utilityClassName);
         $taxClassRepository->init();
 
         // initialize the repository that provides link type query functionality
-        $linkTypeRepository = new LinkTypeRepository();
-        $linkTypeRepository->setUtilityClassName($utilityClassName);
-        $linkTypeRepository->setConnection($connection);
+        $linkTypeRepository = new LinkTypeRepository($connection, $utilityClassName);
         $linkTypeRepository->init();
 
         // initialize the repository that provides link attribute query functionality
-        $linkAttributeRepository = new LinkAttributeRepository();
-        $linkAttributeRepository->setUtilityClassName($utilityClassName);
-        $linkAttributeRepository->setConnection($connection);
+        $linkAttributeRepository = new LinkAttributeRepository($connection, $utilityClassName);
         $linkAttributeRepository->init();
 
         // initialize the repository that provides core config data functionality
-        $coreConfigDataRepository = new CoreConfigDataRepository(new CoreConfigDataUidGenerator());
-        $coreConfigDataRepository->setUtilityClassName($utilityClassName);
-        $coreConfigDataRepository->setConnection($connection);
+        $coreConfigDataRepository = new CoreConfigDataRepository(new CoreConfigDataUidGenerator(), $connection, $utilityClassName);
         $coreConfigDataRepository->init();
 
         // initialize the category assembler
         $categoryAssembler = new CategoryAssembler($categoryRepository, $categoryVarcharRepository);
 
         // initialize the import processor
-        $importProcessor = new ImportProcessor();
-        $importProcessor->setConnection($connection);
-        $importProcessor->setCategoryRepository($categoryRepository);
-        $importProcessor->setCategoryVarcharRepository($categoryVarcharRepository);
-        $importProcessor->setEavAttributeRepository($eavAttributeRepository);
-        $importProcessor->setEavAttributeSetRepository($eavAttributeSetRepository);
-        $importProcessor->setEavEntityTypeRepository($eavEntityTypeRepository);
-        $importProcessor->setStoreRepository($storeRepository);
-        $importProcessor->setStoreWebsiteRepository($storeWebsiteRepository);
-        $importProcessor->setTaxClassRepository($taxClassRepository);
-        $importProcessor->setLinkTypeRepository($linkTypeRepository);
-        $importProcessor->setLinkAttributeRepository($linkAttributeRepository);
-        $importProcessor->setCoreConfigDataRepository($coreConfigDataRepository);
-        $importProcessor->setCategoryAssembler($categoryAssembler);
+        $importProcessor = new ImportProcessor(
+            $connection,
+            $categoryAssembler,
+            $categoryRepository,
+            $categoryVarcharRepository,
+            $eavAttributeRepository,
+            $eavAttributeSetRepository,
+            $eavEntityTypeRepository,
+            $storeRepository,
+            $storeWebsiteRepository,
+            $taxClassRepository,
+            $linkTypeRepository,
+            $linkAttributeRepository,
+            $coreConfigDataRepository
+        );
 
         // return the initialize import processor instance
         return $importProcessor;
