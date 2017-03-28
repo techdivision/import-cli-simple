@@ -50,7 +50,7 @@ use Symfony\Component\DependencyInjection\TaggedContainerInterface;
  * @link      https://github.com/techdivision/import-cli-simple
  * @link      http://www.techdivision.com
  */
-class Simple extends Application implements ApplicationInterface
+class Simple implements ApplicationInterface
 {
 
     /**
@@ -125,18 +125,18 @@ class Simple extends Application implements ApplicationInterface
     protected $importProcessor;
 
     /**
+     * The DI container builder instance.
+     *
+     * @var \Symfony\Component\DependencyInjection\TaggedContainerInterface
+     */
+    protected $container;
+
+    /**
      * The system configuration.
      *
      * @var \TechDivision\Import\ConfigurationInterface
      */
     protected $configuration;
-
-    /**
-     * The input stream to read console information from.
-     *
-     * @var \Symfony\Component\Console\Input\InputInterface
-     */
-    protected $input;
 
     /**
      * The output stream to write console information to.
@@ -160,19 +160,11 @@ class Simple extends Application implements ApplicationInterface
     protected $stopped = false;
 
     /**
-     * The DI container builder instance.
-     *
-     * @var \Symfony\Component\DependencyInjection\TaggedContainerInterface
-     */
-    protected $container;
-
-    /**
      * The constructor to initialize the instance.
      *
      * @param \TechDivision\Import\Services\RegistryProcessorInterface        $registryProcessor The registry processor instance
      * @param \TechDivision\Import\Services\ImportProcessorInterface          $importProcessor   The import processor instance
      * @param \TechDivision\Import\ConfigurationInterface                     $configuration     The system configuration
-     * @param \Symfony\Component\Console\Input\InputInterface                 $input             An InputInterface instance
      * @param \Symfony\Component\Console\Output\OutputInterface               $output            An OutputInterface instance
      * @param array                                                           $systemLoggers     The array with the system logger instances
      */
@@ -181,56 +173,142 @@ class Simple extends Application implements ApplicationInterface
         RegistryProcessorInterface $registryProcessor,
         ImportProcessorInterface $importProcessor,
         ConfigurationInterface $configuration,
-        InputInterface $input,
         OutputInterface $output,
         array $systemLoggers
     ) {
 
-        // invoke parent constructor
-        parent::__construct($name, $version);
-
         // register the shutdown function
         register_shutdown_function(array($this, 'shutdown'));
 
-        // initialize the values
-        $this->container = $container;
-
-        /*
-        $this->registryProcessor = $registryProcessor;
-        $this->importProcessor = $importProcessor;
-        $this->configuration = $configuration;
-        $this->input = $input;
-        $this->output = $output;
-        $this->systemLoggers = $systemLoggers;
-        */
+        // initialize the instance with the passed values
+        $this->setOutput($output);
+        $this->setContainer($container);
+        $this->setConfiguration($configuration);
+        $this->setSystemLoggers($systemLoggers);
+        $this->setImportProcessor($importProcessor);
+        $this->setRegistryProcessor($registryProcessor);
     }
 
     /**
-     * The shutdown handler to catch fatal errors.
+     * Set's the container instance.
      *
-     * This method is need to make sure, that an existing PID file will be removed
-     * if a fatal error has been triggered.
+     * @return \Symfony\Component\DependencyInjection\TaggedContainerInterface The container instance
      *
      * @return void
      */
-    public function shutdown()
+    public function setContainer(TaggedContainerInterface $container)
     {
+        $this->container = $container;
+    }
 
-        // check if there was a fatal error caused shutdown
-        if ($lastError = error_get_last()) {
-            // initialize error type and message
-            $type = 0;
-            $message = '';
-            // extract the last error values
-            extract($lastError);
-            // query whether we've a fatal/user error
-            if ($type === E_ERROR || $type === E_USER_ERROR) {
-                // clean-up the PID file
-                $this->unlock();
-                // log the fatal error message
-                $this->log($message, LogLevel::ERROR);
-            }
-        }
+    /**
+     * Return's the container instance.
+     *
+     * @return \Symfony\Component\DependencyInjection\TaggedContainerInterface The container instance
+     */
+    public function getContainer()
+    {
+        return $this->container;
+    }
+
+    /**
+     * Set's the output stream to write console information to.
+     *
+     * @param \Symfony\Component\Console\Output\OutputInterface $output The output stream
+     *
+     * @return void
+     */
+    public function setOutput(OutputInterface $output)
+    {
+        $this->output = $output;
+    }
+
+    /**
+     * Return's the output stream to write console information to.
+     *
+     * @return \Symfony\Component\Console\Output\OutputInterface The output stream
+     */
+    public function getOutput()
+    {
+        return $this->output;
+    }
+
+    /**
+     * Set's the system configuration.
+     *
+     * @param \TechDivision\Import\ConfigurationInterface The system configuration
+     *
+     * @return void
+     */
+    public function setConfiguration(ConfigurationInterface $configuration)
+    {
+        $this->configuration = $configuration;
+    }
+
+    /**
+     * Return's the system configuration.
+     *
+     * @return \TechDivision\Import\ConfigurationInterface The system configuration
+     */
+    public function getConfiguration()
+    {
+        return $this->configuration;
+    }
+
+    /**
+     * Set's the RegistryProcessor instance to handle the running threads.
+     *
+     * @param \TechDivision\Import\Services\RegistryProcessor The registry processor instance
+     *
+     * @return void
+     */
+    public function setRegistryProcessor(RegistryProcessorInterface $registryProcessor)
+    {
+        $this->registryProcessor = $registryProcessor;
+    }
+
+    /**
+     * Return's the RegistryProcessor instance to handle the running threads.
+     *
+     * @return \TechDivision\Import\Services\RegistryProcessor The registry processor instance
+     */
+    public function getRegistryProcessor()
+    {
+        return $this->registryProcessor;
+    }
+
+    /**
+     * Set's the import processor instance.
+     *
+     * @param \TechDivision\Import\Services\ImportProcessorInterface The import processor instance
+     *
+     * @return void
+     */
+    public function setImportProcessor(ImportProcessorInterface $importProcessor)
+    {
+        $this->importProcessor = $importProcessor;
+    }
+
+    /**
+     * Return's the import processor instance.
+     *
+     * @return \TechDivision\Import\Services\ImportProcessorInterface The import processor instance
+     */
+    public function getImportProcessor()
+    {
+        return $this->importProcessor;
+    }
+
+    /**
+     * The array with the system loggers.
+     *
+     * @param array $systemLoggers The system logger instances
+     *
+     * @return void
+     */
+    public function setSystemLoggers(array $systemLoggers)
+    {
+        $this->systemLoggers = $systemLoggers;
     }
 
     /**
@@ -276,56 +354,6 @@ class Simple extends Application implements ApplicationInterface
     }
 
     /**
-     * Return's the RegistryProcessor instance to handle the running threads.
-     *
-     * @return \TechDivision\Import\Services\RegistryProcessor The registry processor instance
-     */
-    public function getRegistryProcessor()
-    {
-        return $this->registryProcessor;
-    }
-
-    /**
-     * Return's the import processor instance.
-     *
-     * @return \TechDivision\Import\Services\ImportProcessorInterface The import processor instance
-     */
-    public function getImportProcessor()
-    {
-        return $this->importProcessor;
-    }
-
-    /**
-     * Return's the system configuration.
-     *
-     * @return \TechDivision\Import\ConfigurationInterface The system configuration
-     */
-    public function getConfiguration()
-    {
-        return $this->configuration;
-    }
-
-    /**
-     * Return's the input stream to read console information from.
-     *
-     * @return \Symfony\Component\Console\Input\InputInterface An IutputInterface instance
-     */
-    public function getInput()
-    {
-        return $this->input;
-    }
-
-    /**
-     * Return's the output stream to write console information to.
-     *
-     * @return \Symfony\Component\Console\Output\OutputInterface An OutputInterface instance
-     */
-    public function getOutput()
-    {
-        return $this->output;
-    }
-
-    /**
      * Return's the unique serial for this import process.
      *
      * @return string The unique serial
@@ -333,6 +361,34 @@ class Simple extends Application implements ApplicationInterface
     public function getSerial()
     {
         return $this->serial;
+    }
+
+    /**
+     * The shutdown handler to catch fatal errors.
+     *
+     * This method is need to make sure, that an existing PID file will be removed
+     * if a fatal error has been triggered.
+     *
+     * @return void
+     */
+    public function shutdown()
+    {
+
+        // check if there was a fatal error caused shutdown
+        if ($lastError = error_get_last()) {
+            // initialize error type and message
+            $type = 0;
+            $message = '';
+            // extract the last error values
+            extract($lastError);
+            // query whether we've a fatal/user error
+            if ($type === E_ERROR || $type === E_USER_ERROR) {
+                // clean-up the PID file
+                $this->unlock();
+                // log the fatal error message
+                $this->log($message, LogLevel::ERROR);
+            }
+        }
     }
 
     /**

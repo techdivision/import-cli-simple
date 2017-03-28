@@ -1,7 +1,7 @@
 <?php
 
 /**
- * TechDivision\Import\Cli\Console\SimpleApplication
+ * TechDivision\Import\Cli\Application
  *
  * NOTICE OF LICENSE
  *
@@ -18,9 +18,9 @@
  * @link      http://www.techdivision.com
  */
 
-namespace TechDivision\Import\Cli\Console;
+namespace TechDivision\Import\Cli;
 
-use Symfony\Component\Console\Application;
+use Symfony\Component\DependencyInjection\TaggedContainerInterface;
 
 /**
  * The M2IF - Console Tool implementation.
@@ -34,16 +34,50 @@ use Symfony\Component\Console\Application;
  * @link      https://github.com/techdivision/import-cli-simple
  * @link      http://www.techdivision.com
  */
-class SimpleApplication extends Application
+class Application extends \Symfony\Component\Console\Application
 {
 
+    /**
+     * The application name.
+     *
+     * @var string
+     */
+    protected $name = 'M2IF - Simple Console Tool';
+
+    /**
+     * The application version.
+     *
+     * @var string
+     */
+    protected $version = '1.0.0-alpha';
+
+    /**
+     * The DI container builder instance.
+     *
+     * @var \Symfony\Component\DependencyInjection\TaggedContainerInterface
+     */
     protected $container;
 
-    public function __construct($container)
+    /**
+     * The constructor to initialize the instance.
+     *
+     * @param \Symfony\Component\DependencyInjection\TaggedContainerInterface The container instance
+     */
+    public function __construct(TaggedContainerInterface $container)
     {
+
+        // invoke the parent constructor
+        parent::__construct($this->name, $this->version);
+
+        // set the container instance
         $this->container = $container;
     }
 
+    /**
+     * Return's the container instance.
+     *
+     * @return \Symfony\Component\DependencyInjection\TaggedContainerInterface The container instance
+     */
     public function getContainer()
     {
         return $this->container;
