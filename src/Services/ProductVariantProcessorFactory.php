@@ -75,99 +75,59 @@ class ProductVariantProcessorFactory extends AbstractProductProcessorFactory
         $utilityClassName = $configuration->getUtilityClassName();
 
         // initialize the repository that provides EAV attribute query functionality
-        $eavAttributeRepository = new EavAttributeRepository();
-        $eavAttributeRepository->setUtilityClassName($utilityClassName);
-        $eavAttributeRepository->setConnection($connection);
-        $eavAttributeRepository->init();
+        $eavAttributeRepository = new EavAttributeRepository($connection, $utilityClassName);
 
         // initialize the repository that provides EAV attribute option value query functionality
-        $eavAttributeOptionValueRepository = new EavAttributeOptionValueRepository();
-        $eavAttributeOptionValueRepository->setUtilityClassName($utilityClassName);
-        $eavAttributeOptionValueRepository->setConnection($connection);
-        $eavAttributeOptionValueRepository->init();
+        $eavAttributeOptionValueRepository = new EavAttributeOptionValueRepository($connection, $utilityClassName);
 
         // initialize the repository that provides product relation query functionality
-        $productRelationRepository = new ProductRelationRepository();
-        $productRelationRepository->setUtilityClassName($utilityClassName);
-        $productRelationRepository->setConnection($connection);
-        $productRelationRepository->init();
+        $productRelationRepository = new ProductRelationRepository($connection, $utilityClassName);
 
         // initialize the repository that provides product super link query functionality
-        $productSuperLinkRepository = new ProductSuperLinkRepository();
-        $productSuperLinkRepository->setUtilityClassName($utilityClassName);
-        $productSuperLinkRepository->setConnection($connection);
-        $productSuperLinkRepository->init();
+        $productSuperLinkRepository = new ProductSuperLinkRepository($connection, $utilityClassName);
 
         // initialize the repository that provides product super attribute query functionality
-        $productSuperAttributeRepository = new ProductSuperAttributeRepository();
-        $productSuperAttributeRepository->setUtilityClassName($utilityClassName);
-        $productSuperAttributeRepository->setConnection($connection);
-        $productSuperAttributeRepository->init();
+        $productSuperAttributeRepository = new ProductSuperAttributeRepository($connection, $utilityClassName);
 
         // initialize the repository that provides product super attribute label query functionality
-        $productSuperAttributeLabelRepository = new ProductSuperAttributeLabelRepository();
-        $productSuperAttributeLabelRepository->setUtilityClassName($utilityClassName);
-        $productSuperAttributeLabelRepository->setConnection($connection);
-        $productSuperAttributeLabelRepository->init();
+        $productSuperAttributeLabelRepository = new ProductSuperAttributeLabelRepository($connection, $utilityClassName);
 
         // initialize the action that provides product relation CRUD functionality
-        $productRelationCreateProcessor = new ProductRelationCreateProcessor();
-        $productRelationCreateProcessor->setUtilityClassName($utilityClassName);
-        $productRelationCreateProcessor->setConnection($connection);
-        $productRelationCreateProcessor->init();
-        $productRelationAction = new ProductRelationAction();
-        $productRelationAction->setCreateProcessor($productRelationCreateProcessor);
+        $productRelationAction = new ProductRelationAction(
+            new ProductRelationCreateProcessor($connection, $utilityClassName)
+        );
 
         // initialize the action that provides product super attribute CRUD functionality
-        $productSuperAttributeCreateProcessor = new ProductSuperAttributeCreateProcessor();
-        $productSuperAttributeCreateProcessor->setUtilityClassName($utilityClassName);
-        $productSuperAttributeCreateProcessor->setConnection($connection);
-        $productSuperAttributeCreateProcessor->init();
-        $productSuperAttributeUpdateProcessor = new ProductSuperAttributeUpdateProcessor();
-        $productSuperAttributeUpdateProcessor->setUtilityClassName($utilityClassName);
-        $productSuperAttributeUpdateProcessor->setConnection($connection);
-        $productSuperAttributeUpdateProcessor->init();
-        $productSuperAttributeAction = new ProductSuperAttributeAction();
-        $productSuperAttributeAction->setCreateProcessor($productSuperAttributeCreateProcessor);
-        $productSuperAttributeAction->setUpdateProcessor($productSuperAttributeUpdateProcessor);
+        $productSuperAttributeAction = new ProductSuperAttributeAction(
+            new ProductSuperAttributeCreateProcessor($connection, $utilityClassName),
+            new ProductSuperAttributeUpdateProcessor($connection, $utilityClassName)
+        );
 
         // initialize the action that provides product super attribute label CRUD functionality
-        $productSuperAttributeLabelCreateProcessor = new ProductSuperAttributeLabelCreateProcessor();
-        $productSuperAttributeLabelCreateProcessor->setUtilityClassName($utilityClassName);
-        $productSuperAttributeLabelCreateProcessor->setConnection($connection);
-        $productSuperAttributeLabelCreateProcessor->init();
-        $productSuperAttributeLabelUpdateProcessor = new ProductSuperAttributeLabelUpdateProcessor();
-        $productSuperAttributeLabelUpdateProcessor->setUtilityClassName($utilityClassName);
-        $productSuperAttributeLabelUpdateProcessor->setConnection($connection);
-        $productSuperAttributeLabelUpdateProcessor->init();
-        $productSuperAttributeLabelAction = new ProductSuperAttributeLabelAction();
-        $productSuperAttributeLabelAction->setCreateProcessor($productSuperAttributeLabelCreateProcessor);
-        $productSuperAttributeLabelAction->setUpdateProcessor($productSuperAttributeLabelUpdateProcessor);
+        $productSuperAttributeLabelAction = new ProductSuperAttributeLabelAction(
+            new ProductSuperAttributeLabelCreateProcessor($connection, $utilityClassName),
+            new ProductSuperAttributeLabelUpdateProcessor($connection, $utilityClassName)
+        );
 
         // initialize the action that provides product super link CRUD functionality
-        $productSuperLinkCreateProcessor = new ProductSuperLinkCreateProcessor();
-        $productSuperLinkCreateProcessor->setUtilityClassName($utilityClassName);
-        $productSuperLinkCreateProcessor->setConnection($connection);
-        $productSuperLinkCreateProcessor->init();
-        $productSuperLinkAction = new ProductSuperLinkAction();
-        $productSuperLinkAction->setCreateProcessor($productSuperLinkCreateProcessor);
+        $productSuperLinkAction = new ProductSuperLinkAction(
+            new ProductSuperLinkCreateProcessor($connection, $utilityClassName)
+        );
 
-        // initialize the product variant processor
+        // initialize and return the product variant processor
         $processorType = static::getProcessorType();
-        $productVariantProcessor = new $processorType();
-        $productVariantProcessor->setConnection($connection);
-        $productVariantProcessor->setEavAttributeOptionValueRepository($eavAttributeOptionValueRepository);
-        $productVariantProcessor->setEavAttributeRepository($eavAttributeRepository);
-        $productVariantProcessor->setProductRelationRepository($productRelationRepository);
-        $productVariantProcessor->setProductSuperLinkRepository($productSuperLinkRepository);
-        $productVariantProcessor->setProductSuperAttributeRepository($productSuperAttributeRepository);
-        $productVariantProcessor->setProductSuperAttributeLabelRepository($productSuperAttributeLabelRepository);
-        $productVariantProcessor->setProductRelationAction($productRelationAction);
-        $productVariantProcessor->setProductSuperLinkAction($productSuperLinkAction);
-        $productVariantProcessor->setProductSuperAttributeAction($productSuperAttributeAction);
-        $productVariantProcessor->setProductSuperAttributeLabelAction($productSuperAttributeLabelAction);
-
-        // return the instance
-        return $productVariantProcessor;
+        return new $processorType(
+            $connection,
+            $eavAttributeOptionValueRepository,
+            $eavAttributeRepository,
+            $productRelationRepository,
+            $productSuperLinkRepository,
+            $productSuperAttributeRepository,
+            $productSuperAttributeLabelRepository,
+            $productRelationAction,
+            $productSuperLinkAction,
+            $productSuperAttributeAction,
+            $productSuperAttributeLabelAction
+        );
     }
 }

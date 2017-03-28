@@ -115,307 +115,156 @@ class ProductBunchProcessorFactory extends AbstractProductProcessorFactory
         $utilityClassName = $configuration->getUtilityClassName();
 
         // initialize the repository that provides EAV attribute option value query functionality
-        $eavAttributeOptionValueRepository = new EavAttributeOptionValueRepository();
-        $eavAttributeOptionValueRepository->setUtilityClassName($utilityClassName);
-        $eavAttributeOptionValueRepository->setConnection($connection);
-        $eavAttributeOptionValueRepository->init();
+        $eavAttributeOptionValueRepository = new EavAttributeOptionValueRepository($connection, $utilityClassName);
 
         // initialize the repository that provides EAV attribute query functionality
-        $eavAttributeRepository = new EavAttributeRepository();
-        $eavAttributeRepository->setUtilityClassName($utilityClassName);
-        $eavAttributeRepository->setConnection($connection);
-        $eavAttributeRepository->init();
+        $eavAttributeRepository = new EavAttributeRepository($connection, $utilityClassName);
 
         // initialize the repository that provides product query functionality
-        $productRepository = new ProductRepository();
-        $productRepository->setUtilityClassName($utilityClassName);
-        $productRepository->setConnection($connection);
-        $productRepository->init();
+        $productRepository = new ProductRepository($connection, $utilityClassName);
 
         // initialize the repository that provides product website relation query functionality
-        $productWebsiteRepository = new ProductWebsiteRepository();
-        $productWebsiteRepository->setUtilityClassName($utilityClassName);
-        $productWebsiteRepository->setConnection($connection);
-        $productWebsiteRepository->init();
+        $productWebsiteRepository = new ProductWebsiteRepository($connection, $utilityClassName);
 
         // initialize the repository that provides product datetime attribute query functionality
-        $productDatetimeRepository = new ProductDatetimeRepository();
-        $productDatetimeRepository->setUtilityClassName($utilityClassName);
-        $productDatetimeRepository->setConnection($connection);
-        $productDatetimeRepository->init();
+        $productDatetimeRepository = new ProductDatetimeRepository($connection, $utilityClassName);
 
         // initialize the repository that provides product decimal attribute query functionality
-        $productDecimalRepository = new ProductDecimalRepository();
-        $productDecimalRepository->setUtilityClassName($utilityClassName);
-        $productDecimalRepository->setConnection($connection);
-        $productDecimalRepository->init();
+        $productDecimalRepository = new ProductDecimalRepository($connection, $utilityClassName);
 
         // initialize the repository that provides product integer attribute query functionality
-        $productIntRepository = new ProductIntRepository();
-        $productIntRepository->setUtilityClassName($utilityClassName);
-        $productIntRepository->setConnection($connection);
-        $productIntRepository->init();
+        $productIntRepository = new ProductIntRepository($connection, $utilityClassName);
 
         // initialize the repository that provides product text attribute query functionality
-        $productTextRepository = new ProductTextRepository();
-        $productTextRepository->setUtilityClassName($utilityClassName);
-        $productTextRepository->setConnection($connection);
-        $productTextRepository->init();
+        $productTextRepository = new ProductTextRepository($connection, $utilityClassName);
 
         // initialize the repository that provides product varchar attribute query functionality
-        $productVarcharRepository = new ProductVarcharRepository();
-        $productVarcharRepository->setUtilityClassName($utilityClassName);
-        $productVarcharRepository->setConnection($connection);
-        $productVarcharRepository->init();
+        $productVarcharRepository = new ProductVarcharRepository($connection, $utilityClassName);
 
         // initialize the repository that provides category product relation query functionality
-        $categoryProductRepository = new CategoryProductRepository();
-        $categoryProductRepository->setUtilityClassName($utilityClassName);
-        $categoryProductRepository->setConnection($connection);
-        $categoryProductRepository->init();
+        $categoryProductRepository = new CategoryProductRepository($connection, $utilityClassName);
 
         // initialize the repository that provides stock status query functionality
-        $stockStatusRepository = new StockStatusRepository();
-        $stockStatusRepository->setUtilityClassName($utilityClassName);
-        $stockStatusRepository->setConnection($connection);
-        $stockStatusRepository->init();
+        $stockStatusRepository = new StockStatusRepository($connection, $utilityClassName);
 
         // initialize the repository that provides stock item query functionality
-        $stockItemRepository = new StockItemRepository();
-        $stockItemRepository->setUtilityClassName($utilityClassName);
-        $stockItemRepository->setConnection($connection);
-        $stockItemRepository->init();
+        $stockItemRepository = new StockItemRepository($connection, $utilityClassName);
 
         // initialize the repository that provides URL rewrite query functionality
-        $urlRewriteRepository = new UrlRewriteRepository();
-        $urlRewriteRepository->setUtilityClassName($utilityClassName);
-        $urlRewriteRepository->setConnection($connection);
-        $urlRewriteRepository->init();
+        $urlRewriteRepository = new UrlRewriteRepository($connection, $utilityClassName);
 
         // initialize the repository that provides URL rewrite product category query functionality
-        $urlRewriteProductCategoryRepository = new UrlRewriteProductCategoryRepository();
-        $urlRewriteProductCategoryRepository->setUtilityClassName($utilityClassName);
-        $urlRewriteProductCategoryRepository->setConnection($connection);
-        $urlRewriteProductCategoryRepository->init();
+        $urlRewriteProductCategoryRepository = new UrlRewriteProductCategoryRepository($connection, $utilityClassName);
 
         // initialize the action that provides category product relation CRUD functionality
-        $categoryProductCreateProcessor = new CategoryProductCreateProcessor();
-        $categoryProductCreateProcessor->setUtilityClassName($utilityClassName);
-        $categoryProductCreateProcessor->setConnection($connection);
-        $categoryProductCreateProcessor->init();
-        $categoryProductDeleteProcessor = new CategoryProductDeleteProcessor();
-        $categoryProductDeleteProcessor->setUtilityClassName($utilityClassName);
-        $categoryProductDeleteProcessor->setConnection($connection);
-        $categoryProductDeleteProcessor->init();
-        $categoryProductUpdateProcessor = new CategoryProductUpdateProcessor();
-        $categoryProductUpdateProcessor->setUtilityClassName($utilityClassName);
-        $categoryProductUpdateProcessor->setConnection($connection);
-        $categoryProductUpdateProcessor->init();
-        $categoryProductAction = new CategoryProductAction();
-        $categoryProductAction->setCreateProcessor($categoryProductCreateProcessor);
-        $categoryProductAction->setDeleteProcessor($categoryProductDeleteProcessor);
-        $categoryProductAction->setUpdateProcessor($categoryProductUpdateProcessor);
+        $categoryProductAction = new CategoryProductAction(
+            new CategoryProductCreateProcessor($connection, $utilityClassName),
+            new CategoryProductUpdateProcessor($connection, $utilityClassName),
+            new CategoryProductDeleteProcessor($connection, $utilityClassName)
+        );
 
         // initialize the action that provides product datetime attribute CRUD functionality
-        $productDatetimeCreateProcessor = new ProductDatetimeCreateProcessor();
-        $productDatetimeCreateProcessor->setUtilityClassName($utilityClassName);
-        $productDatetimeCreateProcessor->setConnection($connection);
-        $productDatetimeCreateProcessor->init();
-        $productDatetimeUpdateProcessor = new ProductDatetimeUpdateProcessor();
-        $productDatetimeUpdateProcessor->setUtilityClassName($utilityClassName);
-        $productDatetimeUpdateProcessor->setConnection($connection);
-        $productDatetimeUpdateProcessor->init();
-        $productDatetimeAction = new ProductDatetimeAction();
-        $productDatetimeAction->setCreateProcessor($productDatetimeCreateProcessor);
-        $productDatetimeAction->setUpdateProcessor($productDatetimeUpdateProcessor);
+        $productDatetimeAction = new ProductDatetimeAction(
+            new ProductDatetimeCreateProcessor($connection, $utilityClassName),
+            new ProductDatetimeUpdateProcessor($connection, $utilityClassName)
+        );
 
         // initialize the action that provides product decimal attribute CRUD functionality
-        $productDecimalCreateProcessor = new ProductDecimalCreateProcessor();
-        $productDecimalCreateProcessor->setUtilityClassName($utilityClassName);
-        $productDecimalCreateProcessor->setConnection($connection);
-        $productDecimalCreateProcessor->init();
-        $productDecimalUpdateProcessor = new ProductDecimalUpdateProcessor();
-        $productDecimalUpdateProcessor->setUtilityClassName($utilityClassName);
-        $productDecimalUpdateProcessor->setConnection($connection);
-        $productDecimalUpdateProcessor->init();
-        $productDecimalAction = new ProductDecimalAction();
-        $productDecimalAction->setCreateProcessor($productDecimalCreateProcessor);
-        $productDecimalAction->setUpdateProcessor($productDecimalUpdateProcessor);
+        $productDecimalAction = new ProductDecimalAction(
+            new ProductDecimalCreateProcessor($connection, $utilityClassName),
+            new ProductDecimalUpdateProcessor($connection, $utilityClassName)
+        );
 
         // initialize the action that provides product integer attribute CRUD functionality
-        $productIntCreateProcessor = new ProductIntCreateProcessor();
-        $productIntCreateProcessor->setUtilityClassName($utilityClassName);
-        $productIntCreateProcessor->setConnection($connection);
-        $productIntCreateProcessor->init();
-        $productIntUpdateProcessor = new ProductIntUpdateProcessor();
-        $productIntUpdateProcessor->setUtilityClassName($utilityClassName);
-        $productIntUpdateProcessor->setConnection($connection);
-        $productIntUpdateProcessor->init();
-        $productIntAction = new ProductIntAction();
-        $productIntAction->setCreateProcessor($productIntCreateProcessor);
-        $productIntAction->setUpdateProcessor($productIntUpdateProcessor);
+        $productIntAction = new ProductIntAction(
+            new ProductIntCreateProcessor($connection, $utilityClassName),
+            new ProductIntUpdateProcessor($connection, $utilityClassName)
+        );
 
         // initialize the action that provides product text attribute CRUD functionality
-        $productTextCreateProcessor = new ProductTextCreateProcessor();
-        $productTextCreateProcessor->setUtilityClassName($utilityClassName);
-        $productTextCreateProcessor->setConnection($connection);
-        $productTextCreateProcessor->init();
-        $productTextUpdateProcessor = new ProductTextUpdateProcessor();
-        $productTextUpdateProcessor->setUtilityClassName($utilityClassName);
-        $productTextUpdateProcessor->setConnection($connection);
-        $productTextUpdateProcessor->init();
-        $productTextAction = new ProductTextAction();
-        $productTextAction->setCreateProcessor($productTextCreateProcessor);
-        $productTextAction->setUpdateProcessor($productTextUpdateProcessor);
+        $productTextAction = new ProductTextAction(
+            new ProductTextCreateProcessor($connection, $utilityClassName),
+            new ProductTextUpdateProcessor($connection, $utilityClassName)
+        );
 
         // initialize the action that provides product varchar attribute CRUD functionality
-        $productVarcharCreateProcessor = new ProductVarcharCreateProcessor();
-        $productVarcharCreateProcessor->setUtilityClassName($utilityClassName);
-        $productVarcharCreateProcessor->setConnection($connection);
-        $productVarcharCreateProcessor->init();
-        $productVarcharUpdateProcessor = new ProductVarcharUpdateProcessor();
-        $productVarcharUpdateProcessor->setUtilityClassName($utilityClassName);
-        $productVarcharUpdateProcessor->setConnection($connection);
-        $productVarcharUpdateProcessor->init();
-        $productVarcharAction = new ProductVarcharAction();
-        $productVarcharAction->setCreateProcessor($productVarcharCreateProcessor);
-        $productVarcharAction->setUpdateProcessor($productVarcharUpdateProcessor);
+        $productVarcharAction = new ProductVarcharAction(
+            new ProductVarcharCreateProcessor($connection, $utilityClassName),
+            new ProductVarcharUpdateProcessor($connection, $utilityClassName)
+        );
 
         // initialize the action that provides product CRUD functionality
-        $productCreateProcessor = new ProductCreateProcessor();
-        $productCreateProcessor->setUtilityClassName($utilityClassName);
-        $productCreateProcessor->setConnection($connection);
-        $productCreateProcessor->init();
-        $productDeleteProcessor = new ProductDeleteProcessor();
-        $productDeleteProcessor->setUtilityClassName($utilityClassName);
-        $productDeleteProcessor->setConnection($connection);
-        $productDeleteProcessor->init();
-        $productUpdateProcessor = new ProductUpdateProcessor();
-        $productUpdateProcessor->setUtilityClassName($utilityClassName);
-        $productUpdateProcessor->setConnection($connection);
-        $productUpdateProcessor->init();
-        $productAction = new ProductAction();
-        $productAction->setCreateProcessor($productCreateProcessor);
-        $productAction->setDeleteProcessor($productDeleteProcessor);
-        $productAction->setUpdateProcessor($productUpdateProcessor);
+        $productAction = new ProductAction(
+            new ProductCreateProcessor($connection, $utilityClassName),
+            new ProductUpdateProcessor($connection, $utilityClassName),
+            new ProductDeleteProcessor($connection, $utilityClassName)
+        );
 
         // initialize the action that provides provides product website CRUD functionality
-        $productWebsiteCreateProcessor = new ProductWebsiteCreateProcessor();
-        $productWebsiteCreateProcessor->setUtilityClassName($utilityClassName);
-        $productWebsiteCreateProcessor->setConnection($connection);
-        $productWebsiteCreateProcessor->init();
-        $productWebsiteDeleteProcessor = new ProductWebsiteDeleteProcessor();
-        $productWebsiteDeleteProcessor->setUtilityClassName($utilityClassName);
-        $productWebsiteDeleteProcessor->setConnection($connection);
-        $productWebsiteDeleteProcessor->init();
-        $productWebsiteAction = new ProductWebsiteAction();
-        $productWebsiteAction->setCreateProcessor($productWebsiteCreateProcessor);
-        $productWebsiteAction->setDeleteProcessor($productWebsiteDeleteProcessor);
+        $productWebsiteAction = new ProductWebsiteAction(
+            new ProductWebsiteCreateProcessor($connection, $utilityClassName),
+            null,
+            new ProductWebsiteDeleteProcessor($connection, $utilityClassName)
+        );
 
         // initialize the action that provides stock item CRUD functionality
-        $stockItemCreateProcessor = new StockItemCreateProcessor();
-        $stockItemCreateProcessor->setUtilityClassName($utilityClassName);
-        $stockItemCreateProcessor->setConnection($connection);
-        $stockItemCreateProcessor->init();
-        $stockItemDeleteProcessor = new StockItemDeleteProcessor();
-        $stockItemDeleteProcessor->setUtilityClassName($utilityClassName);
-        $stockItemDeleteProcessor->setConnection($connection);
-        $stockItemDeleteProcessor->init();
-        $stockItemUpdateProcessor = new StockItemUpdateProcessor();
-        $stockItemUpdateProcessor->setUtilityClassName($utilityClassName);
-        $stockItemUpdateProcessor->setConnection($connection);
-        $stockItemUpdateProcessor->init();
-        $stockItemAction = new StockItemAction();
-        $stockItemAction->setCreateProcessor($stockItemCreateProcessor);
-        $stockItemAction->setDeleteProcessor($stockItemDeleteProcessor);
-        $stockItemAction->setUpdateProcessor($stockItemUpdateProcessor);
+        $stockItemAction = new StockItemAction(
+            new StockItemCreateProcessor($connection, $utilityClassName),
+            new StockItemUpdateProcessor($connection, $utilityClassName),
+            new StockItemDeleteProcessor($connection, $utilityClassName)
+        );
 
         // initialize the action that provides stock status CRUD functionality
-        $stockStatusCreateProcessor = new StockStatusCreateProcessor();
-        $stockStatusCreateProcessor->setUtilityClassName($utilityClassName);
-        $stockStatusCreateProcessor->setConnection($connection);
-        $stockStatusCreateProcessor->init();
-        $stockStatusDeleteProcessor = new StockStatusDeleteProcessor();
-        $stockStatusDeleteProcessor->setUtilityClassName($utilityClassName);
-        $stockStatusDeleteProcessor->setConnection($connection);
-        $stockStatusDeleteProcessor->init();
-        $stockStatusUpdateProcessor = new StockStatusUpdateProcessor();
-        $stockStatusUpdateProcessor->setUtilityClassName($utilityClassName);
-        $stockStatusUpdateProcessor->setConnection($connection);
-        $stockStatusUpdateProcessor->init();
-        $stockStatusAction = new StockStatusAction();
-        $stockStatusAction->setCreateProcessor($stockStatusCreateProcessor);
-        $stockStatusAction->setDeleteProcessor($stockStatusDeleteProcessor);
-        $stockStatusAction->setUpdateProcessor($stockStatusUpdateProcessor);
+        $stockStatusAction = new StockStatusAction(
+            new StockStatusCreateProcessor($connection, $utilityClassName),
+            new StockStatusUpdateProcessor($connection, $utilityClassName),
+            new StockStatusDeleteProcessor($connection, $utilityClassName)
+        );
 
         // initialize the action that provides URL rewrite CRUD functionality
-        $urlRewriteCreateProcessor = new UrlRewriteCreateProcessor();
-        $urlRewriteCreateProcessor->setUtilityClassName($utilityClassName);
-        $urlRewriteCreateProcessor->setConnection($connection);
-        $urlRewriteCreateProcessor->init();
-        $urlRewriteDeleteProcessor = new UrlRewriteDeleteProcessor();
-        $urlRewriteDeleteProcessor->setUtilityClassName($utilityClassName);
-        $urlRewriteDeleteProcessor->setConnection($connection);
-        $urlRewriteDeleteProcessor->init();
-        $urlRewriteUpdateProcessor = new UrlRewriteUpdateProcessor();
-        $urlRewriteUpdateProcessor->setUtilityClassName($utilityClassName);
-        $urlRewriteUpdateProcessor->setConnection($connection);
-        $urlRewriteUpdateProcessor->init();
-        $urlRewriteAction = new UrlRewriteAction();
-        $urlRewriteAction->setCreateProcessor($urlRewriteCreateProcessor);
-        $urlRewriteAction->setDeleteProcessor($urlRewriteDeleteProcessor);
-        $urlRewriteAction->setUpdateProcessor($urlRewriteUpdateProcessor);
+        $urlRewriteAction = new UrlRewriteAction(
+            new UrlRewriteCreateProcessor($connection, $utilityClassName),
+            new UrlRewriteUpdateProcessor($connection, $utilityClassName),
+            new UrlRewriteDeleteProcessor($connection, $utilityClassName)
+        );
 
         // initialize the action that provides URL rewrite CRUD functionality
-        $urlRewriteProductCategoryCreateProcessor = new UrlRewriteProductCategoryCreateProcessor();
-        $urlRewriteProductCategoryCreateProcessor->setUtilityClassName($utilityClassName);
-        $urlRewriteProductCategoryCreateProcessor->setConnection($connection);
-        $urlRewriteProductCategoryCreateProcessor->init();
-        $urlRewriteProductCategoryDeleteProcessor = new UrlRewriteProductCategoryDeleteProcessor();
-        $urlRewriteProductCategoryDeleteProcessor->setUtilityClassName($utilityClassName);
-        $urlRewriteProductCategoryDeleteProcessor->setConnection($connection);
-        $urlRewriteProductCategoryDeleteProcessor->init();
-        $urlRewriteProductCategoryUpdateProcessor = new UrlRewriteProductCategoryUpdateProcessor();
-        $urlRewriteProductCategoryUpdateProcessor->setUtilityClassName($utilityClassName);
-        $urlRewriteProductCategoryUpdateProcessor->setConnection($connection);
-        $urlRewriteProductCategoryUpdateProcessor->init();
-        $urlRewriteProductCategoryAction = new UrlRewriteProductCategoryAction();
-        $urlRewriteProductCategoryAction->setCreateProcessor($urlRewriteProductCategoryCreateProcessor);
-        $urlRewriteProductCategoryAction->setDeleteProcessor($urlRewriteProductCategoryDeleteProcessor);
-        $urlRewriteProductCategoryAction->setUpdateProcessor($urlRewriteProductCategoryUpdateProcessor);
+        $urlRewriteProductCategoryAction = new UrlRewriteProductCategoryAction(
+            new UrlRewriteProductCategoryCreateProcessor($connection, $utilityClassName),
+            new UrlRewriteProductCategoryUpdateProcessor($connection, $utilityClassName),
+            new UrlRewriteProductCategoryDeleteProcessor($connection, $utilityClassName)
+        );
 
-        // initialize the product processor
+        // initialize and return the product processor
         $processorType = static::getProcessorType();
-        $productBunchProcessor = new $processorType();
-        $productBunchProcessor->setConnection($connection);
-        $productBunchProcessor->setProductRepository($productRepository);
-        $productBunchProcessor->setProductWebsiteRepository($productWebsiteRepository);
-        $productBunchProcessor->setProductDatetimeRepository($productDatetimeRepository);
-        $productBunchProcessor->setProductDecimalRepository($productDecimalRepository);
-        $productBunchProcessor->setProductIntRepository($productIntRepository);
-        $productBunchProcessor->setProductTextRepository($productTextRepository);
-        $productBunchProcessor->setProductVarcharRepository($productVarcharRepository);
-        $productBunchProcessor->setCategoryProductRepository($categoryProductRepository);
-        $productBunchProcessor->setStockStatusRepository($stockStatusRepository);
-        $productBunchProcessor->setStockItemRepository($stockItemRepository);
-        $productBunchProcessor->setUrlRewriteRepository($urlRewriteRepository);
-        $productBunchProcessor->setUrlRewriteProductCategoryRepository($urlRewriteProductCategoryRepository);
-        $productBunchProcessor->setEavAttributeOptionValueRepository($eavAttributeOptionValueRepository);
-        $productBunchProcessor->setEavAttributeRepository($eavAttributeRepository);
-        $productBunchProcessor->setCategoryProductAction($categoryProductAction);
-        $productBunchProcessor->setProductDatetimeAction($productDatetimeAction);
-        $productBunchProcessor->setProductDecimalAction($productDecimalAction);
-        $productBunchProcessor->setProductIntAction($productIntAction);
-        $productBunchProcessor->setProductAction($productAction);
-        $productBunchProcessor->setProductTextAction($productTextAction);
-        $productBunchProcessor->setProductVarcharAction($productVarcharAction);
-        $productBunchProcessor->setProductWebsiteAction($productWebsiteAction);
-        $productBunchProcessor->setStockItemAction($stockItemAction);
-        $productBunchProcessor->setStockStatusAction($stockStatusAction);
-        $productBunchProcessor->setUrlRewriteAction($urlRewriteAction);
-        $productBunchProcessor->setUrlRewriteProductCategoryAction($urlRewriteProductCategoryAction);
-
-        // return the instance
-        return $productBunchProcessor;
+        return new $processorType(
+            $connection,
+            $productRepository,
+            $productWebsiteRepository,
+            $productDatetimeRepository,
+            $productDecimalRepository,
+            $productIntRepository,
+            $productTextRepository,
+            $productVarcharRepository,
+            $categoryProductRepository,
+            $stockStatusRepository,
+            $stockItemRepository,
+            $urlRewriteRepository,
+            $urlRewriteProductCategoryRepository,
+            $eavAttributeOptionValueRepository,
+            $eavAttributeRepository,
+            $categoryProductAction,
+            $productDatetimeAction,
+            $productDecimalAction,
+            $productIntAction,
+            $productAction,
+            $productTextAction,
+            $productVarcharAction,
+            $productWebsiteAction,
+            $stockItemAction,
+            $stockStatusAction,
+            $urlRewriteAction,
+            $urlRewriteProductCategoryAction
+        );
     }
 }

@@ -74,90 +74,52 @@ class ProductBundleProcessorFactory extends AbstractProductProcessorFactory
         $utilityClassName = $configuration->getUtilityClassName();
 
         // initialize the repository that provides bundle option query functionality
-        $bundleOptionRepository = new BundleOptionRepository();
-        $bundleOptionRepository->setUtilityClassName($utilityClassName);
-        $bundleOptionRepository->setConnection($connection);
-        $bundleOptionRepository->init();
+        $bundleOptionRepository = new BundleOptionRepository($connection, $utilityClassName);
 
         // initialize the repository that provides bundle option value query functionality
-        $bundleOptionValueRepository = new BundleOptionValueRepository();
-        $bundleOptionValueRepository->setUtilityClassName($utilityClassName);
-        $bundleOptionValueRepository->setConnection($connection);
-        $bundleOptionValueRepository->init();
+        $bundleOptionValueRepository = new BundleOptionValueRepository($connection, $utilityClassName);
 
         // initialize the repository that provides bundle selection query functionality
-        $bundleSelectionRepository = new BundleSelectionRepository();
-        $bundleSelectionRepository->setUtilityClassName($utilityClassName);
-        $bundleSelectionRepository->setConnection($connection);
-        $bundleSelectionRepository->init();
+        $bundleSelectionRepository = new BundleSelectionRepository($connection, $utilityClassName);
 
         // initialize the repository that provides bundle selection price query functionality
-        $bundleSelectionPriceRepository = new BundleSelectionPriceRepository();
-        $bundleSelectionPriceRepository->setUtilityClassName($utilityClassName);
-        $bundleSelectionPriceRepository->setConnection($connection);
-        $bundleSelectionPriceRepository->init();
+        $bundleSelectionPriceRepository = new BundleSelectionPriceRepository($connection, $utilityClassName);
 
         // initialize the action that provides product bundle option CRUD functionality
-        $productBundleOptionCreateProcessor = new ProductBundleOptionCreateProcessor();
-        $productBundleOptionCreateProcessor->setUtilityClassName($utilityClassName);
-        $productBundleOptionCreateProcessor->setConnection($connection);
-        $productBundleOptionCreateProcessor->init();
-        $productBundleOptionUpdateProcessor = new ProductBundleOptionUpdateProcessor();
-        $productBundleOptionUpdateProcessor->setUtilityClassName($utilityClassName);
-        $productBundleOptionUpdateProcessor->setConnection($connection);
-        $productBundleOptionUpdateProcessor->init();
-        $productBundleOptionAction = new ProductBundleOptionAction();
-        $productBundleOptionAction->setCreateProcessor($productBundleOptionCreateProcessor);
-        $productBundleOptionAction->setUpdateProcessor($productBundleOptionUpdateProcessor);
+        $productBundleOptionAction = new ProductBundleOptionAction(
+            new ProductBundleOptionCreateProcessor($connection, $utilityClassName),
+            new ProductBundleOptionUpdateProcessor($connection, $utilityClassName)
+        );
 
         // initialize the action that provides product bundle option CRUD functionality
-        $productBundleOptionValueCreateProcessor = new ProductBundleOptionValueCreateProcessor();
-        $productBundleOptionValueCreateProcessor->setUtilityClassName($utilityClassName);
-        $productBundleOptionValueCreateProcessor->setConnection($connection);
-        $productBundleOptionValueCreateProcessor->init();
-        $productBundleOptionValueAction = new ProductBundleOptionValueAction();
-        $productBundleOptionValueAction->setCreateProcessor($productBundleOptionValueCreateProcessor);
+        $productBundleOptionValueAction = new ProductBundleOptionValueAction(
+            new ProductBundleOptionValueCreateProcessor($connection, $utilityClassName)
+        );
 
         // initialize the action that provides product bundle option CRUD functionality
-        $productBundleSelectionCreateProcessor = new ProductBundleSelectionCreateProcessor();
-        $productBundleSelectionCreateProcessor->setUtilityClassName($utilityClassName);
-        $productBundleSelectionCreateProcessor->setConnection($connection);
-        $productBundleSelectionCreateProcessor->init();
-        $productBundleSelectionUpdateProcessor = new ProductBundleSelectionUpdateProcessor();
-        $productBundleSelectionUpdateProcessor->setUtilityClassName($utilityClassName);
-        $productBundleSelectionUpdateProcessor->setConnection($connection);
-        $productBundleSelectionUpdateProcessor->init();
-        $productBundleSelectionAction = new ProductBundleSelectionAction();
-        $productBundleSelectionAction->setCreateProcessor($productBundleSelectionCreateProcessor);
-        $productBundleSelectionAction->setUpdateProcessor($productBundleSelectionUpdateProcessor);
+        $productBundleSelectionAction = new ProductBundleSelectionAction(
+            new ProductBundleSelectionCreateProcessor($connection, $utilityClassName),
+            new ProductBundleSelectionUpdateProcessor($connection, $utilityClassName)
+        );
 
         // initialize the action that provides product bundle option CRUD functionality
-        $productBundleSelectionPriceCreateProcessor = new ProductBundleSelectionPriceCreateProcessor();
-        $productBundleSelectionPriceCreateProcessor->setUtilityClassName($utilityClassName);
-        $productBundleSelectionPriceCreateProcessor->setConnection($connection);
-        $productBundleSelectionPriceCreateProcessor->init();
-        $productBundleSelectionPriceUpdateProcessor = new ProductBundleSelectionPriceUpdateProcessor();
-        $productBundleSelectionPriceUpdateProcessor->setUtilityClassName($utilityClassName);
-        $productBundleSelectionPriceUpdateProcessor->setConnection($connection);
-        $productBundleSelectionPriceUpdateProcessor->init();
-        $productBundleSelectionPriceAction = new ProductBundleSelectionPriceAction();
-        $productBundleSelectionPriceAction->setCreateProcessor($productBundleSelectionPriceCreateProcessor);
-        $productBundleSelectionPriceAction->setUpdateProcessor($productBundleSelectionPriceUpdateProcessor);
+        $productBundleSelectionPriceAction = new ProductBundleSelectionPriceAction(
+            new ProductBundleSelectionPriceCreateProcessor($connection, $utilityClassName),
+            new ProductBundleSelectionPriceUpdateProcessor($connection, $utilityClassName)
+        );
 
-        // initialize the product bundle processor
+        // initialize and return the product bundle processor
         $processorType = static::getProcessorType();
-        $productBundleProcessor = new $processorType();
-        $productBundleProcessor->setConnection($connection);
-        $productBundleProcessor->setBundleOptionRepository($bundleOptionRepository);
-        $productBundleProcessor->setBundleOptionValueRepository($bundleOptionValueRepository);
-        $productBundleProcessor->setBundleSelectionRepository($bundleSelectionRepository);
-        $productBundleProcessor->setBundleSelectionPriceRepository($bundleSelectionPriceRepository);
-        $productBundleProcessor->setProductBundleOptionAction($productBundleOptionAction);
-        $productBundleProcessor->setProductBundleOptionValueAction($productBundleOptionValueAction);
-        $productBundleProcessor->setProductBundleSelectionAction($productBundleSelectionAction);
-        $productBundleProcessor->setProductBundleSelectionPriceAction($productBundleSelectionPriceAction);
-
-        // return the instance
-        return $productBundleProcessor;
+        return new $processorType(
+            $connection,
+            $bundleOptionRepository,
+            $bundleOptionValueRepository,
+            $bundleSelectionRepository,
+            $bundleSelectionPriceRepository,
+            $productBundleOptionAction,
+            $productBundleOptionValueAction,
+            $productBundleSelectionAction,
+            $productBundleSelectionPriceAction
+        );
     }
 }

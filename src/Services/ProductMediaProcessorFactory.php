@@ -72,79 +72,47 @@ class ProductMediaProcessorFactory extends AbstractProductProcessorFactory
         $utilityClassName = $configuration->getUtilityClassName();
 
         // initialize the repository that provides product media gallery query functionality
-        $productMediaGalleryRepository = new ProductMediaGalleryRepository();
-        $productMediaGalleryRepository->setUtilityClassName($utilityClassName);
-        $productMediaGalleryRepository->setConnection($connection);
-        $productMediaGalleryRepository->init();
+        $productMediaGalleryRepository = new ProductMediaGalleryRepository($connection, $utilityClassName);
 
         // initialize the repository that provides product media gallery value to entity query functionality
-        $productMediaGalleryValueToEntityRepository = new ProductMediaGalleryValueToEntityRepository();
-        $productMediaGalleryValueToEntityRepository->setUtilityClassName($utilityClassName);
-        $productMediaGalleryValueToEntityRepository->setConnection($connection);
-        $productMediaGalleryValueToEntityRepository->init();
+        $productMediaGalleryValueToEntityRepository = new ProductMediaGalleryValueToEntityRepository($connection, $utilityClassName);
 
         // initialize the repository that provides product media gallery value query functionality
-        $productMediaGalleryValueRepository = new ProductMediaGalleryValueRepository();
-        $productMediaGalleryValueRepository->setUtilityClassName($utilityClassName);
-        $productMediaGalleryValueRepository->setConnection($connection);
-        $productMediaGalleryValueRepository->init();
+        $productMediaGalleryValueRepository = new ProductMediaGalleryValueRepository($connection, $utilityClassName);
 
         // initialize the action that provides product media gallery CRUD functionality
-        $productMediaGalleryCreateProcessor = new ProductMediaGalleryCreateProcessor();
-        $productMediaGalleryCreateProcessor->setUtilityClassName($utilityClassName);
-        $productMediaGalleryCreateProcessor->setConnection($connection);
-        $productMediaGalleryCreateProcessor->init();
-        $productMediaGalleryUpdateProcessor = new ProductMediaGalleryUpdateProcessor();
-        $productMediaGalleryUpdateProcessor->setUtilityClassName($utilityClassName);
-        $productMediaGalleryUpdateProcessor->setConnection($connection);
-        $productMediaGalleryUpdateProcessor->init();
-        $productMediaGalleryAction = new ProductMediaGalleryAction();
-        $productMediaGalleryAction->setCreateProcessor($productMediaGalleryCreateProcessor);
-        $productMediaGalleryAction->setUpdateProcessor($productMediaGalleryUpdateProcessor);
+        $productMediaGalleryAction = new ProductMediaGalleryAction(
+            new ProductMediaGalleryCreateProcessor($connection, $utilityClassName),
+            new ProductMediaGalleryUpdateProcessor($connection, $utilityClassName)
+        );
 
         // initialize the action that provides product media gallery value CRUD functionality
-        $productMediaGalleryValueCreateProcessor = new ProductMediaGalleryValueCreateProcessor();
-        $productMediaGalleryValueCreateProcessor->setUtilityClassName($utilityClassName);
-        $productMediaGalleryValueCreateProcessor->setConnection($connection);
-        $productMediaGalleryValueCreateProcessor->init();
-        $productMediaGalleryValueUpdateProcessor = new ProductMediaGalleryValueUpdateProcessor();
-        $productMediaGalleryValueUpdateProcessor->setUtilityClassName($utilityClassName);
-        $productMediaGalleryValueUpdateProcessor->setConnection($connection);
-        $productMediaGalleryValueUpdateProcessor->init();
-        $productMediaGalleryValueAction = new ProductMediaGalleryValueAction();
-        $productMediaGalleryValueAction->setCreateProcessor($productMediaGalleryValueCreateProcessor);
-        $productMediaGalleryValueAction->setUpdateProcessor($productMediaGalleryValueUpdateProcessor);
+        $productMediaGalleryValueAction = new ProductMediaGalleryValueAction(
+            new ProductMediaGalleryValueCreateProcessor($connection, $utilityClassName),
+            new ProductMediaGalleryValueUpdateProcessor($connection, $utilityClassName)
+        );
 
         // initialize the action that provides product media gallery value to entity CRUD functionality
-        $productMediaGalleryValueToEntityCreateProcessor = new ProductMediaGalleryValueToEntityCreateProcessor();
-        $productMediaGalleryValueToEntityCreateProcessor->setUtilityClassName($utilityClassName);
-        $productMediaGalleryValueToEntityCreateProcessor->setConnection($connection);
-        $productMediaGalleryValueToEntityCreateProcessor->init();
-        $productMediaGalleryValueToEntityAction = new ProductMediaGalleryValueToEntityAction();
-        $productMediaGalleryValueToEntityAction->setCreateProcessor($productMediaGalleryValueToEntityCreateProcessor);
+        $productMediaGalleryValueToEntityAction = new ProductMediaGalleryValueToEntityAction(
+            new ProductMediaGalleryValueToEntityCreateProcessor($connection, $utilityClassName)
+        );
 
         // initialize the action that provides product media gallery value video CRUD functionality
-        $productMediaGalleryValueVideoCreateProcessor = new ProductMediaGalleryValueVideoCreateProcessor();
-        $productMediaGalleryValueVideoCreateProcessor->setUtilityClassName($utilityClassName);
-        $productMediaGalleryValueVideoCreateProcessor->setConnection($connection);
-        $productMediaGalleryValueVideoCreateProcessor->init();
-        $productMediaGalleryValueVideoAction = new ProductMediaGalleryValueVideoAction();
-        $productMediaGalleryValueVideoAction->setCreateProcessor($productMediaGalleryValueVideoCreateProcessor);
+        $productMediaGalleryValueVideoAction = new ProductMediaGalleryValueVideoAction(
+            new ProductMediaGalleryValueVideoCreateProcessor($connection, $utilityClassName)
+        );
 
-        // initialize the product media processor
+        // initialize and return the product media processor
         $processorType = static::getProcessorType();
-        $productMediaProcessor = new $processorType();
-        $productMediaProcessor->setConnection($connection);
-        $productMediaProcessor->setProductMediaGalleryRepository($productMediaGalleryRepository);
-        $productMediaProcessor->setProductMediaGalleryValueRepository($productMediaGalleryValueRepository);
-        $productMediaProcessor->setProductMediaGalleryValueToEntityRepository($productMediaGalleryValueToEntityRepository);
-        $productMediaProcessor->setProductMediaGalleryRepository($productMediaGalleryRepository);
-        $productMediaProcessor->setProductMediaGalleryAction($productMediaGalleryAction);
-        $productMediaProcessor->setProductMediaGalleryValueAction($productMediaGalleryValueAction);
-        $productMediaProcessor->setProductMediaGalleryValueToEntityAction($productMediaGalleryValueToEntityAction);
-        $productMediaProcessor->setProductMediaGalleryValueVideoAction($productMediaGalleryValueVideoAction);
-
-        // return the instance
-        return $productMediaProcessor;
+        return $processorType(
+            $connection,
+            $productMediaGalleryRepository,
+            $productMediaGalleryValueRepository,
+            $productMediaGalleryValueToEntityRepository,
+            $productMediaGalleryAction,
+            $productMediaGalleryValueAction,
+            $productMediaGalleryValueToEntityAction,
+            $productMediaGalleryValueVideoAction
+        );
     }
 }
