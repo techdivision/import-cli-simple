@@ -24,7 +24,6 @@ use Rhumsaa\Uuid\Uuid;
 use Psr\Log\LogLevel;
 use Monolog\Logger;
 use Monolog\Handler\ErrorLogHandler;
-use Monolog\Handler\NativeMailerHandler;
 use JMS\Serializer\SerializerBuilder;
 use TechDivision\Import\Utils\LoggerKeys;
 use TechDivision\Import\Cli\Simple;
