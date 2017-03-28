@@ -1,4 +1,4 @@
-# M2IF - Simple Console
+# M2IF - Simple Console Tool
 
 ## Installation
 
