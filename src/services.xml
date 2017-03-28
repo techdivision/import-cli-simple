@@ -14,6 +14,10 @@
 
     <services>
 
+        <service id="command.import.products" class="TechDivision\Import\Cli\Command\ImportProductsCommand"/>
+        <service id="command.import.categories" class="TechDivision\Import\Cli\Command\ImportCategoriesCommand"/>
+        <service id="command.import.clear.pid" class="TechDivision\Import\Cli\Command\ImportClearPidCommand"/>
+
         <service id="connection" class="\PDO">
             <argument>%pdo.dsn%</argument>
             <argument>%pdo.username%</argument>
@@ -90,11 +94,23 @@
         </service>
 
         <service id="registry.processor" class="TechDivision\Import\Services\RegistryProcessor"/>
-        
-        <service id="application" class="TechDivision\Import\Cli\Simple">
+
+        <service id="application" class="">
             <argument>%application.name%</argument>
             <argument>%application.version%</argument>
             <argument type="service" id="container"/>
+            <call method="addCommand">
+                <argument type="service" id="command.import.products"/>
+            </call>
+            <call method="addCommand">
+                <argument type="service" id="command.import.categories"/>
+            </call>
+            <call method="addCommand">
+                <argument type="service" id="command.import.clear.pid"/>
+            </call>
+        </service>
+
+        <service id="simple" class="TechDivision\Import\Cli\Simple">
             <argument type="service" id="registry.processor"/>
             <argument type="service" id="import.processor"/>
         </service>

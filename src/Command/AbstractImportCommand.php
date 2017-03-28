@@ -410,10 +410,6 @@ abstract class AbstractImportCommand extends Command
             $loggers[$loggerConfiguration->getName()] = $loggerFactory::factory($loggerConfiguration);
         }
 
-        // initialize the registry/import processor
-        $registryProcessor = $container->get('registry.processor');
-        $importProcessor = $container->get('import.processor');
-
         // initialize the importer
         $importer = new Simple(
             $registryProcessor,

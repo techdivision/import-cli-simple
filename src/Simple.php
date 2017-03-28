@@ -169,9 +169,6 @@ class Simple extends Application implements ApplicationInterface
     /**
      * The constructor to initialize the instance.
      *
-     * @param string                                                          $name              The application name
-     * @param string                                                          $version           The application version
-     * @param \Symfony\Component\DependencyInjection\TaggedContainerInterface $container         The DI container builder instance
      * @param \TechDivision\Import\Services\RegistryProcessorInterface        $registryProcessor The registry processor instance
      * @param \TechDivision\Import\Services\ImportProcessorInterface          $importProcessor   The import processor instance
      * @param \TechDivision\Import\ConfigurationInterface                     $configuration     The system configuration
@@ -180,8 +177,6 @@ class Simple extends Application implements ApplicationInterface
      * @param array                                                           $systemLoggers     The array with the system logger instances
      */
     public function __construct(
-        $name = 'UNKNOWN',
-        $version = 'UNKNOWN',
         TaggedContainerInterface $container,
         RegistryProcessorInterface $registryProcessor,
         ImportProcessorInterface $importProcessor,
