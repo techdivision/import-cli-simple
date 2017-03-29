@@ -23,6 +23,17 @@ namespace TechDivision\Import\Cli\Services;
 use TechDivision\Import\Configuration\ProcessorConfigurationInterface;
 use TechDivision\Import\Product\Media\Ee\Repositories\ProductMediaGalleryValueRepository;
 use TechDivision\Import\Product\Media\Ee\Repositories\ProductMediaGalleryValueToEntityRepository;
+use TechDivision\Import\Product\Media\Repositories\ProductMediaGalleryRepository;
+use TechDivision\Import\Product\Media\Actions\Processors\ProductMediaGalleryCreateProcessor;
+use TechDivision\Import\Product\Media\Actions\Processors\ProductMediaGalleryUpdateProcessor;
+use TechDivision\Import\Product\Media\Actions\Processors\ProductMediaGalleryValueCreateProcessor;
+use TechDivision\Import\Product\Media\Actions\Processors\ProductMediaGalleryValueUpdateProcessor;
+use TechDivision\Import\Product\Media\Actions\Processors\ProductMediaGalleryValueVideoCreateProcessor;
+use TechDivision\Import\Product\Media\Actions\Processors\ProductMediaGalleryValueToEntityCreateProcessor;
+use TechDivision\Import\Product\Media\Actions\ProductMediaGalleryAction;
+use TechDivision\Import\Product\Media\Actions\ProductMediaGalleryValueAction;
+use TechDivision\Import\Product\Media\Actions\ProductMediaGalleryValueVideoAction;
+use TechDivision\Import\Product\Media\Actions\ProductMediaGalleryValueToEntityAction;
 
 /**
  * A SLSB providing methods to load product data using a PDO connection.
@@ -57,29 +68,51 @@ class EeProductMediaProcessorFactory extends ProductMediaProcessorFactory
     public static function factory(\PDO $connection, ProcessorConfigurationInterface $configuration)
     {
 
-        // initialize the product processor
-        $productMediaProcessor = parent::factory($connection, $configuration);
-
         // load the utility class name
         $utilityClassName = $configuration->getUtilityClassName();
 
+        // initialize the repository that provides product media gallery query functionality
+        $productMediaGalleryRepository = new ProductMediaGalleryRepository($connection, $utilityClassName);
+
         // initialize the repository that provides product media gallery value to entity query functionality
-        $productMediaGalleryValueToEntityRepository = new ProductMediaGalleryValueToEntityRepository();
-        $productMediaGalleryValueToEntityRepository->setUtilityClassName($utilityClassName);
-        $productMediaGalleryValueToEntityRepository->setConnection($connection);
-        $productMediaGalleryValueToEntityRepository->init();
+        $productMediaGalleryValueToEntityRepository = new ProductMediaGalleryValueToEntityRepository($connection, $utilityClassName);
 
         // initialize the repository that provides product media gallery value query functionality
-        $productMediaGalleryValueRepository = new ProductMediaGalleryValueRepository();
-        $productMediaGalleryValueRepository->setUtilityClassName($utilityClassName);
-        $productMediaGalleryValueRepository->setConnection($connection);
-        $productMediaGalleryValueRepository->init();
+        $productMediaGalleryValueRepository = new ProductMediaGalleryValueRepository($connection, $utilityClassName);
 
-        // initialize the product media processor
-        $productMediaProcessor->setProductMediaGalleryValueRepository($productMediaGalleryValueRepository);
-        $productMediaProcessor->setProductMediaGalleryValueToEntityRepository($productMediaGalleryValueToEntityRepository);
+        // initialize the action that provides product media gallery CRUD functionality
+        $productMediaGalleryAction = new ProductMediaGalleryAction(
+            new ProductMediaGalleryCreateProcessor($connection, $utilityClassName),
+            new ProductMediaGalleryUpdateProcessor($connection, $utilityClassName)
+        );
 
-        // return the instance
-        return $productMediaProcessor;
+        // initialize the action that provides product media gallery value CRUD functionality
+        $productMediaGalleryValueAction = new ProductMediaGalleryValueAction(
+            new ProductMediaGalleryValueCreateProcessor($connection, $utilityClassName),
+            new ProductMediaGalleryValueUpdateProcessor($connection, $utilityClassName)
+        );
+
+        // initialize the action that provides product media gallery value to entity CRUD functionality
+        $productMediaGalleryValueToEntityAction = new ProductMediaGalleryValueToEntityAction(
+            new ProductMediaGalleryValueToEntityCreateProcessor($connection, $utilityClassName)
+        );
+
+        // initialize the action that provides product media gallery value video CRUD functionality
+        $productMediaGalleryValueVideoAction = new ProductMediaGalleryValueVideoAction(
+            new ProductMediaGalleryValueVideoCreateProcessor($connection, $utilityClassName)
+        );
+
+        // initialize and return the EE product media processor
+        $processorType = static::getProcessorType();
+        return new $processorType(
+            $connection,
+            $productMediaGalleryRepository,
+            $productMediaGalleryValueRepository,
+            $productMediaGalleryValueToEntityRepository,
+            $productMediaGalleryAction,
+            $productMediaGalleryValueAction,
+            $productMediaGalleryValueToEntityAction,
+            $productMediaGalleryValueVideoAction
+        );
     }
 }

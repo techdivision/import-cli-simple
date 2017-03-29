@@ -1,3 +1,14 @@
+# Version 1.0.0-alpha59
+
+## Bugfixes
+
+* None
+
+## Features
+
+* Switch to latest techdivision/import-product-ee package
+* Refactoring for DI integration
+
 # Version 1.0.0-alpha58
 
 ## Bugfixes

@@ -20,6 +20,7 @@
 
 namespace TechDivision\Import\Cli\Services;
 
+use TechDivision\Import\Repositories\EavAttributeRepository;
 use TechDivision\Import\Configuration\ProcessorConfigurationInterface;
 use TechDivision\Import\Category\Ee\Repositories\CategoryRepository;
 use TechDivision\Import\Category\Ee\Repositories\CategoryDatetimeRepository;
@@ -30,6 +31,30 @@ use TechDivision\Import\Category\Ee\Repositories\CategoryVarcharRepository;
 use TechDivision\Import\Category\Ee\Actions\SequenceCategoryAction;
 use TechDivision\Import\Category\Ee\Actions\Processors\CategoryUpdateProcessor;
 use TechDivision\Import\Category\Ee\Actions\Processors\SequenceCategoryCreateProcessor;
+use TechDivision\Import\Repositories\UrlRewriteRepository;
+use TechDivision\Import\Category\Actions\CategoryDatetimeAction;
+use TechDivision\Import\Category\Actions\CategoryDecimalAction;
+use TechDivision\Import\Category\Actions\CategoryIntAction;
+use TechDivision\Import\Category\Actions\CategoryTextAction;
+use TechDivision\Import\Category\Actions\CategoryVarcharAction;
+use TechDivision\Import\Actions\UrlRewriteAction;
+use TechDivision\Import\Actions\Processors\UrlRewriteCreateProcessor;
+use TechDivision\Import\Actions\Processors\UrlRewriteUpdateProcessor;
+use TechDivision\Import\Actions\Processors\UrlRewriteDeleteProcessor;
+use TechDivision\Import\Category\Actions\Processors\CategoryCreateProcessor;
+use TechDivision\Import\Category\Actions\Processors\CategoryDeleteProcessor;
+use TechDivision\Import\Category\Actions\Processors\CategoryVarcharUpdateProcessor;
+use TechDivision\Import\Category\Actions\Processors\CategoryVarcharCreateProcessor;
+use TechDivision\Import\Category\Actions\Processors\CategoryTextUpdateProcessor;
+use TechDivision\Import\Category\Actions\Processors\CategoryTextCreateProcessor;
+use TechDivision\Import\Category\Actions\Processors\CategoryIntUpdateProcessor;
+use TechDivision\Import\Category\Actions\Processors\CategoryIntCreateProcessor;
+use TechDivision\Import\Category\Actions\Processors\CategoryDecimalUpdateProcessor;
+use TechDivision\Import\Category\Actions\Processors\CategoryDecimalCreateProcessor;
+use TechDivision\Import\Category\Actions\Processors\CategoryDatetimeUpdateProcessor;
+use TechDivision\Import\Category\Actions\Processors\CategoryDatetimeCreateProcessor;
+use TechDivision\Import\Category\Actions\CategoryAction;
+use TechDivision\Import\Assembler\CategoryAssembler;
 
 /**
  * Factory to create a new category bunch processor.
@@ -64,75 +89,106 @@ class EeCategoryBunchProcessorFactory extends CategoryBunchProcessorFactory
     public static function factory(\PDO $connection, ProcessorConfigurationInterface $configuration)
     {
 
-        // initialize the category processor
-        $categoryBunchProcessor = parent::factory($connection, $configuration);
-
         // load the utility class name
         $utilityClassName = $configuration->getUtilityClassName();
 
-        // initialize the action that provides category CRUD functionality
-        $categoryUpdateProcessor = new CategoryUpdateProcessor();
-        $categoryUpdateProcessor->setUtilityClassName($utilityClassName);
-        $categoryUpdateProcessor->setConnection($connection);
-        $categoryUpdateProcessor->init();
+        // initialize the repository that provides EAV attribute query functionality
+        $eavAttributeRepository = new EavAttributeRepository($connection, $utilityClassName);
 
-        // override the category update processor to support Magento 2 EE scheduled updates functionality
-        $categoryBunchProcessor->getCategoryAction()->setUpdateProcessor($categoryUpdateProcessor);
-
-        // initialize the action that provides sequence category CRUD functionality
-        $sequenceCategoryCreateProcessor = new SequenceCategoryCreateProcessor();
-        $sequenceCategoryCreateProcessor->setUtilityClassName($utilityClassName);
-        $sequenceCategoryCreateProcessor->setConnection($connection);
-        $sequenceCategoryCreateProcessor->init();
-        $sequenceCategoryAction = new SequenceCategoryAction();
-        $sequenceCategoryAction->setCreateProcessor($sequenceCategoryCreateProcessor);
-
-        // initialize the repository that provides category attribute query functionality
-        $categoryRepository = new CategoryRepository();
-        $categoryRepository->setUtilityClassName($utilityClassName);
-        $categoryRepository->setConnection($connection);
-        $categoryRepository->init();
+        // initialize the repository that provides category query functionality
+        $categoryRepository = new CategoryRepository($connection, $utilityClassName);
 
         // initialize the repository that provides category datetime attribute query functionality
-        $categoryDatetimeRepository = new CategoryDatetimeRepository();
-        $categoryDatetimeRepository->setUtilityClassName($utilityClassName);
-        $categoryDatetimeRepository->setConnection($connection);
-        $categoryDatetimeRepository->init();
+        $categoryDatetimeRepository = new CategoryDatetimeRepository($connection, $utilityClassName);
 
         // initialize the repository that provides category decimal attribute query functionality
-        $categoryDecimalRepository = new CategoryDecimalRepository();
-        $categoryDecimalRepository->setUtilityClassName($utilityClassName);
-        $categoryDecimalRepository->setConnection($connection);
-        $categoryDecimalRepository->init();
+        $categoryDecimalRepository = new CategoryDecimalRepository($connection, $utilityClassName);
 
         // initialize the repository that provides category integer attribute query functionality
-        $categoryIntRepository = new CategoryIntRepository();
-        $categoryIntRepository->setUtilityClassName($utilityClassName);
-        $categoryIntRepository->setConnection($connection);
-        $categoryIntRepository->init();
+        $categoryIntRepository = new CategoryIntRepository($connection, $utilityClassName);
 
         // initialize the repository that provides category text attribute query functionality
-        $categoryTextRepository = new CategoryTextRepository();
-        $categoryTextRepository->setUtilityClassName($utilityClassName);
-        $categoryTextRepository->setConnection($connection);
-        $categoryTextRepository->init();
+        $categoryTextRepository = new CategoryTextRepository($connection, $utilityClassName);
 
         // initialize the repository that provides category varchar attribute query functionality
-        $categoryVarcharRepository = new CategoryVarcharRepository();
-        $categoryVarcharRepository->setUtilityClassName($utilityClassName);
-        $categoryVarcharRepository->setConnection($connection);
-        $categoryVarcharRepository->init();
+        $categoryVarcharRepository = new CategoryVarcharRepository($connection, $utilityClassName);
 
-        // initialize the category bunch processor
-        $categoryBunchProcessor->setCategoryRepository($categoryRepository);
-        $categoryBunchProcessor->setCategoryDatetimeRepository($categoryDatetimeRepository);
-        $categoryBunchProcessor->setCategoryDecimalRepository($categoryDecimalRepository);
-        $categoryBunchProcessor->setCategoryIntRepository($categoryIntRepository);
-        $categoryBunchProcessor->setCategoryTextRepository($categoryTextRepository);
-        $categoryBunchProcessor->setCategoryVarcharRepository($categoryVarcharRepository);
-        $categoryBunchProcessor->setSequenceCategoryAction($sequenceCategoryAction);
+        // initialize the repository that provides URL rewrite query functionality
+        $urlRewriteRepository = new UrlRewriteRepository($connection, $utilityClassName);
 
-        // return the instance
-        return $categoryBunchProcessor;
+        // initialize the action that provides sequence category CRUD functionality
+        $sequenceCategoryAction = new SequenceCategoryAction(
+            new SequenceCategoryCreateProcessor($connection, $utilityClassName)
+        );
+
+        // initialize the action that provides category datetime attribute CRUD functionality
+        $categoryDatetimeAction = new CategoryDatetimeAction(
+            new CategoryDatetimeCreateProcessor($connection, $utilityClassName),
+            new CategoryDatetimeUpdateProcessor($connection, $utilityClassName)
+        );
+
+        // initialize the action that provides category decimal attribute CRUD functionality
+        $categoryDecimalAction = new CategoryDecimalAction(
+            new CategoryDecimalCreateProcessor($connection, $utilityClassName),
+            new CategoryDecimalUpdateProcessor($connection, $utilityClassName)
+        );
+
+        // initialize the action that provides category integer attribute CRUD functionality
+        $categoryIntAction = new CategoryIntAction(
+            new CategoryIntCreateProcessor($connection, $utilityClassName),
+            new CategoryIntUpdateProcessor($connection, $utilityClassName)
+        );
+
+        // initialize the action that provides category text attribute CRUD functionality
+        $categoryTextAction = new CategoryTextAction(
+            new CategoryTextCreateProcessor($connection, $utilityClassName),
+            new CategoryTextUpdateProcessor($connection, $utilityClassName)
+        );
+
+        // initialize the action that provides category varchar attribute CRUD functionality
+        $categoryVarcharAction = new CategoryVarcharAction(
+            new CategoryVarcharCreateProcessor($connection, $utilityClassName),
+            new CategoryVarcharUpdateProcessor($connection, $utilityClassName)
+        );
+
+        // initialize the action that provides category CRUD functionality
+        $categoryAction = new CategoryAction(
+            new CategoryCreateProcessor($connection, $utilityClassName),
+            new CategoryUpdateProcessor($connection, $utilityClassName),
+            new CategoryDeleteProcessor($connection, $utilityClassName)
+        );
+
+        // initialize the action that provides URL rewrite CRUD functionality
+        $urlRewriteAction = new UrlRewriteAction(
+            new UrlRewriteCreateProcessor($connection, $utilityClassName),
+            new UrlRewriteUpdateProcessor($connection, $utilityClassName),
+            new UrlRewriteDeleteProcessor($connection, $utilityClassName)
+        );
+
+        // initialize the category assembler
+        $categoryAssembler = new CategoryAssembler($categoryRepository, $categoryVarcharRepository);
+
+        // initialize and return the category processor
+        $processorType = static::getProcessorType();
+        return new $processorType(
+            $connection,
+            $sequenceCategoryAction,
+            $categoryRepository,
+            $categoryDatetimeRepository,
+            $categoryDecimalRepository,
+            $categoryIntRepository,
+            $categoryTextRepository,
+            $categoryVarcharRepository,
+            $eavAttributeRepository,
+            $urlRewriteRepository,
+            $categoryDatetimeAction,
+            $categoryDecimalAction,
+            $categoryIntAction,
+            $categoryAction,
+            $categoryTextAction,
+            $categoryVarcharAction,
+            $urlRewriteAction,
+            $categoryAssembler
+        );
     }
 }
