@@ -64,47 +64,36 @@ class ImportProcessorFactory
 
         // initialize the repository that provides category query functionality
         $categoryRepository = new CategoryRepository($connection, $utilityClassName);
-        $categoryRepository->init();
 
         // initialize the repository that provides category varchar value query functionality
         $categoryVarcharRepository = new CategoryVarcharRepository($connection, $utilityClassName);
-        $categoryVarcharRepository->init();
 
         // initialize the repository that provides EAV attribute query functionality
         $eavAttributeRepository = new EavAttributeRepository($connection, $utilityClassName);
-        $eavAttributeRepository->init();
 
         // initialize the repository that provides EAV attribute set query functionality
         $eavAttributeSetRepository = new EavAttributeSetRepository($connection, $utilityClassName);
-        $eavAttributeSetRepository->init();
 
         // initialize the repository that provides EAV entity type query functionality
         $eavEntityTypeRepository = new EavEntityTypeRepository($connection, $utilityClassName);
-        $eavEntityTypeRepository->init();
 
         // initialize the repository that provides store query functionality
         $storeRepository = new StoreRepository($connection, $utilityClassName);
-        $storeRepository->init();
 
         // initialize the repository that provides store website query functionality
         $storeWebsiteRepository = new StoreWebsiteRepository($connection, $utilityClassName);
-        $storeWebsiteRepository->init();
 
         // initialize the repository that provides tax class query functionality
         $taxClassRepository = new TaxClassRepository($connection, $utilityClassName);
-        $taxClassRepository->init();
 
         // initialize the repository that provides link type query functionality
         $linkTypeRepository = new LinkTypeRepository($connection, $utilityClassName);
-        $linkTypeRepository->init();
 
         // initialize the repository that provides link attribute query functionality
         $linkAttributeRepository = new LinkAttributeRepository($connection, $utilityClassName);
-        $linkAttributeRepository->init();
 
         // initialize the repository that provides core config data functionality
         $coreConfigDataRepository = new CoreConfigDataRepository(new CoreConfigDataUidGenerator(), $connection, $utilityClassName);
-        $coreConfigDataRepository->init();
 
         // initialize the category assembler
         $categoryAssembler = new CategoryAssembler($categoryRepository, $categoryVarcharRepository);

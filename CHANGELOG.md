@@ -1,3 +1,13 @@
+# Version 1.0.0-alpha60
+
+## Bugfixes
+
+* Remove unnecessary init() method calls on repositories in ImportProcessorFactory
+
+## Features
+
+* None
+
 # Version 1.0.0-alpha59
 
 ## Bugfixes
