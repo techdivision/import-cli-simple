@@ -59,10 +59,10 @@
       "name" : "delete",
       "plugins" : [
         {
-          "class-name": "TechDivision\\Import\\Plugins\\GlobalDataPlugin"
+          "class-name": "import.plugin.global.data"
         },
         {
-          "class-name": "TechDivision\\Import\\Plugins\\SubjectPlugin",
+          "class-name": "import.plugin.subject",
           "subjects" : [
             {
               "class-name": "TechDivision\\Import\\Subjects\\MoveFilesSubject",
@@ -95,19 +95,19 @@
       "name" : "replace",
       "plugins" : [
         {
-          "class-name": "TechDivision\\Import\\Plugins\\GlobalDataPlugin"
+          "class-name": "import.plugin.global.data"
         },
         {
-          "class-name": "TechDivision\\Import\\Plugins\\SubjectPlugin",
+          "class-name": "import.plugin.subject",
           "subjects": [
             {
-              "class-name": "TechDivision\\Import\\Subjects\\MoveFilesSubject",
+              "class-name": "import.subject.move.files",
               "identifier": "move-files",
               "prefix": "magento-import",
               "ok-file-needed": true
             },
             {
-              "class-name": "TechDivision\\Import\\Product\\Subjects\\BunchSubject",
+              "class-name": "import_product.subject.bunch",
               "processor-factory" : "TechDivision\\Import\\Cli\\Services\\ProductBunchProcessorFactory",
               "utility-class-name" : "TechDivision\\Import\\Product\\Utils\\SqlStatements",
               "identifier": "files",
@@ -145,7 +145,7 @@
               ]
             },
             {
-              "class-name": "TechDivision\\Import\\Product\\Variant\\Subjects\\VariantSubject",
+              "class-name": "import_product_variant.subject.variant",
               "processor-factory" : "TechDivision\\Import\\Cli\\Services\\ProductVariantProcessorFactory",
               "utility-class-name" : "TechDivision\\Import\\Product\\Variant\\Utils\\SqlStatements",
               "prefix": "variants",
@@ -164,7 +164,7 @@
               ]
             },
             {
-              "class-name": "TechDivision\\Import\\Product\\Bundle\\Subjects\\BundleSubject",
+              "class-name": "import_product_bundle.subject.bundle",
               "processor-factory" : "TechDivision\\Import\\Cli\\Services\\ProductBundleProcessorFactory",
               "utility-class-name" : "TechDivision\\Import\\Product\\Bundle\\Utils\\SqlStatements",
               "prefix": "bundles",
@@ -180,7 +180,7 @@
               ]
             },
             {
-              "class-name": "TechDivision\\Import\\Product\\Media\\Subjects\\MediaSubject",
+              "class-name": "import_product_media.subject.media",
               "processor-factory" : "TechDivision\\Import\\Cli\\Services\\ProductMediaProcessorFactory",
               "utility-class-name" : "TechDivision\\Import\\Product\\Media\\Utils\\SqlStatements",
               "prefix": "media",
@@ -205,7 +205,7 @@
               ]
             },
             {
-              "class-name": "TechDivision\\Import\\Product\\Link\\Subjects\\LinkSubject",
+              "class-name": "mport_product_link.subject.link",
               "processor-factory" : "TechDivision\\Import\\Cli\\Services\\ProductLinkProcessorFactory",
               "utility-class-name" : "TechDivision\\Import\\Product\\Link\\Utils\\SqlStatements",
               "prefix": "links",
@@ -221,7 +221,7 @@
           ]
         },
         {
-          "class-name": "TechDivision\\Import\\Plugins\\MissingOptionValuesPlugin",
+          "class-name": "import.plugin.missing.option.values",
           "swift-mailer" : {
             "factory" : "TechDivision\\Import\\Utils\\SwiftMailer\\SendmailTransportMailerFactory",
             "mailer-factory" : "\\Swift_Mailer",
@@ -239,7 +239,7 @@
           }
         },
         {
-          "class-name": "TechDivision\\Import\\Plugins\\ArchivePlugin"
+          "class-name": "import.plugin.archive"
         }
       ]
     },
@@ -247,19 +247,19 @@
       "name" : "add-update",
       "plugins" : [
         {
-          "class-name": "TechDivision\\Import\\Plugins\\GlobalDataPlugin"
+          "class-name": "import.plugin.global.data"
         },
         {
-          "class-name": "TechDivision\\Import\\Plugins\\SubjectPlugin",
+          "class-name": "import.plugin.subject",
           "subjects": [
             {
-              "class-name": "TechDivision\\Import\\Subjects\\MoveFilesSubject",
+              "class-name": "import.subject.move.files",
               "identifier": "move-files",
               "prefix": "magento-import",
               "ok-file-needed": true
             },
             {
-              "class-name": "TechDivision\\Import\\Product\\Subjects\\BunchSubject",
+              "class-name": "import_product.subject.bunch",
               "processor-factory" : "TechDivision\\Import\\Cli\\Services\\ProductBunchProcessorFactory",
               "utility-class-name" : "TechDivision\\Import\\Product\\Utils\\SqlStatements",
               "identifier": "files",
@@ -295,7 +295,7 @@
               ]
             },
             {
-              "class-name": "TechDivision\\Import\\Product\\Variant\\Subjects\\VariantSubject",
+              "class-name": "import_product_variant.subject.variant",
               "processor-factory" : "TechDivision\\Import\\Cli\\Services\\ProductVariantProcessorFactory",
               "utility-class-name" : "TechDivision\\Import\\Product\\Variant\\Utils\\SqlStatements",
               "prefix": "variants",
@@ -314,7 +314,7 @@
               ]
             },
             {
-              "class-name": "TechDivision\\Import\\Product\\Bundle\\Subjects\\BundleSubject",
+              "class-name": "import_product_bundle.subject.bundle",
               "processor-factory" : "TechDivision\\Import\\Cli\\Services\\ProductBundleProcessorFactory",
               "utility-class-name" : "TechDivision\\Import\\Product\\Bundle\\Utils\\SqlStatements",
               "prefix": "bundles",
@@ -330,7 +330,7 @@
               ]
             },
             {
-              "class-name": "TechDivision\\Import\\Product\\Media\\Subjects\\MediaSubject",
+              "class-name": "import_product_media.subject.media",
               "processor-factory" : "TechDivision\\Import\\Cli\\Services\\ProductMediaProcessorFactory",
               "utility-class-name" : "TechDivision\\Import\\Product\\Media\\Utils\\SqlStatements",
               "prefix": "media",
@@ -355,7 +355,7 @@
               ]
             },
             {
-              "class-name": "TechDivision\\Import\\Product\\Link\\Subjects\\LinkSubject",
+              "class-name": "import_product_link.subject.link",
               "processor-factory" : "TechDivision\\Import\\Cli\\Services\\ProductLinkProcessorFactory",
               "utility-class-name" : "TechDivision\\Import\\Product\\Link\\Utils\\SqlStatements",
               "prefix": "links",
@@ -371,7 +371,7 @@
           ]
         },
         {
-          "class-name": "TechDivision\\Import\\Plugins\\MissingOptionValuesPlugin",
+          "class-name": "import.plugin.missing.option.values",
           "swift-mailer" : {
             "factory" : "TechDivision\\Import\\Utils\\SwiftMailer\\SendmailTransportMailerFactory",
             "mailer-factory" : "\\Swift_Mailer",
@@ -389,7 +389,7 @@
           }
         },
         {
-          "class-name": "TechDivision\\Import\\Plugins\\ArchivePlugin"
+          "class-name": "import.plugin.archive"
         }
       ]
     }

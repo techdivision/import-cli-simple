@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<container xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <parameters>
+        <parameter key="import_product.utility.class.name">TechDivision\Import\Product\Utils\SqlStatements</parameter>
+    </parameters>
+
+    <services>
+
+        <service id="import_product.repository.category.product" class="TechDivision\Import\Product\Repositories\CategoryProductRepository">
+            <argument type="service" id="connection"/>
+            <argument>%import_product.utility.class.name%</argument>
+        </service>
+        <service id="import_product.repository.product" class="TechDivision\Import\Product\Repositories\ProductRepository">
+            <argument type="service" id="connection"/>
+            <argument>%import_product.utility.class.name%</argument>
+        </service>
+        <service id="import_product.repository.product.website" class="TechDivision\Import\Product\Repositories\ProductWebsiteRepository">
+            <argument type="service" id="connection"/>
+            <argument>%import_product.utility.class.name%</argument>
+        </service>
+        <service id="import_product.repository.product.datetime" class="TechDivision\Import\Product\Repositories\ProductDatetimeRepository">
+            <argument type="service" id="connection"/>
+            <argument>%import_product.utility.class.name%</argument>
+        </service>
+        <service id="import_product.repository.product.decimal" class="TechDivision\Import\Product\Repositories\ProductDecimalRepository">
+            <argument type="service" id="connection"/>
+            <argument>%import_product.utility.class.name%</argument>
+        </service>
+        <service id="import_product.repository.product.int" class="TechDivision\Import\Product\Repositories\ProductIntRepository">
+            <argument type="service" id="connection"/>
+            <argument>%import_product.utility.class.name%</argument>
+        </service>
+        <service id="import_product.repository.product.text" class="TechDivision\Import\Product\Repositories\ProductTextRepository">
+            <argument type="service" id="connection"/>
+            <argument>%import_product.utility.class.name%</argument>
+        </service>
+        <service id="import_product.repository.product.varchar" class="TechDivision\Import\Product\Repositories\ProductVarcharRepository">
+            <argument type="service" id="connection"/>
+            <argument>%import_product.utility.class.name%</argument>
+        </service>
+        <service id="import_product.repository.stock.item" class="TechDivision\Import\Product\Repositories\StockItemRepository">
+            <argument type="service" id="connection"/>
+            <argument>%import_product.utility.class.name%</argument>
+        </service>
+        <service id="import_product.repository.stock.status" class="TechDivision\Import\Product\Repositories\StockStatusRepository">
+            <argument type="service" id="connection"/>
+            <argument>%import_product.utility.class.name%</argument>
+        </service>
+        <service id="import_product.repository.url.rewrite.product.category" class="TechDivision\Import\Product\Repositories\UrlRewriteProductCategoryRepository">
+            <argument type="service" id="connection"/>
+            <argument>%import_product.utility.class.name%</argument>
+        </service>
+
+        <service id="import_product.action.processor.category.product.create" class="TechDivision\Import\Product\Actions\Processors\CategoryProductCreateProcessor">
+            <argument type="service" id="connection"/>
+            <argument>%import_product.utility.class.name%</argument>
+        </service>
+        <service id="import_product.action.processor.category.product.delete" class="TechDivision\Import\Product\Actions\Processors\CategoryProductDeleteProcessor">
+            <argument type="service" id="connection"/>
+            <argument>%import_product.utility.class.name%</argument>
+        </service>
+        <service id="import_product.action.processor.category.product.update" class="TechDivision\Import\Product\Actions\Processors\CategoryProductUpdateProcessor">
+            <argument type="service" id="connection"/>
+            <argument>%import_product.utility.class.name%</argument>
+        </service>
+        <service id="import_product.action.processor.product.create" class="TechDivision\Import\Product\Actions\Processors\ProductCreateProcessor">
+            <argument type="service" id="connection"/>
+            <argument>%import_product.utility.class.name%</argument>
+        </service>
+        <service id="import_product.action.processor.product.delete" class="TechDivision\Import\Product\Actions\Processors\ProductDeleteProcessor">
+            <argument type="service" id="connection"/>
+            <argument>%import_product.utility.class.name%</argument>
+        </service>
+        <service id="import_product.action.processor.product.update" class="TechDivision\Import\Product\Actions\Processors\ProductUpdateProcessor">
+            <argument type="service" id="connection"/>
+            <argument>%import_product.utility.class.name%</argument>
+        </service>
+        <service id="import_product.action.processor.product.datetime.create" class="TechDivision\Import\Product\Actions\Processors\ProductDatetimeCreateProcessor">
+            <argument type="service" id="connection"/>
+            <argument>%import_product.utility.class.name%</argument>
+        </service>
+        <service id="import_product.action.processor.product.datetime.update" class="TechDivision\Import\Product\Actions\Processors\ProductDatetimeUpdateProcessor">
+            <argument type="service" id="connection"/>
+            <argument>%import_product.utility.class.name%</argument>
+        </service>
+        <service id="import_product.action.processor.product.decimal.create" class="TechDivision\Import\Product\Actions\Processors\ProductDecimalCreateProcessor">
+            <argument type="service" id="connection"/>
+            <argument>%import_product.utility.class.name%</argument>
+        </service>
+        <service id="import_product.action.processor.product.decimal.update" class="TechDivision\Import\Product\Actions\Processors\ProductDecimalUpdateProcessor">
+            <argument type="service" id="connection"/>
+            <argument>%import_product.utility.class.name%</argument>
+        </service>
+        <service id="import_product.action.processor.product.int.create" class="TechDivision\Import\Product\Actions\Processors\ProductIntCreateProcessor">
+            <argument type="service" id="connection"/>
+            <argument>%import_product.utility.class.name%</argument>
+        </service>
+        <service id="import_product.action.processor.product.int.update" class="TechDivision\Import\Product\Actions\Processors\ProductIntUpdateProcessor">
+            <argument type="service" id="connection"/>
+            <argument>%import_product.utility.class.name%</argument>
+        </service>
+        <service id="import_product.action.processor.product.text.create" class="TechDivision\Import\Product\Actions\Processors\ProductTextCreateProcessor">
+            <argument type="service" id="connection"/>
+            <argument>%import_product.utility.class.name%</argument>
+        </service>
+        <service id="import_product.action.processor.product.text.update" class="TechDivision\Import\Product\Actions\Processors\ProductTextUpdateProcessor">
+            <argument type="service" id="connection"/>
+            <argument>%import_product.utility.class.name%</argument>
+        </service>
+        <service id="import_product.action.processor.product.varchar.create" class="TechDivision\Import\Product\Actions\Processors\ProductVarcharCreateProcessor">
+            <argument type="service" id="connection"/>
+            <argument>%import_product.utility.class.name%</argument>
+        </service>
+        <service id="import_product.action.processor.product.varchar.update" class="TechDivision\Import\Product\Actions\Processors\ProductVarcharUpdateProcessor">
+            <argument type="service" id="connection"/>
+            <argument>%import_product.utility.class.name%</argument>
+        </service>
+        <service id="import_product.action.processor.product.website.create" class="TechDivision\Import\Product\Actions\Processors\ProductWebsiteCreateProcessor">
+            <argument type="service" id="connection"/>
+            <argument>%import_product.utility.class.name%</argument>
+        </service>
+        <service id="import_product.action.processor.product.website.delete" class="TechDivision\Import\Product\Actions\Processors\ProductWebsiteDeleteProcessor">
+            <argument type="service" id="connection"/>
+            <argument>%import_product.utility.class.name%</argument>
+        </service>
+        <service id="import_product.action.processor.stock.item.create" class="TechDivision\Import\Product\Actions\Processors\StockItemCreateProcessor">
+            <argument type="service" id="connection"/>
+            <argument>%import_product.utility.class.name%</argument>
+        </service>
+        <service id="import_product.action.processor.stock.item.delete" class="TechDivision\Import\Product\Actions\Processors\StockItemDeleteProcessor">
+            <argument type="service" id="connection"/>
+            <argument>%import_product.utility.class.name%</argument>
+        </service>
+        <service id="import_product.action.processor.stock.item.update" class="TechDivision\Import\Product\Actions\Processors\StockItemUpdateProcessor">
+            <argument type="service" id="connection"/>
+            <argument>%import_product.utility.class.name%</argument>
+        </service>
+        <service id="import_product.action.processor.stock.status.create" class="TechDivision\Import\Product\Actions\Processors\StockStatusCreateProcessor">
+            <argument type="service" id="connection"/>
+            <argument>%import_product.utility.class.name%</argument>
+        </service>
+        <service id="import_product.action.processor.stock.status.delete" class="TechDivision\Import\Product\Actions\Processors\StockStatusDeleteProcessor">
+            <argument type="service" id="connection"/>
+            <argument>%import_product.utility.class.name%</argument>
+        </service>
+        <service id="import_product.action.processor.stock.status.update" class="TechDivision\Import\Product\Actions\Processors\StockStatusUpdateProcessor">
+            <argument type="service" id="connection"/>
+            <argument>%import_product.utility.class.name%</argument>
+        </service>
+        <service id="import_product.action.processor.url.rewrite.product.category.create" class="TechDivision\Import\Product\Actions\Processors\UrlRewriteProductCategoryCreateProcessor">
+            <argument type="service" id="connection"/>
+            <argument>%import_product.utility.class.name%</argument>
+        </service>
+        <service id="import_product.action.processor.url.rewrite.product.category.delete" class="TechDivision\Import\Product\Actions\Processors\UrlRewriteProductCategoryDeleteProcessor">
+            <argument type="service" id="connection"/>
+            <argument>%import_product.utility.class.name%</argument>
+        </service>
+        <service id="import_product.action.processor.url.rewrite.product.category.update" class="TechDivision\Import\Product\Actions\Processors\UrlRewriteProductCategoryUpdateProcessor">
+            <argument type="service" id="connection"/>
+            <argument>%import_product.utility.class.name%</argument>
+        </service>
+
+        <service id="import_product.action.category.product" class="TechDivision\Import\Product\Actions\CategoryProductAction">
+            <argument type="service" id="import_product.action.processor.category.product.create"/>
+            <argument type="service" id="import_product.action.processor.category.product.update"/>
+            <argument type="service" id="import_product.action.processor.category.product.delete"/>
+        </service>
+        <service id="import_product.action.product" class="TechDivision\Import\Product\Actions\ProductAction">
+            <argument type="service" id="import_product.action.processor.product.create"/>
+            <argument type="service" id="import_product.action.processor.product.update"/>
+            <argument type="service" id="import_product.action.processor.product.delete"/>
+        </service>
+        <service id="import_product.action.product.website" class="TechDivision\Import\Product\Actions\ProductWebsiteAction">
+            <argument type="service" id="import_product.action.processor.product.website.create"/>
+            <argument type="service" id="import_product.action.processor.product.website.delete"/>
+            <argument type="service" id="import_product.action.processor.product.website.delete"/>
+        </service>
+        <service id="import_product.action.product.datetime" class="TechDivision\Import\Product\Actions\ProductDatetimeAction">
+            <argument type="service" id="import_product.action.processor.product.datetime.create"/>
+            <argument type="service" id="import_product.action.processor.product.datetime.update"/>
+        </service>
+        <service id="import_product.action.product.decimal" class="TechDivision\Import\Product\Actions\ProductDecimalAction">
+            <argument type="service" id="import_product.action.processor.product.decimal.create"/>
+            <argument type="service" id="import_product.action.processor.product.decimal.update"/>
+        </service>
+        <service id="import_product.action.product.int" class="TechDivision\Import\Product\Actions\ProductIntAction">
+            <argument type="service" id="import_product.action.processor.product.int.create"/>
+            <argument type="service" id="import_product.action.processor.product.int.update"/>
+        </service>
+        <service id="import_product.action.product.text" class="TechDivision\Import\Product\Actions\ProductTextAction">
+            <argument type="service" id="import_product.action.processor.product.text.create"/>
+            <argument type="service" id="import_product.action.processor.product.text.update"/>
+        </service>
+        <service id="import_product.action.product.varchar" class="TechDivision\Import\Product\Actions\ProductVarcharAction">
+            <argument type="service" id="import_product.action.processor.product.varchar.create"/>
+            <argument type="service" id="import_product.action.processor.product.varchar.update"/>
+        </service>
+        <service id="import_product.action.stock.item" class="TechDivision\Import\Product\Actions\StockItemAction">
+            <argument type="service" id="import_product.action.processor.stock.item.create"/>
+            <argument type="service" id="import_product.action.processor.stock.item.update"/>
+            <argument type="service" id="import_product.action.processor.stock.item.delete"/>
+        </service>
+        <service id="import_product.action.stock.status" class="TechDivision\Import\Product\Actions\StockStatusAction">
+            <argument type="service" id="import_product.action.processor.stock.status.create"/>
+            <argument type="service" id="import_product.action.processor.stock.status.update"/>
+            <argument type="service" id="import_product.action.processor.stock.status.delete"/>
+        </service>
+        <service id="import_product.action.url.rewrite.product.category" class="TechDivision\Import\Product\Actions\UrlRewriteProductCategoryAction">
+            <argument type="service" id="import_product.action.processor.url.rewrite.product.category.create"/>
+            <argument type="service" id="import_product.action.processor.url.rewrite.product.category.update"/>
+            <argument type="service" id="import_product.action.processor.url.rewrite.product.category.delete"/>
+        </service>
+
+        <service id="import_product.processor.product.bunch" class="TechDivision\Import\Product\Services\ProductBunchProcessor">
+            <argument type="service" id="connection"/>
+            <argument type="service" id="import_product.repository.product"/>
+            <argument type="service" id="import_product.repository.product.website"/>
+            <argument type="service" id="import_product.repository.product.datetime"/>
+            <argument type="service" id="import_product.repository.product.decimal"/>
+            <argument type="service" id="import_product.repository.product.int"/>
+            <argument type="service" id="import_product.repository.product.text"/>
+            <argument type="service" id="import_product.repository.product.varchar"/>
+            <argument type="service" id="import_product.repository.category.product"/>
+            <argument type="service" id="import_product.repository.stock.status"/>
+            <argument type="service" id="import_product.repository.stock.item"/>
+            <argument type="service" id="import.repository.url.rewrite"/>
+            <argument type="service" id="import_product.repository.url.rewrite.product.category"/>
+            <argument type="service" id="import.repository.eav.attribute.option.value"/>
+            <argument type="service" id="import.repository.eav.attribute"/>
+            <argument type="service" id="import_product.action.category.product"/>
+            <argument type="service" id="import_product.action.product.datetime"/>
+            <argument type="service" id="import_product.action.product.decimal"/>
+            <argument type="service" id="import_product.action.product.int"/>
+            <argument type="service" id="import_product.action.product"/>
+            <argument type="service" id="import_product.action.product.text"/>
+            <argument type="service" id="import_product.action.product.varchar"/>
+            <argument type="service" id="import_product.action.product.website"/>
+            <argument type="service" id="import_product.action.stock.item"/>
+            <argument type="service" id="import_product.action.stock.status"/>
+            <argument type="service" id="import.action.url.rewrite"/>
+            <argument type="service" id="import_product.action.url.rewrite.product.category"/>
+        </service>
+
+        <service id="import_product.subject.bunch" class="TechDivision\Import\Product\Subjects\BunchSubject">
+            <argument type="service" id="configuration.import.subject.move.files"/>
+            <argument type="service" id="import.processor.registry"/>
+            <argument type="service" id="import.generator.core.config.data.uid"/>
+            <argument type="service" id="loggers"/>
+            <argument type="service" id="import_product.processor.product.bunch"/>
+        </service>
+
+    </services>
+
+</container>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<container xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <imports>
+        <import resource="import/services.xml"/>
+        <import resource="import/product/services.xml"/>
+        <import resource="import/product/bundle/services.xml"/>
+        <import resource="import/product/link/services.xml"/>
+        <import resource="import/product/media/services.xml"/>
+        <import resource="import/product/variant/services.xml"/>
+    </imports>
+
+    <parameters>
+        <parameter key="application.name">M2IF - Simple Console Tool</parameter>
+        <parameter key="application.version">1.0.0-alpha59</parameter>
+    </parameters>
+
+    <services>
+
+        <service id="command.import.products" class="TechDivision\Import\Cli\Command\ImportProductsCommand"/>
+        <service id="command.import.categories" class="TechDivision\Import\Cli\Command\ImportCategoriesCommand"/>
+        <service id="command.import.clear.pid" class="TechDivision\Import\Cli\Command\ImportClearPidCommand"/>
+
+        <service id="application" class="TechDivision\Import\Cli\Application">
+            <argument type="service" id="container"/>
+            <call method="add">
+                <argument type="service" id="command.import.products"/>
+            </call>
+            <call method="add">
+                <argument type="service" id="command.import.categories"/>
+            </call>
+            <call method="add">
+                <argument type="service" id="command.import.clear.pid"/>
+            </call>
+        </service>
+
+        <service id="simple" class="TechDivision\Import\Cli\Simple">
+            <argument type="service" id="container"/>
+            <argument type="service" id="import.processor.registry"/>
+            <argument type="service" id="import.processor.import"/>
+            <argument type="service" id="configuration"/>
+            <argument type="service" id="output"/>
+            <argument type="service" id="loggers"/>
+        </service>
+
+    </services>
+
+</container>

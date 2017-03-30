@@ -63,10 +63,12 @@
             <argument>%utility.class.name%</argument>
         </service>
 
-        <service id="category.assembler" class="TechDivision\Import\Assembler\CategoryAssembler">
+        <service id="assembler.category" class="TechDivision\Import\Assembler\CategoryAssembler">
             <argument type="service" id="repository.category"/>
             <argument type="service" id="repository.category.varchar"/>
         </service>
+
+        <service id="registry.processor" class="TechDivision\Import\Services\RegistryProcessor"/>
 
         <service id="import.processor" class="TechDivision\Import\Services\ImportProcessor">
             <argument type="service" id="connection"/>
@@ -83,8 +85,6 @@
             <argument type="service" id="repository.link.attribute"/>
             <argument type="service" id="repository.core.config.data"/>
         </service>
-
-        <service id="registry.processor" class="TechDivision\Import\Services\RegistryProcessor"/>
 
         <service id="processor.category.bunch" class="TechDivision\Import\Category\Services\CategoryBunchProcessor">
             <argument type="service" id="connection"/>
@@ -104,6 +104,81 @@
             <argument type="service" id="action.category.varchar"/>
             <argument type="service" id="action.url.rewrite"/>
             <argument type="service" id="assembler.category"/>
+        </service>
+
+        <service id="processor.product.bunch" class="TechDivision\Import\Product\Services\ProductBunchProcessor">
+            <argument type="service" id="connection"/>
+            <argument type="service" id="repository.product"/>
+            <argument type="service" id="repository.product.website"/>
+            <argument type="service" id="repository.product.datetime"/>
+            <argument type="service" id="repository.product.decimal"/>
+            <argument type="service" id="repository.product.int"/>
+            <argument type="service" id="repository.product.text"/>
+            <argument type="service" id="repository.product.varchar"/>
+            <argument type="service" id="repository.category.product"/>
+            <argument type="service" id="repository.stock.status"/>
+            <argument type="service" id="repository.stock.item"/>
+            <argument type="service" id="repository.url.rewrite"/>
+            <argument type="service" id="repository.url.rewrite.product.category"/>
+            <argument type="service" id="repository.eav.attribute.option.value"/>
+            <argument type="service" id="repository.eav.attribute"/>
+            <argument type="service" id="action.category.product"/>
+            <argument type="service" id="action.product.datetime"/>
+            <argument type="service" id="action.product.decimal"/>
+            <argument type="service" id="action.product.int"/>
+            <argument type="service" id="action.product"/>
+            <argument type="service" id="action.product.text"/>
+            <argument type="service" id="action.product.varchar"/>
+            <argument type="service" id="action.product.website"/>
+            <argument type="service" id="action.stock.item"/>
+            <argument type="service" id="action.stock.status"/>
+            <argument type="service" id="action.url.rewrite"/>
+            <argument type="service" id="action.url.rewrite.product.category"/>
+        </service>
+
+        <service id="processor.product.bundle" class="TechDivision\Import\Product\Services\ProductBundleProcessor">
+            <argument type="service" id="connection"/>
+            <argument type="service" id="repository.bundle.option"/>
+            <argument type="service" id="repository.bundle.option.value"/>
+            <argument type="service" id="repository.bundle.selection"/>
+            <argument type="service" id="repository.bundle.selection.price"/>
+            <argument type="service" id="action.product.bundle.option"/>
+            <argument type="service" id="action.product.bundle.option.value"/>
+            <argument type="service" id="action.product.bundle.selection"/>
+            <argument type="service" id="action.product.bundle.selection.price"/>
+        </service>
+
+        <service id="processor.product.link" class="TechDivision\Import\Product\Services\ProductLinkProcessor">
+            <argument type="service" id="connection"/>
+            <argument type="service" id="repository.product.link"/>
+            <argument type="service" id="repository.product.link.attribute.int"/>
+            <argument type="service" id="action.product.link"/>
+            <argument type="service" id="action.product.link.attribute.int"/>
+        </service>
+
+        <service id="processor.product.media" class="TechDivision\Import\Product\Services\ProductMediaProcessor">
+            <argument type="service" id="connection"/>
+            <argument type="service" id="repository.product.media.gallery"/>
+            <argument type="service" id="repository.product.media.gallery.value"/>
+            <argument type="service" id="repository.product.media.gallery.value.to.entity"/>
+            <argument type="service" id="action.product.media.gallery"/>
+            <argument type="service" id="action.product.media.gallery.value"/>
+            <argument type="service" id="action.product.media.gallery.value.to.entity"/>
+            <argument type="service" id="action.product.media.gallery.value.video"/>
+        </service>
+
+        <service id="processor.product.variant" class="TechDivision\Import\Product\Services\ProductVariantProcessor">
+            <argument type="service" id="connection"/>
+            <argument type="service" id="repository.eav.attribute.option.value"/>
+            <argument type="service" id="repository.eav.attribute"/>
+            <argument type="service" id="repository.product.relation"/>
+            <argument type="service" id="repository.product.super.link"/>
+            <argument type="service" id="repository.product.super.attribute"/>
+            <argument type="service" id="repository.product.super.attribute.label"/>
+            <argument type="service" id="action.product.relation"/>
+            <argument type="service" id="action.product.super.link"/>
+            <argument type="service" id="action.product.super.attribute"/>
+            <argument type="service" id="action.product.super.attribute.label"/>
         </service>
 
         <service id="application" class="TechDivision\Import\Cli\Application">

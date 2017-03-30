@@ -235,7 +235,7 @@ class ProductBunchProcessorFactory extends AbstractProductProcessorFactory
             new UrlRewriteProductCategoryDeleteProcessor($connection, $utilityClassName)
         );
 
-        // initialize the product processor
+        // initialize and return the product processor
         $processorType = static::getProcessorType();
         return new $processorType(
             $connection,

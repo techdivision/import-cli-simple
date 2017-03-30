@@ -20,6 +20,7 @@
 
 namespace TechDivision\Import\Cli\Services;
 
+use TechDivision\Import\Repositories\EavAttributeRepository;
 use TechDivision\Import\Configuration\ProcessorConfigurationInterface;
 use TechDivision\Import\Category\Ee\Repositories\CategoryRepository;
 use TechDivision\Import\Category\Ee\Repositories\CategoryDatetimeRepository;
@@ -30,6 +31,30 @@ use TechDivision\Import\Category\Ee\Repositories\CategoryVarcharRepository;
 use TechDivision\Import\Category\Ee\Actions\SequenceCategoryAction;
 use TechDivision\Import\Category\Ee\Actions\Processors\CategoryUpdateProcessor;
 use TechDivision\Import\Category\Ee\Actions\Processors\SequenceCategoryCreateProcessor;
+use TechDivision\Import\Repositories\UrlRewriteRepository;
+use TechDivision\Import\Category\Actions\CategoryDatetimeAction;
+use TechDivision\Import\Category\Actions\CategoryDecimalAction;
+use TechDivision\Import\Category\Actions\CategoryIntAction;
+use TechDivision\Import\Category\Actions\CategoryTextAction;
+use TechDivision\Import\Category\Actions\CategoryVarcharAction;
+use TechDivision\Import\Actions\UrlRewriteAction;
+use TechDivision\Import\Actions\Processors\UrlRewriteCreateProcessor;
+use TechDivision\Import\Actions\Processors\UrlRewriteUpdateProcessor;
+use TechDivision\Import\Actions\Processors\UrlRewriteDeleteProcessor;
+use TechDivision\Import\Category\Actions\Processors\CategoryCreateProcessor;
+use TechDivision\Import\Category\Actions\Processors\CategoryDeleteProcessor;
+use TechDivision\Import\Category\Actions\Processors\CategoryVarcharUpdateProcessor;
+use TechDivision\Import\Category\Actions\Processors\CategoryVarcharCreateProcessor;
+use TechDivision\Import\Category\Actions\Processors\CategoryTextUpdateProcessor;
+use TechDivision\Import\Category\Actions\Processors\CategoryTextCreateProcessor;
+use TechDivision\Import\Category\Actions\Processors\CategoryIntUpdateProcessor;
+use TechDivision\Import\Category\Actions\Processors\CategoryIntCreateProcessor;
+use TechDivision\Import\Category\Actions\Processors\CategoryDecimalUpdateProcessor;
+use TechDivision\Import\Category\Actions\Processors\CategoryDecimalCreateProcessor;
+use TechDivision\Import\Category\Actions\Processors\CategoryDatetimeUpdateProcessor;
+use TechDivision\Import\Category\Actions\Processors\CategoryDatetimeCreateProcessor;
+use TechDivision\Import\Category\Actions\CategoryAction;
+use TechDivision\Import\Assembler\CategoryAssembler;
 
 /**
  * Factory to create a new category bunch processor.

@@ -67,53 +67,31 @@ class ProductLinkProcessorFactory extends AbstractProductProcessorFactory
         $utilityClassName = $configuration->getUtilityClassName();
 
         // initialize the repository that provides product link query functionality
-        $productLinkRepository = new ProductLinkRepository();
-        $productLinkRepository->setUtilityClassName($utilityClassName);
-        $productLinkRepository->setConnection($connection);
-        $productLinkRepository->init();
+        $productLinkRepository = new ProductLinkRepository($connection, $utilityClassName);
 
         // initialize the repository that provides product link attribute integer query functionality
-        $productLinkAttributeIntRepository = new ProductLinkAttributeIntRepository();
-        $productLinkAttributeIntRepository->setUtilityClassName($utilityClassName);
-        $productLinkAttributeIntRepository->setConnection($connection);
-        $productLinkAttributeIntRepository->init();
+        $productLinkAttributeIntRepository = new ProductLinkAttributeIntRepository($connection, $utilityClassName);
 
         // initialize the action that provides product link CRUD functionality
-        $productLinkCreateProcessor = new ProductLinkCreateProcessor();
-        $productLinkCreateProcessor->setUtilityClassName($utilityClassName);
-        $productLinkCreateProcessor->setConnection($connection);
-        $productLinkCreateProcessor->init();
-        $productLinkUpdateProcessor = new ProductLinkUpdateProcessor();
-        $productLinkUpdateProcessor->setUtilityClassName($utilityClassName);
-        $productLinkUpdateProcessor->setConnection($connection);
-        $productLinkUpdateProcessor->init();
-        $productLinkAction = new ProductLinkAction();
-        $productLinkAction->setCreateProcessor($productLinkCreateProcessor);
-        $productLinkAction->setUpdateProcessor($productLinkUpdateProcessor);
+        $productLinkAction = new ProductLinkAction(
+            new ProductLinkCreateProcessor($connection, $utilityClassName),
+            new ProductLinkUpdateProcessor($connection, $utilityClassName)
+        );
 
         // initialize the action that provides product link attribute integer CRUD functionality
-        $productLinkAttributeIntCreateProcessor = new ProductLinkAttributeIntCreateProcessor();
-        $productLinkAttributeIntCreateProcessor->setUtilityClassName($utilityClassName);
-        $productLinkAttributeIntCreateProcessor->setConnection($connection);
-        $productLinkAttributeIntCreateProcessor->init();
-        $productLinkAttributeIntUpdateProcessor = new ProductLinkAttributeIntUpdateProcessor();
-        $productLinkAttributeIntUpdateProcessor->setUtilityClassName($utilityClassName);
-        $productLinkAttributeIntUpdateProcessor->setConnection($connection);
-        $productLinkAttributeIntUpdateProcessor->init();
-        $productLinkAttributeIntAction = new ProductLinkAttributeIntAction();
-        $productLinkAttributeIntAction->setCreateProcessor($productLinkAttributeIntCreateProcessor);
-        $productLinkAttributeIntAction->setUpdateProcessor($productLinkAttributeIntUpdateProcessor);
+        $productLinkAttributeIntAction = new ProductLinkAttributeIntAction(
+            new ProductLinkAttributeIntCreateProcessor($connection, $utilityClassName),
+            new ProductLinkAttributeIntUpdateProcessor($connection, $utilityClassName)
+        );
 
-        // initialize the product link processor
+        // initialize and return the product link processor
         $processorType = static::getProcessorType();
-        $productLinkProcessor = new $processorType();
-        $productLinkProcessor->setConnection($connection);
-        $productLinkProcessor->setProductLinkRepository($productLinkRepository);
-        $productLinkProcessor->setProductLinkAttributeIntRepository($productLinkAttributeIntRepository);
-        $productLinkProcessor->setProductLinkAction($productLinkAction);
-        $productLinkProcessor->setProductLinkAttributeIntAction($productLinkAttributeIntAction);
-
-        // return the instance
-        return $productLinkProcessor;
+        return new $processorType(
+            $connection,
+            $productLinkRepository,
+            $productLinkAttributeIntRepository,
+            $productLinkAction,
+            $productLinkAttributeIntAction
+        );
     }
 }

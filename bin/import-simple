@@ -30,7 +30,7 @@ use Symfony\Component\DependencyInjection\Loader\XmlFileLoader;
 
 // initialize the 
 $container = new ContainerBuilder();
-$loader = new XmlFileLoader($container, new FileLocator(dirname(__DIR__) . '/src'));
+$loader = new XmlFileLoader($container, new FileLocator(dirname(__DIR__) . '/src/etc'));
 $loader->load('services.xml');
 
 $container->set('container', $container);

@@ -1,3 +1,34 @@
+# Version 1.0.0-alpha59
+
+## Bugfixes
+
+* None
+
+## Features
+
+* Switch to latest techdivision/import-product-ee package
+* Refactoring for DI integration
+
+# Version 1.0.0-alpha58
+
+## Bugfixes
+
+* Removed unnecessary use statement in AbstractImportCommand
+
+## Features
+
+* Switch to latest techdivision/import + techdivision/import-product-link version
+
+# Version 1.0.0-alpha57
+
+## Bugfixes
+
+* None
+
+## Features
+
+* Refactor Import + RegistryProcessor initialization
+
 # Version 1.0.0-alpha56
 
 ## Bugfixes
