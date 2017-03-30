@@ -1,3 +1,13 @@
+# Version 1.0.0-alpha61
+
+## Bugfixes
+
+* None
+
+## Features
+
+* Update Dockerfile with postfix installation
+
 # Version 1.0.0-alpha60
 
 ## Bugfixes
