@@ -253,15 +253,6 @@ class Configuration implements ConfigurationInterface
     protected $debugMode = false;
 
     /**
-     * The flag to signal that the an existing PID should be ignored, whether or import process is running or not.
-     *
-     * @var boolean
-     * @Type("boolean")
-     * @SerializedName("ignore-pid")
-     */
-    protected $ignorePid = false;
-
-    /**
      * The log level to use (see Monolog documentation).
      *
      * @var string
@@ -742,29 +733,6 @@ class Configuration implements ConfigurationInterface
     public function isDebugMode()
     {
         return $this->debugMode;
-    }
-
-    /**
-     * Set's the flag to signal that the an existing PID has to be ignored, whether a
-     * import process is running or not.
-     *
-     * @param boolean $ignorePid TRUE if the PID has to be ignored, else FALSE
-     *
-     * @return void
-     */
-    public function setIgnorePid($ignorePid)
-    {
-        $this->ignorePid = $ignorePid;
-    }
-
-    /**
-     * Queries whether or not that the an existing PID has to be ignored.
-     *
-     * @return boolean TRUE if an existing PID has to be ignored, else FALSE
-     */
-    public function isIgnorePid()
-    {
-        return $this->ignorePid;
     }
 
     /**

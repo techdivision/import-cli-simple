@@ -93,7 +93,6 @@ The following configuration options are available:
 | --db-password        | The password used to connect to the Magento database | n/a |
 | --debug-mode         | The flag to activate the debug mode | `false` |
 | --log-level          | The log level to use (see Monolog documentation for further information) | `info` |
-| --ignore-pid         | The flag to signal that the an existing PID should be ignored, whether or import process is running or not | `false` |
 | --pid-filename       | The explicit PID filename to use | `<system-temp-dir>/importer.pid` |
 
 All values can and **SHOULD** be defined in the configuration file. The commandline options should only be 

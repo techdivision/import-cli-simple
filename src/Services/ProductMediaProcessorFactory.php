@@ -104,7 +104,7 @@ class ProductMediaProcessorFactory extends AbstractProductProcessorFactory
 
         // initialize and return the product media processor
         $processorType = static::getProcessorType();
-        return $processorType(
+        return new $processorType(
             $connection,
             $productMediaGalleryRepository,
             $productMediaGalleryValueRepository,
