@@ -30,11 +30,12 @@ use TechDivision\Import\Utils\LoggerKeys;
 use TechDivision\Import\Utils\RegistryKeys;
 use TechDivision\Import\ApplicationInterface;
 use TechDivision\Import\ConfigurationInterface;
+use TechDivision\Import\Exceptions\LineNotFoundException;
+use TechDivision\Import\Exceptions\FileNotFoundException;
+use TechDivision\Import\Exceptions\ImportAlreadyRunningException;
 use TechDivision\Import\Configuration\PluginConfigurationInterface;
 use TechDivision\Import\Services\ImportProcessorInterface;
 use TechDivision\Import\Services\RegistryProcessorInterface;
-use TechDivision\Import\Cli\Exceptions\LineNotFoundException;
-use TechDivision\Import\Cli\Exceptions\FileNotFoundException;
 
 /**
  * The M2IF - Console Tool implementation.
@@ -156,6 +157,13 @@ class Simple implements ApplicationInterface
      * @var boolean
      */
     protected $stopped = false;
+
+    /**
+     * The filehandle for the PID file.
+     *
+     * @var resource
+     */
+    protected $fh;
 
     /**
      * The constructor to initialize the instance.
@@ -322,7 +330,8 @@ class Simple implements ApplicationInterface
      * Persist the UUID of the actual import process to the PID file.
      *
      * @return void
-     * @throws \Exception Is thrown, if the PID can not be added
+     * @throws \Exception Is thrown, if the PID can not be locked or the PID can not be added
+     * @throws \TechDivision\Import\Exceptions\ImportAlreadyRunningException Is thrown, if a import process is already running
      */
     public function lock()
     {
@@ -336,15 +345,17 @@ class Simple implements ApplicationInterface
         $this->pid = $this->getSerial();
 
         // open the PID file
-        $fh = fopen($pidFilename = $this->getPidFilename(), 'a');
+        $this->fh = fopen($filename = $this->getPidFilename(), 'a+');
 
-        // append the PID to the PID file
-        if (fwrite($fh, $this->pid . PHP_EOL) === false) {
-            throw new \Exception(sprintf('Can\'t write PID %s to PID file %s', $this->pid, $pidFilename));
+        // try to lock the PID file exclusive
+        if (!flock($this->fh, LOCK_EX|LOCK_NB)) {
+            throw new ImportAlreadyRunningException(sprintf('PID file %s is already in use', $filename));
         }
 
-        // close the file handle
-        fclose($fh);
+        // append the PID to the PID file
+        if (fwrite($this->fh, $this->pid . PHP_EOL) === false) {
+            throw new \Exception(sprintf('Can\'t write PID %s to PID file %s', $this->pid, $filename));
+        }
     }
 
     /**
@@ -357,8 +368,18 @@ class Simple implements ApplicationInterface
     {
         try {
             // remove the PID from the PID file if set
-            if ($this->pid === $this->getSerial()) {
-                $this->removeLineFromFile($this->pid, $this->getPidFilename());
+            if ($this->pid === $this->getSerial() && is_resource($this->fh)) {
+                // remove the PID from the file
+                $this->removeLineFromFile($this->pid, $this->fh);
+
+                // finally unlock/close the PID file
+                flock($this->fh, LOCK_UN);
+                fclose($this->fh);
+
+                // if the PID file is empty, delete the file
+                if (filesize($filename = $this->getPidFilename()) === 0) {
+                    unlink($filename);
+                }
             }
 
         } catch (FileNotFoundException $fnfe) {
@@ -373,22 +394,14 @@ class Simple implements ApplicationInterface
     /**
      * Remove's the passed line from the file with the passed name.
      *
-     * @param string $line     The line to be removed
-     * @param string $filename The name of the file the line has to be removed
+     * @param string   $line The line to be removed
+     * @param resource $fh   The file handle of the file the line has to be removed
      *
      * @return void
      * @throws \Exception Is thrown, if the file doesn't exists, the line is not found or can not be removed
      */
-    public function removeLineFromFile($line, $filename)
+    public function removeLineFromFile($line, $fh)
     {
-
-        // query whether or not the filename
-        if (!file_exists($filename)) {
-            throw new FileNotFoundException(sprintf('File %s doesn\' exists', $filename));
-        }
-
-        // open the PID file
-        $fh = fopen($filename, 'r+');
 
         // initialize the array for the PIDs found in the PID file
         $lines = array();
@@ -396,10 +409,13 @@ class Simple implements ApplicationInterface
         // initialize the flag if the line has been found
         $found = false;
 
+        // rewind the file pointer
+        rewind($fh);
+
         // read the lines with the PIDs from the PID file
         while (($buffer = fgets($fh, 4096)) !== false) {
             // remove the new line
-            $buffer = trim($buffer, PHP_EOL);
+            $buffer = trim($buffer);
             // if the line is the one to be removed, ignore the line
             if ($line === $buffer) {
                 $found = true;
@@ -412,14 +428,7 @@ class Simple implements ApplicationInterface
 
         // query whether or not, we found the line
         if (!$found) {
-            throw new LineNotFoundException(sprintf('Line %s can not be found in file %s', $line, $filename));
-        }
-
-        // if there are NO more lines, delete the file
-        if (sizeof($lines) === 0) {
-            fclose($fh);
-            unlink($filename);
-            return;
+            throw new LineNotFoundException(sprintf('Line %s can not be found', $line));
         }
 
         // empty the file and rewind the file pointer
@@ -429,12 +438,9 @@ class Simple implements ApplicationInterface
         // append the existing lines to the file
         foreach ($lines as $ln) {
             if (fwrite($fh, $ln . PHP_EOL) === false) {
-                throw new \Exception(sprintf('Can\'t write %s to file %s', $ln, $filename));
+                throw new \Exception(sprintf('Can\'t write %s to file', $ln));
             }
         }
-
-        // finally close the file
-        fclose($fh);
     }
 
     /**
@@ -484,6 +490,35 @@ class Simple implements ApplicationInterface
                 ),
                 LogLevel::INFO
             );
+
+        } catch (ImportAlreadyRunningException $iare) {
+            // tear down
+            $this->tearDown();
+
+            // rollback the transaction
+            $this->getImportProcessor()->getConnection()->rollBack();
+
+            // finally, if a PID has been set (because CSV files has been found),
+            // remove it from the PID file to unlock the importer
+            $this->unlock();
+
+            // track the time needed for the import in seconds
+            $endTime = microtime(true) - $startTime;
+
+            // log a warning, because another import process is already running
+            $this->getSystemLogger()->warning($iare->__toString());
+
+            // log a message that import has been finished
+            $this->getSystemLogger()->info(
+                sprintf(
+                    'Can\'t finish import with serial because another import process is running %s in %f s',
+                    $this->getSerial(),
+                    $endTime
+                )
+            );
+
+            // re-throw the exception
+            throw $iare;
 
         } catch (\Exception $e) {
             // tear down
@@ -573,13 +608,6 @@ class Simple implements ApplicationInterface
 
         // generate the serial for the new job
         $this->serial = Uuid::uuid4()->__toString();
-
-        // query whether or not an import is running AND an existing PID has to be ignored
-        if (file_exists($pidFilename = $this->getPidFilename()) && !$this->getConfiguration()->isIgnorePid()) {
-            throw new \Exception(sprintf('At least one import process is already running (check PID: %s)', $pidFilename));
-        } elseif (file_exists($pidFilename = $this->getPidFilename()) && $this->getConfiguration()->isIgnorePid()) {
-            $this->log(sprintf('At least one import process is already running (PID: %s)', $pidFilename), LogLevel::WARNING);
-        }
 
         // write the TechDivision ANSI art icon to the console
         $this->log($this->ansiArt);

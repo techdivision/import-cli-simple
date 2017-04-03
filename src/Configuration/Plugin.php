@@ -59,7 +59,7 @@ class Plugin implements PluginConfigurationInterface
      * @var \Doctrine\Common\Collections\ArrayCollection
      * @Type("ArrayCollection<TechDivision\Import\Cli\Configuration\Subject>")
      */
-    protected $subjects;
+    protected $subjects = array();
 
     /**
      * The plugin's processor type to use.

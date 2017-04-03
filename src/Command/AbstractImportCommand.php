@@ -151,12 +151,6 @@ abstract class AbstractImportCommand extends Command
             'The log level to use'
         )
         ->addOption(
-            InputOptionKeys::IGNORE_PID,
-            null,
-            InputOption::VALUE_REQUIRED,
-            'Whether or not an existing PID should be ignored or not'
-        )
-        ->addOption(
             InputOptionKeys::DEBUG_MODE,
             null,
             InputOption::VALUE_REQUIRED,
@@ -278,12 +272,6 @@ abstract class AbstractImportCommand extends Command
         // option, if yes override the value from the configuration file
         if ($debugMode = $input->getOption(InputOptionKeys::DEBUG_MODE)) {
             $instance->setDebugMode($instance->mapBoolean($debugMode));
-        }
-
-        // query whether or not the ignore PID flag has been specified as command line
-        // option, if yes override the value from the configuration file
-        if ($ignorePid = $input->getOption(InputOptionKeys::IGNORE_PID)) {
-            $instance->setIgnorePid($instance->mapBoolean($ignorePid));
         }
 
         // query whether or not the log level has been specified as command line

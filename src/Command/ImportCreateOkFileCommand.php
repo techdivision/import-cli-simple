@@ -1,7 +1,7 @@
 <?php
 
 /**
- * TechDivision\Import\Cli\Command\ImportClearPidCommand
+ * TechDivision\Import\Cli\Command\ImportCreateOkFileCommand
  *
  * NOTICE OF LICENSE
  *
@@ -27,7 +27,7 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
 /**
- * The remove PID command implementation.
+ * The  command implementation that creates a OK file from a directory with CSV files.
  *
  * @author    Tim Wagner <t.wagner@techdivision.com>
  * @copyright 2016 TechDivision GmbH <info@techdivision.com>
@@ -35,7 +35,7 @@ use Symfony\Component\Console\Output\OutputInterface;
  * @link      https://github.com/techdivision/import-cli-simple
  * @link      http://www.techdivision.com
  */
-class ImportClearPidCommand extends AbstractSimpleImportCommand
+class ImportCreateOkFileCommand extends AbstractSimpleImportCommand
 {
 
     /**
@@ -48,8 +48,8 @@ class ImportClearPidCommand extends AbstractSimpleImportCommand
     {
 
         // initialize the command with the required/optional options
-        $this->setName('import:clear:pid-file')
-            ->setDescription('Clears the PID file from a previous import process, if it has not been cleaned up')
+        $this->setName('import:create:ok-file')
+            ->setDescription('Create\'s the OK file for the CSV files of the configured source directory')
             ->addOption(
                 InputOptionKeys::CONFIGURATION,
                 null,
@@ -72,6 +72,7 @@ class ImportClearPidCommand extends AbstractSimpleImportCommand
             );
     }
 
+
     /**
      * Finally executes the simple command.
      *
@@ -87,18 +88,41 @@ class ImportClearPidCommand extends AbstractSimpleImportCommand
         OutputInterface $output
     ) {
 
-        // query whether or not a PID file exists and delete it
-        if (file_exists($pidFilename = $configuration->getPidFilename())) {
-            if (!unlink($pidFilename)) {
-                throw new \Exception(sprintf('Can\'t delete PID file %s', $pidFilename));
+        // load the source directory
+        $sourceDir = $configuration->getSourceDir();
+
+        /** @var TechDivision\Import\Configuration\PluginConfigurationInterface $plugin */
+        foreach ($configuration->getPlugins() as $plugin) {
+            /** @var TechDivision\Import\Configuration\SubjectConfigurationInterface $subject */
+            foreach ($plugin->getSubjects() as $subject) {
+                // query whether or not, an OK file is needed
+                if ($subject->isOkFileNeeded()) {
+                    // load the prefix
+                    $prefix = $subject->getPrefix();
+
+                    // prepare the OK file's content
+                    $okfileContent = '';
+                    foreach (glob(sprintf('%s/%s*.csv', $sourceDir, $prefix)) as $filename) {
+                        $okfileContent .= basename($filename) . PHP_EOL;
+                    }
+
+                    // prepare the OK file's name
+                    $okFilename = sprintf('%s/%s.ok', $sourceDir, $prefix);
+
+                    // write the OK file
+                    if (file_put_contents($okFilename, $okfileContent)) {
+                        // write a message to the console
+                        $output->writeln(sprintf('<info>Successfully written OK file %s</info>', $okFilename));
+
+                    } else {
+                        // write a message to the console
+                        $output->writeln(sprintf('<error>Can\'t write OK file %s</error>', $okFilename));
+                    }
+
+                    // stop the process
+                    return;
+                }
             }
-
-            // write a message to the console
-            $output->writeln(sprintf('<info>Successfully deleted PID file %s</info>', $pidFilename));
-
-        } else {
-            // write a message to the console
-            $output->writeln(sprintf('<error>PID file %s not available</error>', $pidFilename));
         }
     }
 }

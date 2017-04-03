@@ -1,3 +1,14 @@
+# Version 1.0.0-alpha62
+
+## Bugfixes
+
+* Add new command to create OK files based on CSV files in a directory
+* Fixed issue when concurrent access to PID file
+
+## Features
+
+* None
+
 # Version 1.0.0-alpha61
 
 ## Bugfixes
