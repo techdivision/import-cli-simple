@@ -1,3 +1,34 @@
+# Version 1.0.0-alpha62
+
+## Bugfixes
+
+* Add new command to create OK files based on CSV files in a directory
+* Fixed issue when concurrent access to PID file
+
+## Features
+
+* None
+
+# Version 1.0.0-alpha61
+
+## Bugfixes
+
+* None
+
+## Features
+
+* Update Dockerfile with postfix installation
+
+# Version 1.0.0-alpha60
+
+## Bugfixes
+
+* Remove unnecessary init() method calls on repositories in ImportProcessorFactory
+
+## Features
+
+* None
+
 # Version 1.0.0-alpha59
 
 ## Bugfixes
