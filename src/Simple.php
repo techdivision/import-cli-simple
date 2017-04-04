@@ -23,8 +23,6 @@ namespace TechDivision\Import\Cli;
 use Rhumsaa\Uuid\Uuid;
 use Monolog\Logger;
 use Psr\Log\LogLevel;
-use Symfony\Component\Console\Application;
-use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Helper\FormatterHelper;
 use TechDivision\Import\Utils\LoggerKeys;
@@ -37,12 +35,7 @@ use TechDivision\Import\Exceptions\ImportAlreadyRunningException;
 use TechDivision\Import\Configuration\PluginConfigurationInterface;
 use TechDivision\Import\Services\ImportProcessorInterface;
 use TechDivision\Import\Services\RegistryProcessorInterface;
-<<<<<<< HEAD
-use TechDivision\Import\Cli\Exceptions\LineNotFoundException;
-use TechDivision\Import\Cli\Exceptions\FileNotFoundException;
 use Symfony\Component\DependencyInjection\TaggedContainerInterface;
-=======
->>>>>>> master
 
 /**
  * The M2IF - Console Tool implementation.

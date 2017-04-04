@@ -14,14 +14,15 @@
 
     <parameters>
         <parameter key="application.name">M2IF - Simple Console Tool</parameter>
-        <parameter key="application.version">1.0.0-alpha59</parameter>
+        <parameter key="application.version">1.0.0-alpha62</parameter>
     </parameters>
 
     <services>
 
         <service id="command.import.products" class="TechDivision\Import\Cli\Command\ImportProductsCommand"/>
         <service id="command.import.categories" class="TechDivision\Import\Cli\Command\ImportCategoriesCommand"/>
-        <service id="command.import.clear.pid" class="TechDivision\Import\Cli\Command\ImportClearPidCommand"/>
+        <service id="command.import.clear.pid-file" class="TechDivision\Import\Cli\Command\ImportClearPidCommand"/>
+        <service id="command.import.create.ok-file" class="TechDivision\Import\Cli\Command\ImportCreateOkFileCommand"/>
 
         <service id="application" class="TechDivision\Import\Cli\Application">
             <argument type="service" id="container"/>
@@ -32,7 +33,10 @@
                 <argument type="service" id="command.import.categories"/>
             </call>
             <call method="add">
-                <argument type="service" id="command.import.clear.pid"/>
+                <argument type="service" id="command.import.clear.pid-file"/>
+            </call>
+            <call method="add">
+                <argument type="service" id="command.import.create.ok-file"/>
             </call>
         </service>
 

@@ -30,15 +30,11 @@ use TechDivision\Import\Cli\Simple;
 use TechDivision\Import\Cli\Configuration;
 use TechDivision\Import\Cli\Configuration\Database;
 use TechDivision\Import\Cli\Configuration\LoggerFactory;
-use TechDivision\Import\Cli\Services\ImportProcessorFactory;
-use TechDivision\Import\Cli\Services\RegistryProcessorFactory;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Input\InputArgument;
-use Symfony\Component\DependencyInjection\ContainerBuilder;
-use Symfony\Component\DependencyInjection\Loader\XmlFileLoader;
 
 /**
  * The abstract import command implementation.

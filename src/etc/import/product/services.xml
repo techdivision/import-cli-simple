@@ -245,7 +245,7 @@
         </service>
 
         <service id="import_product.subject.bunch" class="TechDivision\Import\Product\Subjects\BunchSubject">
-            <argument type="service" id="configuration.import.subject.move.files"/>
+            <argument type="service" id="configuration.import_product.subject.bunch"/>
             <argument type="service" id="import.processor.registry"/>
             <argument type="service" id="import.generator.core.config.data.uid"/>
             <argument type="service" id="loggers"/>
