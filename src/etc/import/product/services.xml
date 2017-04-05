@@ -244,7 +244,7 @@
             <argument type="service" id="import_product.action.url.rewrite.product.category"/>
         </service>
 
-        <service id="import_product.subject.bunch" class="TechDivision\Import\Product\Subjects\BunchSubject">
+        <service id="import_product.subject.bunch" class="TechDivision\Import\Product\Subjects\BunchSubject" shared="false">
             <argument type="service" id="configuration.import_product.subject.bunch"/>
             <argument type="service" id="import.processor.registry"/>
             <argument type="service" id="import.generator.core.config.data.uid"/>

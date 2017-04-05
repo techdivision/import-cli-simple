@@ -73,8 +73,8 @@
             <argument type="service" id="import_product_media.action.product.media.gallery.value.video"/>
         </service>
 
-        <service id="import_product_media.subject.media" class="TechDivision\Import\Product\MediaSubjects\MediaSubject">
-            <argument type="service" id="configuration.import.subject.move.files"/>
+        <service id="import_product_media.subject.media" class="TechDivision\Import\Product\Media\Subjects\MediaSubject" shared="false">
+            <argument type="service" id="configuration.import_product_media.subject.media"/>
             <argument type="service" id="import.processor.registry"/>
             <argument type="service" id="import.generator.core.config.data.uid"/>
             <argument type="service" id="loggers"/>

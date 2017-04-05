@@ -80,8 +80,8 @@
             <argument type="service" id="import_product_variant.action.product.super.attribute.label"/>
         </service>
 
-        <service id="import_product_variant.subject.variant" class="TechDivision\Import\Product\Variant\Subjects\VariantSubject">
-            <argument type="service" id="configuration.import.subject.move.files"/>
+        <service id="import_product_variant.subject.variant" class="TechDivision\Import\Product\Variant\Subjects\VariantSubject" shared="false">
+            <argument type="service" id="configuration.import_product_variant.subject.variant"/>
             <argument type="service" id="import.processor.registry"/>
             <argument type="service" id="import.generator.core.config.data.uid"/>
             <argument type="service" id="loggers"/>

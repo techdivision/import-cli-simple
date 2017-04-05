@@ -9,19 +9,19 @@
 
     <services>
 
-        <service id="import_product_bundle.repository.bundle.option.repository" class="TechDivision\Import\Product\Bundle\Repositories\BundleOptionRepository">
+        <service id="import_product_bundle.repository.bundle.option" class="TechDivision\Import\Product\Bundle\Repositories\BundleOptionRepository">
             <argument type="service" id="connection"/>
             <argument>%import_product_bundle.utility.class.name%</argument>
         </service>
-        <service id="import_product_bundle.repository.bundle.option.value.repository" class="TechDivision\Import\Product\Bundle\Repositories\BundleOptionValueRepository">
+        <service id="import_product_bundle.repository.bundle.option.value" class="TechDivision\Import\Product\Bundle\Repositories\BundleOptionValueRepository">
             <argument type="service" id="connection"/>
             <argument>%import_product_bundle.utility.class.name%</argument>
         </service>
-        <service id="import_product_bundle.repository.bundle.selection.price.repository" class="TechDivision\Import\Product\Bundle\Repositories\BundleSelectionPriceRepository">
+        <service id="import_product_bundle.repository.bundle.selection.price" class="TechDivision\Import\Product\Bundle\Repositories\BundleSelectionPriceRepository">
             <argument type="service" id="connection"/>
             <argument>%import_product_bundle.utility.class.name%</argument>
         </service>
-        <service id="import_product_bundle.repository.bundle.selection.repository" class="TechDivision\Import\Product\Bundle\Repositories\BundleSelectionRepository">
+        <service id="import_product_bundle.repository.bundle.selection" class="TechDivision\Import\Product\Bundle\Repositories\BundleSelectionRepository">
             <argument type="service" id="connection"/>
             <argument>%import_product_bundle.utility.class.name%</argument>
         </service>
@@ -59,7 +59,7 @@
             <argument type="service" id="import_product_bundle.action.processor.product.bundle.option.create"/>
             <argument type="service" id="import_product_bundle.action.processor.product.bundle.option.update"/>
         </service>
-        <service id="import_product_bundle.action.product.bundle.value.option" class="TechDivision\Import\Product\Bundle\Actions\ProductBundleOptionValueAction">
+        <service id="import_product_bundle.action.product.bundle.option.value" class="TechDivision\Import\Product\Bundle\Actions\ProductBundleOptionValueAction">
             <argument type="service" id="import_product_bundle.action.processor.product.bundle.option.value.create"/>
         </service>
         <service id="import_product_bundle.action.product.bundle.selection" class="TechDivision\Import\Product\Bundle\Actions\ProductBundleSelectionAction">
@@ -83,8 +83,8 @@
             <argument type="service" id="import_product_bundle.action.product.bundle.selection.price"/>
         </service>
 
-        <service id="import_product_bundle.subject.bundle" class="TechDivision\Import\Product\Bundle\Subjects\BundleSubject">
-            <argument type="service" id="configuration.import.subject.move.files"/>
+        <service id="import_product_bundle.subject.bundle" class="TechDivision\Import\Product\Bundle\Subjects\BundleSubject" shared="false">
+            <argument type="service" id="configuration.import_product_bundle.subject.bundle"/>
             <argument type="service" id="import.processor.registry"/>
             <argument type="service" id="import.generator.core.config.data.uid"/>
             <argument type="service" id="loggers"/>

@@ -52,8 +52,8 @@
             <argument type="service" id="import_product_link.action.product.link.attribute.int"/>
         </service>
 
-        <service id="import_product_link.subject.link" class="TechDivision\Import\Product\Link\Subjects\LinkSubject">
-            <argument type="service" id="configuration.import.subject.move.files"/>
+        <service id="import_product_link.subject.link" class="TechDivision\Import\Product\Link\Subjects\LinkSubject" shared="false">
+            <argument type="service" id="configuration.import_product_link.subject.link"/>
             <argument type="service" id="import.processor.registry"/>
             <argument type="service" id="import.generator.core.config.data.uid"/>
             <argument type="service" id="loggers"/>
