@@ -83,6 +83,20 @@
             <argument type="service" id="import_product_bundle.action.product.bundle.selection.price"/>
         </service>
 
+        <service id="import_product_bundle.callback.bundle.price.view" class="TechDivision\Import\Product\Bundle\Callbacks\BundlePriceViewCallback"/>
+        <service id="import_product_bundle.callback.bundle.shipment.type" class="TechDivision\Import\Product\Bundle\Callbacks\BundleShipmentTypeCallback"/>
+        <service id="import_product_bundle.callback.bundle.type" class="TechDivision\Import\Product\Bundle\Callbacks\BundleTypeCallback"/>
+
+        <service id="import_product_bundle.observer.bundle.option" class="TechDivision\Import\Product\Bundle\Observers\BundleOptionObserver"/>
+        <service id="import_product_bundle.observer.bundle.option.update" class="TechDivision\Import\Product\Bundle\Observers\BundleOptionUpdateObserver"/>
+        <service id="import_product_bundle.observer.bundle.option.value" class="TechDivision\Import\Product\Bundle\Observers\BundleOptionValueObserver"/>
+        <service id="import_product_bundle.observer.bundle.option.value.update" class="TechDivision\Import\Product\Bundle\Observers\BundleOptionValueUpdateObserver"/>
+        <service id="import_product_bundle.observer.bundle.selection" class="TechDivision\Import\Product\Bundle\Observers\BundleSelectionObserver"/>
+        <service id="import_product_bundle.observer.bundle.selection.price" class="TechDivision\Import\Product\Bundle\Observers\BundleSelectionPriceObserver"/>
+        <service id="import_product_bundle.observer.bundle.selection.price.update" class="TechDivision\Import\Product\Bundle\Observers\BundleSelectionPriceUpdateObserver"/>
+        <service id="import_product_bundle.observer.bundle.selection.update" class="TechDivision\Import\Product\Bundle\Observers\BundleSelectionUpdateObserver"/>
+        <service id="import_product_bundle.observer.product.bundle" class="TechDivision\Import\Product\Bundle\Observers\ProductBundleObserver"/>
+
         <service id="import_product_bundle.subject.bundle" class="TechDivision\Import\Product\Bundle\Subjects\BundleSubject" shared="false">
             <argument type="service" id="configuration.import_product_bundle.subject.bundle"/>
             <argument type="service" id="import.processor.registry"/>

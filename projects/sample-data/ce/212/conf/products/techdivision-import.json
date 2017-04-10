@@ -65,13 +65,13 @@
           "class-name": "import.plugin.subject",
           "subjects" : [
             {
-              "class-name": "TechDivision\\Import\\Subjects\\MoveFilesSubject",
+              "class-name": "import.subject.move.files",
               "identifier": "move-files",
               "prefix": "magento-import",
               "ok-file-needed": true
             },
             {
-              "class-name": "TechDivision\\Import\\Product\\Subjects\\BunchSubject",
+              "class-name": "import_product.subject.bunch",
               "processor-factory" : "TechDivision\\Import\\Cli\\Services\\ProductBunchProcessorFactory",
               "utility-class-name" : "TechDivision\\Import\\Product\\Utils\\SqlStatements",
               "identifier": "files",
@@ -79,7 +79,7 @@
               "observers": [
                 {
                   "import": [
-                    "TechDivision\\Import\\Product\\Observers\\ClearProductObserver"
+                    "import_product.observer.clear.product"
                   ]
                 }
               ]
@@ -87,7 +87,7 @@
           ]
         },
         {
-          "class-name": "TechDivision\\Import\\Plugins\\ArchivePlugin"
+          "class-name": "import.plugin.archive"
         }
       ]
     },
@@ -115,31 +115,31 @@
               "observers": [
                 {
                   "pre-import": [
-                    "TechDivision\\Import\\Product\\Observers\\PreLoadEntityIdObserver",
-                    "TechDivision\\Import\\Product\\Observers\\ClearProductObserver",
-                    "TechDivision\\Import\\Observers\\AttributeSetObserver",
-                    "TechDivision\\Import\\Observers\\AdditionalAttributeObserver",
-                    "TechDivision\\Import\\Product\\Observers\\UrlKeyObserver",
-                    "TechDivision\\Import\\Product\\Observers\\QuantityAndStockStatusObserver"
+                    "import_product.observer.pre.load.entity.id",
+                    "import_product.observer.clear.product",
+                    "import.observer.attribute.set",
+                    "import.observer.additional.attribute",
+                    "import_product.observer.url.key",
+                    "import_product.observer.quality.and.stock.status"
                   ]
                 },
                 {
                   "import": [
-                    "TechDivision\\Import\\Product\\Observers\\ProductObserver",
-                    "TechDivision\\Import\\Product\\Observers\\ProductWebsiteObserver",
-                    "TechDivision\\Import\\Product\\Observers\\CategoryProductObserver",
-                    "TechDivision\\Import\\Product\\Observers\\ProductInventoryObserver",
-                    "TechDivision\\Import\\Product\\Observers\\UrlRewriteObserver",
-                    "TechDivision\\Import\\Product\\Observers\\ProductAttributeObserver",
-                    "TechDivision\\Import\\Product\\Variant\\Observers\\ProductVariantObserver",
-                    "TechDivision\\Import\\Product\\Bundle\\Observers\\ProductBundleObserver",
-                    "TechDivision\\Import\\Product\\Media\\Observers\\ProductMediaObserver",
-                    "TechDivision\\Import\\Product\\Link\\Observers\\ProductLinkObserver"
+                    "import_product.observer.product",
+                    "import_product.observer.product.website",
+                    "import_product.observer.category.product",
+                    "import_product.observer.product.inventory",
+                    "import_product.observer.url.rewrite",
+                    "import_product.observer.product.attribute",
+                    "import_product_variant.observer.product.variant",
+                    "import_product_bundle.observer.product.bundle",
+                    "import_product_media.observer.product.media",
+                    "import_product_link.observer.product.link"
                   ]
                 },
                 {
                   "post-import": [
-                    "TechDivision\\Import\\Product\\Observers\\CleanUpObserver"
+                    "import_product.observer.clean.up"
                   ]
                 }
               ]
@@ -152,13 +152,13 @@
               "observers": [
                 {
                   "pre-import": [
-                    "TechDivision\\Import\\Observers\\AttributeSetObserver"
+                    "import.observer.attribute.set"
                   ]
                 },
                 {
                   "import": [
-                    "TechDivision\\Import\\Product\\Variant\\Observers\\VariantObserver",
-                    "TechDivision\\Import\\Product\\Variant\\Observers\\VariantSuperAttributeObserver"
+                    "import_product_variant.observer.variant",
+                    "import_product_variant.observer.variant.super.attribute"
                   ]
                 }
               ]
@@ -171,10 +171,10 @@
               "observers": [
                 {
                   "import": [
-                    "TechDivision\\Import\\Product\\Bundle\\Observers\\BundleOptionObserver",
-                    "TechDivision\\Import\\Product\\Bundle\\Observers\\BundleOptionValueObserver",
-                    "TechDivision\\Import\\Product\\Bundle\\Observers\\BundleSelectionObserver",
-                    "TechDivision\\Import\\Product\\Bundle\\Observers\\BundleSelectionPriceObserver"
+                    "import_product_bundle.observer.bundle.option",
+                    "import_product_bundle.observer.bundle.option.value",
+                    "import_product_bundle.observer.bundle.selection",
+                    "import_product_bundle.observer.bundle.selection.price"
                   ]
                 }
               ]
@@ -195,11 +195,11 @@
               "observers": [
                 {
                   "pre-import" : [
-                    "TechDivision\\Import\\Product\\Media\\Observers\\FileUploadObserver"
+                    "import_product_media.observer.file.upload"
                   ],
                   "import": [
-                    "TechDivision\\Import\\Product\\Media\\Observers\\MediaGalleryObserver",
-                    "TechDivision\\Import\\Product\\Media\\Observers\\MediaGalleryValueObserver"
+                    "import_product_media.observer.media.gallery",
+                    "import_product_media.observer.media.gallery.value"
                   ]
                 }
               ]
@@ -212,8 +212,8 @@
               "observers": [
                 {
                   "import": [
-                    "TechDivision\\Import\\Product\\Link\\Observers\\LinkObserver",
-                    "TechDivision\\Import\\Product\\Link\\Observers\\LinkAttributePositionObserver"
+                    "import_product_link.observer.link",
+                    "import_product_link.observer.link.attribute.position"
                   ]
                 }
               ]
@@ -267,29 +267,29 @@
               "observers": [
                 {
                   "pre-import": [
-                    "TechDivision\\Import\\Observers\\AttributeSetObserver",
-                    "TechDivision\\Import\\Observers\\AdditionalAttributeObserver",
-                    "TechDivision\\Import\\Product\\Observers\\UrlKeyObserver",
-                    "TechDivision\\Import\\Product\\Observers\\QuantityAndStockStatusObserver"
+                    "import.observer.attribute.set",
+                    "import.observer.additional.attribute",
+                    "import_product.observer.url.key",
+                    "import_product.observer.quality.and.stock.status"
                   ]
                 },
                 {
                   "import": [
-                    "TechDivision\\Import\\Product\\Observers\\ProductUpdateObserver",
-                    "TechDivision\\Import\\Product\\Observers\\ProductWebsiteUpdateObserver",
-                    "TechDivision\\Import\\Product\\Observers\\CategoryProductUpdateObserver",
-                    "TechDivision\\Import\\Product\\Observers\\ProductInventoryUpdateObserver",
-                    "TechDivision\\Import\\Product\\Observers\\UrlRewriteUpdateObserver",
-                    "TechDivision\\Import\\Product\\Observers\\ProductAttributeUpdateObserver",
-                    "TechDivision\\Import\\Product\\Variant\\Observers\\ProductVariantObserver",
-                    "TechDivision\\Import\\Product\\Bundle\\Observers\\ProductBundleObserver",
-                    "TechDivision\\Import\\Product\\Media\\Observers\\ProductMediaObserver",
-                    "TechDivision\\Import\\Product\\Link\\Observers\\ProductLinkObserver"
+                    "import_product.observer.product.update",
+                    "import_product.observer.product.website.update",
+                    "import_product.observer.category.product.update",
+                    "import_product.observer.product.inventory.update",
+                    "import_product.observer.url.rewrite.update",
+                    "import_product.observer.product.attribute.update",
+                    "import_product_variant.observer.product.variant",
+                    "import_product_bundle.observer.product.bundle",
+                    "import_product_media.observer.product.media",
+                    "import_product_link.observer.product.link"
                   ]
                 },
                 {
                   "post-import": [
-                    "TechDivision\\Import\\Product\\Observers\\CleanUpObserver"
+                    "import_product.observer.clean.up"
                   ]
                 }
               ]
@@ -302,13 +302,13 @@
               "observers": [
                 {
                   "pre-import": [
-                    "TechDivision\\Import\\Observers\\AttributeSetObserver"
+                    "import.observer.attribute.set"
                   ]
                 },
                 {
                   "import": [
-                    "TechDivision\\Import\\Product\\Variant\\Observers\\VariantUpdateObserver",
-                    "TechDivision\\Import\\Product\\Variant\\Observers\\VariantSuperAttributeUpdateObserver"
+                    "import_product_variant.observer.variant.update",
+                    "import_product_variant.observer.variant.super.attribute.update"
                   ]
                 }
               ]
@@ -321,10 +321,10 @@
               "observers": [
                 {
                   "import": [
-                    "TechDivision\\Import\\Product\\Bundle\\Observers\\BundleOptionUpdateObserver",
-                    "TechDivision\\Import\\Product\\Bundle\\Observers\\BundleOptionValueUpdateObserver",
-                    "TechDivision\\Import\\Product\\Bundle\\Observers\\BundleSelectionUpdateObserver",
-                    "TechDivision\\Import\\Product\\Bundle\\Observers\\BundleSelectionPriceUpdateObserver"
+                    "import_product_bundle.observer.bundle.option.update",
+                    "import_product_bundle.observer.bundle.option.value.update",
+                    "import_product_bundle.observer.bundle.selection.update",
+                    "import_product_bundle.observer.bundle.selection.price.update"
                   ]
                 }
               ]
@@ -345,11 +345,11 @@
               "observers": [
                 {
                   "pre-import" : [
-                    "TechDivision\\Import\\Product\\Media\\Observers\\FileUploadObserver"
+                    "import_product_media.observer.file.upload"
                   ],
                   "import": [
-                    "TechDivision\\Import\\Product\\Media\\Observers\\MediaGalleryUpdateObserver",
-                    "TechDivision\\Import\\Product\\Media\\Observers\\MediaGalleryValueUpdateObserver"
+                    "import_product_media.observer.media.gallery.update",
+                    "import_product_media.observer.media.gallery.value.update"
                   ]
                 }
               ]
@@ -362,8 +362,8 @@
               "observers": [
                 {
                   "import": [
-                    "TechDivision\\Import\\Product\\Link\\Observers\\LinkUpdateObserver",
-                    "TechDivision\\Import\\Product\\Link\\Observers\\LinkAttributePositionUpdateObserver"
+                    "import_product_link.observer.link.update",
+                    "import_product_link.observer.link.attribute.position.update"
                   ]
                 }
               ]

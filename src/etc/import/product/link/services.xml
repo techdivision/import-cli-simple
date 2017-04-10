@@ -52,6 +52,12 @@
             <argument type="service" id="import_product_link.action.product.link.attribute.int"/>
         </service>
 
+        <service id="import_product_link.observer.link.attribute.position" class="TechDivision\Import\Product\Link\Observers\LinkAttributePositionObserver"/>
+        <service id="import_product_link.observer.link.attribute.position.update" class="TechDivision\Import\Product\Link\Observers\LinkAttributePositionUpdateObserver"/>
+        <service id="import_product_link.observer.link" class="TechDivision\Import\Product\Link\Observers\LinkObserver"/>
+        <service id="import_product_link.observer.link.update" class="TechDivision\Import\Product\Link\Observers\LinkUpdateObserver"/>
+        <service id="import_product_link.observer.product.link" class="TechDivision\Import\Product\Link\Observers\ProductLinkObserver"/>
+
         <service id="import_product_link.subject.link" class="TechDivision\Import\Product\Link\Subjects\LinkSubject" shared="false">
             <argument type="service" id="configuration.import_product_link.subject.link"/>
             <argument type="service" id="import.processor.registry"/>

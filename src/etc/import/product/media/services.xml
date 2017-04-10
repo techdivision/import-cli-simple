@@ -73,6 +73,13 @@
             <argument type="service" id="import_product_media.action.product.media.gallery.value.video"/>
         </service>
 
+        <service id="import_product_media.observer.file.upload" class="TechDivision\Import\Product\Media\Observers\FileUploadObserver"/>
+        <service id="import_product_media.observer.media.gallery" class="TechDivision\Import\Product\Media\Observers\MediaGalleryObserver"/>
+        <service id="import_product_media.observer.media.gallery.update" class="TechDivision\Import\Product\Media\Observers\MediaGalleryUpdateObserver"/>
+        <service id="import_product_media.observer.media.gallery.value" class="TechDivision\Import\Product\Media\Observers\MediaGalleryValueObserver"/>
+        <service id="import_product_media.observer.media.gallery.value.update" class="TechDivision\Import\Product\Media\Observers\MediaGalleryValueUpdateObserver"/>
+        <service id="import_product_media.observer.product.media" class="TechDivision\Import\Product\Media\Observers\ProductMediaObserver"/>
+
         <service id="import_product_media.subject.media" class="TechDivision\Import\Product\Media\Subjects\MediaSubject" shared="false">
             <argument type="service" id="configuration.import_product_media.subject.media"/>
             <argument type="service" id="import.processor.registry"/>

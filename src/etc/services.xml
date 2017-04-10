@@ -41,7 +41,7 @@
         </service>
 
         <service id="simple" class="TechDivision\Import\Cli\Simple">
-            <argument type="service" id="container"/>
+            <argument type="service" id="service_container"/>
             <argument type="service" id="import.processor.registry"/>
             <argument type="service" id="import.processor.import"/>
             <argument type="service" id="configuration"/>

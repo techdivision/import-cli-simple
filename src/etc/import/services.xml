@@ -115,9 +115,11 @@
             <argument type="service" id="simple"/>
             <argument type="service" id="configuration.import.plugin.archive"/>
         </service>
-        <service id="import.plugin.subject" class="TechDivision\Import\Cli\Plugins\SubjectPlugin">
+        <service id="import.plugin.subject" class="TechDivision\Import\Plugins\SubjectPlugin">
             <argument type="service" id="simple"/>
             <argument type="service" id="configuration.import.plugin.subject"/>
+            <argument type="service" id="import.visitor.callback"/>
+            <argument type="service" id="import.visitor.observer"/>
         </service>
         <service id="import.plugin.global.data" class="TechDivision\Import\Plugins\GlobalDataPlugin">
             <argument type="service" id="simple"/>
@@ -133,6 +135,16 @@
             <argument type="service" id="import.processor.registry"/>
             <argument type="service" id="import.generator.core.config.data.uid"/>
             <argument type="service" id="loggers"/>
+        </service>
+        
+        <service id="import.observer.additional.attribute" class="TechDivision\Import\Observers\AdditionalAttributeObserver"/>
+        <service id="import.observer.attribute.set" class="TechDivision\Import\Observers\AttributeSetObserver"/>
+
+        <service id="import.visitor.callback" class="TechDivision\Import\Callbacks\CallbackVisitor">
+            <argument type="service" id="service_container"/>
+        </service>
+        <service id="import.visitor.observer" class="TechDivision\Import\Observers\ObserverVisitor">
+            <argument type="service" id="service_container"/>
         </service>
 
     </services>
