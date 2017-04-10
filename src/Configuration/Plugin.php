@@ -45,13 +45,13 @@ class Plugin implements PluginConfigurationInterface
     protected $configuration;
 
     /**
-     * The subject's class name.
+     * The plugin's unique DI identifier.
      *
      * @var string
      * @Type("string")
-     * @SerializedName("class-name")
+     * @SerializedName("id")
      */
-    protected $className;
+    protected $id;
 
     /**
      * ArrayCollection with the information of the configured subjects.
@@ -62,24 +62,6 @@ class Plugin implements PluginConfigurationInterface
     protected $subjects = array();
 
     /**
-     * The plugin's processor type to use.
-     *
-     * @var string
-     * @Type("string")
-     * @SerializedName("processor-factory")
-     */
-    protected $processorFactory;
-
-    /**
-     * The plugin's utility class with the SQL statements to use.
-     *
-     * @var string
-     * @Type("string")
-     * @SerializedName("utility-class-name")
-     */
-    protected $utilityClassName;
-
-    /**
      * The swift mailer configuration to use.
      *
      * @var \TechDivision\Import\Cli\Configuration\SwiftMailer
@@ -87,26 +69,6 @@ class Plugin implements PluginConfigurationInterface
      * @SerializedName("swift-mailer")
      */
     protected $swiftMailer;
-
-    /**
-     * Return's the plugin's processor factory type to use.
-     *
-     * @return string The plugin's processor factory type
-     */
-    public function getProcessorFactory()
-    {
-        return $this->processorFactory;
-    }
-
-    /**
-     * Return's the utility class with the SQL statements to use.
-     *
-     * @return string The utility class name
-     */
-    public function getUtilityClassName()
-    {
-        return $this->utilityClassName;
-    }
 
     /**
      * Set's the reference to the configuration instance.
@@ -131,13 +93,13 @@ class Plugin implements PluginConfigurationInterface
     }
 
     /**
-     * Return's the subject's class name.
+     * Return's the subject's unique DI identifier.
      *
-     * @return string The subject's class name
+     * @return string The subject's unique DI identifier
      */
-    public function getClassName()
+    public function getId()
     {
-        return $this->className;
+        return $this->id;
     }
 
     /**

@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<container xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <parameters>
+        <parameter key="import_category.utility.class.name">TechDivision\Import\Category\Utils\SqlStatements</parameter>
+    </parameters>
+
+    <services>
+
+        <service id="import_category.repository.category.datetime" class="TechDivision\Import\Category\Repositories\CategoryDatetimeRepository">
+            <argument type="service" id="connection"/>
+            <argument>%import_category.utility.class.name%</argument>
+        </service>
+        <service id="import_category.repository.category.decimal" class="TechDivision\Import\Category\Repositories\CategoryDecimalRepository">
+            <argument type="service" id="connection"/>
+            <argument>%import_category.utility.class.name%</argument>
+        </service>
+        <service id="import_category.repository.category.int" class="TechDivision\Import\Category\Repositories\CategoryIntRepository">
+            <argument type="service" id="connection"/>
+            <argument>%import_category.utility.class.name%</argument>
+        </service>
+        <service id="import_category.repository.category" class="TechDivision\Import\Category\Repositories\CategoryRepository">
+            <argument type="service" id="connection"/>
+            <argument>%import_category.utility.class.name%</argument>
+        </service>
+        <service id="import_category.repository.category.text" class="TechDivision\Import\Category\Repositories\CategoryTextRepository">
+            <argument type="service" id="connection"/>
+            <argument>%import_category.utility.class.name%</argument>
+        </service>
+        <service id="import_category.repository.category.varchar" class="TechDivision\Import\Category\Repositories\CategoryVarcharRepository">
+            <argument type="service" id="connection"/>
+            <argument>%import_category.utility.class.name%</argument>
+        </service>
+
+        <service id="import_category.action.processor.category.create" class="TechDivision\Import\Category\Actions\Processors\CategoryCreateProcessor">
+            <argument type="service" id="connection"/>
+            <argument>%import_category.utility.class.name%</argument>
+        </service>
+        <service id="import_category.action.processor.category.update" class="TechDivision\Import\Category\Actions\Processors\CategoryUpdateProcessor">
+            <argument type="service" id="connection"/>
+            <argument>%import_category.utility.class.name%</argument>
+        </service>
+        <service id="import_category.action.processor.category.delete" class="TechDivision\Import\Category\Actions\Processors\CategoryDeleteProcessor">
+            <argument type="service" id="connection"/>
+            <argument>%import_category.utility.class.name%</argument>
+        </service>
+        <service id="import_category.action.processor.category.datetime.create" class="TechDivision\Import\Category\Actions\Processors\CategoryDatetimeCreateProcessor">
+            <argument type="service" id="connection"/>
+            <argument>%import_category.utility.class.name%</argument>
+        </service>
+        <service id="import_category.action.processor.category.datetime.update" class="TechDivision\Import\Category\Actions\Processors\CategoryDatetimeUpdateProcessor">
+            <argument type="service" id="connection"/>
+            <argument>%import_category.utility.class.name%</argument>
+        </service>
+        <service id="import_category.action.processor.category.decimal.create" class="TechDivision\Import\Category\Actions\Processors\CategoryDecimalCreateProcessor">
+            <argument type="service" id="connection"/>
+            <argument>%import_category.utility.class.name%</argument>
+        </service>
+        <service id="import_category.action.processor.category.decimal.update" class="TechDivision\Import\Category\Actions\Processors\CategoryDecimalUpdateProcessor">
+            <argument type="service" id="connection"/>
+            <argument>%import_category.utility.class.name%</argument>
+        </service>
+        <service id="import_category.action.processor.category.int.create" class="TechDivision\Import\Category\Actions\Processors\CategoryIntCreateProcessor">
+            <argument type="service" id="connection"/>
+            <argument>%import_category.utility.class.name%</argument>
+        </service>
+        <service id="import_category.action.processor.category.int.update" class="TechDivision\Import\Category\Actions\Processors\CategoryIntUpdateProcessor">
+            <argument type="service" id="connection"/>
+            <argument>%import_category.utility.class.name%</argument>
+        </service>
+        <service id="import_category.action.processor.category.text.create" class="TechDivision\Import\Category\Actions\Processors\CategoryTextCreateProcessor">
+            <argument type="service" id="connection"/>
+            <argument>%import_category.utility.class.name%</argument>
+        </service>
+        <service id="import_category.action.processor.category.text.update" class="TechDivision\Import\Category\Actions\Processors\CategoryTextUpdateProcessor">
+            <argument type="service" id="connection"/>
+            <argument>%import_category.utility.class.name%</argument>
+        </service>
+        <service id="import_category.action.processor.category.varchar.create" class="TechDivision\Import\Category\Actions\Processors\CategoryVarcharCreateProcessor">
+            <argument type="service" id="connection"/>
+            <argument>%import_category.utility.class.name%</argument>
+        </service>
+        <service id="import_category.action.processor.category.varchar.update" class="TechDivision\Import\Category\Actions\Processors\CategoryVarcharUpdateProcessor">
+            <argument type="service" id="connection"/>
+            <argument>%import_category.utility.class.name%</argument>
+        </service>
+
+        <service id="import_category.action.category" class="TechDivision\Import\Category\Actions\CategoryAction">
+            <argument type="service" id="import_category.action.processor.category.create"/>
+            <argument type="service" id="import_category.action.processor.category.update"/>
+            <argument type="service" id="import_category.action.processor.category.delete"/>
+        </service>
+        <service id="import_category.action.category.datetime" class="TechDivision\Import\Category\Actions\CategoryDatetimeAction">
+            <argument type="service" id="import_category.action.processor.category.datetime.create"/>
+            <argument type="service" id="import_category.action.processor.category.datetime.update"/>
+        </service>
+        <service id="import_category.action.category.decimal" class="TechDivision\Import\Category\Actions\CategoryDecimalAction">
+            <argument type="service" id="import_category.action.processor.category.decimal.create"/>
+            <argument type="service" id="import_category.action.processor.category.decimal.update"/>
+        </service>
+        <service id="import_category.action.category.int" class="TechDivision\Import\Category\Actions\CategoryIntAction">
+            <argument type="service" id="import_category.action.processor.category.int.create"/>
+            <argument type="service" id="import_category.action.processor.category.int.update"/>
+        </service>
+        <service id="import_category.action.category.text" class="TechDivision\Import\Category\Actions\CategoryTextAction">
+            <argument type="service" id="import_category.action.processor.category.text.create"/>
+            <argument type="service" id="import_category.action.processor.category.text.update"/>
+        </service>
+        <service id="import_category.action.category.varchar" class="TechDivision\Import\Category\Actions\CategoryVarcharAction">
+            <argument type="service" id="import_category.action.processor.category.varchar.create"/>
+            <argument type="service" id="import_category.action.processor.category.varchar.update"/>
+        </service>
+
+        <service id="import_category.processor.category.bunch" class="TechDivision\Import\Category\Services\CategoryBunchProcessor">
+            <argument type="service" id="connection"/>
+            <argument type="service" id="import_category.repository.category"/>
+            <argument type="service" id="import_category.repository.category.datetime"/>
+            <argument type="service" id="import_category.repository.category.decimal"/>
+            <argument type="service" id="import_category.repository.category.int"/>
+            <argument type="service" id="import_category.repository.category.text"/>
+            <argument type="service" id="import_category.repository.category.varchar"/>
+            <argument type="service" id="import.repository.eav.attribute"/>
+            <argument type="service" id="import.repository.url.rewrite"/>
+            <argument type="service" id="import_category.action.category.datetime"/>
+            <argument type="service" id="import_category.action.category.decimal"/>
+            <argument type="service" id="import_category.action.category.int"/>
+            <argument type="service" id="import_category.action.category"/>
+            <argument type="service" id="import_category.action.category.text"/>
+            <argument type="service" id="import_category.action.category.varchar"/>
+            <argument type="service" id="import.action.url.rewrite"/>
+            <argument type="service" id="import.assembler.category"/>
+        </service>
+
+        <service id="import_category.callback.boolean" class="TechDivision\Import\Product\Callbacks\BooleanCallback"/>
+        <service id="import_category.callback.multiselect" class="TechDivision\Import\Product\Callbacks\MultiselectCallback"/>
+        <service id="import_category.callback.select" class="TechDivision\Import\Product\Callbacks\SelectCallback"/>
+        <service id="import_category.callback.display.mode" class="TechDivision\Import\Category\Callbacks\DisplayModeCallback"/>
+        <service id="import_category.callback.page.layout" class="TechDivision\Import\Category\Callbacks\PageLayoutCallback"/>
+
+        <service id="import_category.observer.category.attribute" class="TechDivision\Import\Category\Observers\CategoryAttributeObserver"/>
+        <service id="import_category.observer.category.attribute.update" class="TechDivision\Import\Category\Observers\CategoryAttributeUpdateObserver"/>
+        <service id="import_category.observer.category.image" class="TechDivision\Import\Category\Observers\CategoryImageObserver"/>
+        <service id="import_category.observer.category" class="TechDivision\Import\Category\Observers\CategoryObserver"/>
+        <service id="import_category.observer.category.path" class="TechDivision\Import\Category\Observers\CategoryPathObserver"/>
+        <service id="import_category.observer.category.update" class="TechDivision\Import\Category\Observers\CategoryUpdateObserver"/>
+        <service id="import_category.observer.clean.up" class="TechDivision\Import\Category\Observers\CleanUpObserver"/>
+        <service id="import_category.observer.clear.category" class="TechDivision\Import\Category\Observers\ClearCategoryObserver"/>
+        <service id="import_category.observer.file.upload" class="TechDivision\Import\Category\Observers\FileUploadObserver"/>
+        <service id="import_category.observer.url.key.and.path" class="TechDivision\Import\Category\Observers\UrlKeyAndPathObserver"/>
+        <service id="import_category.observer.url.rewrite" class="TechDivision\Import\Category\Observers\UrlRewriteObserver"/>
+        <service id="import_category.observer.url.rewrite.update" class="TechDivision\Import\Category\Observers\UrlRewriteUpdateObserver"/>
+
+        <service id="import_category.subject.bunch" class="TechDivision\Import\Category\Subjects\BunchSubject" shared="false">
+            <argument type="service" id="configuration.import_category.subject.bunch"/>
+            <argument type="service" id="import.processor.registry"/>
+            <argument type="service" id="import.generator.core.config.data.uid"/>
+            <argument type="service" id="loggers"/>
+            <argument type="service" id="import_category.processor.category.bunch"/>
+        </service>
+
+        <service id="import_category.subject.media" class="TechDivision\Import\Category\Subjects\MediaSubject" shared="false">
+            <argument type="service" id="configuration.import_category.subject.bunch"/>
+            <argument type="service" id="import.processor.registry"/>
+            <argument type="service" id="import.generator.core.config.data.uid"/>
+            <argument type="service" id="loggers"/>
+            <argument type="service" id="import_category.processor.category.bunch"/>
+        </service>
+
+        <service id="import_category.plugin.children.count" class="TechDivision\Import\Category\Plugins\ChildrenCountPlugin">
+            <argument type="service" id="simple"/>
+            <argument type="service" id="configuration.import_category.plugin.children.count"/>
+            <argument type="service" id="import_category.processor.category.bunch"/>
+        </service>
+
+    </services>
+
+</container>

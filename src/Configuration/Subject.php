@@ -45,31 +45,13 @@ class Subject implements SubjectConfigurationInterface
     use ParamsTrait;
 
     /**
-     * The subject's class name.
+     * The subject's unique DI identifier.
      *
      * @var string
      * @Type("string")
-     * @SerializedName("class-name")
+     * @SerializedName("id")
      */
-    protected $className;
-
-    /**
-     * The subject's processor type to use.
-     *
-     * @var string
-     * @Type("string")
-     * @SerializedName("processor-factory")
-     */
-    protected $processorFactory;
-
-    /**
-     * The subject's utility class with the SQL statements to use.
-     *
-     * @var string
-     * @Type("string")
-     * @SerializedName("utility-class-name")
-     */
-    protected $utilityClassName;
+    protected $id;
 
     /**
      * The file prefix for import files.
@@ -232,33 +214,13 @@ class Subject implements SubjectConfigurationInterface
     }
 
     /**
-     * Return's the subject's class name.
+     * Return's the subject's unique DI identifier.
      *
-     * @return string The subject's class name
+     * @return string The subject's unique DI identifier
      */
-    public function getClassName()
+    public function getId()
     {
-        return $this->className;
-    }
-
-    /**
-     * Return's the subject's processor factory type to use.
-     *
-     * @return string The subject's processor factory type
-     */
-    public function getProcessorFactory()
-    {
-        return $this->processorFactory;
-    }
-
-    /**
-     * Return's the utility class with the SQL statements to use.
-     *
-     * @return string The utility class name
-     */
-    public function getUtilityClassName()
-    {
-        return $this->utilityClassName;
+        return $this->id;
     }
 
     /**

@@ -660,8 +660,8 @@ class Simple implements ApplicationInterface
      */
     protected function pluginFactory(PluginConfigurationInterface $pluginConfiguration)
     {
-        $this->getContainer()->set(sprintf('configuration.%s', $className = $pluginConfiguration->getClassName()), $pluginConfiguration);
-        return $this->getContainer()->get($className);
+        $this->getContainer()->set(sprintf('configuration.%s', $id = $pluginConfiguration->getId()), $pluginConfiguration);
+        return $this->getContainer()->get($id);
     }
 
     /**
