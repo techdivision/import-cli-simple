@@ -164,155 +164,6 @@ abstract class AbstractImportCommand extends Command
     }
 
     /**
-     * Factory implementation to create a new initialized configuration instance.
-     *
-     * If command line options are specified, they will always override the
-     * values found in the configuration file.
-     *
-     * @param \Symfony\Component\Console\Input\InputInterface $input The Symfony console input instance
-     *
-     * @return \TechDivision\Import\Cli\Configuration The configuration instance
-     * @throws \Exception Is thrown, if the specified configuration file doesn't exist
-     */
-    protected function configurationFactory(InputInterface $input)
-    {
-
-        // load the configuration filename we want to use
-        $filename = $input->getOption(InputOptionKeys::CONFIGURATION);
-
-        // load the JSON data
-        if (!$jsonData = file_get_contents($filename)) {
-            throw new \Exception(sprintf('Can\'t load configuration file %s', $filename));
-        }
-
-        // initialize the JMS serializer and load the configuration
-        $serializer = SerializerBuilder::create()->build();
-        /** @var \TechDivision\Import\Cli\Configuration $instance */
-        $instance = $serializer->deserialize($jsonData, 'TechDivision\Import\Cli\Configuration', 'json');
-
-        // query whether or not an operation name has been specified as command line
-        // option, if yes override the value from the configuration file
-        if ($operationName = $input->getArgument(InputArgumentKeys::OPERATION_NAME)) {
-            $instance->setOperationName($operationName);
-        }
-
-        // query whether or not a Magento installation directory has been specified as command line
-        // option, if yes override the value from the configuration file
-        if ($installationDir = $input->getOption(InputOptionKeys::INSTALLATION_DIR)) {
-            $instance->setInstallationDir($installationDir);
-        }
-
-        // query whether or not a directory for the source files has been specified as command line
-        // option, if yes override the value from the configuration file
-        if ($sourceDir = $input->getOption(InputOptionKeys::SOURCE_DIR)) {
-            $instance->setSourceDir($sourceDir);
-        }
-
-        // query whether or not a directory containing the imported files has been specified as command line
-        // option, if yes override the value from the configuration file
-        if ($targetDir = $input->getOption(InputOptionKeys::TARGET_DIR)) {
-            $instance->setTargetDir($targetDir);
-        }
-
-        // query whether or not a source date format has been specified as command
-        // line  option, if yes override the value from the configuration file
-        if ($sourceDateFormat = $input->getOption(InputOptionKeys::SOURCE_DATE_FORMAT)) {
-            $instance->setSourceDateFormat($sourceDateFormat);
-        }
-
-        // query whether or not a Magento edition has been specified as command line
-        // option, if yes override the value from the configuration file
-        if ($magentoEdition = $input->getOption(InputOptionKeys::MAGENTO_EDITION)) {
-            $instance->setMagentoEdition($magentoEdition);
-        }
-
-        // query whether or not a Magento version has been specified as command line
-        // option, if yes override the value from the configuration file
-        if ($magentoVersion = $input->getOption(InputOptionKeys::MAGENTO_VERSION)) {
-            $instance->setMagentoVersion($magentoVersion);
-        }
-
-        // query whether or not a DB ID has been specified as command line
-        // option, if yes override the value from the configuration file
-        if ($useDbId = $input->getOption(InputOptionKeys::USE_DB_ID)) {
-            $instance->setUseDbId($useDbId);
-        } else {
-            // query whether or not a PDO DSN has been specified as command line
-            // option, if yes override the value from the configuration file
-            if ($dsn = $input->getOption(InputOptionKeys::DB_PDO_DSN)) {
-                // first REMOVE all other database configurations
-                $instance->clearDatabases();
-
-                // initialize a new database configuration
-                $database = new Database();
-                $database->setId(Uuid::uuid4()->__toString());
-                $database->setDefault(true);
-                $database->setDsn($dsn);
-
-                // query whether or not a DB username has been specified as command line
-                // option, if yes override the value from the configuration file
-                if ($username = $input->getOption(InputOptionKeys::DB_USERNAME)) {
-                    $database->setUsername($username);
-                }
-
-                // query whether or not a DB password has been specified as command line
-                // option, if yes override the value from the configuration file
-                if ($password = $input->getOption(InputOptionKeys::DB_PASSWORD)) {
-                    $database->setPassword($password);
-                }
-
-                // add the database configuration
-                $instance->addDatabase($database);
-            }
-        }
-
-        // query whether or not the debug mode has been specified as command line
-        // option, if yes override the value from the configuration file
-        if ($debugMode = $input->getOption(InputOptionKeys::DEBUG_MODE)) {
-            $instance->setDebugMode($instance->mapBoolean($debugMode));
-        }
-
-        // query whether or not the log level has been specified as command line
-        // option, if yes override the value from the configuration file
-        if ($logLevel = $input->getOption(InputOptionKeys::LOG_LEVEL)) {
-            $instance->setLogLevel($logLevel);
-        }
-
-        // query whether or not a PID filename has been specified as command line
-        // option, if yes override the value from the configuration file
-        if ($pidFilename = $input->getOption(InputOptionKeys::PID_FILENAME)) {
-            $instance->setPidFilename($pidFilename);
-        }
-
-        // extend the plugins with the main configuration instance
-        /** @var \TechDivision\Import\Cli\Configuration\Subject $subject */
-        foreach ($instance->getPlugins() as $plugin) {
-            // set the configuration instance on the plugin
-            $plugin->setConfiguration($instance);
-
-            // query whether or not the plugin has subjects configured
-            if ($subjects = $plugin->getSubjects()) {
-                // extend the plugin's subjects with the main configuration instance
-                /** @var \TechDivision\Import\Cli\Configuration\Subject $subject */
-                foreach ($subjects as $subject) {
-                    // set the configuration instance on the subject
-                    $subject->setConfiguration($instance);
-                }
-            }
-        }
-
-        // query whether or not the debug mode is enabled and log level
-        // has NOT been overwritten with a commandline option
-        if ($instance->isDebugMode() && !$input->getOption(InputOptionKeys::LOG_LEVEL)) {
-            // set debug log level, if log level has NOT been overwritten on command line
-            $instance->setLogLevel(LogLevel::DEBUG);
-        }
-
-        // return the initialized configuration instance
-        return $instance;
-    }
-
-    /**
      * Executes the current command.
      *
      * This method is not abstract because you can use this class
@@ -361,8 +212,15 @@ abstract class AbstractImportCommand extends Command
             );
         }
 
-        // load the specified configuration
-        $configuration = $this->configurationFactory($input);
+        // load the DI container instance
+        $container = $this->getApplication()->getContainer();
+
+        // add the input/outut instances to the DI container
+        $container->set('input', $input);
+        $container->set('output', $output);
+
+        // load the importer configuration
+        $configuration = $container->get('configuration');
 
         // initialize the PDO connection
         $dsn = $configuration->getDatabase()->getDsn();
@@ -370,6 +228,9 @@ abstract class AbstractImportCommand extends Command
         $password = $configuration->getDatabase()->getPassword();
         $connection = new \PDO($dsn, $username, $password);
         $connection->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
+
+        // add the PDO connection to the DI container
+        $container->set('connection', $connection);
 
         // initialize the system logger
         $loggers = array();
@@ -394,12 +255,8 @@ abstract class AbstractImportCommand extends Command
             $loggers[$loggerConfiguration->getName()] = $loggerFactory::factory($loggerConfiguration);
         }
 
-        $container = $this->getApplication()->getContainer();
-
-        $container->set('output', $output);
+        // add the system loggers to the DI container
         $container->set('loggers', $loggers);
-        $container->set('connection', $connection);
-        $container->set('configuration', $configuration);
 
         // start the import process
         $container->get('simple')->process();

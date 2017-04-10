@@ -22,7 +22,7 @@
 
         <service id="command.import.products" class="TechDivision\Import\Cli\Command\ImportProductsCommand"/>
         <service id="command.import.categories" class="TechDivision\Import\Cli\Command\ImportCategoriesCommand"/>
-        <service id="command.import.clear.pid-file" class="TechDivision\Import\Cli\Command\ImportClearPidCommand"/>
+        <service id="command.import.clear.pid-file" class="TechDivision\Import\Cli\Command\ImportClearPidFileCommand"/>
         <service id="command.import.create.ok-file" class="TechDivision\Import\Cli\Command\ImportCreateOkFileCommand"/>
 
         <service id="application" class="TechDivision\Import\Cli\Application">
@@ -48,6 +48,13 @@
             <argument type="service" id="configuration"/>
             <argument type="service" id="output"/>
             <argument type="service" id="loggers"/>
+        </service>
+
+        <service id="factory.configuration" class="TechDivision\Import\Cli\ConfigurationFactory"/>
+
+        <service id="configuration" class="TechDivision\Import\Cli\Configuration">
+            <factory service="factory.configuration"  method="factory"/>
+            <argument type="service" id="input"/>
         </service>
 
     </services>

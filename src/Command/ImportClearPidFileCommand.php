@@ -1,7 +1,7 @@
 <?php
 
 /**
- * TechDivision\Import\Cli\Command\ImportClearPidCommand
+ * TechDivision\Import\Cli\Command\ImportClearPidFileCommand
  *
  * NOTICE OF LICENSE
  *
@@ -35,7 +35,7 @@ use Symfony\Component\Console\Output\OutputInterface;
  * @link      https://github.com/techdivision/import-cli-simple
  * @link      http://www.techdivision.com
  */
-class ImportClearPidCommand extends AbstractSimpleImportCommand
+class ImportClearPidFileCommand extends AbstractSimpleImportCommand
 {
 
     /**
