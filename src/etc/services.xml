@@ -26,7 +26,7 @@
         <service id="command.import.create.ok-file" class="TechDivision\Import\Cli\Command\ImportCreateOkFileCommand"/>
 
         <service id="application" class="TechDivision\Import\Cli\Application">
-            <argument type="service" id="container"/>
+            <argument type="service" id="service_container"/>
             <call method="add">
                 <argument type="service" id="command.import.products"/>
             </call>

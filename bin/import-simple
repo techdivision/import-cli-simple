@@ -28,12 +28,11 @@ use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Loader\XmlFileLoader;
 
-// initialize the 
+// initialize the DI container
 $container = new ContainerBuilder();
 $loader = new XmlFileLoader($container, new FileLocator(dirname(__DIR__) . '/src/etc'));
 $loader->load('services.xml');
 
-$container->set('container', $container);
-
+// load and run the application
 $application = $container->get('application');
 $application->run();
