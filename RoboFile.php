@@ -117,6 +117,31 @@ class RoboFile extends \Robo\Tasks
             $this->properties['webapp.name']
         );
 
+        // prepare the target directory
+        $targetDir = $this->properties['target.dir'] . DIRECTORY_SEPARATOR . $this->properties['webapp.version'];
+
+        // copy the composer.json file
+        $this->taskFilesystemStack()
+              ->copy(
+                  __DIR__ . DIRECTORY_SEPARATOR . 'composer.json',
+                  $targetDir. DIRECTORY_SEPARATOR. 'composer.json'
+              )->run();
+
+        // copy the src/etc directory
+        $this->taskCopyDir(
+                  array(
+                      $this->properties['src.dir'] => $targetDir . DIRECTORY_SEPARATOR . 'src',
+                      $this->properties['etc.dir'] => $targetDir . DIRECTORY_SEPARATOR . 'etc'
+                  )
+               )->run();
+
+        // install the composer dependencies
+        $this->taskComposerInstall()
+            ->dir($targetDir)
+            ->noDev()
+            ->optimizeAutoloader()
+            ->run();
+
         // prepare the task
         $pharTask = $this->taskPackPhar($archiveName)
             ->compress()
@@ -125,7 +150,7 @@ class RoboFile extends \Robo\Tasks
         // load a list with all the source files
         $finder = Finder::create()
             ->name('*.php')
-            ->in($this->properties['src.dir']);
+            ->in($targetDir . DIRECTORY_SEPARATOR . 'src');
 
         // iterate over the source files and add them to the PHAR archive
         foreach ($finder as $file) {
@@ -135,7 +160,7 @@ class RoboFile extends \Robo\Tasks
         // load a list with all the source files from the vendor directory
         $finder = Finder::create()->files()
             ->name('*.php')
-            ->in($this->properties['vendor.dir']);
+            ->in($targetDir . DIRECTORY_SEPARATOR . 'vendor');
 
         // iterate over the source files of the vendor directory and add them to the PHAR archive
         foreach ($finder as $file) {
@@ -145,7 +170,7 @@ class RoboFile extends \Robo\Tasks
         // load a list with all the DI configuration files from the etc directory
         $finder = Finder::create()->files()
             ->name('*.xml')
-            ->in($this->properties['etc.dir']);
+            ->in($targetDir . DIRECTORY_SEPARATOR . 'etc');
 
         // iterate over the DI configuration files of the etc directory and add them to the PHAR archive
         foreach ($finder as $file) {
