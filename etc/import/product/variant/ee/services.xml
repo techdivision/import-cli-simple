@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<container xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <services>
+
+        <service id="import_product_variant_ee.observer.variant" class="TechDivision\Import\Product\Variant\Ee\Observers\EeVariantObserver"/>
+        <service id="import_product_variant_ee.observer.variant.super.attribute" class="TechDivision\Import\Product\Variant\Ee\Observers\EeVariantSuperAttributeObserver"/>
+        <service id="import_product_variant_ee.observer.variant.super.attribute.update" class="TechDivision\Import\Product\Variant\Ee\Observers\EeVariantSuperAttributeUpdateObserver"/>
+        <service id="import_product_variant_ee.observer.variant.update" class="TechDivision\Import\Product\Variant\Ee\Observers\EeVariantUpdateObserver"/>
+
+        <service id="import_product_variant_ee.subject.variant" class="TechDivision\Import\Product\Variant\Ee\Subjects\EeVariantSubject" shared="false">
+            <argument type="service" id="configuration.import_product_variant_ee.subject.variant"/>
+            <argument type="service" id="import.processor.registry"/>
+            <argument type="service" id="import.generator.core.config.data.uid"/>
+            <argument type="service" id="loggers"/>
+            <argument type="service" id="import_product_variant.processor.product.variant"/>
+        </service>
+
+    </services>
+
+</container>

@@ -41,12 +41,13 @@ class RoboFile extends \Robo\Tasks
      */
     protected $properties = array(
         'base.dir' => __DIR__,
+        'etc.dir' => __DIR__ . '/etc',
         'src.dir' => __DIR__ . '/src',
         'dist.dir' => __DIR__ . '/dist',
         'vendor.dir' => __DIR__ . '/vendor',
         'target.dir' => __DIR__ . '/target',
         'webapp.name' => 'import-cli-simple',
-        'webapp.version' => '1.0.0-alpha5'
+        'webapp.version' => '1.0.0-alpha62'
     );
 
     /**
@@ -141,6 +142,16 @@ class RoboFile extends \Robo\Tasks
             $pharTask->addFile('vendor/' . $file->getRelativePathname(), $file->getRealPath());
         }
 
+        // load a list with all the DI configuration files from the etc directory
+        $finder = Finder::create()->files()
+            ->name('*.xml')
+            ->in($this->properties['etc.dir']);
+
+        // iterate over the DI configuration files of the etc directory and add them to the PHAR archive
+        foreach ($finder as $file) {
+            $pharTask->addFile('etc/' . $file->getRelativePathname(), $file->getRealPath());
+        }
+
         // create the PHAR archive
         $pharTask->run();
 
@@ -225,6 +236,18 @@ class RoboFile extends \Robo\Tasks
         // run PHPUnit
         $this->taskPHPUnit(sprintf('%s/bin/phpunit', $this->properties['vendor.dir']))
              ->configFile('phpunit.xml')
+             ->run();
+    }
+
+    /**
+     * Raising the semver version number.
+     *
+     * @return void
+     */
+    public function semver()
+    {
+        $this->taskSemVer('.semver')
+             ->prerelease('alpha')
              ->run();
     }
 

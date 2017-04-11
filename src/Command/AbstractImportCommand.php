@@ -27,14 +27,19 @@ use Monolog\Handler\ErrorLogHandler;
 use JMS\Serializer\SerializerBuilder;
 use TechDivision\Import\Utils\LoggerKeys;
 use TechDivision\Import\Cli\Simple;
+use TechDivision\Import\Cli\ConfigurationFactory;
 use TechDivision\Import\Cli\Configuration;
 use TechDivision\Import\Cli\Configuration\Database;
 use TechDivision\Import\Cli\Configuration\LoggerFactory;
+use TechDivision\Import\Cli\Utils\SynteticServiceKeys;
+use Symfony\Component\Config\FileLocator;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Input\InputArgument;
+use Symfony\Component\DependencyInjection\ContainerBuilder;
+use Symfony\Component\DependencyInjection\Loader\XmlFileLoader;
 
 /**
  * The abstract import command implementation.
@@ -212,15 +217,28 @@ abstract class AbstractImportCommand extends Command
             );
         }
 
-        // load the DI container instance
-        $container = $this->getApplication()->getContainer();
-
-        // add the input/outut instances to the DI container
-        $container->set('input', $input);
-        $container->set('output', $output);
-
         // load the importer configuration
-        $configuration = $container->get('configuration');
+        $configuration = ConfigurationFactory::factory($input);
+
+        // prepare the configuration directoy
+        $defaultConfigurationDir = dirname(dirname(__DIR__)) . DIRECTORY_SEPARATOR . 'etc';
+
+        // initialize the DI container
+        $container = new ContainerBuilder();
+        $defaultLoader = new XmlFileLoader($container, new FileLocator($defaultConfigurationDir));
+        $defaultLoader->load(sprintf('%s.xml', strtolower($configuration->getMagentoEdition())));
+
+        // load the DI configuration for the extension libraries
+        $customLoader = new XmlFileLoader($container, new FileLocator());
+        foreach ($configuration->getLibraries() as $library) {
+            $customLoader->load(realpath($library . DIRECTORY_SEPARATOR . 'etc' . DIRECTORY_SEPARATOR . 'services.xml'));
+        }
+
+        // add the configuration as well as input/outut instances to the DI container
+        $container->set(SynteticServiceKeys::INPUT, $input);
+        $container->set(SynteticServiceKeys::OUTPUT, $output);
+        $container->set(SynteticServiceKeys::CONFIGURATION, $configuration);
+        $container->set(SynteticServiceKeys::APPLICATION, $this->getApplication());
 
         // initialize the PDO connection
         $dsn = $configuration->getDatabase()->getDsn();
@@ -230,7 +248,7 @@ abstract class AbstractImportCommand extends Command
         $connection->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
 
         // add the PDO connection to the DI container
-        $container->set('connection', $connection);
+        $container->set(SynteticServiceKeys::CONNECTION, $connection);
 
         // initialize the system logger
         $loggers = array();
@@ -256,9 +274,9 @@ abstract class AbstractImportCommand extends Command
         }
 
         // add the system loggers to the DI container
-        $container->set('loggers', $loggers);
+        $container->set(SynteticServiceKeys::LOGGERS, $loggers);
 
         // start the import process
-        $container->get('simple')->process();
+        $container->get(SynteticServiceKeys::SIMPLE)->process();
     }
 }

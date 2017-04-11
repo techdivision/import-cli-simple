@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<container xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <parameters>
+        <parameter key="import_category.utility.class.name">TechDivision\Import\Category\Ee\Utils\SqlStatements</parameter>
+        <parameter key="import_category_ee.utility.class.name">TechDivision\Import\Category\Ee\Utils\SqlStatements</parameter>
+    </parameters>
+
+    <services>
+
+        <service id="import_category_ee.repository.category.datetime" class="TechDivision\Import\Category\Ee\Repositories\CategoryDatetimeRepository">
+            <argument type="service" id="connection"/>
+            <argument>%import_category_ee.utility.class.name%</argument>
+        </service>
+        <service id="import_category_ee.repository.category.decimal" class="TechDivision\Import\Category\Ee\Repositories\CategoryDecimalRepository">
+            <argument type="service" id="connection"/>
+            <argument>%import_category_ee.utility.class.name%</argument>
+        </service>
+        <service id="import_category_ee.repository.category.int" class="TechDivision\Import\Category\Ee\Repositories\CategoryIntRepository">
+            <argument type="service" id="connection"/>
+            <argument>%import_category_ee.utility.class.name%</argument>
+        </service>
+        <service id="import_category_ee.repository.category" class="TechDivision\Import\Category\Ee\Repositories\CategoryRepository">
+            <argument type="service" id="connection"/>
+            <argument>%import_category_ee.utility.class.name%</argument>
+        </service>
+        <service id="import_category_ee.repository.category.text" class="TechDivision\Import\Category\Ee\Repositories\CategoryTextRepository">
+            <argument type="service" id="connection"/>
+            <argument>%import_category_ee.utility.class.name%</argument>
+        </service>
+        <service id="import_category_ee.repository.category.varchar" class="TechDivision\Import\Category\Ee\Repositories\CategoryVarcharRepository">
+            <argument type="service" id="connection"/>
+            <argument>%import_category_ee.utility.class.name%</argument>
+        </service>
+
+        <service id="import_category_ee.action.processor.category.update" class="TechDivision\Import\Category\Ee\Actions\Processors\CategoryUpdateProcessor">
+            <argument type="service" id="connection"/>
+            <argument>%import_category_ee.utility.class.name%</argument>
+        </service>
+        <service id="import_category_ee.action.processor.sequence.category.create" class="TechDivision\Import\Category\Ee\Actions\Processors\SequenceCategoryCreateProcessor">
+            <argument type="service" id="connection"/>
+            <argument>%import_category_ee.utility.class.name%</argument>
+        </service>
+
+        <service id="import_category_ee.action.sequence.category" class="TechDivision\Import\Category\Ee\Actions\SequenceCategoryAction">
+            <argument type="service" id="import_category_ee.action.processor.sequence.category.create"/>
+        </service>
+
+        <service id="import_category_ee.action.category" class="TechDivision\Import\Category\Actions\CategoryAction">
+            <argument type="service" id="import_category.action.processor.category.create"/>
+            <argument type="service" id="import_category_ee.action.processor.category.update"/>
+            <argument type="service" id="import_category.action.processor.category.delete"/>
+        </service>
+
+        <service id="import_category_ee.processor.category.bunch" class="TechDivision\Import\Category\Ee\Services\EeCategoryBunchProcessor">
+            <argument type="service" id="connection"/>
+            <argument type="service" id="import_category_ee.action.sequence.category"/>
+            <argument type="service" id="import_category_ee.repository.category"/>
+            <argument type="service" id="import_category_ee.repository.category.datetime"/>
+            <argument type="service" id="import_category_ee.repository.category.decimal"/>
+            <argument type="service" id="import_category_ee.repository.category.int"/>
+            <argument type="service" id="import_category_ee.repository.category.text"/>
+            <argument type="service" id="import_category_ee.repository.category.varchar"/>
+            <argument type="service" id="import.repository.eav.attribute"/>
+            <argument type="service" id="import.repository.url.rewrite"/>
+            <argument type="service" id="import_category.action.category.datetime"/>
+            <argument type="service" id="import_category.action.category.decimal"/>
+            <argument type="service" id="import_category.action.category.int"/>
+            <argument type="service" id="import_category_ee.action.category"/>
+            <argument type="service" id="import_category.action.category.text"/>
+            <argument type="service" id="import_category.action.category.varchar"/>
+            <argument type="service" id="import.action.url.rewrite"/>
+            <argument type="service" id="import.assembler.category"/>
+        </service>
+
+        <service id="import_category_ee.observer.category.attribute" class="TechDivision\Import\Category\Ee\Observers\EeCategoryAttributeObserver"/>
+        <service id="import_category_ee.observer.category.attribute.update" class="TechDivision\Import\Category\Ee\Observers\EeCategoryAttributeUpdateObserver"/>
+        <service id="import_category_ee.observer.category" class="TechDivision\Import\Category\Ee\Observers\EeCategoryObserver"/>
+        <service id="import_category_ee.observer.category.path" class="TechDivision\Import\Category\Ee\Observers\EeCategoryPathObserver"/>
+        <service id="import_category_ee.observer.category.update" class="TechDivision\Import\Category\Ee\Observers\EeCategoryUpdateObserver"/>
+        <service id="import_category_ee.observer.clean.up" class="TechDivision\Import\Category\Ee\Observers\EeCleanUpObserver"/>
+
+        <service id="import_category_ee.subject.bunch" class="TechDivision\Import\Category\Ee\Subjects\EeBunchSubject" shared="false">
+            <argument type="service" id="configuration.import_category_ee.subject.bunch"/>
+            <argument type="service" id="import.processor.registry"/>
+            <argument type="service" id="import.generator.core.config.data.uid"/>
+            <argument type="service" id="loggers"/>
+            <argument type="service" id="import_category_ee.processor.category.bunch"/>
+        </service>
+
+        <service id="import_category_ee.plugin.children.count" class="TechDivision\Import\Category\Ee\Plugins\EeChildrenCountPlugin">
+            <argument type="service" id="simple"/>
+            <argument type="service" id="configuration.import_category_ee.plugin.children.count"/>
+            <argument type="service" id="import_category_ee.processor.category.bunch"/>
+        </service>
+
+    </services>
+
+</container>

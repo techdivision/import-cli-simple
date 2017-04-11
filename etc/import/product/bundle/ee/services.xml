@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<container xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <services>
+
+        <service id="import_product_bundle_ee.observer.bundle.option" class="TechDivision\Import\Product\Bundle\Ee\Observers\EeBundleOptionObserver"/>
+        <service id="import_product_bundle_ee.observer.bundle.option.update" class="TechDivision\Import\Product\Bundle\Ee\Observers\EeBundleOptionUpdateObserver"/>
+        <service id="import_product_bundle_ee.observer.bundle.option.value.update" class="TechDivision\Import\Product\Bundle\Ee\Observers\EeBundleOptionValueUpdateObserver"/>
+
+        <service id="import_product_bundle_ee.subject.bundle" class="TechDivision\Import\Product\Bundle\Ee\Subjects\EeBundleSubject" shared="false">
+            <argument type="service" id="configuration.import_product_bundle_ee.subject.bundle"/>
+            <argument type="service" id="import.processor.registry"/>
+            <argument type="service" id="import.generator.core.config.data.uid"/>
+            <argument type="service" id="loggers"/>
+            <argument type="service" id="import_product_bundle.processor.product.bundle"/>
+        </service>
+
+    </services>
+
+</container>

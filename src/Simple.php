@@ -25,17 +25,18 @@ use Monolog\Logger;
 use Psr\Log\LogLevel;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Helper\FormatterHelper;
+use Symfony\Component\DependencyInjection\TaggedContainerInterface;
 use TechDivision\Import\Utils\LoggerKeys;
 use TechDivision\Import\Utils\RegistryKeys;
 use TechDivision\Import\ApplicationInterface;
 use TechDivision\Import\ConfigurationInterface;
+use TechDivision\Import\Cli\Utils\SynteticServiceKeys;
 use TechDivision\Import\Exceptions\LineNotFoundException;
 use TechDivision\Import\Exceptions\FileNotFoundException;
 use TechDivision\Import\Exceptions\ImportAlreadyRunningException;
 use TechDivision\Import\Configuration\PluginConfigurationInterface;
 use TechDivision\Import\Services\ImportProcessorInterface;
 use TechDivision\Import\Services\RegistryProcessorInterface;
-use Symfony\Component\DependencyInjection\TaggedContainerInterface;
 
 /**
  * The M2IF - Console Tool implementation.
@@ -681,8 +682,12 @@ class Simple implements ApplicationInterface
 
         // log the debug information, if debug mode is enabled
         if ($this->getConfiguration()->isDebugMode()) {
+            // load the application from the DI container
+            /** @var TechDivision\Import\Cli\Application $application */
+            $application = $this->getContainer()->get(SynteticServiceKeys::APPLICATION);
             // log the system's PHP configuration
             $this->log(sprintf('PHP version: %s', phpversion()), LogLevel::DEBUG);
+            $this->log(sprintf('App version: %s', $application->getVersion()), LogLevel::DEBUG);
             $this->log('-------------------- Loaded Extensions -----------------------', LogLevel::DEBUG);
             $this->log(implode(', ', $loadedExtensions = get_loaded_extensions()), LogLevel::DEBUG);
             $this->log('--------------------------------------------------------------', LogLevel::DEBUG);

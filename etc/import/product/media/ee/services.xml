@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<container xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <parameters>
+        <parameter key="import_product_media.utility.class.name">TechDivision\Import\Product\Media\Ee\Utils\SqlStatements</parameter>
+        <parameter key="import_product_media_ee.utility.class.name">TechDivision\Import\Product\Media\Ee\Utils\SqlStatements</parameter>
+    </parameters>
+
+    <services>
+
+        <service id="import_product_media_ee.repository.product.media.gallery.value" class="TechDivision\Import\Product\Media\Ee\Repositories\ProductMediaGalleryValueRepository">
+            <argument type="service" id="connection"/>
+            <argument>%import_product_media_ee.utility.class.name%</argument>
+        </service>
+        <service id="import_product_media_ee.repository.product.media.gallery.value.to.entity" class="TechDivision\Import\Product\Media\Ee\Repositories\ProductMediaGalleryValueToEntityRepository">
+            <argument type="service" id="connection"/>
+            <argument>%import_product_media_ee.utility.class.name%</argument>
+        </service>
+
+        <service id="import_product_media_ee.processor.product.media" class="TechDivision\Import\Product\Media\Ee\Services\EeProductMediaProcessor">
+            <argument type="service" id="connection"/>
+            <argument type="service" id="import_product_media.repository.product.media.gallery"/>
+            <argument type="service" id="import_product_media_ee.repository.product.media.gallery.value"/>
+            <argument type="service" id="import_product_media_ee.repository.product.media.gallery.value.to.entity"/>
+            <argument type="service" id="import_product_media.action.product.media.gallery"/>
+            <argument type="service" id="import_product_media.action.product.media.gallery.value"/>
+            <argument type="service" id="import_product_media.action.product.media.gallery.value.to.entity"/>
+            <argument type="service" id="import_product_media.action.product.media.gallery.value.video"/>
+        </service>
+
+        <service id="import_product_media_ee.media.gallery" class="TechDivision\Import\Product\Media\Ee\Observers\EeMediaGalleryObserver"/>
+        <service id="import_product_media_ee.media.gallery.update" class="TechDivision\Import\Product\Media\Ee\Observers\EeMediaGalleryUpdateObserver"/>
+        <service id="import_product_media_ee.media.gallery.value" class="TechDivision\Import\Product\Media\Ee\Observers\EeMediaGalleryValueObserver"/>
+        <service id="import_product_media_ee.media.gallery.value.update" class="TechDivision\Import\Product\Media\Ee\Observers\EeMediaGalleryValueUpdateObserver"/>
+
+        <service id="import_product_media_ee.subject.media" class="TechDivision\Import\Product\Media\Ee\Subjects\EeMediaSubject" shared="false">
+            <argument type="service" id="configuration.import_product_media_ee.subject.media"/>
+            <argument type="service" id="import.processor.registry"/>
+            <argument type="service" id="import.generator.core.config.data.uid"/>
+            <argument type="service" id="loggers"/>
+            <argument type="service" id="import_product_media_ee.processor.product.media"/>
+        </service>
+
+    </services>
+
+</container>

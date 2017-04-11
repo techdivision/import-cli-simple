@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<container xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <services>
+
+        <service id="input" synthetic="true" />
+        <service id="output" synthetic="true" />
+        <service id="loggers" synthetic="true" />
+        <service id="connection" synthetic="true" />
+        <service id="application" synthetic="true" />
+        <service id="configuration" synthetic="true" />
+
+        <service id="simple" class="TechDivision\Import\Cli\Simple">
+            <argument type="service" id="service_container"/>
+            <argument type="service" id="import.processor.registry"/>
+            <argument type="service" id="import.processor.import"/>
+            <argument type="service" id="configuration"/>
+            <argument type="service" id="output"/>
+            <argument type="service" id="loggers"/>
+        </service>
+
+    </services>
+
+</container>

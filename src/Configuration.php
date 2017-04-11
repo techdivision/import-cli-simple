@@ -280,6 +280,14 @@ class Configuration implements ConfigurationInterface
     protected $entityTypeCode;
 
     /**
+     * The array with the paths to the extension libraries.
+     *
+     * @var array
+     * @Type("array")
+     */
+    protected $libraries = array();
+
+    /**
      * Return's the array with the plugins of the operation to use.
      *
      * @return \Doctrine\Common\Collections\ArrayCollection The ArrayCollection with the plugins
@@ -768,5 +776,15 @@ class Configuration implements ConfigurationInterface
     public function getPidFilename()
     {
         return $this->pidFilename;
+    }
+
+    /**
+     * Return's an array with the path to the extension libraries.
+     *
+     * @return array The path to the extension libraries
+     */
+    public function getLibraries()
+    {
+        return $this->libraries;
     }
 }

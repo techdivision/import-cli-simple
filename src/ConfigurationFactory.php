@@ -20,6 +20,7 @@
 
 namespace TechDivision\Import\Cli;
 
+use Psr\Log\LogLevel;
 use JMS\Serializer\SerializerBuilder;
 use Symfony\Component\Console\Input\InputInterface;
 use TechDivision\Import\Cli\Command\InputOptionKeys;

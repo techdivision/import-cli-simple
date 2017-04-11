@@ -24,15 +24,15 @@ if (!$loaded) {
     );
 }
 
-use Symfony\Component\Config\FileLocator;
-use Symfony\Component\DependencyInjection\ContainerBuilder;
-use Symfony\Component\DependencyInjection\Loader\XmlFileLoader;
+use TechDivision\Import\Cli\Application;
+use TechDivision\Import\Cli\Command\ImportProductsCommand;
+use TechDivision\Import\Cli\Command\ImportCategoriesCommand;
+use TechDivision\Import\Cli\Command\ImportClearPidFileCommand;
+use TechDivision\Import\Cli\Command\ImportCreateOkFileCommand;
 
-// initialize the DI container
-$container = new ContainerBuilder();
-$loader = new XmlFileLoader($container, new FileLocator(dirname(__DIR__) . '/src/etc'));
-$loader->load('services.xml');
-
-// load and run the application
-$application = $container->get('application');
+$application = new Application();
+$application->add(new ImportProductsCommand());
+$application->add(new ImportCategoriesCommand());
+$application->add(new ImportClearPidFileCommand());
+$application->add(new ImportCreateOkFileCommand());
 $application->run();

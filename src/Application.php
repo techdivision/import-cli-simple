@@ -20,8 +20,6 @@
 
 namespace TechDivision\Import\Cli;
 
-use Symfony\Component\DependencyInjection\TaggedContainerInterface;
-
 /**
  * The M2IF - Console Tool implementation.
  *
@@ -38,6 +36,13 @@ class Application extends \Symfony\Component\Console\Application
 {
 
     /**
+     * Regex to read the actual version number from the .semver file.
+     *
+     * @var string
+     */
+    const REGEX = "/^\-\-\-\n:major:\s(0|[1-9]\d*)\n:minor:\s(0|[1-9]\d*)\n:patch:\s(0|[1-9]\d*)\n:special:\s'([a-zA-z0-9]*\.?(?:0|[1-9]\d*)?)'\n:metadata:\s'((?:0|[1-9]\d*)?(?:\.[a-zA-z0-9\.]*)?)'/";
+
+    /**
      * The application name.
      *
      * @var string
@@ -45,41 +50,35 @@ class Application extends \Symfony\Component\Console\Application
     protected $name = 'M2IF - Simple Console Tool';
 
     /**
-     * The application version.
-     *
-     * @var string
-     */
-    protected $version = '1.0.0-alpha';
-
-    /**
-     * The DI container builder instance.
-     *
-     * @var \Symfony\Component\DependencyInjection\TaggedContainerInterface
-     */
-    protected $container;
-
-    /**
      * The constructor to initialize the instance.
-     *
-     * @param \Symfony\Component\DependencyInjection\TaggedContainerInterface The container instance
      */
-    public function __construct(TaggedContainerInterface $container)
+    public function __construct()
     {
 
         // invoke the parent constructor
-        parent::__construct($this->name, $this->version);
-
-        // set the container instance
-        $this->container = $container;
+        parent::__construct($this->name, vsprintf('%d.%d.%d-%s', $this->parse(dirname(__DIR__) . DIRECTORY_SEPARATOR . '.semver')));
     }
 
     /**
-     * Return's the container instance.
+     * Parse and return the version number from the application's .semver file.
      *
-     * @return \Symfony\Component\DependencyInjection\TaggedContainerInterface The container instance
+     * @param string $semverFile The path to the semver file
+     *
+     * @throws \Exception Is thrown, if the .semver file is not available or invalid
      */
-    public function getContainer()
+    protected function parse($semverFile)
     {
-        return $this->container;
+
+        // load the content of the semver file
+        $output = file_get_contents($semverFile);
+
+        // extract the version information
+        if (!preg_match_all(self::REGEX, $output, $matches)) {
+            throw new \Exception($this, 'Bad semver file.');
+        }
+
+        // prepare and return the version number
+        list(, $major, $minor, $patch, $special, $metadata) = array_map('current', $matches);
+        return compact('major', 'minor', 'patch', 'special', 'metadata');
     }
 }
