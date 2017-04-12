@@ -169,6 +169,7 @@ class Simple implements ApplicationInterface
     /**
      * The constructor to initialize the instance.
      *
+     * @param \Symfony\Component\DependencyInjection\TaggedContainerInterface $container         The DI container instance
      * @param \TechDivision\Import\Services\RegistryProcessorInterface        $registryProcessor The registry processor instance
      * @param \TechDivision\Import\Services\ImportProcessorInterface          $importProcessor   The import processor instance
      * @param \TechDivision\Import\ConfigurationInterface                     $configuration     The system configuration
@@ -199,7 +200,7 @@ class Simple implements ApplicationInterface
     /**
      * Set's the container instance.
      *
-     * @return \Symfony\Component\DependencyInjection\TaggedContainerInterface The container instance
+     * @param \Symfony\Component\DependencyInjection\TaggedContainerInterface $container The container instance
      *
      * @return void
      */
@@ -243,7 +244,7 @@ class Simple implements ApplicationInterface
     /**
      * Set's the system configuration.
      *
-     * @param \TechDivision\Import\ConfigurationInterface The system configuration
+     * @param \TechDivision\Import\ConfigurationInterface $configuration The system configuration
      *
      * @return void
      */
@@ -265,7 +266,7 @@ class Simple implements ApplicationInterface
     /**
      * Set's the RegistryProcessor instance to handle the running threads.
      *
-     * @param \TechDivision\Import\Services\RegistryProcessor The registry processor instance
+     * @param \TechDivision\Import\Services\RegistryProcessor $registryProcessor The registry processor instance
      *
      * @return void
      */
@@ -287,7 +288,7 @@ class Simple implements ApplicationInterface
     /**
      * Set's the import processor instance.
      *
-     * @param \TechDivision\Import\Services\ImportProcessorInterface The import processor instance
+     * @param \TechDivision\Import\Services\ImportProcessorInterface $importProcessor The import processor instance
      *
      * @return void
      */

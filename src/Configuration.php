@@ -280,12 +280,13 @@ class Configuration implements ConfigurationInterface
     protected $entityTypeCode;
 
     /**
-     * The array with the paths to the extension libraries.
+     * The array with the paths to additional vendor directories.
      *
-     * @var array
-     * @Type("array")
+     * @var \Doctrine\Common\Collections\ArrayCollection
+     * @Type("ArrayCollection<TechDivision\Import\Cli\Configuration\VendorDir>")
+     * @SerializedName("vendor-dirs")
      */
-    protected $libraries = array();
+    protected $vendorDirs;
 
     /**
      * Return's the array with the plugins of the operation to use.
@@ -779,12 +780,12 @@ class Configuration implements ConfigurationInterface
     }
 
     /**
-     * Return's an array with the path to the extension libraries.
+     * Return's an array with the path to additional vendor directories.
      *
-     * @return array The path to the extension libraries
+     * @return \Doctrine\Common\Collections\ArrayCollection The paths to additional vendor directories
      */
-    public function getLibraries()
+    public function getVendorDirs()
     {
-        return $this->libraries;
+        return $this->vendorDirs;
     }
 }

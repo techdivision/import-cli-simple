@@ -122,10 +122,17 @@ class RoboFile extends \Robo\Tasks
 
         // copy the composer.json file
         $this->taskFilesystemStack()
-              ->copy(
+             ->copy(
                   __DIR__ . DIRECTORY_SEPARATOR . 'composer.json',
                   $targetDir. DIRECTORY_SEPARATOR. 'composer.json'
-              )->run();
+             )->run();
+
+          // copy the composer.json file
+          $this->taskFilesystemStack()
+               ->copy(
+                   __DIR__ . DIRECTORY_SEPARATOR . '.semver',
+                   $targetDir. DIRECTORY_SEPARATOR. '.semver'
+               )->run();
 
         // copy the src/etc directory
         $this->taskCopyDir(
@@ -160,6 +167,8 @@ class RoboFile extends \Robo\Tasks
         // load a list with all the source files from the vendor directory
         $finder = Finder::create()->files()
             ->name('*.php')
+            ->name('*.xml')
+            ->name('*.xsd')
             ->in($targetDir . DIRECTORY_SEPARATOR . 'vendor');
 
         // iterate over the source files of the vendor directory and add them to the PHAR archive
@@ -177,7 +186,8 @@ class RoboFile extends \Robo\Tasks
             $pharTask->addFile('etc/' . $file->getRelativePathname(), $file->getRealPath());
         }
 
-        // create the PHAR archive
+        // add the semver file and create the PHAR archive
+        $pharTask->addFile('.semver', realpath($targetDir. DIRECTORY_SEPARATOR. '.semver'));
         $pharTask->run();
 
         // verify PHAR archive is packed correctly
@@ -289,5 +299,6 @@ class RoboFile extends \Robo\Tasks
         $this->runCpd();
         $this->runMd();
         $this->runTests();
+        $this->createPhar();
     }
 }

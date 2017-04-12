@@ -19,19 +19,22 @@ if (strpos(basename(__FILE__), 'phar')) {
     }
 }
 
-use Symfony\Component\Console\Application;
+use TechDivision\Import\Cli\Application;
 use TechDivision\Import\Cli\Command\ImportProductsCommand;
-use TechDivision\Import\Cli\Command\ImportClearPidCommand;
 use TechDivision\Import\Cli\Command\ImportCategoriesCommand;
+use TechDivision\Import\Cli\Command\ImportClearPidFileCommand;
+use TechDivision\Import\Cli\Command\ImportCreateOkFileCommand;
 
-// initialize the application
 $application = new Application();
 $application->add(new ImportProductsCommand());
-$application->add(new ImportClearPidCommand());
 $application->add(new ImportCategoriesCommand());
+$application->add(new ImportClearPidFileCommand());
+$application->add(new ImportCreateOkFileCommand());
 
 // execute the command
 $statusCode = $application->run();
+
+// stop and render the status code
 exit($statusCode);
 
 __HALT_COMPILER(); ?>

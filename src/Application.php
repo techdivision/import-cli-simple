@@ -64,6 +64,7 @@ class Application extends \Symfony\Component\Console\Application
      *
      * @param string $semverFile The path to the semver file
      *
+     * @return array The array with the version information
      * @throws \Exception Is thrown, if the .semver file is not available or invalid
      */
     protected function parse($semverFile)

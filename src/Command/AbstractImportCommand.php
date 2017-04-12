@@ -20,11 +20,8 @@
 
 namespace TechDivision\Import\Cli\Command;
 
-use Rhumsaa\Uuid\Uuid;
-use Psr\Log\LogLevel;
 use Monolog\Logger;
 use Monolog\Handler\ErrorLogHandler;
-use JMS\Serializer\SerializerBuilder;
 use TechDivision\Import\Utils\LoggerKeys;
 use TechDivision\Import\Cli\Simple;
 use TechDivision\Import\Cli\ConfigurationFactory;
@@ -40,6 +37,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Loader\XmlFileLoader;
+use Symfony\Component\Finder\Finder;
 
 /**
  * The abstract import command implementation.
@@ -52,6 +50,39 @@ use Symfony\Component\DependencyInjection\Loader\XmlFileLoader;
  */
 abstract class AbstractImportCommand extends Command
 {
+
+    /**
+     * The default libraries.
+     *
+     * @var array
+     */
+    protected $defaultLibraries = array(
+        'ce' => array(
+            'techdivision/import',
+            'techdivision/import-category',
+            'techdivision/import-product',
+            'techdivision/import-product-bundle',
+            'techdivision/import-product-link',
+            'techdivision/import-product-media',
+            'techdivision/import-product-variant'
+         ),
+        'ee' => array(
+            'techdivision/import',
+            'techdivision/import-ee',
+            'techdivision/import-category',
+            'techdivision/import-category-ee',
+            'techdivision/import-product',
+            'techdivision/import-product-ee',
+            'techdivision/import-product-bundle',
+            'techdivision/import-product-bundle-ee',
+            'techdivision/import-product-link',
+            'techdivision/import-product-link-ee',
+            'techdivision/import-product-media',
+            'techdivision/import-product-media-ee',
+            'techdivision/import-product-variant',
+            'techdivision/import-product-variant-ee'
+        )
+    );
 
     /**
      * Configures the current command.
@@ -187,51 +218,65 @@ abstract class AbstractImportCommand extends Command
     {
 
         // initialize the flag, whether the JMS annotations has been loaded or not
-        $loaded = false;
+        $found = false;
 
-        // the possible paths to the JMS annotations
-        $annotationDirectories = array(
-            dirname(__DIR__) . '/../../../jms/serializer/src',
-            dirname(__DIR__) . '/../vendor/jms/serializer/src'
+        // the possible paths to the vendor directory
+        $possibleVendorDirectories = array(
+            dirname(dirname(dirname(dirname(dirname(__DIR__))))) . DIRECTORY_SEPARATOR . 'vendor',
+            dirname(dirname(__DIR__)) . DIRECTORY_SEPARATOR . 'vendor'
         );
 
-        // register the JMS Serializer annotations
-        foreach ($annotationDirectories as $annotationDirectory) {
-            if (file_exists($annotationDirectory)) {
-                \Doctrine\Common\Annotations\AnnotationRegistry::registerAutoloadNamespace(
-                    'JMS\Serializer\Annotation',
-                    $annotationDirectory
-                );
-                $loaded = true;
+        // the path of the JMS serializer directory, relative to the vendor directory
+        $jmsDirectory = DIRECTORY_SEPARATOR . 'jms' . DIRECTORY_SEPARATOR . 'serializer' . DIRECTORY_SEPARATOR . 'src';
+
+        // try to find the path to the JMS Serializer annotations
+        foreach ($possibleVendorDirectories as $possibleVendorDirectory) {
+            if (file_exists($annotationDirectory = $possibleVendorDirectory . $jmsDirectory)) {
+                $found = true;
                 break;
             }
         }
 
-        // stop processing, if the JMS annotations can't be loaded
-        if (!$loaded) {
+        // stop processing, if the JMS annotations can't be found
+        if (!$found) {
             throw new \Exception(
                 sprintf(
-                    'The JMS annotations can not be found in one of paths %s',
-                    implode(', ', $annotationDirectories)
+                    'The JMS annotations can not be found in one of %s',
+                    implode(', ', $possibleVendorDirectories)
                 )
             );
         }
 
+        // register the autoloader for the JMS serializer annotations
+        \Doctrine\Common\Annotations\AnnotationRegistry::registerAutoloadNamespace(
+            'JMS\Serializer\Annotation',
+            $annotationDirectory
+        );
+
         // load the importer configuration
         $configuration = ConfigurationFactory::factory($input);
 
-        // prepare the configuration directoy
-        $defaultConfigurationDir = dirname(dirname(__DIR__)) . DIRECTORY_SEPARATOR . 'etc';
-
         // initialize the DI container
         $container = new ContainerBuilder();
-        $defaultLoader = new XmlFileLoader($container, new FileLocator($defaultConfigurationDir));
-        $defaultLoader->load(sprintf('%s.xml', strtolower($configuration->getMagentoEdition())));
 
-        // load the DI configuration for the extension libraries
+        // load the DI configuration for the default libraries
+        foreach ($this->getDefaultLibraries($configuration->getMagentoEdition()) as $defaultLibrary) {
+            $defaultLoader = new XmlFileLoader($container, new FileLocator($possibleVendorDirectory));
+            $defaultLoader->load(sprintf('%s/etc/services.xml', $defaultLibrary));
+        }
+
+        // register autoloaders for additional vendor directories
         $customLoader = new XmlFileLoader($container, new FileLocator());
-        foreach ($configuration->getLibraries() as $library) {
-            $customLoader->load(realpath($library . DIRECTORY_SEPARATOR . 'etc' . DIRECTORY_SEPARATOR . 'services.xml'));
+        foreach ($configuration->getVendorDirs() as $vendorDir) {
+            // load the vendor directory's auto loader
+            if (file_exists($autoLoader = $vendorDir->getVendorDir() . '/autoload.php')) {
+                require $autoLoader;
+            }
+
+            // load the DI configuration for the extension libraries
+            foreach ($vendorDir->getLibraries() as $library) {
+                $customLoader->load(realpath(sprintf('%s/%s/etc/services.xml', $vendorDir->getVendorDir(), $library)));
+            }
         }
 
         // add the configuration as well as input/outut instances to the DI container
@@ -278,5 +323,13 @@ abstract class AbstractImportCommand extends Command
 
         // start the import process
         $container->get(SynteticServiceKeys::SIMPLE)->process();
+    }
+
+    protected function getDefaultLibraries($magentoEdition)
+    {
+        return array_merge(
+            array(dirname(dirname(__DIR__))),
+            $this->defaultLibraries[strtolower($magentoEdition)]
+        );
     }
 }

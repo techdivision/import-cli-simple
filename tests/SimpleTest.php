@@ -51,6 +51,11 @@ class SimpleTest extends \PHPUnit_Framework_TestCase
     protected function setUp()
     {
 
+        // create a mock container
+        $mockContainer = $this->getMockBuilder('Symfony\Component\DependencyInjection\TaggedContainerInterface')
+                              ->setMethods(get_class_methods('Symfony\Component\DependencyInjection\TaggedContainerInterface'))
+                              ->getMock();
+
         // create a mock registry processor
         $mockRegistryProcessor = $this->getMockBuilder('TechDivision\Import\Services\RegistryProcessorInterface')
                                       ->setMethods(get_class_methods('TechDivision\Import\Services\RegistryProcessorInterface'))
@@ -66,11 +71,6 @@ class SimpleTest extends \PHPUnit_Framework_TestCase
                                   ->setMethods(get_class_methods('TechDivision\Import\ConfigurationInterface'))
                                   ->getMock();
 
-        // create a mock input
-        $mockInput = $this->getMockBuilder('Symfony\Component\Console\Input\InputInterface')
-                                  ->setMethods(get_class_methods('Symfony\Component\Console\Input\InputInterface'))
-                                  ->getMock();
-
         // create a mock output
         $mockOutput = $this->getMockBuilder('Symfony\Component\Console\Output\OutputInterface')
                                   ->setMethods(get_class_methods('Symfony\Component\Console\Output\OutputInterface'))
@@ -78,10 +78,10 @@ class SimpleTest extends \PHPUnit_Framework_TestCase
 
         // create the subject to be tested
         $this->instance = new Simple(
+            $mockContainer,
             $mockRegistryProcessor,
             $mockImportProcessor,
             $mockConfiguration,
-            $mockInput,
             $mockOutput,
             array()
         );
