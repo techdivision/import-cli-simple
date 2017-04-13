@@ -139,9 +139,7 @@ installation, the simplest way to register an additional extension will be addin
 
 #### Vendor Directories
 
-Assuming, that the M2IF - Simple Console Tool PHAR archive will be used, it is necessary, that the Composer class loader
-of the additional library vendor directory will be added like
-
+Assuming, that the M2IF - Simple Console Tool PHAR archive will be used, it is necessary, that the Composer class loader of the additional library vendor directory will be added like
 
 ```json
 "vendor-dirs" : [
