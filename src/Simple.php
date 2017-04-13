@@ -28,6 +28,7 @@ use Symfony\Component\Console\Helper\FormatterHelper;
 use Symfony\Component\DependencyInjection\TaggedContainerInterface;
 use TechDivision\Import\Utils\LoggerKeys;
 use TechDivision\Import\Utils\RegistryKeys;
+use TechDivision\Import\Utils\EntityTypeCodes;
 use TechDivision\Import\ApplicationInterface;
 use TechDivision\Import\ConfigurationInterface;
 use TechDivision\Import\Cli\Utils\SynteticServiceKeys;
@@ -72,6 +73,59 @@ class Simple implements ApplicationInterface
    | |  __/ (__| | | | |__| | |\ V /| \__ \ | (_) | | | |
    |_|\___|\___|_| |_|_____/|_| \_/ |_|___/_|\___/|_| |_|
 ';
+
+    /**
+     * The array with the default entity type code => import directory mappings.
+     *
+     * @var array
+     */
+    protected static $defaultDirectories = array(
+        EntityTypeCodes::CATALOG_PRODUCT  => 'products',
+        EntityTypeCodes::CATALOG_CATEGORY => 'categories'
+    );
+
+    /**
+     * The array with the default entity type => configuration mapping.
+     *
+     * @var array
+     */
+    protected static $defaultConfigurations = array(
+        EntityTypeCodes::CATALOG_PRODUCT  => 'techdivision/import-product',
+        EntityTypeCodes::CATALOG_CATEGORY => 'techdivision/import-category'
+    );
+
+    /**
+     * The Magento Edition specific default libraries.
+     *
+     * @var array
+     */
+    protected static $defaultLibraries = array(
+        'ce' => array(
+            'techdivision/import',
+            'techdivision/import-category',
+            'techdivision/import-product',
+            'techdivision/import-product-bundle',
+            'techdivision/import-product-link',
+            'techdivision/import-product-media',
+            'techdivision/import-product-variant'
+        ),
+        'ee' => array(
+            'techdivision/import',
+            'techdivision/import-ee',
+            'techdivision/import-category',
+            'techdivision/import-category-ee',
+            'techdivision/import-product',
+            'techdivision/import-product-ee',
+            'techdivision/import-product-bundle',
+            'techdivision/import-product-bundle-ee',
+            'techdivision/import-product-link',
+            'techdivision/import-product-link-ee',
+            'techdivision/import-product-media',
+            'techdivision/import-product-media-ee',
+            'techdivision/import-product-variant',
+            'techdivision/import-product-variant-ee'
+        )
+    );
 
     /**
      * The log level => console style mapping.
@@ -320,6 +374,81 @@ class Simple implements ApplicationInterface
     }
 
     /**
+     * Return's the Magento Edition specific default libraries. Supported Magento Editions are CE or EE.
+     *
+     * @param string $magentoEdition The Magento Edition to return the libraries for
+     *
+     * @return array The Magento Edition specific default libraries
+     * @throws \Exception Is thrown, if the passed Magento Edition is NOT supported
+     */
+    public static function getDefaultLibraries($magentoEdition)
+    {
+
+        // query whether or not, default libraries for the passed edition are available
+        if (isset(self::$defaultLibraries[$edition = strtolower($magentoEdition)])) {
+            return self::$defaultLibraries[$edition];
+        }
+
+        // throw an exception, if the passed edition is not supported
+        throw new \Exception(
+            sprintf(
+                'Default libraries for Magento \'%s\' not supported (MUST be one of CE or EE)',
+                $magentoEdition
+            )
+        );
+    }
+
+    /**
+     * Return's the entity types specific default configuration file.
+     *
+     * @param string $entityType The entity type to return the configuration file for
+     *
+     * @return string The name of the library to query for the default configuration file
+     * @throws \Exception Is thrown, if no default configuration for the passed entity type is available
+     */
+    public static function getDefaultConfiguration($entityTypeCode)
+    {
+
+        // query whether or not, a default configuration file for the passed entity type is available
+        if (isset(self::$defaultConfigurations[$entityTypeCode])) {
+            return self::$defaultConfigurations[$entityTypeCode];
+        }
+
+        // throw an exception, if the passed entity type is not supported
+        throw new \Exception(
+            sprintf(
+                'Entity Type Code \'%s\' not supported (MUST be one of catalog_product or catalog_category)',
+                $entityTypeCode
+            )
+        );
+    }
+
+    /**
+     * Return's the entity types specific default import directory.
+     *
+     * @param string $entityType The entity type to return the default import directory for
+     *
+     * @return string The default default import directory
+     * @throws \Exception Is thrown, if no default import directory for the passed entity type is available
+     */
+    public static function getDefaultDirectory($entityTypeCode)
+    {
+
+        // query whether or not, a default configuration file for the passed entity type is available
+        if (isset(self::$defaultDirectories[$entityTypeCode])) {
+            return self::$defaultDirectories[$entityTypeCode];
+        }
+
+        // throw an exception, if the passed entity type is not supported
+        throw new \Exception(
+            sprintf(
+                'Entity Type Code \'%s\' not supported (MUST be one of catalog_product or catalog_category)',
+                $entityTypeCode
+            )
+        );
+    }
+
+    /**
      * Return's the logger with the passed name, by default the system logger.
      *
      * @param string $name The name of the requested system logger
@@ -336,7 +465,12 @@ class Simple implements ApplicationInterface
         }
 
         // throw an exception if the requested logger is NOT available
-        throw new \Exception(sprintf('The requested logger \'%s\' is not available', $name));
+        throw new \Exception(
+            sprintf(
+                'The requested logger \'%s\' is not available',
+                $name
+            )
+        );
     }
 
     /**

@@ -167,8 +167,9 @@ class RoboFile extends \Robo\Tasks
         // load a list with all the source files from the vendor directory
         $finder = Finder::create()->files()
             ->name('*.php')
-            ->name('*.xml')
-            ->name('*.xsd')
+            ->name('services.xml')
+            ->name('services-1.0.xsd')
+            ->name('techdivision-import.json')
             ->in($targetDir . DIRECTORY_SEPARATOR . 'vendor');
 
         // iterate over the source files of the vendor directory and add them to the PHAR archive

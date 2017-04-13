@@ -26,6 +26,7 @@ use JMS\Serializer\Annotation\SerializedName;
 use TechDivision\Import\ConfigurationInterface;
 use TechDivision\Import\Cli\Configuration\Operation;
 use TechDivision\Import\Configuration\DatabaseConfigurationInterface;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * A simple configuration implementation.
@@ -64,10 +65,36 @@ class Configuration implements ConfigurationInterface
      * The operation name to use.
      *
      * @var string
-     * @Type("string")
-     * @SerializedName("operation-name")
      */
     protected $operationName;
+
+    /**
+     * The entity type code to use.
+     *
+     * @var string
+     */
+    protected $entityTypeCode;
+
+    /**
+     * The Magento installation directory.
+     *
+     * @var string
+     */
+    protected $installationDir;
+
+    /**
+     * The source directory that has to be watched for new files.
+     *
+     * @var string
+     */
+    protected $sourceDir;
+
+    /**
+     * The target directory with the files that has been imported.
+     *
+     * @var string
+     */
+    protected $targetDir;
 
     /**
      * The Magento edition, EE or CE.
@@ -86,33 +113,6 @@ class Configuration implements ConfigurationInterface
      * @SerializedName("magento-version")
      */
     protected $magentoVersion = '2.1.2';
-
-    /**
-     * The Magento installation directory.
-     *
-     * @var string
-     * @Type("string")
-     * @SerializedName("installation-dir")
-     */
-    protected $installationDir;
-
-    /**
-     * The source directory that has to be watched for new files.
-     *
-     * @var string
-     * @Type("string")
-     * @SerializedName("source-dir")
-     */
-    protected $sourceDir;
-
-    /**
-     * The target directory with the files that has been imported.
-     *
-     * @var string
-     * @Type("string")
-     * @SerializedName("target-dir")
-     */
-    protected $targetDir;
 
     /**
      * ArrayCollection with the information of the configured databases.
@@ -136,7 +136,7 @@ class Configuration implements ConfigurationInterface
      * @var \Doctrine\Common\Collections\ArrayCollection
      * @Type("ArrayCollection<TechDivision\Import\Cli\Configuration\Operation>")
      */
-    protected $operations;
+    protected $operations = array();
 
     /**
      * The source date format to use in the subject.
@@ -271,22 +271,22 @@ class Configuration implements ConfigurationInterface
     protected $pidFilename;
 
     /**
-     * The entity type code to use.
-     *
-     * @var string
-     * @Type("string")
-     * @SerializedName("entity-type-code")
-     */
-    protected $entityTypeCode;
-
-    /**
-     * The array with the paths to additional vendor directories.
+     * The collection with the paths to additional vendor directories.
      *
      * @var \Doctrine\Common\Collections\ArrayCollection
      * @Type("ArrayCollection<TechDivision\Import\Cli\Configuration\VendorDir>")
-     * @SerializedName("vendor-dirs")
+     * @SerializedName("additional-vendor-dirs")
      */
-    protected $vendorDirs;
+    protected $additionalVendorDirs = array();
+
+    /**
+     * The array with the Magento Edition specific extension libraries.
+     *
+     * @var array
+     * @Type("array")
+     * @SerializedName("extension-libraries")
+     */
+    protected $extensionLibraries = array();
 
     /**
      * Return's the array with the plugins of the operation to use.
@@ -406,16 +406,6 @@ class Configuration implements ConfigurationInterface
     }
 
     /**
-     * Return's the target directory with the files that has been imported.
-     *
-     * @return string The target directory
-     */
-    public function getTargetDir()
-    {
-        return $this->targetDir;
-    }
-
-    /**
      * Set's the target directory with the files that has been imported.
      *
      * @param string $targetDir The target directory
@@ -425,6 +415,16 @@ class Configuration implements ConfigurationInterface
     public function setTargetDir($targetDir)
     {
         $this->targetDir = $targetDir;
+    }
+
+    /**
+     * Return's the target directory with the files that has been imported.
+     *
+     * @return string The target directory
+     */
+    public function getTargetDir()
+    {
+        return $this->targetDir;
     }
 
     /**
@@ -491,6 +491,28 @@ class Configuration implements ConfigurationInterface
     public function setSourceDateFormat($sourceDateFormat)
     {
         $this->sourceDateFormat = $sourceDateFormat;
+    }
+
+    /**
+     * Return's the entity type code to be used.
+     *
+     * @return string The entity type code to be used
+     */
+    public function getEntityTypeCode()
+    {
+        return $this->entityTypeCode;
+    }
+
+    /**
+     * Set's the entity type code to be used.
+     *
+     * @param string $entityTypeCode The entity type code
+     *
+     * @return void
+     */
+    public function setEntityTypeCode($entityTypeCode)
+    {
+        $this->entityTypeCode = $entityTypeCode;
     }
 
     /**
@@ -571,16 +593,6 @@ class Configuration implements ConfigurationInterface
     public function isStrictMode()
     {
         return $this->strictMode;
-    }
-
-    /**
-     * Return's the entity type code to be used.
-     *
-     * @return string The entity type code to be used
-     */
-    public function getEntityTypeCode()
-    {
-        return $this->entityTypeCode;
     }
 
     /**
@@ -780,12 +792,22 @@ class Configuration implements ConfigurationInterface
     }
 
     /**
-     * Return's an array with the path to additional vendor directories.
+     * Return's a collection with the path to additional vendor directories.
      *
      * @return \Doctrine\Common\Collections\ArrayCollection The paths to additional vendor directories
      */
-    public function getVendorDirs()
+    public function getAdditionalVendorDirs()
     {
-        return $this->vendorDirs;
+        return $this->additionalVendorDirs;
+    }
+
+    /**
+     * Return's an array with the path of the Magento Edition specific extension libraries.
+     *
+     * @return array The paths of the Magento Edition specific extension libraries
+     */
+    public function getExtensionLibraries()
+    {
+        return $this->extensionLibraries;
     }
 }

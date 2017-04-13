@@ -21,10 +21,13 @@
 namespace TechDivision\Import\Cli;
 
 use Psr\Log\LogLevel;
+use Rhumsaa\Uuid\Uuid;
 use JMS\Serializer\SerializerBuilder;
 use Symfony\Component\Console\Input\InputInterface;
+use TechDivision\Import\Cli\Configuration\Database;
 use TechDivision\Import\Cli\Command\InputOptionKeys;
 use TechDivision\Import\Cli\Command\InputArgumentKeys;
+use TechDivision\Import\Cli\Command\ImportCommandInterface;
 
 /**
  * The configuration factory implementation.
@@ -65,17 +68,9 @@ class ConfigurationFactory
         /** @var \TechDivision\Import\Cli\Configuration $instance */
         $instance = $serializer->deserialize($jsonData, 'TechDivision\Import\Cli\Configuration', 'json');
 
-        // query whether or not an operation name has been specified as command line
-        // option, if yes override the value from the configuration file
-        if ($operationName = $input->getArgument(InputArgumentKeys::OPERATION_NAME)) {
-            $instance->setOperationName($operationName);
-        }
-
-        // query whether or not a Magento installation directory has been specified as command line
-        // option, if yes override the value from the configuration file
-        if ($installationDir = $input->getOption(InputOptionKeys::INSTALLATION_DIR)) {
-            $instance->setInstallationDir($installationDir);
-        }
+        // set the operation name and the installation directory
+        $instance->setOperationName($input->getArgument(InputArgumentKeys::OPERATION_NAME));
+        $instance->setInstallationDir($input->getOption(InputOptionKeys::INSTALLATION_DIR));
 
         // query whether or not a directory for the source files has been specified as command line
         // option, if yes override the value from the configuration file

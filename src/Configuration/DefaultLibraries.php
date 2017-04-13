@@ -1,7 +1,7 @@
 <?php
 
 /**
- * TechDivision\Import\Cli\Command\ImportProductsCommand
+ * TechDivision\Import\Configuration\DefaultLibraries
  *
  * NOTICE OF LICENSE
  *
@@ -18,12 +18,13 @@
  * @link      http://www.techdivision.com
  */
 
-namespace TechDivision\Import\Cli\Command;
+namespace TechDivision\Import\Cli\Configuration;
 
-use TechDivision\Import\Utils\EntityTypeCodes;
+use JMS\Serializer\Annotation\Type;
+use TechDivision\Import\Configuration\DefaultLibrariesConfigurationInterface;
 
 /**
- * The import command implementation.
+ * The default libraries configuration.
  *
  * @author    Tim Wagner <t.wagner@techdivision.com>
  * @copyright 2016 TechDivision GmbH <info@techdivision.com>
@@ -31,33 +32,24 @@ use TechDivision\Import\Utils\EntityTypeCodes;
  * @link      https://github.com/techdivision/import-cli-simple
  * @link      http://www.techdivision.com
  */
-class ImportProductsCommand extends AbstractImportCommand
+class DefaultLibraries implements DefaultLibrariesConfigurationInterface
 {
 
     /**
-     * Configures the current command.
+     * The array with the paths to the default libraries.
      *
-     * @return void
-     * @see \Symfony\Component\Console\Command\Command::configure()
+     * @var array
+     * @Type("array")
      */
-    protected function configure()
-    {
-
-        // initialize the command with the required/optional options
-        $this->setName('import:products')
-             ->setDescription('Imports products in the configured Magento 2 instance');
-
-        // invoke the parent method
-        parent::configure();
-    }
+    protected $libraries = array();
 
     /**
-     * Return's the command's entity type code.
+     * Return's an array with the path to the default libraries.
      *
-     * @return string The command's entity type code
+     * @return array The paths to the default libraries
      */
-    public function getEntityTypeCode()
+    public function getLibraries()
     {
-        return EntityTypeCodes::CATALOG_PRODUCT;
+        return $this->libraries;
     }
 }
