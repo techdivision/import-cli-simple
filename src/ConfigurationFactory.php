@@ -27,7 +27,6 @@ use Symfony\Component\Console\Input\InputInterface;
 use TechDivision\Import\Cli\Configuration\Database;
 use TechDivision\Import\Cli\Command\InputOptionKeys;
 use TechDivision\Import\Cli\Command\InputArgumentKeys;
-use TechDivision\Import\Cli\Command\ImportCommandInterface;
 
 /**
  * The configuration factory implementation.
