@@ -24,9 +24,9 @@ use Psr\Log\LogLevel;
 use Rhumsaa\Uuid\Uuid;
 use JMS\Serializer\SerializerBuilder;
 use Symfony\Component\Console\Input\InputInterface;
-use TechDivision\Import\Cli\Configuration\Database;
 use TechDivision\Import\Cli\Command\InputOptionKeys;
 use TechDivision\Import\Cli\Command\InputArgumentKeys;
+use TechDivision\Import\Configuration\Jms\Configuration\Database;
 
 /**
  * The configuration factory implementation.
@@ -37,7 +37,7 @@ use TechDivision\Import\Cli\Command\InputArgumentKeys;
  * @link      https://github.com/techdivision/import-cli-simple
  * @link      http://www.techdivision.com
  */
-class ConfigurationFactory
+class ConfigurationFactory extends TechDivision\Import\Configuration\Jms\ConfigurationFactory
 {
 
     /**
@@ -51,21 +51,11 @@ class ConfigurationFactory
      * @return \TechDivision\Import\Cli\Configuration The configuration instance
      * @throws \Exception Is thrown, if the specified configuration file doesn't exist
      */
-    public static function factory(InputInterface $input)
+    public static function load(InputInterface $input)
     {
 
-        // load the configuration filename we want to use
-        $filename = $input->getOption(InputOptionKeys::CONFIGURATION);
-
-        // load the JSON data
-        if (!$jsonData = file_get_contents($filename)) {
-            throw new \Exception(sprintf('Can\'t load configuration file %s', $filename));
-        }
-
-        // initialize the JMS serializer and load the configuration
-        $serializer = SerializerBuilder::create()->build();
-        /** @var \TechDivision\Import\Cli\Configuration $instance */
-        $instance = $serializer->deserialize($jsonData, 'TechDivision\Import\Cli\Configuration', 'json');
+        // load the configuration from the file with the given filename
+        $instance = static::factory($input->getOption(InputOptionKeys::CONFIGURATION));
 
         // set the operation name and the installation directory
         $instance->setOperationName($input->getArgument(InputArgumentKeys::OPERATION_NAME));

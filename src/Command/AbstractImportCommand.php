@@ -27,10 +27,10 @@ use TechDivision\Import\Utils\OperationKeys;
 use TechDivision\Import\ConfigurationInterface;
 use TechDivision\Import\Cli\Simple;
 use TechDivision\Import\Cli\ConfigurationFactory;
-use TechDivision\Import\Cli\Configuration;
-use TechDivision\Import\Cli\Configuration\Database;
-use TechDivision\Import\Cli\Configuration\LoggerFactory;
 use TechDivision\Import\Cli\Utils\SynteticServiceKeys;
+use TechDivision\Import\Configuration\Jms\Configuration;
+use TechDivision\Import\Configuration\Jms\Configuration\Database;
+use TechDivision\Import\Configuration\Jms\Configuration\LoggerFactory;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputOption;
@@ -220,7 +220,7 @@ abstract class AbstractImportCommand extends Command implements ImportCommandInt
         );
 
         // load the importer configuration and set the entity type code
-        $configuration = ConfigurationFactory::factory($input);
+        $configuration = ConfigurationFactory::load($input);
         $configuration->setEntityTypeCode($this->getEntityTypeCode());
 
         // initialize the DI container
@@ -228,11 +228,10 @@ abstract class AbstractImportCommand extends Command implements ImportCommandInt
 
         // initialize the default loader and load the DI configuration for the this library
         $defaultLoader = new XmlFileLoader($container, new FileLocator($vendorDirectory));
-        $defaultLoader->load(dirname(dirname(__DIR__)) . '/etc/services.xml');
 
         // load the DI configuration for all the extension libraries
         foreach ($this->getExtensionLibraries($configuration) as $library) {
-            if (file_exists($diConfiguration = sprintf('%s/%s/etc/services.xml', $vendorDirectory, $library))) {
+            if (file_exists($diConfiguration = sprintf('%s/%s/symfony/Resources/config/services.xml', $vendorDirectory, $library))) {
                 $defaultLoader->load($diConfiguration);
             }
         }
@@ -247,7 +246,7 @@ abstract class AbstractImportCommand extends Command implements ImportCommandInt
 
             // load the DI configuration for the extension libraries
             foreach ($vendorDir->getLibraries() as $library) {
-                $customLoader->load(realpath(sprintf('%s/%s/etc/services.xml', $additionalVendorDir->getVendorDir(), $library)));
+                $customLoader->load(realpath(sprintf('%s/%s/symfony/Resources/config/services.xml', $additionalVendorDir->getVendorDir(), $library)));
             }
         }
 
