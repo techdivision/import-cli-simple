@@ -241,7 +241,7 @@ abstract class AbstractImportCommand extends Command implements ImportCommandInt
             }
 
             // load the DI configuration for the extension libraries
-            foreach ($vendorDir->getLibraries() as $library) {
+            foreach ($additionalVendorDir->getLibraries() as $library) {
                 $customLoader->load(realpath(sprintf('%s/%s/symfony/Resources/config/services.xml', $additionalVendorDir->getVendorDir(), $library)));
             }
         }
