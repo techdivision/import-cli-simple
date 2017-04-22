@@ -25,7 +25,7 @@ use Monolog\Handler\ErrorLogHandler;
 use TechDivision\Import\Utils\LoggerKeys;
 use TechDivision\Import\Utils\OperationKeys;
 use TechDivision\Import\ConfigurationInterface;
-use TechDivision\Import\Cli\Simple;
+use TechDivision\Import\App\Simple;
 use TechDivision\Import\Cli\ConfigurationFactory;
 use TechDivision\Import\Cli\Utils\SynteticServiceKeys;
 use TechDivision\Import\Configuration\Jms\Configuration;

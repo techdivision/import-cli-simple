@@ -20,8 +20,8 @@
 
 namespace TechDivision\Import\Cli\Command;
 
-use TechDivision\Import\Cli\Configuration;
 use TechDivision\Import\ConfigurationInterface;
+use TechDivision\Import\Configuration\Jms\Configuration;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;

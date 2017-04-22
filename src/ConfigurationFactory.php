@@ -37,7 +37,7 @@ use TechDivision\Import\Configuration\Jms\Configuration\Database;
  * @link      https://github.com/techdivision/import-cli-simple
  * @link      http://www.techdivision.com
  */
-class ConfigurationFactory extends TechDivision\Import\Configuration\Jms\ConfigurationFactory
+class ConfigurationFactory extends \TechDivision\Import\Configuration\Jms\ConfigurationFactory
 {
 
     /**
