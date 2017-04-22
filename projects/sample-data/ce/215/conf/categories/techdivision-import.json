@@ -1,6 +1,6 @@
 {
   "magento-edition": "CE",
-  "magento-version": "2.1.5",
+  "magento-version": "2.1.2",
   "operation-name" : "add-update",
   "installation-dir" : "/var/www/magento",
   "source-dir": "projects/sample-data/tmp",
@@ -8,15 +8,13 @@
   "source-date-format": "n/d/y, g:i A",
   "archive-artefacts" : false,
   "archive-dir" : "archive",
-  "utility-class-name" : "TechDivision\\Import\\Utils\\SqlStatements",
   "debug-mode" : false,
-  "ignore-pid" : false,
   "entity-type-code" : "catalog_category",
   "databases": [
     {
       "id": "ce",
       "default": false,
-      "pdo-dsn": "mysql:host=127.0.0.1;dbname=appserver_magento2_ce215;charset=utf8",
+      "pdo-dsn": "mysql:host=127.0.0.1;dbname=appserver_magento2_ce212;charset=utf8",
       "username": "appserver",
       "password": "appserver.i0"
     }
@@ -59,27 +57,25 @@
       "name" : "delete",
       "plugins" : [
         {
-          "class-name": "TechDivision\\Import\\Plugins\\GlobalDataPlugin"
+          "id": "import.plugin.global.data"
         },
         {
-          "class-name": "TechDivision\\Import\\Plugins\\SubjectPlugin",
+          "id": "import.plugin.subject",
           "subjects" : [
             {
-              "class-name": "TechDivision\\Import\\Subjects\\MoveFilesSubject",
+              "id": "import.subject.move.files",
               "identifier": "move-files",
               "prefix": "category-import",
               "ok-file-needed": true
             },
             {
-              "class-name": "TechDivision\\Import\\Category\\Subjects\\BunchSubject",
-              "processor-factory" : "TechDivision\\Import\\Cli\\Services\\CategoryBunchProcessorFactory",
-              "utility-class-name" : "TechDivision\\Import\\Category\\Utils\\SqlStatements",
+              "id": "import_category.subject.bunch",
               "identifier": "files",
               "prefix": "category-import",
               "observers": [
                 {
                   "import": [
-                    "TechDivision\\Import\\Category\\Observers\\ClearCategoryObserver"
+                    "import_category.observer.clear.category"
                   ]
                 }
               ]
@@ -87,7 +83,7 @@
           ]
         },
         {
-          "class-name": "TechDivision\\Import\\Plugins\\ArchivePlugin"
+          "id": "import.plugin.archive"
         }
       ]
     },
@@ -95,91 +91,83 @@
       "name" : "replace",
       "plugins" : [
         {
-          "class-name": "TechDivision\\Import\\Plugins\\GlobalDataPlugin"
+          "id": "import.plugin.global.data"
         },
         {
-          "class-name": "TechDivision\\Import\\Plugins\\SubjectPlugin",
+          "id": "import.plugin.subject",
           "subjects": [
             {
-              "class-name": "TechDivision\\Import\\Subjects\\MoveFilesSubject",
+              "id": "import.subject.move.files",
               "identifier": "move-files",
               "prefix": "category-import",
               "ok-file-needed": true
             },
             {
-              "class-name": "TechDivision\\Import\\Category\\Subjects\\BunchSubject",
-              "processor-factory" : "TechDivision\\Import\\Cli\\Services\\CategoryBunchProcessorFactory",
-              "utility-class-name" : "TechDivision\\Import\\Category\\Utils\\SqlStatements",
+              "id": "import_category.subject.bunch",
               "identifier": "files",
               "prefix": "category-import",
               "observers": [
                 {
                   "import": [
-                    "TechDivision\\Import\\Category\\Observers\\ClearCategoryObserver"
+                    "import_category.observer.clear.category"
                   ]
                 }
               ]
             },
             {
-              "class-name": "TechDivision\\Import\\Category\\Subjects\\BunchSubject",
-              "processor-factory" : "TechDivision\\Import\\Cli\\Services\\CategoryBunchProcessorFactory",
-              "utility-class-name" : "TechDivision\\Import\\Category\\Utils\\SqlStatements",
+              "id": "import_category.subject.bunch",
               "identifier": "files",
               "prefix": "category-create",
               "observers": [
                 {
                   "pre-import": [
-                    "TechDivision\\Import\\Category\\Observers\\UrlKeyAndPathObserver",
-                    "TechDivision\\Import\\Observers\\AttributeSetObserver",
-                    "TechDivision\\Import\\Observers\\AdditionalAttributeObserver"
+                    "import_category.observer.url.key.and.path",
+                    "import.observer.attribute.set",
+                    "import.observer.additional.attribute"
                   ]
                 },
                 {
                   "import": [
-                    "TechDivision\\Import\\Category\\Observers\\CategoryObserver",
-                    "TechDivision\\Import\\Category\\Observers\\CategoryImageObserver",
-                    "TechDivision\\Import\\Category\\Observers\\CategoryAttributeObserver",
-                    "TechDivision\\Import\\Category\\Observers\\UrlRewriteObserver"
+                    "import_category.observer.category",
+                    "import_category.observer.category.image",
+                    "import_category.observer.category.attribute",
+                    "import_category.observer.url.rewrite"
                   ]
                 },
                 {
                   "post-import": [
-                    "TechDivision\\Import\\Category\\Observers\\CleanUpObserver"
+                    "import_category.observer.clean.up"
                   ]
                 }
               ]
             },
             {
-              "class-name": "TechDivision\\Import\\Category\\Subjects\\BunchSubject",
-              "processor-factory" : "TechDivision\\Import\\Cli\\Services\\CategoryBunchProcessorFactory",
-              "utility-class-name" : "TechDivision\\Import\\Category\\Utils\\SqlStatements",
+              "id": "import_category.subject.bunch",
               "identifier": "files",
               "prefix": "category-path",
               "observers": [
                 {
                   "import": [
-                    "TechDivision\\Import\\Category\\Observers\\CategoryPathObserver"
+                    "import_category.observer.category.path"
                   ]
                 }
               ]
             },
             {
-              "class-name": "TechDivision\\Import\\Category\\Subjects\\MediaSubject",
-              "processor-factory" : "TechDivision\\Import\\Cli\\Services\\CategoryBunchProcessorFactory",
-              "utility-class-name" : "TechDivision\\Import\\Category\\Utils\\SqlStatements",
+              "id": "import_category.subject.media",
               "prefix": "media",
               "params" : [
                 {
                   "copy-images" : true,
                   "root-directory" : "/",
-                  "media-directory" : "/opt/appserver/webapps/magento2_ce215/pub/media/catalog/category",
+                  "media-directory" : "/opt/appserver/webapps/magento2_ce212/pub/media/catalog/category",
                   "images-file-directory" : "projects/sample-data/magento2-sample-data/pub/media/wysiwyg"
                 }
               ],
               "observers": [
                 {
                   "import" : [
-                    "TechDivision\\Import\\Category\\Observers\\FileUploadObserver"
+                    "import_category.observer.file.upload"
                   ]
                 }
               ]
@@ -187,12 +175,10 @@
           ]
         },
         {
-          "class-name": "TechDivision\\Import\\Category\\Plugins\\ChildrenCountPlugin",
-          "utility-class-name" : "TechDivision\\Import\\Category\\Utils\\SqlStatements",
-          "processor-factory" : "TechDivision\\Import\\Cli\\Services\\CategoryBunchProcessorFactory"
+          "id": "import_category.plugin.children.count"
         },
         {
-          "class-name": "TechDivision\\Import\\Plugins\\ArchivePlugin"
+          "id": "import.plugin.archive"
         }
       ]
     },
@@ -200,77 +186,71 @@
       "name" : "add-update",
       "plugins" : [
         {
-          "class-name": "TechDivision\\Import\\Plugins\\GlobalDataPlugin"
+          "id": "import.plugin.global.data"
         },
         {
-          "class-name": "TechDivision\\Import\\Plugins\\SubjectPlugin",
+          "id": "import.plugin.subject",
           "subjects": [
             {
-              "class-name": "TechDivision\\Import\\Subjects\\MoveFilesSubject",
+              "id": "import.subject.move.files",
               "identifier": "move-files",
               "prefix": "category-import",
               "ok-file-needed": true
             },
             {
-              "class-name": "TechDivision\\Import\\Category\\Subjects\\BunchSubject",
-              "processor-factory" : "TechDivision\\Import\\Cli\\Services\\CategoryBunchProcessorFactory",
-              "utility-class-name" : "TechDivision\\Import\\Category\\Utils\\SqlStatements",
+              "id": "import_category.subject.bunch",
               "identifier": "files",
               "prefix": "category-import",
               "observers": [
                 {
                   "pre-import": [
-                    "TechDivision\\Import\\Category\\Observers\\UrlKeyAndPathObserver",
-                    "TechDivision\\Import\\Observers\\AttributeSetObserver",
-                    "TechDivision\\Import\\Observers\\AdditionalAttributeObserver"
+                    "import_category.observer.url.key.and.path",
+                    "import.observer.attribute.set",
+                    "import.observer.additional.attribute"
                   ]
                 },
                 {
                   "import": [
-                    "TechDivision\\Import\\Category\\Observers\\CategoryUpdateObserver",
-                    "TechDivision\\Import\\Category\\Observers\\CategoryImageObserver",
-                    "TechDivision\\Import\\Category\\Observers\\CategoryAttributeUpdateObserver",
-                    "TechDivision\\Import\\Category\\Observers\\UrlRewriteUpdateObserver"
+                    "import_category.observer.category.update",
+                    "import_category.observer.category.image",
+                    "import_category.observer.category.attribute.update",
+                    "import_category.observer.url.rewrite.update"
                   ]
                 },
                 {
                   "post-import": [
-                    "TechDivision\\Import\\Category\\Observers\\CleanUpObserver"
+                    "import_category.observer.clean.up"
                   ]
                 }
               ]
             },
             {
-              "class-name": "TechDivision\\Import\\Category\\Subjects\\BunchSubject",
-              "processor-factory" : "TechDivision\\Import\\Cli\\Services\\CategoryBunchProcessorFactory",
-              "utility-class-name" : "TechDivision\\Import\\Category\\Utils\\SqlStatements",
+              "id": "import_category.subject.bunch",
               "identifier": "files",
               "prefix": "category-path",
               "observers": [
                 {
                   "import": [
-                    "TechDivision\\Import\\Category\\Observers\\CategoryPathObserver"
+                    "import_category.observer.category.path"
                   ]
                 }
               ]
             },
             {
-              "class-name": "TechDivision\\Import\\Category\\Subjects\\MediaSubject",
-              "processor-factory" : "TechDivision\\Import\\Cli\\Services\\CategoryBunchProcessorFactory",
-              "utility-class-name" : "TechDivision\\Import\\Category\\Utils\\SqlStatements",
+              "id": "import_category.subject.media",
               "prefix": "media",
               "params" : [
                 {
                   "copy-images" : true,
                   "root-directory" : "/",
-                  "media-directory" : "/opt/appserver/webapps/magento2_ce215/pub/media/catalog/category",
+                  "media-directory" : "/opt/appserver/webapps/magento2_ce212/pub/media/catalog/category",
                   "images-file-directory" : "projects/sample-data/magento2-sample-data/pub/media/wysiwyg"
                 }
               ],
               "observers": [
                 {
                   "import" : [
-                    "TechDivision\\Import\\Category\\Observers\\FileUploadObserver"
+                    "import_category.observer.file.upload"
                   ]
                 }
               ]
@@ -278,12 +258,10 @@
           ]
         },
         {
-          "class-name": "TechDivision\\Import\\Category\\Plugins\\ChildrenCountPlugin",
-          "utility-class-name" : "TechDivision\\Import\\Category\\Utils\\SqlStatements",
-          "processor-factory" : "TechDivision\\Import\\Cli\\Services\\CategoryBunchProcessorFactory"
+          "id": "import_category.plugin.children.count"
         },
         {
-          "class-name": "TechDivision\\Import\\Plugins\\ArchivePlugin"
+          "id": "import.plugin.archive"
         }
       ]
     }

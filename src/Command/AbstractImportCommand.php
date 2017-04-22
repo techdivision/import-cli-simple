@@ -26,8 +26,8 @@ use TechDivision\Import\Utils\LoggerKeys;
 use TechDivision\Import\Utils\OperationKeys;
 use TechDivision\Import\ConfigurationInterface;
 use TechDivision\Import\App\Simple;
+use TechDivision\Import\App\Utils\SynteticServiceKeys;
 use TechDivision\Import\Cli\ConfigurationFactory;
-use TechDivision\Import\Cli\Utils\SynteticServiceKeys;
 use TechDivision\Import\Configuration\Jms\Configuration;
 use TechDivision\Import\Configuration\Jms\Configuration\Database;
 use TechDivision\Import\Configuration\Jms\Configuration\LoggerFactory;
@@ -76,32 +76,29 @@ abstract class AbstractImportCommand extends Command implements ImportCommandInt
             $this->getDefaultConfiguration()
         )
         ->addOption(
+            InputOptionKeys::INSTALLATION_DIR,
+            null,
+            InputOption::VALUE_OPTIONAL,
+            'The Magento installation directory to which the files has to be imported',
+            $this->getMagentoInstallationDir()
+            )
+        ->addOption(
             InputOptionKeys::ENTITY_TYPE_CODE,
             null,
             InputOption::VALUE_REQUIRED,
-            'Specify the entity type code to use',
-            $this->getEntityTypeCode()
-        )
-        ->addOption(
-            InputOptionKeys::INSTALLATION_DIR,
-            null,
-            InputOption::VALUE_REQUIRED,
-            'The Magento installation directory to which the files has to be imported',
-            $this->getMagentoInstallationDir()
+            'Specify the entity type code to use'
         )
         ->addOption(
             InputOptionKeys::SOURCE_DIR,
             null,
             InputOption::VALUE_REQUIRED,
-            'The directory that has to be watched for new files',
-            $this->getDefaultImportDir()
+            'The directory that has to be watched for new files'
         )
         ->addOption(
             InputOptionKeys::TARGET_DIR,
             null,
             InputOption::VALUE_REQUIRED,
-            'The target directory with the files that has been imported',
-            $this->getDefaultImportDir()
+            'The target directory with the files that has been imported'
         )
         ->addOption(
             InputOptionKeys::UTILITY_CLASS_NAME,
@@ -221,7 +218,6 @@ abstract class AbstractImportCommand extends Command implements ImportCommandInt
 
         // load the importer configuration and set the entity type code
         $configuration = ConfigurationFactory::load($input);
-        $configuration->setEntityTypeCode($this->getEntityTypeCode());
 
         // initialize the DI container
         $container = new ContainerBuilder();

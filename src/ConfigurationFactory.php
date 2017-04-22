@@ -57,9 +57,17 @@ class ConfigurationFactory extends \TechDivision\Import\Configuration\Jms\Config
         // load the configuration from the file with the given filename
         $instance = static::factory($input->getOption(InputOptionKeys::CONFIGURATION));
 
-        // set the operation name and the installation directory
-        $instance->setOperationName($input->getArgument(InputArgumentKeys::OPERATION_NAME));
-        $instance->setInstallationDir($input->getOption(InputOptionKeys::INSTALLATION_DIR));
+        // query whether or not an operation name has been specified as command line
+        // option, if yes override the value from the configuration file
+        if ($operationName = $input->getArgument(InputArgumentKeys::OPERATION_NAME)) {
+            $instance->setOperationName($operationName);
+        }
+
+        // query whether or not a Magento installation directory has been specified as command line
+        // option, if yes override the value from the configuration file
+        if ($installationDir = $input->getOption(InputOptionKeys::INSTALLATION_DIR)) {
+            $instance->setInstallationDir($installationDir);
+        }
 
         // query whether or not a directory for the source files has been specified as command line
         // option, if yes override the value from the configuration file
