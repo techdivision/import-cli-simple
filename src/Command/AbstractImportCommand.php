@@ -81,7 +81,7 @@ abstract class AbstractImportCommand extends Command implements ImportCommandInt
             InputOption::VALUE_OPTIONAL,
             'The Magento installation directory to which the files has to be imported',
             $this->getMagentoInstallationDir()
-            )
+        )
         ->addOption(
             InputOptionKeys::ENTITY_TYPE_CODE,
             null,

@@ -137,8 +137,7 @@ class RoboFile extends \Robo\Tasks
         // copy the src/etc directory
         $this->taskCopyDir(
                   array(
-                      $this->properties['src.dir'] => $targetDir . DIRECTORY_SEPARATOR . 'src',
-                      $this->properties['etc.dir'] => $targetDir . DIRECTORY_SEPARATOR . 'etc'
+                      $this->properties['src.dir'] => $targetDir . DIRECTORY_SEPARATOR . 'src'
                   )
                )->run();
 
@@ -175,16 +174,6 @@ class RoboFile extends \Robo\Tasks
         // iterate over the source files of the vendor directory and add them to the PHAR archive
         foreach ($finder as $file) {
             $pharTask->addFile('vendor/' . $file->getRelativePathname(), $file->getRealPath());
-        }
-
-        // load a list with all the DI configuration files from the etc directory
-        $finder = Finder::create()->files()
-            ->name('*.xml')
-            ->in($targetDir . DIRECTORY_SEPARATOR . 'etc');
-
-        // iterate over the DI configuration files of the etc directory and add them to the PHAR archive
-        foreach ($finder as $file) {
-            $pharTask->addFile('etc/' . $file->getRelativePathname(), $file->getRealPath());
         }
 
         // add the semver file and create the PHAR archive
@@ -300,6 +289,5 @@ class RoboFile extends \Robo\Tasks
         $this->runCpd();
         $this->runMd();
         $this->runTests();
-        $this->createPhar();
     }
 }
