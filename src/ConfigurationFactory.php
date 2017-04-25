@@ -22,7 +22,6 @@ namespace TechDivision\Import\Cli;
 
 use Psr\Log\LogLevel;
 use Rhumsaa\Uuid\Uuid;
-use JMS\Serializer\SerializerBuilder;
 use Symfony\Component\Console\Input\InputInterface;
 use TechDivision\Import\Cli\Command\InputOptionKeys;
 use TechDivision\Import\Cli\Command\InputArgumentKeys;
