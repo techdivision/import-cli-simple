@@ -160,4 +160,11 @@ class InputOptionKeys
      * @var string
      */
     const PID_FILENAME = 'pid-filename';
+
+    /**
+     * The input option key for the entity type code to use.
+     *
+     * @var string
+     */
+    const ENTITY_TYPE_CODE = 'entity-type-code';
 }

@@ -1,3 +1,13 @@
+# Version 1.0.0-beta1
+
+## Bugfixes
+
+* Remove unncessary use statement
+
+## Features
+
+* Integrate Symfony DI functionality
+
 # Version 1.0.0-alpha62
 
 ## Bugfixes

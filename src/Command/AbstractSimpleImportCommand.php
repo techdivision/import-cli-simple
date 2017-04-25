@@ -25,7 +25,6 @@ use TechDivision\Import\Cli\Simple;
 use TechDivision\Import\Cli\Configuration;
 use TechDivision\Import\ConfigurationInterface;
 use Symfony\Component\Console\Command\Command;
-use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 

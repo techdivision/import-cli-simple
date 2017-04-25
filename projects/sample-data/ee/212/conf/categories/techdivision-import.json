@@ -8,9 +8,7 @@
   "source-date-format": "n/d/y, g:i A",
   "archive-artefacts" : false,
   "archive-dir" : "archive",
-  "utility-class-name" : "TechDivision\\Import\\Ee\\Utils\\SqlStatements",
   "debug-mode" : false,
-  "ignore-pid" : false,
   "entity-type-code" : "catalog_category",
   "databases": [
     {
@@ -59,27 +57,25 @@
       "name" : "delete",
       "plugins" : [
         {
-          "class-name": "TechDivision\\Import\\Plugins\\GlobalDataPlugin"
+          "id": "import.plugin.global.data"
         },
         {
-          "class-name": "TechDivision\\Import\\Plugins\\SubjectPlugin",
+          "id": "import.plugin.subject",
           "subjects" : [
             {
-              "class-name": "TechDivision\\Import\\Subjects\\MoveFilesSubject",
+              "id": "import.subject.move.files",
               "identifier": "move-files",
               "prefix": "category-import",
               "ok-file-needed": true
             },
             {
-              "class-name": "TechDivision\\Import\\Category\\Ee\\Subjects\\EeBunchSubject",
-              "processor-factory" : "TechDivision\\Import\\Cli\\Services\\EeCategoryBunchProcessorFactory",
-              "utility-class-name" : "TechDivision\\Import\\Category\\Ee\\Utils\\SqlStatements",
+              "id": "import_category_ee.subject.bunch",
               "identifier": "files",
               "prefix": "category-import",
               "observers": [
                 {
                   "import": [
-                    "TechDivision\\Import\\Category\\Observers\\ClearCategoryObserver"
+                    "import_category.observer.clear.category"
                   ]
                 }
               ]
@@ -87,7 +83,7 @@
           ]
         },
         {
-          "class-name": "TechDivision\\Import\\Plugins\\ArchivePlugin"
+          "id": "import.plugin.archive"
         }
       ]
     },
@@ -95,78 +91,70 @@
       "name" : "replace",
       "plugins" : [
         {
-          "class-name": "TechDivision\\Import\\Plugins\\GlobalDataPlugin"
+          "id": "import.plugin.global.data"
         },
         {
-          "class-name": "TechDivision\\Import\\Plugins\\SubjectPlugin",
+          "id": "import.plugin.subject",
           "subjects": [
             {
-              "class-name": "TechDivision\\Import\\Subjects\\MoveFilesSubject",
+              "id": "import.subject.move.files",
               "identifier": "move-files",
               "prefix": "category-import",
               "ok-file-needed": true
             },
             {
-              "class-name": "TechDivision\\Import\\Category\\Ee\\Subjects\\EeBunchSubject",
-              "processor-factory" : "TechDivision\\Import\\Cli\\Services\\EeCategoryBunchProcessorFactory",
-              "utility-class-name" : "TechDivision\\Import\\Category\\Ee\\Utils\\SqlStatements",
+              "id": "import_category_ee.subject.bunch",
               "identifier": "files",
               "prefix": "category-import",
               "observers": [
                 {
                   "import": [
-                    "TechDivision\\Import\\Category\\Observers\\ClearCategoryObserver"
+                    "import_category.observer.clear.category"
                   ]
                 }
               ]
             },
             {
-              "class-name": "TechDivision\\Import\\Category\\Ee\\Subjects\\EeBunchSubject",
-              "processor-factory" : "TechDivision\\Import\\Cli\\Services\\EeCategoryBunchProcessorFactory",
-              "utility-class-name" : "TechDivision\\Import\\Category\\Ee\\Utils\\SqlStatements",
+              "id": "import_category_ee.subject.bunch",
               "identifier": "files",
               "prefix": "category-create",
               "observers": [
                 {
                   "pre-import": [
-                    "TechDivision\\Import\\Category\\Observers\\UrlKeyAndPathObserver",
-                    "TechDivision\\Import\\Observers\\AttributeSetObserver",
-                    "TechDivision\\Import\\Observers\\AdditionalAttributeObserver"
+                    "import_category.observer.url.key.and.path",
+                    "import.observer.attribute.set",
+                    "import.observer.additional.attribute"
                   ]
                 },
                 {
                   "import": [
-                    "TechDivision\\Import\\Category\\Ee\\Observers\\EeCategoryObserver",
-                    "TechDivision\\Import\\Category\\Observers\\CategoryImageObserver",
-                    "TechDivision\\Import\\Category\\Ee\\Observers\\EeCategoryAttributeObserver",
-                    "TechDivision\\Import\\Category\\Observers\\UrlRewriteObserver"
+                    "import_category_ee.observer.category",
+                    "import_category.observer.category.image",
+                    "import_category_ee.observer.category.attribute",
+                    "import_category.observer.url.rewrite"
                   ]
                 },
                 {
                   "post-import": [
-                    "TechDivision\\Import\\Category\\Ee\\Observers\\EeCleanUpObserver"
+                    "import_category_ee.observer.clean.up"
                   ]
                 }
               ]
             },
             {
-              "class-name": "TechDivision\\Import\\Category\\Ee\\Subjects\\EeBunchSubject",
-              "processor-factory" : "TechDivision\\Import\\Cli\\Services\\EeCategoryBunchProcessorFactory",
-              "utility-class-name" : "TechDivision\\Import\\Category\\Ee\\Utils\\SqlStatements",
+              "id": "import_category_ee.subject.bunch",
               "identifier": "files",
               "prefix": "category-path",
               "observers": [
                 {
                   "import": [
-                    "TechDivision\\Import\\Category\\Ee\\Observers\\EeCategoryPathObserver"
+                    "import_category_ee.observer.category.path"
                   ]
                 }
               ]
             },
             {
-              "class-name": "TechDivision\\Import\\Category\\Ee\\Subjects\\EeBunchSubject",
-              "processor-factory" : "TechDivision\\Import\\Cli\\Services\\EeCategoryBunchProcessorFactory",
-              "utility-class-name" : "TechDivision\\Import\\Category\\Ee\\Utils\\SqlStatements",
+              "id": "import_category_ee.subject.bunch",
               "prefix": "media",
               "params" : [
                 {
@@ -179,7 +167,7 @@
               "observers": [
                 {
                   "import" : [
-                    "TechDivision\\Import\\Category\\Observers\\FileUploadObserver"
+                    "import_category.observer.file.upload"
                   ]
                 }
               ]
@@ -187,12 +175,10 @@
           ]
         },
         {
-          "class-name": "TechDivision\\Import\\Category\\Ee\\Plugins\\EeChildrenCountPlugin",
-          "utility-class-name" : "TechDivision\\Import\\Category\\Ee\\Utils\\SqlStatements",
-          "processor-factory" : "TechDivision\\Import\\Cli\\Services\\EeCategoryBunchProcessorFactory"
+          "id": "import_category_ee.plugin.children.count"
         },
         {
-          "class-name": "TechDivision\\Import\\Plugins\\ArchivePlugin"
+          "id": "import.plugin.archive"
         }
       ]
     },
@@ -200,64 +186,58 @@
       "name" : "add-update",
       "plugins" : [
         {
-          "class-name": "TechDivision\\Import\\Plugins\\GlobalDataPlugin"
+          "id": "import.plugin.global.data"
         },
         {
-          "class-name": "TechDivision\\Import\\Plugins\\SubjectPlugin",
+          "id": "import.plugin.subject",
           "subjects": [
             {
-              "class-name": "TechDivision\\Import\\Subjects\\MoveFilesSubject",
+              "id": "import.subject.move.files",
               "identifier": "move-files",
               "prefix": "category-import",
               "ok-file-needed": true
             },
             {
-              "class-name": "TechDivision\\Import\\Category\\Ee\\Subjects\\EeBunchSubject",
-              "processor-factory" : "TechDivision\\Import\\Cli\\Services\\EeCategoryBunchProcessorFactory",
-              "utility-class-name" : "TechDivision\\Import\\Category\\Ee\\Utils\\SqlStatements",
+              "id": "import_category_ee.subject.bunch",
               "identifier": "files",
               "prefix": "category-import",
               "observers": [
                 {
                   "pre-import": [
-                    "TechDivision\\Import\\Category\\Observers\\UrlKeyAndPathObserver",
-                    "TechDivision\\Import\\Observers\\AttributeSetObserver",
-                    "TechDivision\\Import\\Observers\\AdditionalAttributeObserver"
+                    "import_category.observer.url.key.and.path",
+                    "import.observer.attribute.set",
+                    "import.observer.additional.attribute"
                   ]
                 },
                 {
                   "import": [
-                    "TechDivision\\Import\\Category\\Ee\\Observers\\EeCategoryUpdateObserver",
-                    "TechDivision\\Import\\Category\\Observers\\CategoryImageObserver",
-                    "TechDivision\\Import\\Category\\Ee\\Observers\\EeCategoryAttributeUpdateObserver",
-                    "TechDivision\\Import\\Category\\Observers\\UrlRewriteUpdateObserver"
+                    "import_category_ee.observer.category.update",
+                    "import_category.observer.category.image",
+                    "import_category_ee.observer.category.attribute.update",
+                    "import_category.observer.url.rewrite.update"
                   ]
                 },
                 {
                   "post-import": [
-                    "TechDivision\\Import\\Category\\Ee\\Observers\\EeCleanUpObserver"
+                    "import_category_ee.observer.clean.up"
                   ]
                 }
               ]
             },
             {
-              "class-name": "TechDivision\\Import\\Category\\Ee\\Subjects\\EeBunchSubject",
-              "processor-factory" : "TechDivision\\Import\\Cli\\Services\\EeCategoryBunchProcessorFactory",
-              "utility-class-name" : "TechDivision\\Import\\Category\\Ee\\Utils\\SqlStatements",
+              "id": "import_category_ee.subject.bunch",
               "identifier": "files",
               "prefix": "category-path",
               "observers": [
                 {
                   "import": [
-                    "TechDivision\\Import\\Category\\Ee\\Observers\\EeCategoryPathObserver"
+                    "import_category_ee.observer.category.path"
                   ]
                 }
               ]
             },
             {
-              "class-name": "TechDivision\\Import\\Category\\Subjects\\MediaSubject",
-              "processor-factory" : "TechDivision\\Import\\Cli\\Services\\EeCategoryBunchProcessorFactory",
-              "utility-class-name" : "TechDivision\\Import\\Category\\Ee\\Utils\\SqlStatements",
+              "id": "import_category.subject.media",
               "prefix": "media",
               "params" : [
                 {
@@ -270,7 +250,7 @@
               "observers": [
                 {
                   "import" : [
-                    "TechDivision\\Import\\Category\\Observers\\FileUploadObserver"
+                    "import_category.observer.file.upload"
                   ]
                 }
               ]
@@ -278,12 +258,10 @@
           ]
         },
         {
-          "class-name": "TechDivision\\Import\\Category\\Ee\\Plugins\\EeChildrenCountPlugin",
-          "utility-class-name" : "TechDivision\\Import\\Category\\Ee\\Utils\\SqlStatements",
-          "processor-factory" : "TechDivision\\Import\\Cli\\Services\\EeCategoryBunchProcessorFactory"
+          "id": "import_category_ee.plugin.children.count"
         },
         {
-          "class-name": "TechDivision\\Import\\Plugins\\ArchivePlugin"
+          "id": "import.plugin.archive"
         }
       ]
     }

@@ -20,23 +20,25 @@
 
 namespace TechDivision\Import\Cli\Command;
 
-use Rhumsaa\Uuid\Uuid;
-use Psr\Log\LogLevel;
 use Monolog\Logger;
 use Monolog\Handler\ErrorLogHandler;
-use JMS\Serializer\SerializerBuilder;
 use TechDivision\Import\Utils\LoggerKeys;
-use TechDivision\Import\Cli\Simple;
-use TechDivision\Import\Cli\Configuration;
-use TechDivision\Import\Cli\Configuration\Database;
-use TechDivision\Import\Cli\Configuration\LoggerFactory;
-use TechDivision\Import\Cli\Services\ImportProcessorFactory;
-use TechDivision\Import\Cli\Services\RegistryProcessorFactory;
+use TechDivision\Import\Utils\OperationKeys;
+use TechDivision\Import\ConfigurationInterface;
+use TechDivision\Import\App\Simple;
+use TechDivision\Import\App\Utils\SynteticServiceKeys;
+use TechDivision\Import\Cli\ConfigurationFactory;
+use TechDivision\Import\Configuration\Jms\Configuration;
+use TechDivision\Import\Configuration\Jms\Configuration\Database;
+use TechDivision\Import\Configuration\Jms\Configuration\LoggerFactory;
+use Symfony\Component\Config\FileLocator;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputOption;
+use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
-use Symfony\Component\Console\Input\InputArgument;
+use Symfony\Component\DependencyInjection\ContainerBuilder;
+use Symfony\Component\DependencyInjection\Loader\XmlFileLoader;
 
 /**
  * The abstract import command implementation.
@@ -47,7 +49,7 @@ use Symfony\Component\Console\Input\InputArgument;
  * @link      https://github.com/techdivision/import-cli-simple
  * @link      http://www.techdivision.com
  */
-abstract class AbstractImportCommand extends Command
+abstract class AbstractImportCommand extends Command implements ImportCommandInterface
 {
 
     /**
@@ -63,20 +65,28 @@ abstract class AbstractImportCommand extends Command
         $this->addArgument(
             InputArgumentKeys::OPERATION_NAME,
             InputArgument::OPTIONAL,
-            'The operation that has to be used for the import, one of "add-update", "replace" or "delete"'
+            'The operation that has to be used for the import, one of "add-update", "replace" or "delete"',
+            $this->getDefaultOperation()
         )
         ->addOption(
             InputOptionKeys::CONFIGURATION,
             null,
             InputOption::VALUE_REQUIRED,
             'Specify the pathname to the configuration file to use',
-            sprintf('%s/techdivision-import.json', getcwd())
+            $this->getDefaultConfiguration()
         )
         ->addOption(
             InputOptionKeys::INSTALLATION_DIR,
             null,
+            InputOption::VALUE_OPTIONAL,
+            'The Magento installation directory to which the files has to be imported',
+            $this->getMagentoInstallationDir()
+        )
+        ->addOption(
+            InputOptionKeys::ENTITY_TYPE_CODE,
+            null,
             InputOption::VALUE_REQUIRED,
-            'The Magento installation directory to which the files has to be imported'
+            'Specify the entity type code to use'
         )
         ->addOption(
             InputOptionKeys::SOURCE_DIR,
@@ -130,7 +140,7 @@ abstract class AbstractImportCommand extends Command
             InputOptionKeys::DB_PDO_DSN,
             null,
             InputOption::VALUE_REQUIRED,
-            'The DSN used to connect to the Magento database where the data has to be imported, e. g. mysql:host=127.0.0.1;dbname=magento'
+            'The DSN used to connect to the Magento database where the data has to be imported, e. g. mysql:host=127.0.0.1;dbname=magento;charset=utf8'
         )
         ->addOption(
             InputOptionKeys::DB_USERNAME,
@@ -166,155 +176,6 @@ abstract class AbstractImportCommand extends Command
     }
 
     /**
-     * Factory implementation to create a new initialized configuration instance.
-     *
-     * If command line options are specified, they will always override the
-     * values found in the configuration file.
-     *
-     * @param \Symfony\Component\Console\Input\InputInterface $input The Symfony console input instance
-     *
-     * @return \TechDivision\Import\Cli\Configuration The configuration instance
-     * @throws \Exception Is thrown, if the specified configuration file doesn't exist
-     */
-    protected function configurationFactory(InputInterface $input)
-    {
-
-        // load the configuration filename we want to use
-        $filename = $input->getOption(InputOptionKeys::CONFIGURATION);
-
-        // load the JSON data
-        if (!$jsonData = file_get_contents($filename)) {
-            throw new \Exception(sprintf('Can\'t load configuration file %s', $filename));
-        }
-
-        // initialize the JMS serializer and load the configuration
-        $serializer = SerializerBuilder::create()->build();
-        /** @var \TechDivision\Import\Cli\Configuration $instance */
-        $instance = $serializer->deserialize($jsonData, 'TechDivision\Import\Cli\Configuration', 'json');
-
-        // query whether or not an operation name has been specified as command line
-        // option, if yes override the value from the configuration file
-        if ($operationName = $input->getArgument(InputArgumentKeys::OPERATION_NAME)) {
-            $instance->setOperationName($operationName);
-        }
-
-        // query whether or not a Magento installation directory has been specified as command line
-        // option, if yes override the value from the configuration file
-        if ($installationDir = $input->getOption(InputOptionKeys::INSTALLATION_DIR)) {
-            $instance->setInstallationDir($installationDir);
-        }
-
-        // query whether or not a directory for the source files has been specified as command line
-        // option, if yes override the value from the configuration file
-        if ($sourceDir = $input->getOption(InputOptionKeys::SOURCE_DIR)) {
-            $instance->setSourceDir($sourceDir);
-        }
-
-        // query whether or not a directory containing the imported files has been specified as command line
-        // option, if yes override the value from the configuration file
-        if ($targetDir = $input->getOption(InputOptionKeys::TARGET_DIR)) {
-            $instance->setTargetDir($targetDir);
-        }
-
-        // query whether or not a source date format has been specified as command
-        // line  option, if yes override the value from the configuration file
-        if ($sourceDateFormat = $input->getOption(InputOptionKeys::SOURCE_DATE_FORMAT)) {
-            $instance->setSourceDateFormat($sourceDateFormat);
-        }
-
-        // query whether or not a Magento edition has been specified as command line
-        // option, if yes override the value from the configuration file
-        if ($magentoEdition = $input->getOption(InputOptionKeys::MAGENTO_EDITION)) {
-            $instance->setMagentoEdition($magentoEdition);
-        }
-
-        // query whether or not a Magento version has been specified as command line
-        // option, if yes override the value from the configuration file
-        if ($magentoVersion = $input->getOption(InputOptionKeys::MAGENTO_VERSION)) {
-            $instance->setMagentoVersion($magentoVersion);
-        }
-
-        // query whether or not a DB ID has been specified as command line
-        // option, if yes override the value from the configuration file
-        if ($useDbId = $input->getOption(InputOptionKeys::USE_DB_ID)) {
-            $instance->setUseDbId($useDbId);
-        } else {
-            // query whether or not a PDO DSN has been specified as command line
-            // option, if yes override the value from the configuration file
-            if ($dsn = $input->getOption(InputOptionKeys::DB_PDO_DSN)) {
-                // first REMOVE all other database configurations
-                $instance->clearDatabases();
-
-                // initialize a new database configuration
-                $database = new Database();
-                $database->setId(Uuid::uuid4()->__toString());
-                $database->setDefault(true);
-                $database->setDsn($dsn);
-
-                // query whether or not a DB username has been specified as command line
-                // option, if yes override the value from the configuration file
-                if ($username = $input->getOption(InputOptionKeys::DB_USERNAME)) {
-                    $database->setUsername($username);
-                }
-
-                // query whether or not a DB password has been specified as command line
-                // option, if yes override the value from the configuration file
-                if ($password = $input->getOption(InputOptionKeys::DB_PASSWORD)) {
-                    $database->setPassword($password);
-                }
-
-                // add the database configuration
-                $instance->addDatabase($database);
-            }
-        }
-
-        // query whether or not the debug mode has been specified as command line
-        // option, if yes override the value from the configuration file
-        if ($debugMode = $input->getOption(InputOptionKeys::DEBUG_MODE)) {
-            $instance->setDebugMode($instance->mapBoolean($debugMode));
-        }
-
-        // query whether or not the log level has been specified as command line
-        // option, if yes override the value from the configuration file
-        if ($logLevel = $input->getOption(InputOptionKeys::LOG_LEVEL)) {
-            $instance->setLogLevel($logLevel);
-        }
-
-        // query whether or not a PID filename has been specified as command line
-        // option, if yes override the value from the configuration file
-        if ($pidFilename = $input->getOption(InputOptionKeys::PID_FILENAME)) {
-            $instance->setPidFilename($pidFilename);
-        }
-
-        // extend the plugins with the main configuration instance
-        /** @var \TechDivision\Import\Cli\Configuration\Subject $subject */
-        foreach ($instance->getPlugins() as $plugin) {
-            // set the configuration instance on the plugin
-            $plugin->setConfiguration($instance);
-
-            // query whether or not the plugin has subjects configured
-            if ($subjects = $plugin->getSubjects()) {
-                // extend the plugin's subjects with the main configuration instance
-                /** @var \TechDivision\Import\Cli\Configuration\Subject $subject */
-                foreach ($subjects as $subject) {
-                    // set the configuration instance on the subject
-                    $subject->setConfiguration($instance);
-                }
-            }
-        }
-
-        // query whether or not the debug mode is enabled and log level
-        // has NOT been overwritten with a commandline option
-        if ($instance->isDebugMode() && !$input->getOption(InputOptionKeys::LOG_LEVEL)) {
-            // set debug log level, if log level has NOT been overwritten on command line
-            $instance->setLogLevel(LogLevel::DEBUG);
-        }
-
-        // return the initialized configuration instance
-        return $instance;
-    }
-
-    /**
      * Executes the current command.
      *
      * This method is not abstract because you can use this class
@@ -332,39 +193,64 @@ abstract class AbstractImportCommand extends Command
     protected function execute(InputInterface $input, OutputInterface $output)
     {
 
-        // initialize the flag, whether the JMS annotations has been loaded or not
-        $loaded = false;
+        // load the actual vendor directory
+        $vendorDirectory = $this->getVendorDir();
 
-        // the possible paths to the JMS annotations
-        $annotationDirectories = array(
-            dirname(__DIR__) . '/../../../jms/serializer/src',
-            dirname(__DIR__) . '/../vendor/jms/serializer/src'
-        );
+        // the path of the JMS serializer directory, relative to the vendor directory
+        $jmsDirectory = DIRECTORY_SEPARATOR . 'jms' . DIRECTORY_SEPARATOR . 'serializer' . DIRECTORY_SEPARATOR . 'src';
 
-        // register the JMS Serializer annotations
-        foreach ($annotationDirectories as $annotationDirectory) {
-            if (file_exists($annotationDirectory)) {
-                \Doctrine\Common\Annotations\AnnotationRegistry::registerAutoloadNamespace(
-                    'JMS\Serializer\Annotation',
-                    $annotationDirectory
-                );
-                $loaded = true;
-                break;
-            }
-        }
-
-        // stop processing, if the JMS annotations can't be loaded
-        if (!$loaded) {
+        // try to find the path to the JMS Serializer annotations
+        if (!file_exists($annotationDirectory = $vendorDirectory . DIRECTORY_SEPARATOR . $jmsDirectory)) {
+            // stop processing, if the JMS annotations can't be found
             throw new \Exception(
                 sprintf(
-                    'The JMS annotations can not be found in one of paths %s',
-                    implode(', ', $annotationDirectories)
+                    'The jms/serializer libarary can not be found in one of %s',
+                    implode(', ', $this->getVendorDir())
                 )
             );
         }
 
-        // load the specified configuration
-        $configuration = $this->configurationFactory($input);
+        // register the autoloader for the JMS serializer annotations
+        \Doctrine\Common\Annotations\AnnotationRegistry::registerAutoloadNamespace(
+            'JMS\Serializer\Annotation',
+            $annotationDirectory
+        );
+
+        // load the importer configuration and set the entity type code
+        $configuration = ConfigurationFactory::load($input);
+
+        // initialize the DI container
+        $container = new ContainerBuilder();
+
+        // initialize the default loader and load the DI configuration for the this library
+        $defaultLoader = new XmlFileLoader($container, new FileLocator($vendorDirectory));
+
+        // load the DI configuration for all the extension libraries
+        foreach ($this->getExtensionLibraries($configuration) as $library) {
+            if (file_exists($diConfiguration = sprintf('%s/%s/symfony/Resources/config/services.xml', $vendorDirectory, $library))) {
+                $defaultLoader->load($diConfiguration);
+            }
+        }
+
+        // register autoloaders for additional vendor directories
+        $customLoader = new XmlFileLoader($container, new FileLocator());
+        foreach ($configuration->getAdditionalVendorDirs() as $additionalVendorDir) {
+            // load the vendor directory's auto loader
+            if (file_exists($autoLoader = $additionalVendorDir->getVendorDir() . '/autoload.php')) {
+                require $autoLoader;
+            }
+
+            // load the DI configuration for the extension libraries
+            foreach ($additionalVendorDir->getLibraries() as $library) {
+                $customLoader->load(realpath(sprintf('%s/%s/symfony/Resources/config/services.xml', $additionalVendorDir->getVendorDir(), $library)));
+            }
+        }
+
+        // add the configuration as well as input/outut instances to the DI container
+        $container->set(SynteticServiceKeys::INPUT, $input);
+        $container->set(SynteticServiceKeys::OUTPUT, $output);
+        $container->set(SynteticServiceKeys::CONFIGURATION, $configuration);
+        $container->set(SynteticServiceKeys::APPLICATION, $this->getApplication());
 
         // initialize the PDO connection
         $dsn = $configuration->getDatabase()->getDsn();
@@ -372,6 +258,9 @@ abstract class AbstractImportCommand extends Command
         $password = $configuration->getDatabase()->getPassword();
         $connection = new \PDO($dsn, $username, $password);
         $connection->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
+
+        // add the PDO connection to the DI container
+        $container->set(SynteticServiceKeys::CONNECTION, $connection);
 
         // initialize the system logger
         $loggers = array();
@@ -396,21 +285,106 @@ abstract class AbstractImportCommand extends Command
             $loggers[$loggerConfiguration->getName()] = $loggerFactory::factory($loggerConfiguration);
         }
 
-        // initialize the registry/import processor
-        $registryProcessor = RegistryProcessorFactory::factory($connection, $configuration);
-        $importProcessor = ImportProcessorFactory::factory($connection, $configuration);
+        // add the system loggers to the DI container
+        $container->set(SynteticServiceKeys::LOGGERS, $loggers);
 
-        // initialize the importer
-        $importer = new Simple(
-            $registryProcessor,
-            $importProcessor,
-            $configuration,
-            $input,
-            $output,
-            $loggers
+        // start the import process
+        $container->get(SynteticServiceKeys::SIMPLE)->process();
+    }
+
+    /**
+     * Return's the array with the magento specific extension libraries.
+     *
+     * @param \TechDivision\Import\ConfigurationInterface $configuration The configuration instance
+     *
+     * @return array The magento edition specific extension libraries
+     */
+    public function getExtensionLibraries(ConfigurationInterface $configuration)
+    {
+
+        // return the array with the Magento Edition specific libraries
+        return array_merge(
+            Simple::getDefaultLibraries($configuration->getMagentoEdition()),
+            $configuration->getExtensionLibraries()
+        );
+    }
+
+    /**
+     * Return's the absolute path to the actual vendor directory.
+     *
+     * @return string The absolute path to the actual vendor directory
+     * @throws \Exception Is thrown, if none of the possible vendor directories can be found
+     */
+    public function getVendorDir()
+    {
+
+        // the possible paths to the vendor directory
+        $possibleVendorDirectories = array(
+            dirname(dirname(dirname(dirname(dirname(__DIR__))))) . DIRECTORY_SEPARATOR . 'vendor',
+            dirname(dirname(__DIR__)) . DIRECTORY_SEPARATOR . 'vendor'
         );
 
-        // start the process
-        $importer->process();
+        // try to find the path to the JMS Serializer annotations
+        foreach ($possibleVendorDirectories as $possibleVendorDirectory) {
+            // return the directory as vendor directory if available
+            if (is_dir($possibleVendorDirectory)) {
+                return $possibleVendorDirectory;
+            }
+        }
+
+        // stop processing, if NO vendor directory is available
+        throw new \Exception(
+            sprintf(
+                'None of the possible vendor directories %s is available',
+                implode(', ', $possibleVendorDirectories)
+            )
+        );
+    }
+
+    /**
+     * Return's the Magento installation directory, assuming that this is the
+     * actual directory.
+     *
+     * @return string The Magento installation directory
+     */
+    public function getMagentoInstallationDir()
+    {
+        return getcwd();
+    }
+
+    /**
+     * Return's the given entity type's specific default configuration file.
+     *
+     * @return string The name of the library to query for the default configuration file
+     * @throws \Exception Is thrown, if no default configuration for the passed entity type is available
+     */
+    public function getDefaultImportDir()
+    {
+        return sprintf('%s/var/importexport', $this->getMagentoInstallationDir());
+    }
+
+    /**
+     * Return's the given entity type's specific default configuration file.
+     *
+     * @return string The name of the library to query for the default configuration file
+     * @throws \Exception Is thrown, if no default configuration for the passed entity type is available
+     */
+    public function getDefaultConfiguration()
+    {
+        return sprintf(
+            '%s/%s/etc/techdivision-import.json',
+            $this->getVendorDir(),
+            Simple::getDefaultConfiguration($this->getEntityTypeCode())
+        );
+    }
+
+    /**
+     * Return's the default operation.
+     *
+     * @return string The default operation
+     */
+    public function getDefaultOperation()
+    {
+        return OperationKeys::ADD_UPDATE;
     }
 }

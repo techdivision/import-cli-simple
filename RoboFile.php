@@ -41,12 +41,13 @@ class RoboFile extends \Robo\Tasks
      */
     protected $properties = array(
         'base.dir' => __DIR__,
+        'etc.dir' => __DIR__ . '/etc',
         'src.dir' => __DIR__ . '/src',
         'dist.dir' => __DIR__ . '/dist',
         'vendor.dir' => __DIR__ . '/vendor',
         'target.dir' => __DIR__ . '/target',
         'webapp.name' => 'import-cli-simple',
-        'webapp.version' => '1.0.0-alpha5'
+        'webapp.version' => '1.0.0-alpha62'
     );
 
     /**
@@ -116,6 +117,37 @@ class RoboFile extends \Robo\Tasks
             $this->properties['webapp.name']
         );
 
+        // prepare the target directory
+        $targetDir = $this->properties['target.dir'] . DIRECTORY_SEPARATOR . $this->properties['webapp.version'];
+
+        // copy the composer.json file
+        $this->taskFilesystemStack()
+             ->copy(
+                  __DIR__ . DIRECTORY_SEPARATOR . 'composer.json',
+                  $targetDir. DIRECTORY_SEPARATOR. 'composer.json'
+             )->run();
+
+          // copy the composer.json file
+          $this->taskFilesystemStack()
+               ->copy(
+                   __DIR__ . DIRECTORY_SEPARATOR . '.semver',
+                   $targetDir. DIRECTORY_SEPARATOR. '.semver'
+               )->run();
+
+        // copy the src/etc directory
+        $this->taskCopyDir(
+                  array(
+                      $this->properties['src.dir'] => $targetDir . DIRECTORY_SEPARATOR . 'src'
+                  )
+               )->run();
+
+        // install the composer dependencies
+        $this->taskComposerInstall()
+            ->dir($targetDir)
+            ->noDev()
+            ->optimizeAutoloader()
+            ->run();
+
         // prepare the task
         $pharTask = $this->taskPackPhar($archiveName)
             ->compress()
@@ -124,7 +156,7 @@ class RoboFile extends \Robo\Tasks
         // load a list with all the source files
         $finder = Finder::create()
             ->name('*.php')
-            ->in($this->properties['src.dir']);
+            ->in($targetDir . DIRECTORY_SEPARATOR . 'src');
 
         // iterate over the source files and add them to the PHAR archive
         foreach ($finder as $file) {
@@ -134,14 +166,18 @@ class RoboFile extends \Robo\Tasks
         // load a list with all the source files from the vendor directory
         $finder = Finder::create()->files()
             ->name('*.php')
-            ->in($this->properties['vendor.dir']);
+            ->name('services.xml')
+            ->name('services-1.0.xsd')
+            ->name('techdivision-import.json')
+            ->in($targetDir . DIRECTORY_SEPARATOR . 'vendor');
 
         // iterate over the source files of the vendor directory and add them to the PHAR archive
         foreach ($finder as $file) {
             $pharTask->addFile('vendor/' . $file->getRelativePathname(), $file->getRealPath());
         }
 
-        // create the PHAR archive
+        // add the semver file and create the PHAR archive
+        $pharTask->addFile('.semver', realpath($targetDir. DIRECTORY_SEPARATOR. '.semver'));
         $pharTask->run();
 
         // verify PHAR archive is packed correctly
@@ -225,6 +261,18 @@ class RoboFile extends \Robo\Tasks
         // run PHPUnit
         $this->taskPHPUnit(sprintf('%s/bin/phpunit', $this->properties['vendor.dir']))
              ->configFile('phpunit.xml')
+             ->run();
+    }
+
+    /**
+     * Raising the semver version number.
+     *
+     * @return void
+     */
+    public function semver()
+    {
+        $this->taskSemVer('.semver')
+             ->prerelease('alpha')
              ->run();
     }
 

@@ -20,6 +20,8 @@
 
 namespace TechDivision\Import\Cli\Command;
 
+use TechDivision\Import\Utils\EntityTypeCodes;
+
 /**
  * The import command implementation.
  *
@@ -47,5 +49,15 @@ class ImportProductsCommand extends AbstractImportCommand
 
         // invoke the parent method
         parent::configure();
+    }
+
+    /**
+     * Return's the command's entity type code.
+     *
+     * @return string The command's entity type code
+     */
+    public function getEntityTypeCode()
+    {
+        return EntityTypeCodes::CATALOG_PRODUCT;
     }
 }
