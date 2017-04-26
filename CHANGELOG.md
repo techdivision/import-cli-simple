@@ -1,18 +1,8 @@
-# Version 1.0.0-beta3
-
-## Bugfixes
-
-* Throw exception if library does not contain mandatory Symfony DI configuration
-
-## Features
-
-* None
-
 # Version 1.0.0-beta2
 
 ## Bugfixes
 
-* None
+* Throw exception if library does not contain mandatory Symfony DI configuration
 
 ## Features
 
