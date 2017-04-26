@@ -229,6 +229,13 @@ abstract class AbstractImportCommand extends Command implements ImportCommandInt
         foreach ($this->getExtensionLibraries($configuration) as $library) {
             if (file_exists($diConfiguration = sprintf('%s/%s/symfony/Resources/config/services.xml', $vendorDirectory, $library))) {
                 $defaultLoader->load($diConfiguration);
+            } else {
+                throw new \Exception(
+                    sprintf(
+                        'Can\'t load DI configuration for library %s',
+                        $diConfiguration
+                    )
+                );
             }
         }
 
@@ -254,6 +261,13 @@ abstract class AbstractImportCommand extends Command implements ImportCommandInt
                 // try to load the filename
                 if (file_exists($diConfiguration)) {
                     $customLoader->load($diConfiguration);
+                } else {
+                    throw new \Exception(
+                        sprintf(
+                            'Can\'t load DI configuration for library %s',
+                            $diConfiguration
+                        )
+                    );
                 }
             }
         }
