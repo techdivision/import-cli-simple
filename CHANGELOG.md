@@ -1,3 +1,13 @@
+# Version 1.0.0-beta2
+
+## Bugfixes
+
+* None
+
+## Features
+
+* Throw exception if a additional vendor directory without autoloader has been configured
+
 # Version 1.0.0-beta1
 
 ## Bugfixes
