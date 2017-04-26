@@ -238,11 +238,23 @@ abstract class AbstractImportCommand extends Command implements ImportCommandInt
             // load the vendor directory's auto loader
             if (file_exists($autoLoader = $additionalVendorDir->getVendorDir() . '/autoload.php')) {
                 require $autoLoader;
+            } else {
+                throw new \Exception(
+                    sprintf(
+                        'Can\'t find autoloader in configured additional vendor directory %s',
+                        $additionalVendorDir->getVendorDir()
+                    )
+                );
             }
 
-            // load the DI configuration for the extension libraries
+            // try to load the DI configuration for the configured extension libraries
             foreach ($additionalVendorDir->getLibraries() as $library) {
-                $customLoader->load(realpath(sprintf('%s/%s/symfony/Resources/config/services.xml', $additionalVendorDir->getVendorDir(), $library)));
+                // prepare the DI configuration filename
+                $diConfiguration = realpath(sprintf('%s/%s/symfony/Resources/config/services.xml', $additionalVendorDir->getVendorDir(), $library));
+                // try to load the filename
+                if (file_exists($diConfiguration)) {
+                    $customLoader->load($diConfiguration);
+                }
             }
         }
 
