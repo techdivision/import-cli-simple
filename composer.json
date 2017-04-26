@@ -1,61 +1,59 @@
 {
-	"name": "techdivision/import-cli-simple",
-	"description": "CLI providing single-threaded Magento 2 importing functionality based on M2IF",
-	"minimum-stability": "alpha",
-	"license": "OSL-3.0",
-	"require": {
-		"rhumsaa/uuid": "~2.4",
-		"doctrine/dbal": "~2.0",
-		"jms/serializer": "~1.0",
-		"monolog/monolog": "~1.0",
-		"symfony/config": "~2.8|~3.0",
-		"symfony/console": "~2.3, !=2.7.0",
-		"symfony/yaml": "~2.8.7|~3.0.7|~3.1.1|~3.2",
-		"symfony/expression-language": "~2.8|~3.0",
-		"symfony/dependency-injection": "~2.3, !=2.7.0",
-		"league/flysystem": "~1.0",
-		"techdivision/import-app-simple": "~1.0",
-		"techdivision/import-configuration-jms": "~1.0",
-		"techdivision/import": "~1.0",
-		"techdivision/import-ee": "~1.0",
-		"techdivision/import-category": "~1.0",
-		"techdivision/import-category-ee": "~1.0",
-		"techdivision/import-product": "~1.0",
-		"techdivision/import-product-link": "~1.0",
-		"techdivision/import-product-media": "~1.0",
-		"techdivision/import-product-bundle": "~1.0",
-		"techdivision/import-product-variant": "~1.0",
-		"techdivision/import-product-ee": "~1.0",
-		"techdivision/import-product-link-ee": "~1.0",
-		"techdivision/import-product-media-ee": "~1.0",
-		"techdivision/import-product-bundle-ee": "~1.0",
-		"techdivision/import-product-variant-ee": "~1.0",
-		"techdivision/import-product-magic360": "^1.0@beta"
+	"name" : "techdivision/import-cli-simple",
+	"description" : "CLI providing single-threaded Magento 2 importing functionality based on M2IF",
+	"minimum-stability" : "alpha",
+	"license" : "OSL-3.0",
+	"require" : {
+		"rhumsaa/uuid" : "~2.4",
+		"doctrine/dbal" : "~2.0",
+		"jms/serializer" : "~1.0",
+		"monolog/monolog" : "~1.0",
+		"symfony/config" : "~2.8|~3.0",
+		"symfony/console" : "~2.3, !=2.7.0",
+		"symfony/yaml" : "~2.8.7|~3.0.7|~3.1.1|~3.2",
+		"symfony/expression-language" : "~2.8|~3.0",
+		"symfony/dependency-injection" : "~2.3, !=2.7.0",
+		"league/flysystem" : "~1.0",
+		"techdivision/import-app-simple" : "~1.0",
+		"techdivision/import-configuration-jms" : "~1.0",
+		"techdivision/import" : "~1.0",
+		"techdivision/import-ee" : "~1.0",
+		"techdivision/import-category" : "~1.0",
+		"techdivision/import-category-ee" : "~1.0",
+		"techdivision/import-product" : "~1.0",
+		"techdivision/import-product-link" : "~1.0",
+		"techdivision/import-product-media" : "~1.0",
+		"techdivision/import-product-bundle" : "~1.0",
+		"techdivision/import-product-variant" : "~1.0",
+		"techdivision/import-product-ee" : "~1.0",
+		"techdivision/import-product-link-ee" : "~1.0",
+		"techdivision/import-product-media-ee" : "~1.0",
+		"techdivision/import-product-bundle-ee" : "~1.0",
+		"techdivision/import-product-variant-ee" : "~1.0"
 	},
-	"require-dev": {
-		"phpmd/phpmd": "2.5.*",
-		"phpunit/phpunit": "4.4.*",
-		"sebastian/phpcpd": "2.0.*",
-		"consolidation/log": "~1.0",
-		"consolidation/robo": "~1.0",
-		"squizlabs/php_codesniffer": "2.2.*",
-		"tomzx/php-semver-checker": "0.9.*"
+	"require-dev" : {
+		"phpmd/phpmd" : "2.5.*",
+		"phpunit/phpunit" : "4.4.*",
+		"sebastian/phpcpd" : "2.0.*",
+		"consolidation/log" : "~1.0",
+		"consolidation/robo" : "~1.0",
+		"squizlabs/php_codesniffer" : "2.2.*",
+		"tomzx/php-semver-checker" : "0.9.*"
 	},
-	"authors": [
-		{
-			"name": "Tim Wagner",
-			"email": "t.wagner@techdivision.com"
+	"authors" : [{
+			"name" : "Tim Wagner",
+			"email" : "t.wagner@techdivision.com"
 		}
 	],
-	"autoload": {
-		"psr-4": {
-			"TechDivision\\Import\\Cli\\": [
+	"autoload" : {
+		"psr-4" : {
+			"TechDivision\\Import\\Cli\\" : [
 				"src/",
 				"tests/"
 			]
 		}
 	},
-	"bin": [
+	"bin" : [
 		"bin/import-simple"
 	]
 }
