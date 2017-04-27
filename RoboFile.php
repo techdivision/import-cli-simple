@@ -47,7 +47,7 @@ class RoboFile extends \Robo\Tasks
         'vendor.dir' => __DIR__ . '/vendor',
         'target.dir' => __DIR__ . '/target',
         'webapp.name' => 'import-cli-simple',
-        'webapp.version' => '1.0.0-alpha62'
+        'webapp.version' => '1.0.0-beta5'
     );
 
     /**
