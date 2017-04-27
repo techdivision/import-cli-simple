@@ -25,7 +25,7 @@ your Magento 2 project, simply add
 ```json
 {
   "require": {
-    "techdivision/import-cli-simple" : "1.0.0-alpha56"
+    "techdivision/import-cli-simple" : "1.0.0-beta3"
   }
 }
 ```
@@ -50,18 +50,33 @@ $ wget https://github.com/techdivision/import-cli-simple/releases/download/1.0.0
 To install globally put `import-cli-simple.phar` in `/usr/bin`, e. g.
 
 ```sh
-sudo chmod +x import-cli-simple.phar && mv import-cli-simple.phar /usr/bin/import-cli-simple
+$ sudo chmod +x import-cli-simple.phar && mv import-cli-simple.phar /usr/bin/import-cli-simple
 ```
 
 Now you can use it just like `import-cli-simple`.
 
+## Dependency Injection
+
+M2IF uses the [Symonfy DI Container](http://symfony.com/doc/current/components/dependency_injection.html) to
+compose the application. Therefore each library provides the necessary DI configuration files in the directory
+`symfony/Resources/config/services.xml`. On application startup, the library files will be parsed and
+depending on the used Magento Edition, the apropriate classes will be injected.
+
+> For [configuration](#configuration) the symfony service IDs will be used instead of the real class names.
+
 ## Configuration
 
 The necessary configuration has to be defined in a simple JSON file. An example that imports the Magento 2 
-sample data in a Magento 2 CE version 2.1.2 can be found in `example/ce/212/conf/techdivision-import.json`
+sample data in a Magento 2 CE version 2.1.2 can be found in our [examples](projects/sample-data/ce/212/conf/techdivision-import.json).
 
-The configuration file (option `--configuration`) **MUST** to be specified whenever data has to be imported,
-as it contains the operations, subjects and callbacks configuration.
+If **NO** configuration file (option `--configuration`) has been specified, the default one, defined by the
+executed command will be used. In case of the `import:products`, the configuration file provided by the
+library `techdivision/import-product` in the directory `etc/techdivision-import.json` will be used. This
+default configuration contains **NO** database configuration and **NO** image directory.
+
+The database configuration can be specified by the commandline options, but if images should be imported.
+
+> If images should be imported, a custom configuration file with the paths to the image files has to be specified.
 
 The import command itself supports a argument as well as several options.
 
@@ -79,11 +94,11 @@ The following configuration options are available:
 
 | Option               | Description                                                     | Default value |
 |:---------------------|:----------------------------------------------------------------|:--------------|
-| --configuration      | Specify the pathname to the configuration file to use | `./techdivision-import.json` |
+| --configuration      | Specify the pathname to the configuration file to use | `./vendor/techdivision/import-product/etc/techdivision-import.json` |
+| --entity-type-code   | The Magento entity type code, **MUST** be one of `catalog_product` or `catalog_category`  | n/a |
 | --installation-dir   | The Magento installation directory to which the files has to be imported | n/a |
 | --source-dir         | The directory that has to be watched for new files | n/a |
 | --target-dir         | The target directory with the files that has been imported | n/a |
-| --utility-class-name | The utility class name with the Magento edition/version specific SQL statements | n/a |
 | --magento-edition    | The Magento edition to be used, either one of CE or EE | n/a |
 | --magento-version    | The Magento version to be used, e. g. 2.1.2 | n/a |
 | --source-date-format | The date format used in the CSV file(s) | n/a |
@@ -95,8 +110,8 @@ The following configuration options are available:
 | --log-level          | The log level to use (see Monolog documentation for further information) | `info` |
 | --pid-filename       | The explicit PID filename to use | `<system-temp-dir>/importer.pid` |
 
-All values can and **SHOULD** be defined in the configuration file. The commandline options should only be 
-used to override these values in some circumstances.
+Beside the `configuration` option, all options can and **SHOULD** be defined in the configuration file. The 
+commandline options should only be used to override these values in some circumstances.
 
 ### Configuration File
 
@@ -112,7 +127,6 @@ for the available operations.
   "magento-version": "2.1.2",
   "operation-name" : "replace",
   "installation-dir" : "/var/www/magento",
-  "utility-class-name" : "TechDivision\\Import\\Utils\\SqlStatements",
   "databases" : [ ... ],
   "loggers" : [ ... ],
   "operations" : { ... }
@@ -123,6 +137,8 @@ for the available operations.
 In more complex projects, it'll we possible, that addional libraries are necessary. As the M2IF - Simple Console Tool
 uses a Symfony DI container, it is necessary to register the additional library by adding it to the configuration
 file. Depending on how the M2IF - Simple Console Tool has been installed, there a two options.
+
+> Whenever you write an extension library do NOT forget to provide the Symfony DI configuration.
 
 #### Extension Libraries
 
@@ -137,12 +153,13 @@ installation, the simplest way to register an additional extension will be addin
 
 > This is only possible, if the additional library uses the same Composer autoloader as M2IF - Simple Console Tool does.
 
-#### Vendor Directories
+#### Additional Vendor Directories
 
-Assuming, that the M2IF - Simple Console Tool PHAR archive will be used, it is necessary, that the Composer class loader of the additional library vendor directory will be added like
+Assuming, that the M2IF - Simple Console Tool PHAR archive will be used, it is necessary, that the Composer class loader 
+of the additional library vendor directory will be added like
 
 ```json
-"vendor-dirs" : [
+"additional-vendor-dirs" : [
   {
     "vendor-dir" : "target/vendor",
     "libraries": [
@@ -297,7 +314,6 @@ the configured archive directory.
   "source-date-format": "n/d/y, g:i A",
   "archive-artefacts" : false,
   "archive-dir" : "archive",
-  "utility-class-name" : "TechDivision\\Import\\Utils\\Ee\\V212\\SqlStatements",
   "debug-mode" : false,
   "ignore-pid" : false,
   "pid-filename" : "projects/sample-data/tmp/importer.pid",
@@ -307,27 +323,25 @@ the configured archive directory.
       "name" : "delete",
       "plugins" : [
         {
-          "class-name": "TechDivision\\Import\\Plugins\\GlobalDataPlugin"
+          "id": "import.plugin.global.data"
         },
         {
-          "class-name": "TechDivision\\Import\\Plugins\\SubjectPlugin",
+          "id": "import.plugin.subject",
           "subjects" : [
             {
-              "class-name": "TechDivision\\Import\\Subjects\\MoveFilesSubject",
+              "id": "import.subject.move.files",
               "identifier": "move-files",
               "prefix": "magento-import",
               "ok-file-needed": true
             },
             {
-              "class-name": "TechDivision\\Import\\Product\\Subjects\\BunchSubject",
-              "processor-factory" : "TechDivision\\Import\\Cli\\Services\\ProductBunchProcessorFactory",
-              "utility-class-name" : "TechDivision\\Import\\Product\\Utils\\SqlStatements",
+              "id": "import_product.subject.bunch",
               "identifier": "files",
               "prefix": "magento-import",
               "observers": [
                 {
                   "import": [
-                    "TechDivision\\Import\\Product\\Observers\\ClearProductObserver"
+                    "import_product.observer.clear.product"
                   ]
                 }
               ]
@@ -335,7 +349,7 @@ the configured archive directory.
           ]
         },
         {
-          "class-name": "TechDivision\\Import\\Plugins\\ArchivePlugin"
+          "id": "import.plugin.archive"
         }
       ]
     }
@@ -356,7 +370,7 @@ been imported from the CSV files.
 ```json
 "plugins" : [
   {
-    "class-name" : "TechDivision\\Import\\Plugins\\SubjectPlugin",
+    "id" : "import.plugin.subject",
     "subjects" : [ ... ]
   }
 ]
@@ -371,9 +385,7 @@ data and writes it to the database, if needed.
 ```json
 "subjects" : [
   {
-    "class-name" : "TechDivision\\Import\\Product\\Subjects\\BunchSubject",
-    "processor-factory" : "TechDivision\\Import\\Cli\\Services\\ProductBunchProcessorFactory",
-    "utility-class-name" : "TechDivision\\Import\\Product\\Utils\\SqlStatements",
+    "id" : "import_product.subject.bunch",
     "identifier" : "files",
     "prefix" : "magento-import",
     "observers" : [ ... ],
@@ -391,7 +403,7 @@ a adding them to the list of observers like
 "observers" : [
   {
     "import" : [
-      "TechDivision\\Import\\Product\\Observers\\ClearProductObserver"
+      "import_product.observer.clear.product"
     ]
   }
 ]
@@ -428,7 +440,7 @@ to the array with the callbacks of a subject, like
 "callbacks": [
   {
     "visibility": [
-      "TechDivision\\Import\\Product\\Callbacks\\VisibilityCallback"
+      "import_product.callback.visibility"
     ]
   }
 ]
@@ -565,8 +577,3 @@ To avoid unwanted behaviour, only one import process can be started at a time. T
 process is running, a PID file in the system's temporary directory (`sys_get_temp_dir()`) is created which
 contains the UUID of the actual import process. After the import process has been finished, the file will
 be deleted and a new process can be started.
-
-The default behaviour can be overwritten by appending the option `--ingore-pid=true`. This will ignore the
-PID file and appends the UUID to it. After the import process has been finished, the UUID will be removed 
-from the PID file. When the last import process has been finished and it's UUID has been removed, the PID 
-file itself will be deleted.

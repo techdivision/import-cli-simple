@@ -57,13 +57,6 @@ class InputOptionKeys
     const CONFIGURATION = 'configuration';
 
     /**
-     * The input option key for the prefix for the import files.
-     *
-     * @var string
-     */
-    const PREFIX = 'prefix';
-
-    /**
      * The input option key for the Magento installation directory.
      *
      * @var string
@@ -83,13 +76,6 @@ class InputOptionKeys
      * @var string
      */
     const TARGET_DIR = 'target-dir';
-
-    /**
-     * The input option key for the utility class name.
-     *
-     * @var string
-     */
-    const UTILITY_CLASS_NAME = 'utility-class-name';
 
     /**
      * The input option key for the Magento edition, EE or CE.
