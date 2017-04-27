@@ -1,3 +1,13 @@
+# Version 1.0.0-beta4
+
+## Bugfixes
+
+* None
+
+## Features
+
+* Set correct version number in .semver file
+
 # Version 1.0.0-beta3
 
 ## Bugfixes
