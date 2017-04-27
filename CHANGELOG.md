@@ -1,3 +1,14 @@
+# Version 1.0.0-beta3
+
+## Bugfixes
+
+* None
+
+## Features
+
+* Remove unnecessary configuration options
+* Update README.md
+
 # Version 1.0.0-beta2
 
 ## Bugfixes

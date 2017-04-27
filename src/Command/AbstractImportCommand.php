@@ -78,9 +78,8 @@ abstract class AbstractImportCommand extends Command implements ImportCommandInt
         ->addOption(
             InputOptionKeys::INSTALLATION_DIR,
             null,
-            InputOption::VALUE_OPTIONAL,
-            'The Magento installation directory to which the files has to be imported',
-            $this->getMagentoInstallationDir()
+            InputOption::VALUE_REQUIRED,
+            'The Magento installation directory to which the files has to be imported'
         )
         ->addOption(
             InputOptionKeys::ENTITY_TYPE_CODE,
@@ -99,18 +98,6 @@ abstract class AbstractImportCommand extends Command implements ImportCommandInt
             null,
             InputOption::VALUE_REQUIRED,
             'The target directory with the files that has been imported'
-        )
-        ->addOption(
-            InputOptionKeys::UTILITY_CLASS_NAME,
-            null,
-            InputOption::VALUE_REQUIRED,
-            'The utility class name with the SQL statements'
-        )
-        ->addOption(
-            InputOptionKeys::PREFIX,
-            null,
-            InputOption::VALUE_REQUIRED,
-            'The prefix of the CSV source file(s) that has/have to be imported'
         )
         ->addOption(
             InputOptionKeys::MAGENTO_EDITION,
@@ -365,17 +352,6 @@ abstract class AbstractImportCommand extends Command implements ImportCommandInt
                 implode(', ', $possibleVendorDirectories)
             )
         );
-    }
-
-    /**
-     * Return's the Magento installation directory, assuming that this is the
-     * actual directory.
-     *
-     * @return string The Magento installation directory
-     */
-    public function getMagentoInstallationDir()
-    {
-        return getcwd();
     }
 
     /**

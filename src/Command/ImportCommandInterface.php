@@ -52,14 +52,6 @@ interface ImportCommandInterface
     public function getVendorDir();
 
     /**
-     * Return's the Magento installation directory, assuming that this is the
-     * actual directory.
-     *
-     * @return string The Magento installation directory
-     */
-    public function getMagentoInstallationDir();
-
-    /**
      * Return's the given entity type's specific default configuration file.
      *
      * @return string The name of the library to query for the default configuration file
