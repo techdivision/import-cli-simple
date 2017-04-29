@@ -22,12 +22,14 @@ if (strpos(basename(__FILE__), 'phar')) {
 use TechDivision\Import\Cli\Application;
 use TechDivision\Import\Cli\Command\ImportProductsCommand;
 use TechDivision\Import\Cli\Command\ImportCategoriesCommand;
+use TechDivision\Import\Cli\Command\ImportAttributesCommand;
 use TechDivision\Import\Cli\Command\ImportClearPidFileCommand;
 use TechDivision\Import\Cli\Command\ImportCreateOkFileCommand;
 
 $application = new Application();
 $application->add(new ImportProductsCommand());
 $application->add(new ImportCategoriesCommand());
+$application->add(new ImportAttributesCommand());
 $application->add(new ImportClearPidFileCommand());
 $application->add(new ImportCreateOkFileCommand());
 
