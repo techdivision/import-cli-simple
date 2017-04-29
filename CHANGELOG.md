@@ -1,3 +1,13 @@
+# Version 1.0.0-beta5
+
+## Bugfixes
+
+* None
+
+## Features
+
+* Add basic attribute import functionality
+
 # Version 1.0.0-beta4
 
 ## Bugfixes
