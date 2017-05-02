@@ -18,7 +18,7 @@
         "techdivision/import-configuration-jms": "~1.0",
         "techdivision/import": "~1.0",
         "techdivision/import-ee": "~1.0",
-        "techdivision/import-attribute": "~1.0",
+        "techdivision/import-attribute": "dev-master as 1.0.0-alpha2",
         "techdivision/import-category": "~1.0",
         "techdivision/import-category-ee": "~1.0",
         "techdivision/import-product": "~1.0",
@@ -57,5 +57,12 @@
     },
     "bin": [
         "bin/import-simple"
+    ],
+    "repositories": [
+        {
+            "type": "git",
+            "url": "/Users/wagnert/Workspace/import-attribute",
+            "name": "techdivision/import-attribute"
+        }
     ]
 }
