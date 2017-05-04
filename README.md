@@ -96,6 +96,7 @@ The following configuration options are available:
 |:---------------------|:----------------------------------------------------------------|:--------------|
 | --configuration      | Specify the pathname to the configuration file to use | `./vendor/techdivision/import-product/etc/techdivision-import.json` |
 | --entity-type-code   | The Magento entity type code, **MUST** be one of `catalog_product` or `catalog_category`  | n/a |
+| --system-name        | The system name to be used (will added to the mail subject, if mails are configured) | n/a |
 | --installation-dir   | The Magento installation directory to which the files has to be imported | n/a |
 | --source-dir         | The directory that has to be watched for new files | n/a |
 | --target-dir         | The target directory with the files that has been imported | n/a |
