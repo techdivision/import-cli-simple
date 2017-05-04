@@ -62,6 +62,12 @@ class ConfigurationFactory extends \TechDivision\Import\Configuration\Jms\Config
             $instance->setOperationName($operationName);
         }
 
+        // query whether or not a system name has been specified as command line
+        // option, if yes override the value from the configuration file
+        if ($systemName = $input->getOption(InputOptionKeys::SYSTEM_NAME)) {
+            $instance->setSystemName($systemName);
+        }
+
         // query whether or not a Magento installation directory has been specified as command line
         // option, if yes override the value from the configuration file
         if ($installationDir = $input->getOption(InputOptionKeys::INSTALLATION_DIR)) {

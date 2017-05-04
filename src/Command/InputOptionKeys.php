@@ -50,6 +50,13 @@ class InputOptionKeys
     }
 
     /**
+     * The input option key for the system name to use.
+     *
+     * @var string
+     */
+    const SYSTEM_NAME = 'system-name';
+
+    /**
      * The input option key for the path to the configuration file to use.
      *
      * @var string
