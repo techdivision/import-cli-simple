@@ -14,7 +14,7 @@
     {
       "id": "ce",
       "default": false,
-      "pdo-dsn": "mysql:host=127.0.0.1;dbname=appserver_magento_ce216;charset=utf8",
+      "pdo-dsn": "mysql:host=mysql;dbname=magento_ce216;charset=utf8",
       "username": "appserver",
       "password": "appserver.i0"
     }
@@ -82,6 +82,22 @@
                     "import_attribute.observer.clear.attribute",
                     "import_attribute.observer.attribute",
                     "import_attribute.observer.catalog.attribute",
+                    "import_attribute.observer.attribute.option.export",
+                    "import_attribute.observer.clean.up"
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "import_attribute.subject.option",
+              "identifier": "files",
+              "prefix": "option-import",
+              "observers": [
+                {
+                  "import": [
+                    "import_attribute.observer.attribute.option",
+                    "import_attribute.observer.attribute.option.value",
+                    "import_attribute.observer.attribute.option.swatch",
                     "import_attribute.observer.clean.up"
                   ]
                 }
@@ -118,6 +134,22 @@
                   "import": [
                     "import_attribute.observer.attribute.update",
                     "import_attribute.observer.catalog.attribute.update",
+                    "import_attribute.observer.attribute.option.export",
+                    "import_attribute.observer.clean.up"
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "import_attribute.subject.option",
+              "identifier": "files",
+              "prefix": "option-import",
+              "observers": [
+                {
+                  "import": [
+                    "import_attribute.observer.attribute.option.update",
+                    "import_attribute.observer.attribute.option.value.update",
+                    "import_attribute.observer.attribute.option.swatch",
                     "import_attribute.observer.clean.up"
                   ]
                 }
