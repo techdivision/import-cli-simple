@@ -45,7 +45,7 @@
                   "import": [
                     "import_attribute.observer.pre.load.attribute.id",
                     "import_attribute.observer.clear.attribute",
-                    "import_attribute.observer.clean.up"
+                    "import_attribute.observer.attribute.clean.up"
                   ]
                 }
               ]
@@ -84,7 +84,9 @@
                     "import_attribute.observer.attribute",
                     "import_attribute.observer.catalog.attribute",
                     "import_attribute.observer.attribute.option.export",
-                    "import_attribute.observer.clean.up"
+                    "import_attribute.observer.attribute.option.value.export",
+                    "import_attribute.observer.attribute.option.swatch.export",
+                    "import_attribute.observer.attribute.clean.up"
                   ]
                 }
               ]
@@ -96,10 +98,39 @@
               "observers": [
                 {
                   "import": [
+                    "import_attribute.observer.pre.load.attribute.option.id",
                     "import_attribute.observer.attribute.option",
                     "import_attribute.observer.attribute.option.value",
                     "import_attribute.observer.attribute.option.swatch",
-                    "import_attribute.observer.clean.up"
+                    "import_attribute.observer.attribute.option.clean.up"
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "import_attribute.subject.option",
+              "identifier": "files",
+              "prefix": "option-value-import",
+              "observers": [
+                {
+                  "import": [
+                    "import_attribute.observer.pre.load.attribute.option.id",
+                    "import_attribute.observer.attribute.option.value",
+                    "import_attribute.observer.attribute.option.clean.up"
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "import_attribute.subject.option",
+              "identifier": "files",
+              "prefix": "option-swatch-import",
+              "observers": [
+                {
+                  "import": [
+                    "import_attribute.observer.pre.load.attribute.option.id",
+                    "import_attribute.observer.attribute.option.swatch",
+                    "import_attribute.observer.attribute.option.clean.up"
                   ]
                 }
               ]
@@ -136,7 +167,9 @@
                     "import_attribute.observer.attribute.update",
                     "import_attribute.observer.catalog.attribute.update",
                     "import_attribute.observer.attribute.option.export",
-                    "import_attribute.observer.clean.up"
+                    "import_attribute.observer.attribute.option.value.export",
+                    "import_attribute.observer.attribute.option.swatch.export",
+                    "import_attribute.observer.attribute.clean.up"
                   ]
                 }
               ]
@@ -150,8 +183,36 @@
                   "import": [
                     "import_attribute.observer.attribute.option.update",
                     "import_attribute.observer.attribute.option.value.update",
-                    "import_attribute.observer.attribute.option.swatch",
-                    "import_attribute.observer.clean.up"
+                    "import_attribute.observer.attribute.option.swatch.update",
+                    "import_attribute.observer.attribute.option.clean.up"
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "import_attribute.subject.option",
+              "identifier": "files",
+              "prefix": "option-value-import",
+              "observers": [
+                {
+                  "import": [
+                    "import_attribute.observer.pre.load.attribute.option.id",
+                    "import_attribute.observer.attribute.option.value.update",
+                    "import_attribute.observer.attribute.option.clean.up"
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "import_attribute.subject.option",
+              "identifier": "files",
+              "prefix": "option-swatch-import",
+              "observers": [
+                {
+                  "import": [
+                    "import_attribute.observer.pre.load.attribute.option.id",
+                    "import_attribute.observer.attribute.option.swatch.update",
+                    "import_attribute.observer.attribute.option.clean.up"
                   ]
                 }
               ]
