@@ -76,6 +76,12 @@ abstract class AbstractImportCommand extends Command implements ImportCommandInt
             $this->getDefaultConfiguration()
         )
         ->addOption(
+            InputOptionKeys::SYSTEM_NAME,
+            null,
+            InputOption::VALUE_REQUIRED,
+            'Specify the system name to use'
+        )
+        ->addOption(
             InputOptionKeys::INSTALLATION_DIR,
             null,
             InputOption::VALUE_REQUIRED,
@@ -295,7 +301,7 @@ abstract class AbstractImportCommand extends Command implements ImportCommandInt
             // load the factory class that creates the logger instance
             $loggerFactory = $loggerConfiguration->getFactory();
             // create the logger instance and add it to the available loggers
-            $loggers[$loggerConfiguration->getName()] = $loggerFactory::factory($loggerConfiguration);
+            $loggers[$loggerConfiguration->getName()] = $loggerFactory::factory($configuration, $loggerConfiguration);
         }
 
         // add the system loggers to the DI container
