@@ -97,6 +97,7 @@
                   "import": [
                     "import_attribute.observer.attribute.option",
                     "import_attribute.observer.attribute.option.value",
+                    "import_attribute.observer.attribute.option.swatch",
                     "import_attribute.observer.clean.up"
                   ]
                 }
@@ -146,8 +147,9 @@
               "observers": [
                 {
                   "import": [
-                    "import_attribute.observer.attribute.option",
-                    "import_attribute.observer.attribute.option.value",
+                    "import_attribute.observer.attribute.option.update",
+                    "import_attribute.observer.attribute.option.value.update",
+                    "import_attribute.observer.attribute.option.swatch",
                     "import_attribute.observer.clean.up"
                   ]
                 }
