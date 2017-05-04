@@ -1,3 +1,13 @@
+# Version 1.0.0-beta7
+
+## Bugfixes
+
+* None
+
+## Features
+
+* Switch to latest configuration version that allows params for plugins
+
 # Version 1.0.0-beta6
 
 ## Bugfixes
