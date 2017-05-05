@@ -1,3 +1,14 @@
+# Version 1.0.0-beta9
+
+## Bugfixes
+
+* None
+
+## Features
+
+* Switch to latest attribute import version
+* Update configuration for attribute import
+
 # Version 1.0.0-beta8
 
 ## Bugfixes
