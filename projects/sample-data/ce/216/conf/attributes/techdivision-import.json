@@ -82,6 +82,8 @@
                     "import_attribute.observer.pre.load.attribute.id",
                     "import_attribute.observer.clear.attribute",
                     "import_attribute.observer.attribute",
+                    "import_attribute.observer.attribute.label",
+                    "import_attribute.observer.entity.attribute",
                     "import_attribute.observer.catalog.attribute",
                     "import_attribute.observer.attribute.option.export",
                     "import_attribute.observer.attribute.option.value.export",
@@ -165,6 +167,8 @@
                 {
                   "import": [
                     "import_attribute.observer.attribute.update",
+                    "import_attribute.observer.attribute.label.update",
+                    "import_attribute.observer.entity.attribute.update",
                     "import_attribute.observer.catalog.attribute.update",
                     "import_attribute.observer.attribute.option.export",
                     "import_attribute.observer.attribute.option.value.export",
