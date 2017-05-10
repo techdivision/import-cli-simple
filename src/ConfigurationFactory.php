@@ -141,10 +141,12 @@ class ConfigurationFactory extends \TechDivision\Import\Configuration\Jms\Config
             // load the configuration from the file with the given filename
             $instance = static::factory($configuration);
 
-        } elseif ($input->hasOptionSpecified(InputOptionKeys::INSTALLATION_DIR) &&
-                  $input->getOption(InputOptionKeys::INSTALLATION_DIR)
-        ) {
-            // query whether or not, the specified installation directory is a valid Magento root directory
+        } elseif ($magentoEdition = $input->getOption(InputOptionKeys::MAGENTO_EDITION)) {
+            // use the Magento Edition that has been specified as option
+            $instance = static::factory(self::getDefaultConfiguration($command, $magentoEdition));
+
+        } else {
+            // finally, query whether or not the installation directory is a valid Magento root directory
             if (!self::isMagentoRootDir($installationDir = $input->getOption(InputOptionKeys::INSTALLATION_DIR))) {
                 throw new \Exception(sprintf('Directory %s specified by --installation-dir is not a Magento root directory', $installationDir));
             }
@@ -162,14 +164,6 @@ class ConfigurationFactory extends \TechDivision\Import\Configuration\Jms\Config
 
             // use the Magento Edition that has been detected by the installation directory
             $instance = static::factory(self::getDefaultConfiguration($command, $magentoEdition));
-
-        } elseif ($magentoEdition = $input->getOption(InputOptionKeys::MAGENTO_EDITION)) {
-            // use the Magento Edition that has been specified as option
-            $instance = static::factory(self::getDefaultConfiguration($command, $magentoEdition));
-
-        } else {
-            // throw an exception, if either no configuration file has been specified nor the Magento Edition can be detected
-            throw new \Exception('At least one of "--configuration", "--installation-dir" or "--magento-edition" options has to be specified');
         }
 
         // query whether or not an operation name has been specified as command line
