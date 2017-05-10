@@ -1,3 +1,13 @@
+# Version 1.0.0-beta11
+
+## Bugfixes
+
+* None
+
+## Features
+
+* Change workflow when trying to read configuration
+
 # Version 1.0.0-beta10
 
 ## Bugfixes
