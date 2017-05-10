@@ -1,3 +1,13 @@
+# Version 1.0.0-beta10
+
+## Bugfixes
+
+* None
+
+## Features
+
+* Add support for EE attribute import
+
 # Version 1.0.0-beta9
 
 ## Bugfixes

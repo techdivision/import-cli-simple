@@ -25,6 +25,7 @@ if (!$loaded) {
 }
 
 use TechDivision\Import\Cli\Application;
+use TechDivision\Import\Cli\Console\ArgvInput;
 use TechDivision\Import\Cli\Command\ImportProductsCommand;
 use TechDivision\Import\Cli\Command\ImportCategoriesCommand;
 use TechDivision\Import\Cli\Command\ImportAttributesCommand;
@@ -37,4 +38,4 @@ $application->add(new ImportCategoriesCommand());
 $application->add(new ImportAttributesCommand());
 $application->add(new ImportClearPidFileCommand());
 $application->add(new ImportCreateOkFileCommand());
-$application->run();
+$application->run(new ArgvInput());

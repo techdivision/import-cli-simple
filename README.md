@@ -95,9 +95,10 @@ The following configuration options are available:
 | Option               | Description                                                     | Default value |
 |:---------------------|:----------------------------------------------------------------|:--------------|
 | --configuration      | Specify the pathname to the configuration file to use | `./vendor/techdivision/import-product/etc/techdivision-import.json` |
+| --pid-filename       | The explicit PID filename to use | `<system-temp-dir>/importer.pid` |
+| --system-name        | The system name to be used (will added to the mail subject, if mails are configured) | The hostname |
+| --installation-dir   | The Magento installation directory to which the files has to be imported | The actual working directory |
 | --entity-type-code   | The Magento entity type code, **MUST** be one of `catalog_product` or `catalog_category`  | n/a |
-| --system-name        | The system name to be used (will added to the mail subject, if mails are configured) | n/a |
-| --installation-dir   | The Magento installation directory to which the files has to be imported | n/a |
 | --source-dir         | The directory that has to be watched for new files | n/a |
 | --target-dir         | The target directory with the files that has been imported | n/a |
 | --magento-edition    | The Magento edition to be used, either one of CE or EE | n/a |
@@ -109,10 +110,15 @@ The following configuration options are available:
 | --db-password        | The password used to connect to the Magento database | n/a |
 | --debug-mode         | The flag to activate the debug mode | `false` |
 | --log-level          | The log level to use (see Monolog documentation for further information) | `info` |
-| --pid-filename       | The explicit PID filename to use | `<system-temp-dir>/importer.pid` |
 
 Beside the `configuration` option, all options can and **SHOULD** be defined in the configuration file. The 
 commandline options should only be used to override these values in some circumstances.
+
+If the `configuration` option has **NOT** been specified, the system tries to locate the Magento Edition, based
+on the specified `installation-dir` option. If the `installation-dir` option **IS** specified explictly, and the
+directory is a valid Magento root directory, the application tries to load database credentials from the 
+`app/etc/env.php` script, so it is **NOT** necessary to specify a database configuration, nor in the configuration 
+file or as commandline parameter.
 
 ### Configuration File
 
