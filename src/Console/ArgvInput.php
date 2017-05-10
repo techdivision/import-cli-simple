@@ -1,7 +1,7 @@
 <?php
 
 /**
- * TechDivision\Import\Cli\Command\ImportCommandInterface
+ * TechDivision\Import\Cli\Console\ArgvInput
  *
  * NOTICE OF LICENSE
  *
@@ -18,10 +18,10 @@
  * @link      http://www.techdivision.com
  */
 
-namespace TechDivision\Import\Cli\Command;
+namespace TechDivision\Import\Cli\Console;
 
 /**
- * The interface for a import command implementation.
+ * Utility class containing the available visibility keys.
  *
  * @author    Tim Wagner <t.wagner@techdivision.com>
  * @copyright 2016 TechDivision GmbH <info@techdivision.com>
@@ -29,21 +29,18 @@ namespace TechDivision\Import\Cli\Command;
  * @link      https://github.com/techdivision/import-cli-simple
  * @link      http://www.techdivision.com
  */
-interface ImportCommandInterface
+class ArgvInput extends \Symfony\Component\Console\Input\ArgvInput
 {
 
     /**
-     * Return's the absolute path to the actual vendor directory.
+     * Queries whether or not, a option value HAS been specified on command line.
      *
-     * @return string The absolute path to the actual vendor directory
-     * @throws \Exception Is thrown, if none of the possible vendor directories can be found
-     */
-    public function getVendorDir();
-
-    /**
-     * Return's the command's entity type code.
+     * @param string $name The option name to be queried
      *
-     * @return string The command's entity type code
+     * @return boolean TRUE if the option has been specified, else FALSE
      */
-    public function getEntityTypeCode();
+    public function hasOptionSpecified($name)
+    {
+        return isset($this->options[$name]);
+    }
 }

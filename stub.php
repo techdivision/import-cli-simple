@@ -20,6 +20,7 @@ if (strpos(basename(__FILE__), 'phar')) {
 }
 
 use TechDivision\Import\Cli\Application;
+use TechDivision\Import\Cli\Console\ArgvInput;
 use TechDivision\Import\Cli\Command\ImportProductsCommand;
 use TechDivision\Import\Cli\Command\ImportCategoriesCommand;
 use TechDivision\Import\Cli\Command\ImportAttributesCommand;
@@ -34,7 +35,7 @@ $application->add(new ImportClearPidFileCommand());
 $application->add(new ImportCreateOkFileCommand());
 
 // execute the command
-$statusCode = $application->run();
+$statusCode = $application->run(new ArgvInput());
 
 // stop and render the status code
 exit($statusCode);

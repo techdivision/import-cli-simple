@@ -24,7 +24,6 @@ use Monolog\Logger;
 use Monolog\Handler\ErrorLogHandler;
 use TechDivision\Import\Utils\LoggerKeys;
 use TechDivision\Import\Utils\OperationKeys;
-use TechDivision\Import\ConfigurationInterface;
 use TechDivision\Import\App\Simple;
 use TechDivision\Import\App\Utils\SynteticServiceKeys;
 use TechDivision\Import\Cli\ConfigurationFactory;
@@ -66,32 +65,52 @@ abstract class AbstractImportCommand extends Command implements ImportCommandInt
             InputArgumentKeys::OPERATION_NAME,
             InputArgument::OPTIONAL,
             'The operation that has to be used for the import, one of "add-update", "replace" or "delete"',
-            $this->getDefaultOperation()
-        )
-        ->addOption(
-            InputOptionKeys::CONFIGURATION,
-            null,
-            InputOption::VALUE_REQUIRED,
-            'Specify the pathname to the configuration file to use',
-            $this->getDefaultConfiguration()
-        )
-        ->addOption(
-            InputOptionKeys::SYSTEM_NAME,
-            null,
-            InputOption::VALUE_REQUIRED,
-            'Specify the system name to use'
+            OperationKeys::ADD_UPDATE
         )
         ->addOption(
             InputOptionKeys::INSTALLATION_DIR,
             null,
             InputOption::VALUE_REQUIRED,
-            'The Magento installation directory to which the files has to be imported'
+            'The Magento installation directory to which the files has to be imported',
+            getcwd()
+        )
+        ->addOption(
+            InputOptionKeys::SYSTEM_NAME,
+            null,
+            InputOption::VALUE_REQUIRED,
+            'Specify the system name to use',
+            gethostname()
+        )
+        ->addOption(
+            InputOptionKeys::PID_FILENAME,
+            null,
+            InputOption::VALUE_REQUIRED,
+            'The explicit PID filename to use',
+            sprintf('%s/%s', sys_get_temp_dir(), Configuration::PID_FILENAME)
+        )
+        ->addOption(
+            InputOptionKeys::MAGENTO_EDITION,
+            null,
+            InputOption::VALUE_REQUIRED,
+            'The Magento edition to be used, either one of "CE" or "EE"'
+        )
+        ->addOption(
+            InputOptionKeys::MAGENTO_VERSION,
+            null,
+            InputOption::VALUE_REQUIRED,
+            'The Magento version to be used, e. g. "2.1.2"'
+        )
+        ->addOption(
+            InputOptionKeys::CONFIGURATION,
+            null,
+            InputOption::VALUE_REQUIRED,
+            'Specify the pathname to the configuration file to use'
         )
         ->addOption(
             InputOptionKeys::ENTITY_TYPE_CODE,
             null,
             InputOption::VALUE_REQUIRED,
-            'Specify the entity type code to use'
+            'Specify the entity type code to use, either one of "catalog_product", "catalog_category" or "eav_attribute"'
         )
         ->addOption(
             InputOptionKeys::SOURCE_DIR,
@@ -104,18 +123,6 @@ abstract class AbstractImportCommand extends Command implements ImportCommandInt
             null,
             InputOption::VALUE_REQUIRED,
             'The target directory with the files that has been imported'
-        )
-        ->addOption(
-            InputOptionKeys::MAGENTO_EDITION,
-            null,
-            InputOption::VALUE_REQUIRED,
-            'The Magento edition to be used, either one of CE or EE'
-        )
-        ->addOption(
-            InputOptionKeys::MAGENTO_VERSION,
-            null,
-            InputOption::VALUE_REQUIRED,
-            'The Magento version to be used, e. g. 2.1.2'
         )
         ->addOption(
             InputOptionKeys::SOURCE_DATE_FORMAT,
@@ -158,13 +165,6 @@ abstract class AbstractImportCommand extends Command implements ImportCommandInt
             null,
             InputOption::VALUE_REQUIRED,
             'Whether use the debug mode or not'
-        )
-        ->addOption(
-            InputOptionKeys::PID_FILENAME,
-            null,
-            InputOption::VALUE_REQUIRED,
-            'The explicit PID filename to use',
-            sprintf('%s/%s', sys_get_temp_dir(), Configuration::PID_FILENAME)
         );
     }
 
@@ -210,7 +210,7 @@ abstract class AbstractImportCommand extends Command implements ImportCommandInt
         );
 
         // load the importer configuration and set the entity type code
-        $configuration = ConfigurationFactory::load($input);
+        $configuration = ConfigurationFactory::load($this, $input);
 
         // initialize the DI container
         $container = new ContainerBuilder();
@@ -219,7 +219,7 @@ abstract class AbstractImportCommand extends Command implements ImportCommandInt
         $defaultLoader = new XmlFileLoader($container, new FileLocator($vendorDirectory));
 
         // load the DI configuration for all the extension libraries
-        foreach ($this->getExtensionLibraries($configuration) as $library) {
+        foreach ($configuration->getExtensionLibraries() as $library) {
             if (file_exists($diConfiguration = sprintf('%s/%s/symfony/Resources/config/services.xml', $vendorDirectory, $library))) {
                 $defaultLoader->load($diConfiguration);
             } else {
@@ -312,23 +312,6 @@ abstract class AbstractImportCommand extends Command implements ImportCommandInt
     }
 
     /**
-     * Return's the array with the magento specific extension libraries.
-     *
-     * @param \TechDivision\Import\ConfigurationInterface $configuration The configuration instance
-     *
-     * @return array The magento edition specific extension libraries
-     */
-    public function getExtensionLibraries(ConfigurationInterface $configuration)
-    {
-
-        // return the array with the Magento Edition specific libraries
-        return array_merge(
-            Simple::getDefaultLibraries($configuration->getMagentoEdition()),
-            $configuration->getExtensionLibraries()
-        );
-    }
-
-    /**
      * Return's the absolute path to the actual vendor directory.
      *
      * @return string The absolute path to the actual vendor directory
@@ -358,41 +341,5 @@ abstract class AbstractImportCommand extends Command implements ImportCommandInt
                 implode(', ', $possibleVendorDirectories)
             )
         );
-    }
-
-    /**
-     * Return's the given entity type's specific default configuration file.
-     *
-     * @return string The name of the library to query for the default configuration file
-     * @throws \Exception Is thrown, if no default configuration for the passed entity type is available
-     */
-    public function getDefaultImportDir()
-    {
-        return sprintf('%s/var/importexport', $this->getMagentoInstallationDir());
-    }
-
-    /**
-     * Return's the given entity type's specific default configuration file.
-     *
-     * @return string The name of the library to query for the default configuration file
-     * @throws \Exception Is thrown, if no default configuration for the passed entity type is available
-     */
-    public function getDefaultConfiguration()
-    {
-        return sprintf(
-            '%s/%s/etc/techdivision-import.json',
-            $this->getVendorDir(),
-            Simple::getDefaultConfiguration($this->getEntityTypeCode())
-        );
-    }
-
-    /**
-     * Return's the default operation.
-     *
-     * @return string The default operation
-     */
-    public function getDefaultOperation()
-    {
-        return OperationKeys::ADD_UPDATE;
     }
 }
