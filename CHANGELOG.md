@@ -1,3 +1,13 @@
+# Version 1.0.0-beta13
+
+## Bugfixes
+
+* Fixed invalid path to techdivision/import-cli-simple Symfony DI configuration in bootstrap.php
+
+## Features
+
+* None
+
 # Version 1.0.0-beta12
 
 ## Bugfixes
