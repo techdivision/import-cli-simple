@@ -26,7 +26,7 @@ use TechDivision\Import\Utils\LoggerKeys;
 use TechDivision\Import\Utils\OperationKeys;
 use TechDivision\Import\App\Simple;
 use TechDivision\Import\App\Utils\SynteticServiceKeys;
-use TechDivision\Import\Cli\ConfigurationFactory;
+use TechDivision\Import\Cli\Utils\DependencyInjectionKeys;
 use TechDivision\Import\Configuration\Jms\Configuration;
 use TechDivision\Import\Configuration\Jms\Configuration\Database;
 use TechDivision\Import\Configuration\Jms\Configuration\LoggerFactory;
@@ -36,7 +36,6 @@ use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
-use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Loader\XmlFileLoader;
 
 /**
@@ -187,18 +186,18 @@ abstract class AbstractImportCommand extends Command implements ImportCommandInt
     {
 
         // load the actual vendor directory
-        $vendorDirectory = $this->getVendorDir();
+        $vendorDir = $this->getVendorDir();
 
         // the path of the JMS serializer directory, relative to the vendor directory
-        $jmsDirectory = DIRECTORY_SEPARATOR . 'jms' . DIRECTORY_SEPARATOR . 'serializer' . DIRECTORY_SEPARATOR . 'src';
+        $jmsDir = DIRECTORY_SEPARATOR . 'jms' . DIRECTORY_SEPARATOR . 'serializer' . DIRECTORY_SEPARATOR . 'src';
 
         // try to find the path to the JMS Serializer annotations
-        if (!file_exists($annotationDirectory = $vendorDirectory . DIRECTORY_SEPARATOR . $jmsDirectory)) {
+        if (!file_exists($annotationDir = $vendorDir . DIRECTORY_SEPARATOR . $jmsDir)) {
             // stop processing, if the JMS annotations can't be found
             throw new \Exception(
                 sprintf(
-                    'The jms/serializer libarary can not be found in one of %s',
-                    implode(', ', $this->getVendorDir())
+                    'The jms/serializer libarary can not be found in one of "%s"',
+                    implode(', ', $vendorDir)
                 )
             );
         }
@@ -206,26 +205,26 @@ abstract class AbstractImportCommand extends Command implements ImportCommandInt
         // register the autoloader for the JMS serializer annotations
         \Doctrine\Common\Annotations\AnnotationRegistry::registerAutoloadNamespace(
             'JMS\Serializer\Annotation',
-            $annotationDirectory
+            $annotationDir
         );
 
-        // load the importer configuration and set the entity type code
-        $configuration = ConfigurationFactory::load($this, $input);
-
-        // initialize the DI container
-        $container = new ContainerBuilder();
+        // load the container instance
+        $container = $this->getApplication()->getContainer();
 
         // initialize the default loader and load the DI configuration for the this library
-        $defaultLoader = new XmlFileLoader($container, new FileLocator($vendorDirectory));
+        $defaultLoader = new XmlFileLoader($container, new FileLocator($vendorDir));
+
+        // initialize and load the importer configuration
+        $configuration = $container->get(DependencyInjectionKeys::CONFIGURATION_LOADER)->load($input, $this->getEntityTypeCode());
 
         // load the DI configuration for all the extension libraries
         foreach ($configuration->getExtensionLibraries() as $library) {
-            if (file_exists($diConfiguration = sprintf('%s/%s/symfony/Resources/config/services.xml', $vendorDirectory, $library))) {
+            if (file_exists($diConfiguration = sprintf('%s/%s/symfony/Resources/config/services.xml', $vendorDir, $library))) {
                 $defaultLoader->load($diConfiguration);
             } else {
                 throw new \Exception(
                     sprintf(
-                        'Can\'t load DI configuration for library %s',
+                        'Can\'t load DI configuration for library "%s"',
                         $diConfiguration
                     )
                 );
@@ -241,7 +240,7 @@ abstract class AbstractImportCommand extends Command implements ImportCommandInt
             } else {
                 throw new \Exception(
                     sprintf(
-                        'Can\'t find autoloader in configured additional vendor directory %s',
+                        'Can\'t find autoloader in configured additional vendor directory "%s"',
                         $additionalVendorDir->getVendorDir()
                     )
                 );
@@ -257,7 +256,7 @@ abstract class AbstractImportCommand extends Command implements ImportCommandInt
                 } else {
                     throw new \Exception(
                         sprintf(
-                            'Can\'t load DI configuration for library %s',
+                            'Can\'t load DI configuration for library "%s"',
                             $diConfiguration
                         )
                     );
@@ -319,27 +318,8 @@ abstract class AbstractImportCommand extends Command implements ImportCommandInt
      */
     public function getVendorDir()
     {
-
-        // the possible paths to the vendor directory
-        $possibleVendorDirectories = array(
-            dirname(dirname(dirname(dirname(dirname(__DIR__))))) . DIRECTORY_SEPARATOR . 'vendor',
-            dirname(dirname(__DIR__)) . DIRECTORY_SEPARATOR . 'vendor'
-        );
-
-        // try to find the path to the JMS Serializer annotations
-        foreach ($possibleVendorDirectories as $possibleVendorDirectory) {
-            // return the directory as vendor directory if available
-            if (is_dir($possibleVendorDirectory)) {
-                return $possibleVendorDirectory;
-            }
-        }
-
-        // stop processing, if NO vendor directory is available
-        throw new \Exception(
-            sprintf(
-                'None of the possible vendor directories %s is available',
-                implode(', ', $possibleVendorDirectories)
-            )
-        );
+        return $this->getApplication()
+                    ->getContainer()
+                    ->getParameter(DependencyInjectionKeys::CONFIGURATION_VENDOR_DIR);
     }
 }

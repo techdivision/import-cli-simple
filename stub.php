@@ -2,42 +2,43 @@
 <?php
 Phar::mapPhar();
 
-
 /**
- * if we're running from phar load the phar autoload,
- * else let the script 'robo' search for the autoloader
+ * stub.php
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Open Software License (OSL 3.0)
+ * that is available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/osl-3.0.php
+ *
+ * PHP version 5
+ *
+ * @author    Tim Wagner <t.wagner@techdivision.com>
+ * @copyright 2016 TechDivision GmbH <info@techdivision.com>
+ * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ * @link      https://github.com/techdivision/import-cli-simple
+ * @link      http://www.techdivision.com
  */
+
+// if we're running from phar load the phar autoload, else let the
+// script 'robo' search for the autoloader
 if (strpos(basename(__FILE__), 'phar')) {
-    require_once 'phar://import-cli-simple.phar/vendor/autoload.php';
+    require_once $autoloadFile = 'phar://import-cli-simple.phar/vendor/autoload.php';
 } else {
     if (file_exists(__DIR__.'/vendor/autoload.php')) {
-        require_once __DIR__.'/vendor/autoload.php';
+        require_once $autoloadFile = __DIR__.'/vendor/autoload.php';
     } elseif (file_exists(__DIR__.'/../../autoload.php')) {
-        require_once __DIR__ . '/../../autoload.php';
+        require_once $autoloadFile = __DIR__ . '/../../autoload.php';
     } else {
-        require_once 'phar://import-cli-simple.phar/vendor/autoload.php';
+        require_once $autoloadFile = 'phar://import-cli-simple.phar/vendor/autoload.php';
     }
 }
 
-use TechDivision\Import\Cli\Application;
-use TechDivision\Import\Cli\Console\ArgvInput;
-use TechDivision\Import\Cli\Command\ImportProductsCommand;
-use TechDivision\Import\Cli\Command\ImportCategoriesCommand;
-use TechDivision\Import\Cli\Command\ImportAttributesCommand;
-use TechDivision\Import\Cli\Command\ImportClearPidFileCommand;
-use TechDivision\Import\Cli\Command\ImportCreateOkFileCommand;
+// initialize the vendor directory
+$vendorDir = dirname($autoloadFile);
 
-$application = new Application();
-$application->add(new ImportProductsCommand());
-$application->add(new ImportCategoriesCommand());
-$application->add(new ImportAttributesCommand());
-$application->add(new ImportClearPidFileCommand());
-$application->add(new ImportCreateOkFileCommand());
+// bootstrap and run the application
+require dirname($vendorDir) . '/bootstrap.php';
 
-// execute the command
-$statusCode = $application->run(new ArgvInput());
-
-// stop and render the status code
-exit($statusCode);
-
+// stop the compiler
 __HALT_COMPILER(); ?>

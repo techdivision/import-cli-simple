@@ -20,6 +20,9 @@
 
 namespace TechDivision\Import\Cli;
 
+use Symfony\Component\DependencyInjection\ContainerInterface;
+use Symfony\Component\DependencyInjection\ContainerAwareInterface;
+
 /**
  * The M2IF - Console Tool implementation.
  *
@@ -32,7 +35,7 @@ namespace TechDivision\Import\Cli;
  * @link      https://github.com/techdivision/import-cli-simple
  * @link      http://www.techdivision.com
  */
-class Application extends \Symfony\Component\Console\Application
+class Application extends \Symfony\Component\Console\Application implements ContainerAwareInterface
 {
 
     /**
@@ -50,13 +53,46 @@ class Application extends \Symfony\Component\Console\Application
     protected $name = 'M2IF - Simple Console Tool';
 
     /**
-     * The constructor to initialize the instance.
+     * The DI container instance.
+     *
+     * @var \Symfony\Component\DependencyInjection\ContainerInterface
      */
-    public function __construct()
+    protected $container;
+
+    /**
+     * The constructor to initialize the instance.
+     *
+     * @param \Symfony\Component\DependencyInjection\ContainerInterface $container The DI container instance
+     */
+    public function __construct(ContainerInterface $container)
     {
 
         // invoke the parent constructor
         parent::__construct($this->name, vsprintf('%d.%d.%d-%s', $this->parse(dirname(__DIR__) . DIRECTORY_SEPARATOR . '.semver')));
+
+        // set the DI container instance
+        $this->setContainer($container);
+    }
+    /**
+     * Sets the container.
+     *
+     * @param \Symfony\Component\DependencyInjection\ContainerInterface|null $container The DI container instance
+     *
+     * @return void
+     */
+    public function setContainer(ContainerInterface $container = null)
+    {
+        $this->container = $container;
+    }
+
+    /**
+     * Return's the DI container instance.
+     *
+     * @return \Symfony\Component\DependencyInjection\ContainerInterface The DI container instance
+     */
+    public function getContainer()
+    {
+        return $this->container;
     }
 
     /**

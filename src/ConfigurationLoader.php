@@ -1,7 +1,7 @@
 <?php
 
 /**
- * TechDivision\Import\Cli\ConfigurationFactory
+ * TechDivision\Import\Cli\ConfigurationLoader
  *
  * NOTICE OF LICENSE
  *
@@ -27,9 +27,8 @@ use Symfony\Component\Console\Input\InputInterface;
 use TechDivision\Import\Utils\EntityTypeCodes;
 use TechDivision\Import\Cli\Command\InputOptionKeys;
 use TechDivision\Import\Cli\Command\InputArgumentKeys;
-use TechDivision\Import\Cli\Command\ImportCommandInterface;
-use TechDivision\Import\Configuration\Jms\Configuration\Database;
 use TechDivision\Import\Cli\Utils\MagentoConfigurationKeys;
+use TechDivision\Import\Configuration\Jms\Configuration\Database;
 
 /**
  * The configuration factory implementation.
@@ -40,7 +39,7 @@ use TechDivision\Import\Cli\Utils\MagentoConfigurationKeys;
  * @link      https://github.com/techdivision/import-cli-simple
  * @link      http://www.techdivision.com
  */
-class ConfigurationFactory extends \TechDivision\Import\Configuration\Jms\ConfigurationFactory
+class ConfigurationLoader
 {
 
     /**
@@ -48,11 +47,11 @@ class ConfigurationFactory extends \TechDivision\Import\Configuration\Jms\Config
      *
      * @var array
      */
-    protected static $editionMappings = array(
-        'magento/magento2ce'                 => 'CE',
-        'magento/project-communit-edition'   => 'CE',
-        'magento/magento2ee'                 => 'EE',
-        'magento/project-enterprise-edition' => 'EE'
+    protected $editionMappings = array(
+        'magento2ce'                 => 'CE',
+        'project-community-edition'  => 'CE',
+        'magento2ee'                 => 'EE',
+        'project-enterprise-edition' => 'EE'
     );
 
     /**
@@ -60,10 +59,10 @@ class ConfigurationFactory extends \TechDivision\Import\Configuration\Jms\Config
      *
      * @var array
      */
-    protected static $defaultDirectories = array(
+    protected $defaultDirectories = array(
         EntityTypeCodes::CATALOG_PRODUCT  => 'products',
         EntityTypeCodes::CATALOG_CATEGORY => 'categories',
-        EntityTypeCodes::EAV_ATTRIBUTE => 'attributes'
+        EntityTypeCodes::EAV_ATTRIBUTE    => 'attributes'
     );
 
     /**
@@ -71,14 +70,14 @@ class ConfigurationFactory extends \TechDivision\Import\Configuration\Jms\Config
      *
      * @var array
      */
-    protected static $defaultConfigurations = array(
+    protected $defaultConfigurations = array(
         'ce' => array(
-            EntityTypeCodes::EAV_ATTRIBUTE => 'techdivision/import-attribute',
+            EntityTypeCodes::EAV_ATTRIBUTE    => 'techdivision/import-attribute',
             EntityTypeCodes::CATALOG_PRODUCT  => 'techdivision/import-product',
             EntityTypeCodes::CATALOG_CATEGORY => 'techdivision/import-category'
         ),
         'ee' => array(
-            EntityTypeCodes::EAV_ATTRIBUTE => 'techdivision/import-attribute',
+            EntityTypeCodes::EAV_ATTRIBUTE    => 'techdivision/import-attribute',
             EntityTypeCodes::CATALOG_PRODUCT  => 'techdivision/import-product-ee',
             EntityTypeCodes::CATALOG_CATEGORY => 'techdivision/import-category-ee'
         )
@@ -89,7 +88,7 @@ class ConfigurationFactory extends \TechDivision\Import\Configuration\Jms\Config
      *
      * @var array
      */
-    protected static $defaultLibraries = array(
+    protected $defaultLibraries = array(
         'ce' => array(
             'techdivision/import-app-simple',
             'techdivision/import',
@@ -121,49 +120,113 @@ class ConfigurationFactory extends \TechDivision\Import\Configuration\Jms\Config
         )
     );
 
+    protected $configurationClassName;
+
+    /**
+     * The vendor directory used to load the default configuration files from.
+     *
+     * @var string
+     */
+    protected $vendorDir;
+
+    /**
+     * Initializes the configuration loader with the configuration factory class name.
+     *
+     * @param string $vendorDir                 The vendor directory
+     * @param string $configurationFactoryClass The configuration factory class name
+     */
+    public function __construct($vendorDir, $configurationFactoryClass)
+    {
+        $this->vendorDir = $vendorDir;
+        $this->configurationFactoryClass = $configurationFactoryClass;
+    }
+
+    /**
+     * Return's the vendor directory used to load the default configuration files from.
+     *
+     * @return string The vendor directory
+     */
+    public function getVendorDir()
+    {
+        return $this->vendorDir;
+    }
+
+    /**
+     * The configuration factory class name.
+     *
+     * @return string The configuration factory class name
+     */
+    public function getConfigurationFactoryClass()
+    {
+        return $this->configurationFactoryClass;
+    }
+
     /**
      * Factory implementation to create a new initialized configuration instance.
      *
      * If command line options are specified, they will always override the
      * values found in the configuration file.
      *
-     * @param \TechDivision\Import\Cli\Command\ImportCommandInterface $command The command that tries to create the instance
-     * @param \Symfony\Component\Console\Input\InputInterface         $input   The Symfony console input instance
+     * @param \Symfony\Component\Console\Input\InputInterface $input          The Symfony console input instance
+     * @param string                                          $entityTypeCode The entity type code to use
      *
      * @return \TechDivision\Import\Cli\Configuration The configuration instance
      * @throws \Exception Is thrown, if the specified configuration file doesn't exist or the mandatory arguments/options to run the requested operation are not available
      */
-    public static function load(ImportCommandInterface $command, InputInterface $input)
+    public function load(InputInterface $input, $entityTypeCode)
     {
+
+        // load the configuration factory class name
+        $configurationFactoryClass = $this->getConfigurationFactoryClass();
 
         // query whether or not, a configuration file has been specified
         if ($configuration = $input->getOption(InputOptionKeys::CONFIGURATION)) {
             // load the configuration from the file with the given filename
-            $instance = static::factory($configuration);
+            $instance = $configurationFactoryClass::factory($configuration);
 
         } elseif ($magentoEdition = $input->getOption(InputOptionKeys::MAGENTO_EDITION)) {
             // use the Magento Edition that has been specified as option
-            $instance = static::factory(self::getDefaultConfiguration($command, $magentoEdition));
+            $instance = $configurationFactoryClass::factory($this->getDefaultConfiguration($magentoEdition, $entityTypeCode));
+
+            // override the Magento Edition
+            $instance->setMagentoEdition($magentoEdition);
 
         } else {
             // finally, query whether or not the installation directory is a valid Magento root directory
-            if (!self::isMagentoRootDir($installationDir = $input->getOption(InputOptionKeys::INSTALLATION_DIR))) {
-                throw new \Exception(sprintf('Directory %s specified by --installation-dir is not a Magento root directory', $installationDir));
+            if (!$this->isMagentoRootDir($installationDir = $input->getOption(InputOptionKeys::INSTALLATION_DIR))) {
+                throw new \Exception(
+                    sprintf(
+                        'Directory "%s" specified with option "--installation-dir" is not a valid Magento root directory',
+                        $installationDir
+                    )
+                );
             }
 
             // load the composer file from the Magento root directory
             $composer = json_decode(file_get_contents($composerFile = sprintf('%s/composer.json', $installationDir)), true);
 
-            // try to locate Magento Edition/Version
-            if (!isset(self::$editionMappings[$possibleEdition = $composer[MagentoConfigurationKeys::COMPOSER_EDITION_NAME_ATTRIBUTE]])) {
-                throw new \Exception(sprintf('"%s" detected in "%s" is not a valid Magento Edition/Version', $possibleEdition, $composerFile));
+            // try to load and explode the Magento Edition identifier from the Composer name
+            $explodedVersion = explode('/', $composer[MagentoConfigurationKeys::COMPOSER_EDITION_NAME_ATTRIBUTE]);
+
+            // try to locate Magento Edition
+            if (!isset($this->editionMappings[$possibleEdition = end($explodedVersion)])) {
+                throw new \Exception(
+                    sprintf(
+                        '"%s" detected in "%s" is not a valid Magento Edition, please set Magento Edition with the "--magento-edition" option',
+                        $possibleEdition,
+                        $composerFile
+                    )
+                );
             }
 
             // if Magento Edition/Version are available, load them
-            $magentoEdition = self::$editionMappings[$possibleEdition];
+            $magentoEdition = $this->editionMappings[$possibleEdition];
 
             // use the Magento Edition that has been detected by the installation directory
-            $instance = static::factory(self::getDefaultConfiguration($command, $magentoEdition));
+            $instance = $configurationFactoryClass::factory($this->getDefaultConfiguration($magentoEdition, $entityTypeCode));
+
+            // override the Magento Edition, if NOT explicitly specified
+            $instance->setMagentoEdition($magentoEdition);
         }
 
         // query whether or not an operation name has been specified as command line
@@ -239,9 +302,9 @@ class ConfigurationFactory extends \TechDivision\Import\Configuration\Jms\Config
         }
 
         // query whether or not we've an valid Magento root directory specified
-        if (self::isMagentoRootDir($installationDir = $instance->getInstallationDir())) {
+        if ($this->isMagentoRootDir($installationDir = $instance->getInstallationDir())) {
             // if yes, add the database configuration
-            $instance->addDatabase(self::getMagentoDbConnection($installationDir));
+            $instance->addDatabase($this->getMagentoDbConnection($installationDir));
 
             // add the source directory if NOT specified in the configuration file
             if ($instance->getSourceDir() === null) {
@@ -267,7 +330,7 @@ class ConfigurationFactory extends \TechDivision\Import\Configuration\Jms\Config
 
                 // add the database configuration
                 $instance->addDatabase(
-                    self::newDatabaseConfiguration(
+                    $this->newDatabaseConfiguration(
                         $dsn,
                         $input->getOption(InputOptionKeys::DB_USERNAME),
                         $input->getOption(InputOptionKeys::DB_PASSWORD)
@@ -303,7 +366,7 @@ class ConfigurationFactory extends \TechDivision\Import\Configuration\Jms\Config
         // prepend the array with the Magento Edition specific core libraries
         $instance->setExtensionLibraries(
             array_merge(
-                ConfigurationFactory::getDefaultLibraries($instance->getMagentoEdition()),
+                $this->getDefaultLibraries($instance->getMagentoEdition()),
                 $instance->getExtensionLibraries()
             )
         );
@@ -319,9 +382,9 @@ class ConfigurationFactory extends \TechDivision\Import\Configuration\Jms\Config
      *
      * @return boolean TRUE if the directory is a Magento root directory, else FALSE
      */
-    public static function isMagentoRootDir($dir)
+    public function isMagentoRootDir($dir)
     {
-        return is_file(self::getMagentoEnv($dir));
+        return is_file($this->getMagentoEnv($dir));
     }
 
     /**
@@ -331,7 +394,7 @@ class ConfigurationFactory extends \TechDivision\Import\Configuration\Jms\Config
      *
      * @return string The path to the Magento file with the environment configuration
      */
-    public static function getMagentoEnv($dir)
+    public function getMagentoEnv($dir)
     {
         return sprintf('%s/app/etc/env.php', $dir);
     }
@@ -345,11 +408,11 @@ class ConfigurationFactory extends \TechDivision\Import\Configuration\Jms\Config
      * @return array The connection data
      * @throws \Exception Is thrown, if the requested DB connection is not available
      */
-    public static function getMagentoDbConnection($dir, $connectionName = 'default')
+    public function getMagentoDbConnection($dir, $connectionName = 'default')
     {
 
         // load the magento environment
-        $env = require self::getMagentoEnv($dir);
+        $env = require $this->getMagentoEnv($dir);
 
         // query whether or not, the requested connection is available
         if (isset($env[MagentoConfigurationKeys::DB][MagentoConfigurationKeys::CONNECTION][$connectionName])) {
@@ -357,8 +420,8 @@ class ConfigurationFactory extends \TechDivision\Import\Configuration\Jms\Config
             $connection = $env[MagentoConfigurationKeys::DB][MagentoConfigurationKeys::CONNECTION][$connectionName];
 
             // create and return a new database configuration
-            return self::newDatabaseConfiguration(
-                self::newDsn($connection[MagentoConfigurationKeys::HOST], $connection[MagentoConfigurationKeys::DBNAME]),
+            return $this->newDatabaseConfiguration(
+                $this->newDsn($connection[MagentoConfigurationKeys::HOST], $connection[MagentoConfigurationKeys::DBNAME]),
                 $connection[MagentoConfigurationKeys::USERNAME],
                 $connection[MagentoConfigurationKeys::PASSWORD],
                 false
@@ -381,7 +444,7 @@ class ConfigurationFactory extends \TechDivision\Import\Configuration\Jms\Config
      *
      * @return \TechDivision\Import\Configuration\Jms\Configuration\Database The database configuration instance
      */
-    public static function newDatabaseConfiguration($dsn, $username = 'root', $password = null, $default = true, $id = null)
+    public function newDatabaseConfiguration($dsn, $username = 'root', $password = null, $default = true, $id = null)
     {
 
         // initialize a new database configuration
@@ -416,7 +479,7 @@ class ConfigurationFactory extends \TechDivision\Import\Configuration\Jms\Config
      *
      * @return string The DSN
      */
-    public static function newDsn($host, $dbName, $charset = 'utf8')
+    public function newDsn($host, $dbName, $charset = 'utf8')
     {
         return sprintf('mysql:host=%s;dbname=%s;charset=%s', $host, $dbName, $charset);
     }
@@ -424,19 +487,19 @@ class ConfigurationFactory extends \TechDivision\Import\Configuration\Jms\Config
     /**
      * Return's the default configuration for the passed Magento Edition and the actual entity type.
      *
-     * @param \TechDivision\Import\Cli\Command\ImportCommandInterface $command        The command instance
-     * @param string                                                  $magentoEdition The Magento Edition to return the configuration for
+     * @param string $magentoEdition The Magento Edition to return the configuration for
+     * @param string $entityTypeCode The entity type code to use
      *
      * @return string The path to the default configuration
      */
-    public static function getDefaultConfiguration(ImportCommandInterface $command, $magentoEdition)
+    public function getDefaultConfiguration($magentoEdition, $entityTypeCode)
     {
         return sprintf(
             '%s/%s/etc/techdivision-import.json',
-            $command->getVendorDir(),
-            ConfigurationFactory::getDefaultConfigurationLibrary(
+            $this->getVendorDir(),
+            $this->getDefaultConfigurationLibrary(
                 $magentoEdition,
-                $command->getEntityTypeCode()
+                $entityTypeCode
             )
         );
     }
@@ -449,12 +512,12 @@ class ConfigurationFactory extends \TechDivision\Import\Configuration\Jms\Config
      * @return array The Magento Edition specific default libraries
      * @throws \Exception Is thrown, if the passed Magento Edition is NOT supported
      */
-    public static function getDefaultLibraries($magentoEdition)
+    public function getDefaultLibraries($magentoEdition)
     {
 
         // query whether or not, default libraries for the passed edition are available
-        if (isset(self::$defaultLibraries[$edition = strtolower($magentoEdition)])) {
-            return self::$defaultLibraries[$edition];
+        if (isset($this->defaultLibraries[$edition = strtolower($magentoEdition)])) {
+            return $this->defaultLibraries[$edition];
         }
 
         // throw an exception, if the passed edition is not supported
@@ -476,13 +539,13 @@ class ConfigurationFactory extends \TechDivision\Import\Configuration\Jms\Config
      * @return string The name of the library that contains the default configuration file for the passed Magento Edition and entity type code
      * @throws \Exception Is thrown, if no default configuration for the passed entity type code is available
      */
-    public static function getDefaultConfigurationLibrary($magentoEdition, $entityTypeCode)
+    public function getDefaultConfigurationLibrary($magentoEdition, $entityTypeCode)
     {
 
         // query whether or not, a default configuration file for the passed entity type is available
-        if (isset(self::$defaultConfigurations[$edition = strtolower($magentoEdition)])) {
-            if (isset(self::$defaultConfigurations[$edition][$entityTypeCode])) {
-                return self::$defaultConfigurations[$edition][$entityTypeCode];
+        if (isset($this->defaultConfigurations[$edition = strtolower($magentoEdition)])) {
+            if (isset($this->defaultConfigurations[$edition][$entityTypeCode])) {
+                return $this->defaultConfigurations[$edition][$entityTypeCode];
             }
 
             // throw an exception, if the passed entity type is not supported
@@ -512,12 +575,12 @@ class ConfigurationFactory extends \TechDivision\Import\Configuration\Jms\Config
      * @return string The default default import directory
      * @throws \Exception Is thrown, if no default import directory for the passed entity type code is available
      */
-    public static function getDefaultDirectory($entityTypeCode)
+    public function getDefaultDirectory($entityTypeCode)
     {
 
         // query whether or not, a default configuration file for the passed entity type is available
-        if (isset(self::$defaultDirectories[$entityTypeCode])) {
-            return self::$defaultDirectories[$entityTypeCode];
+        if (isset($this->defaultDirectories[$entityTypeCode])) {
+            return $this->defaultDirectories[$entityTypeCode];
         }
 
         // throw an exception, if the passed entity type is not supported

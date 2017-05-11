@@ -13,9 +13,9 @@
   "system-name" : "local/magento-ce-2.1.6",
   "databases": [
     {
-      "id": "ee",
-      "default" : true,
-      "pdo-dsn": "mysql:host=127.0.0.1;dbname=appserver_magento2_ee212;charset=utf8",
+      "id": "ce",
+      "default": false,
+      "pdo-dsn": "mysql:host=mysql;dbname=magento_ee216;charset=utf8",
       "username": "appserver",
       "password": "appserver.i0"
     }

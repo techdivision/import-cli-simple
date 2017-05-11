@@ -19,7 +19,6 @@
  */
 
 use Lurker\Event\FilesystemEvent;
-
 use Symfony\Component\Finder\Finder;
 
 /**
@@ -46,8 +45,9 @@ class RoboFile extends \Robo\Tasks
         'dist.dir' => __DIR__ . '/dist',
         'vendor.dir' => __DIR__ . '/vendor',
         'target.dir' => __DIR__ . '/target',
+        'symfony.dir' => __DIR__ . '/symfony',
         'webapp.name' => 'import-cli-simple',
-        'webapp.version' => '1.0.0-beta5'
+        'webapp.version' => '1.0.0-beta.12'
     );
 
     /**
@@ -127,11 +127,18 @@ class RoboFile extends \Robo\Tasks
                   $targetDir. DIRECTORY_SEPARATOR. 'composer.json'
              )->run();
 
-          // copy the composer.json file
+          // copy the .semver file
           $this->taskFilesystemStack()
                ->copy(
                    __DIR__ . DIRECTORY_SEPARATOR . '.semver',
                    $targetDir. DIRECTORY_SEPARATOR. '.semver'
+               )->run();
+
+          // copy the bootstrap.php file
+          $this->taskFilesystemStack()
+               ->copy(
+                  __DIR__ . DIRECTORY_SEPARATOR . 'bootstrap.php',
+                  $targetDir. DIRECTORY_SEPARATOR. 'bootstrap.php'
                )->run();
 
         // copy the src/etc directory
@@ -139,6 +146,13 @@ class RoboFile extends \Robo\Tasks
                   array(
                       $this->properties['src.dir'] => $targetDir . DIRECTORY_SEPARATOR . 'src'
                   )
+               )->run();
+
+        // copy the syfmony directory
+        $this->taskCopyDir(
+                   array(
+                       $this->properties['symfony.dir'] => $targetDir . DIRECTORY_SEPARATOR . 'symfony'
+                   )
                )->run();
 
         // install the composer dependencies
@@ -153,31 +167,22 @@ class RoboFile extends \Robo\Tasks
             ->compress()
             ->stub('stub.php');
 
-        // load a list with all the source files
-        $finder = Finder::create()
-            ->name('*.php')
-            ->in($targetDir . DIRECTORY_SEPARATOR . 'src');
-
-        // iterate over the source files and add them to the PHAR archive
-        foreach ($finder as $file) {
-            $pharTask->addFile('src/' . $file->getRelativePathname(), $file->getRealPath());
-        }
-
         // load a list with all the source files from the vendor directory
         $finder = Finder::create()->files()
             ->name('*.php')
+            ->name('.semver')
             ->name('services.xml')
             ->name('services-1.0.xsd')
             ->name('techdivision-import.json')
-            ->in($targetDir . DIRECTORY_SEPARATOR . 'vendor');
+            ->in($targetDir)
+            ->ignoreDotFiles(false);
 
         // iterate over the source files of the vendor directory and add them to the PHAR archive
         foreach ($finder as $file) {
-            $pharTask->addFile('vendor/' . $file->getRelativePathname(), $file->getRealPath());
+            $pharTask->addFile($file->getRelativePathname(), $file->getRealPath());
         }
 
-        // add the semver file and create the PHAR archive
-        $pharTask->addFile('.semver', realpath($targetDir. DIRECTORY_SEPARATOR. '.semver'));
+        // create the PHAR archive
         $pharTask->run();
 
         // verify PHAR archive is packed correctly
