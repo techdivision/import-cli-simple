@@ -1,3 +1,14 @@
+# Version 1.0.0-beta12
+
+## Bugfixes
+
+* None
+
+## Features
+
+* Updating techdivision/import-attribute library
+* Using Symfony DI for application initialisation
+
 # Version 1.0.0-beta11
 
 ## Bugfixes
