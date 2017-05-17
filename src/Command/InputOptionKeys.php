@@ -85,6 +85,13 @@ class InputOptionKeys
     const TARGET_DIR = 'target-dir';
 
     /**
+     * The input option key for the directory containing the archived imported files.
+     *
+     * @var string
+     */
+    const ARCHIVE_DIR = 'archive-dir';
+
+    /**
      * The input option key for the Magento edition, EE or CE.
      *
      * @var string

@@ -283,6 +283,12 @@ class ConfigurationLoader
             $instance->setTargetDir($targetDir);
         }
 
+        // query whether or not a directory containing the archived imported files has been specified as command line
+        // option, if yes override the value from the configuration file
+        if ($archiveDir = $input->getOption(InputOptionKeys::ARCHIVE_DIR)) {
+            $instance->setArchiveDir($archiveDir);
+        }
+
         // query whether or not a source date format has been specified as command
         // line  option, if yes override the value from the configuration file
         if ($sourceDateFormat = $input->getOption(InputOptionKeys::SOURCE_DATE_FORMAT)) {

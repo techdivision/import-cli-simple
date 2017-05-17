@@ -124,6 +124,12 @@ abstract class AbstractImportCommand extends Command implements ImportCommandInt
             'The target directory with the files that has been imported'
         )
         ->addOption(
+            InputOptionKeys::ARCHIVE_DIR,
+            null,
+            InputOption::VALUE_REQUIRED,
+            'The directory the imported files will be archived in'
+        )
+        ->addOption(
             InputOptionKeys::SOURCE_DATE_FORMAT,
             null,
             InputOption::VALUE_REQUIRED,

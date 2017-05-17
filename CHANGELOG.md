@@ -1,3 +1,14 @@
+# Version 1.0.0-beta14
+
+## Bugfixes
+
+* None
+
+## Features
+
+* Add functionality to generate sequential product URL rewrites
+* Add --archive-dir option
+
 # Version 1.0.0-beta13
 
 ## Bugfixes
