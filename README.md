@@ -101,6 +101,7 @@ The following configuration options are available:
 | --entity-type-code   | The Magento entity type code, **MUST** be one of `catalog_product` or `catalog_category`  | n/a |
 | --source-dir         | The directory that has to be watched for new files | n/a |
 | --target-dir         | The target directory with the files that has been imported | n/a |
+| --archive-dir        | The directory with the archived files that has been imported | n/a |
 | --magento-edition    | The Magento edition to be used, either one of CE or EE | n/a |
 | --magento-version    | The Magento version to be used, e. g. 2.1.2 | n/a |
 | --source-date-format | The date format used in the CSV file(s) | n/a |
