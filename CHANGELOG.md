@@ -1,3 +1,13 @@
+# Version 1.0.0-beta16
+
+## Bugfixes
+
+* Fixed issue with invalid option value processing
+
+## Features
+
+* None
+
 # Version 1.0.0-beta15
 
 ## Bugfixes
