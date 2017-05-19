@@ -221,6 +221,7 @@ abstract class AbstractImportCommand extends Command implements ImportCommandInt
         $defaultLoader = new XmlFileLoader($container, new FileLocator($vendorDir));
 
         // initialize and load the importer configuration
+        /** @var \TechDivision\Import\ConfigurationInterface $configuration */
         $configuration = $container->get(DependencyInjectionKeys::CONFIGURATION_LOADER)->load($input, $this->getEntityTypeCode());
 
         // load the DI configuration for all the extension libraries
