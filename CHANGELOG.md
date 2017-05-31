@@ -1,3 +1,13 @@
+# Version 1.0.0-beta18
+
+## Bugfixes
+
+* None
+
+## Features
+
+* Move JMS configuration loading functionality from AbtractImportCoimmand to ConfigurationLoader class
+
 # Version 1.0.0-beta17
 
 ## Bugfixes
