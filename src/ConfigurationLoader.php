@@ -176,6 +176,29 @@ class ConfigurationLoader
     public function load(InputInterface $input, $entityTypeCode)
     {
 
+        // load the actual vendor directory
+        $vendorDir = $this->getVendorDir();
+
+        // the path of the JMS serializer directory, relative to the vendor directory
+        $jmsDir = DIRECTORY_SEPARATOR . 'jms' . DIRECTORY_SEPARATOR . 'serializer' . DIRECTORY_SEPARATOR . 'src';
+
+        // try to find the path to the JMS Serializer annotations
+        if (!file_exists($annotationDir = $vendorDir . DIRECTORY_SEPARATOR . $jmsDir)) {
+            // stop processing, if the JMS annotations can't be found
+            throw new \Exception(
+                sprintf(
+                    'The jms/serializer libarary can not be found in one of "%s"',
+                    implode(', ', $vendorDir)
+                )
+            );
+        }
+
+        // register the autoloader for the JMS serializer annotations
+        \Doctrine\Common\Annotations\AnnotationRegistry::registerAutoloadNamespace(
+            'JMS\Serializer\Annotation',
+            $annotationDir
+        );
+
         // load the configuration factory class name
         $configurationFactoryClass = $this->getConfigurationFactoryClass();
 
