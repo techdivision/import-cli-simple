@@ -1,3 +1,14 @@
+# Version 1.0.0-beta19
+
+## Bugfixes
+
+* None
+
+## Features
+
+* Switch to latests import/attribute version
+* Update example attribute CSV file
+
 # Version 1.0.0-beta18
 
 ## Bugfixes
