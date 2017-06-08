@@ -1,3 +1,14 @@
+# Version 1.0.0-beta20
+
+## Bugfixes
+
+* None
+
+## Features
+
+* Fixed issue when updating attributes and catalog_eav_attribute table with custom fields
+* Add commandline option to enable/disable artefact archiving functionality
+
 # Version 1.0.0-beta19
 
 ## Bugfixes

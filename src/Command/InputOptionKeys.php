@@ -92,6 +92,13 @@ class InputOptionKeys
     const ARCHIVE_DIR = 'archive-dir';
 
     /**
+     * The input option key for the directory containing the flag to archive the imported files.
+     *
+     * @var string
+     */
+    const ARCHIVE_ARTEFACTS = 'archive-artefacts';
+
+    /**
      * The input option key for the Magento edition, EE or CE.
      *
      * @var string
