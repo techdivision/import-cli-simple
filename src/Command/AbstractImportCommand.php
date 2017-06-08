@@ -130,6 +130,12 @@ abstract class AbstractImportCommand extends Command implements ImportCommandInt
             'The directory the imported files will be archived in'
         )
         ->addOption(
+            InputOptionKeys::ARCHIVE_ARTEFACTS,
+            null,
+            InputOption::VALUE_REQUIRED,
+            'Whether or not files should be archived'
+        )
+        ->addOption(
             InputOptionKeys::SOURCE_DATE_FORMAT,
             null,
             InputOption::VALUE_REQUIRED,
@@ -169,7 +175,7 @@ abstract class AbstractImportCommand extends Command implements ImportCommandInt
             InputOptionKeys::DEBUG_MODE,
             null,
             InputOption::VALUE_REQUIRED,
-            'Whether use the debug mode or not'
+            'Whether or not debug mode should be used'
         );
     }
 

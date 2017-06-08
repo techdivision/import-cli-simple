@@ -205,10 +205,12 @@ class ConfigurationLoader
         // query whether or not, a configuration file has been specified
         if ($configuration = $input->getOption(InputOptionKeys::CONFIGURATION)) {
             // load the configuration from the file with the given filename
+            /** @var \TechDivision\Import\ConfigurationInterface $instance */
             $instance = $configurationFactoryClass::factory($configuration);
 
         } elseif ($magentoEdition = $input->getOption(InputOptionKeys::MAGENTO_EDITION)) {
             // use the Magento Edition that has been specified as option
+            /** @var \TechDivision\Import\ConfigurationInterface $instance */
             $instance = $configurationFactoryClass::factory($this->getDefaultConfiguration($magentoEdition, $entityTypeCode));
 
             // override the Magento Edition
@@ -246,6 +248,7 @@ class ConfigurationLoader
             $magentoEdition = $this->editionMappings[$possibleEdition];
 
             // use the Magento Edition that has been detected by the installation directory
+            /** @var \TechDivision\Import\ConfigurationInterface $instance */
             $instance = $configurationFactoryClass::factory($this->getDefaultConfiguration($magentoEdition, $entityTypeCode));
 
             // override the Magento Edition, if NOT explicitly specified
@@ -310,6 +313,12 @@ class ConfigurationLoader
         // option, if yes override the value from the configuration file
         if ($archiveDir = $input->getOption(InputOptionKeys::ARCHIVE_DIR)) {
             $instance->setArchiveDir($archiveDir);
+        }
+
+        // query whether or not the debug mode has been specified as command line
+        // option, if yes override the value from the configuration file
+        if ($archiveArtefacts = $input->getOption(InputOptionKeys::ARCHIVE_ARTEFACTS)) {
+            $instance->setArchiveArtefacts($instance->mapBoolean($archiveArtefacts));
         }
 
         // query whether or not a source date format has been specified as command
