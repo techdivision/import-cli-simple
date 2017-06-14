@@ -54,7 +54,14 @@ class DependencyInjectionKeys
      *
      * @var string
      */
-    const INPUT = 'import_cli_simple.input';
+    const INPUT = 'input';
+
+    /**
+     * The key for the output instance.
+     *
+     * @var string
+     */
+    const OUTPUT = 'output';
 
     /**
      * The key for the application instance.
@@ -76,4 +83,11 @@ class DependencyInjectionKeys
      * @var string
      */
     const CONFIGURATION_LOADER = 'import_cli_simple.configuration.loader';
+
+    /**
+     * The key for the library loader.
+     *
+     * @var string
+     */
+    const LIBRARY_LOADER = 'import_cli_simple.library.loader';
 }

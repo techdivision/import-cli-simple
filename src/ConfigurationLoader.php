@@ -31,7 +31,7 @@ use TechDivision\Import\Cli\Utils\MagentoConfigurationKeys;
 use TechDivision\Import\Configuration\Jms\Configuration\Database;
 
 /**
- * The configuration factory implementation.
+ * The configuration loader implementation.
  *
  * @author    Tim Wagner <t.wagner@techdivision.com>
  * @copyright 2016 TechDivision GmbH <info@techdivision.com>

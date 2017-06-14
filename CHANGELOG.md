@@ -1,3 +1,13 @@
+# Version 1.0.0-beta21
+
+## Bugfixes
+
+* None
+
+## Features
+
+* Switch to latest library version for better DI support
+
 # Version 1.0.0-beta20
 
 ## Bugfixes

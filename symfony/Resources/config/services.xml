@@ -14,7 +14,23 @@
             <argument>%import_cli_simple.configuration.factory.class%</argument>
         </service>
 
-        <service id="import_cli_simple.input" class="TechDivision\Import\Cli\Console\ArgvInput"/>
+        <service id="import_cli_simple.library.loader" class="TechDivision\Import\Cli\LibraryLoader">
+            <argument type="service" id="service_container"/>
+            <argument type="service" id="configuration"/>
+        </service>
+
+        <service id="loggers" class="array">
+            <factory class="TechDivision\Import\Cli\Logger\LoggerFactory" method="createLoggers"/>
+            <argument type="service" id="configuration"/>
+        </service>
+
+        <service id="connection" class="TechDivision\Import\Connection\PDOConnectionWrapper">
+            <factory class="TechDivision\Import\Cli\Connection\ConnectionFactory" method="createConnection"/>
+            <argument type="service" id="configuration"/>
+        </service>
+
+        <service id="input" class="TechDivision\Import\Cli\Console\ArgvInput"/>
+        <service id="output" class="Symfony\Component\Console\Output\ConsoleOutput"/>
 
         <service id="import_cli_simple.command.import.products" class="TechDivision\Import\Cli\Command\ImportProductsCommand"/>
         <service id="import_cli_simple.command.import.categories" class="TechDivision\Import\Cli\Command\ImportCategoriesCommand"/>

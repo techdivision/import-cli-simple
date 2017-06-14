@@ -20,23 +20,17 @@
 
 namespace TechDivision\Import\Cli\Command;
 
-use Monolog\Logger;
-use Monolog\Handler\ErrorLogHandler;
-use TechDivision\Import\Utils\LoggerKeys;
 use TechDivision\Import\Utils\OperationKeys;
 use TechDivision\Import\App\Simple;
 use TechDivision\Import\App\Utils\SynteticServiceKeys;
 use TechDivision\Import\Cli\Utils\DependencyInjectionKeys;
 use TechDivision\Import\Configuration\Jms\Configuration;
 use TechDivision\Import\Configuration\Jms\Configuration\Database;
-use TechDivision\Import\Configuration\Jms\Configuration\LoggerFactory;
-use Symfony\Component\Config\FileLocator;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
-use Symfony\Component\DependencyInjection\Loader\XmlFileLoader;
 
 /**
  * The abstract import command implementation.
@@ -197,107 +191,18 @@ abstract class AbstractImportCommand extends Command implements ImportCommandInt
     protected function execute(InputInterface $input, OutputInterface $output)
     {
 
-        // load the actual vendor directory
-        $vendorDir = $this->getVendorDir();
-
         // load the container instance
         $container = $this->getApplication()->getContainer();
-
-        // initialize the default loader and load the DI configuration for the this library
-        $defaultLoader = new XmlFileLoader($container, new FileLocator($vendorDir));
 
         // initialize and load the importer configuration
         /** @var \TechDivision\Import\ConfigurationInterface $configuration */
         $configuration = $container->get(DependencyInjectionKeys::CONFIGURATION_LOADER)->load($input, $this->getEntityTypeCode());
 
-        // load the DI configuration for all the extension libraries
-        foreach ($configuration->getExtensionLibraries() as $library) {
-            if (file_exists($diConfiguration = sprintf('%s/%s/symfony/Resources/config/services.xml', $vendorDir, $library))) {
-                $defaultLoader->load($diConfiguration);
-            } else {
-                throw new \Exception(
-                    sprintf(
-                        'Can\'t load DI configuration for library "%s"',
-                        $diConfiguration
-                    )
-                );
-            }
-        }
-
-        // register autoloaders for additional vendor directories
-        $customLoader = new XmlFileLoader($container, new FileLocator());
-        foreach ($configuration->getAdditionalVendorDirs() as $additionalVendorDir) {
-            // load the vendor directory's auto loader
-            if (file_exists($autoLoader = $additionalVendorDir->getVendorDir() . '/autoload.php')) {
-                require $autoLoader;
-            } else {
-                throw new \Exception(
-                    sprintf(
-                        'Can\'t find autoloader in configured additional vendor directory "%s"',
-                        $additionalVendorDir->getVendorDir()
-                    )
-                );
-            }
-
-            // try to load the DI configuration for the configured extension libraries
-            foreach ($additionalVendorDir->getLibraries() as $library) {
-                // prepare the DI configuration filename
-                $diConfiguration = realpath(sprintf('%s/%s/symfony/Resources/config/services.xml', $additionalVendorDir->getVendorDir(), $library));
-                // try to load the filename
-                if (file_exists($diConfiguration)) {
-                    $customLoader->load($diConfiguration);
-                } else {
-                    throw new \Exception(
-                        sprintf(
-                            'Can\'t load DI configuration for library "%s"',
-                            $diConfiguration
-                        )
-                    );
-                }
-            }
-        }
-
-        // add the configuration as well as input/outut instances to the DI container
-        $container->set(SynteticServiceKeys::INPUT, $input);
-        $container->set(SynteticServiceKeys::OUTPUT, $output);
+        // add the configuration to the DI container
         $container->set(SynteticServiceKeys::CONFIGURATION, $configuration);
-        $container->set(SynteticServiceKeys::APPLICATION, $this->getApplication());
 
-        // initialize the PDO connection
-        $dsn = $configuration->getDatabase()->getDsn();
-        $username = $configuration->getDatabase()->getUsername();
-        $password = $configuration->getDatabase()->getPassword();
-        $connection = new \PDO($dsn, $username, $password);
-        $connection->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
-
-        // add the PDO connection to the DI container
-        $container->set(SynteticServiceKeys::CONNECTION, $connection);
-
-        // initialize the system logger
-        $loggers = array();
-
-        // initialize the default system logger
-        $systemLogger = new Logger('techdivision/import');
-        $systemLogger->pushHandler(
-            new ErrorLogHandler(
-                ErrorLogHandler::OPERATING_SYSTEM,
-                $configuration->getLogLevel()
-            )
-        );
-
-        // add it to the array
-        $loggers[LoggerKeys::SYSTEM] = $systemLogger;
-
-        // append the configured loggers or override the default one
-        foreach ($configuration->getLoggers() as $loggerConfiguration) {
-            // load the factory class that creates the logger instance
-            $loggerFactory = $loggerConfiguration->getFactory();
-            // create the logger instance and add it to the available loggers
-            $loggers[$loggerConfiguration->getName()] = $loggerFactory::factory($configuration, $loggerConfiguration);
-        }
-
-        // add the system loggers to the DI container
-        $container->set(SynteticServiceKeys::LOGGERS, $loggers);
+        // load the additional libraries
+        $container->get(DependencyInjectionKeys::LIBRARY_LOADER)->load($this);
 
         // start the import process
         $container->get(SynteticServiceKeys::SIMPLE)->process();
