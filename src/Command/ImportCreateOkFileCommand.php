@@ -20,9 +20,8 @@
 
 namespace TechDivision\Import\Cli\Command;
 
+use TechDivision\Import\Utils\CommandNames;
 use TechDivision\Import\ConfigurationInterface;
-use TechDivision\Import\Configuration\Jms\Configuration;
-use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
@@ -48,28 +47,11 @@ class ImportCreateOkFileCommand extends AbstractSimpleImportCommand
     {
 
         // initialize the command with the required/optional options
-        $this->setName('import:create:ok-file')
-            ->setDescription('Create\'s the OK file for the CSV files of the configured source directory')
-            ->addOption(
-                InputOptionKeys::CONFIGURATION,
-                null,
-                InputOption::VALUE_REQUIRED,
-                'Specify the pathname to the configuration file to use',
-                sprintf('%s/techdivision-import.json', getcwd())
-            )
-            ->addOption(
-                InputOptionKeys::LOG_LEVEL,
-                null,
-                InputOption::VALUE_REQUIRED,
-                'The log level to use'
-            )
-            ->addOption(
-                InputOptionKeys::PID_FILENAME,
-                null,
-                InputOption::VALUE_REQUIRED,
-                'The explicit PID filename to use',
-                sprintf('%s/%s', sys_get_temp_dir(), Configuration::PID_FILENAME)
-            );
+        $this->setName(CommandNames::IMPORT_CREATE_OK_FILE)
+             ->setDescription('Create\'s the OK file for the CSV files of the configured source directory');
+
+        // invoke the parent method
+        parent::configure();
     }
 
 
@@ -100,23 +82,33 @@ class ImportCreateOkFileCommand extends AbstractSimpleImportCommand
                     // load the prefix
                     $prefix = $subject->getPrefix();
 
-                    // prepare the OK file's content
-                    $okfileContent = '';
-                    foreach (glob(sprintf('%s/%s*.csv', $sourceDir, $prefix)) as $filename) {
-                        $okfileContent .= basename($filename) . PHP_EOL;
-                    }
+                    // load the CSVfiles from the source directory
+                    $csvFiles = glob(sprintf('%s/%s*.csv', $sourceDir, $prefix));
 
-                    // prepare the OK file's name
-                    $okFilename = sprintf('%s/%s.ok', $sourceDir, $prefix);
+                    // query whether or not any CSV files are available
+                    if (sizeof($csvFiles) > 0) {
+                        // prepare the OK file's content
+                        $okfileContent = '';
+                        foreach ($csvFiles as $filename) {
+                            $okfileContent .= basename($filename) . PHP_EOL;
+                        }
 
-                    // write the OK file
-                    if (file_put_contents($okFilename, $okfileContent)) {
-                        // write a message to the console
-                        $output->writeln(sprintf('<info>Successfully written OK file %s</info>', $okFilename));
+                        // prepare the OK file's name
+                        $okFilename = sprintf('%s/%s.ok', $sourceDir, $prefix);
+
+                        // write the OK file
+                        if (file_put_contents($okFilename, $okfileContent)) {
+                            // write a message to the console
+                            $output->writeln(sprintf('<info>Successfully written OK file %s</info>', $okFilename));
+
+                        } else {
+                            // write a message to the console
+                            $output->writeln(sprintf('<error>Can\'t write OK file %s</error>', $okFilename));
+                        }
 
                     } else {
                         // write a message to the console
-                        $output->writeln(sprintf('<error>Can\'t write OK file %s</error>', $okFilename));
+                        $output->writeln(sprintf('<error>Can\'t find any CSV files in source directory %s</error>', $sourceDir));
                     }
 
                     // stop the process

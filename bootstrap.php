@@ -33,7 +33,11 @@ $defaultLoader = new XmlFileLoader($container, new FileLocator($vendorDir));
 $defaultLoader->load(__DIR__ . '/symfony/Resources/config/services.xml');
 
 // initialize and run the application
-$statusCode = $container->get(DependencyInjectionKeys::APPLICATION)->run($container->get(DependencyInjectionKeys::INPUT));
+$statusCode = $container->get(DependencyInjectionKeys::APPLICATION)
+                        ->run(
+                            $container->get(DependencyInjectionKeys::INPUT),
+                            $container->get(DependencyInjectionKeys::OUTPUT)
+                        );
 
 // stop and render the status code
 exit($statusCode);

@@ -1,7 +1,7 @@
 <?php
 
 /**
- * TechDivision\Import\Cli\Command\ImportCommandInterface
+ * TechDivision\Import\Cli\ConfigurationLoader
  *
  * NOTICE OF LICENSE
  *
@@ -18,10 +18,10 @@
  * @link      http://www.techdivision.com
  */
 
-namespace TechDivision\Import\Cli\Command;
+namespace TechDivision\Import\Cli;
 
 /**
- * The interface for a import command implementation.
+ * The configuration loader implementation.
  *
  * @author    Tim Wagner <t.wagner@techdivision.com>
  * @copyright 2016 TechDivision GmbH <info@techdivision.com>
@@ -29,21 +29,17 @@ namespace TechDivision\Import\Cli\Command;
  * @link      https://github.com/techdivision/import-cli-simple
  * @link      http://www.techdivision.com
  */
-interface ImportCommandInterface
+interface ConfigurationLoaderInterface
 {
 
     /**
-     * Return's the absolute path to the actual vendor directory.
+     * Factory implementation to create a new initialized configuration instance.
      *
-     * @return string The absolute path to the actual vendor directory
-     * @throws \Exception Is thrown, if none of the possible vendor directories can be found
-     */
-    public function getVendorDir();
-
-    /**
-     * Return's the command's entity type code.
+     * If command line options are specified, they will always override the
+     * values found in the configuration file.
      *
-     * @return string The command's entity type code
+     * @return \TechDivision\Import\Cli\Configuration The configuration instance
+     * @throws \Exception Is thrown, if the specified configuration file doesn't exist or the mandatory arguments/options to run the requested operation are not available
      */
-    public function getEntityTypeCode();
+    public function load();
 }

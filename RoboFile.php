@@ -47,7 +47,7 @@ class RoboFile extends \Robo\Tasks
         'target.dir' => __DIR__ . '/target',
         'symfony.dir' => __DIR__ . '/symfony',
         'webapp.name' => 'import-cli-simple',
-        'webapp.version' => '1.0.0-beta.12'
+        'webapp.version' => '1.0.0-beta.21'
     );
 
     /**
@@ -109,6 +109,9 @@ class RoboFile extends \Robo\Tasks
      */
     public function createPhar()
     {
+
+        // run the build process
+        $this->build();
 
         // prepare the PHAR archive name
         $archiveName = sprintf(

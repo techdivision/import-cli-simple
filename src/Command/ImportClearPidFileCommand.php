@@ -20,9 +20,8 @@
 
 namespace TechDivision\Import\Cli\Command;
 
+use TechDivision\Import\Utils\CommandNames;
 use TechDivision\Import\ConfigurationInterface;
-use TechDivision\Import\Configuration\Jms\Configuration;
-use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
@@ -48,28 +47,11 @@ class ImportClearPidFileCommand extends AbstractSimpleImportCommand
     {
 
         // initialize the command with the required/optional options
-        $this->setName('import:clear:pid-file')
-            ->setDescription('Clears the PID file from a previous import process, if it has not been cleaned up')
-            ->addOption(
-                InputOptionKeys::CONFIGURATION,
-                null,
-                InputOption::VALUE_REQUIRED,
-                'Specify the pathname to the configuration file to use',
-                sprintf('%s/techdivision-import.json', getcwd())
-            )
-            ->addOption(
-                InputOptionKeys::LOG_LEVEL,
-                null,
-                InputOption::VALUE_REQUIRED,
-                'The log level to use'
-            )
-            ->addOption(
-                InputOptionKeys::PID_FILENAME,
-                null,
-                InputOption::VALUE_REQUIRED,
-                'The explicit PID filename to use',
-                sprintf('%s/%s', sys_get_temp_dir(), Configuration::PID_FILENAME)
-            );
+        $this->setName(CommandNames::IMPORT_CLEAR_PID_FILE)
+             ->setDescription('Clears the PID file from a previous import process, if it has not been cleaned up');
+
+        // invoke the parent method
+        parent::configure();
     }
 
     /**

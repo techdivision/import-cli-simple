@@ -20,7 +20,7 @@
 
 namespace TechDivision\Import\Cli\Command;
 
-use TechDivision\Import\Utils\EntityTypeCodes;
+use TechDivision\Import\Utils\CommandNames;
 
 /**
  * The import command implementation.
@@ -44,20 +44,10 @@ class ImportProductsCommand extends AbstractImportCommand
     {
 
         // initialize the command with the required/optional options
-        $this->setName('import:products')
+        $this->setName(CommandNames::IMPORT_PRODUCTS)
              ->setDescription('Imports products in the configured Magento 2 instance');
 
         // invoke the parent method
         parent::configure();
-    }
-
-    /**
-     * Return's the command's entity type code.
-     *
-     * @return string The command's entity type code
-     */
-    public function getEntityTypeCode()
-    {
-        return EntityTypeCodes::CATALOG_PRODUCT;
     }
 }

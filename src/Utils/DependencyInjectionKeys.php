@@ -29,32 +29,22 @@ namespace TechDivision\Import\Cli\Utils;
  * @link      https://github.com/techdivision/import-cli-simple
  * @link      http://www.techdivision.com
  */
-class DependencyInjectionKeys
+class DependencyInjectionKeys extends \TechDivision\Import\App\Utils\DependencyInjectionKeys
 {
-
-    /**
-     * This is a utility class, so protect it against direct
-     * instantiation.
-     */
-    private function __construct()
-    {
-    }
-
-    /**
-     * This is a utility class, so protect it against cloning.
-     *
-     * @return void
-     */
-    private function __clone()
-    {
-    }
 
     /**
      * The key for the input instance.
      *
      * @var string
      */
-    const INPUT = 'import_cli_simple.input';
+    const INPUT = 'input';
+
+    /**
+     * The key for the output instance.
+     *
+     * @var string
+     */
+    const OUTPUT = 'output';
 
     /**
      * The key for the application instance.
@@ -64,16 +54,16 @@ class DependencyInjectionKeys
     const APPLICATION = 'import_cli_simple.application';
 
     /**
+     * The key for the simple configuration instance.
+     *
+     * @var string
+     */
+    const CONFIGURATION_SIMPLE = 'configuration.simple';
+
+    /**
      * The key for the vendor directory.
      *
      * @var string
      */
     const CONFIGURATION_VENDOR_DIR = 'import_cli_simple.configuration.vendor.dir';
-
-    /**
-     * The key for the configuration loader.
-     *
-     * @var string
-     */
-    const CONFIGURATION_LOADER = 'import_cli_simple.configuration.loader';
 }
