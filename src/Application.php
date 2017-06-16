@@ -67,14 +67,15 @@ class Application extends \Symfony\Component\Console\Application implements Cont
     public function __construct(ContainerInterface $container)
     {
 
-        // invoke the parent constructor
-        parent::__construct($this->name, vsprintf('%d.%d.%d-%s', $this->parse(dirname(__DIR__) . DIRECTORY_SEPARATOR . '.semver')));
-
         // set the DI container instance
         $this->setContainer($container);
+
+        // invoke the parent constructor
+        parent::__construct($this->name, vsprintf('%d.%d.%d-%s', $this->parse(dirname(__DIR__) . DIRECTORY_SEPARATOR . '.semver')));
     }
+
     /**
-     * Sets the container.
+     * Sets the DI container instance.
      *
      * @param \Symfony\Component\DependencyInjection\ContainerInterface|null $container The DI container instance
      *
@@ -88,7 +89,7 @@ class Application extends \Symfony\Component\Console\Application implements Cont
     /**
      * Return's the DI container instance.
      *
-     * @return \Symfony\Component\DependencyInjection\ContainerInterface The DI container instance
+     * @return \Symfony\Component\DependencyInjection\ContainerInterface|null The DI container instance
      */
     public function getContainer()
     {

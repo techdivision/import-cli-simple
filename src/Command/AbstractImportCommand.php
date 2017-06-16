@@ -20,17 +20,14 @@
 
 namespace TechDivision\Import\Cli\Command;
 
-use TechDivision\Import\Utils\OperationKeys;
-use TechDivision\Import\App\Simple;
-use TechDivision\Import\App\Utils\SynteticServiceKeys;
-use TechDivision\Import\Cli\Utils\DependencyInjectionKeys;
-use TechDivision\Import\Configuration\Jms\Configuration;
-use TechDivision\Import\Configuration\Jms\Configuration\Database;
 use Symfony\Component\Console\Command\Command;
-use Symfony\Component\Console\Input\InputOption;
-use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
+use Symfony\Component\Console\Input\InputArgument;
+use TechDivision\Import\Utils\OperationKeys;
+use TechDivision\Import\Configuration\Jms\Configuration;
+use Symfony\Component\Console\Input\InputOption;
+use TechDivision\Import\Cli\Utils\DependencyInjectionKeys;
 
 /**
  * The abstract import command implementation.
@@ -41,7 +38,7 @@ use Symfony\Component\Console\Output\OutputInterface;
  * @link      https://github.com/techdivision/import-cli-simple
  * @link      http://www.techdivision.com
  */
-abstract class AbstractImportCommand extends Command implements ImportCommandInterface
+abstract class AbstractImportCommand extends Command
 {
 
     /**
@@ -53,124 +50,36 @@ abstract class AbstractImportCommand extends Command implements ImportCommandInt
     protected function configure()
     {
 
-        // initialize the command with the required/optional options
-        $this->addArgument(
-            InputArgumentKeys::OPERATION_NAME,
-            InputArgument::OPTIONAL,
-            'The operation that has to be used for the import, one of "add-update", "replace" or "delete"',
-            OperationKeys::ADD_UPDATE
-        )
-        ->addOption(
-            InputOptionKeys::INSTALLATION_DIR,
-            null,
-            InputOption::VALUE_REQUIRED,
-            'The Magento installation directory to which the files has to be imported',
-            getcwd()
-        )
-        ->addOption(
-            InputOptionKeys::SYSTEM_NAME,
-            null,
-            InputOption::VALUE_REQUIRED,
-            'Specify the system name to use',
-            gethostname()
-        )
-        ->addOption(
-            InputOptionKeys::PID_FILENAME,
-            null,
-            InputOption::VALUE_REQUIRED,
-            'The explicit PID filename to use',
-            sprintf('%s/%s', sys_get_temp_dir(), Configuration::PID_FILENAME)
-        )
-        ->addOption(
-            InputOptionKeys::MAGENTO_EDITION,
-            null,
-            InputOption::VALUE_REQUIRED,
-            'The Magento edition to be used, either one of "CE" or "EE"'
-        )
-        ->addOption(
-            InputOptionKeys::MAGENTO_VERSION,
-            null,
-            InputOption::VALUE_REQUIRED,
-            'The Magento version to be used, e. g. "2.1.2"'
-        )
-        ->addOption(
-            InputOptionKeys::CONFIGURATION,
-            null,
-            InputOption::VALUE_REQUIRED,
-            'Specify the pathname to the configuration file to use'
-        )
-        ->addOption(
-            InputOptionKeys::ENTITY_TYPE_CODE,
-            null,
-            InputOption::VALUE_REQUIRED,
-            'Specify the entity type code to use, either one of "catalog_product", "catalog_category" or "eav_attribute"'
-        )
-        ->addOption(
-            InputOptionKeys::SOURCE_DIR,
-            null,
-            InputOption::VALUE_REQUIRED,
-            'The directory that has to be watched for new files'
-        )
-        ->addOption(
-            InputOptionKeys::TARGET_DIR,
-            null,
-            InputOption::VALUE_REQUIRED,
-            'The target directory with the files that has been imported'
-        )
-        ->addOption(
-            InputOptionKeys::ARCHIVE_DIR,
-            null,
-            InputOption::VALUE_REQUIRED,
-            'The directory the imported files will be archived in'
-        )
-        ->addOption(
-            InputOptionKeys::ARCHIVE_ARTEFACTS,
-            null,
-            InputOption::VALUE_REQUIRED,
-            'Whether or not files should be archived'
-        )
-        ->addOption(
-            InputOptionKeys::SOURCE_DATE_FORMAT,
-            null,
-            InputOption::VALUE_REQUIRED,
-            'The date format used in the CSV file(s)'
-        )
-        ->addOption(
-            InputOptionKeys::USE_DB_ID,
-            null,
-            InputOption::VALUE_REQUIRED,
-            'The explicit database ID used for the actual import process'
-        )
-        ->addOption(
-            InputOptionKeys::DB_PDO_DSN,
-            null,
-            InputOption::VALUE_REQUIRED,
-            'The DSN used to connect to the Magento database where the data has to be imported, e. g. mysql:host=127.0.0.1;dbname=magento;charset=utf8'
-        )
-        ->addOption(
-            InputOptionKeys::DB_USERNAME,
-            null,
-            InputOption::VALUE_REQUIRED,
-            'The username used to connect to the Magento database'
-        )
-        ->addOption(
-            InputOptionKeys::DB_PASSWORD,
-            null,
-            InputOption::VALUE_REQUIRED,
-            'The password used to connect to the Magento database'
-        )
-        ->addOption(
-            InputOptionKeys::LOG_LEVEL,
-            null,
-            InputOption::VALUE_REQUIRED,
-            'The log level to use'
-        )
-        ->addOption(
-            InputOptionKeys::DEBUG_MODE,
-            null,
-            InputOption::VALUE_REQUIRED,
-            'Whether or not debug mode should be used'
-        );
+        // configure the command
+        $this->addArgument(InputArgumentKeys::OPERATION_NAME, InputArgument::OPTIONAL, 'The operation that has to be used for the import, one of "add-update", "replace" or "delete"', OperationKeys::ADD_UPDATE)
+             ->addOption(InputOptionKeys::INSTALLATION_DIR, null, InputOption::VALUE_REQUIRED, 'The Magento installation directory to which the files has to be imported', getcwd())
+             ->addOption(InputOptionKeys::SYSTEM_NAME, null, InputOption::VALUE_REQUIRED, 'Specify the system name to use', gethostname())
+             ->addOption(InputOptionKeys::PID_FILENAME, null, InputOption::VALUE_REQUIRED, 'The explicit PID filename to use', sprintf('%s/%s', sys_get_temp_dir(), Configuration::PID_FILENAME))
+             ->addOption(InputOptionKeys::MAGENTO_EDITION, null, InputOption::VALUE_REQUIRED, 'The Magento edition to be used, either one of "CE" or "EE"', 'CE')
+             ->addOption(InputOptionKeys::MAGENTO_VERSION, null, InputOption::VALUE_REQUIRED, 'The Magento version to be used, e. g. "2.1.2"')
+             ->addOption(InputOptionKeys::CONFIGURATION, null, InputOption::VALUE_REQUIRED, 'Specify the pathname to the configuration file to use')
+             ->addOption(InputOptionKeys::ENTITY_TYPE_CODE, null, InputOption::VALUE_REQUIRED, 'Specify the entity type code to use, either one of "catalog_product", "catalog_category" or "eav_attribute"')
+             ->addOption(InputOptionKeys::SOURCE_DIR, null, InputOption::VALUE_REQUIRED, 'The directory that has to be watched for new files')
+             ->addOption(InputOptionKeys::TARGET_DIR, null, InputOption::VALUE_REQUIRED, 'The target directory with the files that has been imported')
+             ->addOption(InputOptionKeys::ARCHIVE_DIR, null, InputOption::VALUE_REQUIRED, 'The directory the imported files will be archived in')
+             ->addOption(InputOptionKeys::ARCHIVE_ARTEFACTS, null, InputOption::VALUE_REQUIRED, 'Whether or not files should be archived')
+             ->addOption(InputOptionKeys::SOURCE_DATE_FORMAT, null, InputOption::VALUE_REQUIRED, 'The date format used in the CSV file(s)')
+             ->addOption(InputOptionKeys::USE_DB_ID, null, InputOption::VALUE_REQUIRED, 'The explicit database ID used for the actual import process')
+             ->addOption(InputOptionKeys::DB_PDO_DSN, null, InputOption::VALUE_REQUIRED, 'The DSN used to connect to the Magento database where the data has to be imported, e. g. mysql:host=127.0.0.1;dbname=magento;charset=utf8')
+             ->addOption(InputOptionKeys::DB_USERNAME, null, InputOption::VALUE_REQUIRED, 'The username used to connect to the Magento database')
+             ->addOption(InputOptionKeys::DB_PASSWORD, null, InputOption::VALUE_REQUIRED, 'The password used to connect to the Magento database')
+             ->addOption(InputOptionKeys::LOG_LEVEL, null, InputOption::VALUE_REQUIRED, 'The log level to use')
+             ->addOption(InputOptionKeys::DEBUG_MODE, null, InputOption::VALUE_REQUIRED, 'Whether or not debug mode should be used');
+    }
+
+    /**
+     * Return's the container instance.
+     *
+     * @return \Symfony\Component\DependencyInjection\ContainerInterface The container instance
+     */
+    protected function getContainer()
+    {
+        return $this->getApplication()->getContainer();
     }
 
     /**
@@ -190,34 +99,7 @@ abstract class AbstractImportCommand extends Command implements ImportCommandInt
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-
-        // load the container instance
-        $container = $this->getApplication()->getContainer();
-
-        // initialize and load the importer configuration
-        /** @var \TechDivision\Import\ConfigurationInterface $configuration */
-        $configuration = $container->get(DependencyInjectionKeys::CONFIGURATION_LOADER)->load($input, $this->getEntityTypeCode());
-
-        // add the configuration to the DI container
-        $container->set(SynteticServiceKeys::CONFIGURATION, $configuration);
-
-        // load the additional libraries
-        $container->get(DependencyInjectionKeys::LIBRARY_LOADER)->load($this);
-
-        // start the import process
-        $container->get(SynteticServiceKeys::SIMPLE)->process();
-    }
-
-    /**
-     * Return's the absolute path to the actual vendor directory.
-     *
-     * @return string The absolute path to the actual vendor directory
-     * @throws \Exception Is thrown, if none of the possible vendor directories can be found
-     */
-    public function getVendorDir()
-    {
-        return $this->getApplication()
-                    ->getContainer()
-                    ->getParameter(DependencyInjectionKeys::CONFIGURATION_VENDOR_DIR);
+        $this->getContainer()->get(DependencyInjectionKeys::CONFIGURATION);
+        $this->getContainer()->get(DependencyInjectionKeys::SIMPLE)->process();
     }
 }

@@ -20,13 +20,13 @@
 
 namespace TechDivision\Import\Cli\Command;
 
-use JMS\Serializer\SerializerBuilder;
-use TechDivision\Import\Cli\Simple;
-use TechDivision\Import\Cli\Configuration;
-use TechDivision\Import\ConfigurationInterface;
 use Symfony\Component\Console\Command\Command;
+use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
+use TechDivision\Import\ConfigurationInterface;
+use TechDivision\Import\Configuration\Jms\Configuration;
+use TechDivision\Import\Cli\Utils\DependencyInjectionKeys;
 
 /**
  * Abstract command implementation for simple import commands (not using Importer class).
@@ -41,40 +41,31 @@ abstract class AbstractSimpleImportCommand extends Command
 {
 
     /**
-     * Factory implementation to create a new initialized configuration instance.
+     * Configures the current command.
      *
-     * If command line options are specified, they will always override the
-     * values found in the configuration file.
-     *
-     * @param \Symfony\Component\Console\Input\InputInterface $input The Symfony console input instance
-     *
-     * @return \TechDivision\Import\Cli\Configuration The configuration instance
-     * @throws \Exception Is thrown, if the specified configuration file doesn't exist
+     * @return void
+     * @see \Symfony\Component\Console\Command\Command::configure()
      */
-    protected function configurationFactory(InputInterface $input)
+    protected function configure()
     {
 
-        // load the configuration filename we want to use
-        $filename = $input->getOption(InputOptionKeys::CONFIGURATION);
+        // configure the command
+        $this->addOption(InputOptionKeys::PID_FILENAME, null, InputOption::VALUE_REQUIRED, 'The explicit PID filename to use', sprintf('%s/%s', sys_get_temp_dir(), Configuration::PID_FILENAME))
+             ->addOption(InputOptionKeys::INSTALLATION_DIR, null, InputOption::VALUE_REQUIRED, 'The Magento installation directory to which the files has to be imported', $installationDir = getcwd())
+             ->addOption(InputOptionKeys::SOURCE_DIR, null, InputOption::VALUE_REQUIRED, 'The directory that has to be watched for new files', sprintf('%s/var/importexport', $installationDir))
+             ->addOption(InputOptionKeys::MAGENTO_EDITION, null, InputOption::VALUE_REQUIRED, 'The Magento edition to be used, either one of "CE" or "EE"', 'CE')
+             ->addOption(InputOptionKeys::CONFIGURATION, null, InputOption::VALUE_REQUIRED, 'Specify the pathname to the configuration file to use')
+             ->addOption(InputOptionKeys::LOG_LEVEL, null, InputOption::VALUE_REQUIRED, 'The log level to use');
+    }
 
-        // load the JSON data
-        if (!$jsonData = file_get_contents($filename)) {
-            throw new \Exception(sprintf('Can\'t load configuration file %s', $filename));
-        }
-
-        // initialize the JMS serializer and load the configuration
-        $serializer = SerializerBuilder::create()->build();
-        /** @var \TechDivision\Import\Cli\Configuration $instance */
-        $instance = $serializer->deserialize($jsonData, 'TechDivision\Import\Cli\Configuration', 'json');
-
-        // query whether or not a PID filename has been specified as command line
-        // option, if yes override the value from the configuration file
-        if ($pidFilename = $input->getOption(InputOptionKeys::PID_FILENAME)) {
-            $instance->setPidFilename($pidFilename);
-        }
-
-        // return the initialized configuration instance
-        return $instance;
+    /**
+     * Return's the container instance.
+     *
+     * @return \Symfony\Component\DependencyInjection\ContainerInterface The container instance
+     */
+    protected function getContainer()
+    {
+        return $this->getApplication()->getContainer();
     }
 
     /**
@@ -95,39 +86,8 @@ abstract class AbstractSimpleImportCommand extends Command
     protected function execute(InputInterface $input, OutputInterface $output)
     {
 
-        // initialize the flag, whether the JMS annotations has been loaded or not
-        $loaded = false;
-
-        // the possible paths to the JMS annotations
-        $annotationDirectories = array(
-            dirname(__DIR__) . '/../../../jms/serializer/src',
-            dirname(__DIR__) . '/../vendor/jms/serializer/src'
-        );
-
-        // register the JMS Serializer annotations
-        foreach ($annotationDirectories as $annotationDirectory) {
-            if (file_exists($annotationDirectory)) {
-                \Doctrine\Common\Annotations\AnnotationRegistry::registerAutoloadNamespace(
-                    'JMS\Serializer\Annotation',
-                    $annotationDirectory
-                );
-                $loaded = true;
-                break;
-            }
-        }
-
-        // stop processing, if the JMS annotations can't be loaded
-        if (!$loaded) {
-            throw new \Exception(
-                sprintf(
-                    'The JMS annotations can not be found in one of paths %s',
-                    implode(', ', $annotationDirectories)
-                )
-            );
-        }
-
-        // load the specified configuration
-        $configuration = $this->configurationFactory($input);
+        // try to load the configuration file
+        $configuration = $this->getContainer()->get(DependencyInjectionKeys::CONFIGURATION_SIMPLE);
 
         // finally execute the simple command
         $this->executeSimpleCommand($configuration, $input, $output);

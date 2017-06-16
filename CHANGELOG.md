@@ -6,6 +6,9 @@
 
 ## Features
 
+* Refactor ConfigurationLoader, add SimpleConfigurationLoader
+* Refactor command classes for usage with SimpleConfigurationLoader
+* Add LibraryLoader class to load external libraries found in configuration
 * Switch to latest library version for better DI support
 
 # Version 1.0.0-beta20

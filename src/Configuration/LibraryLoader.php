@@ -1,7 +1,7 @@
 <?php
 
 /**
- * TechDivision\Import\Cli\LibraryLoader
+ * TechDivision\Import\Cli\Configuration\LibraryLoader
  *
  * NOTICE OF LICENSE
  *
@@ -18,13 +18,14 @@
  * @link      http://www.techdivision.com
  */
 
-namespace TechDivision\Import\Cli;
+namespace TechDivision\Import\Cli\Configuration;
 
 use Symfony\Component\Config\FileLocator;
+use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\DependencyInjection\Loader\XmlFileLoader;
 use TechDivision\Import\ConfigurationInterface;
-use TechDivision\Import\Cli\Command\ImportCommandInterface;
+use TechDivision\Import\Cli\Utils\DependencyInjectionKeys;
 
 /**
  * The library loader implementation.
@@ -39,50 +40,68 @@ class LibraryLoader
 {
 
     /**
-     * The DI container instance.
+     * The container instance.
      *
      * @var \Symfony\Component\DependencyInjection\ContainerInterface
      */
     protected $container;
 
     /**
-     * The configuration instance.
+     * The actual input instance.
      *
-     * @var \TechDivision\Import\ConfigurationInterface
+     * @var \Symfony\Component\Console\Input\InputInterface
      */
-    protected $configuration;
+    protected $input;
 
     /**
-     * The constructor to initialize the instance.
+     * Initializes the configuration loader.
      *
-     * @param \Symfony\Component\DependencyInjection\ContainerInterface $container     The DI container instance
-     * @param \TechDivision\Import\ConfigurationInterface               $configuration The configuration instance
+     * @param \Symfony\Component\Console\Input\InputInterface           $input     The input instance
+     * @param \Symfony\Component\DependencyInjection\ContainerInterface $container The container instance
      */
-    public function __construct(
-        ContainerInterface $container,
-        ConfigurationInterface $configuration
-    ) {
-        $this->container = $container;
-        $this->configuration = $configuration;
+    public function __construct(InputInterface $input, ContainerInterface $container)
+    {
+        $this->input = $input;
+        $this->container= $container;
     }
 
     /**
-     * Factory implementation to create a new initialized configuration instance.
+     * Return's the DI container instance.
      *
-     * @param \TechDivision\Import\Cli\Command\ImportCommandInterface $command The import command instance
+     * @return \Symfony\Component\DependencyInjection\ContainerInterface The DI container instance
+     */
+    protected function getContainer()
+    {
+        return $this->container;
+    }
+
+    /**
+     * Return's the absolute path to the actual vendor directory.
+     *
+     * @return string The absolute path to the actual vendor directory
+     * @throws \Exception Is thrown, if none of the possible vendor directories can be found
+     */
+    protected function getVendorDir()
+    {
+        return $this->getContainer()->getParameter(DependencyInjectionKeys::CONFIGURATION_VENDOR_DIR);
+    }
+
+    /**
+     * Load's the external libraries registered in the passed configuration.
+     *
+     * @param \TechDivision\Import\ConfigurationInterface $configuration The configuration instance
      *
      * @return void
      */
-    public function load(ImportCommandInterface $command)
+    public function load(ConfigurationInterface $configuration)
     {
 
-
         // initialize the default loader and load the DI configuration for the this library
-        $defaultLoader = new XmlFileLoader($this->container, new FileLocator($vendorDir));
+        $defaultLoader = new XmlFileLoader($this->getContainer(), new FileLocator($this->getVendorDir()));
 
         // load the DI configuration for all the extension libraries
-        foreach ($this->configuration->getExtensionLibraries() as $library) {
-            if (file_exists($diConfiguration = sprintf('%s/%s/symfony/Resources/config/services.xml', $command->getVendorDir(), $library))) {
+        foreach ($configuration->getExtensionLibraries() as $library) {
+            if (file_exists($diConfiguration = sprintf('%s/%s/symfony/Resources/config/services.xml', $this->getVendorDir(), $library))) {
                 $defaultLoader->load($diConfiguration);
             } else {
                 throw new \Exception(
@@ -95,8 +114,8 @@ class LibraryLoader
         }
 
         // register autoloaders for additional vendor directories
-        $customLoader = new XmlFileLoader($this->container, new FileLocator());
-        foreach ($this->configuration->getAdditionalVendorDirs() as $additionalVendorDir) {
+        $customLoader = new XmlFileLoader($this->getContainer(), new FileLocator());
+        foreach ($configuration->getAdditionalVendorDirs() as $additionalVendorDir) {
             // load the vendor directory's auto loader
             if (file_exists($autoLoader = $additionalVendorDir->getVendorDir() . '/autoload.php')) {
                 require $autoLoader;
