@@ -58,7 +58,6 @@ abstract class AbstractImportCommand extends Command
              ->addOption(InputOptionKeys::MAGENTO_EDITION, null, InputOption::VALUE_REQUIRED, 'The Magento edition to be used, either one of "CE" or "EE"', 'CE')
              ->addOption(InputOptionKeys::MAGENTO_VERSION, null, InputOption::VALUE_REQUIRED, 'The Magento version to be used, e. g. "2.1.2"')
              ->addOption(InputOptionKeys::CONFIGURATION, null, InputOption::VALUE_REQUIRED, 'Specify the pathname to the configuration file to use')
-             ->addOption(InputOptionKeys::ENTITY_TYPE_CODE, null, InputOption::VALUE_REQUIRED, 'Specify the entity type code to use, either one of "catalog_product", "catalog_category" or "eav_attribute"')
              ->addOption(InputOptionKeys::SOURCE_DIR, null, InputOption::VALUE_REQUIRED, 'The directory that has to be watched for new files')
              ->addOption(InputOptionKeys::TARGET_DIR, null, InputOption::VALUE_REQUIRED, 'The target directory with the files that has been imported')
              ->addOption(InputOptionKeys::ARCHIVE_DIR, null, InputOption::VALUE_REQUIRED, 'The directory the imported files will be archived in')

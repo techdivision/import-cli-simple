@@ -47,13 +47,6 @@ class DependencyInjectionKeys extends \TechDivision\Import\App\Utils\DependencyI
     const OUTPUT = 'output';
 
     /**
-     * The key for the application instance.
-     *
-     * @var string
-     */
-    const APPLICATION = 'import_cli_simple.application';
-
-    /**
      * The key for the simple configuration instance.
      *
      * @var string
