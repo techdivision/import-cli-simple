@@ -20,8 +20,9 @@
         <service id="import_cli_simple.command.import.attributes" class="TechDivision\Import\Cli\Command\ImportAttributesCommand"/>
         <service id="import_cli_simple.command.import.clear.pid.file" class="TechDivision\Import\Cli\Command\ImportClearPidFileCommand"/>
         <service id="import_cli_simple.command.import.create.ok.file" class="TechDivision\Import\Cli\Command\ImportCreateOkFileCommand"/>
+        <service id="import_cli_simple.command.import.create.configuration.file" class="TechDivision\Import\Cli\Command\ImportCreateConfigurationFileCommand"/>
 
-        <service id="import_cli_simple.application" class="TechDivision\Import\Cli\Application">
+        <service id="application" class="TechDivision\Import\Cli\Application">
             <argument type="service" id="service_container"/>
             <call method="add">
                 <argument id="import_cli_simple.command.import.products" type="service"/>
@@ -37,6 +38,9 @@
             </call>
             <call method="add">
                 <argument id="import_cli_simple.command.import.create.ok.file" type="service"/>
+            </call>
+            <call method="add">
+                <argument id="import_cli_simple.command.import.create.configuration.file" type="service"/>
             </call>
         </service>
 

@@ -174,4 +174,11 @@ class InputOptionKeys
      * @var string
      */
     const ENTITY_TYPE_CODE = 'entity-type-code';
+
+    /**
+     * The input option key for the destination pathname to use.
+     *
+     * @var string
+     */
+    const DEST = 'dest';
 }

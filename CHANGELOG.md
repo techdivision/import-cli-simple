@@ -1,3 +1,15 @@
+# Version 1.0.0-beta27
+
+## Bugfixes
+
+* None
+
+## Features
+
+* Add command to create a dummy configuration file
+* Add configurable CSV import + export adapters
+* Update all libraries because of switch to new plugin + subject factory implementations
+
 # Version 1.0.0-beta26
 
 ## Bugfixes
@@ -8,6 +20,46 @@
 
 * Update techdivions/import-attribute package
 * Update techdivions/import package
+
+# Version 1.0.0-beta25
+
+## Bugfixes
+
+* None
+
+## Features
+
+* Update techdivion/import package
+
+# Version 1.0.0-beta24
+
+## Bugfixes
+
+* None
+
+## Features
+
+* Update import-product package
+
+# Version 1.0.0-beta23
+
+## Bugfixes
+
+* None
+
+## Features
+
+* Update import-attribute package
+
+# Version 1.0.0-beta22
+
+## Bugfixes
+
+* None
+
+## Features
+
+* Update import-attribute package version
 
 # Version 1.0.0-beta21
 
