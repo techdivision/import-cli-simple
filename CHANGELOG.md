@@ -1,3 +1,14 @@
+# Version 1.0.0-beta26
+
+## Bugfixes
+
+* None
+
+## Features
+
+* Update techdivions/import-attribute package
+* Update techdivions/import package
+
 # Version 1.0.0-beta21
 
 ## Bugfixes
