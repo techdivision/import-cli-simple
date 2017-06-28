@@ -1,4 +1,4 @@
-# Version 1.0.0-beta25patch1
+# Version 1.0.0-beta25.1
 
 ## Bugfixes
 
