@@ -1,3 +1,14 @@
+# Version 1.0.0-beta30
+
+## Bugfixes
+
+* Bugfix in techdivision/import package
+** Fix issue which caused ID sorted category paths
+
+## Features
+
+* None
+
 # Version 1.0.0-beta29
 
 ## Bugfixes
