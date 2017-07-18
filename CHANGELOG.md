@@ -1,9 +1,19 @@
+# Version 1.0.0-beta31
+
+## Bugfixes
+
+* Bugfix in techdivision/import-product package
+
+## Features
+
+* None
+
 # Version 1.0.0-beta30
 
 ## Bugfixes
 
 * Bugfix in techdivision/import package
-** Fix issue which caused ID sorted category paths
+* Fix issue which caused ID sorted category paths
 
 ## Features
 
@@ -14,7 +24,7 @@
 ## Bugfixes
 
 * Update attribute import package
-** Fix issue which caused, that all attribute settings were overriten by default values
+* Fix issue which caused, that all attribute settings were overriten by default values
 
 ## Features
 
