@@ -22,17 +22,14 @@ namespace TechDivision\Import\Cli;
 
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
-use TechDivision\Import\App\Simple;
-use TechDivision\Import\Utils\CommandNames;
-use TechDivision\Import\Utils\EntityTypeCodes;
+use TechDivision\Import\ConfigurationFactoryInterface;
 use TechDivision\Import\Cli\Command\InputOptionKeys;
 use TechDivision\Import\Cli\Configuration\LibraryLoader;
 use TechDivision\Import\Cli\Utils\DependencyInjectionKeys;
 use TechDivision\Import\Cli\Utils\MagentoConfigurationKeys;
+use TechDivision\Import\Utils\CommandNames;
+use TechDivision\Import\Utils\EntityTypeCodes;
 use TechDivision\Import\Utils\Mappings\CommandNameToEntityTypeCode;
-use TechDivision\Import\ConfigurationFactoryInterface;
-use TechDivision\Import\Configuration\Jms\Configuration;
-use TechDivision\Import\Configuration\Jms\ConfigurationFactory;
 
 /**
  * The configuration loader implementation.
@@ -125,7 +122,7 @@ class SimpleConfigurationLoader implements ConfigurationLoaderInterface
      *
      * @param \Symfony\Component\Console\Input\InputInterface                 $input                        The input instance
      * @param \Symfony\Component\DependencyInjection\ContainerInterface       $container                    The container instance
-     * @param \TechDivision\Import\Cli\LibraryLoader                          $libraryLoader                The configuration loader instance
+     * @param \TechDivision\Import\Cli\Configuration\LibraryLoader            $libraryLoader                The configuration loader instance
      * @param \TechDivision\Import\ConfigurationFactoryInterface              $configurationFactory         The configuration factory instance
      * @param \TechDivision\Import\Utils\CommandNames                         $commandNames                 The available command names
      * @param \TechDivision\Import\Utils\Mappings\CommandNameToEntityTypeCode $commandNameToEntityTypeCodes The mapping of the command names to the entity type codes
@@ -154,7 +151,7 @@ class SimpleConfigurationLoader implements ConfigurationLoaderInterface
      * If command line options are specified, they will always override the
      * values found in the configuration file.
      *
-     * @return \TechDivision\Import\Cli\Configuration The configuration instance
+     * @return \TechDivision\Import\ConfigurationInterface The configuration instance
      * @throws \Exception Is thrown, if the specified configuration file doesn't exist or the mandatory arguments/options to run the requested operation are not available
      */
     public function load()

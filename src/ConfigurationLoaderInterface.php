@@ -38,7 +38,7 @@ interface ConfigurationLoaderInterface
      * If command line options are specified, they will always override the
      * values found in the configuration file.
      *
-     * @return \TechDivision\Import\Cli\Configuration The configuration instance
+     * @return \TechDivision\Import\ConfigurationInterface The configuration instance
      * @throws \Exception Is thrown, if the specified configuration file doesn't exist or the mandatory arguments/options to run the requested operation are not available
      */
     public function load();

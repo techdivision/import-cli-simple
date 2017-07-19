@@ -110,6 +110,9 @@ class Application extends \Symfony\Component\Console\Application implements Cont
         // load the content of the semver file
         $output = file_get_contents($semverFile);
 
+        // initialize the array with the matches
+        $matches = array();
+
         // extract the version information
         if (!preg_match_all(self::REGEX, $output, $matches)) {
             throw new \Exception($this, 'Bad semver file.');

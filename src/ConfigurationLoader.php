@@ -22,14 +22,11 @@ namespace TechDivision\Import\Cli;
 
 use Psr\Log\LogLevel;
 use Rhumsaa\Uuid\Uuid;
-use TechDivision\Import\App\Simple;
-use TechDivision\Import\Utils\EntityTypeCodes;
-use TechDivision\Import\Cli\Command\InputOptionKeys;
 use TechDivision\Import\Cli\Command\InputArgumentKeys;
-use TechDivision\Import\Cli\Configuration\LibraryLoader;
+use TechDivision\Import\Cli\Command\InputOptionKeys;
 use TechDivision\Import\Cli\Utils\MagentoConfigurationKeys;
-use TechDivision\Import\Configuration\Jms\Configuration;
 use TechDivision\Import\Configuration\Jms\Configuration\Database;
+use TechDivision\Import\Utils\EntityTypeCodes;
 
 /**
  * The configuration loader implementation.
@@ -97,7 +94,7 @@ class ConfigurationLoader extends SimpleConfigurationLoader
      * If command line options are specified, they will always override the
      * values found in the configuration file.
      *
-     * @return \TechDivision\Import\Cli\Configuration The configuration instance
+     * @return \TechDivision\Import\ConfigurationInterface The configuration instance
      * @throws \Exception Is thrown, if the specified configuration file doesn't exist or the mandatory arguments/options to run the requested operation are not available
      */
     public function load()
