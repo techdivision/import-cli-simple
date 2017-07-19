@@ -1,3 +1,14 @@
+# Version 1.0.0-beta32
+
+## Bugfixes
+
+* None
+
+## Features
+
+* Switch to latest libraries
+* Invoke library PHPUnit tests on build task
+
 # Version 1.0.0-beta31
 
 ## Bugfixes
