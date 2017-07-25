@@ -20,32 +20,22 @@
   ],
   "loggers": [
     {
-      "name": "mail",
-      "channel-name" : "logger/mail",
-      "type" : "Monolog\\Logger",
-      "handlers" : [
+      "name": "system",
+      "channel-name": "logger/system",
+      "type": "Monolog\\Logger",
+      "handlers": [
         {
-          "type": "Monolog\\Handler\\SwiftMailerHandler",
-          "params" : [
-            {
-              "log-level" : "error",
-              "bubble" : false
-            }
-          ],
-          "swift-mailer" : {
-            "factory" : "TechDivision\\Import\\Utils\\SwiftMailer\\SendmailTransportMailerFactory",
-            "mailer-factory" : "\\Swift_Mailer",
+          "type": "Monolog\\Handler\\ErrorLogHandler",
+          "formatter": {
+            "type": "Monolog\\Formatter\\LineFormatter",
             "params" : [
               {
-                "to" : "m2if@techdivision.com",
-                "from" : "m2if@techdivision.com",
-                "subject": "Importer Error",
-                "content-type" : "text/plain"
+                "format": "[%datetime%] %channel%.%level_name%: %message% %context% %extra%",
+                "dateFormat": "Y-m-d H:i:s",
+                "allowInlineLineBreaks": true,
+                "ignoreEmptyContextAndExtra": false
               }
-            ],
-            "transport" : {
-              "transport-factory" : "\\Swift_SendmailTransport"
-            }
+            ]
           }
         }
       ]

@@ -20,6 +20,27 @@
   ],
   "loggers": [
     {
+      "name": "system",
+      "channel-name": "logger/system",
+      "type": "Monolog\\Logger",
+      "handlers": [
+        {
+          "type": "Monolog\\Handler\\ErrorLogHandler",
+          "formatter": {
+            "type": "Monolog\\Formatter\\LineFormatter",
+            "params" : [
+              {
+                "format": "[%datetime%] %channel%.%level_name%: %message% %context% %extra%",
+                "dateFormat": "Y-m-d H:i:s",
+                "allowInlineLineBreaks": true,
+                "ignoreEmptyContextAndExtra": false
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
       "name": "mail",
       "channel-name" : "logger/mail",
       "type" : "Monolog\\Logger",
