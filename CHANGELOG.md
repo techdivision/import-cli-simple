@@ -1,3 +1,14 @@
+# Version 1.0.0-beta33
+
+## Bugfixes
+
+* Fixed invalid path generation when updating more than two times
+* Merge constructor params for logger initialization by name instead of using order
+
+## Features
+
+* None
+
 # Version 1.0.0-beta32
 
 ## Bugfixes
