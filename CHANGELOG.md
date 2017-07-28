@@ -1,3 +1,13 @@
+# Version 1.0.0-beta34
+
+## Bugfixes
+
+* None
+
+## Features
+
+* Switch to latest library versions
+
 # Version 1.0.0-beta33
 
 ## Bugfixes
