@@ -8,7 +8,6 @@
   "source-dir" : "projects/sample-data/tmp",
   "target-dir" : "projects/sample-data/tmp",
   "entity-type-code" : "catalog_product",
-  "system-name" : "system-name/product-import",
   "databases" : [
     {
       "id": "docker",
@@ -192,11 +191,16 @@
             {
               "id": "import_product_media.subject.media",
               "prefix": "media",
+              "filesystem-adapter" : {
+                "id" : "import.adapter.filesystem.factory.league",
+                "adapter" : {
+                  "type" : "League\\Flysystem\\Adapter\\Local"
+                }
+              },
               "params" : [
                 {
-                  "copy-images" : false,
-                  "root-directory" : "/",
-                  "media-directory" : "/tmp",
+                  "copy-images" : true,
+                  "media-directory" : "projects/sample-data/tmp",
                   "images-file-directory" : "projects/sample-data/magento2-sample-data/pub/media/catalog/product"
                 }
               ],
@@ -333,11 +337,16 @@
             {
               "id": "import_product_media.subject.media",
               "prefix": "media",
+              "filesystem-adapter" : {
+                "id" : "import.adapter.filesystem.factory.league",
+                "adapter" : {
+                  "type" : "League\\Flysystem\\Adapter\\Local"
+                }
+              },
               "params" : [
                 {
-                  "copy-images" : false,
-                  "root-directory" : "/",
-                  "media-directory" : "/tmp",
+                  "copy-images" : true,
+                  "media-directory" : "projects/sample-data/tmp",
                   "images-file-directory" : "projects/sample-data/magento2-sample-data/pub/media/catalog/product"
                 }
               ],
