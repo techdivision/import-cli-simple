@@ -1,3 +1,13 @@
+# Version 1.0.0-beta35
+
+## Bugfixes
+
+* Fixed critical issue because of not mapped column names when try to load a column's value
+
+## Features
+
+* Refactored filesystem handling
+
 # Version 1.0.0-beta34
 
 ## Bugfixes
