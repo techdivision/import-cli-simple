@@ -1,3 +1,14 @@
+# Version 1.0.0-beta36
+
+## Bugfixes
+
+* Fixed issue techdivision/import-product [#57](https://github.com/techdivision/import-product/issues/75)
+
+## Features
+
+* Make image types + header mappings configurable
+* Add new commands import:products:price + import:products:inventory for updating product price + inventory
+
 # Version 1.0.0-beta35
 
 ## Bugfixes

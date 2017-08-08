@@ -55,6 +55,15 @@ class SimpleConfigurationLoader implements ConfigurationLoaderInterface
         'project-enterprise-edition' => 'EE'
     );
 
+    protected $configurationFileMappings = array(
+        EntityTypeCodes::NONE                      => 'techdivision-import',
+        EntityTypeCodes::EAV_ATTRIBUTE             => 'techdivision-import',
+        EntityTypeCodes::CATALOG_PRODUCT           => 'techdivision-import',
+        EntityTypeCodes::CATALOG_PRODUCT_PRICE     => 'techdivision-import-price',
+        EntityTypeCodes::CATALOG_PRODUCT_INVENTORY => 'techdivision-import-inventory',
+        EntityTypeCodes::CATALOG_CATEGORY          => 'techdivision-import'
+    );
+
     /**
      * The array with the default entity type => configuration mapping.
      *
@@ -62,16 +71,20 @@ class SimpleConfigurationLoader implements ConfigurationLoaderInterface
      */
     protected $defaultConfigurations = array(
         'ce' => array(
-            EntityTypeCodes::NONE             => 'techdivision/import-product',
-            EntityTypeCodes::EAV_ATTRIBUTE    => 'techdivision/import-attribute',
-            EntityTypeCodes::CATALOG_PRODUCT  => 'techdivision/import-product',
-            EntityTypeCodes::CATALOG_CATEGORY => 'techdivision/import-category'
+            EntityTypeCodes::NONE                      => 'techdivision/import-product',
+            EntityTypeCodes::EAV_ATTRIBUTE             => 'techdivision/import-attribute',
+            EntityTypeCodes::CATALOG_PRODUCT           => 'techdivision/import-product',
+            EntityTypeCodes::CATALOG_PRODUCT_PRICE     => 'techdivision/import-product',
+            EntityTypeCodes::CATALOG_PRODUCT_INVENTORY => 'techdivision/import-product',
+            EntityTypeCodes::CATALOG_CATEGORY          => 'techdivision/import-category'
         ),
         'ee' => array(
-            EntityTypeCodes::NONE             => 'techdivision/import-product-ee',
-            EntityTypeCodes::EAV_ATTRIBUTE    => 'techdivision/import-attribute',
-            EntityTypeCodes::CATALOG_PRODUCT  => 'techdivision/import-product-ee',
-            EntityTypeCodes::CATALOG_CATEGORY => 'techdivision/import-category-ee'
+            EntityTypeCodes::NONE                      => 'techdivision/import-product-ee',
+            EntityTypeCodes::EAV_ATTRIBUTE             => 'techdivision/import-attribute',
+            EntityTypeCodes::CATALOG_PRODUCT           => 'techdivision/import-product-ee',
+            EntityTypeCodes::CATALOG_PRODUCT_PRICE     => 'techdivision/import-product-ee',
+            EntityTypeCodes::CATALOG_PRODUCT_INVENTORY => 'techdivision/import-product-ee',
+            EntityTypeCodes::CATALOG_CATEGORY          => 'techdivision/import-category-ee'
         )
     );
 
@@ -319,10 +332,36 @@ class SimpleConfigurationLoader implements ConfigurationLoaderInterface
     protected function getDefaultConfiguration($magentoEdition, $entityTypeCode)
     {
         return sprintf(
-            '%s/%s/etc/techdivision-import.json',
+            '%s/%s/etc/%s.json',
             $this->getVendorDir(),
             $this->getDefaultConfigurationLibrary(
                 $magentoEdition,
+                $entityTypeCode
+            ),
+            $this->getDefaultConfigurationFile($entityTypeCode)
+        );
+    }
+
+    /**
+     * Return's the name of the default configuration file.
+     *
+     * @param string $entityTypeCode The entity type code to return the default configuration file for
+     *
+     * @return string The name of the entity type's default configuration file
+     * @throws \Exception
+     */
+    protected function getDefaultConfigurationFile($entityTypeCode)
+    {
+
+        // query whether or not a default configuration file for the passed entity type code exists
+        if (isset($this->configurationFileMappings[$entityTypeCode])) {
+            return $this->configurationFileMappings[$entityTypeCode];
+        }
+
+        // throw an exception, if no default configuration file for the passed entity type is available
+        throw new \Exception(
+            sprintf(
+                'Can\'t find a default configuration file for entity Type Code \'%s\' (MUST be one of catalog_product, catalog_product_price, catalog_product_inventory, catalog_category or eav_attribute)',
                 $entityTypeCode
             )
         );
