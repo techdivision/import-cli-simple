@@ -16,6 +16,8 @@
         <service id="import_cli_simple.configuration.factory" class="TechDivision\Import\Configuration\Jms\ConfigurationFactory"/>
 
         <service id="import_cli_simple.command.import.products" class="TechDivision\Import\Cli\Command\ImportProductsCommand"/>
+        <service id="import_cli_simple.command.import.products.price" class="TechDivision\Import\Cli\Command\ImportProductsPriceCommand"/>
+        <service id="import_cli_simple.command.import.products.inventory" class="TechDivision\Import\Cli\Command\ImportProductsInventoryCommand"/>
         <service id="import_cli_simple.command.import.categories" class="TechDivision\Import\Cli\Command\ImportCategoriesCommand"/>
         <service id="import_cli_simple.command.import.attributes" class="TechDivision\Import\Cli\Command\ImportAttributesCommand"/>
         <service id="import_cli_simple.command.import.clear.pid.file" class="TechDivision\Import\Cli\Command\ImportClearPidFileCommand"/>
@@ -26,6 +28,12 @@
             <argument type="service" id="service_container"/>
             <call method="add">
                 <argument id="import_cli_simple.command.import.products" type="service"/>
+            </call>
+            <call method="add">
+                <argument id="import_cli_simple.command.import.products.price" type="service"/>
+            </call>
+            <call method="add">
+                <argument id="import_cli_simple.command.import.products.inventory" type="service"/>
             </call>
             <call method="add">
                 <argument id="import_cli_simple.command.import.categories" type="service"/>

@@ -46,9 +46,11 @@ class ConfigurationLoader extends SimpleConfigurationLoader
      * @var array
      */
     protected $defaultDirectories = array(
-        EntityTypeCodes::CATALOG_PRODUCT  => 'products',
-        EntityTypeCodes::CATALOG_CATEGORY => 'categories',
-        EntityTypeCodes::EAV_ATTRIBUTE    => 'attributes'
+        EntityTypeCodes::CATALOG_PRODUCT           => 'products',
+        EntityTypeCodes::CATALOG_PRODUCT_PRICE     => 'products',
+        EntityTypeCodes::CATALOG_PRODUCT_INVENTORY => 'products',
+        EntityTypeCodes::CATALOG_CATEGORY          => 'categories',
+        EntityTypeCodes::EAV_ATTRIBUTE             => 'attributes'
     );
 
     /**
