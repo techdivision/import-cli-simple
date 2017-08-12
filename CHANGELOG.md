@@ -1,3 +1,13 @@
+# Version 1.0.0-beta38
+
+## Bugfixes
+
+* Fixed issue in URL rewrite handling when importing products
+
+## Features
+
+* None
+
 # Version 1.0.0-beta37
 
 ## Bugfixes
