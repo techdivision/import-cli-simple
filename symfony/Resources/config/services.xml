@@ -53,7 +53,6 @@
         </service>
 
         <service id="import_cli_simple.library.loader" class="TechDivision\Import\Cli\Configuration\LibraryLoader">
-            <argument type="service" id="input"/>
             <argument type="service" id="service_container"/>
         </service>
 
