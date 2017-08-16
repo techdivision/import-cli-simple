@@ -1,4 +1,22 @@
+# Version 1.0.0-beta40
+
+## Known Issues
+
+* Product import `add-update` operation toggles between none and `-1` .html suffix for URL rewrites
+
+## Bugfixes
+
+* Fixed issue with missing URL rewrites for additional store views in a multi website setup
+
+## Features
+
+* None
+
 # Version 1.0.0-beta39
+
+## Known Issues
+
+* Product import `add-update` operation toggles between none and `-1` .html suffix for URL rewrites
 
 ## Bugfixes
 
