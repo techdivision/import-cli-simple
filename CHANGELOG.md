@@ -1,3 +1,17 @@
+# Version 1.0.0-beta41
+
+## Known Issues
+
+* None
+
+## Bugfixes
+
+* Fixed issue with product import `add-update` operation, that toggles between none and `-1` .html suffix for URL rewrites
+
+## Features
+
+* None
+
 # Version 1.0.0-beta40
 
 ## Known Issues
