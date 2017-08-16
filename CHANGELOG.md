@@ -1,3 +1,17 @@
+# Version 1.0.0-beta42
+
+## Known Issues
+
+* None
+
+## Bugfixes
+
+* Fixed issue when invoking storeViewHasBeenProcessed($pk, $storeViewCode) method always returns false
+
+## Features
+
+* None
+
 # Version 1.0.0-beta41
 
 ## Known Issues
