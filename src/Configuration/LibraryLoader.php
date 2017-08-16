@@ -21,7 +21,6 @@
 namespace TechDivision\Import\Cli\Configuration;
 
 use Symfony\Component\Config\FileLocator;
-use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\DependencyInjection\Loader\XmlFileLoader;
 use TechDivision\Import\ConfigurationInterface;
@@ -47,21 +46,12 @@ class LibraryLoader
     protected $container;
 
     /**
-     * The actual input instance.
-     *
-     * @var \Symfony\Component\Console\Input\InputInterface
-     */
-    protected $input;
-
-    /**
      * Initializes the configuration loader.
      *
-     * @param \Symfony\Component\Console\Input\InputInterface           $input     The input instance
      * @param \Symfony\Component\DependencyInjection\ContainerInterface $container The container instance
      */
-    public function __construct(InputInterface $input, ContainerInterface $container)
+    public function __construct(ContainerInterface $container)
     {
-        $this->input = $input;
         $this->container= $container;
     }
 
