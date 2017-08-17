@@ -1,3 +1,17 @@
+# Version 1.0.0-beta43
+
+## Known Issues
+
+* URL rewrites for default store view are NOT generated
+
+## Bugfixes
+
+* Fixed invalid URL rewrite generation in mutli-store environments
+
+## Features
+
+* None
+
 # Version 1.0.0-beta42
 
 ## Known Issues
