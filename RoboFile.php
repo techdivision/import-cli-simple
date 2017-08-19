@@ -267,7 +267,7 @@ class RoboFile extends \Robo\Tasks
     {
 
         // run PHPUnit
-        $this->taskPHPUnit(sprintf('%s/bin/phpunit', $this->properties['vendor.dir']))
+        $this->taskPHPUnit(sprintf('%s/bin/phpunit --testsuite "techdivision/import-cli-simple PHPUnit testsuite"', $this->properties['vendor.dir']))
              ->configFile('phpunit.xml')
              ->run();
     }

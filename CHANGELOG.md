@@ -1,3 +1,17 @@
+# Version 1.0.0-beta44
+
+## Known Issues
+
+* URL rewrites for default store view are NOT generated
+
+## Bugfixes
+
+* None
+
+## Features
+
+* Add basic integration testsuite
+
 # Version 1.0.0-beta43
 
 ## Known Issues

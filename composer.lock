@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "9ce4681620739fc582fc14ecdc82b04c",
+    "content-hash": "d3bda177a8f05381c4d987793f8abfd0",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -1842,16 +1842,16 @@
         },
         {
             "name": "techdivision/import",
-            "version": "1.0.0-beta42",
+            "version": "1.0.0-beta43",
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import.git",
-                "reference": "2a9d12d52f24963e9819b3f63356ed94a8b8adb6"
+                "reference": "a3be75bdb999bb9685768ee4d46990c96d35ec7b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import/zipball/2a9d12d52f24963e9819b3f63356ed94a8b8adb6",
-                "reference": "2a9d12d52f24963e9819b3f63356ed94a8b8adb6",
+                "url": "https://api.github.com/repos/techdivision/import/zipball/a3be75bdb999bb9685768ee4d46990c96d35ec7b",
+                "reference": "a3be75bdb999bb9685768ee4d46990c96d35ec7b",
                 "shasum": ""
             },
             "require": {
@@ -1898,20 +1898,20 @@
                 }
             ],
             "description": "A library supporting generic Magento 2 import functionality",
-            "time": "2017-08-17T09:31:01+00:00"
+            "time": "2017-08-19T10:27:43+00:00"
         },
         {
             "name": "techdivision/import-app-simple",
-            "version": "1.0.0-beta8",
+            "version": "1.0.0-beta9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-app-simple.git",
-                "reference": "c3cb17b9c5f65fc79ff5ecbce6716217859999cd"
+                "reference": "05db491ee96ad8a3afd26352ec76e95fd9141bcb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-app-simple/zipball/c3cb17b9c5f65fc79ff5ecbce6716217859999cd",
-                "reference": "c3cb17b9c5f65fc79ff5ecbce6716217859999cd",
+                "url": "https://api.github.com/repos/techdivision/import-app-simple/zipball/05db491ee96ad8a3afd26352ec76e95fd9141bcb",
+                "reference": "05db491ee96ad8a3afd26352ec76e95fd9141bcb",
                 "shasum": ""
             },
             "require": {
@@ -1958,7 +1958,7 @@
                 }
             ],
             "description": "M2IF simple application implementation providing basic Magento 2 import functionality",
-            "time": "2017-07-19T15:04:39+00:00"
+            "time": "2017-08-19T10:44:23+00:00"
         },
         {
             "name": "techdivision/import-attribute",
@@ -2019,16 +2019,16 @@
         },
         {
             "name": "techdivision/import-category",
-            "version": "1.0.0-beta17",
+            "version": "1.0.0-beta18",
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-category.git",
-                "reference": "841f2d15c3d41b2af2f2d68c72ac8f1c8f02978a"
+                "reference": "3272207d539813cb59f6fcf61f34c388eb6ae981"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-category/zipball/841f2d15c3d41b2af2f2d68c72ac8f1c8f02978a",
-                "reference": "841f2d15c3d41b2af2f2d68c72ac8f1c8f02978a",
+                "url": "https://api.github.com/repos/techdivision/import-category/zipball/3272207d539813cb59f6fcf61f34c388eb6ae981",
+                "reference": "3272207d539813cb59f6fcf61f34c388eb6ae981",
                 "shasum": ""
             },
             "require": {
@@ -2072,7 +2072,7 @@
                 }
             ],
             "description": "M2IF library providing basic Magento 2 category import functionality",
-            "time": "2017-08-17T10:06:39+00:00"
+            "time": "2017-08-19T10:45:06+00:00"
         },
         {
             "name": "techdivision/import-category-ee",
@@ -2232,16 +2232,16 @@
         },
         {
             "name": "techdivision/import-product",
-            "version": "1.0.0-beta28",
+            "version": "1.0.0-beta29",
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-product.git",
-                "reference": "41575cd1a9cdec08958c3e34c9c671b05c4ccee8"
+                "reference": "8e6477e0a356424746b439b262a599950b33bd0f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-product/zipball/41575cd1a9cdec08958c3e34c9c671b05c4ccee8",
-                "reference": "41575cd1a9cdec08958c3e34c9c671b05c4ccee8",
+                "url": "https://api.github.com/repos/techdivision/import-product/zipball/8e6477e0a356424746b439b262a599950b33bd0f",
+                "reference": "8e6477e0a356424746b439b262a599950b33bd0f",
                 "shasum": ""
             },
             "require": {
@@ -2285,7 +2285,7 @@
                 }
             ],
             "description": "M2IF library providing basic Magento 2 product import functionality",
-            "time": "2017-08-17T10:06:36+00:00"
+            "time": "2017-08-19T10:46:06+00:00"
         },
         {
             "name": "techdivision/import-product-bundle",
@@ -2390,16 +2390,16 @@
         },
         {
             "name": "techdivision/import-product-ee",
-            "version": "1.0.0-beta14",
+            "version": "1.0.0-beta15",
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-product-ee.git",
-                "reference": "9411ee2a1e007a2a53b351167ea4df3780eedea5"
+                "reference": "1c52f3da3cb3247435f8cbe2bed16786708752c4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-product-ee/zipball/9411ee2a1e007a2a53b351167ea4df3780eedea5",
-                "reference": "9411ee2a1e007a2a53b351167ea4df3780eedea5",
+                "url": "https://api.github.com/repos/techdivision/import-product-ee/zipball/1c52f3da3cb3247435f8cbe2bed16786708752c4",
+                "reference": "1c52f3da3cb3247435f8cbe2bed16786708752c4",
                 "shasum": ""
             },
             "require": {
@@ -2440,7 +2440,7 @@
                 }
             ],
             "description": "M2IF library providing basic Magento 2 EE product import functionality",
-            "time": "2017-08-17T11:24:16+00:00"
+            "time": "2017-08-19T10:57:51+00:00"
         },
         {
             "name": "techdivision/import-product-link",
@@ -3011,16 +3011,16 @@
         },
         {
             "name": "consolidation/output-formatters",
-            "version": "3.1.10",
+            "version": "3.1.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/consolidation/output-formatters.git",
-                "reference": "3872f19517bfc9da0e14c9e5b6fe0f8c7439ea3a"
+                "reference": "3a1160440819269e6d8d9c11db67129384b8fb35"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/consolidation/output-formatters/zipball/3872f19517bfc9da0e14c9e5b6fe0f8c7439ea3a",
-                "reference": "3872f19517bfc9da0e14c9e5b6fe0f8c7439ea3a",
+                "url": "https://api.github.com/repos/consolidation/output-formatters/zipball/3a1160440819269e6d8d9c11db67129384b8fb35",
+                "reference": "3a1160440819269e6d8d9c11db67129384b8fb35",
                 "shasum": ""
             },
             "require": {
@@ -3056,7 +3056,7 @@
                 }
             ],
             "description": "Format text by applying transformations provided by plug-in formatters.",
-            "time": "2017-06-06T19:08:54+00:00"
+            "time": "2017-08-17T22:11:07+00:00"
         },
         {
             "name": "consolidation/robo",
