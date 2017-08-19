@@ -1,0 +1,62 @@
+{
+  "magento-edition": "CE",
+  "magento-version": "2.1.2",
+  "operation-name" : "add-update",
+  "source-date-format": "n/d/y, g:i A",
+  "archive-artefacts" : true,
+  "debug-mode" : false,
+  "entity-type-code" : "catalog_product",
+  "system-name" : "system-name/product-import",
+  "databases" : [
+    {
+      "id": "integration-testing",
+      "default" : true,
+      "pdo-dsn": "mysql:host=127.0.0.1;dbname=magento2_ce_217_sampledata;charset=utf8",
+      "username": "root",
+      "password": "appserver.i0"
+    }
+  ],
+  "extension-libraries" : [
+    "techdivision/import-app-simple",
+    "techdivision/import",
+    "techdivision/import-attribute",
+    "techdivision/import-category",
+    "techdivision/import-product",
+    "techdivision/import-product-bundle",
+    "techdivision/import-product-link",
+    "techdivision/import-product-media",
+    "techdivision/import-product-variant"
+  ],
+  "operations" : [
+    {
+      "name" : "add-update",
+      "plugins" : [
+        {
+          "id": "import.plugin.global.data"
+        },
+        {
+          "id": "import.plugin.subject",
+          "subjects": [
+            {
+              "id": "import_product.subject.bunch",
+              "identifier": "files",
+              "prefix": "product-import",
+              "observers": [
+                {
+                  "import": [
+                    "import.observer.attribute.set",
+                    "import.observer.additional.attribute",
+                    "import_product.observer.url.key",
+                    "import_product.observer.quality.and.stock.status",
+                    "import_product.observer.product",
+                    "import_product.observer.url.rewrite"
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

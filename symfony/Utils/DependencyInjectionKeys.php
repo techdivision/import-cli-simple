@@ -47,6 +47,13 @@ class DependencyInjectionKeys extends \TechDivision\Import\App\Utils\DependencyI
     const OUTPUT = 'output';
 
     /**
+     * The key for the connection.
+     *
+     * @var string
+     */
+    const CONNECTION = 'connection';
+
+    /**
      * The key for the simple configuration instance.
      *
      * @var string
@@ -54,9 +61,23 @@ class DependencyInjectionKeys extends \TechDivision\Import\App\Utils\DependencyI
     const CONFIGURATION_SIMPLE = 'configuration.simple';
 
     /**
+     * The key for the configuration factory instance.
+     *
+     * @var string
+     */
+    const CONFIGURATION_FACTORY = 'import_cli_simple.configuration.factory';
+
+    /**
      * The key for the vendor directory.
      *
      * @var string
      */
     const CONFIGURATION_VENDOR_DIR = 'import_cli_simple.configuration.vendor.dir';
+
+    /**
+     * The key for the library loader.
+     *
+     * @var string
+     */
+    const LIBRARY_LOADER = 'import_cli_simple.library.loader';
 }
