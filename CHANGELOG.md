@@ -1,8 +1,18 @@
-# Version 1.0.0-beta44
+# Version 1.0.0-beta45
 
 ## Known Issues
 
 * URL rewrites for default store view are NOT generated
+
+## Bugfixes
+
+* None
+
+# Version 1.0.0-beta44
+
+## Known Issues
+
+* Add new library techdivision/import-product-url-rewrite that'll handle product URL rewrites in future releases
 
 ## Bugfixes
 
