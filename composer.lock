@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "d3bda177a8f05381c4d987793f8abfd0",
+    "content-hash": "44cd3990c208a9f4639fbe2d32105b15",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -1842,16 +1842,16 @@
         },
         {
             "name": "techdivision/import",
-            "version": "1.0.0-beta43",
+            "version": "1.0.0-beta44",
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import.git",
-                "reference": "a3be75bdb999bb9685768ee4d46990c96d35ec7b"
+                "reference": "58752e3fb295b2570f6b54e55597ca3e3237c4fa"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import/zipball/a3be75bdb999bb9685768ee4d46990c96d35ec7b",
-                "reference": "a3be75bdb999bb9685768ee4d46990c96d35ec7b",
+                "url": "https://api.github.com/repos/techdivision/import/zipball/58752e3fb295b2570f6b54e55597ca3e3237c4fa",
+                "reference": "58752e3fb295b2570f6b54e55597ca3e3237c4fa",
                 "shasum": ""
             },
             "require": {
@@ -1898,7 +1898,7 @@
                 }
             ],
             "description": "A library supporting generic Magento 2 import functionality",
-            "time": "2017-08-19T10:27:43+00:00"
+            "time": "2017-08-21T08:46:16+00:00"
         },
         {
             "name": "techdivision/import-app-simple",
@@ -2232,16 +2232,16 @@
         },
         {
             "name": "techdivision/import-product",
-            "version": "1.0.0-beta29",
+            "version": "1.0.0-beta30",
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-product.git",
-                "reference": "8e6477e0a356424746b439b262a599950b33bd0f"
+                "reference": "0997f33ebf273fe11f248d21bd2b3802919db77e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-product/zipball/8e6477e0a356424746b439b262a599950b33bd0f",
-                "reference": "8e6477e0a356424746b439b262a599950b33bd0f",
+                "url": "https://api.github.com/repos/techdivision/import-product/zipball/0997f33ebf273fe11f248d21bd2b3802919db77e",
+                "reference": "0997f33ebf273fe11f248d21bd2b3802919db77e",
                 "shasum": ""
             },
             "require": {
@@ -2285,7 +2285,7 @@
                 }
             ],
             "description": "M2IF library providing basic Magento 2 product import functionality",
-            "time": "2017-08-19T10:46:06+00:00"
+            "time": "2017-08-21T09:11:20+00:00"
         },
         {
             "name": "techdivision/import-product-bundle",
@@ -2652,6 +2652,61 @@
             ],
             "description": "M2IF library providing basic Magento 2 EE product media import functionality",
             "time": "2017-08-08T12:26:47+00:00"
+        },
+        {
+            "name": "techdivision/import-product-url-rewrite",
+            "version": "1.0.0-beta1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/techdivision/import-product-url-rewrite.git",
+                "reference": "9d5223b551bded09995397388ad0bf21015f0262"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/techdivision/import-product-url-rewrite/zipball/9d5223b551bded09995397388ad0bf21015f0262",
+                "reference": "9d5223b551bded09995397388ad0bf21015f0262",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.6.0",
+                "techdivision/import-product": "~1.0",
+                "zendframework/zend-filter": "~2.0"
+            },
+            "require-dev": {
+                "consolidation/robo": "~1.0",
+                "doctrine/dbal": "~2.0",
+                "pdepend/pdepend": "2.0.*",
+                "phpdocumentor/phpdocumentor": "2.8.*",
+                "phploc/phploc": "2.0.*",
+                "phpmd/phpmd": "2.5.*",
+                "phpunit/phpunit": "4.4.*",
+                "sebastian/phpcpd": "2.0.*",
+                "squizlabs/php_codesniffer": "2.2.*",
+                "symfony/config": "~2.8|~3.0",
+                "symfony/http-kernel": "~2.8|~3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "TechDivision\\Import\\Product\\UrlRewrite\\": [
+                        "src/",
+                        "tests/",
+                        "symfony/"
+                    ]
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "OSL-3.0"
+            ],
+            "authors": [
+                {
+                    "name": "Tim Wagner",
+                    "email": "t.wagner@techdivision.com"
+                }
+            ],
+            "description": "M2IF library providing basic Magento 2 product URL rewrite import functionality",
+            "time": "2017-08-21T08:15:48+00:00"
         },
         {
             "name": "techdivision/import-product-variant",
@@ -5440,6 +5495,7 @@
         "techdivision/import-category": 10,
         "techdivision/import-category-ee": 10,
         "techdivision/import-product": 10,
+        "techdivision/import-product-url-rewrite": 10,
         "techdivision/import-product-link": 10,
         "techdivision/import-product-media": 10,
         "techdivision/import-product-bundle": 10,
