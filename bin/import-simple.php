@@ -18,16 +18,22 @@
  * @link      http://www.techdivision.com
  */
 
+// initialize the actual directory
+$actualDirectory = dirname(__DIR__);
+
 // initialize the possible vendor directories
 $possibleVendorDirs = array(
-    dirname(__DIR__),
-    dirname(__DIR__) . '/vendor',
-    dirname(dirname(dirname(__DIR__)))
+    array($actualDirectory, sprintf('%s/techdivision/import-cli-simple/bootstrap.php', $actualDirectory)), // when installed as library in vendor/bin/import-simple (QUICKFIX: this should never happen, because files has been copied and not symlinked)
+    array($actualDirectory . '/vendor', sprintf('%s/bootstrap.php', $actualDirectory)),                    // when called directly from the root directory of this library
+    array(dirname(dirname($actualDirectory)), sprintf('%s/bootstrap.php', $actualDirectory))               // when installed as library in directory vendor/techdivision/import-cli-simple/bin/import-simple
 );
 
 // try to locate the actual vendor directory
 $loaded = false;
-foreach ($possibleVendorDirs as $vendorDir) {
+foreach ($possibleVendorDirs as $possibleVendorDir) {
+    // list vendor directory and related boostrap file
+    list ($vendorDir, $boostrapFile) = $possibleVendorDir;
+    // if the autoload.php exsists, we've found the vendor directory
     if (file_exists($file = sprintf('%s/autoload.php', $vendorDir))) {
         require $file;
         $loaded = true;
@@ -45,4 +51,4 @@ if (!$loaded) {
 }
 
 // bootstrap and run the application
-require dirname(__DIR__) . '/bootstrap.php';
+require $boostrapFile;

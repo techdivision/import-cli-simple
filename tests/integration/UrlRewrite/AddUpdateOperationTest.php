@@ -25,7 +25,7 @@ use TechDivision\Import\Cli\AbstractIntegrationTest;
 use TechDivision\Import\Utils\EntityStatus;
 use TechDivision\Import\Product\Utils\ColumnKeys;
 use TechDivision\Import\Product\Utils\MemberNames;
-use TechDivision\Import\Product\Observers\UrlRewriteObserver;
+use TechDivision\Import\Product\UrlRewrite\Observers\UrlRewriteObserver;
 
 /**
  * Test class for the product URL rewrite functionality.
@@ -86,13 +86,13 @@ class AddUpdateOperationTest extends AbstractIntegrationTest
         $this->processImport();
 
         // make sure, the flag file for a successfull import exists
-        $this->assertFileExists(sprintf('%s.imported', $filename));
+        $this->assertCount(1, glob(sprintf('%s/*/%s.imported', $this->getTmpDir(), basename($filename))));
 
         // initialize the product bunch processor instance
-        $productBunchProcessor = $this->getProductBunchProcessor();
+        $productUrlRewriteProcessor = $this->getProductUrlRewriteProcessor();
 
         // try to load the imported product by its SKU
-        $product = $productBunchProcessor->loadProduct($sku = '24-MB01');
+        $product = $productUrlRewriteProcessor->loadProduct($sku = 'TEST-SKU-000001');
 
         // assert the expected product entity data
         $this->assertArrayHasKey('sku', $product);
@@ -105,11 +105,11 @@ class AddUpdateOperationTest extends AbstractIntegrationTest
         $this->assertSame('2016-10-24 12:36:00', $product[MemberNames::UPDATED_AT]);
 
         // try to load the URL rewrites by their SKU and count them
-        $urlRewrites = $productBunchProcessor->getUrlRewritesBySku($sku);
+        $urlRewrites = $productUrlRewriteProcessor->getUrlRewritesBySku($sku);
         $this->assertCount(1, $urlRewrites);
 
         // try to load the URL rewrite product category relations and count them
-        $urlRewriteProductCategories = $productBunchProcessor->getUrlRewriteProductCategoriesBySku($sku);
+        $urlRewriteProductCategories = $productUrlRewriteProcessor->getUrlRewriteProductCategoriesBySku($sku);
         $this->assertCount(1, $urlRewriteProductCategories);
 
         // load the first and only found URL rewrite
@@ -118,7 +118,7 @@ class AddUpdateOperationTest extends AbstractIntegrationTest
         // assert the expected size and values
         $this->assertSame($product[MemberNames::ENTITY_ID], $urlRewrite[MemberNames::ENTITY_ID]);
         $this->assertSame('product', $urlRewrite[MemberNames::ENTITY_TYPE]);
-        $this->assertSame('joust-duffle-bag-s', $urlRewrite[MemberNames::REQUEST_PATH]);
+        $this->assertSame('testproduct.html', $urlRewrite[MemberNames::REQUEST_PATH]);
         $this->assertSame(sprintf('catalog/product/view/id/%d', $product[MemberNames::ENTITY_ID]), $urlRewrite[MemberNames::TARGET_PATH]);
         $this->assertSame(0, (integer) $urlRewrite[MemberNames::REDIRECT_TYPE]);
         $this->assertSame(1, (integer) $urlRewrite[MemberNames::STORE_ID]);
@@ -147,7 +147,7 @@ class AddUpdateOperationTest extends AbstractIntegrationTest
         // initialize the array for for the names of the import files
         $filenames = array(
             $this->prepareFileWithSingleRow(),
-            $this->prepareFileWithSingleRow(array(MemberNames::URL_KEY => 'joust-duffle-bag-s-new'))
+            $this->prepareFileWithSingleRow(array(MemberNames::URL_KEY => 'testproduct-new'))
         );
 
         // invoke the import operation twice to import both files
@@ -155,21 +155,21 @@ class AddUpdateOperationTest extends AbstractIntegrationTest
 
         // make sure, the flag file for a successfull import exists
         foreach ($filenames as $filename) {
-            $this->assertFileExists(sprintf('%s.imported', $filename));
+            $this->assertCount(1, glob(sprintf('%s/*/%s.imported', $this->getTmpDir(), basename($filename))));
         }
 
         // initialize the product bunch processor instance
-        $productBunchProcessor = $this->getProductBunchProcessor();
+        $productUrlRewriteProcessor = $this->getProductUrlRewriteProcessor();
 
         // try to load the imported product by its SKU
-        $product = $productBunchProcessor->loadProduct($sku = '24-MB01');
+        $product = $productUrlRewriteProcessor->loadProduct($sku = 'TEST-SKU-000001');
 
         // try to load the URL rewrites by their SKU and count them
-        $urlRewrites = $productBunchProcessor->getUrlRewritesBySku($sku );
+        $urlRewrites = $productUrlRewriteProcessor->getUrlRewritesBySku($sku );
         $this->assertCount(2, $urlRewrites);
 
         // try to load the URL rewrite product category relations by their SKU and count them
-        $urlRewriteProductCategories = $productBunchProcessor->getUrlRewriteProductCategoriesBySku($sku);
+        $urlRewriteProductCategories = $productUrlRewriteProcessor->getUrlRewriteProductCategoriesBySku($sku);
         $this->assertCount(2, $urlRewriteProductCategories);
 
         // load the first found URL rewrite
@@ -178,8 +178,8 @@ class AddUpdateOperationTest extends AbstractIntegrationTest
         // assert the values
         $this->assertSame($product[MemberNames::ENTITY_ID], $urlRewrite[MemberNames::ENTITY_ID]);
         $this->assertSame('product', $urlRewrite[MemberNames::ENTITY_TYPE]);
-        $this->assertSame('joust-duffle-bag-s.html', $urlRewrite[MemberNames::REQUEST_PATH]);
-        $this->assertSame('joust-duffle-bag-s-new.html', $urlRewrite[MemberNames::TARGET_PATH]);
+        $this->assertSame('testproduct.html', $urlRewrite[MemberNames::REQUEST_PATH]);
+        $this->assertSame('testproduct-new.html', $urlRewrite[MemberNames::TARGET_PATH]);
         $this->assertSame(301, (integer) $urlRewrite[MemberNames::REDIRECT_TYPE]);
         $this->assertSame(1, (integer) $urlRewrite[MemberNames::STORE_ID]);
         $this->assertSame(1, (integer) $urlRewrite[MemberNames::IS_AUTOGENERATED]);
@@ -200,7 +200,7 @@ class AddUpdateOperationTest extends AbstractIntegrationTest
         // assert the values
         $this->assertSame($product[MemberNames::ENTITY_ID], $urlRewrite[MemberNames::ENTITY_ID]);
         $this->assertSame('product', $urlRewrite[MemberNames::ENTITY_TYPE]);
-        $this->assertSame('joust-duffle-bag-s-new.html', $urlRewrite[MemberNames::REQUEST_PATH]);
+        $this->assertSame('testproduct-new.html', $urlRewrite[MemberNames::REQUEST_PATH]);
         $this->assertSame(sprintf('catalog/product/view/id/%d', $product[MemberNames::ENTITY_ID]), $urlRewrite[MemberNames::TARGET_PATH]);
         $this->assertSame(0, (integer) $urlRewrite[MemberNames::REDIRECT_TYPE]);
         $this->assertSame(1, (integer) $urlRewrite[MemberNames::STORE_ID]);
@@ -228,8 +228,8 @@ class AddUpdateOperationTest extends AbstractIntegrationTest
         // initialize the array for for the names of the import files
         $filenames = array(
             $this->prepareFileWithSingleRow(),
-            $this->prepareFileWithSingleRow(array(MemberNames::URL_KEY => 'joust-duffle-bag-s-new')),
-            $this->prepareFileWithSingleRow(array(MemberNames::URL_KEY => 'joust-duffle-bag-s'))
+            $this->prepareFileWithSingleRow(array(MemberNames::URL_KEY => 'testproduct-new')),
+            $this->prepareFileWithSingleRow()
         );
 
         // invoke the import operation twice to import both files
@@ -237,21 +237,21 @@ class AddUpdateOperationTest extends AbstractIntegrationTest
 
         // make sure, the flag file for a successfull import exists
         foreach ($filenames as $filename) {
-            $this->assertFileExists(sprintf('%s.imported', $filename));
+            $this->assertCount(1, glob(sprintf('%s/*/%s.imported', $this->getTmpDir(), basename($filename))));
         }
 
         // initialize the product bunch processor instance
-        $productBunchProcessor = $this->getProductBunchProcessor();
+        $productUrlRewriteProcessor = $this->getProductUrlRewriteProcessor();
 
         // try to load the imported product by its SKU
-        $product = $productBunchProcessor->loadProduct($sku = '24-MB01');
+        $product = $productUrlRewriteProcessor->loadProduct($sku = 'TEST-SKU-000001');
 
         // try to load the URL rewrites by their SKU and count them
-        $urlRewrites = $productBunchProcessor->getUrlRewritesBySku($sku );
+        $urlRewrites = $productUrlRewriteProcessor->getUrlRewritesBySku($sku );
         $this->assertCount(2, $urlRewrites);
 
         // try to load the URL rewrite product category relations by their SKU and count them
-        $urlRewriteProductCategories = $productBunchProcessor->getUrlRewriteProductCategoriesBySku($sku);
+        $urlRewriteProductCategories = $productUrlRewriteProcessor->getUrlRewriteProductCategoriesBySku($sku);
         $this->assertCount(2, $urlRewriteProductCategories);
 
         // load the first found URL rewrite
@@ -260,7 +260,7 @@ class AddUpdateOperationTest extends AbstractIntegrationTest
         // assert the values
         $this->assertSame($product[MemberNames::ENTITY_ID], $urlRewrite[MemberNames::ENTITY_ID]);
         $this->assertSame('product', $urlRewrite[MemberNames::ENTITY_TYPE]);
-        $this->assertSame('joust-duffle-bag-s.html', $urlRewrite[MemberNames::REQUEST_PATH]);
+        $this->assertSame('testproduct.html', $urlRewrite[MemberNames::REQUEST_PATH]);
         $this->assertSame(sprintf('catalog/product/view/id/%d', $product[MemberNames::ENTITY_ID]), $urlRewrite[MemberNames::TARGET_PATH]);
         $this->assertSame(0, (integer) $urlRewrite[MemberNames::REDIRECT_TYPE]);
         $this->assertSame(1, (integer) $urlRewrite[MemberNames::STORE_ID]);
@@ -282,8 +282,8 @@ class AddUpdateOperationTest extends AbstractIntegrationTest
         // assert the values
         $this->assertSame($product[MemberNames::ENTITY_ID], $urlRewrite[MemberNames::ENTITY_ID]);
         $this->assertSame('product', $urlRewrite[MemberNames::ENTITY_TYPE]);
-        $this->assertSame('joust-duffle-bag-s-new.html', $urlRewrite[MemberNames::REQUEST_PATH]);
-        $this->assertSame('joust-duffle-bag-s.html', $urlRewrite[MemberNames::TARGET_PATH]);
+        $this->assertSame('testproduct-new.html', $urlRewrite[MemberNames::REQUEST_PATH]);
+        $this->assertSame('testproduct.html', $urlRewrite[MemberNames::TARGET_PATH]);
         $this->assertSame(301, (integer) $urlRewrite[MemberNames::REDIRECT_TYPE]);
         $this->assertSame(1, (integer) $urlRewrite[MemberNames::STORE_ID]);
         $this->assertSame(1, (integer) $urlRewrite[MemberNames::IS_AUTOGENERATED]);
@@ -309,7 +309,7 @@ class AddUpdateOperationTest extends AbstractIntegrationTest
     {
 
         // create an addtional store view
-        $storeId = $this->getImportProcessor()->persistStore(
+        $storeId = (integer) $this->getImportProcessor()->persistStore(
             array(
                 MemberNames::CODE         => $storeViewCode = 'default_second',
                 MemberNames::WEBSITE_ID   => 1,
@@ -328,7 +328,7 @@ class AddUpdateOperationTest extends AbstractIntegrationTest
                 $this->prepareRow(
                     array(
                         ColumnKeys::STORE_VIEW_CODE => $storeViewCode,
-                        ColumnKeys::URL_KEY         => $urlKey = 'joust-duffle-bag-s-de.html'
+                        ColumnKeys::URL_KEY         => $urlKey = 'testcategory-' . $storeViewCode
                     )
                 )
             )
@@ -338,20 +338,20 @@ class AddUpdateOperationTest extends AbstractIntegrationTest
         $this->processImport();
 
         // make sure, the flag file for a successfull import exists
-        $this->assertFileExists(sprintf('%s.imported', $filename));
+        $this->assertCount(1, glob(sprintf('%s/*/%s.imported', $this->getTmpDir(), basename($filename))));
 
         // initialize the product bunch processor instance
-        $productBunchProcessor = $this->getProductBunchProcessor();
+        $productUrlRewriteProcessor = $this->getProductUrlRewriteProcessor();
 
         // try to load the imported product by its SKU
-        $product = $productBunchProcessor->loadProduct($sku = '24-MB01');
+        $product = $productUrlRewriteProcessor->loadProduct($sku = 'TEST-SKU-000001');
 
         // try to load the URL rewrites by their SKU and count them
-        $urlRewrites = $productBunchProcessor->getUrlRewritesBySku($sku );
+        $urlRewrites = $productUrlRewriteProcessor->getUrlRewritesBySku($sku );
         $this->assertCount(2, $urlRewrites);
 
         // try to load the URL rewrite product category relations by their SKU and count them
-        $urlRewriteProductCategories = $productBunchProcessor->getUrlRewriteProductCategoriesBySku($sku);
+        $urlRewriteProductCategories = $productUrlRewriteProcessor->getUrlRewriteProductCategoriesBySku($sku);
         $this->assertCount(2, $urlRewriteProductCategories);
 
         // load the first found URL rewrite
@@ -360,7 +360,7 @@ class AddUpdateOperationTest extends AbstractIntegrationTest
         // assert the values
         $this->assertSame($product[MemberNames::ENTITY_ID], $urlRewrite[MemberNames::ENTITY_ID]);
         $this->assertSame('product', $urlRewrite[MemberNames::ENTITY_TYPE]);
-        $this->assertSame('joust-duffle-bag-s.html', $urlRewrite[MemberNames::REQUEST_PATH]);
+        $this->assertSame('testproduct.html', $urlRewrite[MemberNames::REQUEST_PATH]);
         $this->assertSame(sprintf('catalog/product/view/id/%d', $product[MemberNames::ENTITY_ID]), $urlRewrite[MemberNames::TARGET_PATH]);
         $this->assertSame(0, (integer) $urlRewrite[MemberNames::REDIRECT_TYPE]);
         $this->assertSame(1, (integer) $urlRewrite[MemberNames::STORE_ID]);
@@ -382,7 +382,7 @@ class AddUpdateOperationTest extends AbstractIntegrationTest
         // assert the values
         $this->assertSame($product[MemberNames::ENTITY_ID], $urlRewrite[MemberNames::ENTITY_ID]);
         $this->assertSame('product', $urlRewrite[MemberNames::ENTITY_TYPE]);
-        $this->assertSame($urlKey, $urlRewrite[MemberNames::REQUEST_PATH]);
+        $this->assertSame(sprintf('%s.html', $urlKey), $urlRewrite[MemberNames::REQUEST_PATH]);
         $this->assertSame(sprintf('catalog/product/view/id/%d', $product[MemberNames::ENTITY_ID]), $urlRewrite[MemberNames::TARGET_PATH]);
         $this->assertSame(0, (integer) $urlRewrite[MemberNames::REDIRECT_TYPE]);
         $this->assertSame($storeId, (integer) $urlRewrite[MemberNames::STORE_ID]);
@@ -408,7 +408,7 @@ class AddUpdateOperationTest extends AbstractIntegrationTest
     {
 
         // create a new category
-        $categoryId = $this->createCategory('Testcategory');
+        $categoryId = (integer) $this->createCategory('Testcategory');
 
         // prepare the file we want to import
         $filename = $this->prepareFileWithSingleRow(array(ColumnKeys::CATEGORIES => 'Default Category/Testcategory'));
@@ -417,43 +417,21 @@ class AddUpdateOperationTest extends AbstractIntegrationTest
         $this->processImport();
 
         // make sure, the flag file for a successfull import exists
-        $this->assertFileExists(sprintf('%s.imported', $filename));
+        $this->assertCount(1, glob(sprintf('%s/*/%s.imported', $this->getTmpDir(), basename($filename))));
 
         // initialize the product bunch processor instance
-        $productBunchProcessor = $this->getProductBunchProcessor();
+        $productUrlRewriteProcessor = $this->getProductUrlRewriteProcessor();
 
         // try to load the imported product by its SKU
-        $product = $productBunchProcessor->loadProduct($sku = '24-MB01');
+        $product = $productUrlRewriteProcessor->loadProduct($sku = 'TEST-SKU-000001');
 
         // try to load the URL rewrites by their SKU and count them
-        $urlRewrites = $productBunchProcessor->getUrlRewritesBySku($sku );
+        $urlRewrites = $productUrlRewriteProcessor->getUrlRewritesBySku($sku );
         $this->assertCount(2, $urlRewrites);
 
         // try to load the URL rewrite product category relations by their SKU and count them
-        $urlRewriteProductCategories = $productBunchProcessor->getUrlRewriteProductCategoriesBySku($sku);
+        $urlRewriteProductCategories = $productUrlRewriteProcessor->getUrlRewriteProductCategoriesBySku($sku);
         $this->assertCount(2, $urlRewriteProductCategories);
-
-        // load the first found URL rewrite
-        $urlRewrite = array_shift($urlRewrites);
-
-        // assert the values
-        $this->assertSame($product[MemberNames::ENTITY_ID], $urlRewrite[MemberNames::ENTITY_ID]);
-        $this->assertSame('product', $urlRewrite[MemberNames::ENTITY_TYPE]);
-        $this->assertSame('joust-duffle-bag-s.html', $urlRewrite[MemberNames::REQUEST_PATH]);
-        $this->assertSame(sprintf('catalog/product/view/id/%d', $product[MemberNames::ENTITY_ID]), $urlRewrite[MemberNames::TARGET_PATH]);
-        $this->assertSame(0, (integer) $urlRewrite[MemberNames::REDIRECT_TYPE]);
-        $this->assertSame(1, (integer) $urlRewrite[MemberNames::STORE_ID]);
-        $this->assertSame(1, (integer) $urlRewrite[MemberNames::IS_AUTOGENERATED]);
-        $this->assertSame(serialize(array()), $urlRewrite[MemberNames::METADATA]);
-        $this->assertNull($urlRewrite[MemberNames::DESCRIPTION]);
-
-        // load the first found URL rewrite product category relation
-        $urlRewriteProductCategory = array_shift($urlRewriteProductCategories);
-
-        // assert the expected size and values
-        $this->assertSame((integer) $urlRewrite[MemberNames::URL_REWRITE_ID], (integer) $urlRewriteProductCategory[MemberNames::URL_REWRITE_ID]);
-        $this->assertSame((integer) $product[MemberNames::ENTITY_ID], (integer) $urlRewriteProductCategory[MemberNames::PRODUCT_ID]);
-        $this->assertSame(2, (integer) $urlRewriteProductCategory[MemberNames::CATEGORY_ID]);
 
         // load the second and last found URL rewrite
         $urlRewrite = array_shift($urlRewrites);
@@ -461,12 +439,12 @@ class AddUpdateOperationTest extends AbstractIntegrationTest
         // assert the values
         $this->assertSame($product[MemberNames::ENTITY_ID], $urlRewrite[MemberNames::ENTITY_ID]);
         $this->assertSame('product', $urlRewrite[MemberNames::ENTITY_TYPE]);
-        $this->assertSame('testcategory/joust-duffle-bag-s.html', $urlRewrite[MemberNames::REQUEST_PATH]);
-        $this->assertSame(sprintf('catalog/product/view/id/%d/category/%d', $product[MemberNames::ENTITY_ID], $categoryId));
+        $this->assertSame('testproduct.html', $urlRewrite[MemberNames::REQUEST_PATH]);
+        $this->assertSame(sprintf('catalog/product/view/id/%d', $product[MemberNames::ENTITY_ID]), $urlRewrite[MemberNames::TARGET_PATH]);
         $this->assertSame(0, (integer) $urlRewrite[MemberNames::REDIRECT_TYPE]);
         $this->assertSame(1, (integer) $urlRewrite[MemberNames::STORE_ID]);
         $this->assertSame(1, (integer) $urlRewrite[MemberNames::IS_AUTOGENERATED]);
-        $this->assertSame(serialize(array(UrlRewriteObserver::CATEGORY_ID => $categoryId)), $urlRewrite[MemberNames::METADATA]);
+        $this->assertSame(serialize(array()), $urlRewrite[MemberNames::METADATA]);
         $this->assertNull($urlRewrite[MemberNames::DESCRIPTION]);
 
         // load the second and last found URL rewrite product category relation
@@ -476,6 +454,28 @@ class AddUpdateOperationTest extends AbstractIntegrationTest
         $this->assertSame((integer) $urlRewrite[MemberNames::URL_REWRITE_ID], (integer) $urlRewriteProductCategory[MemberNames::URL_REWRITE_ID]);
         $this->assertSame((integer) $product[MemberNames::ENTITY_ID], (integer) $urlRewriteProductCategory[MemberNames::PRODUCT_ID]);
         $this->assertSame(2, (integer) $urlRewriteProductCategory[MemberNames::CATEGORY_ID]);
+
+        // load the first found URL rewrite
+        $urlRewrite = array_shift($urlRewrites);
+
+        // assert the values
+        $this->assertSame($product[MemberNames::ENTITY_ID], $urlRewrite[MemberNames::ENTITY_ID]);
+        $this->assertSame('product', $urlRewrite[MemberNames::ENTITY_TYPE]);
+        $this->assertSame('testcategory/testproduct.html', $urlRewrite[MemberNames::REQUEST_PATH]);
+        $this->assertSame(sprintf('catalog/product/view/id/%d/category/%d', $product[MemberNames::ENTITY_ID], $categoryId), $urlRewrite[MemberNames::TARGET_PATH]);
+        $this->assertSame(0, (integer) $urlRewrite[MemberNames::REDIRECT_TYPE]);
+        $this->assertSame(1, (integer) $urlRewrite[MemberNames::STORE_ID]);
+        $this->assertSame(1, (integer) $urlRewrite[MemberNames::IS_AUTOGENERATED]);
+        $this->assertSame(serialize(array(UrlRewriteObserver::CATEGORY_ID => $categoryId)), $urlRewrite[MemberNames::METADATA]);
+        $this->assertNull($urlRewrite[MemberNames::DESCRIPTION]);
+
+        // load the first found URL rewrite product category relation
+        $urlRewriteProductCategory = array_shift($urlRewriteProductCategories);
+
+        // assert the expected size and values
+        $this->assertSame((integer) $urlRewrite[MemberNames::URL_REWRITE_ID], (integer) $urlRewriteProductCategory[MemberNames::URL_REWRITE_ID]);
+        $this->assertSame((integer) $product[MemberNames::ENTITY_ID], (integer) $urlRewriteProductCategory[MemberNames::PRODUCT_ID]);
+        $this->assertSame($categoryId, (integer) $urlRewriteProductCategory[MemberNames::CATEGORY_ID]);
     }
 
     /**
@@ -487,14 +487,14 @@ class AddUpdateOperationTest extends AbstractIntegrationTest
     public function testAddUpdateWithSimpleProductAndCategoryRelationAndTwoWebsiteAndTwoStoresEach()
     {
 
-        // create a new category
-        $categoryId = $this->createCategory('Testcategory');
+        // initialize the array with the store IDs
+        $storeIds = array(1);
 
-        // prepare the file we want to import
-        $filename = $this->prepareFileWithSingleRow(array(ColumnKeys::CATEGORIES => 'Default Category/Testcategory'));
+        // create a new category
+        $categoryId = (integer) $this->createCategory('Testcategory');
 
         // create an addtional store view for the default group/website
-        $this->getImportProcessor()->persistStore(
+        $storeIds[] = $this->getImportProcessor()->persistStore(
             array(
                 MemberNames::CODE         => 'default_second',
                 MemberNames::WEBSITE_ID   => 1,
@@ -530,7 +530,7 @@ class AddUpdateOperationTest extends AbstractIntegrationTest
         );
 
         // create the first store view
-        $this->getImportProcessor()->persistStore(
+        $storeIds[] = $this->getImportProcessor()->persistStore(
             array(
                 MemberNames::CODE         => 'ch_FR',
                 MemberNames::WEBSITE_ID   => $websiteId,
@@ -543,7 +543,7 @@ class AddUpdateOperationTest extends AbstractIntegrationTest
         );
 
         // create the second store view
-        $storeId = $this->getImportProcessor()->persistStore(
+        $storeIds[] = $storeId = $this->getImportProcessor()->persistStore(
             array(
                 MemberNames::CODE         => 'ch_DE',
                 MemberNames::WEBSITE_ID   => $websiteId,
@@ -592,38 +592,39 @@ class AddUpdateOperationTest extends AbstractIntegrationTest
         $this->processImport();
 
         // make sure, the flag file for a successfull import exists
-        $this->assertFileExists(sprintf('%s.imported', $filename));
+        $this->assertCount(1, glob(sprintf('%s/*/%s.imported', $this->getTmpDir(), basename($filename))));
 
         // initialize the product bunch processor instance
-        $productBunchProcessor = $this->getProductBunchProcessor();
+        $productUrlRewriteProcessor = $this->getProductUrlRewriteProcessor();
 
         // try to load the imported product by its SKU
-        $product = $productBunchProcessor->loadProduct($sku = '24-MB01');
+        $product = $productUrlRewriteProcessor->loadProduct($sku = 'TEST-SKU-000001');
 
         // try to load the URL rewrites by their SKU and count them
-        $urlRewrites = $productBunchProcessor->getUrlRewritesBySku($sku);
+        $urlRewrites = $productUrlRewriteProcessor->getUrlRewritesBySku($sku);
         $this->assertCount($expectedCount = 8, $urlRewrites);
 
         // try to load the URL rewrite product category relations by their SKU and count them
-        $urlRewriteProductCategories = $productBunchProcessor->getUrlRewriteProductCategoriesBySku($sku);
+        $urlRewriteProductCategories = $productUrlRewriteProcessor->getUrlRewriteProductCategoriesBySku($sku);
         $this->assertCount($expectedCount, $urlRewriteProductCategories);
 
-        for ($i = 1; $i <= $expectedCount; $i++) {
-            // load the seventh found URL rewrite
+        // iterate over the URL rewrites/rewrite product category relations
+        for ($i = 1; $i <= $expectedCount / 2; $i++) {
+            // load the found URL rewrite
             $urlRewrite = array_shift($urlRewrites);
 
             // assert the values
-            $this->assertSame($product[MemberNames::ENTITY_ID], $urlRewrite[MemberNames::ENTITY_ID]);
+            $this->assertSame((integer) $product[MemberNames::ENTITY_ID], (integer) $urlRewrite[MemberNames::ENTITY_ID]);
             $this->assertSame('product', $urlRewrite[MemberNames::ENTITY_TYPE]);
-            $this->assertSame('joust-duffle-bag-s.html', $urlRewrite[MemberNames::REQUEST_PATH]);
+            $this->assertSame('testproduct.html', $urlRewrite[MemberNames::REQUEST_PATH]);
             $this->assertSame(sprintf('catalog/product/view/id/%d', $product[MemberNames::ENTITY_ID]), $urlRewrite[MemberNames::TARGET_PATH]);
             $this->assertSame(0, (integer) $urlRewrite[MemberNames::REDIRECT_TYPE]);
-            $this->assertSame($i, (integer) $urlRewrite[MemberNames::STORE_ID]);
+            $this->assertSame((integer) $storeIds[$i -1], (integer) $urlRewrite[MemberNames::STORE_ID]);
             $this->assertSame(1, (integer) $urlRewrite[MemberNames::IS_AUTOGENERATED]);
             $this->assertSame(serialize(array()), $urlRewrite[MemberNames::METADATA]);
             $this->assertNull($urlRewrite[MemberNames::DESCRIPTION]);
 
-            // load the seventh found URL rewrite product category relation
+            // load the found URL rewrite product category relation
             $urlRewriteProductCategory = array_shift($urlRewriteProductCategories);
 
             // assert the expected size and values
@@ -631,27 +632,139 @@ class AddUpdateOperationTest extends AbstractIntegrationTest
             $this->assertSame((integer) $product[MemberNames::ENTITY_ID], (integer) $urlRewriteProductCategory[MemberNames::PRODUCT_ID]);
             $this->assertSame(2, (integer) $urlRewriteProductCategory[MemberNames::CATEGORY_ID]);
 
-            // load the eight found URL rewrite
+            // load the found URL rewrite
             $urlRewrite = array_shift($urlRewrites);
 
             // assert the values
-            $this->assertSame($product[MemberNames::ENTITY_ID], $urlRewrite[MemberNames::ENTITY_ID]);
+            $this->assertSame((integer) $product[MemberNames::ENTITY_ID], (integer) $urlRewrite[MemberNames::ENTITY_ID]);
             $this->assertSame('product', $urlRewrite[MemberNames::ENTITY_TYPE]);
-            $this->assertSame('testcategory/joust-duffle-bag-s.html', $urlRewrite[MemberNames::REQUEST_PATH]);
-            $this->assertSame(sprintf('catalog/product/view/id/%d/category/%d', $product[MemberNames::ENTITY_ID], $categoryId));
+            $this->assertSame('testcategory/testproduct.html', $urlRewrite[MemberNames::REQUEST_PATH]);
+            $this->assertSame(sprintf('catalog/product/view/id/%d/category/%d', $product[MemberNames::ENTITY_ID], $categoryId), $urlRewrite[MemberNames::TARGET_PATH]);
             $this->assertSame(0, (integer) $urlRewrite[MemberNames::REDIRECT_TYPE]);
-            $this->assertSame($i, (integer) $urlRewrite[MemberNames::STORE_ID]);
+            $this->assertSame((integer) $storeIds[$i -1], (integer) $urlRewrite[MemberNames::STORE_ID]);
             $this->assertSame(1, (integer) $urlRewrite[MemberNames::IS_AUTOGENERATED]);
             $this->assertSame(serialize(array(UrlRewriteObserver::CATEGORY_ID => $categoryId)), $urlRewrite[MemberNames::METADATA]);
             $this->assertNull($urlRewrite[MemberNames::DESCRIPTION]);
 
-            // load the eight found URL rewrite product category relation
+            // load the found URL rewrite product category relation
             $urlRewriteProductCategory = array_shift($urlRewriteProductCategories);
 
             // assert the expected size and values
             $this->assertSame((integer) $urlRewrite[MemberNames::URL_REWRITE_ID], (integer) $urlRewriteProductCategory[MemberNames::URL_REWRITE_ID]);
             $this->assertSame((integer) $product[MemberNames::ENTITY_ID], (integer) $urlRewriteProductCategory[MemberNames::PRODUCT_ID]);
-            $this->assertSame(2, (integer) $urlRewriteProductCategory[MemberNames::CATEGORY_ID]);
+            $this->assertSame($categoryId, (integer) $urlRewriteProductCategory[MemberNames::CATEGORY_ID]);
         }
+    }
+
+    /**
+     * Test's the add-update operation with two simple products with the same URL key.
+     *
+     * @return void
+     */
+    public function testAddUpdateWithTwoSimpleProductsAndSameUrlKey()
+    {
+
+        // prepare the file with the same URL key we want to import
+        $filename = $this->prepareFile(
+            array(
+                $this->prepareRow(),
+                $this->prepareRow(array(ColumnKeys::SKU => 'TEST-SKU-000002'))
+            )
+        );
+
+        // process the import operation
+        $this->processImport();
+
+        // make sure, the flag file for a successfull import exists
+        $this->assertCount(1, glob(sprintf('%s/*/%s.imported', $this->getTmpDir(), basename($filename))));
+
+        // initialize the product bunch processor instance
+        $productUrlRewriteProcessor = $this->getProductUrlRewriteProcessor();
+
+        // try to load the imported product by its SKU
+        $product = $productUrlRewriteProcessor->loadProduct($sku = 'TEST-SKU-000001');
+
+        // assert the expected product entity data
+        $this->assertArrayHasKey('sku', $product);
+        $this->assertSame($sku, $product[MemberNames::SKU]);
+        $this->assertSame(4, (integer) $product[MemberNames::ATTRIBUTE_SET_ID]);
+        $this->assertSame('simple', $product[MemberNames::TYPE_ID]);
+        $this->assertSame(0, (integer) $product[MemberNames::HAS_OPTIONS]);
+        $this->assertSame(0, (integer) $product[MemberNames::REQUIRED_OPTIONS]);
+        $this->assertSame('2016-10-24 12:36:00', $product[MemberNames::CREATED_AT]);
+        $this->assertSame('2016-10-24 12:36:00', $product[MemberNames::UPDATED_AT]);
+
+        // try to load the URL rewrites by their SKU and count them
+        $urlRewrites = $productUrlRewriteProcessor->getUrlRewritesBySku($sku);
+        $this->assertCount(1, $urlRewrites);
+
+        // try to load the URL rewrite product category relations and count them
+        $urlRewriteProductCategories = $productUrlRewriteProcessor->getUrlRewriteProductCategoriesBySku($sku);
+        $this->assertCount(1, $urlRewriteProductCategories);
+
+        // load the first and only found URL rewrite
+        $urlRewrite = reset($urlRewrites);
+
+        // assert the expected size and values
+        $this->assertSame($product[MemberNames::ENTITY_ID], $urlRewrite[MemberNames::ENTITY_ID]);
+        $this->assertSame('product', $urlRewrite[MemberNames::ENTITY_TYPE]);
+        $this->assertSame('testproduct.html', $urlRewrite[MemberNames::REQUEST_PATH]);
+        $this->assertSame(sprintf('catalog/product/view/id/%d', $product[MemberNames::ENTITY_ID]), $urlRewrite[MemberNames::TARGET_PATH]);
+        $this->assertSame(0, (integer) $urlRewrite[MemberNames::REDIRECT_TYPE]);
+        $this->assertSame(1, (integer) $urlRewrite[MemberNames::STORE_ID]);
+        $this->assertSame(1, (integer) $urlRewrite[MemberNames::IS_AUTOGENERATED]);
+        $this->assertSame(serialize(array()), $urlRewrite[MemberNames::METADATA]);
+        $this->assertNull($urlRewrite[MemberNames::DESCRIPTION]);
+
+        // load the first and only found URL rewrite product category relation
+        $urlRewriteProductCategory = reset($urlRewriteProductCategories);
+
+        // assert the expected size and values
+        $this->assertSame((integer) $urlRewrite[MemberNames::URL_REWRITE_ID], (integer) $urlRewriteProductCategory[MemberNames::URL_REWRITE_ID]);
+        $this->assertSame((integer) $product[MemberNames::ENTITY_ID], (integer) $urlRewriteProductCategory[MemberNames::PRODUCT_ID]);
+        $this->assertSame(2, (integer) $urlRewriteProductCategory[MemberNames::CATEGORY_ID]);
+
+        // try to load the imported product by its SKU
+        $product = $productUrlRewriteProcessor->loadProduct($sku = 'TEST-SKU-000002');
+
+        // assert the expected product entity data
+        $this->assertArrayHasKey('sku', $product);
+        $this->assertSame($sku, $product[MemberNames::SKU]);
+        $this->assertSame(4, (integer) $product[MemberNames::ATTRIBUTE_SET_ID]);
+        $this->assertSame('simple', $product[MemberNames::TYPE_ID]);
+        $this->assertSame(0, (integer) $product[MemberNames::HAS_OPTIONS]);
+        $this->assertSame(0, (integer) $product[MemberNames::REQUIRED_OPTIONS]);
+        $this->assertSame('2016-10-24 12:36:00', $product[MemberNames::CREATED_AT]);
+        $this->assertSame('2016-10-24 12:36:00', $product[MemberNames::UPDATED_AT]);
+
+        // try to load the URL rewrites by their SKU and count them
+        $urlRewrites = $productUrlRewriteProcessor->getUrlRewritesBySku($sku);
+        $this->assertCount(1, $urlRewrites);
+
+        // try to load the URL rewrite product category relations and count them
+        $urlRewriteProductCategories = $productUrlRewriteProcessor->getUrlRewriteProductCategoriesBySku($sku);
+        $this->assertCount(1, $urlRewriteProductCategories);
+
+        // load the first and only found URL rewrite
+        $urlRewrite = reset($urlRewrites);
+
+        // assert the expected size and values
+        $this->assertSame($product[MemberNames::ENTITY_ID], $urlRewrite[MemberNames::ENTITY_ID]);
+        $this->assertSame('product', $urlRewrite[MemberNames::ENTITY_TYPE]);
+        $this->assertSame('testproduct-1.html', $urlRewrite[MemberNames::REQUEST_PATH]);
+        $this->assertSame(sprintf('catalog/product/view/id/%d', $product[MemberNames::ENTITY_ID]), $urlRewrite[MemberNames::TARGET_PATH]);
+        $this->assertSame(0, (integer) $urlRewrite[MemberNames::REDIRECT_TYPE]);
+        $this->assertSame(1, (integer) $urlRewrite[MemberNames::STORE_ID]);
+        $this->assertSame(1, (integer) $urlRewrite[MemberNames::IS_AUTOGENERATED]);
+        $this->assertSame(serialize(array()), $urlRewrite[MemberNames::METADATA]);
+        $this->assertNull($urlRewrite[MemberNames::DESCRIPTION]);
+
+        // load the first and only found URL rewrite product category relation
+        $urlRewriteProductCategory = reset($urlRewriteProductCategories);
+
+        // assert the expected size and values
+        $this->assertSame((integer) $urlRewrite[MemberNames::URL_REWRITE_ID], (integer) $urlRewriteProductCategory[MemberNames::URL_REWRITE_ID]);
+        $this->assertSame((integer) $product[MemberNames::ENTITY_ID], (integer) $urlRewriteProductCategory[MemberNames::PRODUCT_ID]);
+        $this->assertSame(2, (integer) $urlRewriteProductCategory[MemberNames::CATEGORY_ID]);
     }
 }

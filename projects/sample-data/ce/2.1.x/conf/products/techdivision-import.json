@@ -94,6 +94,7 @@
               "observers": [
                 {
                   "import": [
+                    "import_product_url_rewrite.observer.clear.url.rewrite",
                     "import_product.observer.clear.product"
                   ]
                 }
@@ -129,6 +130,7 @@
                 {
                   "pre-import": [
                     "import_product.observer.pre.load.entity.id",
+                    "import_product_url_rewrite.observer.clear.url.rewrite",
                     "import_product.observer.clear.product",
                     "import.observer.attribute.set",
                     "import.observer.additional.attribute",
@@ -142,8 +144,8 @@
                     "import_product.observer.product.website",
                     "import_product.observer.category.product",
                     "import_product.observer.product.inventory",
-                    "import_product.observer.url.rewrite",
                     "import_product.observer.product.attribute",
+                    "import_product_url_rewrite.observer.product.url.rewrite",
                     "import_product_variant.observer.product.variant",
                     "import_product_bundle.observer.product.bundle",
                     "import_product_media.observer.product.media",
@@ -228,6 +230,17 @@
                   ]
                 }
               ]
+            },
+            {
+              "id": "import_product_url_rewrite.subject.url.rewrite",
+              "prefix": "url-rewrite",
+              "observers": [
+                {
+                  "import": [
+                    "import_product_url_rewrite.observer.url.rewrite"
+                  ]
+                }
+              ]
             }
           ]
         },
@@ -288,7 +301,7 @@
                     "import_product.observer.product.website.update",
                     "import_product.observer.category.product.update",
                     "import_product.observer.product.inventory.update",
-                    "import_product.observer.url.rewrite.update",
+                    "import_product_url_rewrite.observer.product.url.rewrite",
                     "import_product.observer.product.attribute.update",
                     "import_product_variant.observer.product.variant",
                     "import_product_bundle.observer.product.bundle",
@@ -371,6 +384,17 @@
                   "import": [
                     "import_product_link.observer.link.update",
                     "import_product_link.observer.link.attribute.position.update"
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "import_product_url_rewrite.subject.url.rewrite",
+              "prefix": "url-rewrite",
+              "observers": [
+                {
+                  "import": [
+                    "import_product_url_rewrite.observer.url.rewrite.update"
                   ]
                 }
               ]

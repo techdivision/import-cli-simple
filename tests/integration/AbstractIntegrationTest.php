@@ -47,13 +47,20 @@ abstract class AbstractIntegrationTest extends \PHPUnit_Framework_TestCase
     protected static $container;
 
     /**
+     * The counter for the CSV files.
+     *
+     * @var integer
+     */
+    protected $counter = 0;
+
+    /**
      * The templates for CSV file rows.
      *
      * @var array
      */
     protected $templates = array(
-        'product' => array(
-            'sku' => '24-MB01',
+        'product-import' => array(
+            'sku' => 'TEST-SKU-000001',
             'store_view_code' => null,
             'attribute_set_code' => 'Default',
             'product_type' => 'simple',
@@ -138,6 +145,16 @@ abstract class AbstractIntegrationTest extends \PHPUnit_Framework_TestCase
             'configurable_variations' => null,
             'configurable_variation_labels' => null,
             'associated_skus' => null
+        ),
+        'url-rewrite' => array(
+            'original_data' => null,
+            'sku' => 'TEST-SKU-000001',
+            'store_view_code' => null,
+            'categories' => null,
+            'product_websites' => 'base',
+            'name' => 'Testproduct',
+            'visibility' => 'Catalog, Search',
+            'url_key' => null
         )
     );
 
@@ -255,13 +272,38 @@ abstract class AbstractIntegrationTest extends \PHPUnit_Framework_TestCase
         // stop the transaction and rollback
         self::$container->get(DependencyInjectionKeys::CONNECTION)->getConnection()->rollback();
 
-        // clean the temporary directory
-        foreach (glob(sprintf('%s/*', $this->getTmpDir())) as $filename) {
-            unlink($filename);
+        // clean-up the temporary directory
+        $this->removeDir($this->getTmpDir());
+    }
+
+    /**
+     * Removes a directory recursively.
+     *
+     * @param string $src The source directory to be removed
+     *
+     * @return void
+     */
+    protected static function removeDir($src)
+    {
+
+        // open the directory
+        $dir = opendir($src);
+
+        // remove files/folders recursively
+        while (false !== ($file = readdir($dir))) {
+            if (($file != '.') && ($file != '..')) {
+                $full = $src . '/' . $file;
+                if (is_dir($full)) {
+                    AbstractIntegrationTest::removeDir($full);
+                } else {
+                    unlink($full);
+                }
+            }
         }
 
-        // finally remove the temporary directory
-        rmdir($this->getTmpDir());
+        // close handle and remove directory itself
+        closedir($dir);
+        rmdir($src);
     }
 
     /**
@@ -352,7 +394,7 @@ abstract class AbstractIntegrationTest extends \PHPUnit_Framework_TestCase
      *
      * @return array The prepared row
      */
-    protected function prepareRow(array $row = array(), $type = 'product')
+    protected function prepareRow(array $row = array(), $type = 'product-import')
     {
 
         // load the headers and the default values from the template
@@ -377,14 +419,14 @@ abstract class AbstractIntegrationTest extends \PHPUnit_Framework_TestCase
      *
      * @return string The filename of the CSV file created
      */
-    protected function prepareFile(array $rows = array(), $type = 'product', $bunchCounter = '01')
+    protected function prepareFile(array $rows = array(), $type = 'product-import', $bunchCounter = '01')
     {
 
         // prepend the headers to the rows
         array_unshift($rows, array_keys($this->templates[$type]));
 
         // prepare the file we want to export to
-        $filename = sprintf('%s/%s-import_%s-%s_01.csv', $this->getTmpDir(), $type, date('Ymd'), date('His'), $bunchCounter);
+        $filename = sprintf('%s/%s_%s-%s_01.csv', $this->getTmpDir(), $type, date('Ymd'), ++$this->counter, $bunchCounter);
 
         // export the data to the file
         self::$container->get(DependencyInjectionKeys::IMPORT_ADAPTER_EXPORT)->export($filename, $rows);
@@ -403,7 +445,7 @@ abstract class AbstractIntegrationTest extends \PHPUnit_Framework_TestCase
      *
      * @return string The filename of the CSV file created
      */
-    protected function prepareFileWithSingleRow(array $row = array(), $storeViews = array(), $type = 'product', $bunchCounter = '01', $merge = true)
+    protected function prepareFileWithSingleRow(array $row = array(), $storeViews = array(), $type = 'product-import', $bunchCounter = '01', $merge = true)
     {
 
         // initialize the array with the export data with the headers
@@ -413,7 +455,7 @@ abstract class AbstractIntegrationTest extends \PHPUnit_Framework_TestCase
         array_push($preparedData, $merge ? $this->prepareRow($row) : $row);
 
         // prepare the file we want to exprot
-        $filename = sprintf('%s/%s-import_%s-%s_%s.csv', $this->getTmpDir(), $type, date('Ymd'), date('His'), $bunchCounter);
+        $filename = sprintf('%s/%s_%s-%s_%s.csv', $this->getTmpDir(), $type, date('Ymd'), ++$this->counter, $bunchCounter);
 
         // export the data to the file
         self::$container->get(DependencyInjectionKeys::IMPORT_ADAPTER_EXPORT)->export($filename, $preparedData);
@@ -440,6 +482,16 @@ abstract class AbstractIntegrationTest extends \PHPUnit_Framework_TestCase
     protected function getProductBunchProcessor()
     {
         return self::$container->get(\TechDivision\Import\Product\Utils\DependencyInjectionKeys::PROCESSOR_PRODUCT_BUNCH);
+    }
+
+    /**
+     * Return's the product URL rewrite processor instance.
+     *
+     * @return \TechDivision\Import\Product\UrlRewrite\Services\ProductUrlRewriteProcessorInterface The product URL rewrite processor instance
+     */
+    protected function getProductUrlRewriteProcessor()
+    {
+        return self::$container->get(\TechDivision\Import\Product\UrlRewrite\Utils\DependencyInjectionKeys::PROCESSOR_PRODUCT_URL_REWRITE);
     }
 
     /**
@@ -497,7 +549,7 @@ abstract class AbstractIntegrationTest extends \PHPUnit_Framework_TestCase
                 \TechDivision\Import\Category\Utils\MemberNames::PARENT_ID        => $parentId,
                 \TechDivision\Import\Category\Utils\MemberNames::CREATED_AT       => date('Y-m-d H:i:s'),
                 \TechDivision\Import\Category\Utils\MemberNames::UPDATED_AT       => date('Y-m-d H:i:s'),
-                \TechDivision\Import\Category\Utils\MemberNames::PATH             => 1/2/3,
+                \TechDivision\Import\Category\Utils\MemberNames::PATH             => '',
                 \TechDivision\Import\Category\Utils\MemberNames::POSITION         => 0,
                 \TechDivision\Import\Category\Utils\MemberNames::LEVEL            => 2,
                 \TechDivision\Import\Category\Utils\MemberNames::CHILDREN_COUNT   => 0,
@@ -505,11 +557,27 @@ abstract class AbstractIntegrationTest extends \PHPUnit_Framework_TestCase
             )
         );
 
+        // update the category with the correct path
+        $this->getCategoryBunchProcessor()->persistCategory(
+            array(
+                \TechDivision\Import\Category\Utils\MemberNames::ENTITY_ID        => $categoryId,
+                \TechDivision\Import\Category\Utils\MemberNames::ATTRIBUTE_SET_ID => 3,
+                \TechDivision\Import\Category\Utils\MemberNames::PARENT_ID        => $parentId,
+                \TechDivision\Import\Category\Utils\MemberNames::CREATED_AT       => date('Y-m-d H:i:s'),
+                \TechDivision\Import\Category\Utils\MemberNames::UPDATED_AT       => date('Y-m-d H:i:s'),
+                \TechDivision\Import\Category\Utils\MemberNames::PATH             => sprintf('1/2/%s', $categoryId),
+                \TechDivision\Import\Category\Utils\MemberNames::POSITION         => 0,
+                \TechDivision\Import\Category\Utils\MemberNames::LEVEL            => 2,
+                \TechDivision\Import\Category\Utils\MemberNames::CHILDREN_COUNT   => 0,
+                EntityStatus::MEMBER_NAME                                         => EntityStatus::STATUS_UPDATE
+            )
+        );
+
         // create the "name" attribute
         $this->getCategoryBunchProcessor()->persistCategoryVarcharAttribute(
             array(
                 \TechDivision\Import\Category\Utils\MemberNames::ATTRIBUTE_ID => 45,
-                \TechDivision\Import\Category\Utils\MemberNames::STORE_ID     => 1,
+                \TechDivision\Import\Category\Utils\MemberNames::STORE_ID     => 0,
                 \TechDivision\Import\Category\Utils\MemberNames::ENTITY_ID    => $categoryId,
                 \TechDivision\Import\Category\Utils\MemberNames::VALUE        => $name,
                 EntityStatus::MEMBER_NAME                                     => EntityStatus::STATUS_CREATE
@@ -520,7 +588,7 @@ abstract class AbstractIntegrationTest extends \PHPUnit_Framework_TestCase
         $this->getCategoryBunchProcessor()->persistCategoryVarcharAttribute(
             array(
                 \TechDivision\Import\Category\Utils\MemberNames::ATTRIBUTE_ID => 124,
-                \TechDivision\Import\Category\Utils\MemberNames::STORE_ID     => 1,
+                \TechDivision\Import\Category\Utils\MemberNames::STORE_ID     => 0,
                 \TechDivision\Import\Category\Utils\MemberNames::ENTITY_ID    => $categoryId,
                 \TechDivision\Import\Category\Utils\MemberNames::VALUE        => 'testcategory',
                 EntityStatus::MEMBER_NAME                                     => EntityStatus::STATUS_CREATE
@@ -531,7 +599,7 @@ abstract class AbstractIntegrationTest extends \PHPUnit_Framework_TestCase
         $this->getCategoryBunchProcessor()->persistCategoryVarcharAttribute(
             array(
                 \TechDivision\Import\Category\Utils\MemberNames::ATTRIBUTE_ID => 125,
-                \TechDivision\Import\Category\Utils\MemberNames::STORE_ID     => 1,
+                \TechDivision\Import\Category\Utils\MemberNames::STORE_ID     => 0,
                 \TechDivision\Import\Category\Utils\MemberNames::ENTITY_ID    => $categoryId,
                 \TechDivision\Import\Category\Utils\MemberNames::VALUE        => 'testcategory',
                 EntityStatus::MEMBER_NAME                                     => EntityStatus::STATUS_CREATE
@@ -542,13 +610,14 @@ abstract class AbstractIntegrationTest extends \PHPUnit_Framework_TestCase
         $this->getCategoryBunchProcessor()->persistCategoryIntAttribute(
             array(
                 \TechDivision\Import\Category\Utils\MemberNames::ATTRIBUTE_ID => 54,
-                \TechDivision\Import\Category\Utils\MemberNames::STORE_ID     => 1,
+                \TechDivision\Import\Category\Utils\MemberNames::STORE_ID     => 0,
                 \TechDivision\Import\Category\Utils\MemberNames::ENTITY_ID    => $categoryId,
                 \TechDivision\Import\Category\Utils\MemberNames::VALUE        => $isAnchor ? 1 : 0,
                 EntityStatus::MEMBER_NAME                                     => EntityStatus::STATUS_CREATE
             )
         );
 
+        // return the ID of the created category
         return $categoryId;
     }
 
