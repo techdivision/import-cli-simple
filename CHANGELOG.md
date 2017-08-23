@@ -1,3 +1,17 @@
+# Version 1.0.0-beta46
+
+## Known Issues
+
+* Issue [#117](https://github.com/techdivision/import-cli-simple/issues/117) - Attribute Import fails when invoking add-update after replace operation]
+
+## Bugfixes
+
+* None
+
+## Features
+
+* Completely refactored product URL rewrite handling
+
 # Version 1.0.0-beta45
 
 ## Known Issues
