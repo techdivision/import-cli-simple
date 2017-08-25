@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "74cbd6c9963d9431174ddef09c30ad84",
+    "content-hash": "cc298605d7c3cd7c863f2d09bb809564",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -1962,16 +1962,16 @@
         },
         {
             "name": "techdivision/import-attribute",
-            "version": "1.0.0-beta16",
+            "version": "1.0.0-beta17",
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-attribute.git",
-                "reference": "707091e33945b7c8fd9e3580966f11d96383ba41"
+                "reference": "72aa01ddb35e76d21cfb96129b89c6758730515a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-attribute/zipball/707091e33945b7c8fd9e3580966f11d96383ba41",
-                "reference": "707091e33945b7c8fd9e3580966f11d96383ba41",
+                "url": "https://api.github.com/repos/techdivision/import-attribute/zipball/72aa01ddb35e76d21cfb96129b89c6758730515a",
+                "reference": "72aa01ddb35e76d21cfb96129b89c6758730515a",
                 "shasum": ""
             },
             "require": {
@@ -2015,20 +2015,20 @@
                 }
             ],
             "description": "M2IF library providing basic Magento 2 attribute import functionality",
-            "time": "2017-08-09T16:40:54+00:00"
+            "time": "2017-08-25T08:41:23+00:00"
         },
         {
             "name": "techdivision/import-category",
-            "version": "1.0.0-beta18",
+            "version": "1.0.0-beta19",
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-category.git",
-                "reference": "3272207d539813cb59f6fcf61f34c388eb6ae981"
+                "reference": "937ef40b1d3c0638b9e954399546088c00fd3122"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-category/zipball/3272207d539813cb59f6fcf61f34c388eb6ae981",
-                "reference": "3272207d539813cb59f6fcf61f34c388eb6ae981",
+                "url": "https://api.github.com/repos/techdivision/import-category/zipball/937ef40b1d3c0638b9e954399546088c00fd3122",
+                "reference": "937ef40b1d3c0638b9e954399546088c00fd3122",
                 "shasum": ""
             },
             "require": {
@@ -2072,20 +2072,20 @@
                 }
             ],
             "description": "M2IF library providing basic Magento 2 category import functionality",
-            "time": "2017-08-19T10:45:06+00:00"
+            "time": "2017-08-25T08:48:15+00:00"
         },
         {
             "name": "techdivision/import-category-ee",
-            "version": "1.0.0-beta13",
+            "version": "1.0.0-beta14",
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-category-ee.git",
-                "reference": "01e2460ccc76528995a3c849c826aa3159343179"
+                "reference": "45f2a08b3f2b45ea5bb1215517bd270d4617f003"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-category-ee/zipball/01e2460ccc76528995a3c849c826aa3159343179",
-                "reference": "01e2460ccc76528995a3c849c826aa3159343179",
+                "url": "https://api.github.com/repos/techdivision/import-category-ee/zipball/45f2a08b3f2b45ea5bb1215517bd270d4617f003",
+                "reference": "45f2a08b3f2b45ea5bb1215517bd270d4617f003",
                 "shasum": ""
             },
             "require": {
@@ -2126,7 +2126,7 @@
                 }
             ],
             "description": "M2IF library providing basic Magento 2 EE category import functionality",
-            "time": "2017-08-17T11:24:20+00:00"
+            "time": "2017-08-25T09:15:09+00:00"
         },
         {
             "name": "techdivision/import-configuration-jms",
@@ -2918,22 +2918,22 @@
     "packages-dev": [
         {
             "name": "consolidation/annotated-command",
-            "version": "2.4.11",
+            "version": "2.4.12",
             "source": {
                 "type": "git",
                 "url": "https://github.com/consolidation/annotated-command.git",
-                "reference": "7fbf68dc6abf2f1f0746ceab0701dee1ee97516e"
+                "reference": "911c50026c4f80f967dbb21293118ef4a663bc87"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/consolidation/annotated-command/zipball/7fbf68dc6abf2f1f0746ceab0701dee1ee97516e",
-                "reference": "7fbf68dc6abf2f1f0746ceab0701dee1ee97516e",
+                "url": "https://api.github.com/repos/consolidation/annotated-command/zipball/911c50026c4f80f967dbb21293118ef4a663bc87",
+                "reference": "911c50026c4f80f967dbb21293118ef4a663bc87",
                 "shasum": ""
             },
             "require": {
                 "consolidation/output-formatters": "^3.1.10",
                 "php": ">=5.4.0",
-                "phpdocumentor/reflection-docblock": "^2.0|^3.0.2",
+                "phpdocumentor/reflection-docblock": "^2.0|^3.0.2|^4.0",
                 "psr/log": "^1",
                 "symfony/console": "^2.8|~3",
                 "symfony/event-dispatcher": "^2.5|^3",
@@ -2966,7 +2966,7 @@
                 }
             ],
             "description": "Initialize Symfony Console commands from annotated command class methods.",
-            "time": "2017-07-27T20:29:17+00:00"
+            "time": "2017-08-24T19:55:37+00:00"
         },
         {
             "name": "consolidation/config",

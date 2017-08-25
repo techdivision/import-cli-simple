@@ -1,3 +1,17 @@
+# Version 1.0.0-beta48
+
+## Known Issues
+
+* None
+
+## Bugfixes
+
+* Fixed #117 - [Attribute Import fails when invoking add-update after replace operation](https://github.com/techdivision/import-cli-simple/issues/117)
+
+## Features
+
+* None
+
 # Version 1.0.0-beta47
 
 ## Known Issues
