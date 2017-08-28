@@ -1,3 +1,17 @@
+# Version 1.0.0-beta49
+
+## Known Issues
+
+* None
+
+## Bugfixes
+
+* Add cache warming functionality
+
+## Features
+
+* None
+
 # Version 1.0.0-beta48
 
 ## Known Issues

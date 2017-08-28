@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "cc298605d7c3cd7c863f2d09bb809564",
+    "content-hash": "a7932a393b067a200496d7f460821869",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -1842,16 +1842,16 @@
         },
         {
             "name": "techdivision/import",
-            "version": "1.0.0-beta44",
+            "version": "1.0.0-beta45",
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import.git",
-                "reference": "58752e3fb295b2570f6b54e55597ca3e3237c4fa"
+                "reference": "3eced2e13c2cc86f89a42773d95236a0283eef91"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import/zipball/58752e3fb295b2570f6b54e55597ca3e3237c4fa",
-                "reference": "58752e3fb295b2570f6b54e55597ca3e3237c4fa",
+                "url": "https://api.github.com/repos/techdivision/import/zipball/3eced2e13c2cc86f89a42773d95236a0283eef91",
+                "reference": "3eced2e13c2cc86f89a42773d95236a0283eef91",
                 "shasum": ""
             },
             "require": {
@@ -1898,20 +1898,20 @@
                 }
             ],
             "description": "A library supporting generic Magento 2 import functionality",
-            "time": "2017-08-21T08:46:16+00:00"
+            "time": "2017-08-28T12:24:35+00:00"
         },
         {
             "name": "techdivision/import-app-simple",
-            "version": "1.0.0-beta9",
+            "version": "1.0.0-beta10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-app-simple.git",
-                "reference": "05db491ee96ad8a3afd26352ec76e95fd9141bcb"
+                "reference": "1bde99d4c74770018a12c79479205d9aed8fe550"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-app-simple/zipball/05db491ee96ad8a3afd26352ec76e95fd9141bcb",
-                "reference": "05db491ee96ad8a3afd26352ec76e95fd9141bcb",
+                "url": "https://api.github.com/repos/techdivision/import-app-simple/zipball/1bde99d4c74770018a12c79479205d9aed8fe550",
+                "reference": "1bde99d4c74770018a12c79479205d9aed8fe550",
                 "shasum": ""
             },
             "require": {
@@ -1958,7 +1958,7 @@
                 }
             ],
             "description": "M2IF simple application implementation providing basic Magento 2 import functionality",
-            "time": "2017-08-19T10:44:23+00:00"
+            "time": "2017-08-28T12:53:13+00:00"
         },
         {
             "name": "techdivision/import-attribute",
@@ -3881,22 +3881,22 @@
         },
         {
             "name": "phpdocumentor/reflection-docblock",
-            "version": "3.2.2",
+            "version": "4.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpDocumentor/ReflectionDocBlock.git",
-                "reference": "4aada1f93c72c35e22fb1383b47fee43b8f1d157"
+                "reference": "125c8b15c80827dbcd32facc9f85c8a603617d87"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpDocumentor/ReflectionDocBlock/zipball/4aada1f93c72c35e22fb1383b47fee43b8f1d157",
-                "reference": "4aada1f93c72c35e22fb1383b47fee43b8f1d157",
+                "url": "https://api.github.com/repos/phpDocumentor/ReflectionDocBlock/zipball/125c8b15c80827dbcd32facc9f85c8a603617d87",
+                "reference": "125c8b15c80827dbcd32facc9f85c8a603617d87",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.5",
+                "php": "^7.0",
                 "phpdocumentor/reflection-common": "^1.0@dev",
-                "phpdocumentor/type-resolver": "^0.3.0",
+                "phpdocumentor/type-resolver": "^0.4.0",
                 "webmozart/assert": "^1.0"
             },
             "require-dev": {
@@ -3922,20 +3922,20 @@
                 }
             ],
             "description": "With this component, a library can provide support for annotations via DocBlocks or otherwise retrieve information that is embedded in a DocBlock.",
-            "time": "2017-08-08T06:39:58+00:00"
+            "time": "2017-08-18T21:01:43+00:00"
         },
         {
             "name": "phpdocumentor/type-resolver",
-            "version": "0.3.0",
+            "version": "0.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpDocumentor/TypeResolver.git",
-                "reference": "fb3933512008d8162b3cdf9e18dba9309b7c3773"
+                "reference": "9c977708995954784726e25d0cd1dddf4e65b0f7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpDocumentor/TypeResolver/zipball/fb3933512008d8162b3cdf9e18dba9309b7c3773",
-                "reference": "fb3933512008d8162b3cdf9e18dba9309b7c3773",
+                "url": "https://api.github.com/repos/phpDocumentor/TypeResolver/zipball/9c977708995954784726e25d0cd1dddf4e65b0f7",
+                "reference": "9c977708995954784726e25d0cd1dddf4e65b0f7",
                 "shasum": ""
             },
             "require": {
@@ -3969,7 +3969,7 @@
                     "email": "me@mikevanriel.com"
                 }
             ],
-            "time": "2017-06-03T08:32:36+00:00"
+            "time": "2017-07-14T14:27:02+00:00"
         },
         {
             "name": "phpmd/phpmd",

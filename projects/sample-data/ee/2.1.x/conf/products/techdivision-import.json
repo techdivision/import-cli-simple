@@ -111,6 +111,9 @@
       "name" : "replace",
       "plugins" : [
         {
+          "id": "import.plugin.cache.warmer"
+        },
+        {
           "id": "import.plugin.global.data"
         },
         {
@@ -270,6 +273,9 @@
     {
       "name" : "add-update",
       "plugins" : [
+        {
+          "id": "import.plugin.cache.warmer"
+        },
         {
           "id": "import.plugin.global.data"
         },
