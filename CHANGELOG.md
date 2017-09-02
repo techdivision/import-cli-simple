@@ -1,3 +1,20 @@
+# Version 1.0.0-beta50
+
+## Known Issues
+
+* None
+
+## Bugfixes
+
+* Fixed invalid handling when URL rewrites have been deleted (e. g. because category product relation has been removed) and re-created
+
+## Features
+
+* Add functionality to remove old image + image tags when products are updated
+* Add configurable functionality to remove entity attributes with empty values in column names
+* Add configurable functionality to remove old URL rewrites that not longer exists
+* Add configurable functionality to remove category product relations that not longer exists in the CSV file
+
 # Version 1.0.0-beta49
 
 ## Known Issues

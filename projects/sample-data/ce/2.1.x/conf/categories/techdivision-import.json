@@ -30,9 +30,9 @@
             "params" : [
               {
                 "format": "[%datetime%] %channel%.%level_name%: %message% %context% %extra%",
-                "dateFormat": "Y-m-d H:i:s",
-                "allowInlineLineBreaks": true,
-                "ignoreEmptyContextAndExtra": false
+                "date-format": "Y-m-d H:i:s",
+                "allow-inline-line-breaks": true,
+                "ignore-empty-context-and-extra": false
               }
             ]
           }
@@ -106,18 +106,31 @@
               "id": "import_category.subject.bunch",
               "identifier": "files",
               "prefix": "category-create",
+              "filesystem-adapter" : {
+                "id" : "import.adapter.filesystem.factory.league",
+                "adapter" : {
+                  "type" : "League\\Flysystem\\Adapter\\Local"
+                }
+              },
+              "params" : [
+                {
+                  "copy-images" : true,
+                  "media-directory" : "projects/sample-data/tmp",
+                  "images-file-directory" : "projects/sample-data/magento2-sample-data/pub/media/wysiwyg"
+                }
+              ],
               "observers": [
                 {
                   "pre-import": [
                     "import_category.observer.url.key.and.path",
                     "import.observer.attribute.set",
-                    "import.observer.additional.attribute"
+                    "import.observer.additional.attribute",
+                    "import_category.observer.file.upload"
                   ]
                 },
                 {
                   "import": [
                     "import_category.observer.category",
-                    "import_category.observer.category.image",
                     "import_category.observer.category.attribute",
                     "import_category.observer.url.rewrite"
                   ]
@@ -137,23 +150,6 @@
                 {
                   "import": [
                     "import_category.observer.category.path"
-                  ]
-                }
-              ]
-            },
-            {
-              "id": "import_category.subject.media",
-              "prefix": "media",
-              "params" : [
-                {
-                  "copy-images" : false,
-                  "root-directory" : "/"
-                }
-              ],
-              "observers": [
-                {
-                  "import" : [
-                    "import_category.observer.file.upload"
                   ]
                 }
               ]
@@ -187,18 +183,31 @@
               "id": "import_category.subject.bunch",
               "identifier": "files",
               "prefix": "category-import",
+              "filesystem-adapter" : {
+                "id" : "import.adapter.filesystem.factory.league",
+                "adapter" : {
+                  "type" : "League\\Flysystem\\Adapter\\Local"
+                }
+              },
+              "params" : [
+                {
+                  "copy-images" : true,
+                  "media-directory" : "projects/sample-data/tmp",
+                  "images-file-directory" : "projects/sample-data/magento2-sample-data/pub/media/wysiwyg"
+                }
+              ],
               "observers": [
                 {
                   "pre-import": [
                     "import_category.observer.url.key.and.path",
                     "import.observer.attribute.set",
-                    "import.observer.additional.attribute"
+                    "import.observer.additional.attribute",
+                    "import_category.observer.file.upload"
                   ]
                 },
                 {
                   "import": [
                     "import_category.observer.category.update",
-                    "import_category.observer.category.image",
                     "import_category.observer.category.attribute.update",
                     "import_category.observer.url.rewrite.update"
                   ]
@@ -218,23 +227,6 @@
                 {
                   "import": [
                     "import_category.observer.category.path"
-                  ]
-                }
-              ]
-            },
-            {
-              "id": "import_category.subject.media",
-              "prefix": "media",
-              "params" : [
-                {
-                  "copy-images" : false,
-                  "root-directory" : "/"
-                }
-              ],
-              "observers": [
-                {
-                  "import" : [
-                    "import_category.observer.file.upload"
                   ]
                 }
               ]

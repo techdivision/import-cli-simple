@@ -30,9 +30,9 @@
             "params" : [
               {
                 "format": "[%datetime%] %channel%.%level_name%: %message% %context% %extra%",
-                "dateFormat": "Y-m-d H:i:s",
-                "allowInlineLineBreaks": true,
-                "ignoreEmptyContextAndExtra": false
+                "date-format": "Y-m-d H:i:s",
+                "allow-inline-line-breaks": true,
+                "ignore-empty-context-and-extra": false
               }
             ]
           }
@@ -129,6 +129,19 @@
               "id": "import_product_ee.subject.bunch",
               "identifier": "files",
               "prefix": "product-import",
+              "filesystem-adapter" : {
+                "id" : "import.adapter.filesystem.factory.league",
+                "adapter" : {
+                  "type" : "League\\Flysystem\\Adapter\\Local"
+                }
+              },
+              "params" : [
+                {
+                  "copy-images" : true,
+                  "media-directory" : "projects/sample-data/tmp",
+                  "images-file-directory" : "projects/sample-data/magento2-sample-data/pub/media/catalog/product"
+                }
+              ],
               "observers": [
                 {
                   "pre-import": [
@@ -138,6 +151,7 @@
                     "import.observer.attribute.set",
                     "import.observer.additional.attribute",
                     "import_product_ee.observer.url.key",
+                    "import_product.observer.file.upload",
                     "import_product.observer.quality.and.stock.status"
                   ]
                 },
@@ -196,24 +210,10 @@
             {
               "id": "import_product_media_ee.subject.media",
               "prefix": "media",
-              "filesystem-adapter" : {
-                "id" : "import.adapter.filesystem.factory.league",
-                "adapter" : {
-                  "type" : "League\\Flysystem\\Adapter\\Local"
-                }
-              },
-              "params" : [
-                {
-                  "copy-images" : true,
-                  "media-directory" : "projects/sample-data/tmp",
-                  "images-file-directory" : "projects/sample-data/magento2-sample-data/pub/media/catalog/product"
-                }
-              ],
               "observers": [
                 {
                   "pre-import" : [
-                    "import.observer.attribute.set",
-                    "import_product_media.observer.file.upload"
+                    "import.observer.attribute.set"
                   ],
                   "import": [
                     "import_product_media_ee.media.gallery",
@@ -292,12 +292,29 @@
               "id": "import_product_ee.subject.bunch",
               "identifier": "files",
               "prefix": "product-import",
+              "filesystem-adapter" : {
+                "id" : "import.adapter.filesystem.factory.league",
+                "adapter" : {
+                  "type" : "League\\Flysystem\\Adapter\\Local"
+                }
+              },
+              "params" : [
+                {
+                  "copy-images" : true,
+                  "clean-up-media-gallery" : true,
+                  "clean-up-category-product-relations" : true,
+                  "clean-up-empty-columns" : [ "base_image", "small_image", "swatch_image", "thumbnail_image" ],
+                  "media-directory" : "projects/sample-data/tmp",
+                  "images-file-directory" : "projects/sample-data/magento2-sample-data/pub/media/catalog/product"
+                }
+              ],
               "observers": [
                 {
                   "pre-import": [
                     "import.observer.attribute.set",
                     "import.observer.additional.attribute",
                     "import_product_ee.observer.url.key",
+                    "import_product.observer.file.upload",
                     "import_product.observer.quality.and.stock.status"
                   ]
                 },
@@ -312,6 +329,7 @@
                     "import_product_variant.observer.product.variant",
                     "import_product_bundle.observer.product.bundle",
                     "import_product_media.observer.product.media",
+                    "import_product_media.observer.clear.media.gallery",
                     "import_product_link.observer.product.link"
                   ]
                 },
@@ -356,24 +374,10 @@
             {
               "id": "import_product_media_ee.subject.media",
               "prefix": "media",
-              "filesystem-adapter" : {
-                "id" : "import.adapter.filesystem.factory.league",
-                "adapter" : {
-                  "type" : "League\\Flysystem\\Adapter\\Local"
-                }
-              },
-              "params" : [
-                {
-                  "copy-images" : true,
-                  "media-directory" : "projects/sample-data/tmp",
-                  "images-file-directory" : "projects/sample-data/magento2-sample-data/pub/media/catalog/product"
-                }
-              ],
               "observers": [
                 {
                   "pre-import" : [
-                    "import.observer.attribute.set",
-                    "import_product_media.observer.file.upload"
+                    "import.observer.attribute.set"
                   ],
                   "import": [
                     "import_product_media_ee.media.gallery.update",
