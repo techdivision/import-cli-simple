@@ -94,16 +94,6 @@ class AddUpdateOperationTest extends AbstractIntegrationTest
         // try to load the imported product by its SKU
         $product = $productUrlRewriteProcessor->loadProduct($sku = 'TEST-SKU-000001');
 
-        // assert the expected product entity data
-        $this->assertArrayHasKey('sku', $product);
-        $this->assertSame($sku, $product[MemberNames::SKU]);
-        $this->assertSame(4, (integer) $product[MemberNames::ATTRIBUTE_SET_ID]);
-        $this->assertSame('simple', $product[MemberNames::TYPE_ID]);
-        $this->assertSame(0, (integer) $product[MemberNames::HAS_OPTIONS]);
-        $this->assertSame(0, (integer) $product[MemberNames::REQUIRED_OPTIONS]);
-        $this->assertSame('2016-10-24 12:36:00', $product[MemberNames::CREATED_AT]);
-        $this->assertSame('2016-10-24 12:36:00', $product[MemberNames::UPDATED_AT]);
-
         // try to load the URL rewrites by their SKU and count them
         $urlRewrites = $productUrlRewriteProcessor->getUrlRewritesBySku($sku);
         $this->assertCount(1, $urlRewrites);

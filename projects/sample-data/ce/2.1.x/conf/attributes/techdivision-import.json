@@ -30,9 +30,9 @@
             "params" : [
               {
                 "format": "[%datetime%] %channel%.%level_name%: %message% %context% %extra%",
-                "dateFormat": "Y-m-d H:i:s",
-                "allowInlineLineBreaks": true,
-                "ignoreEmptyContextAndExtra": false
+                "date-format": "Y-m-d H:i:s",
+                "allow-inline-line-breaks": true,
+                "ignore-empty-context-and-extra": false
               }
             ]
           }
