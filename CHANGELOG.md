@@ -1,3 +1,17 @@
+# Version 1.0.0-beta51
+
+## Known Issues
+
+* None
+
+## Bugfixes
+
+* None
+
+## Features
+
+* Refactor log messages for clean-up category + media gallery
+
 # Version 1.0.0-beta50
 
 ## Known Issues
