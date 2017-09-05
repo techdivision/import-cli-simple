@@ -132,7 +132,7 @@
                   "import": [
                     "import_category.observer.category",
                     "import_category.observer.category.attribute",
-                    "import_category.observer.url.rewrite"
+                    "import_category.observer.category.url.rewrite"
                   ]
                 },
                 {
@@ -150,6 +150,18 @@
                 {
                   "import": [
                     "import_category.observer.category.path"
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "import_category_ee.subject.bunch",
+              "identifier": "files",
+              "prefix": "url-rewrite",
+              "observers": [
+                {
+                  "import": [
+                    "import_category.observer.url.rewrite"
                   ]
                 }
               ]
@@ -209,7 +221,7 @@
                   "import": [
                     "import_category.observer.category.update",
                     "import_category.observer.category.attribute.update",
-                    "import_category.observer.url.rewrite.update"
+                    "import_category.observer.category.url.rewrite"
                   ]
                 },
                 {
@@ -227,6 +239,18 @@
                 {
                   "import": [
                     "import_category.observer.category.path"
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "import_category_ee.subject.bunch",
+              "identifier": "files",
+              "prefix": "url-rewrite",
+              "observers": [
+                {
+                  "import": [
+                    "import_category.observer.url.rewrite.update"
                   ]
                 }
               ]

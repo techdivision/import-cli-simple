@@ -1,3 +1,17 @@
+# Version 1.0.0-beta52
+
+## Known Issues
+
+* None
+
+## Bugfixes
+
+* Fixed invalid category URL rewrite functionaliy in a multi-store environment
+
+## Features
+
+* None
+
 # Version 1.0.0-beta51
 
 ## Known Issues
