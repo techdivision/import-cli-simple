@@ -1,3 +1,17 @@
+# Version 1.0.0-beta53
+
+## Known Issues
+
+* None
+
+## Bugfixes
+
+* None
+
+## Features
+
+* Minor pateches in some libraries
+
 # Version 1.0.0-beta52
 
 ## Known Issues
