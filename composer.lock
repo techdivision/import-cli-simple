@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "a316e55adf1fafe9c6c65af55ea082bb",
+    "content-hash": "ce4c4891c1469386e10d68f0a3c666b1",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -1326,23 +1326,24 @@
         },
         {
             "name": "symfony/cache",
-            "version": "v3.3.8",
+            "version": "v3.3.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/cache.git",
-                "reference": "4f92761dc13c4e0132168964fb1c577eee96ee3c"
+                "reference": "0fb57f94f58bcadd7a11215039bc59b5000968e5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/cache/zipball/4f92761dc13c4e0132168964fb1c577eee96ee3c",
-                "reference": "4f92761dc13c4e0132168964fb1c577eee96ee3c",
+                "url": "https://api.github.com/repos/symfony/cache/zipball/0fb57f94f58bcadd7a11215039bc59b5000968e5",
+                "reference": "0fb57f94f58bcadd7a11215039bc59b5000968e5",
                 "shasum": ""
             },
             "require": {
                 "php": "^5.5.9|>=7.0.8",
                 "psr/cache": "~1.0",
                 "psr/log": "~1.0",
-                "psr/simple-cache": "^1.0"
+                "psr/simple-cache": "^1.0",
+                "symfony/polyfill-apcu": "~1.1"
             },
             "conflict": {
                 "symfony/var-dumper": "<3.3"
@@ -1356,9 +1357,6 @@
                 "doctrine/cache": "~1.6",
                 "doctrine/dbal": "~2.4",
                 "predis/predis": "~1.0"
-            },
-            "suggest": {
-                "symfony/polyfill-apcu": "For using ApcuAdapter on HHVM"
             },
             "type": "library",
             "extra": {
@@ -1394,7 +1392,7 @@
                 "caching",
                 "psr6"
             ],
-            "time": "2017-08-28T08:20:24+00:00"
+            "time": "2017-09-03T14:06:51+00:00"
         },
         {
             "name": "symfony/config",
@@ -1635,16 +1633,16 @@
         },
         {
             "name": "symfony/expression-language",
-            "version": "v3.3.8",
+            "version": "v3.3.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/expression-language.git",
-                "reference": "26c9a4b90b646a5df5dfbcfb597af574e36892f7"
+                "reference": "c5215067aaf70f329bc114f057aac9f7a3f3c922"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/expression-language/zipball/26c9a4b90b646a5df5dfbcfb597af574e36892f7",
-                "reference": "26c9a4b90b646a5df5dfbcfb597af574e36892f7",
+                "url": "https://api.github.com/repos/symfony/expression-language/zipball/c5215067aaf70f329bc114f057aac9f7a3f3c922",
+                "reference": "c5215067aaf70f329bc114f057aac9f7a3f3c922",
                 "shasum": ""
             },
             "require": {
@@ -1681,11 +1679,11 @@
             ],
             "description": "Symfony ExpressionLanguage Component",
             "homepage": "https://symfony.com",
-            "time": "2017-07-29T21:54:42+00:00"
+            "time": "2017-09-06T16:40:18+00:00"
         },
         {
             "name": "symfony/filesystem",
-            "version": "v3.3.8",
+            "version": "v3.3.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/filesystem.git",
@@ -1731,6 +1729,59 @@
             "description": "Symfony Filesystem Component",
             "homepage": "https://symfony.com",
             "time": "2017-07-29T21:54:42+00:00"
+        },
+        {
+            "name": "symfony/polyfill-apcu",
+            "version": "v1.5.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/polyfill-apcu.git",
+                "reference": "cec32398a973a9bfe9d2f94f4b5d5e186b40b698"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/polyfill-apcu/zipball/cec32398a973a9bfe9d2f94f4b5d5e186b40b698",
+                "reference": "cec32398a973a9bfe9d2f94f4b5d5e186b40b698",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.5-dev"
+                }
+            },
+            "autoload": {
+                "files": [
+                    "bootstrap.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Nicolas Grekas",
+                    "email": "p@tchwork.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony polyfill backporting apcu_* functions to lower PHP versions",
+            "homepage": "https://symfony.com",
+            "keywords": [
+                "apcu",
+                "compatibility",
+                "polyfill",
+                "portable",
+                "shim"
+            ],
+            "time": "2017-07-05T15:09:33+00:00"
         },
         {
             "name": "symfony/polyfill-mbstring",
@@ -1842,16 +1893,16 @@
         },
         {
             "name": "techdivision/import",
-            "version": "1.0.0-beta48",
+            "version": "1.0.0-beta49",
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import.git",
-                "reference": "0dc22176d17b2f910eb7e12752b65e3f5966adb8"
+                "reference": "c0ed13100046ca3f6912b6181978a0c2fb55a420"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import/zipball/0dc22176d17b2f910eb7e12752b65e3f5966adb8",
-                "reference": "0dc22176d17b2f910eb7e12752b65e3f5966adb8",
+                "url": "https://api.github.com/repos/techdivision/import/zipball/c0ed13100046ca3f6912b6181978a0c2fb55a420",
+                "reference": "c0ed13100046ca3f6912b6181978a0c2fb55a420",
                 "shasum": ""
             },
             "require": {
@@ -1898,7 +1949,7 @@
                 }
             ],
             "description": "A library supporting generic Magento 2 import functionality",
-            "time": "2017-09-05T17:00:19+00:00"
+            "time": "2017-09-14T17:18:56+00:00"
         },
         {
             "name": "techdivision/import-app-simple",
@@ -2232,16 +2283,16 @@
         },
         {
             "name": "techdivision/import-product",
-            "version": "1.0.0-beta38",
+            "version": "1.0.0-beta39",
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-product.git",
-                "reference": "699356747d676094b22521cbb0d1c67ef3837812"
+                "reference": "0c6a4ae11eff962505adbda09698fa10740131f1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-product/zipball/699356747d676094b22521cbb0d1c67ef3837812",
-                "reference": "699356747d676094b22521cbb0d1c67ef3837812",
+                "url": "https://api.github.com/repos/techdivision/import-product/zipball/0c6a4ae11eff962505adbda09698fa10740131f1",
+                "reference": "0c6a4ae11eff962505adbda09698fa10740131f1",
                 "shasum": ""
             },
             "require": {
@@ -2285,20 +2336,20 @@
                 }
             ],
             "description": "M2IF library providing basic Magento 2 product import functionality",
-            "time": "2017-09-07T10:41:19+00:00"
+            "time": "2017-09-14T17:27:34+00:00"
         },
         {
             "name": "techdivision/import-product-bundle",
-            "version": "1.0.0-beta6",
+            "version": "1.0.0-beta7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-product-bundle.git",
-                "reference": "ffa40576a6f14c098261ebf61e707f2522770254"
+                "reference": "5cc256c81f7ffc3503075730630ce42d5e22c8f3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-product-bundle/zipball/ffa40576a6f14c098261ebf61e707f2522770254",
-                "reference": "ffa40576a6f14c098261ebf61e707f2522770254",
+                "url": "https://api.github.com/repos/techdivision/import-product-bundle/zipball/5cc256c81f7ffc3503075730630ce42d5e22c8f3",
+                "reference": "5cc256c81f7ffc3503075730630ce42d5e22c8f3",
                 "shasum": ""
             },
             "require": {
@@ -2306,13 +2357,16 @@
             },
             "require-dev": {
                 "consolidation/robo": "~1.0",
+                "doctrine/dbal": "~2.0",
                 "pdepend/pdepend": "2.0.*",
                 "phpdocumentor/phpdocumentor": "2.8.*",
                 "phploc/phploc": "2.0.*",
                 "phpmd/phpmd": "2.5.*",
                 "phpunit/phpunit": "4.4.*",
                 "sebastian/phpcpd": "2.0.*",
-                "squizlabs/php_codesniffer": "2.2.*"
+                "squizlabs/php_codesniffer": "2.2.*",
+                "symfony/config": "~2.8|~3.0",
+                "symfony/http-kernel": "~2.8|~3.0"
             },
             "type": "library",
             "autoload": {
@@ -2335,20 +2389,20 @@
                 }
             ],
             "description": "M2IF library providing basic Magento 2 bundle product import functionality",
-            "time": "2017-09-07T10:42:33+00:00"
+            "time": "2017-09-14T16:23:30+00:00"
         },
         {
             "name": "techdivision/import-product-bundle-ee",
-            "version": "1.0.0-beta5",
+            "version": "1.0.0-beta6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-product-bundle-ee.git",
-                "reference": "53189730c7e6ed98beba4bc8362974fb569771e7"
+                "reference": "f57fd3146a29988c9395a16f958e57598a8e052e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-product-bundle-ee/zipball/53189730c7e6ed98beba4bc8362974fb569771e7",
-                "reference": "53189730c7e6ed98beba4bc8362974fb569771e7",
+                "url": "https://api.github.com/repos/techdivision/import-product-bundle-ee/zipball/f57fd3146a29988c9395a16f958e57598a8e052e",
+                "reference": "f57fd3146a29988c9395a16f958e57598a8e052e",
                 "shasum": ""
             },
             "require": {
@@ -2357,13 +2411,16 @@
             },
             "require-dev": {
                 "consolidation/robo": "~1.0",
+                "doctrine/dbal": "~2.0",
                 "pdepend/pdepend": "2.0.*",
                 "phpdocumentor/phpdocumentor": "2.8.*",
                 "phploc/phploc": "2.0.*",
                 "phpmd/phpmd": "2.5.*",
                 "phpunit/phpunit": "4.4.*",
                 "sebastian/phpcpd": "2.0.*",
-                "squizlabs/php_codesniffer": "2.2.*"
+                "squizlabs/php_codesniffer": "2.2.*",
+                "symfony/config": "~2.8|~3.0",
+                "symfony/http-kernel": "~2.8|~3.0"
             },
             "type": "library",
             "autoload": {
@@ -2386,20 +2443,20 @@
                 }
             ],
             "description": "M2IF library providing basic Magento 2 EE bundle product import functionality",
-            "time": "2017-07-05T14:13:28+00:00"
+            "time": "2017-09-14T16:45:04+00:00"
         },
         {
             "name": "techdivision/import-product-ee",
-            "version": "1.0.0-beta20",
+            "version": "1.0.0-beta21",
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-product-ee.git",
-                "reference": "cf4b4fa31d71c044eae711b4436174cb10809990"
+                "reference": "05dc280707b0b5bdf336e2176120cf7c79715312"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-product-ee/zipball/cf4b4fa31d71c044eae711b4436174cb10809990",
-                "reference": "cf4b4fa31d71c044eae711b4436174cb10809990",
+                "url": "https://api.github.com/repos/techdivision/import-product-ee/zipball/05dc280707b0b5bdf336e2176120cf7c79715312",
+                "reference": "05dc280707b0b5bdf336e2176120cf7c79715312",
                 "shasum": ""
             },
             "require": {
@@ -2440,7 +2497,7 @@
                 }
             ],
             "description": "M2IF library providing basic Magento 2 EE product import functionality",
-            "time": "2017-09-02T11:21:41+00:00"
+            "time": "2017-09-14T17:17:24+00:00"
         },
         {
             "name": "techdivision/import-product-link",
@@ -2766,16 +2823,16 @@
         },
         {
             "name": "techdivision/import-product-variant-ee",
-            "version": "1.0.0-beta5",
+            "version": "1.0.0-beta6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-product-variant-ee.git",
-                "reference": "e9af6c226cf01b3f9d96b715d3b8fb22111c0d17"
+                "reference": "dfbc295f195b6618519d0336aec3fb7faa2e4956"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-product-variant-ee/zipball/e9af6c226cf01b3f9d96b715d3b8fb22111c0d17",
-                "reference": "e9af6c226cf01b3f9d96b715d3b8fb22111c0d17",
+                "url": "https://api.github.com/repos/techdivision/import-product-variant-ee/zipball/dfbc295f195b6618519d0336aec3fb7faa2e4956",
+                "reference": "dfbc295f195b6618519d0336aec3fb7faa2e4956",
                 "shasum": ""
             },
             "require": {
@@ -2784,13 +2841,16 @@
             },
             "require-dev": {
                 "consolidation/robo": "~1.0",
+                "doctrine/dbal": "~2.0",
                 "pdepend/pdepend": "2.0.*",
                 "phpdocumentor/phpdocumentor": "2.8.*",
                 "phploc/phploc": "2.0.*",
                 "phpmd/phpmd": "2.5.*",
                 "phpunit/phpunit": "4.4.*",
                 "sebastian/phpcpd": "2.0.*",
-                "squizlabs/php_codesniffer": "2.2.*"
+                "squizlabs/php_codesniffer": "2.2.*",
+                "symfony/config": "~2.8|~3.0",
+                "symfony/http-kernel": "~2.8|~3.0"
             },
             "type": "library",
             "autoload": {
@@ -2813,7 +2873,7 @@
                 }
             ],
             "description": "M2IF library providing basic Magento 2 EE configurable product import functionality",
-            "time": "2017-07-05T14:13:41+00:00"
+            "time": "2017-09-14T16:45:48+00:00"
         },
         {
             "name": "zendframework/zend-filter",
@@ -3833,16 +3893,16 @@
         },
         {
             "name": "phpdocumentor/reflection-common",
-            "version": "1.0",
+            "version": "1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpDocumentor/ReflectionCommon.git",
-                "reference": "144c307535e82c8fdcaacbcfc1d6d8eeb896687c"
+                "reference": "21bdeb5f65d7ebf9f43b1b25d404f87deab5bfb6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpDocumentor/ReflectionCommon/zipball/144c307535e82c8fdcaacbcfc1d6d8eeb896687c",
-                "reference": "144c307535e82c8fdcaacbcfc1d6d8eeb896687c",
+                "url": "https://api.github.com/repos/phpDocumentor/ReflectionCommon/zipball/21bdeb5f65d7ebf9f43b1b25d404f87deab5bfb6",
+                "reference": "21bdeb5f65d7ebf9f43b1b25d404f87deab5bfb6",
                 "shasum": ""
             },
             "require": {
@@ -3883,7 +3943,7 @@
                 "reflection",
                 "static analysis"
             ],
-            "time": "2015-12-27T11:43:31+00:00"
+            "time": "2017-09-11T18:02:19+00:00"
         },
         {
             "name": "phpdocumentor/reflection-docblock",
@@ -5057,7 +5117,7 @@
         },
         {
             "name": "symfony/finder",
-            "version": "v3.3.8",
+            "version": "v3.3.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/finder.git",
@@ -5106,16 +5166,16 @@
         },
         {
             "name": "symfony/http-foundation",
-            "version": "v3.3.8",
+            "version": "v3.3.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/http-foundation.git",
-                "reference": "14bacad23a4f075bfd3fd456755236cb261320e3"
+                "reference": "2cdc7de1921d1a1c805a13dc05e44a2cd58f5ad3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/http-foundation/zipball/14bacad23a4f075bfd3fd456755236cb261320e3",
-                "reference": "14bacad23a4f075bfd3fd456755236cb261320e3",
+                "url": "https://api.github.com/repos/symfony/http-foundation/zipball/2cdc7de1921d1a1c805a13dc05e44a2cd58f5ad3",
+                "reference": "2cdc7de1921d1a1c805a13dc05e44a2cd58f5ad3",
                 "shasum": ""
             },
             "require": {
@@ -5155,7 +5215,7 @@
             ],
             "description": "Symfony HttpFoundation Component",
             "homepage": "https://symfony.com",
-            "time": "2017-08-10T07:07:06+00:00"
+            "time": "2017-09-06T17:07:39+00:00"
         },
         {
             "name": "symfony/http-kernel",
@@ -5242,7 +5302,7 @@
         },
         {
             "name": "symfony/process",
-            "version": "v3.3.8",
+            "version": "v3.3.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/process.git",

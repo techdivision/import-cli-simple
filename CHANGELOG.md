@@ -1,3 +1,19 @@
+# Version 1.0.0-beta54
+
+## Known Issues
+
+* None
+
+## Bugfixes
+
+* [techdivision/import] Fixed invalid interruption of observer chain when skipping row
+* [techdivision/import-product-ee] Fixed invalid Magento Edition in etc/techdivision-import-price.json
+* [techdivision/import-product] Skip row instead of continue processing (in debug mode) when product with SKU can not be loaded in LastEntityIdObserver
+
+## Features
+
+* None
+
 # Version 1.0.0-beta53
 
 ## Known Issues
