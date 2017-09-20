@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "ce4c4891c1469386e10d68f0a3c666b1",
+    "content-hash": "379a4036bb965e939e00b91bb1691315",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -1893,16 +1893,16 @@
         },
         {
             "name": "techdivision/import",
-            "version": "1.0.0-beta49",
+            "version": "1.0.0-beta50",
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import.git",
-                "reference": "c0ed13100046ca3f6912b6181978a0c2fb55a420"
+                "reference": "bb59415906c0d5696e207c891e4c159c0f73cb37"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import/zipball/c0ed13100046ca3f6912b6181978a0c2fb55a420",
-                "reference": "c0ed13100046ca3f6912b6181978a0c2fb55a420",
+                "url": "https://api.github.com/repos/techdivision/import/zipball/bb59415906c0d5696e207c891e4c159c0f73cb37",
+                "reference": "bb59415906c0d5696e207c891e4c159c0f73cb37",
                 "shasum": ""
             },
             "require": {
@@ -1949,7 +1949,7 @@
                 }
             ],
             "description": "A library supporting generic Magento 2 import functionality",
-            "time": "2017-09-14T17:18:56+00:00"
+            "time": "2017-09-20T11:25:01+00:00"
         },
         {
             "name": "techdivision/import-app-simple",
@@ -2283,16 +2283,16 @@
         },
         {
             "name": "techdivision/import-product",
-            "version": "1.0.0-beta39",
+            "version": "1.0.0-beta41",
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-product.git",
-                "reference": "0c6a4ae11eff962505adbda09698fa10740131f1"
+                "reference": "71b6a265095c5c546afd1d048f1ee0cd6f092799"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-product/zipball/0c6a4ae11eff962505adbda09698fa10740131f1",
-                "reference": "0c6a4ae11eff962505adbda09698fa10740131f1",
+                "url": "https://api.github.com/repos/techdivision/import-product/zipball/71b6a265095c5c546afd1d048f1ee0cd6f092799",
+                "reference": "71b6a265095c5c546afd1d048f1ee0cd6f092799",
                 "shasum": ""
             },
             "require": {
@@ -2336,7 +2336,7 @@
                 }
             ],
             "description": "M2IF library providing basic Magento 2 product import functionality",
-            "time": "2017-09-14T17:27:34+00:00"
+            "time": "2017-09-20T16:04:21+00:00"
         },
         {
             "name": "techdivision/import-product-bundle",
@@ -2447,16 +2447,16 @@
         },
         {
             "name": "techdivision/import-product-ee",
-            "version": "1.0.0-beta21",
+            "version": "1.0.0-beta22",
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-product-ee.git",
-                "reference": "05dc280707b0b5bdf336e2176120cf7c79715312"
+                "reference": "ab6cb9683e72439497b4a54037b96a86a169feda"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-product-ee/zipball/05dc280707b0b5bdf336e2176120cf7c79715312",
-                "reference": "05dc280707b0b5bdf336e2176120cf7c79715312",
+                "url": "https://api.github.com/repos/techdivision/import-product-ee/zipball/ab6cb9683e72439497b4a54037b96a86a169feda",
+                "reference": "ab6cb9683e72439497b4a54037b96a86a169feda",
                 "shasum": ""
             },
             "require": {
@@ -2497,7 +2497,7 @@
                 }
             ],
             "description": "M2IF library providing basic Magento 2 EE product import functionality",
-            "time": "2017-09-14T17:17:24+00:00"
+            "time": "2017-09-20T15:13:19+00:00"
         },
         {
             "name": "techdivision/import-product-link",
@@ -2984,16 +2984,16 @@
     "packages-dev": [
         {
             "name": "consolidation/annotated-command",
-            "version": "2.4.13",
+            "version": "2.6.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/consolidation/annotated-command.git",
-                "reference": "abb685e42c83d0b698b4e22059e5d505588f7d3c"
+                "reference": "7a634471471b913e63888b64b626b544799db282"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/consolidation/annotated-command/zipball/abb685e42c83d0b698b4e22059e5d505588f7d3c",
-                "reference": "abb685e42c83d0b698b4e22059e5d505588f7d3c",
+                "url": "https://api.github.com/repos/consolidation/annotated-command/zipball/7a634471471b913e63888b64b626b544799db282",
+                "reference": "7a634471471b913e63888b64b626b544799db282",
                 "shasum": ""
             },
             "require": {
@@ -3032,20 +3032,20 @@
                 }
             ],
             "description": "Initialize Symfony Console commands from annotated command class methods.",
-            "time": "2017-08-28T20:16:37+00:00"
+            "time": "2017-09-18T21:45:28+00:00"
         },
         {
             "name": "consolidation/config",
-            "version": "1.0.1",
+            "version": "1.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/consolidation/config.git",
-                "reference": "e3c7311f8926488fe2fbce0ec6af56be417da504"
+                "reference": "bcff5f4057c6ece20794d58dfc9e56919e2b33b7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/consolidation/config/zipball/e3c7311f8926488fe2fbce0ec6af56be417da504",
-                "reference": "e3c7311f8926488fe2fbce0ec6af56be417da504",
+                "url": "https://api.github.com/repos/consolidation/config/zipball/bcff5f4057c6ece20794d58dfc9e56919e2b33b7",
+                "reference": "bcff5f4057c6ece20794d58dfc9e56919e2b33b7",
                 "shasum": ""
             },
             "require": {
@@ -3081,7 +3081,7 @@
                 }
             ],
             "description": "Provide configuration services for a commandline tool.",
-            "time": "2017-07-28T18:05:53+00:00"
+            "time": "2017-09-16T23:24:55+00:00"
         },
         {
             "name": "consolidation/log",

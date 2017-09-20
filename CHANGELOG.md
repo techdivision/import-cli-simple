@@ -1,3 +1,14 @@
+# Version 1.0.0-beta55
+
+## Known Issues
+
+* None
+
+## Bugfixes
+
+* [techdivision/import] Add classes + interfaces for the dynamic attribute loader implementation
+* [techdivision/import-product] Add fix to ignore missing columns or columns with empty values when persisting inventory data
+
 # Version 1.0.0-beta54
 
 ## Known Issues
