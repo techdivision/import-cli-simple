@@ -1,3 +1,18 @@
+# Version 1.0.0-beta56
+
+## Known Issues
+
+* None
+
+## Bugfixes
+
+* [techdivision/import-product] Fixed error in SQL statement preparation for stock status updates
+
+## Features
+
+* [techdivision/import] Wrap \PDOExceptions in AbstractBaseProcessor for more detailed database releated exceptions
+* [techdivision/import-product-ee] Remove unncessary SQL statements for stock status create/update operation
+
 # Version 1.0.0-beta55
 
 ## Known Issues
@@ -8,6 +23,10 @@
 
 * [techdivision/import] Add classes + interfaces for the dynamic attribute loader implementation
 * [techdivision/import-product] Add fix to ignore missing columns or columns with empty values when persisting inventory data
+
+## Features
+
+* None
 
 # Version 1.0.0-beta54
 
