@@ -3,7 +3,12 @@ language: php
 php:
   - 7.0
   - 5.6
-  
+
+sudo: required
+
+services:
+  - docker
+
 before_install:
   - pecl install xdebug
   - phpenv rehash
@@ -14,6 +19,7 @@ before_script:
 
 script:
   - composer update
+  - vendor/bin/robo run:tests-integration
   - vendor/bin/robo build
   - php ocular.phar code-coverage:upload --format=php-clover $TRAVIS_BUILD_DIR/target/reports/unit/clover.xml
 

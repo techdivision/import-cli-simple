@@ -1,7 +1,7 @@
 <?php
 
 /**
- * tests/integration/bootstrap.php
+ * tests/bootstrap.php
  *
  * NOTICE OF LICENSE
  *
@@ -19,4 +19,4 @@
  */
 
 // initialize the autoloader
-require sprintf('%s/autoload.php', dirname(dirname(__DIR__)) . '/vendor');
+require sprintf('%s/autoload.php', dirname(__DIR__) . '/vendor');

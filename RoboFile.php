@@ -47,8 +47,15 @@ class RoboFile extends \Robo\Tasks
         'target.dir' => __DIR__ . '/target',
         'symfony.dir' => __DIR__ . '/symfony',
         'webapp.name' => 'import-cli-simple',
-        'webapp.version' => '1.0.0-beta.27'
+        'webapp.version' => '1.0.0-beta.56'
     );
+
+    /**
+     * The Magento versions to run the integration tests against.
+     *
+     * @var array
+     */
+    protected $magentoVersions = array('ce' => array('2.1.7'));
 
     /**
      * Run's the composer install command.
@@ -259,17 +266,113 @@ class RoboFile extends \Robo\Tasks
     }
 
     /**
-     * Run's the PHPUnit tests.
+     * Run's the PHPUnit testsuite.
      *
      * @return void
      */
-    public function runTests()
+    public function runTestsUnit()
     {
 
         // run PHPUnit
         $this->taskPHPUnit(sprintf('%s/bin/phpunit --testsuite "techdivision/import-cli-simple PHPUnit testsuite"', $this->properties['vendor.dir']))
              ->configFile('phpunit.xml')
              ->run();
+    }
+
+    /**
+     * Run's the integration testsuite.
+     *
+     * @return void
+     */
+    public function runTestsIntegration()
+    {
+
+        // start the containers
+        $this->taskExec(sprintf('docker-compose up -d'))
+             ->dir('tests')
+             ->run();
+
+        // initialize the flag to identify if MySQL is available or not
+        $mysqlNotAvailable = false;
+
+        do {
+            // try to connect to MySQL
+            $mysqlNotAvailable = $this->taskDockerExec('mysql')
+                                      ->interactive()
+                                      ->exec('mysql -uroot -pappserver.i0 -hmysql -e "exit"')
+                                      ->run()
+                                      ->getExitCode();
+
+            // wait a second if MySQL is NOT available yet
+            if ($mysqlNotAvailable) {
+                sleep(1);
+            }
+
+        } while ($mysqlNotAvailable);
+
+        // grant the privilieges to connection from outsite the container
+        $this->taskDockerExec('mysql')
+             ->interactive()
+             ->exec('mysql -uroot -pappserver.i0 -hmysql -e \'GRANT ALL ON *.* TO "root"@"%" IDENTIFIED BY "appserver.i0"\'')
+             ->run();
+
+        // flush the privileges
+        $this->taskDockerExec('mysql')
+             ->interactive()
+             ->exec('mysql -uroot -pappserver.i0 -hmysql -e "FLUSH PRIVILEGES"')
+             ->run();
+
+        // run the integration test suite for the configured editions/versions
+        foreach ($this->magentoVersions as $edition => $versions) {
+            foreach ($versions as $version) {
+                // strip the dots from the version number
+                $strippedVersion = str_replace('.', '', $version);
+
+                // create the database for the specific Magento 2 edition/version
+                $this->taskDockerExec('mysql')
+                     ->interactive()
+                     ->exec(sprintf('mysql -uroot -pappserver.i0 -hmysql -e "CREATE DATABASE magento2_%s_%s"', $edition, $strippedVersion))
+                     ->run();
+
+                // initialze the Magento 2 instance
+                $this->taskDockerExec('appserver')
+                     ->interactive()
+                     ->exec(
+                         str_replace(
+                             array('{edition}', '{version}', '{stripped-version}'),
+                             array($edition, $version, $strippedVersion),
+                             'bash -c "mkdir /opt/appserver/webapps/magento2-{edition}-{version} \
+                                && cd /opt/appserver/webapps/magento2-{edition}-{version} \
+                                && wget http://apps.appserver.io/magento2/magento2-{edition}-{version}.phar \
+                                && /opt/appserver/bin/phar.phar extract -f magento2-{edition}-{version}.phar \
+                                && chmod +x bin/magento \
+                                && bin/magento setup:install \
+                                    --db-name=magento2_{edition}_{stripped-version} \
+                                    --db-host=mysql \
+                                    --db-user=root \
+                                    --db-password=appserver.i0 \
+                                    --admin-lastname=server \
+                                    --admin-firstname=app \
+                                    --admin-email=info@appserver.io \
+                                    --admin-user=appserver \
+                                    --admin-password=appserver.i0 \
+                                && supervisorctl restart appserver"'
+                         )
+                     )
+                     ->run();
+
+                // run the integration testsuite
+                $this->taskPHPUnit(sprintf('%s/bin/phpunit --testsuite "techdivision/import-cli-simple PHPUnit integration testsuite"', $this->properties['vendor.dir']))
+                     ->configFile('phpunit.xml')
+                     ->run();
+            }
+        }
+
+        // stop the containers
+        $this->taskExec(sprintf('docker-compose stop'))->dir('tests')->run();
+
+        // remove the containers
+        $this->taskExec(sprintf('docker-compose rm -f'))->dir('tests')->run();
     }
 
     /**
@@ -280,7 +383,7 @@ class RoboFile extends \Robo\Tasks
     public function semver()
     {
         $this->taskSemVer('.semver')
-             ->prerelease('alpha')
+             ->prerelease('beta')
              ->run();
     }
 
@@ -296,6 +399,6 @@ class RoboFile extends \Robo\Tasks
         $this->runCs();
         $this->runCpd();
         $this->runMd();
-        $this->runTests();
+        $this->runTestsUnit();
     }
 }
