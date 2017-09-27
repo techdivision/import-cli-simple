@@ -1,3 +1,17 @@
+# Version 1.0.0-beta57
+
+## Known Issues
+
+* None
+
+## Bugfixes
+
+* [techdivision/import-attribute] Fixes attribute import issue for option translations
+
+## Features
+
+* None
+
 # Version 1.0.0-beta56
 
 ## Known Issues
