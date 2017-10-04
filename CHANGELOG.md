@@ -1,3 +1,17 @@
+# Version 1.0.0-beta59
+
+## Known Issues
+
+* None
+
+## Bugfixes
+
+* [techdivision/import-attribute] Fix issue for updating attribute option swatch values
+
+## Features
+
+* None
+
 # Version 1.0.0-beta58
 
 ## Known Issues
@@ -11,7 +25,6 @@
 ## Features
 
 * None
-
 
 # Version 1.0.0-beta57
 
