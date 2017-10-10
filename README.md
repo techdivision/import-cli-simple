@@ -198,15 +198,15 @@ The configuration allows the registration of multiple databases like
     "id": "local",
     "default": false,
     "pdo-dsn": "mysql:host=127.0.0.1;dbname=appserver_magento2_ee212",
-    "username": "magento",
-    "password": "eraZor"
+    "username": "your-username",
+    "password": "your-password"
   },
   {
     "id": "remote",
     "default": true,
     "pdo-dsn": "mysql:host=127.0.0.130;dbname=appserver_magento2_ee212",
-    "username": "magento",
-    "password": "eraZor"
+    "username": "your-username",
+    "password": "your-password"
   }
 ]
 ```
