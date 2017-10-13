@@ -1,3 +1,13 @@
+# Version 1.0.0-beta60
+
+## Bugfixes
+
+* [techdivision/import-product-url-rewrite] Add validation for url rewrite update to prevent that url rewrites are persisted, where target_path and request_path are equal.
+
+## Features
+
+* None
+
 # Version 1.0.0-beta59
 
 ## Known Issues
