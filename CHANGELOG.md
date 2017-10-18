@@ -1,3 +1,18 @@
+# Version 1.0.0-beta58
+
+## Known Issues
+
+* None
+
+## Bugfixes
+
+* None
+
+## Features
+
+* [techdivision/import] Add override parameter to method ExportableTrait::addArtefact() method
+* [techdivision/import-attribute] Refactoring to optimize artefact export handling
+
 # Version 1.0.0-beta57
 
 ## Known Issues
