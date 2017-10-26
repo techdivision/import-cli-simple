@@ -1,3 +1,32 @@
+# Version 1.0.0-beta61
+
+## Known Issues
+
+* None
+
+## Bugfixes
+
+* None
+
+## Features
+
+* [techdivision/import] Add override parameter to method ExportableTrait::addArtefact() method
+* [techdivision/import-attribute] Refactoring to optimize artefact export handling
+
+# Version 1.0.0-beta60
+
+## Known Issues
+
+* None
+
+## Bugfixes
+
+* [techdivision/import-product-url-rewrite] add validation for url rewrite update to prevent that url rewrites are persisted, where target_path and request_path are equal
+
+## Features
+
+* None
+
 # Version 1.0.0-beta59
 
 ## Known Issues
@@ -6,11 +35,11 @@
 
 ## Bugfixes
 
-* [techdivision/import-attribute] Fix issue for updating attribute option swatch values
+* None
 
 ## Features
 
-* None
+* [techdivision/import-attribute] Fix issue for updating attribute option swatch values
 
 # Version 1.0.0-beta58
 

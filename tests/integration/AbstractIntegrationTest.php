@@ -573,10 +573,15 @@ abstract class AbstractIntegrationTest extends \PHPUnit_Framework_TestCase
             )
         );
 
+        // load the EAV attribute for the category nam
+        $eavAttribute = $this->getCategoryBunchProcessor()
+                             ->getEavAttributeRepository()
+                             ->findOneByEntityTypeIdAndAttributeCode(3, 'name');
+
         // create the "name" attribute
         $this->getCategoryBunchProcessor()->persistCategoryVarcharAttribute(
             array(
-                \TechDivision\Import\Category\Utils\MemberNames::ATTRIBUTE_ID => 45,
+                \TechDivision\Import\Category\Utils\MemberNames::ATTRIBUTE_ID => $eavAttribute['attribute_id'],
                 \TechDivision\Import\Category\Utils\MemberNames::STORE_ID     => 0,
                 \TechDivision\Import\Category\Utils\MemberNames::ENTITY_ID    => $categoryId,
                 \TechDivision\Import\Category\Utils\MemberNames::VALUE        => $name,
@@ -584,21 +589,31 @@ abstract class AbstractIntegrationTest extends \PHPUnit_Framework_TestCase
             )
         );
 
+        // load the EAV attribute for the category nam
+        $eavAttribute = $this->getCategoryBunchProcessor()
+                             ->getEavAttributeRepository()
+                             ->findOneByEntityTypeIdAndAttributeCode(3, 'url_key');
+
         // create the "url_key" attribute
         $this->getCategoryBunchProcessor()->persistCategoryVarcharAttribute(
             array(
-                \TechDivision\Import\Category\Utils\MemberNames::ATTRIBUTE_ID => 124,
+                \TechDivision\Import\Category\Utils\MemberNames::ATTRIBUTE_ID => $eavAttribute['attribute_id'],
                 \TechDivision\Import\Category\Utils\MemberNames::STORE_ID     => 0,
                 \TechDivision\Import\Category\Utils\MemberNames::ENTITY_ID    => $categoryId,
                 \TechDivision\Import\Category\Utils\MemberNames::VALUE        => 'testcategory',
                 EntityStatus::MEMBER_NAME                                     => EntityStatus::STATUS_CREATE
             )
         );
+
+        // load the EAV attribute for the category nam
+        $eavAttribute = $this->getCategoryBunchProcessor()
+                             ->getEavAttributeRepository()
+                             ->findOneByEntityTypeIdAndAttributeCode(3, 'url_path');
 
         // create the "url_path" attribute
         $this->getCategoryBunchProcessor()->persistCategoryVarcharAttribute(
             array(
-                \TechDivision\Import\Category\Utils\MemberNames::ATTRIBUTE_ID => 125,
+                \TechDivision\Import\Category\Utils\MemberNames::ATTRIBUTE_ID => $eavAttribute['attribute_id'],
                 \TechDivision\Import\Category\Utils\MemberNames::STORE_ID     => 0,
                 \TechDivision\Import\Category\Utils\MemberNames::ENTITY_ID    => $categoryId,
                 \TechDivision\Import\Category\Utils\MemberNames::VALUE        => 'testcategory',
@@ -606,10 +621,15 @@ abstract class AbstractIntegrationTest extends \PHPUnit_Framework_TestCase
             )
         );
 
+        // load the EAV attribute for the category nam
+        $eavAttribute = $this->getCategoryBunchProcessor()
+                             ->getEavAttributeRepository()
+                             ->findOneByEntityTypeIdAndAttributeCode(3, 'is_anchor');
+
         // create the "is_anchor" attribute
         $this->getCategoryBunchProcessor()->persistCategoryIntAttribute(
             array(
-                \TechDivision\Import\Category\Utils\MemberNames::ATTRIBUTE_ID => 54,
+                \TechDivision\Import\Category\Utils\MemberNames::ATTRIBUTE_ID => $eavAttribute['attribute_id'],
                 \TechDivision\Import\Category\Utils\MemberNames::STORE_ID     => 0,
                 \TechDivision\Import\Category\Utils\MemberNames::ENTITY_ID    => $categoryId,
                 \TechDivision\Import\Category\Utils\MemberNames::VALUE        => $isAnchor ? 1 : 0,

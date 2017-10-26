@@ -47,7 +47,7 @@ class RoboFile extends \Robo\Tasks
         'target.dir' => __DIR__ . '/target',
         'symfony.dir' => __DIR__ . '/symfony',
         'webapp.name' => 'import-cli-simple',
-        'webapp.version' => '1.0.0-beta.56'
+        'webapp.version' => '1.0.0-beta.58'
     );
 
     /**
@@ -369,10 +369,10 @@ class RoboFile extends \Robo\Tasks
         }
 
         // stop the containers
-        $this->taskExec(sprintf('docker-compose stop'))->dir('tests')->run();
+        $this->taskExec('docker-compose stop')->dir('tests')->run();
 
         // remove the containers
-        $this->taskExec(sprintf('docker-compose rm -f'))->dir('tests')->run();
+        $this->taskExec('docker-compose rm -f')->dir('tests')->run();
     }
 
     /**
