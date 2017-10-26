@@ -1,4 +1,4 @@
-# Version 1.0.0-beta58
+# Version 1.0.0-beta61
 
 ## Known Issues
 
@@ -12,6 +12,48 @@
 
 * [techdivision/import] Add override parameter to method ExportableTrait::addArtefact() method
 * [techdivision/import-attribute] Refactoring to optimize artefact export handling
+
+# Version 1.0.0-beta60
+
+## Known Issues
+
+* None
+
+## Bugfixes
+
+* [techdivision/import-product-url-rewrite] add validation for url rewrite update to prevent that url rewrites are persisted, where target_path and request_path are equal
+
+## Features
+
+* None
+
+# Version 1.0.0-beta59
+
+## Known Issues
+
+* None
+
+## Bugfixes
+
+* None
+
+## Features
+
+* [techdivision/import-attribute] Fix issue for updating attribute option swatch values
+
+# Version 1.0.0-beta58
+
+## Known Issues
+
+* None
+
+## Bugfixes
+
+* [techdivision/import-product-url-rewrite] Fixes bug, where url rewrite update is processed with an exception. This happens, when no rows with an active store_view exist for a given sku.
+
+## Features
+
+* None
 
 # Version 1.0.0-beta57
 

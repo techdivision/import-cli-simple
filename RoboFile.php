@@ -369,10 +369,10 @@ class RoboFile extends \Robo\Tasks
         }
 
         // stop the containers
-        $this->taskExec(sprintf('docker-compose stop'))->dir('tests')->run();
+        $this->taskExec('docker-compose stop')->dir('tests')->run();
 
         // remove the containers
-        $this->taskExec(sprintf('docker-compose rm -f'))->dir('tests')->run();
+        $this->taskExec('docker-compose rm -f')->dir('tests')->run();
     }
 
     /**
