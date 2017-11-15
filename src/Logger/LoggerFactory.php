@@ -35,7 +35,7 @@ use TechDivision\Import\ConfigurationInterface;
  * @link      https://github.com/techdivision/import-cli-simple
  * @link      http://www.techdivision.com
  */
-class LoggerFactory
+class LoggerFactory implements LoggerFactoryInterface
 {
 
     /**

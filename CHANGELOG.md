@@ -1,3 +1,17 @@
+# Version 1.0.0-beta62
+
+## Known Issues
+
+* None
+
+## Bugfixes
+
+* None
+
+## Features
+
+* [techdivision/import] Add interfaces for observer and callback visitor implementations
+
 # Version 1.0.0-beta61
 
 ## Known Issues
