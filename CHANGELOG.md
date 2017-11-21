@@ -1,3 +1,18 @@
+# Version 1.0.0-beta63
+
+## Known Issues
+
+* None
+
+## Bugfixes
+
+* None
+
+## Features
+
+* [techdivision/import] Add file status to registry when invoking AbstractSubject::tearDown() method
+* [techdivision/import] Set serial and filename in MoveFilesSubject::import() method
+
 # Version 1.0.0-beta62
 
 ## Known Issues
