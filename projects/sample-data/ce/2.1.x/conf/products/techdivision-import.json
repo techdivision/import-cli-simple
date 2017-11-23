@@ -303,7 +303,8 @@
                   "copy-images" : true,
                   "clean-up-media-gallery" : true,
                   "clean-up-category-product-relations" : true,
-                  "clean-up-empty-columns" : [ "base_image", "small_image", "swatch_image", "thumbnail_image" ],
+                  "clean-up-empty-image-columns" : true,
+                  "clean-up-empty-columns" : [],
                   "media-directory" : "projects/sample-data/tmp",
                   "images-file-directory" : "projects/sample-data/magento2-sample-data/pub/media/catalog/product"
                 }
