@@ -1,3 +1,18 @@
+# Version 1.0.0-beta64
+
+## Known Issues
+
+* None
+
+## Bugfixes
+
+* None
+
+## Features
+
+* [techdivision/import] Make image types dynamic and extensible
+* [techdivision/import-product] Make image types dynamic and extensible
+
 # Version 1.0.0-beta63
 
 ## Known Issues
