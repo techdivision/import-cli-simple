@@ -1,3 +1,20 @@
+# Version 1.0.0-beta65
+
+## Known Issues
+
+* None
+
+## Bugfixes
+
+* None
+
+## Features
+
+* [techdivision/import] Update processed file status in AbstractSubject
+* [techdivision/import-product] Remove update of processed file status, because of moving it to AbstractSubject
+* [techdivision/import-category] Remove unnecessary AbstractAttributeSubject::tearDown() method
+* [techdivision/import-attribute] Remove unnecessary AbstractAttributeSubject::tearDown() method
+
 # Version 1.0.0-beta64
 
 ## Known Issues
