@@ -1,3 +1,19 @@
+# Version 1.0.0-beta67
+
+## Known Issues
+
+* [techdivision/import-product] As products are cached, memory consumption is significantly higher now
+
+## Bugfixes
+
+* [techdivision/import-product] Fixed invalid multiple product update
+
+## Features
+
+* [techdivision/import] Refactor cache warmer functionality for optimized memory management
+* [techdivision/import-product] Add product cache warmer functionality for optimized performance
+* [techdivision/import-product-ee] Add product cache warmer functionality for optimized performance
+
 # Version 1.0.0-beta66
 
 ## Known Issues
