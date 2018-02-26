@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "f3179dd1b4f36d78bbee8e0a17f7d0c3",
+    "content-hash": "3693c825829145983e2fcbb8050503cb",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -1900,12 +1900,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import.git",
-                "reference": "54a834a8bb549bd785ac4c14810e49e0e5cf528b"
+                "reference": "f12ff8810212dea0cc02c115e62b8498a2bc9951"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import/zipball/54a834a8bb549bd785ac4c14810e49e0e5cf528b",
-                "reference": "54a834a8bb549bd785ac4c14810e49e0e5cf528b",
+                "url": "https://api.github.com/repos/techdivision/import/zipball/f12ff8810212dea0cc02c115e62b8498a2bc9951",
+                "reference": "f12ff8810212dea0cc02c115e62b8498a2bc9951",
                 "shasum": ""
             },
             "require": {
@@ -1952,7 +1952,7 @@
                 }
             ],
             "description": "A library supporting generic Magento 2 import functionality",
-            "time": "2018-02-26 15:10:26"
+            "time": "2018-02-26 16:12:15"
         },
         {
             "name": "techdivision/import-app-simple",
@@ -2240,12 +2240,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-ee.git",
-                "reference": "63e8f2e8be53be0ddbc7ad46fa5a3fb52f3acb3b"
+                "reference": "f2905fed755f73e86f9bd0f25b57470179bd67b1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-ee/zipball/63e8f2e8be53be0ddbc7ad46fa5a3fb52f3acb3b",
-                "reference": "63e8f2e8be53be0ddbc7ad46fa5a3fb52f3acb3b",
+                "url": "https://api.github.com/repos/techdivision/import-ee/zipball/f2905fed755f73e86f9bd0f25b57470179bd67b1",
+                "reference": "f2905fed755f73e86f9bd0f25b57470179bd67b1",
                 "shasum": ""
             },
             "require": {
@@ -2283,7 +2283,7 @@
                 }
             ],
             "description": "M2IF library providing basic Magento 2 EE import functionality",
-            "time": "2018-02-26 14:13:48"
+            "time": "2018-02-26 16:23:07"
         },
         {
             "name": "techdivision/import-product",
@@ -2291,12 +2291,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-product.git",
-                "reference": "94feb374cc03c0e8a24f164bf62aea5c76953845"
+                "reference": "97ddd6e2d6b4edea2900a4fe24dcd4f36b47b307"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-product/zipball/94feb374cc03c0e8a24f164bf62aea5c76953845",
-                "reference": "94feb374cc03c0e8a24f164bf62aea5c76953845",
+                "url": "https://api.github.com/repos/techdivision/import-product/zipball/97ddd6e2d6b4edea2900a4fe24dcd4f36b47b307",
+                "reference": "97ddd6e2d6b4edea2900a4fe24dcd4f36b47b307",
                 "shasum": ""
             },
             "require": {
@@ -2340,7 +2340,7 @@
                 }
             ],
             "description": "M2IF library providing basic Magento 2 product import functionality",
-            "time": "2018-02-26 15:15:05"
+            "time": "2018-02-26 16:43:41"
         },
         {
             "name": "techdivision/import-product-bundle",
@@ -2456,12 +2456,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-product-ee.git",
-                "reference": "8004e20817b72d37431c2f962d35d391ed6fab10"
+                "reference": "1cc2bd61418b46205294e9fb35bf4b093bc6ff23"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-product-ee/zipball/8004e20817b72d37431c2f962d35d391ed6fab10",
-                "reference": "8004e20817b72d37431c2f962d35d391ed6fab10",
+                "url": "https://api.github.com/repos/techdivision/import-product-ee/zipball/1cc2bd61418b46205294e9fb35bf4b093bc6ff23",
+                "reference": "1cc2bd61418b46205294e9fb35bf4b093bc6ff23",
                 "shasum": ""
             },
             "require": {
@@ -2503,7 +2503,7 @@
                 }
             ],
             "description": "M2IF library providing basic Magento 2 EE product import functionality",
-            "time": "2018-02-26 14:28:31"
+            "time": "2018-02-26 16:49:18"
         },
         {
             "name": "techdivision/import-product-link",
@@ -2561,16 +2561,16 @@
         },
         {
             "name": "techdivision/import-product-link-ee",
-            "version": "1.0.0-beta8",
+            "version": "dev-di",
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-product-link-ee.git",
-                "reference": "f3e24c459c4df53e7f7d4eddf218ab915dec819b"
+                "reference": "b6c8600b9c3d8dd0e407f3d61e2c781a1c8479cf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-product-link-ee/zipball/f3e24c459c4df53e7f7d4eddf218ab915dec819b",
-                "reference": "f3e24c459c4df53e7f7d4eddf218ab915dec819b",
+                "url": "https://api.github.com/repos/techdivision/import-product-link-ee/zipball/b6c8600b9c3d8dd0e407f3d61e2c781a1c8479cf",
+                "reference": "b6c8600b9c3d8dd0e407f3d61e2c781a1c8479cf",
                 "shasum": ""
             },
             "require": {
@@ -2611,7 +2611,7 @@
                 }
             ],
             "description": "M2IF library providing basic Magento 2 EE product link import functionality",
-            "time": "2017-11-23T13:36:10+00:00"
+            "time": "2018-02-26 18:01:47"
         },
         {
             "name": "techdivision/import-product-media",
@@ -2673,12 +2673,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-product-media-ee.git",
-                "reference": "0ea209c74924b681905f3620747be7a1ec28d711"
+                "reference": "8fd2cd69294c308a322e03bed5c382b5db5ccd0c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-product-media-ee/zipball/0ea209c74924b681905f3620747be7a1ec28d711",
-                "reference": "0ea209c74924b681905f3620747be7a1ec28d711",
+                "url": "https://api.github.com/repos/techdivision/import-product-media-ee/zipball/8fd2cd69294c308a322e03bed5c382b5db5ccd0c",
+                "reference": "8fd2cd69294c308a322e03bed5c382b5db5ccd0c",
                 "shasum": ""
             },
             "require": {
@@ -2722,7 +2722,7 @@
                 }
             ],
             "description": "M2IF library providing basic Magento 2 EE product media import functionality",
-            "time": "2017-12-04 18:29:33"
+            "time": "2018-02-26 18:07:54"
         },
         {
             "name": "techdivision/import-product-url-rewrite",
@@ -5607,6 +5607,12 @@
             "package": "techdivision/import-product-ee"
         },
         {
+            "alias": "1.0.0-beta8",
+            "alias_normalized": "1.0.0.0-beta8",
+            "version": "dev-di",
+            "package": "techdivision/import-product-link-ee"
+        },
+        {
             "alias": "1.0.0-beta9",
             "alias_normalized": "1.0.0.0-beta9",
             "version": "dev-di",
@@ -5629,7 +5635,7 @@
         "techdivision/import-product-bundle": 20,
         "techdivision/import-product-variant": 20,
         "techdivision/import-product-ee": 20,
-        "techdivision/import-product-link-ee": 10,
+        "techdivision/import-product-link-ee": 20,
         "techdivision/import-product-media-ee": 20,
         "techdivision/import-product-bundle-ee": 10,
         "techdivision/import-product-variant-ee": 10
