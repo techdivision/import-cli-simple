@@ -1,3 +1,31 @@
+# Version 1.0.0-beta68
+
+## Known Issues
+
+* None
+
+## Bugfixes
+
+* None
+
+## Features
+
+* [techdivision/import] Refactored DI + switch to new SqlStatementRepositories instead of SqlStatements
+* [techdivision/import-attribute] Refactored DI + switch to new SqlStatementRepositories instead of SqlStatements
+* [techdivision/import-category] Refactored DI + switch to new SqlStatementRepositories instead of SqlStatements
+* [techdivision/import-category-ee] Refactored DI + switch to new SqlStatementRepositories instead of SqlStatements
+* [techdivision/import-configuration-jms] Refactored DI + switch to new SqlStatementRepositories instead of SqlStatements
+* [techdivision/import-ee] Refactored DI + switch to new SqlStatementRepositories instead of SqlStatements
+* [techdivision/import-product] Refactored DI + switch to new SqlStatementRepositories instead of SqlStatements
+* [techdivision/import-product-bundle] Refactored DI + switch to new SqlStatementRepositories instead of SqlStatements
+* [techdivision/import-product-ee] Refactored DI + switch to new SqlStatementRepositories instead of SqlStatements
+* [techdivision/import-product-link] Refactored DI + switch to new SqlStatementRepositories instead of SqlStatements
+* [techdivision/import-product-link-ee] Refactored DI + switch to new SqlStatementRepositories instead of SqlStatements
+* [techdivision/import-product-media] Refactored DI + switch to new SqlStatementRepositories instead of SqlStatements
+* [techdivision/import-product-media-ee] Refactored DI + switch to new SqlStatementRepositories instead of SqlStatements
+* [techdivision/import-product-url-rewrite] Refactored DI + switch to new SqlStatementRepositories instead of SqlStatements
+* [techdivision/import-variant] Refactored DI + switch to new SqlStatementRepositories instead of SqlStatements
+
 # Version 1.0.0-beta67
 
 ## Known Issues
