@@ -110,6 +110,7 @@ The following configuration options are available:
 | --source-dir         | The directory that has to be watched for new files | n/a |
 | --target-dir         | The target directory with the files that has been imported | n/a |
 | --archive-dir        | The directory with the archived files that has been imported | n/a |
+| --archive-artefacts  | The flag to activate the artefact archiving functionality | `true` |
 | --magento-edition    | The Magento edition to be used, either one of CE or EE | n/a |
 | --magento-version    | The Magento version to be used, e. g. 2.1.2 | n/a |
 | --source-date-format | The date format used in the CSV file(s) | n/a |
@@ -119,6 +120,7 @@ The following configuration options are available:
 | --db-password        | The password used to connect to the Magento database | n/a |
 | --debug-mode         | The flag to activate the debug mode | `false` |
 | --log-level          | The log level to use (see Monolog documentation for further information) | `info` |
+| --single-transaction | The flag to wrap the import process into a single transaction | `false` |
 
 Beside the `configuration` option, all options can and **SHOULD** be defined in the configuration file. The 
 commandline options should only be used to override these values in some circumstances.

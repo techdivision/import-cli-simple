@@ -155,6 +155,12 @@ class ConfigurationLoader extends SimpleConfigurationLoader
             $instance->setLogLevel($logLevel);
         }
 
+        // query whether or not the single transaction flag has been specified as command line
+        // option, if yes override the value from the configuration file
+        if ($singleTransaction = $this->input->getOption(InputOptionKeys::SINGLE_TRANSACTION)) {
+            $instance->setSingleTransaction($instance->mapBoolean($singleTransaction));
+        }
+
         // query whether or not we've an valid Magento root directory specified
         if ($this->isMagentoRootDir($installationDir = $instance->getInstallationDir())) {
             // if yes, add the database configuration

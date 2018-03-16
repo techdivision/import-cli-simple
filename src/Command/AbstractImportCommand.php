@@ -68,7 +68,8 @@ abstract class AbstractImportCommand extends Command
              ->addOption(InputOptionKeys::DB_USERNAME, null, InputOption::VALUE_REQUIRED, 'The username used to connect to the Magento database')
              ->addOption(InputOptionKeys::DB_PASSWORD, null, InputOption::VALUE_REQUIRED, 'The password used to connect to the Magento database')
              ->addOption(InputOptionKeys::LOG_LEVEL, null, InputOption::VALUE_REQUIRED, 'The log level to use')
-             ->addOption(InputOptionKeys::DEBUG_MODE, null, InputOption::VALUE_REQUIRED, 'Whether or not debug mode should be used');
+             ->addOption(InputOptionKeys::DEBUG_MODE, null, InputOption::VALUE_REQUIRED, 'Whether or not debug mode should be used')
+             ->addOption(InputOptionKeys::SINGLE_TRANSACTION, null, InputOption::VALUE_REQUIRED, 'Whether or not the import should be wrapped within a single transaction');
     }
 
     /**

@@ -181,4 +181,11 @@ class InputOptionKeys
      * @var string
      */
     const DEST = 'dest';
+
+    /**
+     * The input option key for the single transaction flag.
+     *
+     * @var string
+     */
+    const SINGLE_TRANSACTION = 'single-transaction';
 }
