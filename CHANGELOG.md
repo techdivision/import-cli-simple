@@ -1,8 +1,38 @@
-# Version 1.0.0-beta68
+# Version 1.0.0-beta69
 
 ## Known Issues
 
 * None
+
+## Bugfixes
+
+* [techdivision/import-product] Remove stock status create/update functionality because Magento 2 indexer takes care about that
+
+## Features
+
+* [techdivision/import] Refactored Add --single-transaction parameter to configuration + Refactored Add configurable events to AbstractSubject to allow simple extend of artefact and row handling
+* [techdivision/import-app-simple] Add events before and after the single transaction start's
+* [techdivision/import-attribute] Configure DI to pass event emitter to subjects constructor
+* [techdivision/import-category] Configure DI to pass event emitter to subjects constructor
+* [techdivision/import-category-ee] Configure DI to pass event emitter to subjects constructor
+* [techdivision/import-configuration-jms] Add configuration for single transaction flag
+* [techdivision/import-product] Replace type hints for actions in product bunch processor with interfaces + Use interfaces instead of classes to inject product attribute actions in bunch processor
+* [techdivision/import-product-bundle] Configure DI to pass event emitter to subjects constructor
+* [techdivision/import-product-bundle-ee] Configure DI to pass event emitter to subjects constructor
+* [techdivision/import-product-ee] Configure DI to pass event emitter to subjects constructor + Replace type hints for actions in product bunch processor with interfaces
+* [techdivision/import-product-link] Configure DI to pass event emitter to subjects constructor
+* [techdivision/import-product-link-ee] Configure DI to pass event emitter to subjects constructor
+* [techdivision/import-product-media] Configure DI to pass event emitter to subjects constructor
+* [techdivision/import-product-media-ee] Configure DI to pass event emitter to subjects constructor
+* [techdivision/import-product-url-rewrite] Configure DI to pass event emitter to subjects constructor
+* [techdivision/import-variant] Configure DI to pass event emitter to subjects constructor
+* [techdivision/import-variant-ee] Configure DI to pass event emitter to subjects constructor
+
+# Version 1.0.0-beta68
+
+## Known Issues
+
+* Up from Magento 2 EE 2.1.10 using the single transaction mode has a massive performance impact (can only be used **WITHOUT** single transaction)
 
 ## Bugfixes
 
