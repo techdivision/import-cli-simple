@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "0290e5138dd21d1e2d48df7509d989fc",
+    "content-hash": "d31a917dbd245be3f24a2f2f958bccd5",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -1380,12 +1380,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/cache.git",
-                "reference": "cce49c7aa2fc82077355c8a6dfcd9e619abe6e98"
+                "reference": "c7c2caf21983c1d561978d48b952026e2da309a0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/cache/zipball/cce49c7aa2fc82077355c8a6dfcd9e619abe6e98",
-                "reference": "cce49c7aa2fc82077355c8a6dfcd9e619abe6e98",
+                "url": "https://api.github.com/repos/symfony/cache/zipball/c7c2caf21983c1d561978d48b952026e2da309a0",
+                "reference": "c7c2caf21983c1d561978d48b952026e2da309a0",
                 "shasum": ""
             },
             "require": {
@@ -1442,7 +1442,7 @@
                 "caching",
                 "psr6"
             ],
-            "time": "2018-02-11 14:42:07"
+            "time": "2018-03-19 22:12:11"
         },
         {
             "name": "symfony/config",
@@ -1506,12 +1506,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/console.git",
-                "reference": "a6ff8b2ffa4eb43046828b303af2e3fedadacc27"
+                "reference": "390fa4899dbcc47bd41935d87c4572ea4305d3ce"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/console/zipball/a6ff8b2ffa4eb43046828b303af2e3fedadacc27",
-                "reference": "a6ff8b2ffa4eb43046828b303af2e3fedadacc27",
+                "url": "https://api.github.com/repos/symfony/console/zipball/390fa4899dbcc47bd41935d87c4572ea4305d3ce",
+                "reference": "390fa4899dbcc47bd41935d87c4572ea4305d3ce",
                 "shasum": ""
             },
             "require": {
@@ -1559,7 +1559,7 @@
             ],
             "description": "Symfony Console Component",
             "homepage": "https://symfony.com",
-            "time": "2018-02-26 15:33:21"
+            "time": "2018-03-19 21:13:58"
         },
         {
             "name": "symfony/debug",
@@ -2337,16 +2337,16 @@
         },
         {
             "name": "techdivision/import-product",
-            "version": "1.0.0-beta51",
+            "version": "1.0.0-beta52",
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-product.git",
-                "reference": "d53256ca2412484074e606e0b8daaee3c058d896"
+                "reference": "338888b90c25ab1ded655812b384c158bcb6cf05"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-product/zipball/d53256ca2412484074e606e0b8daaee3c058d896",
-                "reference": "d53256ca2412484074e606e0b8daaee3c058d896",
+                "url": "https://api.github.com/repos/techdivision/import-product/zipball/338888b90c25ab1ded655812b384c158bcb6cf05",
+                "reference": "338888b90c25ab1ded655812b384c158bcb6cf05",
                 "shasum": ""
             },
             "require": {
@@ -2390,7 +2390,101 @@
                 }
             ],
             "description": "M2IF library providing basic Magento 2 product import functionality",
-            "time": "2018-03-15T19:02:50+00:00"
+            "time": "2018-03-20T12:54:22+00:00"
+        },
+        {
+            "name": "techdivision/import-product-batch",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@gitlab.tdintern.de:wagnert/import-product-batch.git",
+                "reference": "84974b85e5ec669a681889a07bc96afb9526880a"
+            },
+            "require": {
+                "php": ">=5.6.0",
+                "techdivision/import-product": "~1.0"
+            },
+            "require-dev": {
+                "consolidation/robo": "~1.0",
+                "doctrine/dbal": "~2.0",
+                "pdepend/pdepend": "2.0.*",
+                "phpdocumentor/phpdocumentor": "2.8.*",
+                "phploc/phploc": "2.0.*",
+                "phpmd/phpmd": "2.5.*",
+                "phpunit/phpunit": "4.4.*",
+                "sebastian/phpcpd": "2.0.*",
+                "squizlabs/php_codesniffer": "2.2.*",
+                "symfony/config": "~2.8|~3.0",
+                "symfony/http-kernel": "~2.8|~3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "TechDivision\\Import\\Product\\Batch\\": [
+                        "src/",
+                        "tests/",
+                        "symfony/"
+                    ]
+                }
+            },
+            "license": [
+                "OSL-3.0"
+            ],
+            "authors": [
+                {
+                    "name": "Tim Wagner",
+                    "email": "t.wagner@techdivision.com"
+                }
+            ],
+            "description": "M2IF library providing basic Magento 2 product batch import functionality",
+            "time": "2018-03-15 20:12:04"
+        },
+        {
+            "name": "techdivision/import-product-batch-ee",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@gitlab.tdintern.de:wagnert/import-product-batch-ee.git",
+                "reference": "e21c52b477c95262323a4b0148745792df606892"
+            },
+            "require": {
+                "php": ">=5.6.0",
+                "techdivision/import-product-batch": "*"
+            },
+            "require-dev": {
+                "consolidation/robo": "~1.0",
+                "doctrine/dbal": "~2.0",
+                "pdepend/pdepend": "2.0.*",
+                "phpdocumentor/phpdocumentor": "2.8.*",
+                "phploc/phploc": "2.0.*",
+                "phpmd/phpmd": "2.5.*",
+                "phpunit/phpunit": "4.4.*",
+                "sebastian/phpcpd": "2.0.*",
+                "squizlabs/php_codesniffer": "2.2.*",
+                "symfony/config": "~2.8|~3.0",
+                "symfony/http-kernel": "~2.8|~3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "TechDivision\\Import\\Product\\Batch\\Ee\\": [
+                        "src/",
+                        "tests/",
+                        "symfony/"
+                    ]
+                }
+            },
+            "license": [
+                "OSL-3.0"
+            ],
+            "authors": [
+                {
+                    "name": "Tim Wagner",
+                    "email": "t.wagner@techdivision.com"
+                }
+            ],
+            "description": "M2IF library providing basic Magento 2 EE product batch import functionality",
+            "time": "2018-03-15 20:11:12"
         },
         {
             "name": "techdivision/import-product-bundle",
@@ -2501,16 +2595,16 @@
         },
         {
             "name": "techdivision/import-product-ee",
-            "version": "1.0.0-beta27",
+            "version": "1.0.0-beta28",
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-product-ee.git",
-                "reference": "ba29cd2784c59827d932eae7418e4321ea53277d"
+                "reference": "1f17fc9a287f04dd3a962b94d42431d3259fbab0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-product-ee/zipball/ba29cd2784c59827d932eae7418e4321ea53277d",
-                "reference": "ba29cd2784c59827d932eae7418e4321ea53277d",
+                "url": "https://api.github.com/repos/techdivision/import-product-ee/zipball/1f17fc9a287f04dd3a962b94d42431d3259fbab0",
+                "reference": "1f17fc9a287f04dd3a962b94d42431d3259fbab0",
                 "shasum": ""
             },
             "require": {
@@ -2551,7 +2645,7 @@
                 }
             ],
             "description": "M2IF library providing basic Magento 2 EE product import functionality",
-            "time": "2018-03-15T19:12:54+00:00"
+            "time": "2018-03-20T13:06:14+00:00"
         },
         {
             "name": "techdivision/import-product-link",
@@ -3041,12 +3135,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/consolidation/annotated-command.git",
-                "reference": "d3fcf73a8e7e8e60bf11fe7c238302c03cc21864"
+                "reference": "7f4684d36498d736ec15706a8bb21c7f814a8227"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/consolidation/annotated-command/zipball/d3fcf73a8e7e8e60bf11fe7c238302c03cc21864",
-                "reference": "d3fcf73a8e7e8e60bf11fe7c238302c03cc21864",
+                "url": "https://api.github.com/repos/consolidation/annotated-command/zipball/7f4684d36498d736ec15706a8bb21c7f814a8227",
+                "reference": "7f4684d36498d736ec15706a8bb21c7f814a8227",
                 "shasum": ""
             },
             "require": {
@@ -3058,7 +3152,7 @@
                 "symfony/finder": "^2.5|^3|^4"
             },
             "require-dev": {
-                "g-1-a/composer-test-scenarios": "^1",
+                "g-1-a/composer-test-scenarios": "^2",
                 "phpunit/phpunit": "^6",
                 "satooshi/php-coveralls": "^2",
                 "squizlabs/php_codesniffer": "^2.7"
@@ -3085,7 +3179,7 @@
                 }
             ],
             "description": "Initialize Symfony Console commands from annotated command class methods.",
-            "time": "2018-03-07 22:58:51"
+            "time": "2018-03-19 06:15:45"
         },
         {
             "name": "consolidation/config",
@@ -3246,12 +3340,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/consolidation/Robo.git",
-                "reference": "937e5ac92c7a6394af89d9b2ed4cbc04cb510396"
+                "reference": "a1c5ae825830509d46f59d961132efc17d303737"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/consolidation/Robo/zipball/937e5ac92c7a6394af89d9b2ed4cbc04cb510396",
-                "reference": "937e5ac92c7a6394af89d9b2ed4cbc04cb510396",
+                "url": "https://api.github.com/repos/consolidation/Robo/zipball/a1c5ae825830509d46f59d961132efc17d303737",
+                "reference": "a1c5ae825830509d46f59d961132efc17d303737",
                 "shasum": ""
             },
             "require": {
@@ -3316,7 +3410,7 @@
                 }
             ],
             "description": "Modern task runner",
-            "time": "2018-03-13 00:00:07"
+            "time": "2018-03-19 20:18:38"
         },
         {
             "name": "container-interop/container-interop",
@@ -5376,12 +5470,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/process.git",
-                "reference": "cc4aea21f619116aaf1c58016a944e4821c8e8af"
+                "reference": "6745cdc6d77139ce3a6c177e9a34ebb630de310f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/process/zipball/cc4aea21f619116aaf1c58016a944e4821c8e8af",
-                "reference": "cc4aea21f619116aaf1c58016a944e4821c8e8af",
+                "url": "https://api.github.com/repos/symfony/process/zipball/6745cdc6d77139ce3a6c177e9a34ebb630de310f",
+                "reference": "6745cdc6d77139ce3a6c177e9a34ebb630de310f",
                 "shasum": ""
             },
             "require": {
@@ -5417,7 +5511,7 @@
             ],
             "description": "Symfony Process Component",
             "homepage": "https://symfony.com",
-            "time": "2018-02-12 17:55:00"
+            "time": "2018-03-19 22:32:39"
         },
         {
             "name": "theseer/fdomdocument",
@@ -5572,7 +5666,10 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "techdivision/import-product-batch": 20,
+        "techdivision/import-product-batch-ee": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {

@@ -1,3 +1,18 @@
+# Version 1.0.0-beta70
+
+## Known Issues
+
+* None
+
+## Bugfixes
+
+* [techdivision/import-product] Fixed invalid order of method invocation in tearDown() method
+* [techdivision/import-product] Fixed invalid order of method invocation in tearDown() method
+
+## Features
+
+* None
+
 # Version 1.0.0-beta69
 
 ## Known Issues
