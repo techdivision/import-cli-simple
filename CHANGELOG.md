@@ -1,8 +1,34 @@
+# Version 1.0.0-beta71
+
+## Known Issues
+
+* Up from Magento 2 EE 2.1.10 using the single transaction mode has a massive performance impact (can only be used **WITHOUT** single transaction)
+
+## Bugfixes
+
+* None
+
+## Features
+
+* [techdivision/import] Add missing interface for UrlRewriteAction
+* [techdivision/import-product] Fixed invalid order of method invocation in tearDown() method
+* [techdivision/import-attribute] Remove unnecessary methods from AttributeBunchProcessorInterface, Add missing interfaces for actions and repositories + Replace class type hints for AttributeBunchProcessor with interfaces
+* [techdivision/import-category]  Add missing interfaces for actions and repositories + Replace class type hints for CategoryBunchProcessor with interfaces
+* [techdivision/import-category-ee] Add missing interfaces for actions and repositories + Replace class type hints for EeCategoryBunchProcessor with interfaces
+* [techdivision/import-product] Add missing interfaces for actions and repositories + Replace class type hints for ProductBunchProcessor with interfaces
+* [techdivision/import-product-url-rewrite] Add missing interfaces for actions and repositories + Replace class type hints for ProductUrlRewriteProcessor with interfaces
+* [techdivision/import-product-link] Add missing interfaces for actions and repositories + Replace class type hints for ProductLinkProcessor with interfaces
+* [techdivision/import-product-media] Add missing interfaces for actions and repositories + Replace class type hints for ProductMediaProcessor with interfaces
+* [techdivision/import-product-bundle] Add missing interfaces for actions and repositories + Replace class type hints for ProductBundleProcessor with interfaces
+* [techdivision/import-product-variant] Add missing interfaces for actions and repositories + Replace class type hints for ProductVariantProcessor with interfaces
+* [techdivision/import-product-ee] Add missing interfaces for actions and repositories + Replace class type hints for EeProductBunchProcessor with interfaces
+* [techdivision/import-product-media-ee] Add missing interfaces for actions and repositories * Replace class type hints for EeProductMediaProcessor with interfaces
+
 # Version 1.0.0-beta70
 
 ## Known Issues
 
-* None
+* Up from Magento 2 EE 2.1.10 using the single transaction mode has a massive performance impact (can only be used **WITHOUT** single transaction)
 
 ## Bugfixes
 
@@ -17,7 +43,7 @@
 
 ## Known Issues
 
-* None
+* Up from Magento 2 EE 2.1.10 using the single transaction mode has a massive performance impact (can only be used **WITHOUT** single transaction)
 
 ## Bugfixes
 
