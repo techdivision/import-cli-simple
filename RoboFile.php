@@ -55,7 +55,7 @@ class RoboFile extends \Robo\Tasks
      *
      * @var array
      */
-    protected $magentoVersions = array('ce' => array('2.0.18', '2.1.12', '2.2.3'));
+    protected $magentoVersions = array('ce' => array('2.1.12'));
 
     /**
      * Run's the composer install command.
