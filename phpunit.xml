@@ -2,7 +2,7 @@
     <testsuites>
         <testsuite name="techdivision/import-cli-simple PHPUnit testsuite">
             <directory suffix="Test.php">tests/unit</directory>
-            <directory suffix="Test.php">vendor/techdivision/*/tests</directory>
+            <directory suffix="Test.php">vendor/techdivision/*/tests/unit</directory>
         </testsuite>
         <testsuite name="techdivision/import-cli-simple PHPUnit integration testsuite">
             <directory suffix="Test.php">tests/integration</directory>
