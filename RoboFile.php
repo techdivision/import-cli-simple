@@ -47,7 +47,7 @@ class RoboFile extends \Robo\Tasks
         'target.dir' => __DIR__ . '/target',
         'symfony.dir' => __DIR__ . '/symfony',
         'webapp.name' => 'import-cli-simple',
-        'webapp.version' => '1.0.0-beta.71'
+        'webapp.version' => '1.0.0'
     );
 
     /**
@@ -55,7 +55,7 @@ class RoboFile extends \Robo\Tasks
      *
      * @var array
      */
-    protected $magentoVersions = array('ce' => array('2.1.7'));
+    protected $magentoVersions = array('ce' => array('2.1.12'));
 
     /**
      * Run's the composer install command.
@@ -362,7 +362,14 @@ class RoboFile extends \Robo\Tasks
                      ->run();
 
                 // run the integration testsuite
-                $this->taskPHPUnit(sprintf('%s/bin/phpunit --testsuite "techdivision/import-cli-simple PHPUnit integration testsuite"', $this->properties['vendor.dir']))
+                $this->taskPHPUnit(
+                        sprintf(
+                            'DB_USER=root DB_PASSWORD=appserver.i0 DB_NAME=magento2_%s_%s %s/bin/phpunit --testsuite "techdivision/import-cli-simple PHPUnit integration testsuite"',
+                            $edition,
+                            $strippedVersion,
+                            $this->properties['vendor.dir']
+                        )
+                     )
                      ->configFile('phpunit.xml')
                      ->run();
             }

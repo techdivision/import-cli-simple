@@ -1,3 +1,17 @@
+# Version 1.0.0
+
+## Known Issues
+
+* Up from Magento 2 EE 2.1.10 using the single transaction mode has a massive performance impact (can only be used **WITHOUT** single transaction)
+
+## Bugfixes
+
+* None
+
+## Features
+
+* Move PHPUnit test from tests of all libraries to tests/unit folder for integration test compatibility reasons
+
 # Version 1.0.0-beta71
 
 ## Known Issues

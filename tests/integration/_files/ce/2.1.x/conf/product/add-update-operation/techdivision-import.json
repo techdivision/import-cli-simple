@@ -7,15 +7,7 @@
   "debug-mode" : true,
   "entity-type-code" : "catalog_product",
   "system-name" : "system-name/product-import",
-  "databases" : [
-    {
-      "id": "integration-testing",
-      "default" : true,
-      "pdo-dsn": "mysql:host=127.0.0.1;dbname=magento2_ce_217;port=9306;charset=utf8",
-      "username": "root",
-      "password": "appserver.i0"
-    }
-  ],
+  "databases" : [],
   "loggers": [
     {
       "name": "system",
@@ -74,7 +66,8 @@
                     "import_product.observer.quality.and.stock.status",
                     "import_product.observer.product",
                     "import_product.observer.category.product",
-                    "import_product.observer.product.attribute.update"
+                    "import_product.observer.product.attribute.update",
+                    "import_product.observer.clean.up"
                   ]
                 }
               ]
