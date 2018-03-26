@@ -26,6 +26,7 @@ use Symfony\Component\DependencyInjection\Loader\XmlFileLoader;
 use TechDivision\Import\Utils\EntityStatus;
 use TechDivision\Import\Utils\StoreViewCodes;
 use TechDivision\Import\Cli\Utils\DependencyInjectionKeys;
+use TechDivision\Import\Configuration\Jms\Configuration\Database;
 
 /**
  * Test class for the product URL rewrite observer implementation.
@@ -167,7 +168,7 @@ abstract class AbstractIntegrationTest extends \PHPUnit_Framework_TestCase
     {
 
         // initialize the vendor directory
-        $vendorDir = sprintf('%s/vendor', getcwd());
+        $vendorDir = self::getVendorDir();
 
         // the path of the JMS serializer directory, relative to the vendor directory
         $jmsDir = DIRECTORY_SEPARATOR . 'jms' . DIRECTORY_SEPARATOR . 'serializer' . DIRECTORY_SEPARATOR . 'src';
@@ -188,14 +189,6 @@ abstract class AbstractIntegrationTest extends \PHPUnit_Framework_TestCase
             'JMS\Serializer\Annotation',
             $annotationDir
         );
-
-        // initialize the DI container and set the vendor directory
-        self::$container = new ContainerBuilder();
-        self::$container->setParameter(DependencyInjectionKeys::CONFIGURATION_VENDOR_DIR, $vendorDir);
-
-        // initialize the default loader and load the DI configuration for the this library
-        $defaultLoader = new XmlFileLoader(self::$container, new FileLocator($vendorDir));
-        $defaultLoader->load(dirname($vendorDir) . '/symfony/Resources/config/services.xml');
     }
 
     /**
@@ -207,6 +200,14 @@ abstract class AbstractIntegrationTest extends \PHPUnit_Framework_TestCase
      */
     protected function setUp()
     {
+
+        // initialize the DI container and set the vendor directory
+        self::$container = new ContainerBuilder();
+        self::$container->setParameter(DependencyInjectionKeys::CONFIGURATION_VENDOR_DIR, $vendorDir = self::getVendorDir());
+
+        // initialize the default loader and load the DI configuration for the this library
+        $defaultLoader = new XmlFileLoader(self::$container, new FileLocator($vendorDir));
+        $defaultLoader->load(dirname($vendorDir) . '/symfony/Resources/config/services.xml');
 
         // load the configuration factory and create the configuration instance
         /** @var \TechDivision\Import\Configuration\Jms\ConfigurationFactory $configurationFactory */
@@ -235,6 +236,7 @@ abstract class AbstractIntegrationTest extends \PHPUnit_Framework_TestCase
         $configuration->setTargetDir($this->getTargetDir());
         $configuration->setPidFilename($this->getPidFilename());
         $configuration->setOperationName($this->getOperationName());
+        $configuration->addDatabase($this->getDatabase());
 
         // load the library loader and autoload the libraries
         /** @var \TechDivision\Import\Cli\Configuration\LibraryLoader $libraryLoader */
@@ -318,6 +320,69 @@ abstract class AbstractIntegrationTest extends \PHPUnit_Framework_TestCase
         for ($i = 0; $i < $times; $i++) {
             self::$container->get(DependencyInjectionKeys::SIMPLE)->process();
         }
+    }
+
+    /**
+     * Return's the database name from the environment variable DB_NAME, which usually
+     * has to be initialzed by the task runner that executes the integration test suite.
+     *
+     * @return string The database name to use
+     */
+    protected function getDbName()
+    {
+        return getenv('DB_NAME') ? getenv('DB_NAME') : 'magento2';
+    }
+
+    /**
+     * Return's the database name from the environment variable DB_USER, which usually
+     * has to be initialzed by the task runner that executes the integration test suite.
+     *
+     * @return string The database name to use
+     */
+    protected function getDbUser()
+    {
+        return getenv('DB_USER') ? getenv('DB_USER') : 'root';
+    }
+
+    /**
+     * Return's the database name from the environment variable DB_PASSWORD, which usually
+     * has to be initialzed by the task runner that executes the integration test suite.
+     *
+     * @return string The database name to use
+     */
+    protected function getDbPassword()
+    {
+        return getenv('DB_PASSWORD') ? getenv('DB_PASSWORD') : 'appserver.i0';
+    }
+
+    /**
+     * Return's the database configuration.
+     *
+     * @return \TechDivision\Import\Configuration\Jms\Configuration\Database The database configuration
+     */
+    protected function getDatabase()
+    {
+
+        // initialize the database configuration
+        $database = new Database();
+        $database->setDefault(true);
+        $database->setId('integration-testing');
+        $database->setUsername($this->getDbUser());
+        $database->setPassword($this->getDbPassword());
+        $database->setDsn(sprintf('mysql:host=127.0.0.1;dbname=%s;port=9306;charset=utf8', $this->getDbName()));
+
+        // return the database configuration
+        return $database;
+    }
+
+    /**
+     * The absolute path to the vendor directoy.
+     *
+     * @return string
+     */
+    protected static function getVendorDir()
+    {
+        return sprintf('%s/vendor', getcwd());
     }
 
     /**

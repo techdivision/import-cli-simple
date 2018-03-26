@@ -362,7 +362,14 @@ class RoboFile extends \Robo\Tasks
                      ->run();
 
                 // run the integration testsuite
-                $this->taskPHPUnit(sprintf('%s/bin/phpunit --testsuite "techdivision/import-cli-simple PHPUnit integration testsuite"', $this->properties['vendor.dir']))
+                $this->taskPHPUnit(
+                        sprintf(
+                            'DB_USER=root DB_PASSWORD=appserver.i0 DB_NAME=magento2_%s_%s %s/bin/phpunit --testsuite "techdivision/import-cli-simple PHPUnit integration testsuite"',
+                            $edition,
+                            $strippedVersion,
+                            $this->properties['vendor.dir']
+                        )
+                     )
                      ->configFile('phpunit.xml')
                      ->run();
             }
