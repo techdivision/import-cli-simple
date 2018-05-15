@@ -21,7 +21,7 @@
 namespace TechDivision\Import\Cli;
 
 use Psr\Log\LogLevel;
-use Rhumsaa\Uuid\Uuid;
+use Ramsey\Uuid\Uuid;
 use TechDivision\Import\Cli\Command\InputArgumentKeys;
 use TechDivision\Import\Cli\Command\InputOptionKeys;
 use TechDivision\Import\Cli\Utils\MagentoConfigurationKeys;
