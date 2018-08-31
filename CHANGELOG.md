@@ -1,3 +1,31 @@
+# Version 1.0.2
+
+## Known Issues
+
+* Up from Magento 2 EE 2.1.10 using the single transaction mode has a massive performance impact (can only be used **WITHOUT** single transaction)
+
+## Bugfixes
+
+* Fix composer dependency for ramsey lib and added compatibility for monolog and Magento 2.2
+
+## Features
+
+* None
+
+# Version 1.0.1
+
+## Known Issues
+
+* Up from Magento 2 EE 2.1.10 using the single transaction mode has a massive performance impact (can only be used **WITHOUT** single transaction)
+
+## Bugfixes
+
+* None
+
+## Features
+
+* Removed deprecated rhumsaa library and added Magento 2.2 compatible version to composer.json
+
 # Version 1.0.0
 
 ## Known Issues
