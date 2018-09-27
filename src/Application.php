@@ -70,8 +70,18 @@ class Application extends \Symfony\Component\Console\Application implements Cont
         // set the DI container instance
         $this->setContainer($container);
 
+        // initialize the variables for the elements of the version string
+        $major = 1;
+        $minor = 0;
+        $patch = 0;
+        $special = null;
+        $metadata = null;
+
+        // parse the file with the semantic versioning data
+        extract($this->parse(dirname(__DIR__) . DIRECTORY_SEPARATOR . '.semver'));
+
         // invoke the parent constructor
-        parent::__construct($this->name, vsprintf('%d.%d.%d-%s', $this->parse(dirname(__DIR__) . DIRECTORY_SEPARATOR . '.semver')));
+        parent::__construct($this->name, sprintf('%d.%d.%d', $major, $minor, $patch) . ($special ? sprintf('-%s%s', $special, $metadata) : null));
     }
 
     /**

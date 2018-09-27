@@ -1,3 +1,17 @@
+# Version 1.1.0
+
+## Known Issues
+
+* Up from Magento 2 EE 2.1.10 using the single transaction mode has a massive performance impact (can only be used **WITHOUT** single transaction)
+
+## Bugfixes
+
+* Fixed issue that creates column original_data also if no original data is available
+
+## Features
+
+* Add functionality to NOT create .imported flagfile based on configuration value to enable multiple subjects processing the same CSV file
+
 # Version 1.0.3
 
 ## Known Issues
