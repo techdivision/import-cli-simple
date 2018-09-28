@@ -1,3 +1,19 @@
+# Version 1.1.1
+
+## Known Issues
+
+* Up from Magento 2 EE 2.1.10 using the single transaction mode has a massive performance impact (can only be used **WITHOUT** single transaction)
+
+## Bugfixes
+
+* Add missing artefact initialization in ExportableTrait::newArtefact() method
+* Fixed invalid .inProgress file deletion in AbstractSubject::import() method
+* Fixed invalid JMS (un-)serialization name for Subject::$createImportedFile property
+
+## Features
+
+* None
+
 # Version 1.1.0
 
 ## Known Issues
