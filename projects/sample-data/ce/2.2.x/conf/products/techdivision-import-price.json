@@ -1,0 +1,90 @@
+{
+  "magento-edition": "CE",
+  "magento-version": "2.2.0",
+  "operation-name" : "add-update",
+  "source-date-format": "n/d/y, g:i A",
+  "source-dir" : "projects/sample-data/tmp",
+  "target-dir" : "projects/sample-data/tmp",
+  "archive-artefacts" : true,
+  "debug-mode" : false,
+  "entity-type-code" : "catalog_product_price",
+  "databases" : [
+    {
+      "id": "docker",
+      "default" : true,
+      "pdo-dsn": "mysql:host=127.0.1.2;dbname=magento;charset=utf8",
+      "username": "magento",
+      "password": "magento"
+    }
+  ],
+  "loggers": [
+    {
+      "name": "system",
+      "channel-name": "logger/system",
+      "type": "Monolog\\Logger",
+      "handlers": [
+        {
+          "type": "Monolog\\Handler\\ErrorLogHandler",
+          "formatter": {
+            "type": "Monolog\\Formatter\\LineFormatter",
+            "params" : [
+              {
+                "format": "[%datetime%] %channel%.%level_name%: %message% %context% %extra%",
+                "date-format": "Y-m-d H:i:s",
+                "allow-inline-line-breaks": true,
+                "ignore-empty-context-and-extra": false
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "operations" : [
+    {
+      "name" : "add-update",
+      "plugins" : [
+        {
+          "id": "import.plugin.global.data"
+        },
+        {
+          "id": "import.plugin.subject",
+          "subjects": [
+            {
+              "id": "import.subject.move.files",
+              "identifier": "move-files",
+              "prefix": "product-import-price",
+              "ok-file-needed": true
+            },
+            {
+              "id": "import_product.subject.bunch",
+              "identifier": "files",
+              "prefix": "product-import-price",
+              "observers": [
+                {
+                  "pre-import": [
+                    "import.observer.attribute.set",
+                    "import_product.observer.last.entity.and.row.id"
+                  ]
+                },
+                {
+                  "import": [
+                    "import_product.observer.product.attribute.update"
+                  ]
+                },
+                {
+                  "post-import": [
+                    "import_product.observer.clean.up"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "import.plugin.archive"
+        }
+      ]
+    }
+  ]
+}

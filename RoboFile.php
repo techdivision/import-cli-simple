@@ -47,7 +47,7 @@ class RoboFile extends \Robo\Tasks
         'target.dir' => __DIR__ . '/target',
         'symfony.dir' => __DIR__ . '/symfony',
         'webapp.name' => 'import-cli-simple',
-        'webapp.version' => '1.1.1'
+        'webapp.version' => '2.0.0'
     );
 
     /**
@@ -55,7 +55,7 @@ class RoboFile extends \Robo\Tasks
      *
      * @var array
      */
-    protected $magentoVersions = array('ce' => array('2.1.12'));
+    protected $magentoVersions = array('ce' => array('2.2.3'));
 
     /**
      * Run's the composer install command.

@@ -1,0 +1,439 @@
+{
+  "magento-edition": "CE",
+  "magento-version": "2.0.18",
+  "operation-name" : "add-update",
+  "source-date-format": "n/d/y, g:i A",
+  "archive-artefacts" : true,
+  "debug-mode" : false,
+  "source-dir" : "projects/sample-data/tmp",
+  "target-dir" : "projects/sample-data/tmp",
+  "entity-type-code" : "catalog_product",
+  "databases" : [
+    {
+      "id": "docker",
+      "default" : true,
+      "pdo-dsn": "mysql:host=127.0.1.3;dbname=magento;charset=utf8",
+      "username": "magento",
+      "password": "magento"
+    }
+  ],
+  "loggers": [
+    {
+      "name": "system",
+      "channel-name": "logger/system",
+      "type": "Monolog\\Logger",
+      "handlers": [
+        {
+          "type": "Monolog\\Handler\\ErrorLogHandler",
+          "formatter": {
+            "type": "Monolog\\Formatter\\LineFormatter",
+            "params" : [
+              {
+                "format": "[%datetime%] %channel%.%level_name%: %message% %context% %extra%",
+                "date-format": "Y-m-d H:i:s",
+                "allow-inline-line-breaks": true,
+                "ignore-empty-context-and-extra": false
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "mail",
+      "channel-name" : "logger/mail",
+      "type" : "Monolog\\Logger",
+      "handlers" : [
+        {
+          "type": "Monolog\\Handler\\SwiftMailerHandler",
+          "params" : [
+            {
+              "log-level" : "error",
+              "bubble" : false
+            }
+          ],
+          "swift-mailer" : {
+            "factory" : "TechDivision\\Import\\Utils\\SwiftMailer\\SendmailTransportMailerFactory",
+            "mailer-factory" : "\\Swift_Mailer",
+            "params" : [
+              {
+                "to" : "m2if@techdivision.com",
+                "from" : "m2if@techdivision.com",
+                "subject": "Importer Error",
+                "content-type" : "text/plain"
+              }
+            ],
+            "transport" : {
+              "transport-factory" : "\\Swift_SendmailTransport"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "operations" : [
+    {
+      "name" : "delete",
+      "plugins" : [
+        {
+          "id": "import.plugin.global.data"
+        },
+        {
+          "id": "import.plugin.subject",
+          "subjects" : [
+            {
+              "id": "import.subject.move.files",
+              "identifier": "move-files",
+              "prefix": "product-import",
+              "ok-file-needed": true
+            },
+            {
+              "id": "import_product.subject.bunch",
+              "identifier": "files",
+              "prefix": "product-import",
+              "observers": [
+                {
+                  "import": [
+                    "import_product_url_rewrite.observer.clear.url.rewrite",
+                    "import_product.observer.clear.product"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "import.plugin.archive"
+        }
+      ]
+    },
+    {
+      "name" : "replace",
+      "plugins" : [
+        {
+          "id": "import.plugin.cache.warmer"
+        },
+        {
+          "id": "import.plugin.global.data"
+        },
+        {
+          "id": "import.plugin.subject",
+          "subjects": [
+            {
+              "id": "import.subject.move.files",
+              "identifier": "move-files",
+              "prefix": "product-import",
+              "ok-file-needed": true
+            },
+            {
+              "id": "import_product.subject.bunch",
+              "identifier": "files",
+              "prefix": "product-import",
+              "filesystem-adapter" : {
+                "id" : "import.adapter.filesystem.factory.league",
+                "adapter" : {
+                  "type" : "League\\Flysystem\\Adapter\\Local"
+                }
+              },
+              "params" : [
+                {
+                  "copy-images" : true,
+                  "media-directory" : "projects/sample-data/tmp",
+                  "images-file-directory" : "projects/sample-data/magento2-sample-data/pub/media/catalog/product"
+                }
+              ],
+              "observers": [
+                {
+                  "pre-import": [
+                    "import_product.observer.pre.load.entity.id",
+                    "import_product_url_rewrite.observer.clear.url.rewrite",
+                    "import_product.observer.clear.product",
+                    "import.observer.attribute.set",
+                    "import.observer.additional.attribute",
+                    "import_product.observer.url.key",
+                    "import_product.observer.file.upload",
+                    "import_product.observer.quality.and.stock.status"
+                  ]
+                },
+                {
+                  "import": [
+                    "import_product.observer.product",
+                    "import_product.observer.product.website",
+                    "import_product.observer.category.product",
+                    "import_product.observer.product.inventory",
+                    "import_product.observer.product.attribute",
+                    "import_product_url_rewrite.observer.product.url.rewrite",
+                    "import_product_variant.observer.product.variant",
+                    "import_product_bundle.observer.product.bundle",
+                    "import_product_media.observer.product.media",
+                    "import_product_link.observer.product.link"
+                  ]
+                },
+                {
+                  "post-import": [
+                    "import_product.observer.clean.up"
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "import_product_variant.subject.variant",
+              "prefix": "variants",
+              "observers": [
+                {
+                  "pre-import": [
+                    "import.observer.attribute.set"
+                  ]
+                },
+                {
+                  "import": [
+                    "import_product_variant.observer.variant",
+                    "import_product_variant.observer.variant.super.attribute"
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "import_product_bundle.subject.bundle",
+              "prefix": "bundles",
+              "observers": [
+                {
+                  "import": [
+                    "import_product_bundle.observer.bundle.option",
+                    "import_product_bundle.observer.bundle.option.value",
+                    "import_product_bundle.observer.bundle.selection",
+                    "import_product_bundle.observer.bundle.selection.price"
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "import_product_media.subject.media",
+              "prefix": "media",
+              "observers": [
+                {
+                  "pre-import" : [
+                    "import.observer.attribute.set"
+                  ],
+                  "import": [
+                    "import_product_media.observer.media.gallery",
+                    "import_product_media.observer.media.gallery.value"
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "import_product_link.subject.link",
+              "prefix": "links",
+              "observers": [
+                {
+                  "import": [
+                    "import_product_link.observer.link",
+                    "import_product_link.observer.link.attribute.position"
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "import_product_url_rewrite.subject.url.rewrite",
+              "prefix": "url-rewrite",
+              "observers": [
+                {
+                  "import": [
+                    "import_product_url_rewrite.observer.url.rewrite"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "import.plugin.missing.option.values",
+          "swift-mailer" : {
+            "factory" : "TechDivision\\Import\\Utils\\SwiftMailer\\SendmailTransportMailerFactory",
+            "mailer-factory" : "\\Swift_Mailer",
+            "params" : [
+              {
+                "to" : "m2if@techdivision.com",
+                "from" : "m2if@techdivision.com",
+                "subject": "Missing Option Values",
+                "content-type" : "text/plain"
+              }
+            ],
+            "transport" : {
+              "transport-factory" : "\\Swift_SendmailTransport"
+            }
+          }
+        },
+        {
+          "id": "import.plugin.archive"
+        }
+      ]
+    },
+    {
+      "name" : "add-update",
+      "plugins" : [
+        {
+          "id": "import.plugin.cache.warmer"
+        },
+        {
+          "id": "import.plugin.global.data"
+        },
+        {
+          "id": "import.plugin.subject",
+          "subjects": [
+            {
+              "id": "import.subject.move.files",
+              "identifier": "move-files",
+              "prefix": "product-import",
+              "ok-file-needed": true
+            },
+            {
+              "id": "import_product.subject.bunch",
+              "identifier": "files",
+              "prefix": "product-import",
+              "filesystem-adapter" : {
+                "id" : "import.adapter.filesystem.factory.league",
+                "adapter" : {
+                  "type" : "League\\Flysystem\\Adapter\\Local"
+                }
+              },
+              "params" : [
+                {
+                  "copy-images" : true,
+                  "clean-up-media-gallery" : true,
+                  "clean-up-category-product-relations" : true,
+                  "clean-up-empty-image-columns" : true,
+                  "clean-up-empty-columns" : [],
+                  "media-directory" : "projects/sample-data/tmp",
+                  "images-file-directory" : "projects/sample-data/magento2-sample-data/pub/media/catalog/product"
+                }
+              ],
+              "observers": [
+                {
+                  "pre-import": [
+                    "import.observer.attribute.set",
+                    "import.observer.additional.attribute",
+                    "import_product.observer.url.key",
+                    "import_product.observer.file.upload",
+                    "import_product.observer.quality.and.stock.status"
+                  ]
+                },
+                {
+                  "import": [
+                    "import_product.observer.product",
+                    "import_product.observer.product.website.update",
+                    "import_product.observer.category.product.update",
+                    "import_product.observer.product.inventory.update",
+                    "import_product.observer.product.attribute.update",
+                    "import_product_url_rewrite.observer.product.url.rewrite",
+                    "import_product_variant.observer.product.variant",
+                    "import_product_bundle.observer.product.bundle",
+                    "import_product_media.observer.product.media",
+                    "import_product_media.observer.clear.media.gallery",
+                    "import_product_link.observer.product.link"
+                  ]
+                },
+                {
+                  "post-import": [
+                    "import_product.observer.clean.up"
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "import_product_variant.subject.variant",
+              "prefix": "variants",
+              "observers": [
+                {
+                  "pre-import": [
+                    "import.observer.attribute.set"
+                  ]
+                },
+                {
+                  "import": [
+                    "import_product_variant.observer.variant.update",
+                    "import_product_variant.observer.variant.super.attribute.update"
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "import_product_bundle.subject.bundle",
+              "prefix": "bundles",
+              "observers": [
+                {
+                  "import": [
+                    "import_product_bundle.observer.bundle.option.update",
+                    "import_product_bundle.observer.bundle.option.value.update",
+                    "import_product_bundle.observer.bundle.selection.update",
+                    "import_product_bundle.observer.bundle.selection.price.update"
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "import_product_media.subject.media",
+              "prefix": "media",
+              "observers": [
+                {
+                  "pre-import" : [
+                    "import.observer.attribute.set"
+                  ],
+                  "import": [
+                    "import_product_media.observer.media.gallery.update",
+                    "import_product_media.observer.media.gallery.value.update"
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "import_product_link.subject.link",
+              "prefix": "links",
+              "observers": [
+                {
+                  "import": [
+                    "import_product_link.observer.link.update",
+                    "import_product_link.observer.link.attribute.position.update"
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "import_product_url_rewrite.subject.url.rewrite",
+              "prefix": "url-rewrite",
+              "observers": [
+                {
+                  "import": [
+                    "import_product_url_rewrite.observer.url.rewrite.update"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "import.plugin.missing.option.values",
+          "swift-mailer" : {
+            "factory" : "TechDivision\\Import\\Utils\\SwiftMailer\\SendmailTransportMailerFactory",
+            "mailer-factory" : "\\Swift_Mailer",
+            "params" : [
+              {
+                "to" : "m2if@techdivision.com",
+                "from" : "m2if@techdivision.com",
+                "subject": "Missing Option Values",
+                "content-type" : "text/plain"
+              }
+            ],
+            "transport" : {
+              "transport-factory" : "\\Swift_SendmailTransport"
+            }
+          }
+        },
+        {
+          "id": "import.plugin.archive"
+        }
+      ]
+    }
+  ]
+}
