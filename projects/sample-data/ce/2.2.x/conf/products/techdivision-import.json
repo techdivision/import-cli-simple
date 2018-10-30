@@ -12,9 +12,9 @@
     {
       "id": "docker",
       "default" : true,
-      "pdo-dsn": "mysql:host=127.0.0.1;dbname=magento2_ce_220;charset=utf8",
-      "username": "root",
-      "password": "appserver.i0"
+      "pdo-dsn": "mysql:host=127.0.1.2;dbname=magento;charset=utf8",
+      "username": "magento",
+      "password": "magento"
     }
   ],
   "loggers": [
@@ -187,8 +187,9 @@
                 },
                 {
                   "import": [
-                    "import_product_variant.observer.variant",
-                    "import_product_variant.observer.variant.super.attribute"
+                    "import_product_variant.observer.variant.super.link",
+                    "import_product_variant.observer.variant.super.attribute",
+                    "import_product_variant.observer.variant.product.relation"
                   ]
                 }
               ]
@@ -202,7 +203,8 @@
                     "import_product_bundle.observer.bundle.option",
                     "import_product_bundle.observer.bundle.option.value",
                     "import_product_bundle.observer.bundle.selection",
-                    "import_product_bundle.observer.bundle.selection.price"
+                    "import_product_bundle.observer.bundle.selection.price",
+                    "import_product_bundle.observer.bundle.product.relation"
                   ]
                 }
               ]
@@ -351,8 +353,9 @@
                 },
                 {
                   "import": [
-                    "import_product_variant.observer.variant.update",
-                    "import_product_variant.observer.variant.super.attribute.update"
+                    "import_product_variant.observer.variant.super.link.update",
+                    "import_product_variant.observer.variant.super.attribute.update",
+                    "import_product_variant.observer.variant.product.relation.update"
                   ]
                 }
               ]
@@ -366,7 +369,8 @@
                     "import_product_bundle.observer.bundle.option.update",
                     "import_product_bundle.observer.bundle.option.value.update",
                     "import_product_bundle.observer.bundle.selection.update",
-                    "import_product_bundle.observer.bundle.selection.price.update"
+                    "import_product_bundle.observer.bundle.selection.price.update",
+                    "import_product_bundle.observer.bundle.product.relation.update"
                   ]
                 }
               ]
