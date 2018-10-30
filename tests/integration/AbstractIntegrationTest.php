@@ -330,7 +330,7 @@ abstract class AbstractIntegrationTest extends \PHPUnit_Framework_TestCase
      */
     protected function getDbName()
     {
-        return getenv('DB_NAME') ? getenv('DB_NAME') : 'magento2';
+        return getenv('DB_NAME') ? getenv('DB_NAME') : 'magento';
     }
 
     /**
@@ -341,7 +341,7 @@ abstract class AbstractIntegrationTest extends \PHPUnit_Framework_TestCase
      */
     protected function getDbUser()
     {
-        return getenv('DB_USER') ? getenv('DB_USER') : 'root';
+        return getenv('DB_USER') ? getenv('DB_USER') : 'magento';
     }
 
     /**
@@ -352,7 +352,7 @@ abstract class AbstractIntegrationTest extends \PHPUnit_Framework_TestCase
      */
     protected function getDbPassword()
     {
-        return getenv('DB_PASSWORD') ? getenv('DB_PASSWORD') : 'appserver.i0';
+        return getenv('DB_PASSWORD') ? getenv('DB_PASSWORD') : 'magento';
     }
 
     /**
@@ -369,7 +369,7 @@ abstract class AbstractIntegrationTest extends \PHPUnit_Framework_TestCase
         $database->setId('integration-testing');
         $database->setUsername($this->getDbUser());
         $database->setPassword($this->getDbPassword());
-        $database->setDsn(sprintf('mysql:host=127.0.0.1;dbname=%s;port=9306;charset=utf8', $this->getDbName()));
+        $database->setDsn(sprintf('mysql:host=127.0.0.1;dbname=%s;port=3306;charset=utf8', $this->getDbName()));
 
         // return the database configuration
         return $database;
