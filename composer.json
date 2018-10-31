@@ -3,7 +3,7 @@
     "description": "CLI providing single-threaded Magento 2 importing functionality based on M2IF",
     "license": "OSL-3.0",
     "require": {
-        "php": ">=5.6.0",
+        "php": ">=7.1.0",
         "ramsey/uuid": "3.8.*",
         "doctrine/cache" : "1.6.2",
         "doctrine/dbal": "2.5.13",
@@ -19,7 +19,7 @@
         "symfony/console": "~4.0",
         "techdivision/import": "3.0.*",
         "techdivision/import-ee": "2.0.*",
-        "techdivision/import-app-simple": "compat/magento23-dev as 2.0.0",
+        "techdivision/import-app-simple": "3.0.*",
         "techdivision/import-configuration-jms": "3.0.*",
         "techdivision/import-attribute": "2.0.*",
         "techdivision/import-category": "2.0.*",
