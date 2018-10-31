@@ -55,7 +55,7 @@ class RoboFile extends \Robo\Tasks
      *
      * @var array
      */
-    protected $magentoVersions = array('ce' => array('2.2.3'));
+    protected $magentoVersions = array('community' => array('2.2.6'));
 
     /**
      * Run's the composer install command.
@@ -282,44 +282,24 @@ class RoboFile extends \Robo\Tasks
     /**
      * Run's the integration testsuite.
      *
+     * This task uses the Magento 2 docker image generator from https://github.com/techdivision/magento2-docker-imgen. To execute
+     * this task, it is necessary that you set your Magent credentials for http://repo.magento.com on the commandline like
+     *
+     * ```php
+     * MAGENTO_REPO_USERNAME=##YOUR_PUBLIC_ACCESS_KEY## MAGENTO_REPO_PASSWORD=##YOUR_PRIVATE_ACCESS_KEY## vendor/bin/robo run:tests-integration
+     * ```
+     *
      * @return void
      */
     public function runTestsIntegration()
     {
 
-        // start the containers
-        $this->taskExec(sprintf('docker-compose up -d'))
-             ->dir('tests')
-             ->run();
+        // prepare the filesystem
+        $this->prepare();
 
-        // initialize the flag to identify if MySQL is available or not
-        $mysqlNotAvailable = false;
-
-        do {
-            // try to connect to MySQL
-            $mysqlNotAvailable = $this->taskDockerExec('mysql')
-                                      ->interactive()
-                                      ->exec('mysql -uroot -pappserver.i0 -hmysql -e "exit"')
-                                      ->run()
-                                      ->getExitCode();
-
-            // wait a second if MySQL is NOT available yet
-            if ($mysqlNotAvailable) {
-                sleep(1);
-            }
-
-        } while ($mysqlNotAvailable);
-
-        // grant the privilieges to connection from outsite the container
-        $this->taskDockerExec('mysql')
-             ->interactive()
-             ->exec('mysql -uroot -pappserver.i0 -hmysql -e \'GRANT ALL ON *.* TO "root"@"%" IDENTIFIED BY "appserver.i0"\'')
-             ->run();
-
-        // flush the privileges
-        $this->taskDockerExec('mysql')
-             ->interactive()
-             ->exec('mysql -uroot -pappserver.i0 -hmysql -e "FLUSH PRIVILEGES"')
+        // clone the repository for the Magento 2 docker image generator
+        $this->taskGitStack()
+             ->cloneRepo('https://github.com/techdivision/magento2-docker-imgen.git', $targetDir = sprintf('%s/magento2-docker-imgen', $this->properties['target.dir']))
              ->run();
 
         // run the integration test suite for the configured editions/versions
@@ -328,58 +308,110 @@ class RoboFile extends \Robo\Tasks
                 // strip the dots from the version number
                 $strippedVersion = str_replace('.', '', $version);
 
-                // create the database for the specific Magento 2 edition/version
-                $this->taskDockerExec('mysql')
-                     ->interactive()
-                     ->exec(sprintf('mysql -uroot -pappserver.i0 -hmysql -e "CREATE DATABASE magento2_%s_%s"', $edition, $strippedVersion))
-                     ->run();
+                // initialize the name for the docker container
+                $containerName = sprintf('magento_%s_%s', $edition, $strippedVersion);
 
-                // initialze the Magento 2 instance
-                $this->taskDockerExec('appserver')
-                     ->interactive()
-                     ->exec(
-                         str_replace(
-                             array('{edition}', '{version}', '{stripped-version}'),
-                             array($edition, $version, $strippedVersion),
-                             'bash -c "mkdir /opt/appserver/webapps/magento2-{edition}-{version} \
-                                && cd /opt/appserver/webapps/magento2-{edition}-{version} \
-                                && wget http://apps.appserver.io/magento2/magento2-{edition}-{version}.phar \
-                                && /opt/appserver/bin/phar.phar extract -f magento2-{edition}-{version}.phar \
-                                && chmod +x bin/magento \
-                                && bin/magento setup:install \
-                                    --db-name=magento2_{edition}_{stripped-version} \
-                                    --db-host=mysql \
-                                    --db-user=root \
-                                    --db-password=appserver.i0 \
-                                    --admin-lastname=server \
-                                    --admin-firstname=app \
-                                    --admin-email=info@appserver.io \
-                                    --admin-user=appserver \
-                                    --admin-password=appserver.i0 \
-                                && supervisorctl restart appserver"'
+                // initialize the name for the test domain
+                $domainName = sprintf('magento-%s-%s.test', $edition, $strippedVersion);
+
+                // try to load username/password for the Magento 2 repository from the environment variables
+                $repoUsername = getenv('MAGENTO_REPO_USERNAME');
+                $repoPassword = getenv('MAGENTO_REPO_PASSWORD');
+
+                // initialize the hash value for an existing image
+                $hash = null;
+
+                // query whether or not the image already exists
+                exec(sprintf('docker images -q magento/%s:%s', $edition, $version), $hash);
+
+                // create the image, if not yet available
+                if (empty($hash)) {
+                    // build the Magento 2 instance
+                    $this->taskExec(
+                        str_replace(
+                            array('{edition}', '{version}', '{repo-username}', '{repo-password}'),
+                            array($edition, $version, $repoUsername, $repoPassword),
+                            'docker build \
+                                   --build-arg MAGENTO_REPO_USERNAME={repo-username} \
+                                   --build-arg MAGENTO_REPO_PASSWORD={repo-password} \
+                                   --build-arg MAGENTO_INSTALL_EDITION={edition} \
+                                   --build-arg MAGENTO_INSTALL_VERSION={version} \
+                                    -t magento/{edition}:{version} .'
+                            )
+                        )
+                        ->dir($targetDir)
+                        ->run();
+                }
+
+                // run the Magento 2 instance
+                $this->taskExec(
+                          str_replace(
+                              array('{edition}', '{version}', '{stripped-version}', '{container-name}', '{domain-name}'),
+                              array($edition, $version, $strippedVersion, $containerName, $domainName),
+                              'docker run --rm -d \
+                                   --name {container-name} \
+                                   -p 127.0.0.1:80:80 \
+                                   -p 127.0.0.1:443:443 \
+                                   -p 127.0.0.1:3306:3306 \
+                                   -e MAGENTO_BASE_URL={domain-name} magento/{edition}:{version}'
                          )
                      )
+                     ->run();
+
+                // initialize the variables to query whether or not the docker container has been started successfully
+                $counter = 0;
+                $magentoNotAvailable = true;
+
+                do {
+                    // reset the result of the CURL request
+                    $res = null;
+
+                    // query whether or not the image already exists
+                    exec(str_replace(array('{domain-name}'), array($domainName), 'curl --resolve {domain-name}:80:127.0.0.1 http://{domain-name}/magento_version'), $res);
+
+                    // query whether or not the Docker has been started
+                    foreach ($res as $val) {
+                        if (strstr($val, 'Magento/')) {
+                            $magentoNotAvailable = false;
+                        }
+                    }
+
+                    // raise the counter
+                    $counter++;
+
+                    // sleep while the docker container is not available
+                    if ($magentoNotAvailable === true) {
+                        sleep(1);
+                    }
+
+                } while ($magentoNotAvailable && $counter < 30);
+
+                // grant the privilieges to connection from outsite the container
+                $this->taskDockerExec($containerName)
+                     ->interactive()
+                     ->exec('mysql -uroot -pappserver.i0 -e \'GRANT ALL ON *.* TO "magento"@"%" IDENTIFIED BY "magento"\'')
+                     ->run();
+
+                // flush the privileges
+                $this->taskDockerExec($containerName)
+                     ->interactive()
+                     ->exec('mysql -uroot -pappserver.i0 -e "FLUSH PRIVILEGES"')
                      ->run();
 
                 // run the integration testsuite
                 $this->taskPHPUnit(
                         sprintf(
-                            'DB_USER=root DB_PASSWORD=appserver.i0 DB_NAME=magento2_%s_%s %s/bin/phpunit --testsuite "techdivision/import-cli-simple PHPUnit integration testsuite"',
-                            $edition,
-                            $strippedVersion,
+                            '%s/bin/phpunit --testsuite "techdivision/import-cli-simple PHPUnit integration testsuite"',
                             $this->properties['vendor.dir']
                         )
                      )
                      ->configFile('phpunit.xml')
                      ->run();
+
+                 // stop the containers
+                 $this->taskExec(sprintf('docker stop %s', $containerName))->run();
             }
         }
-
-        // stop the containers
-        $this->taskExec('docker-compose stop')->dir('tests')->run();
-
-        // remove the containers
-        $this->taskExec('docker-compose rm -f')->dir('tests')->run();
     }
 
     /**
