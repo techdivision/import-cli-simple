@@ -369,7 +369,7 @@ abstract class AbstractIntegrationTest extends \PHPUnit_Framework_TestCase
         $database->setId('integration-testing');
         $database->setUsername($this->getDbUser());
         $database->setPassword($this->getDbPassword());
-        $database->setDsn(sprintf('mysql:host=127.0.0.1;dbname=%s;port=3306;charset=utf8', $this->getDbName()));
+        $database->setDsn(sprintf('mysql:host=127.0.0.1;dbname=%s;port=9306;charset=utf8', $this->getDbName()));
 
         // return the database configuration
         return $database;
