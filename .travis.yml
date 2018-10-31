@@ -25,10 +25,10 @@ before_script:
 
 script:
   - git clone https://github.com/techdivision/magento2-docker-imgen.git /tmp/magento2-docker-imgen
-  - docker build --build-arg MAGENTO_REPO_USERNAME=$MAGENTO_REPO_USERNAME --build-arg MAGENTO_REPO_PASSWORD=$MAGENTO_REPO_PASSWORD --build-arg MAGENTO_INSTALL_EDITION=community --build-arg MAGENTO_INSTALL_VERSION=$MAGENTO_INSTALL_VERSION -t magento/community /tmp/magento2-docker-imgen
-  - docker run --rm -d --name $MAGENTO_CONTAINER_NAME -p 127.0.0.1:80:80 -p 127.0.0.1:443:443 -p 127.0.0.1:3306:3306 -e MAGENTO_BASE_URL=$MAGENTO_BASE_URL magento/community
+  - docker build --build-arg MAGENTO_REPO_USERNAME=${MAGENTO_REPO_USERNAME} --build-arg MAGENTO_REPO_PASSWORD=${MAGENTO_REPO_PASSWORD} --build-arg MAGENTO_INSTALL_EDITION=community --build-arg MAGENTO_INSTALL_VERSION=${MAGENTO_INSTALL_VERSION} -t magento/community /tmp/magento2-docker-imgen
+  - docker run --rm -d --name ${MAGENTO_CONTAINER_NAME} -p 127.0.0.1:80:80 -p 127.0.0.1:443:443 -p 127.0.0.1:3306:3306 -e MAGENTO_BASE_URL=${MAGENTO_BASE_URL} magento/community
   - composer update
-  - vendor/bin/robo run:tests-integration $MAGENTO_CONTAINER_NAME $MAGENTO_BASE_URL
+  - vendor/bin/robo run:tests-integration ${MAGENTO_CONTAINER_NAME} ${MAGENTO_BASE_URL}
   - vendor/bin/robo build
   - php ocular.phar code-coverage:upload --format=php-clover $TRAVIS_BUILD_DIR/target/reports/unit/clover.xml
 
