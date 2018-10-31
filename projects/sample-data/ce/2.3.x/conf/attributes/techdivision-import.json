@@ -1,0 +1,245 @@
+{
+  "magento-edition": "CE",
+  "magento-version": "2.2.0",
+  "operation-name" : "add-update",
+  "source-date-format": "n/d/y, g:i A",
+  "archive-artefacts" : true,
+  "debug-mode" : false,
+  "source-dir" : "projects/sample-data/tmp",
+  "target-dir" : "projects/sample-data/tmp",
+  "entity-type-code" : "eav_attribute",
+  "databases" : [
+    {
+      "id": "docker",
+      "default" : true,
+      "pdo-dsn": "mysql:host=127.0.1.2;dbname=magento;charset=utf8",
+      "username": "magento",
+      "password": "magento"
+    }
+  ],
+  "loggers": [
+    {
+      "name": "system",
+      "channel-name": "logger/system",
+      "type": "Monolog\\Logger",
+      "handlers": [
+        {
+          "type": "Monolog\\Handler\\ErrorLogHandler",
+          "formatter": {
+            "type": "Monolog\\Formatter\\LineFormatter",
+            "params" : [
+              {
+                "format": "[%datetime%] %channel%.%level_name%: %message% %context% %extra%",
+                "date-format": "Y-m-d H:i:s",
+                "allow-inline-line-breaks": true,
+                "ignore-empty-context-and-extra": false
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "operations" : [
+    {
+      "name" : "delete",
+      "plugins" : [
+        {
+          "id": "import.plugin.global.data"
+        },
+        {
+          "id": "import.plugin.subject",
+          "subjects" : [
+            {
+              "id": "import.subject.move.files",
+              "identifier": "move-files",
+              "prefix": "attribute-import",
+              "ok-file-needed": true
+            },
+            {
+              "id": "import_attribute.subject.bunch",
+              "identifier": "files",
+              "prefix": "attribute-import",
+              "observers": [
+                {
+                  "import": [
+                    "import_attribute.observer.pre.load.attribute.id",
+                    "import_attribute.observer.clear.attribute",
+                    "import_attribute.observer.attribute.clean.up"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "import.plugin.archive"
+        }
+      ]
+    },
+    {
+      "name" : "replace",
+      "plugins" : [
+        {
+          "id": "import.plugin.global.data"
+        },
+        {
+          "id": "import.plugin.subject",
+          "subjects": [
+            {
+              "id": "import.subject.move.files",
+              "identifier": "move-files",
+              "prefix": "attribute-import",
+              "ok-file-needed": true
+            },
+            {
+              "id": "import_attribute.subject.bunch",
+              "identifier": "files",
+              "prefix": "attribute-import",
+              "observers": [
+                {
+                  "import": [
+                    "import_attribute.observer.pre.load.attribute.id",
+                    "import_attribute.observer.clear.attribute",
+                    "import_attribute.observer.attribute",
+                    "import_attribute.observer.attribute.label",
+                    "import_attribute.observer.entity.attribute",
+                    "import_attribute.observer.catalog.attribute",
+                    "import_attribute.observer.attribute.option.export",
+                    "import_attribute.observer.attribute.option.value.export",
+                    "import_attribute.observer.attribute.option.swatch.export",
+                    "import_attribute.observer.attribute.clean.up"
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "import_attribute.subject.option",
+              "identifier": "files",
+              "prefix": "option-import",
+              "observers": [
+                {
+                  "import": [
+                    "import_attribute.observer.attribute.option",
+                    "import_attribute.observer.attribute.option.value",
+                    "import_attribute.observer.attribute.option.swatch"
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "import_attribute.subject.option",
+              "identifier": "files",
+              "prefix": "option-value-import",
+              "observers": [
+                {
+                  "import": [
+                    "import_attribute.observer.pre.load.attribute.option.id",
+                    "import_attribute.observer.attribute.option.value"
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "import_attribute.subject.option",
+              "identifier": "files",
+              "prefix": "option-swatch-import",
+              "observers": [
+                {
+                  "import": [
+                    "import_attribute.observer.pre.load.attribute.option.id",
+                    "import_attribute.observer.attribute.option.swatch"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "import.plugin.archive"
+        }
+      ]
+    },
+    {
+      "name" : "add-update",
+      "plugins" : [
+        {
+          "id": "import.plugin.global.data"
+        },
+        {
+          "id": "import.plugin.subject",
+          "subjects": [
+            {
+              "id": "import.subject.move.files",
+              "identifier": "move-files",
+              "prefix": "attribute-import",
+              "ok-file-needed": true
+            },
+            {
+              "id": "import_attribute.subject.bunch",
+              "identifier": "files",
+              "prefix": "attribute-import",
+              "observers": [
+                {
+                  "import": [
+                    "import_attribute.observer.attribute.update",
+                    "import_attribute.observer.attribute.label.update",
+                    "import_attribute.observer.entity.attribute.update",
+                    "import_attribute.observer.catalog.attribute.update",
+                    "import_attribute.observer.attribute.option.export",
+                    "import_attribute.observer.attribute.option.value.export",
+                    "import_attribute.observer.attribute.option.swatch.export",
+                    "import_attribute.observer.attribute.clean.up"
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "import_attribute.subject.option",
+              "identifier": "files",
+              "prefix": "option-import",
+              "observers": [
+                {
+                  "import": [
+                    "import_attribute.observer.attribute.option.update",
+                    "import_attribute.observer.attribute.option.value.update",
+                    "import_attribute.observer.attribute.option.swatch.update"
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "import_attribute.subject.option",
+              "identifier": "files",
+              "prefix": "option-value-import",
+              "observers": [
+                {
+                  "import": [
+                    "import_attribute.observer.pre.load.attribute.option.id",
+                    "import_attribute.observer.attribute.option.value.update"
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "import_attribute.subject.option",
+              "identifier": "files",
+              "prefix": "option-swatch-import",
+              "observers": [
+                {
+                  "import": [
+                    "import_attribute.observer.pre.load.attribute.option.id",
+                    "import_attribute.observer.attribute.option.swatch.update"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "import.plugin.archive"
+        }
+      ]
+    }
+  ]
+}
