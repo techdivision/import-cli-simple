@@ -51,13 +51,6 @@ class RoboFile extends \Robo\Tasks
     );
 
     /**
-     * The Magento versions to run the integration tests against.
-     *
-     * @var array
-     */
-    protected $magentoVersions = array('community' => array('2.2.6'));
-
-    /**
      * Run's the composer install command.
      *
      * @return void
