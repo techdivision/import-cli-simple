@@ -1,3 +1,17 @@
+# Version 2.0.1
+
+## Known Issues
+
+* Up from Magento 2 EE 2.1.10 using the single transaction mode has a massive performance impact (can only be used **WITHOUT** single transaction)
+
+## Bugfixes
+
+* Replace serialize/unserialie with json_encode/json_decode methods in URL rewrite functionality
+
+## Features
+
+* Switch to techdivision/import-product-url-rewrite version 2.0.1
+
 # Version 2.0.0
 
 ## Known Issues
