@@ -1,3 +1,17 @@
+# Version 4.0.0
+
+## Known Issues
+
+* Up from Magento 2 EE 2.1.10 using the single transaction mode has a massive performance impact (can only be used **WITHOUT** single transaction)
+
+## Bugfixes
+
+* None
+
+## Features
+
+* Update configuration initialization to allow passing additional parameters on the command line that'll be merged with the configuration file
+
 # Version 3.0.1
 
 ## Known Issues

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "543290bf4e00535c1d4c6737604dec70",
+    "content-hash": "4c4b563af12b2f61aaf6cd66f04029e5",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -1717,16 +1717,16 @@
         },
         {
             "name": "techdivision/import",
-            "version": "3.0.0",
+            "version": "4.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import.git",
-                "reference": "474f47f62dae680e7408e715722659bcc7d36e12"
+                "reference": "5fa7e2b7801258c432ab423d242d9d0aa60704cb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import/zipball/474f47f62dae680e7408e715722659bcc7d36e12",
-                "reference": "474f47f62dae680e7408e715722659bcc7d36e12",
+                "url": "https://api.github.com/repos/techdivision/import/zipball/5fa7e2b7801258c432ab423d242d9d0aa60704cb",
+                "reference": "5fa7e2b7801258c432ab423d242d9d0aa60704cb",
                 "shasum": ""
             },
             "require": {
@@ -1774,7 +1774,7 @@
                 }
             ],
             "description": "A library supporting generic Magento 2 import functionality",
-            "time": "2018-10-29T17:14:17+00:00"
+            "time": "2018-11-19T08:31:11+00:00"
         },
         {
             "name": "techdivision/import-app-simple",
@@ -1994,23 +1994,23 @@
         },
         {
             "name": "techdivision/import-configuration-jms",
-            "version": "3.0.0",
+            "version": "4.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-configuration-jms.git",
-                "reference": "dd31dc69e98f03e65ae1059c42cea87862401a6a"
+                "reference": "c1be7a1412183ba87cbf739509b9bb1fe0a80304"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-configuration-jms/zipball/dd31dc69e98f03e65ae1059c42cea87862401a6a",
-                "reference": "dd31dc69e98f03e65ae1059c42cea87862401a6a",
+                "url": "https://api.github.com/repos/techdivision/import-configuration-jms/zipball/c1be7a1412183ba87cbf739509b9bb1fe0a80304",
+                "reference": "c1be7a1412183ba87cbf739509b9bb1fe0a80304",
                 "shasum": ""
             },
             "require": {
                 "doctrine/dbal": "2.5.*",
                 "jms/serializer": "~1.0",
                 "php": ">=5.6.0",
-                "techdivision/import": "~3.0"
+                "techdivision/import": "4.x-dev as 4.0.0"
             },
             "require-dev": {
                 "consolidation/robo": "~1.0",
@@ -2041,25 +2041,25 @@
                 }
             ],
             "description": "Library providing a JMS based configuration implementation for the M2IF",
-            "time": "2018-10-29T17:50:53+00:00"
+            "time": "2018-11-19T08:38:18+00:00"
         },
         {
             "name": "techdivision/import-ee",
-            "version": "2.0.0",
+            "version": "3.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-ee.git",
-                "reference": "ecadd3239bb899220d0930c1499c116e98bdab59"
+                "reference": "adf4536ffdeae3f121169fa63f35f257dca5cf4f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-ee/zipball/ecadd3239bb899220d0930c1499c116e98bdab59",
-                "reference": "ecadd3239bb899220d0930c1499c116e98bdab59",
+                "url": "https://api.github.com/repos/techdivision/import-ee/zipball/adf4536ffdeae3f121169fa63f35f257dca5cf4f",
+                "reference": "adf4536ffdeae3f121169fa63f35f257dca5cf4f",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.6.0",
-                "techdivision/import": "~3.0"
+                "techdivision/import": "4.x-dev as 4.0.0"
             },
             "require-dev": {
                 "consolidation/robo": "~1.0",
@@ -2095,7 +2095,7 @@
                 }
             ],
             "description": "M2IF library providing basic Magento 2 EE import functionality",
-            "time": "2018-10-29T17:45:50+00:00"
+            "time": "2018-11-19T08:59:47+00:00"
         },
         {
             "name": "techdivision/import-product",
@@ -2809,20 +2809,20 @@
     "packages-dev": [
         {
             "name": "consolidation/annotated-command",
-            "version": "2.9.1",
+            "version": "2.10.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/consolidation/annotated-command.git",
-                "reference": "4bdbb8fa149e1cc1511bd77b0bc4729fd66bccac"
+                "reference": "8e7d1a05230dc1159c751809e98b74f2b7f71873"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/consolidation/annotated-command/zipball/4bdbb8fa149e1cc1511bd77b0bc4729fd66bccac",
-                "reference": "4bdbb8fa149e1cc1511bd77b0bc4729fd66bccac",
+                "url": "https://api.github.com/repos/consolidation/annotated-command/zipball/8e7d1a05230dc1159c751809e98b74f2b7f71873",
+                "reference": "8e7d1a05230dc1159c751809e98b74f2b7f71873",
                 "shasum": ""
             },
             "require": {
-                "consolidation/output-formatters": "^3.1.12",
+                "consolidation/output-formatters": "^3.4",
                 "php": ">=5.4.0",
                 "psr/log": "^1",
                 "symfony/console": "^2.8|^3|^4",
@@ -2857,7 +2857,7 @@
                 }
             ],
             "description": "Initialize Symfony Console commands from annotated command class methods.",
-            "time": "2018-09-19T17:47:18+00:00"
+            "time": "2018-11-15T01:46:18+00:00"
         },
         {
             "name": "consolidation/config",
@@ -5201,9 +5201,31 @@
             "time": "2018-01-29T19:49:41+00:00"
         }
     ],
-    "aliases": [],
+    "aliases": [
+        {
+            "alias": "3.0.0",
+            "alias_normalized": "3.0.0.0",
+            "version": "4.9999999.9999999.9999999-dev",
+            "package": "techdivision/import"
+        },
+        {
+            "alias": "2.0.0",
+            "alias_normalized": "2.0.0.0",
+            "version": "3.9999999.9999999.9999999-dev",
+            "package": "techdivision/import-ee"
+        },
+        {
+            "alias": "3.0.0",
+            "alias_normalized": "3.0.0.0",
+            "version": "4.9999999.9999999.9999999-dev",
+            "package": "techdivision/import-configuration-jms"
+        }
+    ],
     "minimum-stability": "stable",
     "stability-flags": {
+        "techdivision/import": 20,
+        "techdivision/import-ee": 20,
+        "techdivision/import-configuration-jms": 20,
         "phpmd/phpmd": 0
     },
     "prefer-stable": false,

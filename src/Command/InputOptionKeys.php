@@ -188,4 +188,18 @@ class InputOptionKeys
      * @var string
      */
     const SINGLE_TRANSACTION = 'single-transaction';
+
+    /**
+     * The input option key for additional params that has to be merged into the application configuration.
+     *
+     * @var string
+     */
+    const PARAMS = 'params';
+
+    /**
+     * The input option key for the path to additional params as file that has to be merged into the application configuration.
+     *
+     * @var string
+     */
+    const PARAMS_FILE = 'params-file';
 }

@@ -196,10 +196,10 @@ class SimpleConfigurationLoader implements ConfigurationLoaderInterface
         // query whether or not, a configuration file has been specified
         if ($configuration = $this->input->getOption(InputOptionKeys::CONFIGURATION)) {
             // load the configuration from the file with the given filename
-            $instance = $this->configurationFactory->factory($configuration, pathinfo($configuration, PATHINFO_EXTENSION));
+            $instance = $this->createConfiguration($configuration);
         } elseif ($magentoEdition = $this->input->getOption(InputOptionKeys::MAGENTO_EDITION)) {
             // use the Magento Edition that has been specified as option
-            $instance = $this->configurationFactory->factory($this->getDefaultConfiguration($magentoEdition, $this->getEntityTypeCode()));
+            $instance = $this->createConfiguration($this->getDefaultConfiguration($magentoEdition, $this->getEntityTypeCode()));
 
             // override the Magento Edition
             $instance->setMagentoEdition($magentoEdition);
@@ -235,7 +235,7 @@ class SimpleConfigurationLoader implements ConfigurationLoaderInterface
             $magentoEdition = $this->editionMappings[$possibleEdition];
 
             // use the Magento Edition that has been detected by the installation directory
-            $instance = $this->configurationFactory->factory($this->getDefaultConfiguration($magentoEdition, $this->getEntityTypeCode()));
+            $instance = $this->createConfiguration($this->getDefaultConfiguration($magentoEdition, $this->getEntityTypeCode()));
 
             // override the Magento Edition, if NOT explicitly specified
             $instance->setMagentoEdition($magentoEdition);
@@ -268,6 +268,37 @@ class SimpleConfigurationLoader implements ConfigurationLoaderInterface
 
         // return the initialized configuration instance
         return $instance;
+    }
+
+    /**
+     * Create and return a new configuration instance from the passed configuration filename
+     * after merging additional specified params from the commandline.
+     *
+     * @param string $filename The configuration filename to use
+     *
+     * @return \TechDivision\Import\ConfigurationInterface The configuration instance
+     */
+    protected function createConfiguration($filename)
+    {
+
+        // initialize the params specified with the --params parameter
+        $params = null;
+
+        // try to load the params from the commandline
+        if ($this->input->hasOptionSpecified(InputOptionKeys::PARAMS) && $this->input->getOption(InputOptionKeys::PARAMS)) {
+            $params = $this->input->getOption(InputOptionKeys::PARAMS);
+        }
+
+        // initialize the params file specified with the --params-file parameter
+        $paramsFile = null;
+
+        // try to load the path of the params file from the commandline
+        if ($this->input->hasOptionSpecified(InputOptionKeys::PARAMS_FILE) && $this->input->getOption(InputOptionKeys::PARAMS_FILE)) {
+            $paramsFile = $this->input->getOption(InputOptionKeys::PARAMS_FILE);
+        }
+
+        // create the configuration and return it
+        return $this->configurationFactory->factory($filename, pathinfo($filename, PATHINFO_EXTENSION), $params, $paramsFile);
     }
 
     /**
