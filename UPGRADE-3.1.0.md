@@ -2,15 +2,38 @@
 
 ## Configuration
 
-### Date Converter
+### Date + Number Converter
 
-### Number Converter
+The date + number conversion from a source date/number to the expected Magento 2 target format has been refactored.
+Therefore a DateConverter and a NumberConverter class has been introduced which replaces the `source-date-format` 
+option in the configuration file.
+
+source and number conversion has to be configured on subject level, e. g.
+
+```json
+"subjects" : [
+  {
+    "id": "import.subject.move.files",
+    "identifier": "move-files",
+    "prefix": "product-import",
+    "ok-file-needed": true,,
+    "number-converter": {
+      "locale": "de_DE"
+    },
+    "date-converter": {
+      "source-date-format": "Y-m-d H:i:s"
+    }
+  }
+]
+```
+
+> Whith overriding the ID values of each node, it is possible to replace the converter implementation.
 
 ### File Resolver
 
 To make configuration of import file + OK file handling more flexible, the new FileResolver class has been added.
 
-Instead of defining the pattrn of the files that has to be imported as well as their appropriate OK file on the
+Instead of defining the pattern of the files that has to be imported as well as their appropriate OK file on the
 subject level, each subject now has a `file-resolver` node that accepts the following new configuration options
 
 * prefix

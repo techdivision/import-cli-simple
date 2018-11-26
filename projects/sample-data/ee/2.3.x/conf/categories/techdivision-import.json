@@ -53,13 +53,17 @@
             {
               "id": "import.subject.move.files",
               "identifier": "move-files",
-              "prefix": "category-import",
+              "file-resolver": {
+                "prefix": "category-import"
+              },
               "ok-file-needed": true
             },
             {
               "id": "import_category_ee.subject.bunch",
               "identifier": "files",
-              "prefix": "category-import",
+              "file-resolver": {
+                "prefix": "category-import"
+              },
               "observers": [
                 {
                   "import": [
@@ -87,13 +91,17 @@
             {
               "id": "import.subject.move.files",
               "identifier": "move-files",
-              "prefix": "category-import",
+              "file-resolver": {
+                "prefix": "category-import"
+              },
               "ok-file-needed": true
             },
             {
               "id": "import_category_ee.subject.bunch",
               "identifier": "files",
-              "prefix": "category-import",
+              "file-resolver": {
+                "prefix": "category-import"
+              },
               "observers": [
                 {
                   "import": [
@@ -105,7 +113,9 @@
             {
               "id": "import_category_ee.subject.bunch",
               "identifier": "files",
-              "prefix": "category-create",
+              "file-resolver": {
+                "prefix": "category-create"
+              },
               "filesystem-adapter" : {
                 "id" : "import.adapter.filesystem.factory.league",
                 "adapter" : {
@@ -145,7 +155,9 @@
             {
               "id": "import_category_ee.subject.bunch",
               "identifier": "files",
-              "prefix": "category-path",
+              "file-resolver": {
+                "prefix": "category-path"
+              },
               "observers": [
                 {
                   "import": [
@@ -157,7 +169,9 @@
             {
               "id": "import_category_ee.subject.bunch",
               "identifier": "files",
-              "prefix": "url-rewrite",
+              "file-resolver": {
+                "prefix": "url-rewrite"
+              },
               "observers": [
                 {
                   "import": [
@@ -188,13 +202,17 @@
             {
               "id": "import.subject.move.files",
               "identifier": "move-files",
-              "prefix": "category-import",
+              "file-resolver": {
+                "prefix": "category-import"
+              },
               "ok-file-needed": true
             },
             {
               "id": "import_category_ee.subject.bunch",
               "identifier": "files",
-              "prefix": "category-import",
+              "file-resolver": {
+                "prefix": "category-import"
+              },
               "filesystem-adapter" : {
                 "id" : "import.adapter.filesystem.factory.league",
                 "adapter" : {
@@ -234,7 +252,9 @@
             {
               "id": "import_category_ee.subject.bunch",
               "identifier": "files",
-              "prefix": "category-path",
+              "file-resolver": {
+                "prefix": "category-path"
+              },
               "observers": [
                 {
                   "import": [
@@ -246,7 +266,9 @@
             {
               "id": "import_category_ee.subject.bunch",
               "identifier": "files",
-              "prefix": "url-rewrite",
+              "file-resolver": {
+                "prefix": "url-rewrite"
+              },
               "observers": [
                 {
                   "import": [

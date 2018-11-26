@@ -53,13 +53,17 @@
             {
               "id": "import.subject.move.files",
               "identifier": "move-files",
-              "prefix": "product-import-inventory",
+              "file-resolver": {
+                "prefix": "product-import-inventory"
+              },
               "ok-file-needed": true
             },
             {
               "id": "import_product.subject.bunch",
               "identifier": "files",
-              "prefix": "product-import-inventory",
+              "file-resolver": {
+                "prefix": "product-import-inventory"
+              },
               "observers": [
                 {
                   "pre-import": [

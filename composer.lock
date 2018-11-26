@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "8965dac794e897b8ec6c08b6ae24ad91",
+    "content-hash": "005c66a54d8350d14191b61f02cad57a",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -1717,16 +1717,16 @@
         },
         {
             "name": "techdivision/import",
-            "version": "4.x-dev",
+            "version": "4.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import.git",
-                "reference": "9b79da686e56fbe72515a6b944a4d9f59289ee13"
+                "reference": "47d182a7422498961ce318405439fb58c11119ee"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import/zipball/9b79da686e56fbe72515a6b944a4d9f59289ee13",
-                "reference": "9b79da686e56fbe72515a6b944a4d9f59289ee13",
+                "url": "https://api.github.com/repos/techdivision/import/zipball/47d182a7422498961ce318405439fb58c11119ee",
+                "reference": "47d182a7422498961ce318405439fb58c11119ee",
                 "shasum": ""
             },
             "require": {
@@ -1771,20 +1771,20 @@
                 }
             ],
             "description": "A library supporting generic Magento 2 import functionality",
-            "time": "2018-11-23T17:13:12+00:00"
+            "time": "2018-11-26T20:17:18+00:00"
         },
         {
             "name": "techdivision/import-app-simple",
-            "version": "4.x-dev",
+            "version": "4.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-app-simple.git",
-                "reference": "dabdce5f8005876404c97449920bfc35dda397cd"
+                "reference": "40f5f95c36661e2d77947f151ea78376a4592ca8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-app-simple/zipball/dabdce5f8005876404c97449920bfc35dda397cd",
-                "reference": "dabdce5f8005876404c97449920bfc35dda397cd",
+                "url": "https://api.github.com/repos/techdivision/import-app-simple/zipball/40f5f95c36661e2d77947f151ea78376a4592ca8",
+                "reference": "40f5f95c36661e2d77947f151ea78376a4592ca8",
                 "shasum": ""
             },
             "require": {
@@ -1792,7 +1792,7 @@
                 "php": ">=7.1.0",
                 "ramsey/uuid": "~3.0",
                 "symfony/console": "~4.1",
-                "techdivision/import": "4.x-dev as 4.0.0"
+                "techdivision/import": "4.0.*"
             },
             "require-dev": {
                 "consolidation/robo": "~1.0",
@@ -1826,25 +1826,25 @@
                 }
             ],
             "description": "M2IF simple application implementation providing basic Magento 2 import functionality",
-            "time": "2018-11-24T15:01:55+00:00"
+            "time": "2018-11-26T18:42:38+00:00"
         },
         {
             "name": "techdivision/import-attribute",
-            "version": "3.x-dev",
+            "version": "3.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-attribute.git",
-                "reference": "9f64d23258cb5ea3f53d2cacd9cf971547e00290"
+                "reference": "84a6eb39c84c6ed3be636a9780ae50ce7d7b7d77"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-attribute/zipball/9f64d23258cb5ea3f53d2cacd9cf971547e00290",
-                "reference": "9f64d23258cb5ea3f53d2cacd9cf971547e00290",
+                "url": "https://api.github.com/repos/techdivision/import-attribute/zipball/84a6eb39c84c6ed3be636a9780ae50ce7d7b7d77",
+                "reference": "84a6eb39c84c6ed3be636a9780ae50ce7d7b7d77",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.6.0",
-                "techdivision/import": "4.x-dev as 4.0.0"
+                "techdivision/import": "4.0.*"
             },
             "require-dev": {
                 "consolidation/robo": "~1.0",
@@ -1878,25 +1878,25 @@
                 }
             ],
             "description": "M2IF library providing basic Magento 2 attribute import functionality",
-            "time": "2018-11-24T15:09:52+00:00"
+            "time": "2018-11-26T19:14:01+00:00"
         },
         {
             "name": "techdivision/import-category",
-            "version": "3.x-dev",
+            "version": "3.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-category.git",
-                "reference": "032364ba6ae2f5bc164366132a960de485de1951"
+                "reference": "2dacf388f4ae5cdc7c232e62dd7ddbc3f6c1171b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-category/zipball/032364ba6ae2f5bc164366132a960de485de1951",
-                "reference": "032364ba6ae2f5bc164366132a960de485de1951",
+                "url": "https://api.github.com/repos/techdivision/import-category/zipball/2dacf388f4ae5cdc7c232e62dd7ddbc3f6c1171b",
+                "reference": "2dacf388f4ae5cdc7c232e62dd7ddbc3f6c1171b",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.6.0",
-                "techdivision/import": "4.x-dev as 4.0.0"
+                "techdivision/import": "4.0.*"
             },
             "require-dev": {
                 "consolidation/robo": "~1.0",
@@ -1930,27 +1930,26 @@
                 }
             ],
             "description": "M2IF library providing basic Magento 2 category import functionality",
-            "time": "2018-11-24T15:15:57+00:00"
+            "time": "2018-11-26T18:46:26+00:00"
         },
         {
             "name": "techdivision/import-category-ee",
-            "version": "3.x-dev",
+            "version": "3.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-category-ee.git",
-                "reference": "54a26467bdb01ecc7e9962d262a8a78fbdc45a13"
+                "reference": "4e8ddfcd8d6df18d4b82964ada69dae85be0c978"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-category-ee/zipball/54a26467bdb01ecc7e9962d262a8a78fbdc45a13",
-                "reference": "54a26467bdb01ecc7e9962d262a8a78fbdc45a13",
+                "url": "https://api.github.com/repos/techdivision/import-category-ee/zipball/4e8ddfcd8d6df18d4b82964ada69dae85be0c978",
+                "reference": "4e8ddfcd8d6df18d4b82964ada69dae85be0c978",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.6.0",
-                "techdivision/import": "4.x-dev as 4.0.0",
-                "techdivision/import-category": "3.x-dev as 3.0.0",
-                "techdivision/import-ee": "3.x-dev as 3.0.0"
+                "techdivision/import-category": "3.0.*",
+                "techdivision/import-ee": "3.0.*"
             },
             "require-dev": {
                 "consolidation/robo": "~1.0",
@@ -1984,27 +1983,27 @@
                 }
             ],
             "description": "M2IF library providing basic Magento 2 EE category import functionality",
-            "time": "2018-11-24T15:23:32+00:00"
+            "time": "2018-11-26T18:51:55+00:00"
         },
         {
             "name": "techdivision/import-configuration-jms",
-            "version": "4.x-dev",
+            "version": "4.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-configuration-jms.git",
-                "reference": "2da27ad318444958317c4d37893429cb37555bd1"
+                "reference": "1e687ff84a92b8ed68e866a82381e31832de3279"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-configuration-jms/zipball/2da27ad318444958317c4d37893429cb37555bd1",
-                "reference": "2da27ad318444958317c4d37893429cb37555bd1",
+                "url": "https://api.github.com/repos/techdivision/import-configuration-jms/zipball/1e687ff84a92b8ed68e866a82381e31832de3279",
+                "reference": "1e687ff84a92b8ed68e866a82381e31832de3279",
                 "shasum": ""
             },
             "require": {
                 "doctrine/dbal": "2.5.*",
                 "jms/serializer": "~1.0",
                 "php": ">=5.6.0",
-                "techdivision/import": "4.x-dev as 4.0.0"
+                "techdivision/import": "4.0.*"
             },
             "require-dev": {
                 "consolidation/robo": "~1.0",
@@ -2035,25 +2034,25 @@
                 }
             ],
             "description": "Library providing a JMS based configuration implementation for the M2IF",
-            "time": "2018-11-23T17:20:14+00:00"
+            "time": "2018-11-26T18:53:21+00:00"
         },
         {
             "name": "techdivision/import-ee",
-            "version": "3.x-dev",
+            "version": "3.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-ee.git",
-                "reference": "adf4536ffdeae3f121169fa63f35f257dca5cf4f"
+                "reference": "e0af98c1258d2304f83067b93341323f103a5141"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-ee/zipball/adf4536ffdeae3f121169fa63f35f257dca5cf4f",
-                "reference": "adf4536ffdeae3f121169fa63f35f257dca5cf4f",
+                "url": "https://api.github.com/repos/techdivision/import-ee/zipball/e0af98c1258d2304f83067b93341323f103a5141",
+                "reference": "e0af98c1258d2304f83067b93341323f103a5141",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.6.0",
-                "techdivision/import": "4.x-dev as 4.0.0"
+                "techdivision/import": "4.0.*"
             },
             "require-dev": {
                 "consolidation/robo": "~1.0",
@@ -2089,25 +2088,25 @@
                 }
             ],
             "description": "M2IF library providing basic Magento 2 EE import functionality",
-            "time": "2018-11-19T08:59:47+00:00"
+            "time": "2018-11-26T18:48:29+00:00"
         },
         {
             "name": "techdivision/import-product",
-            "version": "3.x-dev",
+            "version": "3.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-product.git",
-                "reference": "ff05ef6f7d1e7e7151e1dae0354ee8f06c5b88b1"
+                "reference": "dbd0ba7ea4293ff12e16d928c85eb426ec5deae2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-product/zipball/ff05ef6f7d1e7e7151e1dae0354ee8f06c5b88b1",
-                "reference": "ff05ef6f7d1e7e7151e1dae0354ee8f06c5b88b1",
+                "url": "https://api.github.com/repos/techdivision/import-product/zipball/dbd0ba7ea4293ff12e16d928c85eb426ec5deae2",
+                "reference": "dbd0ba7ea4293ff12e16d928c85eb426ec5deae2",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.6.0",
-                "techdivision/import": "4.x-dev as 4.0.0"
+                "techdivision/import": "4.0.*"
             },
             "require-dev": {
                 "consolidation/robo": "~1.0",
@@ -2141,26 +2140,25 @@
                 }
             ],
             "description": "M2IF library providing basic Magento 2 product import functionality",
-            "time": "2018-11-26T09:46:46+00:00"
+            "time": "2018-11-26T18:54:14+00:00"
         },
         {
             "name": "techdivision/import-product-bundle",
-            "version": "3.x-dev",
+            "version": "3.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-product-bundle.git",
-                "reference": "0b531ff8a5aa7da88eadde42d17f060b4a14864e"
+                "reference": "e4de586a05ba0e4d443a6d7684e7452dc12570ed"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-product-bundle/zipball/0b531ff8a5aa7da88eadde42d17f060b4a14864e",
-                "reference": "0b531ff8a5aa7da88eadde42d17f060b4a14864e",
+                "url": "https://api.github.com/repos/techdivision/import-product-bundle/zipball/e4de586a05ba0e4d443a6d7684e7452dc12570ed",
+                "reference": "e4de586a05ba0e4d443a6d7684e7452dc12570ed",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.6.0",
-                "techdivision/import": "4.x-dev as 4.0.0",
-                "techdivision/import-product": "3.x-dev as 3.0.0"
+                "techdivision/import-product": "3.0.*"
             },
             "require-dev": {
                 "consolidation/robo": "~1.0",
@@ -2194,29 +2192,26 @@
                 }
             ],
             "description": "M2IF library providing basic Magento 2 bundle product import functionality",
-            "time": "2018-11-26T17:08:40+00:00"
+            "time": "2018-11-26T18:58:17+00:00"
         },
         {
             "name": "techdivision/import-product-bundle-ee",
-            "version": "3.x-dev",
+            "version": "3.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-product-bundle-ee.git",
-                "reference": "df79919774c94a6e8671d2125fb288499818120b"
+                "reference": "9da1295bd4f5f7b23f8cac95bae0a9a73dedd8d0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-product-bundle-ee/zipball/df79919774c94a6e8671d2125fb288499818120b",
-                "reference": "df79919774c94a6e8671d2125fb288499818120b",
+                "url": "https://api.github.com/repos/techdivision/import-product-bundle-ee/zipball/9da1295bd4f5f7b23f8cac95bae0a9a73dedd8d0",
+                "reference": "9da1295bd4f5f7b23f8cac95bae0a9a73dedd8d0",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.6.0",
-                "techdivision/import": "4.x-dev as 4.0.0",
-                "techdivision/import-ee": "3.x-dev as 3.0.0",
-                "techdivision/import-product": "3.x-dev as 3.0.0",
-                "techdivision/import-product-bundle": "3.x-dev as 3.0.0",
-                "techdivision/import-product-ee": "3.x-dev as 3.0.0"
+                "techdivision/import-product-bundle": "3.0.*",
+                "techdivision/import-product-ee": "3.0.*"
             },
             "require-dev": {
                 "consolidation/robo": "~1.0",
@@ -2250,27 +2245,26 @@
                 }
             ],
             "description": "M2IF library providing basic Magento 2 EE bundle product import functionality",
-            "time": "2018-11-26T17:10:48+00:00"
+            "time": "2018-11-26T19:01:57+00:00"
         },
         {
             "name": "techdivision/import-product-ee",
-            "version": "3.x-dev",
+            "version": "3.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-product-ee.git",
-                "reference": "052965b61666cdda8b34aae0ffa508ccecc1ed17"
+                "reference": "ad477da25819ec666f8bd8f8361e5a4e3529eccf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-product-ee/zipball/052965b61666cdda8b34aae0ffa508ccecc1ed17",
-                "reference": "052965b61666cdda8b34aae0ffa508ccecc1ed17",
+                "url": "https://api.github.com/repos/techdivision/import-product-ee/zipball/ad477da25819ec666f8bd8f8361e5a4e3529eccf",
+                "reference": "ad477da25819ec666f8bd8f8361e5a4e3529eccf",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.6.0",
-                "techdivision/import": "4.x-dev as 4.0.0",
-                "techdivision/import-ee": "3.x-dev as 3.0.0",
-                "techdivision/import-product": "3.x-dev as 3.0.0"
+                "techdivision/import-ee": "3.0.*",
+                "techdivision/import-product": "3.0.*"
             },
             "require-dev": {
                 "consolidation/robo": "~1.0",
@@ -2304,26 +2298,25 @@
                 }
             ],
             "description": "M2IF library providing basic Magento 2 EE product import functionality",
-            "time": "2018-11-26T09:54:18+00:00"
+            "time": "2018-11-26T18:56:25+00:00"
         },
         {
             "name": "techdivision/import-product-link",
-            "version": "3.x-dev",
+            "version": "3.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-product-link.git",
-                "reference": "027104d8876e28b04cabce7b69d117d4cce304a6"
+                "reference": "a6b15eeab8fade699dffded6a8b7eedbbf4b4d84"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-product-link/zipball/027104d8876e28b04cabce7b69d117d4cce304a6",
-                "reference": "027104d8876e28b04cabce7b69d117d4cce304a6",
+                "url": "https://api.github.com/repos/techdivision/import-product-link/zipball/a6b15eeab8fade699dffded6a8b7eedbbf4b4d84",
+                "reference": "a6b15eeab8fade699dffded6a8b7eedbbf4b4d84",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.6.0",
-                "techdivision/import": "4.x-dev as 4.0.0",
-                "techdivision/import-product": "3.x-dev as 3.0.0"
+                "techdivision/import-product": "3.0.*"
             },
             "require-dev": {
                 "consolidation/robo": "~1.0",
@@ -2357,29 +2350,26 @@
                 }
             ],
             "description": "M2IF library providing basic Magento 2 product link import functionality",
-            "time": "2018-11-26T11:43:47+00:00"
+            "time": "2018-11-26T18:57:42+00:00"
         },
         {
             "name": "techdivision/import-product-link-ee",
-            "version": "3.x-dev",
+            "version": "3.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-product-link-ee.git",
-                "reference": "2f761004dd1718c6f362df0ef73e4a1f1ccde792"
+                "reference": "4cb0722c1d8207f1ba8fd7bb28f436d78bba1f00"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-product-link-ee/zipball/2f761004dd1718c6f362df0ef73e4a1f1ccde792",
-                "reference": "2f761004dd1718c6f362df0ef73e4a1f1ccde792",
+                "url": "https://api.github.com/repos/techdivision/import-product-link-ee/zipball/4cb0722c1d8207f1ba8fd7bb28f436d78bba1f00",
+                "reference": "4cb0722c1d8207f1ba8fd7bb28f436d78bba1f00",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.6.0",
-                "techdivision/import": "4.x-dev as 4.0.0",
-                "techdivision/import-ee": "3.x-dev as 3.0.0",
-                "techdivision/import-product": "3.x-dev as 3.0.0",
-                "techdivision/import-product-ee": "3.x-dev as 3.0.0",
-                "techdivision/import-product-link": "3.x-dev as 3.0.0"
+                "techdivision/import-product-ee": "3.0.*",
+                "techdivision/import-product-link": "3.0.*"
             },
             "require-dev": {
                 "consolidation/robo": "~1.0",
@@ -2413,26 +2403,25 @@
                 }
             ],
             "description": "M2IF library providing basic Magento 2 EE product link import functionality",
-            "time": "2018-11-26T13:31:03+00:00"
+            "time": "2018-11-26T19:02:49+00:00"
         },
         {
             "name": "techdivision/import-product-media",
-            "version": "3.x-dev",
+            "version": "3.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-product-media.git",
-                "reference": "f5dc0418728259b94a14cd98b0ae2c99bd0dc471"
+                "reference": "bfffda8955d6f113f42b914a77e54d65ccbb35cf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-product-media/zipball/f5dc0418728259b94a14cd98b0ae2c99bd0dc471",
-                "reference": "f5dc0418728259b94a14cd98b0ae2c99bd0dc471",
+                "url": "https://api.github.com/repos/techdivision/import-product-media/zipball/bfffda8955d6f113f42b914a77e54d65ccbb35cf",
+                "reference": "bfffda8955d6f113f42b914a77e54d65ccbb35cf",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.6.0",
-                "techdivision/import": "4.x-dev as 4.0.0",
-                "techdivision/import-product": "3.x-dev as 3.0.0"
+                "techdivision/import-product": "3.0.*"
             },
             "require-dev": {
                 "consolidation/robo": "~1.0",
@@ -2466,29 +2455,26 @@
                 }
             ],
             "description": "M2IF library providing basic Magento 2 product media import functionality",
-            "time": "2018-11-26T14:24:37+00:00"
+            "time": "2018-11-26T18:58:59+00:00"
         },
         {
             "name": "techdivision/import-product-media-ee",
-            "version": "3.x-dev",
+            "version": "3.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-product-media-ee.git",
-                "reference": "68645d6387efef149f0cb4bf5e7d9d220c5b34d0"
+                "reference": "640f215b434579a5ea8c72597e993e7bbd0b52c0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-product-media-ee/zipball/68645d6387efef149f0cb4bf5e7d9d220c5b34d0",
-                "reference": "68645d6387efef149f0cb4bf5e7d9d220c5b34d0",
+                "url": "https://api.github.com/repos/techdivision/import-product-media-ee/zipball/640f215b434579a5ea8c72597e993e7bbd0b52c0",
+                "reference": "640f215b434579a5ea8c72597e993e7bbd0b52c0",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.6.0",
-                "techdivision/import": "4.x-dev as 4.0.0",
-                "techdivision/import-ee": "3.x-dev as 3.0.0",
-                "techdivision/import-product": "3.x-dev as 3.0.0",
-                "techdivision/import-product-ee": "3.x-dev as 3.0.0",
-                "techdivision/import-product-media": "3.x-dev as 3.0.0"
+                "techdivision/import-product-ee": "3.0.*",
+                "techdivision/import-product-media": "3.0.*"
             },
             "require-dev": {
                 "consolidation/robo": "~1.0",
@@ -2522,26 +2508,25 @@
                 }
             ],
             "description": "M2IF library providing basic Magento 2 EE product media import functionality",
-            "time": "2018-11-26T14:28:21+00:00"
+            "time": "2018-11-26T19:03:48+00:00"
         },
         {
             "name": "techdivision/import-product-url-rewrite",
-            "version": "3.x-dev",
+            "version": "3.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-product-url-rewrite.git",
-                "reference": "b7efa9e432f2a2ec9e5741065a10311f7cc43e06"
+                "reference": "f11190d3f0d60763cbe01d6d0df76203ea544b12"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-product-url-rewrite/zipball/b7efa9e432f2a2ec9e5741065a10311f7cc43e06",
-                "reference": "b7efa9e432f2a2ec9e5741065a10311f7cc43e06",
+                "url": "https://api.github.com/repos/techdivision/import-product-url-rewrite/zipball/f11190d3f0d60763cbe01d6d0df76203ea544b12",
+                "reference": "f11190d3f0d60763cbe01d6d0df76203ea544b12",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.6.0",
-                "techdivision/import": "4.x-dev as 4.0.0",
-                "techdivision/import-product": "3.x-dev as 3.0.0"
+                "techdivision/import-product": "3.0.*"
             },
             "require-dev": {
                 "consolidation/robo": "~1.0",
@@ -2575,26 +2560,25 @@
                 }
             ],
             "description": "M2IF library providing basic Magento 2 product URL rewrite import functionality",
-            "time": "2018-11-26T15:28:18+00:00"
+            "time": "2018-11-26T19:00:43+00:00"
         },
         {
             "name": "techdivision/import-product-variant",
-            "version": "3.x-dev",
+            "version": "3.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-product-variant.git",
-                "reference": "4d8c13b6327a61a9a10f294432654ef8a4715925"
+                "reference": "a6ff85ebeca74fe434e05730579771c5891ed3ad"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-product-variant/zipball/4d8c13b6327a61a9a10f294432654ef8a4715925",
-                "reference": "4d8c13b6327a61a9a10f294432654ef8a4715925",
+                "url": "https://api.github.com/repos/techdivision/import-product-variant/zipball/a6ff85ebeca74fe434e05730579771c5891ed3ad",
+                "reference": "a6ff85ebeca74fe434e05730579771c5891ed3ad",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.6.0",
-                "techdivision/import": "4.x-dev as 4.0.0",
-                "techdivision/import-product": "3.x-dev as 3.0.0"
+                "techdivision/import-product": "3.0.*"
             },
             "require-dev": {
                 "consolidation/robo": "~1.0",
@@ -2628,29 +2612,26 @@
                 }
             ],
             "description": "M2IF library providing basic Magento 2 configurable product import functionality",
-            "time": "2018-11-26T16:46:52+00:00"
+            "time": "2018-11-26T21:19:08+00:00"
         },
         {
             "name": "techdivision/import-product-variant-ee",
-            "version": "3.x-dev",
+            "version": "3.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-product-variant-ee.git",
-                "reference": "e0eb889ce7b4e291cdaf7103848f36063dff2537"
+                "reference": "ada96feb47ed76ca4d19cba62d0ac5587113acac"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-product-variant-ee/zipball/e0eb889ce7b4e291cdaf7103848f36063dff2537",
-                "reference": "e0eb889ce7b4e291cdaf7103848f36063dff2537",
+                "url": "https://api.github.com/repos/techdivision/import-product-variant-ee/zipball/ada96feb47ed76ca4d19cba62d0ac5587113acac",
+                "reference": "ada96feb47ed76ca4d19cba62d0ac5587113acac",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.6.0",
-                "techdivision/import": "4.x-dev as 4.0.0",
-                "techdivision/import-ee": "3.x-dev as 3.0.0",
-                "techdivision/import-product": "3.x-dev as 3.0.0",
-                "techdivision/import-product-ee": "3.x-dev as 3.0.0",
-                "techdivision/import-product-variant": "3.x-dev as 3.0.0"
+                "techdivision/import-product-ee": "3.0.*",
+                "techdivision/import-product-variant": "3.0.*"
             },
             "require-dev": {
                 "consolidation/robo": "~1.0",
@@ -2684,7 +2665,7 @@
                 }
             ],
             "description": "M2IF library providing basic Magento 2 EE configurable product import functionality",
-            "time": "2018-11-26T16:49:41+00:00"
+            "time": "2018-11-26T19:07:17+00:00"
         },
         {
             "name": "zendframework/zend-filter",
@@ -5384,136 +5365,9 @@
             "time": "2018-01-29T19:49:41+00:00"
         }
     ],
-    "aliases": [
-        {
-            "alias": "3.0.0",
-            "alias_normalized": "3.0.0.0",
-            "version": "4.9999999.9999999.9999999-dev",
-            "package": "techdivision/import"
-        },
-        {
-            "alias": "2.0.0",
-            "alias_normalized": "2.0.0.0",
-            "version": "3.9999999.9999999.9999999-dev",
-            "package": "techdivision/import-ee"
-        },
-        {
-            "alias": "4.0.0",
-            "alias_normalized": "4.0.0.0",
-            "version": "4.9999999.9999999.9999999-dev",
-            "package": "techdivision/import-app-simple"
-        },
-        {
-            "alias": "3.0.0",
-            "alias_normalized": "3.0.0.0",
-            "version": "4.9999999.9999999.9999999-dev",
-            "package": "techdivision/import-configuration-jms"
-        },
-        {
-            "alias": "3.0.0",
-            "alias_normalized": "3.0.0.0",
-            "version": "3.9999999.9999999.9999999-dev",
-            "package": "techdivision/import-attribute"
-        },
-        {
-            "alias": "3.0.0",
-            "alias_normalized": "3.0.0.0",
-            "version": "3.9999999.9999999.9999999-dev",
-            "package": "techdivision/import-category"
-        },
-        {
-            "alias": "3.0.0",
-            "alias_normalized": "3.0.0.0",
-            "version": "3.9999999.9999999.9999999-dev",
-            "package": "techdivision/import-category-ee"
-        },
-        {
-            "alias": "3.0.0",
-            "alias_normalized": "3.0.0.0",
-            "version": "3.9999999.9999999.9999999-dev",
-            "package": "techdivision/import-product"
-        },
-        {
-            "alias": "3.0.0",
-            "alias_normalized": "3.0.0.0",
-            "version": "3.9999999.9999999.9999999-dev",
-            "package": "techdivision/import-product-url-rewrite"
-        },
-        {
-            "alias": "3.0.0",
-            "alias_normalized": "3.0.0.0",
-            "version": "3.9999999.9999999.9999999-dev",
-            "package": "techdivision/import-product-link"
-        },
-        {
-            "alias": "3.0.0",
-            "alias_normalized": "3.0.0.0",
-            "version": "3.9999999.9999999.9999999-dev",
-            "package": "techdivision/import-product-media"
-        },
-        {
-            "alias": "3.0.0",
-            "alias_normalized": "3.0.0.0",
-            "version": "3.9999999.9999999.9999999-dev",
-            "package": "techdivision/import-product-bundle"
-        },
-        {
-            "alias": "3.0.0",
-            "alias_normalized": "3.0.0.0",
-            "version": "3.9999999.9999999.9999999-dev",
-            "package": "techdivision/import-product-variant"
-        },
-        {
-            "alias": "3.0.0",
-            "alias_normalized": "3.0.0.0",
-            "version": "3.9999999.9999999.9999999-dev",
-            "package": "techdivision/import-product-ee"
-        },
-        {
-            "alias": "3.0.0",
-            "alias_normalized": "3.0.0.0",
-            "version": "3.9999999.9999999.9999999-dev",
-            "package": "techdivision/import-product-link-ee"
-        },
-        {
-            "alias": "3.0.0",
-            "alias_normalized": "3.0.0.0",
-            "version": "3.9999999.9999999.9999999-dev",
-            "package": "techdivision/import-product-media-ee"
-        },
-        {
-            "alias": "3.0.0",
-            "alias_normalized": "3.0.0.0",
-            "version": "3.9999999.9999999.9999999-dev",
-            "package": "techdivision/import-product-bundle-ee"
-        },
-        {
-            "alias": "3.0.0",
-            "alias_normalized": "3.0.0.0",
-            "version": "3.9999999.9999999.9999999-dev",
-            "package": "techdivision/import-product-variant-ee"
-        }
-    ],
+    "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "techdivision/import": 20,
-        "techdivision/import-ee": 20,
-        "techdivision/import-app-simple": 20,
-        "techdivision/import-configuration-jms": 20,
-        "techdivision/import-attribute": 20,
-        "techdivision/import-category": 20,
-        "techdivision/import-category-ee": 20,
-        "techdivision/import-product": 20,
-        "techdivision/import-product-url-rewrite": 20,
-        "techdivision/import-product-link": 20,
-        "techdivision/import-product-media": 20,
-        "techdivision/import-product-bundle": 20,
-        "techdivision/import-product-variant": 20,
-        "techdivision/import-product-ee": 20,
-        "techdivision/import-product-link-ee": 20,
-        "techdivision/import-product-media-ee": 20,
-        "techdivision/import-product-bundle-ee": 20,
-        "techdivision/import-product-variant-ee": 20,
         "phpmd/phpmd": 0
     },
     "prefer-stable": false,
