@@ -2,6 +2,12 @@
 
 ## Configuration
 
+### Date Converter
+
+### Number Converter
+
+### File Resolver
+
 To make configuration of import file + OK file handling more flexible, the new FileResolver class has been added.
 
 Instead of defining the pattrn of the files that has to be imported as well as their appropriate OK file on the
