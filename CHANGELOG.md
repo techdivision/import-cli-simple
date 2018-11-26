@@ -1,4 +1,4 @@
-# Version 4.0.0
+# Version 3.1.0
 
 ## Known Issues
 
@@ -10,6 +10,8 @@
 
 ## Features
 
+* Add Converter implementations to convert numbers and dates to the expected Magento 2 format
+* Add Serializer to serializer/unserialize field values, e. g. from/to additional_attribute column
 * Update configuration initialization to allow passing additional parameters on the command line that'll be merged with the configuration file
 
 # Version 3.0.1
