@@ -1,3 +1,17 @@
+# Version 2.0.2
+
+## Known Issues
+
+* Up from Magento 2 EE 2.1.10 using the single transaction mode has a massive performance impact (can only be used **WITHOUT** single transaction)
+
+## Bugfixes
+
+* Fixed issue [#166](https://github.com/techdivision/import-cli-simple/issues/166)
+
+## Features
+
+* None
+
 # Version 2.0.1
 
 ## Known Issues
