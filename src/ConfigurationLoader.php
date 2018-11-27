@@ -167,7 +167,7 @@ class ConfigurationLoader extends SimpleConfigurationLoader
             $instance->addDatabase($this->getMagentoDbConnection($installationDir));
 
             // add the source directory if NOT specified in the configuration file
-            if ($instance->getSourceDir() === null) {
+            if (($sourceDir = $instance->getSourceDir()) === null) {
                 $instance->setSourceDir($sourceDir = sprintf('%s/var/importexport', $installationDir));
             }
 
