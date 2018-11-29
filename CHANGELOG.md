@@ -1,3 +1,17 @@
+# Version 2.1.0
+
+## Known Issues
+
+* Up from Magento 2 EE 2.1.10 using the single transaction mode has a massive performance impact (can only be used **WITHOUT** single transaction)
+
+## Bugfixes
+
+* Load store ID only once, not for every value of a multiselect attribute in AbstractMultiselectCallback
+
+## Features
+
+* Add callbacks to dynamically create attribute option as well as option values/swatches with techdivision/import-attribute version 2.1.0
+
 # Version 2.0.2
 
 ## Known Issues
