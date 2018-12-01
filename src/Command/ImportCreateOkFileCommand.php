@@ -100,12 +100,10 @@ class ImportCreateOkFileCommand extends AbstractSimpleImportCommand
                         if (file_put_contents($okFilename, $okfileContent)) {
                             // write a message to the console
                             $output->writeln(sprintf('<info>Successfully written OK file %s</info>', $okFilename));
-
                         } else {
                             // write a message to the console
                             $output->writeln(sprintf('<error>Can\'t write OK file %s</error>', $okFilename));
                         }
-
                     } else {
                         // write a message to the console
                         $output->writeln(sprintf('<error>Can\'t find any CSV files in source directory %s</error>', $sourceDir));

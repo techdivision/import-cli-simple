@@ -45,13 +45,22 @@
             {
               "id": "import.subject.move.files",
               "identifier": "move-files",
-              "prefix": "product-import",
+              "file-resolver": {
+                "prefix": "product-import"
+              },
               "ok-file-needed": false
             },
             {
               "id": "import_product.subject.bunch",
               "identifier": "files",
-              "prefix": "product-import",
+              "file-resolver": {
+                "prefix": "product-import"
+              },
+              "params" : [
+                {
+                  "clean-up-category-product-relations" : true
+                }
+              ],
               "observers": [
                 {
                   "import": [
@@ -60,20 +69,9 @@
                     "import_product.observer.url.key",
                     "import_product.observer.quality.and.stock.status",
                     "import_product.observer.product",
+                    "import_product.observer.category.product",
                     "import_product.observer.product.attribute.update",
-                    "import_product_url_rewrite.observer.product.url.rewrite",
                     "import_product.observer.clean.up"
-                  ]
-                }
-              ]
-            },
-            {
-              "id": "import_product_url_rewrite.subject.url.rewrite",
-              "prefix": "url-rewrite",
-              "observers": [
-                {
-                  "import": [
-                    "import_product_url_rewrite.observer.url.rewrite.update"
                   ]
                 }
               ]

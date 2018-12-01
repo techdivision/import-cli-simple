@@ -197,14 +197,12 @@ class SimpleConfigurationLoader implements ConfigurationLoaderInterface
         if ($configuration = $this->input->getOption(InputOptionKeys::CONFIGURATION)) {
             // load the configuration from the file with the given filename
             $instance = $this->configurationFactory->factory($configuration, pathinfo($configuration, PATHINFO_EXTENSION));
-
         } elseif ($magentoEdition = $this->input->getOption(InputOptionKeys::MAGENTO_EDITION)) {
             // use the Magento Edition that has been specified as option
             $instance = $this->configurationFactory->factory($this->getDefaultConfiguration($magentoEdition, $this->getEntityTypeCode()));
 
             // override the Magento Edition
             $instance->setMagentoEdition($magentoEdition);
-
         } else {
             // finally, query whether or not the installation directory is a valid Magento root directory
             if (!$this->isMagentoRootDir($installationDir = $this->input->getOption(InputOptionKeys::INSTALLATION_DIR))) {
