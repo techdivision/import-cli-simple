@@ -14,6 +14,7 @@
 * Add Converter implementations to convert numbers and dates to the expected Magento 2 format
 * Add Serializer to serializer/unserialize field values, e. g. from/to additional_attribute column
 * Update configuration initialization to allow passing additional parameters on the command line that'll be merged with the configuration file
+* Migrate dynamic creation of EAV attribute option values/swatches form techdivision/import-attribute 2.x version
 
 # Version 3.0.1
 
