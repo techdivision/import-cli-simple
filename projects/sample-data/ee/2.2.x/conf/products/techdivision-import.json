@@ -1,8 +1,7 @@
 {
   "magento-edition": "EE",
-  "magento-version": "2.2.6",
+  "magento-version": "2.2.0",
   "operation-name" : "add-update",
-  "source-date-format": "n/d/y, g:i A",
   "archive-artefacts" : false,
   "debug-mode" : false,
   "source-dir" : "projects/sample-data/tmp",
@@ -53,13 +52,17 @@
             {
               "id": "import.subject.move.files",
               "identifier": "move-files",
-              "prefix": "product-import",
+              "file-resolver": {
+                "prefix": "product-import"
+              },
               "ok-file-needed": true
             },
             {
               "id": "import_product_ee.subject.bunch",
               "identifier": "files",
-              "prefix": "product-import",
+              "file-resolver": {
+                "prefix": "product-import"
+              },
               "observers": [
                 {
                   "import": [
@@ -91,13 +94,17 @@
             {
               "id": "import.subject.move.files",
               "identifier": "move-files",
-              "prefix": "product-import",
+              "file-resolver": {
+                "prefix": "product-import"
+              },
               "ok-file-needed": true
             },
             {
               "id": "import_product_ee.subject.bunch",
               "identifier": "files",
-              "prefix": "product-import",
+              "file-resolver": {
+                "prefix": "product-import"
+              },
               "filesystem-adapter" : {
                 "id" : "import.adapter.filesystem.factory.league",
                 "adapter" : {
@@ -147,7 +154,9 @@
             },
             {
               "id": "import_product_variant_ee.subject.variant",
-              "prefix": "variants",
+              "file-resolver": {
+                "prefix": "variants"
+              },
               "observers": [
                 {
                   "pre-import": [
@@ -165,7 +174,9 @@
             },
             {
               "id": "import_product_bundle_ee.subject.bundle",
-              "prefix": "bundles",
+              "file-resolver": {
+                "prefix": "bundles"
+              },
               "observers": [
                 {
                   "import": [
@@ -180,7 +191,9 @@
             },
             {
               "id": "import_product_media_ee.subject.media",
-              "prefix": "media",
+              "file-resolver": {
+                "prefix": "media"
+              },
               "observers": [
                 {
                   "pre-import" : [
@@ -195,7 +208,9 @@
             },
             {
               "id": "import_product_link_ee.subject.link",
-              "prefix": "links",
+              "file-resolver": {
+                "prefix": "links"
+              },
               "observers": [
                 {
                   "import": [
@@ -207,7 +222,9 @@
             },
             {
               "id": "import_product_url_rewrite.subject.url.rewrite",
-              "prefix": "url-rewrite",
+              "file-resolver": {
+                "prefix": "url-rewrite"
+              },
               "observers": [
                 {
                   "import": [
@@ -256,13 +273,17 @@
             {
               "id": "import.subject.move.files",
               "identifier": "move-files",
-              "prefix": "product-import",
+              "file-resolver": {
+                "prefix": "product-import"
+              },
               "ok-file-needed": true
             },
             {
               "id": "import_product_ee.subject.bunch",
               "identifier": "files",
-              "prefix": "product-import",
+              "file-resolver": {
+                "prefix": "product-import"
+              },
               "filesystem-adapter" : {
                 "id" : "import.adapter.filesystem.factory.league",
                 "adapter" : {
@@ -314,7 +335,9 @@
             },
             {
               "id": "import_product_variant_ee.subject.variant",
-              "prefix": "variants",
+              "file-resolver": {
+                "prefix": "variants"
+              },
               "observers": [
                 {
                   "pre-import": [
@@ -332,7 +355,9 @@
             },
             {
               "id": "import_product_bundle_ee.subject.bundle",
-              "prefix": "bundles",
+              "file-resolver": {
+                "prefix": "bundles"
+              },
               "observers": [
                 {
                   "import": [
@@ -347,7 +372,9 @@
             },
             {
               "id": "import_product_media_ee.subject.media",
-              "prefix": "media",
+              "file-resolver": {
+                "prefix": "media"
+              },
               "observers": [
                 {
                   "pre-import" : [
@@ -362,7 +389,9 @@
             },
             {
               "id": "import_product_link_ee.subject.link",
-              "prefix": "links",
+              "file-resolver": {
+                "prefix": "links"
+              },
               "observers": [
                 {
                   "import": [
@@ -374,7 +403,9 @@
             },
             {
               "id": "import_product_url_rewrite.subject.url.rewrite",
-              "prefix": "url-rewrite",
+              "file-resolver": {
+                "prefix": "url-rewrite"
+              },
               "observers": [
                 {
                   "import": [

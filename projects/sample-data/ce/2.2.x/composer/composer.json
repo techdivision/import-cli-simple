@@ -9,7 +9,9 @@
     ],
     "require": {
         "magento/product-community-edition": "2.2.6",
-        "techdivision/import-cli-simple": "2.0.*",
+        "techdivision/import": "4.x-dev as 4.0.0",
+        "techdivision/import-attribute": "4.x-dev as 4.0.0",
+        "techdivision/import-cli-simple": "2.2.0-beta2 as 2.2.0",
         "composer/composer": "@alpha"
     },
     "require-dev": {
@@ -56,6 +58,10 @@
         {
             "type": "composer",
             "url": "https://repo.magento.com/"
+        },
+        {
+            "type": "path",
+            "url": "../import-app-simple"
         }
     ],
     "extra": {
