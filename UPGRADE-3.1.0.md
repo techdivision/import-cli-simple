@@ -2,6 +2,10 @@
 
 ## Configuration
 
+### Dynamic Attribute Option Value/Swatch Creation
+
+* TBD
+
 ### Date + Number Converter
 
 The date + number conversion from a source date/number to the expected Magento 2 target format has been refactored.
