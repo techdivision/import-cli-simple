@@ -1,8 +1,7 @@
 {
   "magento-edition": "EE",
-  "magento-version": "2.1.2",
+  "magento-version": "2.2.0",
   "operation-name" : "add-update",
-  "source-date-format": "n/d/y, g:i A",
   "source-dir" : "projects/sample-data/tmp",
   "target-dir" : "projects/sample-data/tmp",
   "archive-artefacts" : true,
@@ -53,13 +52,17 @@
             {
               "id": "import.subject.move.files",
               "identifier": "move-files",
-              "prefix": "product-import-inventory",
+              "file-resolver": {
+                "prefix": "product-import-inventory"
+              },
               "ok-file-needed": true
             },
             {
               "id": "import_product.subject.bunch",
               "identifier": "files",
-              "prefix": "product-import-inventory",
+              "file-resolver": {
+                "prefix": "product-import-inventory"
+              },
               "observers": [
                 {
                   "pre-import": [
