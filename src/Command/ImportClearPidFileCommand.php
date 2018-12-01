@@ -77,7 +77,6 @@ class ImportClearPidFileCommand extends AbstractSimpleImportCommand
 
             // write a message to the console
             $output->writeln(sprintf('<info>Successfully deleted PID file %s</info>', $pidFilename));
-
         } else {
             // write a message to the console
             $output->writeln(sprintf('<error>PID file %s not available</error>', $pidFilename));
