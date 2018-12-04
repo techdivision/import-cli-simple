@@ -1,8 +1,7 @@
 {
   "magento-edition": "CE",
-  "magento-version": "2.1.2",
+  "magento-version": "2.3.0",
   "operation-name" : "add-update",
-  "source-date-format": "n/d/y, g:i A",
   "archive-artefacts" : true,
   "debug-mode" : true,
   "entity-type-code" : "catalog_product",
@@ -45,13 +44,17 @@
             {
               "id": "import.subject.move.files",
               "identifier": "move-files",
-              "prefix": "product-import",
+              "file-resolver": {
+                "prefix": "product-import"
+              },
               "ok-file-needed": false
             },
             {
               "id": "import_product.subject.bunch",
               "identifier": "files",
-              "prefix": "product-import",
+              "file-resolver": {
+                "prefix": "product-import"
+              },
               "params" : [
                 {
                   "clean-up-category-product-relations" : true

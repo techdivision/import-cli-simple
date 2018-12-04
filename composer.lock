@@ -1481,16 +1481,16 @@
         },
         {
             "name": "symfony/contracts",
-            "version": "v1.0.0",
+            "version": "v1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/contracts.git",
-                "reference": "4a33574d5771f4b04334cd4f7d43de96a92efb62"
+                "reference": "3edf0ab943d1985a356721952cba36ff31bd6e5f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/contracts/zipball/4a33574d5771f4b04334cd4f7d43de96a92efb62",
-                "reference": "4a33574d5771f4b04334cd4f7d43de96a92efb62",
+                "url": "https://api.github.com/repos/symfony/contracts/zipball/3edf0ab943d1985a356721952cba36ff31bd6e5f",
+                "reference": "3edf0ab943d1985a356721952cba36ff31bd6e5f",
                 "shasum": ""
             },
             "require": {
@@ -1545,7 +1545,7 @@
                 "interoperability",
                 "standards"
             ],
-            "time": "2018-10-31T08:00:32+00:00"
+            "time": "2018-11-24T09:35:08+00:00"
         },
         {
             "name": "symfony/dependency-injection",
@@ -1847,23 +1847,23 @@
         },
         {
             "name": "techdivision/import-app-simple",
-            "version": "4.0.0",
+            "version": "4.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-app-simple.git",
-                "reference": "40f5f95c36661e2d77947f151ea78376a4592ca8"
+                "reference": "afd737cd0dc995e5223ed4050fd6e0e94400b2c3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-app-simple/zipball/40f5f95c36661e2d77947f151ea78376a4592ca8",
-                "reference": "40f5f95c36661e2d77947f151ea78376a4592ca8",
+                "url": "https://api.github.com/repos/techdivision/import-app-simple/zipball/afd737cd0dc995e5223ed4050fd6e0e94400b2c3",
+                "reference": "afd737cd0dc995e5223ed4050fd6e0e94400b2c3",
                 "shasum": ""
             },
             "require": {
                 "monolog/monolog": "~1.0",
                 "php": ">=7.1.0",
                 "ramsey/uuid": "~3.0",
-                "symfony/console": "~4.1",
+                "symfony/console": "~2.3,!=2.7.0|~4.0",
                 "techdivision/import": "4.0.*"
             },
             "require-dev": {
@@ -1898,7 +1898,7 @@
                 }
             ],
             "description": "M2IF simple application implementation providing basic Magento 2 import functionality",
-            "time": "2018-11-26T18:42:38+00:00"
+            "time": "2018-12-01T12:33:22+00:00"
         },
         {
             "name": "techdivision/import-attribute",
