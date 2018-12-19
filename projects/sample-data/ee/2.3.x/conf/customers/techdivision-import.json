@@ -2,12 +2,11 @@
   "magento-edition": "EE",
   "magento-version": "2.3.0",
   "operation-name" : "add-update",
-  "source-date-format": "n/d/y, g:i A",
-  "archive-artefacts" : true,
+  "archive-artefacts" : false,
   "debug-mode" : false,
   "source-dir" : "projects/sample-data/tmp",
   "target-dir" : "projects/sample-data/tmp",
-  "entity-type-code" : "catalog_category",
+  "entity-type-code" : "customer",
   "databases" : [
     {
       "id": "docker",
@@ -54,20 +53,20 @@
               "id": "import.subject.move.files",
               "identifier": "move-files",
               "file-resolver": {
-                "prefix": "category-import"
+                "prefix": "customer-import"
               },
               "ok-file-needed": true
             },
             {
-              "id": "import_category_ee.subject.bunch",
+              "id": "import_customer.subject.bunch",
               "identifier": "files",
               "file-resolver": {
-                "prefix": "category-import"
+                "prefix": "customer-import"
               },
               "observers": [
                 {
                   "import": [
-                    "import_category.observer.clear.category"
+                    "import_customer.observer.clear.customer"
                   ]
                 }
               ]
@@ -83,6 +82,9 @@
       "name" : "replace",
       "plugins" : [
         {
+          "id": "import.plugin.cache.warmer"
+        },
+        {
           "id": "import.plugin.global.data"
         },
         {
@@ -92,29 +94,15 @@
               "id": "import.subject.move.files",
               "identifier": "move-files",
               "file-resolver": {
-                "prefix": "category-import"
+                "prefix": "customer-import"
               },
               "ok-file-needed": true
             },
             {
-              "id": "import_category_ee.subject.bunch",
+              "id": "import_customer.subject.bunch",
               "identifier": "files",
               "file-resolver": {
-                "prefix": "category-import"
-              },
-              "observers": [
-                {
-                  "import": [
-                    "import_category.observer.clear.category"
-                  ]
-                }
-              ]
-            },
-            {
-              "id": "import_category_ee.subject.bunch",
-              "identifier": "files",
-              "file-resolver": {
-                "prefix": "category-create"
+                "prefix": "customer-import"
               },
               "filesystem-adapter" : {
                 "id" : "import.adapter.filesystem.factory.league",
@@ -122,68 +110,54 @@
                   "type" : "League\\Flysystem\\Adapter\\Local"
                 }
               },
-              "params" : [
-                {
-                  "copy-images" : true,
-                  "media-directory" : "projects/sample-data/tmp",
-                  "images-file-directory" : "projects/sample-data/magento2-sample-data/pub/media/wysiwyg"
-                }
-              ],
               "observers": [
                 {
                   "pre-import": [
-                    "import_category.observer.url.key.and.path",
-                    "import.observer.attribute.set",
-                    "import.observer.additional.attribute",
-                    "import_category.observer.file.upload"
+                    "import_customer.observer.pre.load.entity.id",
+                    "import_customer.observer.clear.customer"
                   ]
                 },
                 {
                   "import": [
-                    "import_category_ee.observer.category",
-                    "import_category_ee.observer.category.attribute",
-                    "import_category.observer.category.url.rewrite"
+                    "import_customer.observer.customer",
+                    "import_customer.observer.customer.attribute",
+                    "import_customer_address.observer.export.customer.address"
                   ]
                 },
                 {
                   "post-import": [
-                    "import_category_ee.observer.clean.up"
+                    "import_customer.observer.clean.up"
                   ]
                 }
               ]
             },
             {
-              "id": "import_category_ee.subject.bunch",
+              "id": "import_customer_address.subject.bunch",
               "identifier": "files",
               "file-resolver": {
-                "prefix": "category-path"
+                "prefix": "customer-import-address"
               },
-              "observers": [
-                {
-                  "import": [
-                    "import_category_ee.observer.category.path"
-                  ]
+              "filesystem-adapter" : {
+                "id" : "import.adapter.filesystem.factory.league",
+                "adapter" : {
+                  "type" : "League\\Flysystem\\Adapter\\Local"
                 }
-              ]
-            },
-            {
-              "id": "import_category_ee.subject.bunch",
-              "identifier": "files",
-              "file-resolver": {
-                "prefix": "url-rewrite"
               },
               "observers": [
                 {
                   "import": [
-                    "import_category.observer.url.rewrite"
+                    "import_customer_address.observer.customer.address",
+                    "import_customer_address.observer.customer.address.attribute"
+                  ]
+                },
+                {
+                  "post-import": [
+                    "import_customer_address.observer.clean.up"
                   ]
                 }
               ]
             }
           ]
-        },
-        {
-          "id": "import_category_ee.plugin.children.count"
         },
         {
           "id": "import.plugin.archive"
@@ -194,6 +168,9 @@
       "name" : "add-update",
       "plugins" : [
         {
+          "id": "import.plugin.cache.warmer"
+        },
+        {
           "id": "import.plugin.global.data"
         },
         {
@@ -203,15 +180,15 @@
               "id": "import.subject.move.files",
               "identifier": "move-files",
               "file-resolver": {
-                "prefix": "category-import"
+                "prefix": "customer-import"
               },
               "ok-file-needed": true
             },
             {
-              "id": "import_category_ee.subject.bunch",
+              "id": "import_customer.subject.bunch",
               "identifier": "files",
               "file-resolver": {
-                "prefix": "category-import"
+                "prefix": "customer-import"
               },
               "filesystem-adapter" : {
                 "id" : "import.adapter.filesystem.factory.league",
@@ -219,68 +196,48 @@
                   "type" : "League\\Flysystem\\Adapter\\Local"
                 }
               },
-              "params" : [
-                {
-                  "copy-images" : true,
-                  "media-directory" : "projects/sample-data/tmp",
-                  "images-file-directory" : "projects/sample-data/magento2-sample-data/pub/media/wysiwyg"
-                }
-              ],
               "observers": [
                 {
-                  "pre-import": [
-                    "import_category.observer.url.key.and.path",
-                    "import.observer.attribute.set",
-                    "import.observer.additional.attribute",
-                    "import_category.observer.file.upload"
-                  ]
-                },
-                {
                   "import": [
-                    "import_category_ee.observer.category.update",
-                    "import_category_ee.observer.category.attribute.update",
-                    "import_category.observer.category.url.rewrite"
+                    "import_customer.observer.customer",
+                    "import_customer.observer.customer.attribute.update",
+                    "import_customer_address.observer.export.customer.address"
                   ]
                 },
                 {
                   "post-import": [
-                    "import_category_ee.observer.clean.up"
+                    "import_customer.observer.clean.up"
                   ]
                 }
               ]
             },
             {
-              "id": "import_category_ee.subject.bunch",
+              "id": "import_customer_address.subject.bunch",
               "identifier": "files",
               "file-resolver": {
-                "prefix": "category-path"
+                "prefix": "customer-import-address"
               },
-              "observers": [
-                {
-                  "import": [
-                    "import_category_ee.observer.category.path"
-                  ]
+              "filesystem-adapter" : {
+                "id" : "import.adapter.filesystem.factory.league",
+                "adapter" : {
+                  "type" : "League\\Flysystem\\Adapter\\Local"
                 }
-              ]
-            },
-            {
-              "id": "import_category_ee.subject.bunch",
-              "identifier": "files",
-              "file-resolver": {
-                "prefix": "url-rewrite"
               },
               "observers": [
                 {
                   "import": [
-                    "import_category.observer.url.rewrite.update"
+                    "import_customer_address.observer.customer.address",
+                    "import_customer_address.observer.customer.address.attribute.update"
+                  ]
+                },
+                {
+                  "post-import": [
+                    "import_customer_address.observer.clean.up"
                   ]
                 }
               ]
             }
           ]
-        },
-        {
-          "id": "import_category_ee.plugin.children.count"
         },
         {
           "id": "import.plugin.archive"

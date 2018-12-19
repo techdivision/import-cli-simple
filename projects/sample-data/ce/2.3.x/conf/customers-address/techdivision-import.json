@@ -1,0 +1,189 @@
+{
+  "magento-edition": "CE",
+  "magento-version": "2.3.0",
+  "operation-name" : "add-update",
+  "archive-artefacts" : false,
+  "debug-mode" : false,
+  "source-dir" : "projects/sample-data/tmp",
+  "target-dir" : "projects/sample-data/tmp",
+  "entity-type-code" : "customer_address",
+  "databases" : [
+    {
+      "id": "docker",
+      "default" : true,
+      "pdo-dsn": "mysql:host=127.0.1.4:9306;dbname=magento;charset=utf8",
+      "username": "magento",
+      "password": "magento"
+    }
+  ],
+  "loggers": [
+    {
+      "name": "system",
+      "channel-name": "logger/system",
+      "type": "Monolog\\Logger",
+      "handlers": [
+        {
+          "type": "Monolog\\Handler\\ErrorLogHandler",
+          "formatter": {
+            "type": "Monolog\\Formatter\\LineFormatter",
+            "params" : [
+              {
+                "format": "[%datetime%] %channel%.%level_name%: %message% %context% %extra%",
+                "date-format": "Y-m-d H:i:s",
+                "allow-inline-line-breaks": true,
+                "ignore-empty-context-and-extra": false
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "operations" : [
+    {
+      "name" : "delete",
+      "plugins" : [
+        {
+          "id": "import.plugin.global.data"
+        },
+        {
+          "id": "import.plugin.subject",
+          "subjects" : [
+            {
+              "id": "import.subject.move.files",
+              "identifier": "move-files",
+              "file-resolver": {
+                "prefix": "customer-address-import"
+              },
+              "ok-file-needed": true
+            },
+            {
+              "id": "import_customer_address.subject.bunch",
+              "identifier": "files",
+              "file-resolver": {
+                "prefix": "customer-address-import"
+              },
+              "observers": [
+                {
+                  "import": [
+                    "import_customer_address.observer.clear.customer.address"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "import.plugin.archive"
+        }
+      ]
+    },
+    {
+      "name" : "replace",
+      "plugins" : [
+        {
+          "id": "import.plugin.cache.warmer"
+        },
+        {
+          "id": "import.plugin.global.data"
+        },
+        {
+          "id": "import.plugin.subject",
+          "subjects": [
+            {
+              "id": "import.subject.move.files",
+              "identifier": "move-files",
+              "file-resolver": {
+                "prefix": "customer-address-import"
+              },
+              "ok-file-needed": true
+            },
+            {
+              "id": "import_customer_address.subject.bunch",
+              "identifier": "files",
+              "file-resolver": {
+                "prefix": "customer-address-import"
+              },
+              "filesystem-adapter" : {
+                "id" : "import.adapter.filesystem.factory.league",
+                "adapter" : {
+                  "type" : "League\\Flysystem\\Adapter\\Local"
+                }
+              },
+              "observers": [
+                {
+                  "import": [
+                    "import_customer_address.observer.clear.customer.address",
+                    "import_customer_address.observer.customer.address",
+                    "import_customer_address.observer.customer.address.attribute"
+                  ]
+                },
+                {
+                  "post-import": [
+                    "import_customer_address.observer.clean.up"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "import.plugin.archive"
+        }
+      ]
+    },
+    {
+      "name" : "add-update",
+      "plugins" : [
+        {
+          "id": "import.plugin.cache.warmer"
+        },
+        {
+          "id": "import.plugin.global.data"
+        },
+        {
+          "id": "import.plugin.subject",
+          "subjects": [
+            {
+              "id": "import.subject.move.files",
+              "identifier": "move-files",
+              "file-resolver": {
+                "prefix": "customer-address-import"
+              },
+              "ok-file-needed": true
+            },
+            {
+              "id": "import_customer_address.subject.bunch",
+              "identifier": "files",
+              "file-resolver": {
+                "prefix": "customer-address-import"
+              },
+              "filesystem-adapter" : {
+                "id" : "import.adapter.filesystem.factory.league",
+                "adapter" : {
+                  "type" : "League\\Flysystem\\Adapter\\Local"
+                }
+              },
+              "observers": [
+                {
+                  "import": [
+                    "import_customer_address.observer.customer.address",
+                    "import_customer_address.observer.customer.address.attribute.update"
+                  ]
+                },
+                {
+                  "post-import": [
+                    "import_customer_address.observer.clean.up"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "import.plugin.archive"
+        }
+      ]
+    }
+  ]
+}

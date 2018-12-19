@@ -61,7 +61,9 @@ class SimpleConfigurationLoader implements ConfigurationLoaderInterface
         EntityTypeCodes::CATALOG_PRODUCT           => 'techdivision-import',
         EntityTypeCodes::CATALOG_PRODUCT_PRICE     => 'techdivision-import-price',
         EntityTypeCodes::CATALOG_PRODUCT_INVENTORY => 'techdivision-import-inventory',
-        EntityTypeCodes::CATALOG_CATEGORY          => 'techdivision-import'
+        EntityTypeCodes::CATALOG_CATEGORY          => 'techdivision-import',
+        EntityTypeCodes::CUSTOMER                  => 'techdivision-import',
+        EntityTypeCodes::CUSTOMER_ADDRESS          => 'techdivision-import'
     );
 
     /**
@@ -76,7 +78,9 @@ class SimpleConfigurationLoader implements ConfigurationLoaderInterface
             EntityTypeCodes::CATALOG_PRODUCT           => 'techdivision/import-product',
             EntityTypeCodes::CATALOG_PRODUCT_PRICE     => 'techdivision/import-product',
             EntityTypeCodes::CATALOG_PRODUCT_INVENTORY => 'techdivision/import-product',
-            EntityTypeCodes::CATALOG_CATEGORY          => 'techdivision/import-category'
+            EntityTypeCodes::CATALOG_CATEGORY          => 'techdivision/import-category',
+            EntityTypeCodes::CUSTOMER                  => 'techdivision/import-customer',
+            EntityTypeCodes::CUSTOMER_ADDRESS          => 'techdivision/import-customer-address'
         ),
         'ee' => array(
             EntityTypeCodes::NONE                      => 'techdivision/import-product-ee',
@@ -84,7 +88,9 @@ class SimpleConfigurationLoader implements ConfigurationLoaderInterface
             EntityTypeCodes::CATALOG_PRODUCT           => 'techdivision/import-product-ee',
             EntityTypeCodes::CATALOG_PRODUCT_PRICE     => 'techdivision/import-product-ee',
             EntityTypeCodes::CATALOG_PRODUCT_INVENTORY => 'techdivision/import-product-ee',
-            EntityTypeCodes::CATALOG_CATEGORY          => 'techdivision/import-category-ee'
+            EntityTypeCodes::CATALOG_CATEGORY          => 'techdivision/import-category-ee',
+            EntityTypeCodes::CUSTOMER                  => 'techdivision/import-customer',
+            EntityTypeCodes::CUSTOMER_ADDRESS          => 'techdivision/import-customer-address'
         )
     );
 
