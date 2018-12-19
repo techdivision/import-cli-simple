@@ -10,6 +10,7 @@
 
 ## Features
 
+* Add customer + customer address import functionality
 * Update doctrine + JMS serializer dependencies
 * Add Converter implementations to convert numbers and dates to the expected Magento 2 format
 * Add Serializer to serializer/unserialize field values, e. g. from/to additional_attribute column

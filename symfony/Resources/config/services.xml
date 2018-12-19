@@ -19,6 +19,8 @@
         <service id="import_cli_simple.command.import.products.price" class="TechDivision\Import\Cli\Command\ImportProductsPriceCommand"/>
         <service id="import_cli_simple.command.import.products.inventory" class="TechDivision\Import\Cli\Command\ImportProductsInventoryCommand"/>
         <service id="import_cli_simple.command.import.categories" class="TechDivision\Import\Cli\Command\ImportCategoriesCommand"/>
+        <service id="import_cli_simple.command.import.customers" class="TechDivision\Import\Cli\Command\ImportCustomersCommand"/>
+        <service id="import_cli_simple.command.import.customers.address" class="TechDivision\Import\Cli\Command\ImportCustomersAddressCommand"/>
         <service id="import_cli_simple.command.import.attributes" class="TechDivision\Import\Cli\Command\ImportAttributesCommand"/>
         <service id="import_cli_simple.command.import.clear.pid.file" class="TechDivision\Import\Cli\Command\ImportClearPidFileCommand"/>
         <service id="import_cli_simple.command.import.create.ok.file" class="TechDivision\Import\Cli\Command\ImportCreateOkFileCommand"/>
@@ -37,6 +39,12 @@
             </call>
             <call method="add">
                 <argument id="import_cli_simple.command.import.categories" type="service"/>
+            </call>
+            <call method="add">
+                <argument id="import_cli_simple.command.import.customers" type="service"/>
+            </call>
+            <call method="add">
+                <argument id="import_cli_simple.command.import.customers.address" type="service"/>
             </call>
             <call method="add">
                 <argument id="import_cli_simple.command.import.attributes" type="service"/>
