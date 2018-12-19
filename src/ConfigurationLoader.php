@@ -50,7 +50,9 @@ class ConfigurationLoader extends SimpleConfigurationLoader
         EntityTypeCodes::CATALOG_PRODUCT_PRICE     => 'products',
         EntityTypeCodes::CATALOG_PRODUCT_INVENTORY => 'products',
         EntityTypeCodes::CATALOG_CATEGORY          => 'categories',
-        EntityTypeCodes::EAV_ATTRIBUTE             => 'attributes'
+        EntityTypeCodes::EAV_ATTRIBUTE             => 'attributes',
+        EntityTypeCodes::CUSTOMER                  => 'customers',
+        EntityTypeCodes::CUSTOMER_ADDRESS          => 'customers'
     );
 
     /**
@@ -64,6 +66,8 @@ class ConfigurationLoader extends SimpleConfigurationLoader
             'techdivision/import',
             'techdivision/import-attribute',
             'techdivision/import-category',
+            'techdivision/import-customer',
+            'techdivision/import-customer-address',
             'techdivision/import-product',
             'techdivision/import-product-url-rewrite',
             'techdivision/import-product-bundle',
@@ -78,6 +82,8 @@ class ConfigurationLoader extends SimpleConfigurationLoader
             'techdivision/import-attribute',
             'techdivision/import-category',
             'techdivision/import-category-ee',
+            'techdivision/import-customer',
+            'techdivision/import-customer-address',
             'techdivision/import-product',
             'techdivision/import-product-url-rewrite',
             'techdivision/import-product-ee',
