@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "9aeaf8ca4022a2eaa206c197a4504a66",
+    "content-hash": "ae063cd512408e870371d072eb8affa8",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -2451,16 +2451,16 @@
         },
         {
             "name": "techdivision/import-customer",
-            "version": "1.0.0",
+            "version": "2.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-customer.git",
-                "reference": "c0a376407c20acdaad1df77a4b57444e4166e9a8"
+                "reference": "71f1b8f8364ef817c1897d9dcc2921678c1ecd7b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-customer/zipball/c0a376407c20acdaad1df77a4b57444e4166e9a8",
-                "reference": "c0a376407c20acdaad1df77a4b57444e4166e9a8",
+                "url": "https://api.github.com/repos/techdivision/import-customer/zipball/71f1b8f8364ef817c1897d9dcc2921678c1ecd7b",
+                "reference": "71f1b8f8364ef817c1897d9dcc2921678c1ecd7b",
                 "shasum": ""
             },
             "require": {
@@ -2499,25 +2499,25 @@
                 }
             ],
             "description": "M2IF library providing basic Magento 2 customer import functionality",
-            "time": "2018-12-19T20:16:21+00:00"
+            "time": "2018-12-28T16:40:36+00:00"
         },
         {
             "name": "techdivision/import-customer-address",
-            "version": "1.0.0",
+            "version": "2.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-customer-address.git",
-                "reference": "9c42dade8295f7d75748fd7f773656ba08e65727"
+                "reference": "341711321199f37a8cc3997c2379bfb4609cdbbb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-customer-address/zipball/9c42dade8295f7d75748fd7f773656ba08e65727",
-                "reference": "9c42dade8295f7d75748fd7f773656ba08e65727",
+                "url": "https://api.github.com/repos/techdivision/import-customer-address/zipball/341711321199f37a8cc3997c2379bfb4609cdbbb",
+                "reference": "341711321199f37a8cc3997c2379bfb4609cdbbb",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.6.0",
-                "techdivision/import-customer": "1.0.*"
+                "techdivision/import-customer": "2.0.*"
             },
             "require-dev": {
                 "consolidation/robo": "~1.0",
@@ -2551,7 +2551,7 @@
                 }
             ],
             "description": "M2IF library providing basic Magento 2 customer address import functionality",
-            "time": "2018-12-19T20:26:18+00:00"
+            "time": "2018-12-28T16:52:28+00:00"
         },
         {
             "name": "techdivision/import-ee",
@@ -3299,16 +3299,16 @@
     "packages-dev": [
         {
             "name": "consolidation/annotated-command",
-            "version": "2.10.1",
+            "version": "2.10.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/consolidation/annotated-command.git",
-                "reference": "288593672a8ca9ead2c73a8bfbfa4737862bfd6a"
+                "reference": "5cbb8c320e0d3d2e6905374d56dc3610b7443f7b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/consolidation/annotated-command/zipball/288593672a8ca9ead2c73a8bfbfa4737862bfd6a",
-                "reference": "288593672a8ca9ead2c73a8bfbfa4737862bfd6a",
+                "url": "https://api.github.com/repos/consolidation/annotated-command/zipball/5cbb8c320e0d3d2e6905374d56dc3610b7443f7b",
+                "reference": "5cbb8c320e0d3d2e6905374d56dc3610b7443f7b",
                 "shasum": ""
             },
             "require": {
@@ -3391,7 +3391,7 @@
                 }
             ],
             "description": "Initialize Symfony Console commands from annotated command class methods.",
-            "time": "2018-12-14T01:52:35+00:00"
+            "time": "2018-12-21T03:50:15+00:00"
         },
         {
             "name": "consolidation/config",
@@ -3554,20 +3554,20 @@
         },
         {
             "name": "consolidation/robo",
-            "version": "1.3.3",
+            "version": "1.3.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/consolidation/Robo.git",
-                "reference": "01789e1c4f3b0d7e5b4ee0aca1843a9438ff4983"
+                "reference": "8cdaf834d378d7700cf0c7e8b2b57a00025d8dd3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/consolidation/Robo/zipball/01789e1c4f3b0d7e5b4ee0aca1843a9438ff4983",
-                "reference": "01789e1c4f3b0d7e5b4ee0aca1843a9438ff4983",
+                "url": "https://api.github.com/repos/consolidation/Robo/zipball/8cdaf834d378d7700cf0c7e8b2b57a00025d8dd3",
+                "reference": "8cdaf834d378d7700cf0c7e8b2b57a00025d8dd3",
                 "shasum": ""
             },
             "require": {
-                "consolidation/annotated-command": "^2.10.1",
+                "consolidation/annotated-command": "^2.10.2",
                 "consolidation/config": "^1.0.10",
                 "consolidation/log": "~1",
                 "consolidation/output-formatters": "^3.1.13",
@@ -3658,7 +3658,7 @@
                 }
             ],
             "description": "Modern task runner",
-            "time": "2018-12-14T02:54:30+00:00"
+            "time": "2018-12-21T04:14:26+00:00"
         },
         {
             "name": "consolidation/self-update",
@@ -5821,20 +5821,21 @@
         },
         {
             "name": "webmozart/assert",
-            "version": "1.3.0",
+            "version": "1.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/webmozart/assert.git",
-                "reference": "0df1908962e7a3071564e857d86874dad1ef204a"
+                "reference": "83e253c8e0be5b0257b881e1827274667c5c17a9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/webmozart/assert/zipball/0df1908962e7a3071564e857d86874dad1ef204a",
-                "reference": "0df1908962e7a3071564e857d86874dad1ef204a",
+                "url": "https://api.github.com/repos/webmozart/assert/zipball/83e253c8e0be5b0257b881e1827274667c5c17a9",
+                "reference": "83e253c8e0be5b0257b881e1827274667c5c17a9",
                 "shasum": ""
             },
             "require": {
-                "php": "^5.3.3 || ^7.0"
+                "php": "^5.3.3 || ^7.0",
+                "symfony/polyfill-ctype": "^1.8"
             },
             "require-dev": {
                 "phpunit/phpunit": "^4.6",
@@ -5867,7 +5868,7 @@
                 "check",
                 "validate"
             ],
-            "time": "2018-01-29T19:49:41+00:00"
+            "time": "2018-12-25T11:19:39+00:00"
         }
     ],
     "aliases": [],
