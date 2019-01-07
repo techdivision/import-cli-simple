@@ -51,6 +51,7 @@ class ConfigurationLoader extends SimpleConfigurationLoader
         EntityTypeCodes::CATALOG_PRODUCT_INVENTORY => 'products',
         EntityTypeCodes::CATALOG_CATEGORY          => 'categories',
         EntityTypeCodes::EAV_ATTRIBUTE             => 'attributes',
+        EntityTypeCodes::EAV_ATTRIBUTE_SET         => 'attributes',
         EntityTypeCodes::CUSTOMER                  => 'customers',
         EntityTypeCodes::CUSTOMER_ADDRESS          => 'customers'
     );
@@ -65,6 +66,7 @@ class ConfigurationLoader extends SimpleConfigurationLoader
             'techdivision/import-app-simple',
             'techdivision/import',
             'techdivision/import-attribute',
+            'techdivision/import-attribute-set',
             'techdivision/import-category',
             'techdivision/import-customer',
             'techdivision/import-customer-address',
@@ -80,6 +82,7 @@ class ConfigurationLoader extends SimpleConfigurationLoader
             'techdivision/import',
             'techdivision/import-ee',
             'techdivision/import-attribute',
+            'techdivision/import-attribute-set',
             'techdivision/import-category',
             'techdivision/import-category-ee',
             'techdivision/import-customer',

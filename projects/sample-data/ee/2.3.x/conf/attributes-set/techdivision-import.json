@@ -1,0 +1,163 @@
+{
+  "magento-edition": "EE",
+  "magento-version": "2.3.0",
+  "operation-name" : "add-update",
+  "archive-artefacts" : true,
+  "debug-mode" : false,
+  "source-dir" : "projects/sample-data/tmp",
+  "target-dir" : "projects/sample-data/tmp",
+  "entity-type-code" : "eav_attribute_set",
+  "databases" : [
+    {
+      "id": "docker",
+      "default" : true,
+      "pdo-dsn": "mysql:host=127.0.1.1:9306;dbname=magento;charset=utf8",
+      "username": "magento",
+      "password": "magento"
+    }
+  ],
+  "loggers": [
+    {
+      "name": "system",
+      "channel-name": "logger/system",
+      "type": "Monolog\\Logger",
+      "handlers": [
+        {
+          "type": "Monolog\\Handler\\ErrorLogHandler",
+          "formatter": {
+            "type": "Monolog\\Formatter\\LineFormatter",
+            "params" : [
+              {
+                "format": "[%datetime%] %channel%.%level_name%: %message% %context% %extra%",
+                "date-format": "Y-m-d H:i:s",
+                "allow-inline-line-breaks": true,
+                "ignore-empty-context-and-extra": false
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "operations" : [
+    {
+      "name" : "delete",
+      "plugins" : [
+        {
+          "id": "import.plugin.global.data"
+        },
+        {
+          "id": "import.plugin.subject",
+          "subjects" : [
+            {
+              "id": "import.subject.move.files",
+              "identifier": "move-files",
+              "file-resolver": {
+                "prefix": "attribute-set-import"
+              },
+              "ok-file-needed": true
+            },
+            {
+              "id": "import_attribute_set.subject.bunch",
+              "identifier": "files",
+              "file-resolver": {
+                "prefix": "attribute-set-import"
+              },
+              "observers": [
+                {
+                  "import": [
+                    "import_attribute_set.observer.clear.attribute.set"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "import.plugin.archive"
+        }
+      ]
+    },
+    {
+      "name" : "replace",
+      "plugins" : [
+        {
+          "id": "import.plugin.global.data"
+        },
+        {
+          "id": "import.plugin.subject",
+          "subjects": [
+            {
+              "id": "import.subject.move.files",
+              "identifier": "move-files",
+              "file-resolver": {
+                "prefix": "attribute-set-import"
+              },
+              "ok-file-needed": true
+            },
+            {
+              "id": "import_attribute_set.subject.bunch",
+              "identifier": "files",
+              "file-resolver": {
+                "prefix": "attribute-set-import"
+              },
+              "observers": [
+                {
+                  "import": [
+                    "import_attribute_set.observer.clear.attribute.set",
+                    "import_attribute_set.observer.attribute.set",
+                    "import_attribute_set.observer.attribute.group",
+                    "import_attribute_set.observer.attribute.set.clean.up"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "import.plugin.archive"
+        }
+      ]
+    },
+    {
+      "name" : "add-update",
+      "plugins" : [
+        {
+          "id": "import.plugin.global.data"
+        },
+        {
+          "id": "import.plugin.subject",
+          "subjects": [
+            {
+              "id": "import.subject.move.files",
+              "identifier": "move-files",
+              "file-resolver": {
+                "prefix": "attribute-set-import"
+              },
+              "ok-file-needed": true
+            },
+            {
+              "id": "import_attribute_set.subject.bunch",
+              "identifier": "files",
+              "file-resolver": {
+                "prefix": "attribute-set-import"
+              },
+              "observers": [
+                {
+                  "import": [
+                    "import_attribute_set.observer.attribute.set.update",
+                    "import_attribute_set.observer.attribute.group.update",
+                    "import_attribute_set.observer.attribute.set.clean.up"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "import.plugin.archive"
+        }
+      ]
+    }
+  ]
+}

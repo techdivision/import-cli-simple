@@ -2,7 +2,6 @@
   "magento-edition": "EE",
   "magento-version": "2.3.0",
   "operation-name" : "add-update",
-  "source-date-format": "n/d/y, g:i A",
   "archive-artefacts" : true,
   "debug-mode" : false,
   "source-dir" : "projects/sample-data/tmp",
@@ -12,7 +11,7 @@
     {
       "id": "docker",
       "default" : true,
-      "pdo-dsn": "mysql:host=127.0.1.5:9306;dbname=magento;charset=utf8",
+      "pdo-dsn": "mysql:host=127.0.1.1:9306;dbname=magento;charset=utf8",
       "username": "magento",
       "password": "magento"
     }
@@ -132,7 +131,8 @@
                   "import": [
                     "import_attribute.observer.attribute.option",
                     "import_attribute.observer.attribute.option.value",
-                    "import_attribute.observer.attribute.option.swatch"
+                    "import_attribute.observer.attribute.option.swatch",
+                    "import_attribute.observer.attribute.option.default"
                   ]
                 }
               ]
@@ -223,7 +223,8 @@
                   "import": [
                     "import_attribute.observer.attribute.option.update",
                     "import_attribute.observer.attribute.option.value.update",
-                    "import_attribute.observer.attribute.option.swatch.update"
+                    "import_attribute.observer.attribute.option.swatch.update",
+                    "import_attribute.observer.attribute.option.default"
                   ]
                 }
               ]

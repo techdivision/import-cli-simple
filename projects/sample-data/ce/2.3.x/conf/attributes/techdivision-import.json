@@ -2,7 +2,6 @@
   "magento-edition": "CE",
   "magento-version": "2.3.0",
   "operation-name" : "add-update",
-  "source-date-format": "n/d/y, g:i A",
   "archive-artefacts" : true,
   "debug-mode" : false,
   "source-dir" : "projects/sample-data/tmp",
@@ -101,7 +100,9 @@
             {
               "id": "import_attribute.subject.bunch",
               "identifier": "files",
-              "prefix": "attribute-import",
+              "file-resolver": {
+                "prefix": "attribute-import"
+              },
               "observers": [
                 {
                   "import": [
@@ -123,14 +124,15 @@
               "id": "import_attribute.subject.option",
               "identifier": "files",
               "file-resolver": {
-                "prefix": "attribute-import"
+                "prefix": "option-import"
               },
               "observers": [
                 {
                   "import": [
                     "import_attribute.observer.attribute.option",
                     "import_attribute.observer.attribute.option.value",
-                    "import_attribute.observer.attribute.option.swatch"
+                    "import_attribute.observer.attribute.option.swatch",
+                    "import_attribute.observer.attribute.option.default"
                   ]
                 }
               ]
@@ -221,7 +223,8 @@
                   "import": [
                     "import_attribute.observer.attribute.option.update",
                     "import_attribute.observer.attribute.option.value.update",
-                    "import_attribute.observer.attribute.option.swatch.update"
+                    "import_attribute.observer.attribute.option.swatch.update",
+                    "import_attribute.observer.attribute.option.default"
                   ]
                 }
               ]
