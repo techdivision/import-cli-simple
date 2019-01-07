@@ -11,7 +11,7 @@
     {
       "id": "docker",
       "default" : true,
-      "pdo-dsn": "mysql:host=127.0.1.5:9306;dbname=magento;charset=utf8",
+      "pdo-dsn": "mysql:host=127.0.1.1:9306;dbname=magento;charset=utf8",
       "username": "magento",
       "password": "magento"
     }
@@ -113,6 +113,7 @@
               "observers": [
                 {
                   "import": [
+                    "import_customer_address.observer.clear.customer.address",
                     "import_customer_address.observer.customer.address",
                     "import_customer_address.observer.customer.address.attribute"
                   ]

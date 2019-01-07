@@ -10,6 +10,7 @@
 
 ## Features
 
+* Add attribute set/gruop import functionality
 * Add customer + customer address import functionality
 * Update doctrine + JMS serializer dependencies
 * Add Converter implementations to convert numbers and dates to the expected Magento 2 format

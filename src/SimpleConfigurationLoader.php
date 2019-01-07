@@ -58,6 +58,7 @@ class SimpleConfigurationLoader implements ConfigurationLoaderInterface
     protected $configurationFileMappings = array(
         EntityTypeCodes::NONE                      => 'techdivision-import',
         EntityTypeCodes::EAV_ATTRIBUTE             => 'techdivision-import',
+        EntityTypeCodes::EAV_ATTRIBUTE_SET         => 'techdivision-import',
         EntityTypeCodes::CATALOG_PRODUCT           => 'techdivision-import',
         EntityTypeCodes::CATALOG_PRODUCT_PRICE     => 'techdivision-import-price',
         EntityTypeCodes::CATALOG_PRODUCT_INVENTORY => 'techdivision-import-inventory',
@@ -75,6 +76,7 @@ class SimpleConfigurationLoader implements ConfigurationLoaderInterface
         'ce' => array(
             EntityTypeCodes::NONE                      => 'techdivision/import-product',
             EntityTypeCodes::EAV_ATTRIBUTE             => 'techdivision/import-attribute',
+            EntityTypeCodes::EAV_ATTRIBUTE_SET         => 'techdivision/import-attribute-set',
             EntityTypeCodes::CATALOG_PRODUCT           => 'techdivision/import-product',
             EntityTypeCodes::CATALOG_PRODUCT_PRICE     => 'techdivision/import-product',
             EntityTypeCodes::CATALOG_PRODUCT_INVENTORY => 'techdivision/import-product',
@@ -85,6 +87,7 @@ class SimpleConfigurationLoader implements ConfigurationLoaderInterface
         'ee' => array(
             EntityTypeCodes::NONE                      => 'techdivision/import-product-ee',
             EntityTypeCodes::EAV_ATTRIBUTE             => 'techdivision/import-attribute',
+            EntityTypeCodes::EAV_ATTRIBUTE_SET         => 'techdivision/import-attribute-set',
             EntityTypeCodes::CATALOG_PRODUCT           => 'techdivision/import-product-ee',
             EntityTypeCodes::CATALOG_PRODUCT_PRICE     => 'techdivision/import-product-ee',
             EntityTypeCodes::CATALOG_PRODUCT_INVENTORY => 'techdivision/import-product-ee',
