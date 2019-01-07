@@ -1,17 +1,17 @@
 {
-  "magento-edition": "EE",
+  "magento-edition": "CE",
   "magento-version": "2.2.0",
   "operation-name" : "add-update",
-  "archive-artefacts" : false,
+  "archive-artefacts" : true,
   "debug-mode" : false,
   "source-dir" : "projects/sample-data/tmp",
   "target-dir" : "projects/sample-data/tmp",
-  "entity-type-code" : "customer_address",
+  "entity-type-code" : "eav_attribute_set",
   "databases" : [
     {
       "id": "docker",
       "default" : true,
-      "pdo-dsn": "mysql:host=127.0.1.1:9306;dbname=magento;charset=utf8",
+      "pdo-dsn": "mysql:host=127.0.1.2:9306;dbname=magento;charset=utf8",
       "username": "magento",
       "password": "magento"
     }
@@ -53,20 +53,20 @@
               "id": "import.subject.move.files",
               "identifier": "move-files",
               "file-resolver": {
-                "prefix": "customer-address-import"
+                "prefix": "attribute-set-import"
               },
               "ok-file-needed": true
             },
             {
-              "id": "import_customer_address.subject.bunch",
+              "id": "import_attribute_set.subject.bunch",
               "identifier": "files",
               "file-resolver": {
-                "prefix": "customer-address-import"
+                "prefix": "attribute-set-import"
               },
               "observers": [
                 {
                   "import": [
-                    "import_customer_address.observer.clear.customer.address"
+                    "import_attribute_set.observer.clear.attribute.set"
                   ]
                 }
               ]
@@ -82,9 +82,6 @@
       "name" : "replace",
       "plugins" : [
         {
-          "id": "import.plugin.cache.warmer"
-        },
-        {
           "id": "import.plugin.global.data"
         },
         {
@@ -94,33 +91,23 @@
               "id": "import.subject.move.files",
               "identifier": "move-files",
               "file-resolver": {
-                "prefix": "customer-address-import"
+                "prefix": "attribute-set-import"
               },
               "ok-file-needed": true
             },
             {
-              "id": "import_customer_address.subject.bunch",
+              "id": "import_attribute_set.subject.bunch",
               "identifier": "files",
               "file-resolver": {
-                "prefix": "customer-address-import"
-              },
-              "filesystem-adapter" : {
-                "id" : "import.adapter.filesystem.factory.league",
-                "adapter" : {
-                  "type" : "League\\Flysystem\\Adapter\\Local"
-                }
+                "prefix": "attribute-set-import"
               },
               "observers": [
                 {
                   "import": [
-                    "import_customer_address.observer.clear.customer.address",
-                    "import_customer_address.observer.customer.address",
-                    "import_customer_address.observer.customer.address.attribute"
-                  ]
-                },
-                {
-                  "post-import": [
-                    "import_customer_address.observer.clean.up"
+                    "import_attribute_set.observer.clear.attribute.set",
+                    "import_attribute_set.observer.attribute.set",
+                    "import_attribute_set.observer.attribute.group",
+                    "import_attribute_set.observer.attribute.set.clean.up"
                   ]
                 }
               ]
@@ -136,9 +123,6 @@
       "name" : "add-update",
       "plugins" : [
         {
-          "id": "import.plugin.cache.warmer"
-        },
-        {
           "id": "import.plugin.global.data"
         },
         {
@@ -148,32 +132,22 @@
               "id": "import.subject.move.files",
               "identifier": "move-files",
               "file-resolver": {
-                "prefix": "customer-address-import"
+                "prefix": "attribute-set-import"
               },
               "ok-file-needed": true
             },
             {
-              "id": "import_customer_address.subject.bunch",
+              "id": "import_attribute_set.subject.bunch",
               "identifier": "files",
               "file-resolver": {
-                "prefix": "customer-address-import"
-              },
-              "filesystem-adapter" : {
-                "id" : "import.adapter.filesystem.factory.league",
-                "adapter" : {
-                  "type" : "League\\Flysystem\\Adapter\\Local"
-                }
+                "prefix": "attribute-set-import"
               },
               "observers": [
                 {
                   "import": [
-                    "import_customer_address.observer.customer.address",
-                    "import_customer_address.observer.customer.address.attribute.update"
-                  ]
-                },
-                {
-                  "post-import": [
-                    "import_customer_address.observer.clean.up"
+                    "import_attribute_set.observer.attribute.set.update",
+                    "import_attribute_set.observer.attribute.group.update",
+                    "import_attribute_set.observer.attribute.set.clean.up"
                   ]
                 }
               ]

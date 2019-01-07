@@ -11,7 +11,7 @@
     {
       "id": "docker",
       "default" : true,
-      "pdo-dsn": "mysql:host=127.0.1.2;dbname=magento;charset=utf8",
+      "pdo-dsn": "mysql:host=127.0.1.1:9306;dbname=magento;charset=utf8",
       "username": "magento",
       "password": "magento"
     }
