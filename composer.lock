@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "b404cfb334551df04c858fa6c6d71dba",
+    "content-hash": "b953016586006f7f84770546ca8b8083",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -1903,16 +1903,16 @@
         },
         {
             "name": "techdivision/import-attribute",
-            "version": "5.0.0",
+            "version": "6.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-attribute.git",
-                "reference": "795bad7328629b9cc4bb6b7fce9a1aa21f7b4d9e"
+                "reference": "eb92cbad298adb5e1e42e771b9a8a82911a14e5c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-attribute/zipball/795bad7328629b9cc4bb6b7fce9a1aa21f7b4d9e",
-                "reference": "795bad7328629b9cc4bb6b7fce9a1aa21f7b4d9e",
+                "url": "https://api.github.com/repos/techdivision/import-attribute/zipball/eb92cbad298adb5e1e42e771b9a8a82911a14e5c",
+                "reference": "eb92cbad298adb5e1e42e771b9a8a82911a14e5c",
                 "shasum": ""
             },
             "require": {
@@ -1951,25 +1951,25 @@
                 }
             ],
             "description": "M2IF library providing basic Magento 2 attribute import functionality",
-            "time": "2019-01-07T13:39:34+00:00"
+            "time": "2019-01-10T14:49:34+00:00"
         },
         {
             "name": "techdivision/import-attribute-set",
-            "version": "1.0.0",
+            "version": "2.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-attribute-set.git",
-                "reference": "354389537ee61ca669509f343db55f349cfd69b8"
+                "reference": "963e583a0421c31e92cc96ff33e9787881c6de6d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-attribute-set/zipball/354389537ee61ca669509f343db55f349cfd69b8",
-                "reference": "354389537ee61ca669509f343db55f349cfd69b8",
+                "url": "https://api.github.com/repos/techdivision/import-attribute-set/zipball/963e583a0421c31e92cc96ff33e9787881c6de6d",
+                "reference": "963e583a0421c31e92cc96ff33e9787881c6de6d",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.6.0",
-                "techdivision/import-attribute": "5.0.*"
+                "techdivision/import-attribute": "6.0.*"
             },
             "require-dev": {
                 "consolidation/robo": "~1.0",
@@ -2003,7 +2003,7 @@
                 }
             ],
             "description": "M2IF library providing basic Magento 2 attribute set + group import functionality",
-            "time": "2019-01-07T15:30:32+00:00"
+            "time": "2019-01-10T14:58:38+00:00"
         },
         {
             "name": "techdivision/import-category",
