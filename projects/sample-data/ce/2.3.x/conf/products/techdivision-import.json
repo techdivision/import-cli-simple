@@ -433,7 +433,9 @@
             },
             {
               "id": "import_product_url_rewrite.subject.url.rewrite",
-              "prefix": "url-rewrite",
+              "file-resolver": {
+                "prefix": "url-rewrite"
+              },
               "observers": [
                 {
                   "import": [
