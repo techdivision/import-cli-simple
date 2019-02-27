@@ -1,5 +1,136 @@
 # Upgrade from 3.0.1 to 3.1.0
 
+## Category Import
+
+This version fixed the following issues from Github
+
+* [#50](https://github.com/techdivision/import-category/issues/50)
+* [#51](https://github.com/techdivision/import-category/issues/51)
+* [#52](https://github.com/techdivision/import-category/issues/52)
+* [#55](https://github.com/techdivision/import-category/issues/55)
+* [#56](https://github.com/techdivision/import-category/issues/56)
+
+As a result, the configuration file has to be updated with the following changes.
+
+### Magento CE/EE 2.2 + 2.3
+
+The observer `import_category.observer.category.copy` has been added which copies the categories that has to be imported
+to a new CSV file before they have been removed with the `import_category.observer.clear.category` in the `replace` mode.
+
+So the configuration for the `replace` operation has to be extended with the new observer like
+
+```json
+"subjects" : [
+  ...,
+  {
+    "id": "import_category_ee.subject.bunch",
+    "identifier": "files",
+    "file-resolver": {
+      "prefix": "category-import"
+    },
+    "observers": [
+      {
+        "import": [
+          "import_category.observer.category.copy",
+          "import_category.observer.clear.category"
+        ]
+      }
+    ]
+  },
+  ...
+]
+```
+
+### Magento EE 2.2 + 2.3
+
+#### Remove Existing Categories
+
+A new observer `import_category_ee.observer.clear.category` to remove categories has been added. This replaces the old 
+one from the CE named `import_category.observer.clear.category` in the `delete` and `replace` operation, e. g.
+
+```json
+"subjects" : [
+  ...,
+  {
+    "id": "import_category_ee.subject.bunch",
+    "identifier": "files",
+    "file-resolver": {
+      "prefix": "category-import"
+    },
+    "observers": [
+      {
+        "import": [
+          "import_category.observer.category.copy",
+          "import_category_ee.observer.clear.category"
+        ]
+      }
+    ]
+  },
+  ...
+]
+```
+
+#### URL Key and Path Handling
+
+The second new observer `import_category_ee.observer.url.key.and.path` also replaces the old one from the CE named
+`import_category.observer.url.key.and.path`. This observer has to be replaced in the `replace` and `add-update`
+operations. For example, your configuration should look like this for the `replace` operation
+
+```json
+  ...,
+  "observers" : [
+    {
+      "pre-import": [
+        "import_category_ee.observer.url.key.and.path",
+        "import.observer.attribute.set",
+        "import.observer.additional.attribute",
+        "import_category.observer.file.upload"
+      ]
+    },
+    {
+      "import": [
+        "import_category_ee.observer.category",
+        "import_category_ee.observer.category.attribute",
+        "import_category.observer.category.url.rewrite"
+      ]
+    },
+    {
+      "post-import": [
+        "import_category_ee.observer.clean.up"
+      ]
+    }
+  ]
+]
+```
+
+#### URL Rewrite Handling
+
+Finally the new observers `import_category_ee.observer.url.rewrite` and ` `import_category_ee.observer.url.rewrite` replaces 
+the old one from the CE named `import_category.observer.url.rewrite` and  `import_category.observer.url.rewrite.update`. As 
+the observer above, this has to be replaced in the `replace` as well as the `add-update` operations, e. g. for the `add-update`
+operation your configuration should look like this 
+
+```json
+"subjects" : [
+  ...,
+  {
+    "id": "import_category_ee.subject.bunch",
+    "identifier": "files",
+    "file-resolver": {
+      "prefix": "url-rewrite"
+    },
+    "observers": [
+      {
+        "import": [
+          "import_category_ee.observer.url.rewrite.update"
+        ]
+      }
+    ]
+  }
+  ...
+]
+```
+
 ## Configuration
 
 ### Commandline Option --params
