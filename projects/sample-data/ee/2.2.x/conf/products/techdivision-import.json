@@ -113,7 +113,7 @@
               },
               "params" : [
                 {
-                  "copy-images" : true,
+                  "copy-images" : false,
                   "media-directory" : "projects/sample-data/tmp",
                   "images-file-directory" : "projects/sample-data/magento2-sample-data/pub/media/catalog/product"
                 }
@@ -292,7 +292,7 @@
               },
               "params" : [
                 {
-                  "copy-images" : true,
+                  "copy-images" : false,
                   "clean-up-media-gallery" : true,
                   "clean-up-category-product-relations" : true,
                   "clean-up-empty-image-columns" : true,
