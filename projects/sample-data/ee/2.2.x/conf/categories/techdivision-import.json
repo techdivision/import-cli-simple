@@ -66,7 +66,7 @@
               "observers": [
                 {
                   "import": [
-                    "import_category.observer.clear.category"
+                    "import_category_ee.observer.clear.category"
                   ]
                 }
               ]
@@ -104,7 +104,8 @@
               "observers": [
                 {
                   "import": [
-                    "import_category.observer.clear.category"
+                    "import_category.observer.category.copy",
+                    "import_category_ee.observer.clear.category"
                   ]
                 }
               ]
@@ -131,7 +132,7 @@
               "observers": [
                 {
                   "pre-import": [
-                    "import_category.observer.url.key.and.path",
+                    "import_category_ee.observer.url.key.and.path",
                     "import.observer.attribute.set",
                     "import.observer.additional.attribute",
                     "import_category.observer.file.upload"
@@ -174,7 +175,7 @@
               "observers": [
                 {
                   "import": [
-                    "import_category.observer.url.rewrite"
+                    "import_category_ee.observer.url.rewrite"
                   ]
                 }
               ]
@@ -228,7 +229,7 @@
               "observers": [
                 {
                   "pre-import": [
-                    "import_category.observer.url.key.and.path",
+                    "import_category_ee.observer.url.key.and.path",
                     "import.observer.attribute.set",
                     "import.observer.additional.attribute",
                     "import_category.observer.file.upload"
@@ -271,7 +272,7 @@
               "observers": [
                 {
                   "import": [
-                    "import_category.observer.url.rewrite.update"
+                    "import_category_ee.observer.url.rewrite.update"
                   ]
                 }
               ]
