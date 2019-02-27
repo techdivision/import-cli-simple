@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "6c28f9f194783310829dab4fdb61e2ad",
+    "content-hash": "5e39662b3041d3ef6fde284420a42c89",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -2351,7 +2351,7 @@
         },
         {
             "name": "techdivision/import-category",
-            "version": "7.x-dev",
+            "version": "7.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-category.git",
@@ -2403,21 +2403,21 @@
         },
         {
             "name": "techdivision/import-category-ee",
-            "version": "8.x-dev",
+            "version": "8.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-category-ee.git",
-                "reference": "8e42f36879cbfa6a0166b4fac47bcba390566a82"
+                "reference": "2434e731340f11ab8858bb7e1992ff3723546fbd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-category-ee/zipball/8e42f36879cbfa6a0166b4fac47bcba390566a82",
-                "reference": "8e42f36879cbfa6a0166b4fac47bcba390566a82",
+                "url": "https://api.github.com/repos/techdivision/import-category-ee/zipball/2434e731340f11ab8858bb7e1992ff3723546fbd",
+                "reference": "2434e731340f11ab8858bb7e1992ff3723546fbd",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.6.0",
-                "techdivision/import-category": "7.x-dev",
+                "techdivision/import-category": "7.0.*",
                 "techdivision/import-ee": "5.0.*"
             },
             "require-dev": {
@@ -2452,7 +2452,7 @@
                 }
             ],
             "description": "M2IF library providing basic Magento 2 EE category import functionality",
-            "time": "2019-02-27T16:51:19+00:00"
+            "time": "2019-02-27T18:28:54+00:00"
         },
         {
             "name": "techdivision/import-configuration-jms",
@@ -4887,6 +4887,7 @@
                 "mock",
                 "xunit"
             ],
+            "abandoned": true,
             "time": "2017-06-30T09:13:00+00:00"
         },
         {
@@ -5995,24 +5996,9 @@
             "time": "2018-12-25T11:19:39+00:00"
         }
     ],
-    "aliases": [
-        {
-            "alias": "7.0.0",
-            "alias_normalized": "7.0.0.0",
-            "version": "7.9999999.9999999.9999999-dev",
-            "package": "techdivision/import-category"
-        },
-        {
-            "alias": "8.0.0",
-            "alias_normalized": "8.0.0.0",
-            "version": "8.9999999.9999999.9999999-dev",
-            "package": "techdivision/import-category-ee"
-        }
-    ],
+    "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "techdivision/import-category": 20,
-        "techdivision/import-category-ee": 20,
         "phpmd/phpmd": 0
     },
     "prefer-stable": false,
