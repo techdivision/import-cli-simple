@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "b3b984310a7b924ae73246dd57fe2cf6",
+    "content-hash": "9f6c3b8ec1c215989cab7ec7e62f5990",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -2796,16 +2796,16 @@
         },
         {
             "name": "techdivision/import-product-variant",
-            "version": "5.0.0",
+            "version": "6.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-product-variant.git",
-                "reference": "5159fdd866d9da52922573cea86aed0f85625fdc"
+                "reference": "92377bfff97ede7f02d323623a27db907c6014eb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-product-variant/zipball/5159fdd866d9da52922573cea86aed0f85625fdc",
-                "reference": "5159fdd866d9da52922573cea86aed0f85625fdc",
+                "url": "https://api.github.com/repos/techdivision/import-product-variant/zipball/92377bfff97ede7f02d323623a27db907c6014eb",
+                "reference": "92377bfff97ede7f02d323623a27db907c6014eb",
                 "shasum": ""
             },
             "require": {
@@ -2844,26 +2844,26 @@
                 }
             ],
             "description": "M2IF library providing basic Magento 2 configurable product import functionality",
-            "time": "2019-01-07T16:11:41+00:00"
+            "time": "2019-02-28T10:10:02+00:00"
         },
         {
             "name": "techdivision/import-product-variant-ee",
-            "version": "5.0.0",
+            "version": "6.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-product-variant-ee.git",
-                "reference": "d55c9220520bc03b522cf642cad8dd966e0ae2c2"
+                "reference": "db70028c0dbcc258c3e410e97b5107cbdc676c26"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-product-variant-ee/zipball/d55c9220520bc03b522cf642cad8dd966e0ae2c2",
-                "reference": "d55c9220520bc03b522cf642cad8dd966e0ae2c2",
+                "url": "https://api.github.com/repos/techdivision/import-product-variant-ee/zipball/db70028c0dbcc258c3e410e97b5107cbdc676c26",
+                "reference": "db70028c0dbcc258c3e410e97b5107cbdc676c26",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.6.0",
                 "techdivision/import-product-ee": "5.0.*",
-                "techdivision/import-product-variant": "5.0.*"
+                "techdivision/import-product-variant": "6.0.*"
             },
             "require-dev": {
                 "consolidation/robo": "~1.0",
@@ -2897,7 +2897,7 @@
                 }
             ],
             "description": "M2IF library providing basic Magento 2 EE configurable product import functionality",
-            "time": "2019-01-07T20:01:08+00:00"
+            "time": "2019-02-28T10:15:03+00:00"
         },
         {
             "name": "zendframework/zend-filter",
