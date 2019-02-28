@@ -4,6 +4,7 @@
 
 This version fixed the following issues from Github
 
+* [#21](https://github.com/techdivision/import-product-variant/issues/21)
 * [#50](https://github.com/techdivision/import-category/issues/50)
 * [#51](https://github.com/techdivision/import-category/issues/51)
 * [#52](https://github.com/techdivision/import-category/issues/52)

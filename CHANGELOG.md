@@ -6,6 +6,7 @@
 
 ## Bugfixes
 
+* Fixed techdivision/import-product-variant#21
 * Fixed techdivision/import-category#50
 * Fixed techdivision/import-category#51
 * Fixed techdivision/import-category#52
