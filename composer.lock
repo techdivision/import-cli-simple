@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "d821274590dc2493b19621c009a897f4",
+    "content-hash": "5ef20c89f98812e25950cfea0c5f5292",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -2507,16 +2507,16 @@
         },
         {
             "name": "techdivision/import-customer",
-            "version": "3.0.0",
+            "version": "4.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-customer.git",
-                "reference": "13928bc53b5cd8dd4343263749065a58a3441a16"
+                "reference": "a9dddd1048a036160af7b83b3df3a5ff57da3dba"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-customer/zipball/13928bc53b5cd8dd4343263749065a58a3441a16",
-                "reference": "13928bc53b5cd8dd4343263749065a58a3441a16",
+                "url": "https://api.github.com/repos/techdivision/import-customer/zipball/a9dddd1048a036160af7b83b3df3a5ff57da3dba",
+                "reference": "a9dddd1048a036160af7b83b3df3a5ff57da3dba",
                 "shasum": ""
             },
             "require": {
@@ -2555,25 +2555,25 @@
                 }
             ],
             "description": "M2IF library providing basic Magento 2 customer import functionality",
-            "time": "2019-01-07T15:41:40+00:00"
+            "time": "2019-03-02T14:37:10+00:00"
         },
         {
             "name": "techdivision/import-customer-address",
-            "version": "3.0.0",
+            "version": "4.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-customer-address.git",
-                "reference": "dee99fa12d8d695c3212f2eb0f5bfb96821081c8"
+                "reference": "bf7261917c8ca81a79c73324207f378591b263ce"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-customer-address/zipball/dee99fa12d8d695c3212f2eb0f5bfb96821081c8",
-                "reference": "dee99fa12d8d695c3212f2eb0f5bfb96821081c8",
+                "url": "https://api.github.com/repos/techdivision/import-customer-address/zipball/bf7261917c8ca81a79c73324207f378591b263ce",
+                "reference": "bf7261917c8ca81a79c73324207f378591b263ce",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.6.0",
-                "techdivision/import-customer": "3.0.*"
+                "techdivision/import-customer": "4.0.*"
             },
             "require-dev": {
                 "consolidation/robo": "~1.0",
@@ -2607,7 +2607,7 @@
                 }
             ],
             "description": "M2IF library providing basic Magento 2 customer address import functionality",
-            "time": "2019-01-07T20:02:24+00:00"
+            "time": "2019-03-02T14:44:57+00:00"
         },
         {
             "name": "techdivision/import-ee",
