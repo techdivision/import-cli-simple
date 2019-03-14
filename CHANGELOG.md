@@ -1,3 +1,17 @@
+# Version 3.1.1
+
+## Known Issues
+
+* Up from Magento 2 EE 2.1.10 using the single transaction mode has a massive performance impact (can only be used **WITHOUT** single transaction)
+
+## Bugfixes
+
+* None
+
+## Features
+
+* Added functionality to copy parent attribute set attribute groups + attribute relations
+
 # Version 3.1.0
 
 ## Known Issues
