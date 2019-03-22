@@ -1,4 +1,4 @@
-# Version 3.1.1
+# Version 3.2.0
 
 ## Known Issues
 
@@ -10,6 +10,7 @@
 
 ## Features
 
+* Added techdivision/import-cli-simple#198
 * Added functionality to copy parent attribute set attribute groups + attribute relations
 
 # Version 3.1.0

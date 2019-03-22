@@ -173,7 +173,8 @@
                     "import_product_variant.observer.product.variant",
                     "import_product_bundle.observer.product.bundle",
                     "import_product_media.observer.product.media",
-                    "import_product_link.observer.product.link"
+                    "import_product_link.observer.product.link",
+                    "import_product_grouped.observer.product.grouped"
                   ]
                 },
                 {
@@ -216,6 +217,19 @@
                     "import_product_bundle.observer.bundle.selection",
                     "import_product_bundle.observer.bundle.selection.price",
                     "import_product_bundle.observer.bundle.product.relation"
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "import_product_grouped.subject.grouped",
+              "file-resolver": {
+                "prefix": "grouped"
+              },
+              "observers": [
+                {
+                  "import": [
+                    "import_product_grouped.observer.grouped.product.relation"
                   ]
                 }
               ]
@@ -353,7 +367,8 @@
                     "import_product_bundle.observer.product.bundle",
                     "import_product_media.observer.product.media",
                     "import_product_media.observer.clear.media.gallery",
-                    "import_product_link.observer.product.link"
+                    "import_product_link.observer.product.link",
+                    "import_product_grouped.observer.product.grouped"
                   ]
                 },
                 {
@@ -401,6 +416,19 @@
               ]
             },
             {
+              "id": "import_product_grouped.subject.grouped",
+              "file-resolver": {
+                "prefix": "grouped"
+              },
+              "observers": [
+                {
+                  "import": [
+                    "import_product_grouped.observer.grouped.product.relation.update"
+                  ]
+                }
+              ]
+            },
+            {
               "id": "import_product_media.subject.media",
               "file-resolver": {
                 "prefix": "media"
@@ -425,7 +453,7 @@
               "observers": [
                 {
                   "import": [
-                    "import_product_link.observer.link.update",
+                    "import_product_link.observer.link",
                     "import_product_link.observer.link.attribute.position.update"
                   ]
                 }
