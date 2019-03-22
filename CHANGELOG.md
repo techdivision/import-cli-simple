@@ -1,4 +1,4 @@
-# Version 2.2.1
+# Version 2.3.0
 
 ## Known Issues
 
@@ -6,11 +6,11 @@
 
 ## Bugfixes
 
-* Backported Bugfixes from 3.1.1 (see https://github.com/techdivision/import-cli-simple/blob/3.1.x/CHANGELOG.md)
+* Backported Bugfixes from 3.2.x (see https://github.com/techdivision/import-cli-simple/blob/3.2.x/CHANGELOG.md)
 
 ## Features
 
-* Backported Features from 3.1.1 (see https://github.com/techdivision/import-cli-simple/blob/3.1.x/CHANGELOG.md)
+* Backported Features from 3.2.x (see https://github.com/techdivision/import-cli-simple/blob/3.2.x/CHANGELOG.md)
 
 # Version 2.2.0
 

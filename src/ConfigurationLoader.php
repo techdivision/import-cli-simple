@@ -75,7 +75,8 @@ class ConfigurationLoader extends SimpleConfigurationLoader
             'techdivision/import-product-bundle',
             'techdivision/import-product-link',
             'techdivision/import-product-media',
-            'techdivision/import-product-variant'
+            'techdivision/import-product-variant',
+            'techdivision/import-product-grouped'
         ),
         'ee' => array(
             'techdivision/import-app-simple',
@@ -97,7 +98,9 @@ class ConfigurationLoader extends SimpleConfigurationLoader
             'techdivision/import-product-media',
             'techdivision/import-product-media-ee',
             'techdivision/import-product-variant',
-            'techdivision/import-product-variant-ee'
+            'techdivision/import-product-variant-ee',
+            'techdivision/import-product-grouped',
+            'techdivision/import-product-grouped-ee'
         )
     );
 
