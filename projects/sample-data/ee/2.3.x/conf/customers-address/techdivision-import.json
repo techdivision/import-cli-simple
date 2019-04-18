@@ -2,11 +2,24 @@
   "magento-edition": "EE",
   "magento-version": "2.3.0",
   "operation-name" : "add-update",
-  "archive-artefacts" : false,
+  "archive-artefacts" : true,
   "debug-mode" : false,
   "source-dir" : "projects/sample-data/tmp",
   "target-dir" : "projects/sample-data/tmp",
   "entity-type-code" : "customer_address",
+  "listeners" : [
+    {
+      "app.set.up" : [
+        "import.listener.render.ansi.art",
+        "import.listener.initialize.registry"
+      ]
+    },
+    {
+      "app.tear.down" : [
+        "import.listener.clear.registry"
+      ]
+    }
+  ],
   "databases" : [
     {
       "id": "docker",
@@ -113,16 +126,7 @@
               "observers": [
                 {
                   "import": [
-                    "import_customer_address.observer.clear.customer.address",
-                    "import_customer_address.observer.customer.address",
-                    "import_customer_address.observer.customer.address.attribute",
-                    "import_customer_address.observer.default.billing.address",
-                    "import_customer_address.observer.default.shipping.address"
-                  ]
-                },
-                {
-                  "post-import": [
-                    "import_customer_address.observer.clean.up"
+                    "import_customer_address.observer.composite.replace"
                   ]
                 }
               ]
@@ -169,15 +173,7 @@
               "observers": [
                 {
                   "import": [
-                    "import_customer_address.observer.customer.address",
-                    "import_customer_address.observer.customer.address.attribute.update",
-                    "import_customer_address.observer.default.billing.address",
-                    "import_customer_address.observer.default.shipping.address"
-                  ]
-                },
-                {
-                  "post-import": [
-                    "import_customer_address.observer.clean.up"
+                    "import_customer_address.observer.composite.add_update"
                   ]
                 }
               ]

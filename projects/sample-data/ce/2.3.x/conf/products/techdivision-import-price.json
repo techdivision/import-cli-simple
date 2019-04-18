@@ -65,19 +65,8 @@
               },
               "observers": [
                 {
-                  "pre-import": [
-                    "import.observer.attribute.set",
-                    "import_product.observer.last.entity.and.row.id"
-                  ]
-                },
-                {
                   "import": [
-                    "import_product.observer.product.attribute.update"
-                  ]
-                },
-                {
-                  "post-import": [
-                    "import_product.observer.clean.up"
+                    "import_product.observer.composite.price.add_update"
                   ]
                 }
               ]

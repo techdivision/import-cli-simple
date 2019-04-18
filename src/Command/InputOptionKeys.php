@@ -50,6 +50,13 @@ class InputOptionKeys
     }
 
     /**
+     * Input key for the --serial option.
+     *
+     * @var string
+     */
+    const SERIAL = 'serial';
+
+    /**
      * The input option key for the system name to use.
      *
      * @var string

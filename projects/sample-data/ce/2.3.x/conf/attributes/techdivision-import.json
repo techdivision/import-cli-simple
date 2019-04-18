@@ -7,6 +7,19 @@
   "source-dir" : "projects/sample-data/tmp",
   "target-dir" : "projects/sample-data/tmp",
   "entity-type-code" : "eav_attribute",
+  "listeners" : [
+    {
+      "app.set.up" : [
+        "import.listener.render.ansi.art",
+        "import.listener.initialize.registry"
+      ]
+    },
+    {
+      "app.tear.down" : [
+        "import.listener.clear.registry"
+      ]
+    }
+  ],
   "databases" : [
     {
       "id": "docker",
@@ -66,9 +79,7 @@
               "observers": [
                 {
                   "import": [
-                    "import_attribute.observer.pre.load.attribute.id",
-                    "import_attribute.observer.clear.attribute",
-                    "import_attribute.observer.attribute.clean.up"
+                    "import_attribute.observer.composite.delete"
                   ]
                 }
               ]
@@ -106,16 +117,7 @@
               "observers": [
                 {
                   "import": [
-                    "import_attribute.observer.pre.load.attribute.id",
-                    "import_attribute.observer.clear.attribute",
-                    "import_attribute.observer.attribute",
-                    "import_attribute.observer.attribute.label",
-                    "import_attribute.observer.entity.attribute",
-                    "import_attribute.observer.catalog.attribute",
-                    "import_attribute.observer.attribute.option.export",
-                    "import_attribute.observer.attribute.option.value.export",
-                    "import_attribute.observer.attribute.option.swatch.export",
-                    "import_attribute.observer.attribute.clean.up"
+                    "import_attribute.observer.composite.replace"
                   ]
                 }
               ]
@@ -129,10 +131,7 @@
               "observers": [
                 {
                   "import": [
-                    "import_attribute.observer.attribute.option",
-                    "import_attribute.observer.attribute.option.value",
-                    "import_attribute.observer.attribute.option.swatch",
-                    "import_attribute.observer.attribute.option.default"
+                    "import_attribute.observer.composite.option.replace"
                   ]
                 }
               ]
@@ -146,8 +145,7 @@
               "observers": [
                 {
                   "import": [
-                    "import_attribute.observer.pre.load.attribute.option.id",
-                    "import_attribute.observer.attribute.option.value"
+                    "import_attribute.observer.composite.option.value.replace"
                   ]
                 }
               ]
@@ -161,8 +159,7 @@
               "observers": [
                 {
                   "import": [
-                    "import_attribute.observer.pre.load.attribute.option.id",
-                    "import_attribute.observer.attribute.option.swatch"
+                    "import_attribute.observer.composite.option.swatch.replace"
                   ]
                 }
               ]
@@ -200,14 +197,7 @@
               "observers": [
                 {
                   "import": [
-                    "import_attribute.observer.attribute.update",
-                    "import_attribute.observer.attribute.label.update",
-                    "import_attribute.observer.entity.attribute.update",
-                    "import_attribute.observer.catalog.attribute.update",
-                    "import_attribute.observer.attribute.option.export",
-                    "import_attribute.observer.attribute.option.value.export",
-                    "import_attribute.observer.attribute.option.swatch.export",
-                    "import_attribute.observer.attribute.clean.up"
+                    "import_attribute.observer.composite.add_update"
                   ]
                 }
               ]
@@ -221,10 +211,7 @@
               "observers": [
                 {
                   "import": [
-                    "import_attribute.observer.attribute.option.update",
-                    "import_attribute.observer.attribute.option.value.update",
-                    "import_attribute.observer.attribute.option.swatch.update",
-                    "import_attribute.observer.attribute.option.default"
+                    "import_attribute.observer.composite.option.add_update"
                   ]
                 }
               ]
@@ -238,8 +225,7 @@
               "observers": [
                 {
                   "import": [
-                    "import_attribute.observer.pre.load.attribute.option.id",
-                    "import_attribute.observer.attribute.option.value.update"
+                    "import_attribute.observer.composite.option.value.add_update"
                   ]
                 }
               ]
@@ -253,8 +239,7 @@
               "observers": [
                 {
                   "import": [
-                    "import_attribute.observer.pre.load.attribute.option.id",
-                    "import_attribute.observer.attribute.option.swatch.update"
+                    "import_attribute.observer.composite.option.swatch.add_update"
                   ]
                 }
               ]

@@ -1,3 +1,19 @@
+# Version 3.3.0
+
+## Known Issues
+
+* Up from Magento 2 EE 2.1.10 using the single transaction mode has a massive performance impact (can only be used **WITHOUT** single transaction)
+
+## Bugfixes
+
+* None
+
+## Features
+
+* Extract registry initialization to separate listeners
+* Add --serial commandline option to pass external serial
+* Add composite listeners to reduce configuration complexity
+
 # Version 3.2.1
 
 ## Known Issues

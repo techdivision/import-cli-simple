@@ -7,6 +7,19 @@
   "archive-artefacts" : true,
   "debug-mode" : false,
   "entity-type-code" : "catalog_product_inventory",
+  "listeners" : [
+    {
+      "app.set.up" : [
+        "import.listener.render.ansi.art",
+        "import.listener.initialize.registry"
+      ]
+    },
+    {
+      "app.tear.down" : [
+        "import.listener.clear.registry"
+      ]
+    }
+  ],
   "databases" : [
     {
       "id": "docker",
@@ -65,20 +78,8 @@
               },
               "observers": [
                 {
-                  "pre-import": [
-                    "import.observer.attribute.set",
-                    "import_product.observer.last.entity.id",
-                    "import_product.observer.quality.and.stock.status"
-                  ]
-                },
-                {
                   "import": [
-                    "import_product.observer.product.inventory.update"
-                  ]
-                },
-                {
-                  "post-import": [
-                    "import_product.observer.clean.up"
+                    "import_product.observer.composite.inventory.add_update"
                   ]
                 }
               ]

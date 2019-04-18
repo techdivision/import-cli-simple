@@ -7,6 +7,19 @@
   "source-dir" : "projects/sample-data/tmp",
   "target-dir" : "projects/sample-data/tmp",
   "entity-type-code" : "catalog_product",
+  "listeners" : [
+    {
+      "app.set.up" : [
+        "import.listener.render.ansi.art",
+        "import.listener.initialize.registry"
+      ]
+    },
+    {
+      "app.tear.down" : [
+        "import.listener.clear.registry"
+      ]
+    }
+  ],
   "databases" : [
     {
       "id": "docker",
@@ -97,8 +110,7 @@
               "observers": [
                 {
                   "import": [
-                    "import_product_url_rewrite.observer.clear.url.rewrite",
-                    "import_product.observer.clear.product"
+                    "import_product.observer.composite.base.delete"
                   ]
                 }
               ]
@@ -151,35 +163,8 @@
               ],
               "observers": [
                 {
-                  "pre-import": [
-                    "import_product.observer.pre.load.entity.id",
-                    "import_product_url_rewrite.observer.clear.url.rewrite",
-                    "import_product.observer.clear.product",
-                    "import.observer.attribute.set",
-                    "import.observer.additional.attribute",
-                    "import_product.observer.url.key",
-                    "import_product.observer.file.upload",
-                    "import_product.observer.quality.and.stock.status"
-                  ]
-                },
-                {
                   "import": [
-                    "import_product.observer.product",
-                    "import_product.observer.product.website",
-                    "import_product.observer.category.product",
-                    "import_product.observer.product.inventory",
-                    "import_product.observer.product.attribute",
-                    "import_product_url_rewrite.observer.product.url.rewrite",
-                    "import_product_variant.observer.product.variant",
-                    "import_product_bundle.observer.product.bundle",
-                    "import_product_media.observer.product.media",
-                    "import_product_link.observer.product.link",
-                    "import_product_grouped.observer.product.grouped"
-                  ]
-                },
-                {
-                  "post-import": [
-                    "import_product.observer.clean.up"
+                    "import_product.observer.composite.base.replace"
                   ]
                 }
               ]
@@ -197,9 +182,7 @@
                 },
                 {
                   "import": [
-                    "import_product_variant.observer.variant.super.link",
-                    "import_product_variant.observer.variant.super.attribute",
-                    "import_product_variant.observer.variant.product.relation"
+                    "import_product.observer.composite.variant.replace"
                   ]
                 }
               ]
@@ -212,11 +195,7 @@
               "observers": [
                 {
                   "import": [
-                    "import_product_bundle.observer.bundle.option",
-                    "import_product_bundle.observer.bundle.option.value",
-                    "import_product_bundle.observer.bundle.selection",
-                    "import_product_bundle.observer.bundle.selection.price",
-                    "import_product_bundle.observer.bundle.product.relation"
+                    "import_product.observer.composite.bundle.replace"
                   ]
                 }
               ]
@@ -241,12 +220,8 @@
               },
               "observers": [
                 {
-                  "pre-import" : [
-                    "import.observer.attribute.set"
-                  ],
                   "import": [
-                    "import_product_media.observer.media.gallery",
-                    "import_product_media.observer.media.gallery.value"
+                    "import_product.observer.composite.media.replace"
                   ]
                 }
               ]
@@ -259,8 +234,7 @@
               "observers": [
                 {
                   "import": [
-                    "import_product_link.observer.link",
-                    "import_product_link.observer.link.attribute.position"
+                    "import_product.observer.composite.link.replace"
                   ]
                 }
               ]
@@ -279,24 +253,6 @@
               ]
             }
           ]
-        },
-        {
-          "id": "import.plugin.missing.option.values",
-          "swift-mailer" : {
-            "factory" : "TechDivision\\Import\\Utils\\SwiftMailer\\SendmailTransportMailerFactory",
-            "mailer-factory" : "\\Swift_Mailer",
-            "params" : [
-              {
-                "to" : "m2if@techdivision.com",
-                "from" : "m2if@techdivision.com",
-                "subject": "Missing Option Values",
-                "content-type" : "text/plain"
-              }
-            ],
-            "transport" : {
-              "transport-factory" : "\\Swift_SendmailTransport"
-            }
-          }
         },
         {
           "id": "import.plugin.archive"
@@ -347,33 +303,8 @@
               ],
               "observers": [
                 {
-                  "pre-import": [
-                    "import.observer.attribute.set",
-                    "import.observer.additional.attribute",
-                    "import_product.observer.url.key",
-                    "import_product.observer.file.upload",
-                    "import_product.observer.quality.and.stock.status"
-                  ]
-                },
-                {
                   "import": [
-                    "import_product.observer.product",
-                    "import_product.observer.product.website.update",
-                    "import_product.observer.category.product.update",
-                    "import_product.observer.product.inventory.update",
-                    "import_product.observer.product.attribute.update",
-                    "import_product_url_rewrite.observer.product.url.rewrite",
-                    "import_product_variant.observer.product.variant",
-                    "import_product_bundle.observer.product.bundle",
-                    "import_product_media.observer.product.media",
-                    "import_product_media.observer.clear.media.gallery",
-                    "import_product_link.observer.product.link",
-                    "import_product_grouped.observer.product.grouped"
-                  ]
-                },
-                {
-                  "post-import": [
-                    "import_product.observer.clean.up"
+                    "import_product.observer.composite.base.add_update"
                   ]
                 }
               ]
@@ -391,9 +322,7 @@
                 },
                 {
                   "import": [
-                    "import_product_variant.observer.variant.super.link.update",
-                    "import_product_variant.observer.variant.super.attribute.update",
-                    "import_product_variant.observer.variant.product.relation.update"
+                    "import_product.observer.composite.variant.add_update"
                   ]
                 }
               ]
@@ -406,11 +335,7 @@
               "observers": [
                 {
                   "import": [
-                    "import_product_bundle.observer.bundle.option.update",
-                    "import_product_bundle.observer.bundle.option.value.update",
-                    "import_product_bundle.observer.bundle.selection.update",
-                    "import_product_bundle.observer.bundle.selection.price.update",
-                    "import_product_bundle.observer.bundle.product.relation.update"
+                    "import_product.observer.composite.bundle.add_update"
                   ]
                 }
               ]
@@ -435,12 +360,8 @@
               },
               "observers": [
                 {
-                  "pre-import" : [
-                    "import.observer.attribute.set"
-                  ],
                   "import": [
-                    "import_product_media.observer.media.gallery.update",
-                    "import_product_media.observer.media.gallery.value.update"
+                    "import_product.observer.composite.media.add_update"
                   ]
                 }
               ]
@@ -453,8 +374,7 @@
               "observers": [
                 {
                   "import": [
-                    "import_product_link.observer.link",
-                    "import_product_link.observer.link.attribute.position.update"
+                    "import_product.observer.composite.link.add_update"
                   ]
                 }
               ]
