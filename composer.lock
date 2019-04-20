@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "de9f3cc282277c9a1cd3ccdc9c29a588",
+    "content-hash": "a6e3e9244c0c642027f84a776da8cd02",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -2846,6 +2846,115 @@
             ],
             "description": "M2IF library providing basic Magento 2 EE product media import functionality",
             "time": "2019-04-16T18:19:27+00:00"
+        },
+        {
+            "name": "techdivision/import-product-msi",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/techdivision/import-product-msi.git",
+                "reference": "564b7ec158c80892aa79aa4107ea71c5fd5298d2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/techdivision/import-product-msi/zipball/564b7ec158c80892aa79aa4107ea71c5fd5298d2",
+                "reference": "564b7ec158c80892aa79aa4107ea71c5fd5298d2",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.6.0",
+                "techdivision/import-product": "8.0.*"
+            },
+            "require-dev": {
+                "consolidation/robo": "~1.0",
+                "doctrine/dbal": "2.5.*",
+                "mikey179/vfsstream": "~1.0",
+                "pdepend/pdepend": "2.5.2",
+                "phpmd/phpmd": "@stable",
+                "phpunit/phpunit": "~5.0",
+                "sebastian/phpcpd": "~3.0.0",
+                "squizlabs/php_codesniffer": "3.3.1",
+                "symfony/http-kernel": "~3.4"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "TechDivision\\Import\\Product\\Msi\\": [
+                        "src/",
+                        "symfony/",
+                        "tests/unit"
+                    ]
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "OSL-3.0"
+            ],
+            "authors": [
+                {
+                    "name": "Tim Wagner",
+                    "email": "t.wagner@techdivision.com"
+                }
+            ],
+            "description": "M2IF library providing basic Magento 2 MSI product stock import functionality",
+            "time": "2019-04-20T11:35:21+00:00"
+        },
+        {
+            "name": "techdivision/import-product-tier-price",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/techdivision/import-product-tier-price.git",
+                "reference": "1640643a9f0bcb2880d2002084c35fec4e963249"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/techdivision/import-product-tier-price/zipball/1640643a9f0bcb2880d2002084c35fec4e963249",
+                "reference": "1640643a9f0bcb2880d2002084c35fec4e963249",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.6.0",
+                "techdivision/import-product": "8.0.*",
+                "techdivision/import-product-ee": "8.0.*"
+            },
+            "require-dev": {
+                "consolidation/robo": "~1.0",
+                "doctrine/dbal": "2.5.*",
+                "mikey179/vfsstream": "~1.0",
+                "pdepend/pdepend": "2.5.2",
+                "phpmd/phpmd": "@stable",
+                "phpunit/phpunit": "~5.0",
+                "sebastian/phpcpd": "~3.0.0",
+                "squizlabs/php_codesniffer": "3.3.1",
+                "symfony/http-kernel": "~3.4"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "TechDivision\\Import\\Product\\TierPrices\\": [
+                        "src/",
+                        "symfony/",
+                        "tests/unit"
+                    ]
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "OSL-3.0"
+            ],
+            "authors": [
+                {
+                    "name": "Tim Wagner",
+                    "email": "t.wagner@techdivision.com"
+                },
+                {
+                    "name": "Klaas-Tido Rühl",
+                    "email": "kr@refusion.com"
+                }
+            ],
+            "description": "M2IF library providing basic Magento 2 product tier price import functionality",
+            "time": "2019-04-20T11:30:54+00:00"
         },
         {
             "name": "techdivision/import-product-url-rewrite",
@@ -5867,6 +5976,8 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
+        "techdivision/import-product-msi": 20,
+        "techdivision/import-product-tier-price": 20,
         "phpmd/phpmd": 0
     },
     "prefer-stable": false,

@@ -56,15 +56,17 @@ class SimpleConfigurationLoader implements ConfigurationLoaderInterface
     );
 
     protected $configurationFileMappings = array(
-        EntityTypeCodes::NONE                      => 'techdivision-import',
-        EntityTypeCodes::EAV_ATTRIBUTE             => 'techdivision-import',
-        EntityTypeCodes::EAV_ATTRIBUTE_SET         => 'techdivision-import',
-        EntityTypeCodes::CATALOG_PRODUCT           => 'techdivision-import',
-        EntityTypeCodes::CATALOG_PRODUCT_PRICE     => 'techdivision-import-price',
-        EntityTypeCodes::CATALOG_PRODUCT_INVENTORY => 'techdivision-import-inventory',
-        EntityTypeCodes::CATALOG_CATEGORY          => 'techdivision-import',
-        EntityTypeCodes::CUSTOMER                  => 'techdivision-import',
-        EntityTypeCodes::CUSTOMER_ADDRESS          => 'techdivision-import'
+        EntityTypeCodes::NONE                          => 'techdivision-import',
+        EntityTypeCodes::EAV_ATTRIBUTE                 => 'techdivision-import',
+        EntityTypeCodes::EAV_ATTRIBUTE_SET             => 'techdivision-import',
+        EntityTypeCodes::CATALOG_PRODUCT               => 'techdivision-import',
+        EntityTypeCodes::CATALOG_PRODUCT_PRICE         => 'techdivision-import-price',
+        EntityTypeCodes::CATALOG_PRODUCT_TIER_PRICE    => 'techdivision-import',
+        EntityTypeCodes::CATALOG_PRODUCT_INVENTORY     => 'techdivision-import-inventory',
+        EntityTypeCodes::CATALOG_PRODUCT_INVENTORY_MSI => 'techdivision-import',
+        EntityTypeCodes::CATALOG_CATEGORY              => 'techdivision-import',
+        EntityTypeCodes::CUSTOMER                      => 'techdivision-import',
+        EntityTypeCodes::CUSTOMER_ADDRESS              => 'techdivision-import'
     );
 
     /**
@@ -74,26 +76,30 @@ class SimpleConfigurationLoader implements ConfigurationLoaderInterface
      */
     protected $defaultConfigurations = array(
         'ce' => array(
-            EntityTypeCodes::NONE                      => 'techdivision/import-product',
-            EntityTypeCodes::EAV_ATTRIBUTE             => 'techdivision/import-attribute',
-            EntityTypeCodes::EAV_ATTRIBUTE_SET         => 'techdivision/import-attribute-set',
-            EntityTypeCodes::CATALOG_PRODUCT           => 'techdivision/import-product',
-            EntityTypeCodes::CATALOG_PRODUCT_PRICE     => 'techdivision/import-product',
-            EntityTypeCodes::CATALOG_PRODUCT_INVENTORY => 'techdivision/import-product',
-            EntityTypeCodes::CATALOG_CATEGORY          => 'techdivision/import-category',
-            EntityTypeCodes::CUSTOMER                  => 'techdivision/import-customer',
-            EntityTypeCodes::CUSTOMER_ADDRESS          => 'techdivision/import-customer-address'
+            EntityTypeCodes::NONE                          => 'techdivision/import-product',
+            EntityTypeCodes::EAV_ATTRIBUTE                 => 'techdivision/import-attribute',
+            EntityTypeCodes::EAV_ATTRIBUTE_SET             => 'techdivision/import-attribute-set',
+            EntityTypeCodes::CATALOG_PRODUCT               => 'techdivision/import-product',
+            EntityTypeCodes::CATALOG_PRODUCT_PRICE         => 'techdivision/import-product',
+            EntityTypeCodes::CATALOG_PRODUCT_TIER_PRICE    => 'techdivision/import-product-tier-price',
+            EntityTypeCodes::CATALOG_PRODUCT_INVENTORY     => 'techdivision/import-product',
+            EntityTypeCodes::CATALOG_PRODUCT_INVENTORY_MSI => 'techdivision/import-product-msi',
+            EntityTypeCodes::CATALOG_CATEGORY              => 'techdivision/import-category',
+            EntityTypeCodes::CUSTOMER                      => 'techdivision/import-customer',
+            EntityTypeCodes::CUSTOMER_ADDRESS              => 'techdivision/import-customer-address'
         ),
         'ee' => array(
-            EntityTypeCodes::NONE                      => 'techdivision/import-product-ee',
-            EntityTypeCodes::EAV_ATTRIBUTE             => 'techdivision/import-attribute',
-            EntityTypeCodes::EAV_ATTRIBUTE_SET         => 'techdivision/import-attribute-set',
-            EntityTypeCodes::CATALOG_PRODUCT           => 'techdivision/import-product-ee',
-            EntityTypeCodes::CATALOG_PRODUCT_PRICE     => 'techdivision/import-product-ee',
-            EntityTypeCodes::CATALOG_PRODUCT_INVENTORY => 'techdivision/import-product-ee',
-            EntityTypeCodes::CATALOG_CATEGORY          => 'techdivision/import-category-ee',
-            EntityTypeCodes::CUSTOMER                  => 'techdivision/import-customer',
-            EntityTypeCodes::CUSTOMER_ADDRESS          => 'techdivision/import-customer-address'
+            EntityTypeCodes::NONE                          => 'techdivision/import-product-ee',
+            EntityTypeCodes::EAV_ATTRIBUTE                 => 'techdivision/import-attribute',
+            EntityTypeCodes::EAV_ATTRIBUTE_SET             => 'techdivision/import-attribute-set',
+            EntityTypeCodes::CATALOG_PRODUCT               => 'techdivision/import-product-ee',
+            EntityTypeCodes::CATALOG_PRODUCT_PRICE         => 'techdivision/import-product-ee',
+            EntityTypeCodes::CATALOG_PRODUCT_TIER_PRICE    => 'techdivision/import-product-tier-price',
+            EntityTypeCodes::CATALOG_PRODUCT_INVENTORY     => 'techdivision/import-product-ee',
+            EntityTypeCodes::CATALOG_PRODUCT_INVENTORY_MSI => 'techdivision/import-product-msi',
+            EntityTypeCodes::CATALOG_CATEGORY              => 'techdivision/import-category-ee',
+            EntityTypeCodes::CUSTOMER                      => 'techdivision/import-customer',
+            EntityTypeCodes::CUSTOMER_ADDRESS              => 'techdivision/import-customer-address'
         )
     );
 

@@ -1,0 +1,78 @@
+{
+  "magento-edition": "CE",
+  "magento-version": "2.3.0",
+  "operation-name" : "add-update",
+  "archive-artefacts" : true,
+  "debug-mode" : false,
+  "entity-type-code" : "catalog_product_inventory_msi",
+  "databases" : [
+  ],
+  "loggers": [
+    {
+      "name": "system",
+      "channel-name": "logger/system",
+      "type": "Monolog\\Logger",
+      "handlers": [
+        {
+          "type": "Monolog\\Handler\\ErrorLogHandler",
+          "formatter": {
+            "type": "Monolog\\Formatter\\LineFormatter",
+            "params" : [
+              {
+                "format": "[%datetime%] %channel%.%level_name%: %message% %context% %extra%",
+                "date-format": "Y-m-d H:i:s",
+                "allow-inline-line-breaks": true,
+                "ignore-empty-context-and-extra": false
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "operations" : [
+    {
+      "name" : "add-update",
+      "plugins" : [
+        {
+          "id": "import.plugin.global.data"
+        },
+        {
+          "id": "import.plugin.subject",
+          "subjects": [
+            {
+              "id": "import.subject.move.files",
+              "identifier": "move-files",
+              "file-resolver": {
+                "prefix": "product-import-inventory-msi"
+              },
+              "ok-file-needed": true
+            },
+            {
+              "id": "import_product_msi.subject.bunch",
+              "identifier": "files",
+              "file-resolver": {
+                "prefix": "product-import-inventory-msi"
+              },
+              "observers": [
+                {
+                  "import": [
+                    "import_product_msi.observer.inventory.source.item.update"
+                  ]
+                },
+                {
+                  "post-import": [
+                    "import_product_msi.observer.clean.up"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "import.plugin.archive"
+        }
+      ]
+    }
+  ]
+}

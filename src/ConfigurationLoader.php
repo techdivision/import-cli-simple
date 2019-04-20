@@ -46,14 +46,16 @@ class ConfigurationLoader extends SimpleConfigurationLoader
      * @var array
      */
     protected $defaultDirectories = array(
-        EntityTypeCodes::CATALOG_PRODUCT           => 'products',
-        EntityTypeCodes::CATALOG_PRODUCT_PRICE     => 'products',
-        EntityTypeCodes::CATALOG_PRODUCT_INVENTORY => 'products',
-        EntityTypeCodes::CATALOG_CATEGORY          => 'categories',
-        EntityTypeCodes::EAV_ATTRIBUTE             => 'attributes',
-        EntityTypeCodes::EAV_ATTRIBUTE_SET         => 'attributes',
-        EntityTypeCodes::CUSTOMER                  => 'customers',
-        EntityTypeCodes::CUSTOMER_ADDRESS          => 'customers'
+        EntityTypeCodes::CATALOG_PRODUCT               => 'products',
+        EntityTypeCodes::CATALOG_PRODUCT_PRICE         => 'products',
+        EntityTypeCodes::CATALOG_PRODUCT_TIER_PRICE    => 'products',
+        EntityTypeCodes::CATALOG_PRODUCT_INVENTORY     => 'products',
+        EntityTypeCodes::CATALOG_PRODUCT_INVENTORY_MSI => 'products',
+        EntityTypeCodes::CATALOG_CATEGORY              => 'categories',
+        EntityTypeCodes::EAV_ATTRIBUTE                 => 'attributes',
+        EntityTypeCodes::EAV_ATTRIBUTE_SET             => 'attributes',
+        EntityTypeCodes::CUSTOMER                      => 'customers',
+        EntityTypeCodes::CUSTOMER_ADDRESS              => 'customers'
     );
 
     /**
@@ -71,6 +73,8 @@ class ConfigurationLoader extends SimpleConfigurationLoader
             'techdivision/import-customer',
             'techdivision/import-customer-address',
             'techdivision/import-product',
+            'techdivision/import-product-msi',
+            'techdivision/import-product-tier-price',
             'techdivision/import-product-url-rewrite',
             'techdivision/import-product-bundle',
             'techdivision/import-product-link',
@@ -89,6 +93,8 @@ class ConfigurationLoader extends SimpleConfigurationLoader
             'techdivision/import-customer',
             'techdivision/import-customer-address',
             'techdivision/import-product',
+            'techdivision/import-product-msi',
+            'techdivision/import-product-tier-price',
             'techdivision/import-product-url-rewrite',
             'techdivision/import-product-ee',
             'techdivision/import-product-bundle',
