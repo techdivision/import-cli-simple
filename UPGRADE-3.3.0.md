@@ -1,5 +1,32 @@
 # Upgrade from 3.2.1 to 3.3.0
 
+## MSI
+
+This version adds the functionality to import MSI inventory data. Either the data can be imported seperately from a CSV file in 
+the [Magento 2 default format](https://github.com/magento-engcom/msi/wiki/MSI-Import-and-Export-Product-Data#csv-file-contents)
+or from a column containing the MSI inventory data in a serialized format.
+
+The MSI import is **NOT** activated by default. Actually there are two options to import the MSI inventory data. 
+
+1. Start the import process on the commandline by invoking the operation `import:products:inventory:msi` with the default MSI configuration
+2. Add the column `inventory_source_items` to the default CSV file with the product import data and use the `--configuration` option 
+   the specify the [MSI example configuration](projects/sample-data/ce/2.3.x/conf/products/techdivision-import-inventory-msi.json)
+
+You can find more information about the MSI import on the M2IF [website](https://www.m2if.com).
+
+## Tier Prices
+
+The option to import tier prices is a contribution of Klaas-Tido Rühl from REFUSION GmbH.
+
+The functionality has been fully integrated into the core and can be used as add on up from this version. As the MSI functionality,
+the tier price import is **NOT** activated by default. Actually there are also two options to import the product tier prices.
+
+1. Start the import process on the commandline by invoking the operation `import:products:price:tier` with the default tier price configuration
+2. Add the column `tier_prices` to the default CSV file with the product import data and use the `--configuration` option 
+   the specify the [tier price example configuration](projects/sample-data/ce/2.3.x/conf/products/techdivision-import-price-tier.json)
+
+You can find more information about the tier price import on the M2IF [website](https://www.m2if.com).
+
 ## Configuration
 
 ### Passing Serial

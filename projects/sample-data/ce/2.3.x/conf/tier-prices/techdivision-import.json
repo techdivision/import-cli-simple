@@ -1,12 +1,12 @@
 {
-  "magento-edition": "EE",
+  "magento-edition": "CE",
   "magento-version": "2.3.0",
   "operation-name" : "add-update",
   "archive-artefacts" : true,
   "debug-mode" : false,
   "source-dir" : "projects/sample-data/tmp",
   "target-dir" : "projects/sample-data/tmp",
-  "entity-type-code" : "catalog_product_inventory_msi",
+  "entity-type-code" : "catalog_product_tier_price",
   "listeners" : [
     {
       "app.set.up" : [
@@ -24,7 +24,7 @@
     {
       "id": "docker",
       "default" : true,
-      "pdo-dsn": "mysql:host=127.0.1.1:9306;dbname=magento;charset=utf8",
+      "pdo-dsn": "mysql:host=127.0.1.4:9306;dbname=magento;charset=utf8",
       "username": "magento",
       "password": "magento"
     }
@@ -61,25 +61,25 @@
         },
         {
           "id": "import.plugin.subject",
-          "subjects": [
+          "subjects" : [
             {
               "id": "import.subject.move.files",
               "identifier": "move-files",
               "file-resolver": {
-                "prefix": "product-import-inventory-msi"
+                "prefix": "product-import-tier-price"
               },
               "ok-file-needed": true
             },
             {
-              "id": "import_product_msi.subject.bunch",
+              "id": "import_product_tier_price.subject.tier_price",
               "identifier": "files",
               "file-resolver": {
-                "prefix": "product-import-inventory-msi"
+                "prefix": "product-import-tier-price"
               },
               "observers": [
                 {
                   "import": [
-                    "import_product_msi.observer.clear.inventory.source.item"
+                    "import_product_tier_price.observer.clear.tier_price"
                   ]
                 }
               ]
@@ -95,6 +95,9 @@
       "name" : "replace",
       "plugins" : [
         {
+          "id": "import.plugin.cache.warmer"
+        },
+        {
           "id": "import.plugin.global.data"
         },
         {
@@ -104,25 +107,21 @@
               "id": "import.subject.move.files",
               "identifier": "move-files",
               "file-resolver": {
-                "prefix": "product-import-inventory-msi"
+                "prefix": "product-import-tier-price"
               },
               "ok-file-needed": true
             },
             {
-              "id": "import_product_msi.subject.bunch",
+              "id": "import_product_tier_price.subject.tier_price",
               "identifier": "files",
               "file-resolver": {
-                "prefix": "product-import-inventory-msi"
+                "prefix": "product-import-tier-price"
               },
               "observers": [
                 {
                   "import": [
-                    "import_product_msi.observer.inventory.source.item"
-                  ]
-                },
-                {
-                  "post-import": [
-                    "import_product_msi.observer.clean.up"
+                    "import_product_tier_price.observer.clear.tier_price",
+                    "import_product_tier_price.observer.tier_price"
                   ]
                 }
               ]
@@ -136,7 +135,17 @@
     },
     {
       "name" : "add-update",
+      "listeners" : [
+        {
+          "subject.artefact.process.success" : [
+            "import_product_tier_price.listener.delete.obsolete.tier_prices"
+          ]
+        }
+      ],
       "plugins" : [
+        {
+          "id": "import.plugin.cache.warmer"
+        },
         {
           "id": "import.plugin.global.data"
         },
@@ -147,25 +156,25 @@
               "id": "import.subject.move.files",
               "identifier": "move-files",
               "file-resolver": {
-                "prefix": "product-import-inventory-msi"
+                "prefix": "product-import-tier-price"
               },
               "ok-file-needed": true
             },
             {
-              "id": "import_product_msi.subject.bunch",
+              "id": "import_product_tier_price.subject.tier_price",
               "identifier": "files",
               "file-resolver": {
-                "prefix": "product-import-inventory-msi"
+                "prefix": "product-import-tier-price"
               },
+              "params" : [
+                {
+                  "clean-up-tier-prices" : true
+                }
+              ],
               "observers": [
                 {
                   "import": [
-                    "import_product_msi.observer.inventory.source.item.update"
-                  ]
-                },
-                {
-                  "post-import": [
-                    "import_product_msi.observer.clean.up"
+                    "import_product_tier_price.observer.tier_price.update"
                   ]
                 }
               ]
