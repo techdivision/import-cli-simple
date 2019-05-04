@@ -6,10 +6,12 @@
 
 ## Bugfixes
 
-* None
+* Fixed techdivision/import-product#136
 
 ## Features
 
+* Added techdivision/import-product#132
+* Added techdivision/import-cli-simple#201
 * Extract registry initialization to separate listeners
 * Add --serial commandline option to pass external serial
 * Add composite listeners to reduce configuration complexity
