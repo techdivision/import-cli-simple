@@ -6,7 +6,7 @@ php:
  
 env:
   global:
-    - MAGENTO_INSTALL_VERSION=2.3.0
+    - MAGENTO_INSTALL_VERSION=2.3.1
     - MAGENTO_BASE_URL=magento.test
     - MAGENTO_CONTAINER_NAME=magento
     - MAGENTO_IMAGE_NAME=techdivision/magento2-ce:${MAGENTO_INSTALL_VERSION}

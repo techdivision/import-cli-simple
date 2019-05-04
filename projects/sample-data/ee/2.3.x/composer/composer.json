@@ -10,18 +10,22 @@
         "sort-packages": true
     },
     "require": {
-        "magento/product-enterprise-edition": "2.3.0",
+        "magento/product-enterprise-edition": "2.3.1",
         "techdivision/import-cli-simple": "3.3.0"
     },
     "require-dev": {
         "friendsofphp/php-cs-fixer": "~2.13.0",
         "lusitanian/oauth": "~0.8.10",
-        "magento/magento2-functional-testing-framework": "2.3.9",
+        "magento/magento2-functional-testing-framework": "~2.3.13",
         "pdepend/pdepend": "2.5.2",
         "phpmd/phpmd": "@stable",
         "phpunit/phpunit": "~6.5.0",
         "sebastian/phpcpd": "~3.0.0",
-        "squizlabs/php_codesniffer": "3.3.1"
+        "squizlabs/php_codesniffer": "3.3.1",
+        "allure-framework/allure-phpunit": "~1.2.0"
+    },
+    "conflict": {
+        "gene/bluefoot": "*"
     },
     "autoload": {
         "psr-4": {
@@ -32,7 +36,8 @@
         },
         "psr-0": {
             "": [
-                "app/code/"
+                "app/code/",
+                "generated/code/"
             ]
         },
         "files": [
@@ -50,11 +55,10 @@
             "Magento\\Tools\\": "dev/tools/Magento/Tools/",
             "Magento\\Tools\\Sanity\\": "dev/build/publication/sanity/Magento/Tools/Sanity/",
             "Magento\\TestFramework\\Inspection\\": "dev/tests/static/framework/Magento/TestFramework/Inspection/",
-            "Magento\\TestFramework\\Utility\\": "dev/tests/static/framework/Magento/TestFramework/Utility/",
-            "Magento\\ToolkitFramework\\": "dev/tools/performance-toolkit/framework/Magento/ToolkitFramework/"
+            "Magento\\TestFramework\\Utility\\": "dev/tests/static/framework/Magento/TestFramework/Utility/"
         }
     },
-    "version": "2.3.0",
+    "version": "2.3.1",
     "minimum-stability": "stable",
     "repositories": [
         {
