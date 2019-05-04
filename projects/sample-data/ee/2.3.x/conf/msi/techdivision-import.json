@@ -24,7 +24,7 @@
     {
       "id": "docker",
       "default" : true,
-      "pdo-dsn": "mysql:host=127.0.1.1:9306;dbname=magento;charset=utf8",
+      "pdo-dsn": "mysql:host=127.0.1.6:9306;dbname=magento;charset=utf8",
       "username": "magento",
       "password": "magento"
     }
@@ -117,12 +117,8 @@
               "observers": [
                 {
                   "import": [
+                    "import_product_msi.observer.clear.inventory.source.item",
                     "import_product_msi.observer.inventory.source.item"
-                  ]
-                },
-                {
-                  "post-import": [
-                    "import_product_msi.observer.clean.up"
                   ]
                 }
               ]
@@ -161,11 +157,6 @@
                 {
                   "import": [
                     "import_product_msi.observer.inventory.source.item.update"
-                  ]
-                },
-                {
-                  "post-import": [
-                    "import_product_msi.observer.clean.up"
                   ]
                 }
               ]
