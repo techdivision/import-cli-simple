@@ -7,6 +7,19 @@
   "source-dir" : "projects/sample-data/tmp",
   "target-dir" : "projects/sample-data/tmp",
   "entity-type-code" : "catalog_category",
+  "listeners" : [
+    {
+      "app.set.up" : [
+        "import.listener.render.ansi.art",
+        "import.listener.initialize.registry"
+      ]
+    },
+    {
+      "app.tear.down" : [
+        "import.listener.clear.registry"
+      ]
+    }
+  ],
   "databases" : [
     {
       "id": "docker",
@@ -104,8 +117,7 @@
               "observers": [
                 {
                   "import": [
-                    "import_category.observer.category.copy",
-                    "import_category.observer.clear.category"
+                    "import_category.observer.composite.replace"
                   ]
                 }
               ]
@@ -131,23 +143,8 @@
               ],
               "observers": [
                 {
-                  "pre-import": [
-                    "import_category.observer.url.key.and.path",
-                    "import.observer.attribute.set",
-                    "import.observer.additional.attribute",
-                    "import_category.observer.file.upload"
-                  ]
-                },
-                {
                   "import": [
-                    "import_category.observer.category",
-                    "import_category.observer.category.attribute",
-                    "import_category.observer.category.url.rewrite"
-                  ]
-                },
-                {
-                  "post-import": [
-                    "import_category.observer.clean.up"
+                    "import_category.observer.composite.create.replace"
                   ]
                 }
               ]
@@ -228,23 +225,8 @@
               ],
               "observers": [
                 {
-                  "pre-import": [
-                    "import_category.observer.url.key.and.path",
-                    "import.observer.attribute.set",
-                    "import.observer.additional.attribute",
-                    "import_category.observer.file.upload"
-                  ]
-                },
-                {
                   "import": [
-                    "import_category.observer.category.update",
-                    "import_category.observer.category.attribute.update",
-                    "import_category.observer.category.url.rewrite"
-                  ]
-                },
-                {
-                  "post-import": [
-                    "import_category.observer.clean.up"
+                    "import_category.observer.composite.add_update"
                   ]
                 }
               ]
@@ -269,6 +251,11 @@
               "file-resolver": {
                 "prefix": "url-rewrite"
               },
+              "params" : [
+                {
+                  "clean-up-url-rewrites" : true
+                }
+              ],
               "observers": [
                 {
                   "import": [

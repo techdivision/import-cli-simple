@@ -8,6 +8,18 @@
   "entity-type-code" : "catalog_product",
   "system-name" : "system-name/product-import",
   "databases" : [],
+  "listeners" : [
+    {
+      "app.set.up" : [
+        "import.listener.initialize.registry"
+      ]
+    },
+    {
+      "app.tear.down" : [
+        "import.listener.clear.registry"
+      ]
+    }
+  ],
   "loggers": [
     {
       "name": "system",

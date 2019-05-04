@@ -2,17 +2,18 @@
     "name": "magento/project-community-edition",
     "description": "eCommerce Platform for Growth (Community Edition)",
     "type": "project",
-    "version": "2.2.6",
+    "version": "2.2.8",
     "license": [
         "OSL-3.0",
         "AFL-3.0"
     ],
     "require": {
-        "magento/product-community-edition": "2.2.6",
-        "techdivision/import-cli-simple": "2.2.0",
+        "magento/product-community-edition": "2.2.8",
+        "techdivision/import-cli-simple": "2.4.0",
         "composer/composer": "@alpha"
     },
     "require-dev": {
+        "magento/magento2-functional-testing-framework": "2.3.13",
         "phpunit/phpunit": "~6.2.0",
         "squizlabs/php_codesniffer": "3.2.2",
         "phpmd/phpmd": "@stable",
@@ -56,10 +57,6 @@
         {
             "type": "composer",
             "url": "https://repo.magento.com/"
-        },
-        {
-            "type": "path",
-            "url": "../import-app-simple"
         }
     ],
     "extra": {

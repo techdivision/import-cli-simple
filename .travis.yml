@@ -5,7 +5,7 @@ php:
  
 env:
   global:
-    - MAGENTO_INSTALL_VERSION=2.2.6
+    - MAGENTO_INSTALL_VERSION=2.2.8
     - MAGENTO_BASE_URL=magento.test
     - MAGENTO_CONTAINER_NAME=magento
     - MAGENTO_IMAGE_NAME=techdivision/magento2-ce:${MAGENTO_INSTALL_VERSION}
@@ -16,7 +16,7 @@ services:
   - docker
 
 before_install:
-  - pecl install xdebug-2.5.5
+  - pecl install xdebug-2.7.1
   - phpenv rehash
   - wget https://scrutinizer-ci.com/ocular.phar
 

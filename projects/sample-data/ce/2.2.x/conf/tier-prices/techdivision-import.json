@@ -6,7 +6,7 @@
   "debug-mode" : false,
   "source-dir" : "projects/sample-data/tmp",
   "target-dir" : "projects/sample-data/tmp",
-  "entity-type-code" : "customer",
+  "entity-type-code" : "catalog_product_tier_price",
   "listeners" : [
     {
       "app.set.up" : [
@@ -24,7 +24,7 @@
     {
       "id": "docker",
       "default" : true,
-      "pdo-dsn": "mysql:host=127.0.1.2:9306;dbname=magento;charset=utf8",
+      "pdo-dsn": "mysql:host=127.0.1.4:9306;dbname=magento;charset=utf8",
       "username": "magento",
       "password": "magento"
     }
@@ -66,20 +66,20 @@
               "id": "import.subject.move.files",
               "identifier": "move-files",
               "file-resolver": {
-                "prefix": "customer-import"
+                "prefix": "product-import-tier-price"
               },
               "ok-file-needed": true
             },
             {
-              "id": "import_customer.subject.bunch",
+              "id": "import_product_tier_price.subject.tier_price",
               "identifier": "files",
               "file-resolver": {
-                "prefix": "customer-import"
+                "prefix": "product-import-tier-price"
               },
               "observers": [
                 {
                   "import": [
-                    "import_customer.observer.clear.customer"
+                    "import_product_tier_price.observer.clear.tier_price"
                   ]
                 }
               ]
@@ -107,34 +107,21 @@
               "id": "import.subject.move.files",
               "identifier": "move-files",
               "file-resolver": {
-                "prefix": "customer-import"
+                "prefix": "product-import-tier-price"
               },
               "ok-file-needed": true
             },
             {
-              "id": "import_customer.subject.bunch",
+              "id": "import_product_tier_price.subject.tier_price",
               "identifier": "files",
               "file-resolver": {
-                "prefix": "customer-import"
+                "prefix": "product-import-tier-price"
               },
               "observers": [
                 {
                   "import": [
-                    "import_customer.observer.composite.replace"
-                  ]
-                }
-              ]
-            },
-            {
-              "id": "import_customer_address.subject.bunch",
-              "identifier": "files",
-              "file-resolver": {
-                "prefix": "customer-import-address"
-              },
-              "observers": [
-                {
-                  "import": [
-                    "import_customer.observer.composite.address.replace"
+                    "import_product_tier_price.observer.clear.tier_price",
+                    "import_product_tier_price.observer.tier_price"
                   ]
                 }
               ]
@@ -148,6 +135,13 @@
     },
     {
       "name" : "add-update",
+      "listeners" : [
+        {
+          "subject.artefact.process.success" : [
+            "import_product_tier_price.listener.delete.obsolete.tier_prices"
+          ]
+        }
+      ],
       "plugins" : [
         {
           "id": "import.plugin.cache.warmer"
@@ -162,34 +156,25 @@
               "id": "import.subject.move.files",
               "identifier": "move-files",
               "file-resolver": {
-                "prefix": "customer-import"
+                "prefix": "product-import-tier-price"
               },
               "ok-file-needed": true
             },
             {
-              "id": "import_customer.subject.bunch",
+              "id": "import_product_tier_price.subject.tier_price",
               "identifier": "files",
               "file-resolver": {
-                "prefix": "customer-import"
+                "prefix": "product-import-tier-price"
               },
-              "observers": [
+              "params" : [
                 {
-                  "import": [
-                    "import_customer.observer.composite.add_update"
-                  ]
+                  "clean-up-tier-prices" : true
                 }
-              ]
-            },
-            {
-              "id": "import_customer_address.subject.bunch",
-              "identifier": "files",
-              "file-resolver": {
-                "prefix": "customer-import-address"
-              },
+              ],
               "observers": [
                 {
                   "import": [
-                    "import_customer.observer.composite.address.add_update"
+                    "import_product_tier_price.observer.tier_price.update"
                   ]
                 }
               ]

@@ -2,34 +2,31 @@
     "name": "magento/project-enterprise-edition",
     "description": "eCommerce Platform for Growth (Enterprise Edition)",
     "type": "project",
+    "version": "2.2.8",
     "license": [
         "proprietary"
     ],
-    "config": {
-        "preferred-install": "dist",
-        "sort-packages": true
-    },
     "require": {
-        "magento/product-enterprise-edition": "2.2.6",
-        "techdivision/import-cli-simple": "2.2.0",
+        "magento/product-enterprise-edition": "2.2.8",
+        "techdivision/import-cli-simple": "2.4.0",
         "composer/composer": "@alpha"
     },
     "require-dev": {
-        "friendsofphp/php-cs-fixer": "~2.13.0",
-        "lusitanian/oauth": "~0.8.10",
-        "magento/magento2-functional-testing-framework": "2.3.6",
-        "pdepend/pdepend": "2.5.2",
+        "magento/magento2-functional-testing-framework": "2.3.13",
+        "phpunit/phpunit": "~6.2.0",
+        "squizlabs/php_codesniffer": "3.2.2",
         "phpmd/phpmd": "@stable",
-        "phpunit/phpunit": "~6.5.0",
-        "sebastian/phpcpd": "~3.0.0",
-        "squizlabs/php_codesniffer": "3.3.1"
+        "pdepend/pdepend": "2.5.2",
+        "sjparkinson/static-review": "~4.1",
+        "friendsofphp/php-cs-fixer": "~2.2.1",
+        "lusitanian/oauth": "~0.8.10",
+        "sebastian/phpcpd": "2.0.4"
     },
     "autoload": {
         "psr-4": {
             "Magento\\Framework\\": "lib/internal/Magento/Framework/",
             "Magento\\Setup\\": "setup/src/Magento/Setup/",
-            "Magento\\": "app/code/Magento/",
-            "Zend\\Mvc\\Controller\\": "setup/src/Zend/Mvc/Controller/"
+            "Magento\\": "app/code/Magento/"
         },
         "psr-0": {
             "": [
@@ -55,8 +52,6 @@
             "Magento\\ToolkitFramework\\": "dev/tools/performance-toolkit/framework/Magento/ToolkitFramework/"
         }
     },
-    "prefer-stable": true,
-    "version": "2.2.6",
     "minimum-stability": "stable",
     "repositories": [
         {

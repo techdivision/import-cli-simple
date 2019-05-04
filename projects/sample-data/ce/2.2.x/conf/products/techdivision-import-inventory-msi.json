@@ -1,6 +1,6 @@
 {
   "magento-edition": "CE",
-  "magento-version": "2.2.0",
+  "magento-version": "2.3.0",
   "operation-name" : "add-update",
   "archive-artefacts" : true,
   "debug-mode" : false,
@@ -50,37 +50,6 @@
           }
         }
       ]
-    },
-    {
-      "name": "mail",
-      "channel-name" : "logger/mail",
-      "type" : "Monolog\\Logger",
-      "handlers" : [
-        {
-          "type": "Monolog\\Handler\\SwiftMailerHandler",
-          "params" : [
-            {
-              "log-level" : "error",
-              "bubble" : false
-            }
-          ],
-          "swift-mailer" : {
-            "factory" : "TechDivision\\Import\\Utils\\SwiftMailer\\SendmailTransportMailerFactory",
-            "mailer-factory" : "\\Swift_Mailer",
-            "params" : [
-              {
-                "to" : "m2if@techdivision.com",
-                "from" : "m2if@techdivision.com",
-                "subject": "Importer Error",
-                "content-type" : "text/plain"
-              }
-            ],
-            "transport" : {
-              "transport-factory" : "\\Swift_SendmailTransport"
-            }
-          }
-        }
-      ]
     }
   ],
   "operations" : [
@@ -110,7 +79,23 @@
               "observers": [
                 {
                   "import": [
+                    "import_product.observer.last.entity.id",
+                    "import_product_msi.observer.product.source.item",
                     "import_product.observer.composite.base.delete"
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "import_product_msi.subject.bunch",
+              "identifier": "files",
+              "file-resolver": {
+                "prefix": "inventory-msi"
+              },
+              "observers": [
+                {
+                  "import": [
+                    "import_product_msi.observer.clear.inventory.source.item"
                   ]
                 }
               ]
@@ -156,15 +141,14 @@
               },
               "params" : [
                 {
-                  "copy-images" : true,
-                  "media-directory" : "projects/sample-data/tmp",
-                  "images-file-directory" : "projects/sample-data/magento2-sample-data/pub/media/catalog/product"
+                  "copy-images" : false
                 }
               ],
               "observers": [
                 {
                   "import": [
-                    "import_product.observer.composite.base.replace"
+                    "import_product.observer.composite.base.replace",
+                    "import_product_msi.observer.product.source.item"
                   ]
                 }
               ]
@@ -251,6 +235,21 @@
                   ]
                 }
               ]
+            },
+            {
+              "id": "import_product_msi.subject.bunch",
+              "identifier": "files",
+              "file-resolver": {
+                "prefix": "inventory-msi"
+              },
+              "observers": [
+                {
+                  "import": [
+                    "import_product_msi.observer.clear.inventory.source.item",
+                    "import_product_msi.observer.inventory.source.item"
+                  ]
+                }
+              ]
             }
           ]
         },
@@ -293,18 +292,17 @@
               },
               "params" : [
                 {
-                  "copy-images" : true,
-                  "clean-up-media-gallery" : true,
-                  "clean-up-category-product-relations" : true,
-                  "clean-up-empty-columns" : [ "base_image", "small_image", "swatch_image", "thumbnail_image" ],
-                  "media-directory" : "projects/sample-data/tmp",
-                  "images-file-directory" : "projects/sample-data/magento2-sample-data/pub/media/catalog/product"
+                  "copy-images" : false,
+                  "clean-up-media-gallery" : false,
+                  "clean-up-category-product-relations" : false,
+                  "clean-up-empty-columns" : []
                 }
               ],
               "observers": [
                 {
                   "import": [
-                    "import_product.observer.composite.base.add_update"
+                    "import_product.observer.composite.base.add_update",
+                    "import_product_msi.observer.product.source.item"
                   ]
                 }
               ]
@@ -391,26 +389,22 @@
                   ]
                 }
               ]
+            },
+            {
+              "id": "import_product_msi.subject.bunch",
+              "identifier": "files",
+              "file-resolver": {
+                "prefix": "inventory-msi"
+              },
+              "observers": [
+                {
+                  "import": [
+                    "import_product_msi.observer.inventory.source.item.update"
+                  ]
+                }
+              ]
             }
           ]
-        },
-        {
-          "id": "import.plugin.missing.option.values",
-          "swift-mailer" : {
-            "factory" : "TechDivision\\Import\\Utils\\SwiftMailer\\SendmailTransportMailerFactory",
-            "mailer-factory" : "\\Swift_Mailer",
-            "params" : [
-              {
-                "to" : "m2if@techdivision.com",
-                "from" : "m2if@techdivision.com",
-                "subject": "Missing Option Values",
-                "content-type" : "text/plain"
-              }
-            ],
-            "transport" : {
-              "transport-factory" : "\\Swift_SendmailTransport"
-            }
-          }
         },
         {
           "id": "import.plugin.archive"

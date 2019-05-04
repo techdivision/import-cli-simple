@@ -7,6 +7,19 @@
   "archive-artefacts" : true,
   "debug-mode" : false,
   "entity-type-code" : "catalog_product_price",
+  "listeners" : [
+    {
+      "app.set.up" : [
+        "import.listener.render.ansi.art",
+        "import.listener.initialize.registry"
+      ]
+    },
+    {
+      "app.tear.down" : [
+        "import.listener.clear.registry"
+      ]
+    }
+  ],
   "databases" : [
     {
       "id": "docker",
@@ -65,19 +78,8 @@
               },
               "observers": [
                 {
-                  "pre-import": [
-                    "import.observer.attribute.set",
-                    "import_product_ee.observer.last.entity.and.row.id"
-                  ]
-                },
-                {
                   "import": [
-                    "import_product_ee.observer.product.attribute.update"
-                  ]
-                },
-                {
-                  "post-import": [
-                    "import_product.observer.clean.up"
+                    "import_product_ee.observer.composite.price.add_update"
                   ]
                 }
               ]

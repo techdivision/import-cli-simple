@@ -20,13 +20,14 @@
 
 namespace TechDivision\Import\Cli\Command;
 
+use Ramsey\Uuid\Uuid;
+use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Input\InputArgument;
 use TechDivision\Import\Utils\OperationKeys;
 use TechDivision\Import\Configuration\Jms\Configuration;
-use Symfony\Component\Console\Input\InputOption;
 use TechDivision\Import\Cli\Utils\DependencyInjectionKeys;
 
 /**
@@ -52,6 +53,7 @@ abstract class AbstractImportCommand extends Command
 
         // configure the command
         $this->addArgument(InputArgumentKeys::OPERATION_NAME, InputArgument::OPTIONAL, 'The operation that has to be used for the import, one of "add-update", "replace" or "delete"', OperationKeys::ADD_UPDATE)
+             ->addOption(InputOptionKeys::SERIAL, null, InputOption::VALUE_REQUIRED, 'The unique identifier of this import process', Uuid::uuid4()->__toString())
              ->addOption(InputOptionKeys::INSTALLATION_DIR, null, InputOption::VALUE_REQUIRED, 'The Magento installation directory to which the files has to be imported', getcwd())
              ->addOption(InputOptionKeys::SYSTEM_NAME, null, InputOption::VALUE_REQUIRED, 'Specify the system name to use', gethostname())
              ->addOption(InputOptionKeys::PID_FILENAME, null, InputOption::VALUE_REQUIRED, 'The explicit PID filename to use', sprintf('%s/%s', sys_get_temp_dir(), Configuration::PID_FILENAME))
@@ -102,6 +104,6 @@ abstract class AbstractImportCommand extends Command
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $this->getContainer()->get(DependencyInjectionKeys::CONFIGURATION);
-        $this->getContainer()->get(DependencyInjectionKeys::SIMPLE)->process();
+        $this->getContainer()->get(DependencyInjectionKeys::SIMPLE)->process($input->getOption(InputOptionKeys::SERIAL));
     }
 }

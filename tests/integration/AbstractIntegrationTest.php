@@ -27,6 +27,7 @@ use TechDivision\Import\Utils\EntityStatus;
 use TechDivision\Import\Utils\StoreViewCodes;
 use TechDivision\Import\Cli\Utils\DependencyInjectionKeys;
 use TechDivision\Import\Configuration\Jms\Configuration\Database;
+use Ramsey\Uuid\Uuid;
 
 /**
  * Test class for the product URL rewrite observer implementation.
@@ -318,7 +319,7 @@ abstract class AbstractIntegrationTest extends \PHPUnit_Framework_TestCase
     protected function processImport($times = 1)
     {
         for ($i = 0; $i < $times; $i++) {
-            self::$container->get(DependencyInjectionKeys::SIMPLE)->process();
+            self::$container->get(DependencyInjectionKeys::SIMPLE)->process(Uuid::uuid4()->toString());
         }
     }
 
