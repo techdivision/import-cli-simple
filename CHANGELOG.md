@@ -1,3 +1,17 @@
+# Version 2.4.1
+
+## Known Issues
+
+* Up from Magento 2 EE 2.1.10 using the single transaction mode has a massive performance impact (can only be used **WITHOUT** single transaction)
+
+## Bugfixes
+
+* Backported Bugfixes from 3.3.x (see https://github.com/techdivision/import-cli-simple/blob/3.3.x/CHANGELOG.md)
+
+## Features
+
+* Backported Features from 3.3.x (see https://github.com/techdivision/import-cli-simple/blob/3.3.x/CHANGELOG.md)
+
 # Version 2.4.0
 
 ## Known Issues
