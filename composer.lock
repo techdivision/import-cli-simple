@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "68697381436181ce94e241883f4d18b9",
+    "content-hash": "c39d8f535cd9d27f1b7b396b5f75107f",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -1117,6 +1117,52 @@
             "time": "2015-07-25T16:39:46+00:00"
         },
         {
+            "name": "psr/cache",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-fig/cache.git",
+                "reference": "d11b50ad223250cf17b86e38383413f5a6764bf8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-fig/cache/zipball/d11b50ad223250cf17b86e38383413f5a6764bf8",
+                "reference": "d11b50ad223250cf17b86e38383413f5a6764bf8",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Psr\\Cache\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "PHP-FIG",
+                    "homepage": "http://www.php-fig.org/"
+                }
+            ],
+            "description": "Common interface for caching libraries",
+            "keywords": [
+                "cache",
+                "psr",
+                "psr-6"
+            ],
+            "time": "2016-08-06T20:24:11+00:00"
+        },
+        {
             "name": "psr/container",
             "version": "1.0.0",
             "source": {
@@ -1485,16 +1531,16 @@
         },
         {
             "name": "symfony/contracts",
-            "version": "v1.0.2",
+            "version": "v1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/contracts.git",
-                "reference": "1aa7ab2429c3d594dd70689604b5cf7421254cdf"
+                "reference": "d3636025e8253c6144358ec0a62773cae588395b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/contracts/zipball/1aa7ab2429c3d594dd70689604b5cf7421254cdf",
-                "reference": "1aa7ab2429c3d594dd70689604b5cf7421254cdf",
+                "url": "https://api.github.com/repos/symfony/contracts/zipball/d3636025e8253c6144358ec0a62773cae588395b",
+                "reference": "d3636025e8253c6144358ec0a62773cae588395b",
                 "shasum": ""
             },
             "require": {
@@ -1502,19 +1548,22 @@
             },
             "require-dev": {
                 "psr/cache": "^1.0",
-                "psr/container": "^1.0"
+                "psr/container": "^1.0",
+                "symfony/polyfill-intl-idn": "^1.10"
             },
             "suggest": {
                 "psr/cache": "When using the Cache contracts",
                 "psr/container": "When using the Service contracts",
                 "symfony/cache-contracts-implementation": "",
+                "symfony/event-dispatcher-implementation": "",
+                "symfony/http-client-contracts-implementation": "",
                 "symfony/service-contracts-implementation": "",
                 "symfony/translation-contracts-implementation": ""
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.0-dev"
+                    "dev-master": "1.1-dev"
                 }
             },
             "autoload": {
@@ -1549,7 +1598,7 @@
                 "interoperability",
                 "standards"
             ],
-            "time": "2018-12-05T08:06:11+00:00"
+            "time": "2019-04-27T14:29:50+00:00"
         },
         {
             "name": "symfony/dependency-injection",
@@ -1793,16 +1842,16 @@
         },
         {
             "name": "techdivision/import",
-            "version": "8.0.0",
+            "version": "9.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import.git",
-                "reference": "66d3eb967cbbd2d248942044fa8ede1192e48fd4"
+                "reference": "c82ffe997088bf18fbf541d50ab7628f41caf9eb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import/zipball/66d3eb967cbbd2d248942044fa8ede1192e48fd4",
-                "reference": "66d3eb967cbbd2d248942044fa8ede1192e48fd4",
+                "url": "https://api.github.com/repos/techdivision/import/zipball/c82ffe997088bf18fbf541d50ab7628f41caf9eb",
+                "reference": "c82ffe997088bf18fbf541d50ab7628f41caf9eb",
                 "shasum": ""
             },
             "require": {
@@ -1810,6 +1859,7 @@
                 "league/event": "~2.0",
                 "league/flysystem": "~1.0",
                 "php": ">=5.6.0",
+                "psr/cache": "~1.0",
                 "psr/container": "~1.0",
                 "psr/log": "~1.0",
                 "swiftmailer/swiftmailer": "5.4.*",
@@ -1847,7 +1897,7 @@
                 }
             ],
             "description": "A library supporting generic Magento 2 import functionality",
-            "time": "2019-05-03T17:37:56+00:00"
+            "time": "2019-05-14T17:17:34+00:00"
         },
         {
             "name": "techdivision/import-app-simple",
@@ -2115,23 +2165,23 @@
         },
         {
             "name": "techdivision/import-configuration-jms",
-            "version": "8.0.0",
+            "version": "9.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-configuration-jms.git",
-                "reference": "41ca5246301388a5f4d3738557ff6d4f2e497e1d"
+                "reference": "6695e20288f7b9f0d14bbf429de8b3615f106bf3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-configuration-jms/zipball/41ca5246301388a5f4d3738557ff6d4f2e497e1d",
-                "reference": "41ca5246301388a5f4d3738557ff6d4f2e497e1d",
+                "url": "https://api.github.com/repos/techdivision/import-configuration-jms/zipball/6695e20288f7b9f0d14bbf429de8b3615f106bf3",
+                "reference": "6695e20288f7b9f0d14bbf429de8b3615f106bf3",
                 "shasum": ""
             },
             "require": {
                 "doctrine/dbal": "2.5.*",
                 "jms/serializer": "~1.0",
                 "php": ">=5.6.0",
-                "techdivision/import": "8.0.*"
+                "techdivision/import": "9.x-dev as 8.0.0"
             },
             "require-dev": {
                 "consolidation/robo": "~1.0",
@@ -2162,7 +2212,7 @@
                 }
             ],
             "description": "Library providing a JMS based configuration implementation for the M2IF",
-            "time": "2019-05-03T18:13:52+00:00"
+            "time": "2019-05-14T17:22:16+00:00"
         },
         {
             "name": "techdivision/import-customer",
@@ -2324,21 +2374,21 @@
         },
         {
             "name": "techdivision/import-product",
-            "version": "9.0.1",
+            "version": "10.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-product.git",
-                "reference": "a596e0c4b0495c918139935a709815c739d61e95"
+                "reference": "2e5496287231ce836d50579852627550006ec1c7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-product/zipball/a596e0c4b0495c918139935a709815c739d61e95",
-                "reference": "a596e0c4b0495c918139935a709815c739d61e95",
+                "url": "https://api.github.com/repos/techdivision/import-product/zipball/2e5496287231ce836d50579852627550006ec1c7",
+                "reference": "2e5496287231ce836d50579852627550006ec1c7",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.6.0",
-                "techdivision/import": "8.0.*"
+                "techdivision/import": "9.x-dev as 8.0.0"
             },
             "require-dev": {
                 "consolidation/robo": "~1.0",
@@ -2372,7 +2422,7 @@
                 }
             ],
             "description": "M2IF library providing basic Magento 2 product import functionality",
-            "time": "2019-05-04T11:13:55+00:00"
+            "time": "2019-05-14T17:26:35+00:00"
         },
         {
             "name": "techdivision/import-product-bundle",
@@ -5972,9 +6022,31 @@
             "time": "2018-12-25T11:19:39+00:00"
         }
     ],
-    "aliases": [],
+    "aliases": [
+        {
+            "alias": "8.0.0",
+            "alias_normalized": "8.0.0.0",
+            "version": "9.9999999.9999999.9999999-dev",
+            "package": "techdivision/import"
+        },
+        {
+            "alias": "8.0.0",
+            "alias_normalized": "8.0.0.0",
+            "version": "9.9999999.9999999.9999999-dev",
+            "package": "techdivision/import-configuration-jms"
+        },
+        {
+            "alias": "9.0.0",
+            "alias_normalized": "9.0.0.0",
+            "version": "10.9999999.9999999.9999999-dev",
+            "package": "techdivision/import-product"
+        }
+    ],
     "minimum-stability": "stable",
     "stability-flags": {
+        "techdivision/import": 20,
+        "techdivision/import-configuration-jms": 20,
+        "techdivision/import-product": 20,
         "phpmd/phpmd": 0
     },
     "prefer-stable": false,

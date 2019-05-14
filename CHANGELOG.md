@@ -1,3 +1,17 @@
+# Version 3.4.0
+
+## Known Issues
+
+* Up from Magento 2 EE 2.1.10 using the single transaction mode has a massive performance impact (can only be used **WITHOUT** single transaction)
+
+## Bugfixes
+
+* None
+
+## Features
+
+* Refactor Cache Integration for PSR-6 compliance
+
 # Version 3.3.1
 
 ## Known Issues

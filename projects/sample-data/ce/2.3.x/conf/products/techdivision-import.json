@@ -263,7 +263,14 @@
       "name" : "add-update",
       "plugins" : [
         {
-          "id": "import.plugin.cache.warmer"
+          "id": "import.plugin.cache.warmer",
+          "params" : [
+            {
+              "cache-warmers" : [
+                "import_product.repository.cache.warmer.product"
+              ]
+            }
+          ]
         },
         {
           "id": "import.plugin.global.data"

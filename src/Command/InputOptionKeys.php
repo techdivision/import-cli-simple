@@ -209,4 +209,11 @@ class InputOptionKeys
      * @var string
      */
     const PARAMS_FILE = 'params-file';
+
+    /**
+     * The input option key for the flag to enable the cache functionality or not.
+     *
+     * @var string
+     */
+    const CACHE_ENABLED = 'cache-enabled';
 }

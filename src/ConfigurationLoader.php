@@ -179,6 +179,12 @@ class ConfigurationLoader extends SimpleConfigurationLoader
             $instance->setSingleTransaction($instance->mapBoolean($singleTransaction));
         }
 
+        // query whether or not the cache flag has been specified as command line
+        // option, if yes override the value from the configuration file
+        if ($cacheEnabled = $this->input->getOption(InputOptionKeys::CACHE_ENABLED)) {
+            $instance->setCacheEnabled($instance->mapBoolean($cacheEnabled));
+        }
+
         // query whether or not we've an valid Magento root directory specified
         if ($this->isMagentoRootDir($installationDir = $instance->getInstallationDir())) {
             // if yes, add the database configuration
