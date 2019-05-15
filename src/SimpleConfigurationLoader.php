@@ -357,7 +357,7 @@ class SimpleConfigurationLoader implements ConfigurationLoaderInterface
     {
 
         // try to map the command name to a entity type code
-        if (array_key_exists($commandName = $this->getCommandName(), $this->commandNameToEntityTypeCode)) {
+        if (array_key_exists($commandName = $this->getCommandName(), (array) $this->commandNameToEntityTypeCode)) {
             return $this->commandNameToEntityTypeCode[$commandName];
         }
 
