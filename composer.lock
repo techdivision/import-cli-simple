@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "b19342d9a607f53c80a5340dc3c02f14",
+    "content-hash": "3351b1330675ed82dea1f641a67f40b0",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -813,16 +813,16 @@
         },
         {
             "name": "league/flysystem",
-            "version": "1.0.51",
+            "version": "1.0.52",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/flysystem.git",
-                "reference": "755ba7bf3fb9031e6581d091db84d78275874396"
+                "reference": "c5a5097156387970e6f0ccfcdf03f752856f3391"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/755ba7bf3fb9031e6581d091db84d78275874396",
-                "reference": "755ba7bf3fb9031e6581d091db84d78275874396",
+                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/c5a5097156387970e6f0ccfcdf03f752856f3391",
+                "reference": "c5a5097156387970e6f0ccfcdf03f752856f3391",
                 "shasum": ""
             },
             "require": {
@@ -893,7 +893,7 @@
                 "sftp",
                 "storage"
             ],
-            "time": "2019-03-30T13:22:34+00:00"
+            "time": "2019-05-20T20:21:14+00:00"
         },
         {
             "name": "monolog/monolog",
@@ -1846,12 +1846,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import.git",
-                "reference": "91d8fde6bb1503aad00a961dd354d6c1b36ba445"
+                "reference": "2bc7fbcd3e20127fc43c660f69ed710b4f447e2c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import/zipball/91d8fde6bb1503aad00a961dd354d6c1b36ba445",
-                "reference": "91d8fde6bb1503aad00a961dd354d6c1b36ba445",
+                "url": "https://api.github.com/repos/techdivision/import/zipball/2bc7fbcd3e20127fc43c660f69ed710b4f447e2c",
+                "reference": "2bc7fbcd3e20127fc43c660f69ed710b4f447e2c",
                 "shasum": ""
             },
             "require": {
@@ -1897,20 +1897,20 @@
                 }
             ],
             "description": "A library supporting generic Magento 2 import functionality",
-            "time": "2019-05-16T20:42:57+00:00"
+            "time": "2019-05-27T14:44:30+00:00"
         },
         {
             "name": "techdivision/import-app-simple",
-            "version": "9.0.0",
+            "version": "10.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-app-simple.git",
-                "reference": "3f3f755b48b9b8d23f8788679f3cfdf2fcfe1680"
+                "reference": "2dfde1dc55bd43fa2dbb7379514eff6d3037b5de"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-app-simple/zipball/3f3f755b48b9b8d23f8788679f3cfdf2fcfe1680",
-                "reference": "3f3f755b48b9b8d23f8788679f3cfdf2fcfe1680",
+                "url": "https://api.github.com/repos/techdivision/import-app-simple/zipball/2dfde1dc55bd43fa2dbb7379514eff6d3037b5de",
+                "reference": "2dfde1dc55bd43fa2dbb7379514eff6d3037b5de",
                 "shasum": ""
             },
             "require": {
@@ -1918,7 +1918,7 @@
                 "php": ">=7.1.0",
                 "ramsey/uuid": "~3.0",
                 "symfony/console": "~2.3,!=2.7.0|~4.0",
-                "techdivision/import": "8.0.*"
+                "techdivision/import": "9.x-dev as 8.0.0"
             },
             "require-dev": {
                 "consolidation/robo": "~1.0",
@@ -1952,7 +1952,7 @@
                 }
             ],
             "description": "M2IF simple application implementation providing basic Magento 2 import functionality",
-            "time": "2019-05-07T08:14:26+00:00"
+            "time": "2019-05-27T14:48:06+00:00"
         },
         {
             "name": "techdivision/import-attribute",
@@ -2169,12 +2169,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-configuration-jms.git",
-                "reference": "6695e20288f7b9f0d14bbf429de8b3615f106bf3"
+                "reference": "a926163fc64b94ac8ab0d43661f691d46dc4b670"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-configuration-jms/zipball/6695e20288f7b9f0d14bbf429de8b3615f106bf3",
-                "reference": "6695e20288f7b9f0d14bbf429de8b3615f106bf3",
+                "url": "https://api.github.com/repos/techdivision/import-configuration-jms/zipball/a926163fc64b94ac8ab0d43661f691d46dc4b670",
+                "reference": "a926163fc64b94ac8ab0d43661f691d46dc4b670",
                 "shasum": ""
             },
             "require": {
@@ -2212,7 +2212,7 @@
                 }
             ],
             "description": "Library providing a JMS based configuration implementation for the M2IF",
-            "time": "2019-05-14T17:22:16+00:00"
+            "time": "2019-05-27T15:48:16+00:00"
         },
         {
             "name": "techdivision/import-customer",
@@ -2378,12 +2378,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-product.git",
-                "reference": "a1dcdcb36a9c5b4f0d02f917920a3b87492a008f"
+                "reference": "44bd18937b38e476c73a723fc1ee2524b961a900"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-product/zipball/a1dcdcb36a9c5b4f0d02f917920a3b87492a008f",
-                "reference": "a1dcdcb36a9c5b4f0d02f917920a3b87492a008f",
+                "url": "https://api.github.com/repos/techdivision/import-product/zipball/44bd18937b38e476c73a723fc1ee2524b961a900",
+                "reference": "44bd18937b38e476c73a723fc1ee2524b961a900",
                 "shasum": ""
             },
             "require": {
@@ -2422,7 +2422,7 @@
                 }
             ],
             "description": "M2IF library providing basic Magento 2 product import functionality",
-            "time": "2019-05-16T17:46:56+00:00"
+            "time": "2019-05-27T14:57:53+00:00"
         },
         {
             "name": "techdivision/import-product-bundle",
@@ -2955,12 +2955,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-product-tier-price.git",
-                "reference": "a54dd525ee74042a0bff5be2a305fc87e602e6d5"
+                "reference": "9f259e7b8e42f9b682326cf1a9e1576e151fe45e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-product-tier-price/zipball/a54dd525ee74042a0bff5be2a305fc87e602e6d5",
-                "reference": "a54dd525ee74042a0bff5be2a305fc87e602e6d5",
+                "url": "https://api.github.com/repos/techdivision/import-product-tier-price/zipball/9f259e7b8e42f9b682326cf1a9e1576e151fe45e",
+                "reference": "9f259e7b8e42f9b682326cf1a9e1576e151fe45e",
                 "shasum": ""
             },
             "require": {
@@ -3004,7 +3004,7 @@
                 }
             ],
             "description": "M2IF library providing basic Magento 2 product tier price import functionality",
-            "time": "2019-05-16T20:48:30+00:00"
+            "time": "2019-05-27T15:40:03+00:00"
         },
         {
             "name": "techdivision/import-product-url-rewrite",
@@ -6031,6 +6031,12 @@
             "package": "techdivision/import"
         },
         {
+            "alias": "9.0.0",
+            "alias_normalized": "9.0.0.0",
+            "version": "10.9999999.9999999.9999999-dev",
+            "package": "techdivision/import-app-simple"
+        },
+        {
             "alias": "8.0.0",
             "alias_normalized": "8.0.0.0",
             "version": "9.9999999.9999999.9999999-dev",
@@ -6058,6 +6064,7 @@
     "minimum-stability": "stable",
     "stability-flags": {
         "techdivision/import": 20,
+        "techdivision/import-app-simple": 20,
         "techdivision/import-configuration-jms": 20,
         "techdivision/import-product": 20,
         "techdivision/import-product-tier-price": 20,
