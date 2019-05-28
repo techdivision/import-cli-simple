@@ -130,7 +130,7 @@ class AddUpdateOperationTest extends AbstractIntegrationTest
         $product = $productBunchProcessor->loadProduct($sku = 'TEST-SKU-000001');
 
         // try to load the category product relations by their SKU and count them
-        $categoryProducts = $productBunchProcessor->getCategoryProductsBySku($sku);
+        $categoryProducts = iterator_to_array($productBunchProcessor->getCategoryProductsBySku($sku));
         $this->assertCount(1, $categoryProducts);
 
         // load the second found category product relation
@@ -174,7 +174,7 @@ class AddUpdateOperationTest extends AbstractIntegrationTest
         $product = $productBunchProcessor->loadProduct($sku = 'TEST-SKU-000001');
 
         // try to load the category product relations by their SKU and count them
-        $categoryProducts = $productBunchProcessor->getCategoryProductsBySku($sku);
+        $categoryProducts = iterator_to_array($productBunchProcessor->getCategoryProductsBySku($sku));
         $this->assertCount(1, $categoryProducts);
 
         // load the second found category product relation

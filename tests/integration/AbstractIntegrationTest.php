@@ -357,6 +357,28 @@ abstract class AbstractIntegrationTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * Return's the database host from the environment variable DB_HOST, which usually
+     * has to be initialzed by the task runner that executes the integration test suite.
+     *
+     * @return string The database host to use
+     */
+    protected function getDbHost()
+    {
+        return getenv('DB_HOST') ? getenv('DB_HOST') : '127.0.0.1';
+    }
+
+    /**
+     * Return's the database port from the environment variable DB_PORT, which usually
+     * has to be initialzed by the task runner that executes the integration test suite.
+     *
+     * @return integer The database port to use
+     */
+    protected function getDbPort()
+    {
+        return getenv('DB_PORT') ? (integer) getenv('DB_PORT') : 9306;
+    }
+
+    /**
      * Return's the database configuration.
      *
      * @return \TechDivision\Import\Configuration\Jms\Configuration\Database The database configuration
@@ -370,7 +392,14 @@ abstract class AbstractIntegrationTest extends \PHPUnit_Framework_TestCase
         $database->setId('integration-testing');
         $database->setUsername($this->getDbUser());
         $database->setPassword($this->getDbPassword());
-        $database->setDsn(sprintf('mysql:host=127.0.0.1;dbname=%s;port=9306;charset=utf8', $this->getDbName()));
+        $database->setDsn(
+            sprintf(
+                'mysql:host=%s;dbname=%s;port=%d;charset=utf8',
+                $this->getDbHost(),
+                $this->getDbName(),
+                $this->getDbPort()
+            )
+        );
 
         // return the database configuration
         return $database;
