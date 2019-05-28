@@ -3,6 +3,7 @@ language: php
 php:
   - 7.1
   - 7.2
+  - 7.3
  
 env:
   global:
@@ -17,7 +18,7 @@ services:
   - docker
 
 before_install:
-  - pecl install xdebug-2.7.1
+  - pecl install xdebug-2.7.2
   - phpenv rehash
   - wget https://scrutinizer-ci.com/ocular.phar
 
