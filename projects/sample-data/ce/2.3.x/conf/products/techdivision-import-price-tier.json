@@ -243,13 +243,6 @@
     },
     {
       "name" : "add-update",
-      "listeners" : [
-        {
-          "subject.artefact.process.success" : [
-            "import_product_tier_price.listener.delete.obsolete.tier_prices"
-          ]
-        }
-      ],
       "plugins" : [
         {
           "id": "import.plugin.cache.warmer"
@@ -259,6 +252,18 @@
         },
         {
           "id": "import.plugin.subject",
+          "listeners" : [
+             {
+              "plugin.process.success" : [
+                "import_product_tier_price.listener.delete.obsolete.tier_prices"
+              ]
+            }
+          ],
+          "params" : [
+            {
+              "clean-up-tier-prices" : true
+            }
+          ],
           "subjects": [
             {
               "id": "import.subject.move.files",
@@ -385,11 +390,6 @@
               "file-resolver": {
                 "prefix": "tier-price"
               },
-              "params" : [
-                {
-                  "clean-up-tier-prices" : true
-                }
-              ],
               "observers": [
                 {
                   "import": [
