@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "3351b1330675ed82dea1f641a67f40b0",
+    "content-hash": "214e6bd356b6756a06e2db57f5b830da",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -2060,16 +2060,16 @@
         },
         {
             "name": "techdivision/import-category",
-            "version": "9.0.0",
+            "version": "10.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-category.git",
-                "reference": "6e4dfba08c69fd051587cbdeb92c9a9606d956ee"
+                "reference": "a6c31b638e8c12ee811e0da7c26ab89d2a6f9f45"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-category/zipball/6e4dfba08c69fd051587cbdeb92c9a9606d956ee",
-                "reference": "6e4dfba08c69fd051587cbdeb92c9a9606d956ee",
+                "url": "https://api.github.com/repos/techdivision/import-category/zipball/a6c31b638e8c12ee811e0da7c26ab89d2a6f9f45",
+                "reference": "a6c31b638e8c12ee811e0da7c26ab89d2a6f9f45",
                 "shasum": ""
             },
             "require": {
@@ -2108,25 +2108,25 @@
                 }
             ],
             "description": "M2IF library providing basic Magento 2 category import functionality",
-            "time": "2019-05-03T19:36:21+00:00"
+            "time": "2019-05-28T08:21:55+00:00"
         },
         {
             "name": "techdivision/import-category-ee",
-            "version": "10.0.0",
+            "version": "11.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-category-ee.git",
-                "reference": "ad614f40e0d2f843310519e10769cdf44e313665"
+                "reference": "fb190a6b96d11e0a7e230347f6f8635ae3655202"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-category-ee/zipball/ad614f40e0d2f843310519e10769cdf44e313665",
-                "reference": "ad614f40e0d2f843310519e10769cdf44e313665",
+                "url": "https://api.github.com/repos/techdivision/import-category-ee/zipball/fb190a6b96d11e0a7e230347f6f8635ae3655202",
+                "reference": "fb190a6b96d11e0a7e230347f6f8635ae3655202",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.6.0",
-                "techdivision/import-category": "9.0.*",
+                "techdivision/import-category": "10.x-dev as 9.0.0",
                 "techdivision/import-ee": "7.0.*"
             },
             "require-dev": {
@@ -2161,7 +2161,7 @@
                 }
             ],
             "description": "M2IF library providing basic Magento 2 EE category import functionality",
-            "time": "2019-05-04T10:09:30+00:00"
+            "time": "2019-05-28T08:32:12+00:00"
         },
         {
             "name": "techdivision/import-configuration-jms",
@@ -6046,6 +6046,18 @@
             "alias": "9.0.0",
             "alias_normalized": "9.0.0.0",
             "version": "10.9999999.9999999.9999999-dev",
+            "package": "techdivision/import-category"
+        },
+        {
+            "alias": "10.0.0",
+            "alias_normalized": "10.0.0.0",
+            "version": "11.9999999.9999999.9999999-dev",
+            "package": "techdivision/import-category-ee"
+        },
+        {
+            "alias": "9.0.0",
+            "alias_normalized": "9.0.0.0",
+            "version": "10.9999999.9999999.9999999-dev",
             "package": "techdivision/import-product"
         },
         {
@@ -6066,6 +6078,8 @@
         "techdivision/import": 20,
         "techdivision/import-app-simple": 20,
         "techdivision/import-configuration-jms": 20,
+        "techdivision/import-category": 20,
+        "techdivision/import-category-ee": 20,
         "techdivision/import-product": 20,
         "techdivision/import-product-tier-price": 20,
         "techdivision/import-product-ee": 20,
