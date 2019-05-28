@@ -6,6 +6,7 @@
 
 ## Bugfixes
 
+* Fixed techdivision/import#147
 * Fixed techdivision/import-product-tier-price#6
 * Fixed techdivision/import-product-tier-price#7
 
