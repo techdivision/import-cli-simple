@@ -135,13 +135,6 @@
     },
     {
       "name" : "add-update",
-      "listeners" : [
-        {
-          "subject.artefact.process.success" : [
-            "import_product_tier_price.listener.delete.obsolete.tier_prices"
-          ]
-        }
-      ],
       "plugins" : [
         {
           "id": "import.plugin.cache.warmer"
@@ -151,6 +144,18 @@
         },
         {
           "id": "import.plugin.subject",
+          "listeners" : [
+             {
+              "plugin.process.success" : [
+                "import_product_tier_price.listener.delete.obsolete.tier_prices"
+              ]
+            }
+          ],
+          "params" : [
+            {
+              "clean-up-tier-prices" : true
+            }
+          ],
           "subjects": [
             {
               "id": "import.subject.move.files",
@@ -163,14 +168,16 @@
             {
               "id": "import_product_tier_price.subject.tier_price",
               "identifier": "files",
+              "listeners": [
+                 {
+                  "subject.import.success" : [
+                    "import_product.listener.register.sku.to.pk.mapping"
+                  ]
+                }
+              ],
               "file-resolver": {
                 "prefix": "product-import-tier-price"
               },
-              "params" : [
-                {
-                  "clean-up-tier-prices" : true
-                }
-              ],
               "observers": [
                 {
                   "import": [

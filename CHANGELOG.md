@@ -6,10 +6,13 @@
 
 ## Bugfixes
 
-* None
+* Fixed techdivision/import#147
+* Fixed techdivision/import-product-tier-price#6
+* Fixed techdivision/import-product-tier-price#7
 
 ## Features
 
+* Add additional events on plugin and subject level
 * Refactor Cache Integration for PSR-6 compliance
 
 # Version 3.3.1
