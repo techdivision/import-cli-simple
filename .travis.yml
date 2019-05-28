@@ -18,7 +18,6 @@ services:
   - docker
 
 before_install:
-  - pecl install xdebug-2.7.2
   - phpenv rehash
   - wget https://scrutinizer-ci.com/ocular.phar
 
