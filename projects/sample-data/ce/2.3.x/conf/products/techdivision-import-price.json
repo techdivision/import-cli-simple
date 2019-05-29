@@ -7,6 +7,19 @@
   "archive-artefacts" : true,
   "debug-mode" : false,
   "entity-type-code" : "catalog_product_price",
+  "listeners" : [
+    {
+      "app.set.up" : [
+        "import.listener.render.ansi.art",
+        "import.listener.initialize.registry"
+      ]
+    },
+    {
+      "app.tear.down" : [
+        "import.listener.clear.registry"
+      ]
+    }
+  ],
   "databases" : [
     {
       "id": "docker",
