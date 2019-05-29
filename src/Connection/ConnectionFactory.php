@@ -52,6 +52,11 @@ class ConnectionFactory
         $connection = new \PDO($dsn, $username, $password);
         $connection->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
 
+        /* As of MySQL version > 5.7.4 the ONLY_FULL_GROUP_BY is activated by default. So in some */
+        /* cases it is necessary to activate to TRADITIONAL mode to allow certain queries to run, */
+        /* https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_only_full_group_by       */
+        $connection->exec('SET SESSION sql_mode = traditional');
+
         // reurn the wrapped PDO connection
         return new PDOConnectionWrapper($connection);
     }

@@ -1,3 +1,17 @@
+# Version 3.4.1
+
+## Known Issues
+
+* Up from Magento 2 EE 2.1.10 using the single transaction mode has a massive performance impact (can only be used **WITHOUT** single transaction)
+
+## Bugfixes
+
+* Fixed issue with MySQL mode ONLY_FULL_GROUP_BY which is activated by default for MySQL > 3.7.4
+
+## Features
+
+* None
+
 # Version 3.4.0
 
 ## Known Issues
