@@ -6,7 +6,7 @@
 
 ## Bugfixes
 
-* Fixed issue with MySQL mode ONLY_FULL_GROUP_BY which is activated by default for MySQL > 3.7.4
+* Fixed issue with MySQL mode ONLY_FULL_GROUP_BY which is activated by default for MySQL > 5.7.4
 
 ## Features
 
