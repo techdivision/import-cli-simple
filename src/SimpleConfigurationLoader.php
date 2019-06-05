@@ -30,6 +30,7 @@ use TechDivision\Import\Cli\Utils\MagentoConfigurationKeys;
 use TechDivision\Import\Utils\CommandNames;
 use TechDivision\Import\Utils\EntityTypeCodes;
 use TechDivision\Import\Utils\Mappings\CommandNameToEntityTypeCode;
+use TechDivision\Import\ConfigurationInterface;
 
 /**
  * The configuration loader implementation.
@@ -260,6 +261,9 @@ class SimpleConfigurationLoader implements ConfigurationLoaderInterface
             // override the Magento Edition, if NOT explicitly specified
             $instance->setMagentoEdition($magentoEdition);
         }
+
+        // set the serial that has been specified as command line option (or the default value)
+        $instance->setSerial($this->input->getOption(InputOptionKeys::SERIAL));
 
         // query whether or not a system name has been specified as command line option, if yes override the value from the configuration file
         if (($this->input->hasOptionSpecified(InputOptionKeys::SYSTEM_NAME) && $this->input->getOption(InputOptionKeys::SYSTEM_NAME)) || $instance->getSystemName() === null) {

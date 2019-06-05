@@ -7,6 +7,9 @@
   "source-dir" : "projects/sample-data/tmp",
   "target-dir" : "projects/sample-data/tmp",
   "entity-type-code" : "catalog_category",
+  "extension-libraries" : [
+    "techdivision/import-parallel"
+  ],
   "listeners" : [
     {
       "app.set.up" : [
@@ -27,6 +30,13 @@
       "pdo-dsn": "mysql:host=127.0.1.6:9306;dbname=magento;charset=utf8",
       "username": "magento",
       "password": "magento"
+    },
+    {
+      "id": "redis",
+      "type" : "redis",
+      "host": "127.0.0.1",
+      "port": 6379,
+      "name": 3
     }
   ],
   "loggers": [

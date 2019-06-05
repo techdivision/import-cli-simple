@@ -27,6 +27,7 @@ use TechDivision\Import\Cli\Command\InputOptionKeys;
 use TechDivision\Import\Cli\Utils\MagentoConfigurationKeys;
 use TechDivision\Import\Configuration\Jms\Configuration\Database;
 use TechDivision\Import\Utils\EntityTypeCodes;
+use TechDivision\Import\ConfigurationInterface;
 
 /**
  * The configuration loader implementation.
@@ -258,6 +259,11 @@ class ConfigurationLoader extends SimpleConfigurationLoader
         // load the extension libraries, if configured
         $this->libraryLoader->load($instance);
 
+        // register the configured aliases in the DI container, this MUST
+        // happen after the libraries have been loaded, else it would not
+        // be possible to override existing aliases
+        $this->initializeAliases($instance);
+
         // return the initialized configuration instance
         return $instance;
     }
@@ -419,5 +425,24 @@ class ConfigurationLoader extends SimpleConfigurationLoader
                 $entityTypeCode
             )
         );
+    }
+
+    /**
+     * Registers the configured aliases in the DI container.
+     *
+     * @param \TechDivision\Import\ConfigurationInterface $configuration The configuration with the aliases to register
+     *
+     * @return void
+     */
+    protected function initializeAliases(ConfigurationInterface $configuration)
+    {
+
+        // load the DI aliases
+        $aliases = $configuration->getAliases();
+
+        // register the DI aliases
+        foreach ($aliases as $alias) {
+            $this->getContainer()->setAlias($alias->getId(), $alias->getTarget());
+        }
     }
 }
