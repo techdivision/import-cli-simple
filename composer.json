@@ -43,8 +43,7 @@
         "techdivision/import-product-media-ee": "11.0.*",
         "techdivision/import-product-bundle-ee": "11.0.*",
         "techdivision/import-product-variant-ee": "12.0.*",
-        "techdivision/import-product-grouped-ee": "6.0.*",
-        "techdivision/import-parallel": "2.x-dev as 1.0.0"
+        "techdivision/import-product-grouped-ee": "6.0.*"
     },
     "require-dev": {
         "doctrine/dbal": "2.5.*",
@@ -76,11 +75,5 @@
     "bin": [
         "bin/import-simple",
         "bin/import-simple.php"
-    ],
-    "repositories": [
-        {
-            "type": "vcs",
-            "url": "https://gitlab.met.tdintern.de/techdivision/eip/import-parallel.git"
-        }
     ]
 }
