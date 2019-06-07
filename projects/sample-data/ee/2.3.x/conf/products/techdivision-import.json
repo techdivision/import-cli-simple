@@ -7,19 +7,6 @@
   "source-dir" : "projects/sample-data/tmp",
   "target-dir" : "projects/sample-data/tmp",
   "entity-type-code" : "catalog_product",
-  "extension-libraries" : [
-    "techdivision/import-parallel"
-  ],
-  "aliases": [
-    {
-      "id": "cache.static",
-      "target": "import_parallel.cache.adapter.static"
-    },
-    {
-      "id": "cache.configurable",
-      "target": "import_parallel.cache.adapter.configurable"
-    }
-  ],
   "caches": [
     {
       "type": "cache.static"

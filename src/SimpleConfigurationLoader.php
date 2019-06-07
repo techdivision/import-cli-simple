@@ -30,7 +30,6 @@ use TechDivision\Import\Cli\Utils\MagentoConfigurationKeys;
 use TechDivision\Import\Utils\CommandNames;
 use TechDivision\Import\Utils\EntityTypeCodes;
 use TechDivision\Import\Utils\Mappings\CommandNameToEntityTypeCode;
-use TechDivision\Import\ConfigurationInterface;
 
 /**
  * The configuration loader implementation.

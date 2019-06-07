@@ -19,32 +19,32 @@
         "symfony/config": "~4.0",
         "symfony/console": "~4.0",
         "symfony/dependency-injection": "~4.0",
-        "techdivision/import": "10.x-dev as 9.0.0",
-        "techdivision/import-ee": "9.x-dev as 8.0.0",
-        "techdivision/import-app-simple": "11.x-dev as 10.0.0",
-        "techdivision/import-configuration-jms": "10.x-dev as 9.0.0",
-        "techdivision/import-attribute": "12.x-dev as 11.0.0",
-        "techdivision/import-attribute-set": "dev-master as 6.0.0",
-        "techdivision/import-customer": "dev-master as 7.0.0",
-        "techdivision/import-customer-address": "dev-master as 7.0.0",
-        "techdivision/import-category": "12.x-dev as 11.0.0",
-        "techdivision/import-category-ee": "13.x-dev as 12.0.0",
-        "techdivision/import-product": "11.x-dev as 10.0.1",
-        "techdivision/import-product-msi": "dev-master as 5.0.0",
-        "techdivision/import-product-tier-price": "4.x-dev as 3.0.0",
-        "techdivision/import-product-url-rewrite": "11.x-dev as 10.0.0",
-        "techdivision/import-product-link": "12.x-dev as 11.0.0",
-        "techdivision/import-product-media": "11.x-dev as 10.0.0",
-        "techdivision/import-product-bundle": "11.x-dev as 10.0.0",
-        "techdivision/import-product-variant": "12.x-dev as 11.0.0",
-        "techdivision/import-product-grouped": "6.x-dev as 5.0.0",
-        "techdivision/import-product-ee": "11.x-dev as 10.0.0",
-        "techdivision/import-product-link-ee": "12.x-dev as 11.0.0",
-        "techdivision/import-product-media-ee": "11.x-dev as 10.0.0",
-        "techdivision/import-product-bundle-ee": "11.x-dev as 10.0.0",
-        "techdivision/import-product-variant-ee": "12.x-dev as 11.0.0",
-        "techdivision/import-product-grouped-ee": "6.x-dev as 5.0.0",
-        "techdivision/import-parallel" : "2.x-dev as 1.0.0"
+        "techdivision/import": "10.0.*",
+        "techdivision/import-ee": "9.0.*",
+        "techdivision/import-app-simple": "11.0.*",
+        "techdivision/import-configuration-jms": "10.0.*",
+        "techdivision/import-attribute": "12.0.*",
+        "techdivision/import-attribute-set": "7.0.*",
+        "techdivision/import-customer": "8.0.*",
+        "techdivision/import-customer-address": "8.0.*",
+        "techdivision/import-category": "12.0.*",
+        "techdivision/import-category-ee": "13.0.*",
+        "techdivision/import-product": "11.0.*",
+        "techdivision/import-product-msi": "6.0.*",
+        "techdivision/import-product-tier-price": "4.0.*",
+        "techdivision/import-product-url-rewrite": "11.0.*",
+        "techdivision/import-product-link": "12.0.*",
+        "techdivision/import-product-media": "11.0.*",
+        "techdivision/import-product-bundle": "11.0.*",
+        "techdivision/import-product-variant": "12.0.*",
+        "techdivision/import-product-grouped": "6.0.*",
+        "techdivision/import-product-ee": "11.0.*",
+        "techdivision/import-product-link-ee": "12.0.*",
+        "techdivision/import-product-media-ee": "11.0.*",
+        "techdivision/import-product-bundle-ee": "11.0.*",
+        "techdivision/import-product-variant-ee": "12.0.*",
+        "techdivision/import-product-grouped-ee": "6.0.*",
+        "techdivision/import-parallel": "2.x-dev as 1.0.0"
     },
     "require-dev": {
         "doctrine/dbal": "2.5.*",
@@ -79,186 +79,8 @@
     ],
     "repositories": [
         {
-            "type": "path",
-            "url": "/Users/wagnert/Workspace_Idea/techdivision/import",
-            "options": {
-                "symlink": true
-            }
-        },
-        {
-            "type": "path",
-            "url": "/Users/wagnert/Workspace_Idea/techdivision/import-ee",
-            "options": {
-                "symlink": true
-            }
-        },
-        {
-            "type": "path",
-            "url": "/Users/wagnert/Workspace_Idea/techdivision/import-app-simple",
-            "options": {
-                "symlink": true
-            }
-        },
-        {
-            "type": "path",
-            "url": "/Users/wagnert/Workspace_Idea/techdivision/import-configuration-jms",
-            "options": {
-                "symlink": true
-            }
-        },
-        {
-            "type": "path",
-            "url": "/Users/wagnert/Workspace_Idea/techdivision/import-attribute",
-            "options": {
-                "symlink": true
-            }
-        },
-        {
-            "type": "path",
-            "url": "/Users/wagnert/Workspace_Idea/techdivision/import-attribute-set",
-            "options": {
-                "symlink": true
-            }
-        },
-        {
-            "type": "path",
-            "url": "/Users/wagnert/Workspace_Idea/techdivision/import-customer",
-            "options": {
-                "symlink": true
-            }
-        },
-        {
-            "type": "path",
-            "url": "/Users/wagnert/Workspace_Idea/techdivision/import-customer-address",
-            "options": {
-                "symlink": true
-            }
-        },
-        {
-            "type": "path",
-            "url": "/Users/wagnert/Workspace_Idea/techdivision/import-category",
-            "options": {
-                "symlink": true
-            }
-        },
-        {
-            "type": "path",
-            "url": "/Users/wagnert/Workspace_Idea/techdivision/import-category-ee",
-            "options": {
-                "symlink": true
-            }
-        },
-        {
-            "type": "path",
-            "url": "/Users/wagnert/Workspace_Idea/techdivision/import-product",
-            "options": {
-                "symlink": true
-            }
-        },
-        {
-            "type": "path",
-            "url": "/Users/wagnert/Workspace_Idea/techdivision/import-product-msi",
-            "options": {
-                "symlink": true
-            }
-        },
-        {
-            "type": "path",
-            "url": "/Users/wagnert/Workspace_Idea/techdivision/import-product-tier-price",
-            "options": {
-                "symlink": true
-            }
-        },
-        {
-            "type": "path",
-            "url": "/Users/wagnert/Workspace_Idea/techdivision/import-product-url-rewrite",
-            "options": {
-                "symlink": true
-            }
-        },
-        {
-            "type": "path",
-            "url": "/Users/wagnert/Workspace_Idea/techdivision/import-product-link",
-            "options": {
-                "symlink": true
-            }
-        },
-        {
-            "type": "path",
-            "url": "/Users/wagnert/Workspace_Idea/techdivision/import-product-media",
-            "options": {
-                "symlink": true
-            }
-        },
-        {
-            "type": "path",
-            "url": "/Users/wagnert/Workspace_Idea/techdivision/import-product-bundle",
-            "options": {
-                "symlink": true
-            }
-        },
-        {
-            "type": "path",
-            "url": "/Users/wagnert/Workspace_Idea/techdivision/import-product-variant",
-            "options": {
-                "symlink": true
-            }
-        },
-        {
-            "type": "path",
-            "url": "/Users/wagnert/Workspace_Idea/techdivision/import-product-grouped",
-            "options": {
-                "symlink": true
-            }
-        },
-        {
-            "type": "path",
-            "url": "/Users/wagnert/Workspace_Idea/techdivision/import-product-ee",
-            "options": {
-                "symlink": true
-            }
-        },
-        {
-            "type": "path",
-            "url": "/Users/wagnert/Workspace_Idea/techdivision/import-product-link-ee",
-            "options": {
-                "symlink": true
-            }
-        },
-        {
-            "type": "path",
-            "url": "/Users/wagnert/Workspace_Idea/techdivision/import-product-media-ee",
-            "options": {
-                "symlink": true
-            }
-        },
-        {
-            "type": "path",
-            "url": "/Users/wagnert/Workspace_Idea/techdivision/import-product-bundle-ee",
-            "options": {
-                "symlink": true
-            }
-        },
-        {
-            "type": "path",
-            "url": "/Users/wagnert/Workspace_Idea/techdivision/import-product-variant-ee",
-            "options": {
-                "symlink": true
-            }
-        },
-        {
-            "type": "path",
-            "url": "/Users/wagnert/Workspace_Idea/techdivision/import-product-grouped-ee",
-            "options": {
-                "symlink": true
-            }
-        },
-        {
-            "type": "path",
-            "url": "/Users/wagnert/Workspace_Idea/techdivision/import-parallel",
-            "options": {
-                "symlink": true
-            }
+            "type": "vcs",
+            "url": "https://gitlab.met.tdintern.de/techdivision/eip/import-parallel.git"
         }
     ]
 }
