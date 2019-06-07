@@ -7,16 +7,6 @@
   "source-dir" : "projects/sample-data/tmp",
   "target-dir" : "projects/sample-data/tmp",
   "entity-type-code" : "catalog_product",
-  "caches": [
-    {
-      "type": "cache.static"
-    },
-    {
-      "type": "cache.configurable",
-      "enabled" : true,
-      "time": 1440
-    }
-  ],
   "listeners" : [
     {
       "app.set.up" : [
@@ -37,13 +27,6 @@
       "pdo-dsn": "mysql:host=127.0.1.6:9306;dbname=magento;charset=utf8",
       "username": "magento",
       "password": "magento"
-    },
-    {
-      "id": "redis",
-      "type" : "redis",
-      "host": "127.0.0.1",
-      "port": 6379,
-      "name": 3
     }
   ],
   "loggers": [
@@ -262,14 +245,7 @@
       "name" : "add-update",
       "plugins" : [
         {
-          "id": "import.plugin.cache.warmer",
-          "params" : [
-            {
-              "cache-warmers" : [
-                "import_product_ee.repository.cache.warmer.product"
-              ]
-            }
-          ]
+          "id": "import.plugin.cache.warmer"
         },
         {
           "id": "import.plugin.global.data"
