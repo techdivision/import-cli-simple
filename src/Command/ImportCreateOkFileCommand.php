@@ -70,8 +70,8 @@ class ImportCreateOkFileCommand extends AbstractSimpleImportCommand
         OutputInterface $output
     ) {
 
-        // load the source directory
-        $sourceDir = $configuration->getSourceDir();
+        // load the source directory, ALWAYS remove the directory separator, if appended
+        $sourceDir = rtrim($configuration->getSourceDir(), DIRECTORY_SEPARATOR);
 
         /** @var TechDivision\Import\Configuration\PluginConfigurationInterface $plugin */
         foreach ($configuration->getPlugins() as $plugin) {

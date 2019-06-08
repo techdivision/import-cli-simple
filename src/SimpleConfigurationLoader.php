@@ -261,9 +261,6 @@ class SimpleConfigurationLoader implements ConfigurationLoaderInterface
             $instance->setMagentoEdition($magentoEdition);
         }
 
-        // set the serial that has been specified as command line option (or the default value)
-        $instance->setSerial($this->input->getOption(InputOptionKeys::SERIAL));
-
         // query whether or not a system name has been specified as command line option, if yes override the value from the configuration file
         if (($this->input->hasOptionSpecified(InputOptionKeys::SYSTEM_NAME) && $this->input->getOption(InputOptionKeys::SYSTEM_NAME)) || $instance->getSystemName() === null) {
             $instance->setSystemName($this->input->getOption(InputOptionKeys::SYSTEM_NAME));

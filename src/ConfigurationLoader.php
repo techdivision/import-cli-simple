@@ -126,6 +126,9 @@ class ConfigurationLoader extends SimpleConfigurationLoader
         // load the configuration instance
         $instance = parent::load();
 
+        // set the serial that has been specified as command line option (or the default value)
+        $instance->setSerial($this->input->getOption(InputOptionKeys::SERIAL));
+
         // query whether or not an operation name has been specified as command line
         // option, if yes override the value from the configuration file
         if ($operationName = $this->input->getArgument(InputArgumentKeys::OPERATION_NAME)) {
