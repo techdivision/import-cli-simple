@@ -1,3 +1,17 @@
+# Version 3.5.0
+
+## Known Issues
+
+* Up from Magento 2 EE 2.1.10 using the single transaction mode has a massive performance impact (can only be used **WITHOUT** single transaction)
+
+## Bugfixes
+
+* Fixed issue in SimpleFileResolver that causes an exception when old CSV files without a .ok file are available in the source directory
+
+## Features
+
+* Refactor cache integration to optimize in multiprocess and -threaed environments
+
 # Version 3.4.1
 
 ## Known Issues
