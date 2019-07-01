@@ -6,6 +6,7 @@
 
 ## Bugfixes
 
+* Added techdivision/import-product-media#35
 * Fixed issue in SimpleFileResolver that causes an exception when old CSV files without a .ok file are available in the source directory
 
 ## Features
