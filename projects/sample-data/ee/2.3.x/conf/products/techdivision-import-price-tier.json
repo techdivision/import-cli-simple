@@ -44,10 +44,15 @@
                 "format": "[%datetime%] %channel%.%level_name%: %message% %context% %extra%",
                 "date-format": "Y-m-d H:i:s",
                 "allow-inline-line-breaks": true,
-                "ignore-empty-context-and-extra": false
+                "ignore-empty-context-and-extra": true
               }
             ]
           }
+        }
+      ],
+      "processors": [
+        {
+          "type": "Monolog\\Processor\\MemoryPeakUsageProcessor"
         }
       ]
     }
