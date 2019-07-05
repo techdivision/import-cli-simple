@@ -6,12 +6,22 @@
 
 ## Bugfixes
 
-* Added techdivision/import-product-media#35
+* Fixed techdivision/import#147
+* Fixed techdivision/import-product-media#36
+* Fixed missing method MissingOptionValuesPlugin::isDebugMode()
+* Fixed invalid cache initialization on missing default configuration
+* Fixed issue with invalid return value of LocalCacheAdapter::isCached($key) method
+* Fixed issue when renaming images with the same filename withing one import process
 * Fixed issue in SimpleFileResolver that causes an exception when old CSV files without a .ok file are available in the source directory
 
 ## Features
 
-* Refactor cache integration to optimize in multiprocess and -threaed environments
+* Add techdivision/import-product-media#35
+* Add functionality to override DI aliases in the configuration file
+* Optimize SQL to load image types in the optimal order for further processing
+* Impovements to significantly lower the memory footprint in production mode ~60 %
+* Add LocalCacheAdapter implementation for maximum performance and declare it as the default one
+* Refactor cache integration for PSR-6 compatibility, optimize for multiprocess and -threaed environments and allow configuration via configuration file
 
 # Version 3.4.1
 

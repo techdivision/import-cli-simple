@@ -2,7 +2,7 @@
   "magento-edition": "EE",
   "magento-version": "2.3.0",
   "operation-name" : "add-update",
-  "archive-artefacts" : true,
+  "archive-artefacts" : false,
   "debug-mode" : false,
   "source-dir" : "projects/sample-data/tmp",
   "target-dir" : "projects/sample-data/tmp",
@@ -44,10 +44,15 @@
                 "format": "[%datetime%] %channel%.%level_name%: %message% %context% %extra%",
                 "date-format": "Y-m-d H:i:s",
                 "allow-inline-line-breaks": true,
-                "ignore-empty-context-and-extra": false
+                "ignore-empty-context-and-extra": true
               }
             ]
           }
+        }
+      ],
+      "processors": [
+        {
+          "type": "Monolog\\Processor\\MemoryPeakUsageProcessor"
         }
       ]
     }
@@ -275,7 +280,7 @@
               },
               "params" : [
                 {
-                  "copy-images" : true,
+                  "copy-images" : false,
                   "clean-up-media-gallery" : true,
                   "clean-up-category-product-relations" : true,
                   "clean-up-empty-image-columns" : true,
