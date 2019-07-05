@@ -20,6 +20,7 @@
 
 namespace TechDivision\Import\Cli;
 
+use Ramsey\Uuid\Uuid;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Loader\XmlFileLoader;
@@ -27,7 +28,6 @@ use TechDivision\Import\Utils\EntityStatus;
 use TechDivision\Import\Utils\StoreViewCodes;
 use TechDivision\Import\Cli\Utils\DependencyInjectionKeys;
 use TechDivision\Import\Configuration\Jms\Configuration\Database;
-use Ramsey\Uuid\Uuid;
 
 /**
  * Test class for the product URL rewrite observer implementation.
@@ -233,6 +233,7 @@ abstract class AbstractIntegrationTest extends \PHPUnit_Framework_TestCase
         }
 
         // initialize the configuration with the test specific data
+        $configuration->setSerial(Uuid::uuid4()->toString());
         $configuration->setSourceDir($this->getSourceDir());
         $configuration->setTargetDir($this->getTargetDir());
         $configuration->setPidFilename($this->getPidFilename());
