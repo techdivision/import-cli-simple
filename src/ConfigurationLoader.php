@@ -27,6 +27,7 @@ use TechDivision\Import\Cli\Command\InputOptionKeys;
 use TechDivision\Import\Cli\Utils\MagentoConfigurationKeys;
 use TechDivision\Import\Configuration\Jms\Configuration\Database;
 use TechDivision\Import\Utils\EntityTypeCodes;
+use TechDivision\Import\ConfigurationInterface;
 
 /**
  * The configuration loader implementation.
@@ -73,7 +74,6 @@ class ConfigurationLoader extends SimpleConfigurationLoader
             'techdivision/import-customer',
             'techdivision/import-customer-address',
             'techdivision/import-product',
-            'techdivision/import-product-msi',
             'techdivision/import-product-tier-price',
             'techdivision/import-product-url-rewrite',
             'techdivision/import-product-bundle',
@@ -93,7 +93,6 @@ class ConfigurationLoader extends SimpleConfigurationLoader
             'techdivision/import-customer',
             'techdivision/import-customer-address',
             'techdivision/import-product',
-            'techdivision/import-product-msi',
             'techdivision/import-product-tier-price',
             'techdivision/import-product-url-rewrite',
             'techdivision/import-product-ee',
@@ -124,6 +123,9 @@ class ConfigurationLoader extends SimpleConfigurationLoader
 
         // load the configuration instance
         $instance = parent::load();
+
+        // set the serial that has been specified as command line option (or the default value)
+        $instance->setSerial($this->input->getOption(InputOptionKeys::SERIAL));
 
         // query whether or not an operation name has been specified as command line
         // option, if yes override the value from the configuration file
@@ -177,6 +179,12 @@ class ConfigurationLoader extends SimpleConfigurationLoader
         // option, if yes override the value from the configuration file
         if ($singleTransaction = $this->input->getOption(InputOptionKeys::SINGLE_TRANSACTION)) {
             $instance->setSingleTransaction($instance->mapBoolean($singleTransaction));
+        }
+
+        // query whether or not the cache flag has been specified as command line
+        // option, if yes override the value from the configuration file
+        if ($cacheEnabled = $this->input->getOption(InputOptionKeys::CACHE_ENABLED)) {
+            $instance->setCacheEnabled($instance->mapBoolean($cacheEnabled));
         }
 
         // query whether or not we've an valid Magento root directory specified
@@ -251,6 +259,11 @@ class ConfigurationLoader extends SimpleConfigurationLoader
 
         // load the extension libraries, if configured
         $this->libraryLoader->load($instance);
+
+        // register the configured aliases in the DI container, this MUST
+        // happen after the libraries have been loaded, else it would not
+        // be possible to override existing aliases
+        $this->initializeAliases($instance);
 
         // return the initialized configuration instance
         return $instance;
@@ -413,5 +426,24 @@ class ConfigurationLoader extends SimpleConfigurationLoader
                 $entityTypeCode
             )
         );
+    }
+
+    /**
+     * Registers the configured aliases in the DI container.
+     *
+     * @param \TechDivision\Import\ConfigurationInterface $configuration The configuration with the aliases to register
+     *
+     * @return void
+     */
+    protected function initializeAliases(ConfigurationInterface $configuration)
+    {
+
+        // load the DI aliases
+        $aliases = $configuration->getAliases();
+
+        // register the DI aliases
+        foreach ($aliases as $alias) {
+            $this->getContainer()->setAlias($alias->getId(), $alias->getTarget());
+        }
     }
 }

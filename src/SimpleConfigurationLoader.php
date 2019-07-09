@@ -55,6 +55,11 @@ class SimpleConfigurationLoader implements ConfigurationLoaderInterface
         'project-enterprise-edition' => 'EE'
     );
 
+    /**
+     * The array with the default entity type => configuration filename mapping.
+     *
+     * @var array
+     */
     protected $configurationFileMappings = array(
         EntityTypeCodes::NONE                          => 'techdivision-import',
         EntityTypeCodes::EAV_ATTRIBUTE                 => 'techdivision-import',
@@ -70,7 +75,7 @@ class SimpleConfigurationLoader implements ConfigurationLoaderInterface
     );
 
     /**
-     * The array with the default entity type => configuration mapping.
+     * The array with the entity type => repository with default configuration file mapping.
      *
      * @var array
      */
@@ -357,7 +362,7 @@ class SimpleConfigurationLoader implements ConfigurationLoaderInterface
     {
 
         // try to map the command name to a entity type code
-        if (array_key_exists($commandName = $this->getCommandName(), $this->commandNameToEntityTypeCode)) {
+        if (array_key_exists($commandName = $this->getCommandName(), (array) $this->commandNameToEntityTypeCode)) {
             return $this->commandNameToEntityTypeCode[$commandName];
         }
 

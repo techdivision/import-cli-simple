@@ -24,7 +24,7 @@
     {
       "id": "docker",
       "default" : true,
-      "pdo-dsn": "mysql:host=127.0.1.2:9306;dbname=magento;charset=utf8",
+      "pdo-dsn": "mysql:host=127.0.1.4:9306;dbname=magento;charset=utf8",
       "username": "magento",
       "password": "magento"
     }
@@ -44,10 +44,15 @@
                 "format": "[%datetime%] %channel%.%level_name%: %message% %context% %extra%",
                 "date-format": "Y-m-d H:i:s",
                 "allow-inline-line-breaks": true,
-                "ignore-empty-context-and-extra": false
+                "ignore-empty-context-and-extra": true
               }
             ]
           }
+        }
+      ],
+      "processors": [
+        {
+          "type": "Monolog\\Processor\\MemoryPeakUsageProcessor"
         }
       ]
     },
