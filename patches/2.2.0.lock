@@ -4,380 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "ee2677437db5895019e20a196d84dfb2",
+    "content-hash": "5ef20c89f98812e25950cfea0c5f5292",
     "packages": [
         {
-            "name": "cache/adapter-common",
-            "version": "1.1.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/php-cache/adapter-common.git",
-                "reference": "6320bb5f5574cb88438059b59f8708da6b6f1d32"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/php-cache/adapter-common/zipball/6320bb5f5574cb88438059b59f8708da6b6f1d32",
-                "reference": "6320bb5f5574cb88438059b59f8708da6b6f1d32",
-                "shasum": ""
-            },
-            "require": {
-                "cache/tag-interop": "^1.0",
-                "php": "^5.6 || ^7.0",
-                "psr/cache": "^1.0",
-                "psr/log": "^1.0",
-                "psr/simple-cache": "^1.0"
-            },
-            "require-dev": {
-                "cache/integration-tests": "^0.16",
-                "phpunit/phpunit": "^5.7.21"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.1-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Cache\\Adapter\\Common\\": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Aaron Scherer",
-                    "email": "aequasi@gmail.com",
-                    "homepage": "https://github.com/aequasi"
-                },
-                {
-                    "name": "Tobias Nyholm",
-                    "email": "tobias.nyholm@gmail.com",
-                    "homepage": "https://github.com/nyholm"
-                }
-            ],
-            "description": "Common classes for PSR-6 adapters",
-            "homepage": "http://www.php-cache.com/en/latest/",
-            "keywords": [
-                "cache",
-                "psr-6",
-                "tag"
-            ],
-            "time": "2018-07-08T13:04:33+00:00"
-        },
-        {
-            "name": "cache/array-adapter",
-            "version": "1.0.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/php-cache/array-adapter.git",
-                "reference": "6e9ae7f8bbf1b07bdd6144cb944059f91ae65a14"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/php-cache/array-adapter/zipball/6e9ae7f8bbf1b07bdd6144cb944059f91ae65a14",
-                "reference": "6e9ae7f8bbf1b07bdd6144cb944059f91ae65a14",
-                "shasum": ""
-            },
-            "require": {
-                "cache/adapter-common": "^1.0",
-                "cache/hierarchical-cache": "^1.0",
-                "php": "^5.6 || ^7.0",
-                "psr/cache": "^1.0",
-                "psr/simple-cache": "^1.0"
-            },
-            "provide": {
-                "psr/cache-implementation": "^1.0",
-                "psr/simple-cache-implementation": "^1.0"
-            },
-            "require-dev": {
-                "cache/integration-tests": "^0.16",
-                "phpunit/phpunit": "^5.7.21"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.0-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Cache\\Adapter\\PHPArray\\": ""
-                },
-                "exclude-from-classmap": [
-                    "/Tests/"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Aaron Scherer",
-                    "email": "aequasi@gmail.com",
-                    "homepage": "https://github.com/aequasi"
-                },
-                {
-                    "name": "Tobias Nyholm",
-                    "email": "tobias.nyholm@gmail.com",
-                    "homepage": "https://github.com/nyholm"
-                }
-            ],
-            "description": "A PSR-6 cache implementation using a php array. This implementation supports tags",
-            "homepage": "http://www.php-cache.com/en/latest/",
-            "keywords": [
-                "array",
-                "cache",
-                "psr-6",
-                "tag"
-            ],
-            "time": "2017-11-19T11:08:05+00:00"
-        },
-        {
-            "name": "cache/hierarchical-cache",
-            "version": "1.0.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/php-cache/hierarchical-cache.git",
-                "reference": "97173a5115765f72ccdc90dbc01132a3786ef5fd"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/php-cache/hierarchical-cache/zipball/97173a5115765f72ccdc90dbc01132a3786ef5fd",
-                "reference": "97173a5115765f72ccdc90dbc01132a3786ef5fd",
-                "shasum": ""
-            },
-            "require": {
-                "cache/adapter-common": "^1.0",
-                "php": "^5.6 || ^7.0",
-                "psr/cache": "^1.0"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "^5.7.21"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.0-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Cache\\Hierarchy\\": ""
-                },
-                "exclude-from-classmap": [
-                    "/Tests/"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Aaron Scherer",
-                    "email": "aequasi@gmail.com",
-                    "homepage": "https://github.com/aequasi"
-                },
-                {
-                    "name": "Tobias Nyholm",
-                    "email": "tobias.nyholm@gmail.com",
-                    "homepage": "https://github.com/nyholm"
-                }
-            ],
-            "description": "A helper trait and interface to your PSR-6 cache to support hierarchical keys.",
-            "homepage": "http://www.php-cache.com/en/latest/",
-            "keywords": [
-                "cache",
-                "hierarchical",
-                "hierarchy",
-                "psr-6"
-            ],
-            "time": "2017-07-16T21:58:17+00:00"
-        },
-        {
-            "name": "cache/namespaced-cache",
-            "version": "1.0.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/php-cache/namespaced-cache.git",
-                "reference": "c36d9105c44d6cbbf905b7aafebcb29d488f397c"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/php-cache/namespaced-cache/zipball/c36d9105c44d6cbbf905b7aafebcb29d488f397c",
-                "reference": "c36d9105c44d6cbbf905b7aafebcb29d488f397c",
-                "shasum": ""
-            },
-            "require": {
-                "cache/hierarchical-cache": "^1.0",
-                "php": "^5.6 || ^7.0",
-                "psr/cache": "^1.0"
-            },
-            "require-dev": {
-                "cache/memcached-adapter": "^1.0",
-                "phpunit/phpunit": "^5.7.21"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.0-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Cache\\Namespaced\\": ""
-                },
-                "exclude-from-classmap": [
-                    "/Tests/"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Tobias Nyholm",
-                    "email": "tobias.nyholm@gmail.com",
-                    "homepage": "https://github.com/nyholm"
-                }
-            ],
-            "description": "A decorator that makes your cache support namespaces",
-            "homepage": "http://www.php-cache.com/en/latest/",
-            "keywords": [
-                "cache",
-                "namespace",
-                "psr-6"
-            ],
-            "time": "2017-07-16T20:20:51+00:00"
-        },
-        {
-            "name": "cache/prefixed-cache",
-            "version": "1.0.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/php-cache/prefixed-cache.git",
-                "reference": "2f584c6505cbf96b3053849f7a22137725e8aa85"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/php-cache/prefixed-cache/zipball/2f584c6505cbf96b3053849f7a22137725e8aa85",
-                "reference": "2f584c6505cbf96b3053849f7a22137725e8aa85",
-                "shasum": ""
-            },
-            "require": {
-                "php": "^5.6 || ^7.0",
-                "psr/cache": "^1.0"
-            },
-            "require-dev": {
-                "cache/integration-tests": "^0.16",
-                "phpunit/phpunit": "^5.7.21"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.0-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Cache\\Prefixed\\": ""
-                },
-                "exclude-from-classmap": [
-                    "/Tests/"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Tobias Nyholm",
-                    "email": "tobias.nyholm@gmail.com",
-                    "homepage": "https://github.com/nyholm"
-                }
-            ],
-            "description": "A decorator that makes your cache support prefix",
-            "homepage": "http://www.php-cache.com/en/latest/",
-            "keywords": [
-                "cache",
-                "prefix",
-                "psr-6"
-            ],
-            "time": "2017-07-17T11:14:46+00:00"
-        },
-        {
-            "name": "cache/tag-interop",
-            "version": "1.0.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/php-cache/tag-interop.git",
-                "reference": "c7496dd81530f538af27b4f2713cde97bc292832"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/php-cache/tag-interop/zipball/c7496dd81530f538af27b4f2713cde97bc292832",
-                "reference": "c7496dd81530f538af27b4f2713cde97bc292832",
-                "shasum": ""
-            },
-            "require": {
-                "php": "^5.5 || ^7.0",
-                "psr/cache": "^1.0"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "2.0-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Cache\\TagInterop\\": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Tobias Nyholm",
-                    "email": "tobias.nyholm@gmail.com",
-                    "homepage": "https://github.com/nyholm"
-                },
-                {
-                    "name": "Nicolas Grekas",
-                    "email": "p@tchwork.com",
-                    "homepage": "https://github.com/nicolas-grekas"
-                }
-            ],
-            "description": "Framework interoperable interfaces for tags",
-            "homepage": "http://www.php-cache.com/en/latest/",
-            "keywords": [
-                "cache",
-                "psr",
-                "psr6",
-                "tag"
-            ],
-            "time": "2017-03-13T09:14:27+00:00"
-        },
-        {
             "name": "doctrine/annotations",
-            "version": "v1.6.1",
+            "version": "v1.6.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/annotations.git",
-                "reference": "53120e0eb10355388d6ccbe462f1fea34ddadb24"
+                "reference": "c7f2050c68a9ab0bdb0f98567ec08d80ea7d24d5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/annotations/zipball/53120e0eb10355388d6ccbe462f1fea34ddadb24",
-                "reference": "53120e0eb10355388d6ccbe462f1fea34ddadb24",
+                "url": "https://api.github.com/repos/doctrine/annotations/zipball/c7f2050c68a9ab0bdb0f98567ec08d80ea7d24d5",
+                "reference": "c7f2050c68a9ab0bdb0f98567ec08d80ea7d24d5",
                 "shasum": ""
             },
             "require": {
@@ -432,7 +72,7 @@
                 "docblock",
                 "parser"
             ],
-            "time": "2019-03-25T19:12:02+00:00"
+            "time": "2017-12-06T07:11:42+00:00"
         },
         {
             "name": "doctrine/cache",
@@ -838,23 +478,20 @@
         },
         {
             "name": "doctrine/lexer",
-            "version": "1.0.2",
+            "version": "v1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/lexer.git",
-                "reference": "1febd6c3ef84253d7c815bed85fc622ad207a9f8"
+                "reference": "83893c552fd2045dd78aef794c31e694c37c0b8c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/lexer/zipball/1febd6c3ef84253d7c815bed85fc622ad207a9f8",
-                "reference": "1febd6c3ef84253d7c815bed85fc622ad207a9f8",
+                "url": "https://api.github.com/repos/doctrine/lexer/zipball/83893c552fd2045dd78aef794c31e694c37c0b8c",
+                "reference": "83893c552fd2045dd78aef794c31e694c37c0b8c",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.2"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "^4.5"
             },
             "type": "library",
             "extra": {
@@ -863,8 +500,8 @@
                 }
             },
             "autoload": {
-                "psr-4": {
-                    "Doctrine\\Common\\Lexer\\": "lib/Doctrine/Common/Lexer"
+                "psr-0": {
+                    "Doctrine\\Common\\Lexer\\": "lib/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -885,16 +522,13 @@
                     "email": "schmittjoh@gmail.com"
                 }
             ],
-            "description": "PHP Doctrine Lexer parser library that can be used in Top-Down, Recursive Descent Parsers.",
-            "homepage": "https://www.doctrine-project.org/projects/lexer.html",
+            "description": "Base library for a lexer that can be used in Top-Down, Recursive Descent Parsers.",
+            "homepage": "http://www.doctrine-project.org",
             "keywords": [
-                "annotations",
-                "docblock",
                 "lexer",
-                "parser",
-                "php"
+                "parser"
             ],
-            "time": "2019-06-08T11:03:04+00:00"
+            "time": "2014-09-09T13:34:57+00:00"
         },
         {
             "name": "goodby/csv",
@@ -1179,16 +813,16 @@
         },
         {
             "name": "league/flysystem",
-            "version": "1.0.53",
+            "version": "1.0.50",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/flysystem.git",
-                "reference": "08e12b7628f035600634a5e76d95b5eb66cea674"
+                "reference": "dab4e7624efa543a943be978008f439c333f2249"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/08e12b7628f035600634a5e76d95b5eb66cea674",
-                "reference": "08e12b7628f035600634a5e76d95b5eb66cea674",
+                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/dab4e7624efa543a943be978008f439c333f2249",
+                "reference": "dab4e7624efa543a943be978008f439c333f2249",
                 "shasum": ""
             },
             "require": {
@@ -1259,7 +893,7 @@
                 "sftp",
                 "storage"
             ],
-            "time": "2019-06-18T20:09:29+00:00"
+            "time": "2019-02-01T08:50:36+00:00"
         },
         {
             "name": "monolog/monolog",
@@ -1809,17 +1443,94 @@
             "time": "2018-07-31T09:26:32+00:00"
         },
         {
-            "name": "symfony/config",
-            "version": "v4.3.2",
+            "name": "symfony/cache",
+            "version": "v4.2.3",
             "source": {
                 "type": "git",
-                "url": "https://github.com/symfony/config.git",
-                "reference": "9198eea354be75794a7b1064de00d9ae9ae5090f"
+                "url": "https://github.com/symfony/cache.git",
+                "reference": "7c5b85bcc5f87dd7938123be12ce3323be6cde5a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/config/zipball/9198eea354be75794a7b1064de00d9ae9ae5090f",
-                "reference": "9198eea354be75794a7b1064de00d9ae9ae5090f",
+                "url": "https://api.github.com/repos/symfony/cache/zipball/7c5b85bcc5f87dd7938123be12ce3323be6cde5a",
+                "reference": "7c5b85bcc5f87dd7938123be12ce3323be6cde5a",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.1.3",
+                "psr/cache": "~1.0",
+                "psr/log": "~1.0",
+                "psr/simple-cache": "^1.0",
+                "symfony/contracts": "^1.0",
+                "symfony/var-exporter": "^4.2"
+            },
+            "conflict": {
+                "doctrine/dbal": "<2.5",
+                "symfony/dependency-injection": "<3.4",
+                "symfony/var-dumper": "<3.4"
+            },
+            "provide": {
+                "psr/cache-implementation": "1.0",
+                "psr/simple-cache-implementation": "1.0",
+                "symfony/cache-contracts-implementation": "1.0"
+            },
+            "require-dev": {
+                "cache/integration-tests": "dev-master",
+                "doctrine/cache": "~1.6",
+                "doctrine/dbal": "~2.5",
+                "predis/predis": "~1.1",
+                "symfony/config": "~4.2",
+                "symfony/dependency-injection": "~3.4|~4.1",
+                "symfony/var-dumper": "^4.1.1"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "4.2-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Component\\Cache\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Nicolas Grekas",
+                    "email": "p@tchwork.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony Cache component with PSR-6, PSR-16, and tags",
+            "homepage": "https://symfony.com",
+            "keywords": [
+                "caching",
+                "psr6"
+            ],
+            "time": "2019-01-31T15:08:08+00:00"
+        },
+        {
+            "name": "symfony/config",
+            "version": "v4.2.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/config.git",
+                "reference": "25a2e7abe0d97e70282537292e3df45cf6da7b98"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/config/zipball/25a2e7abe0d97e70282537292e3df45cf6da7b98",
+                "reference": "25a2e7abe0d97e70282537292e3df45cf6da7b98",
                 "shasum": ""
             },
             "require": {
@@ -1834,7 +1545,6 @@
                 "symfony/dependency-injection": "~3.4|~4.0",
                 "symfony/event-dispatcher": "~3.4|~4.0",
                 "symfony/finder": "~3.4|~4.0",
-                "symfony/messenger": "~4.1",
                 "symfony/yaml": "~3.4|~4.0"
             },
             "suggest": {
@@ -1843,7 +1553,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "4.3-dev"
+                    "dev-master": "4.2-dev"
                 }
             },
             "autoload": {
@@ -1870,31 +1580,29 @@
             ],
             "description": "Symfony Config Component",
             "homepage": "https://symfony.com",
-            "time": "2019-06-08T06:33:08+00:00"
+            "time": "2019-01-30T11:44:30+00:00"
         },
         {
             "name": "symfony/console",
-            "version": "v4.3.2",
+            "version": "v4.2.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/console.git",
-                "reference": "b592b26a24265a35172d8a2094d8b10f22b7cc39"
+                "reference": "1f0ad51dfde4da8a6070f06adc58b4e37cbb37a4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/console/zipball/b592b26a24265a35172d8a2094d8b10f22b7cc39",
-                "reference": "b592b26a24265a35172d8a2094d8b10f22b7cc39",
+                "url": "https://api.github.com/repos/symfony/console/zipball/1f0ad51dfde4da8a6070f06adc58b4e37cbb37a4",
+                "reference": "1f0ad51dfde4da8a6070f06adc58b4e37cbb37a4",
                 "shasum": ""
             },
             "require": {
                 "php": "^7.1.3",
-                "symfony/polyfill-mbstring": "~1.0",
-                "symfony/polyfill-php73": "^1.8",
-                "symfony/service-contracts": "^1.1"
+                "symfony/contracts": "^1.0",
+                "symfony/polyfill-mbstring": "~1.0"
             },
             "conflict": {
                 "symfony/dependency-injection": "<3.4",
-                "symfony/event-dispatcher": "<4.3",
                 "symfony/process": "<3.3"
             },
             "provide": {
@@ -1904,10 +1612,9 @@
                 "psr/log": "~1.0",
                 "symfony/config": "~3.4|~4.0",
                 "symfony/dependency-injection": "~3.4|~4.0",
-                "symfony/event-dispatcher": "^4.3",
+                "symfony/event-dispatcher": "~3.4|~4.0",
                 "symfony/lock": "~3.4|~4.0",
-                "symfony/process": "~3.4|~4.0",
-                "symfony/var-dumper": "^4.3"
+                "symfony/process": "~3.4|~4.0"
             },
             "suggest": {
                 "psr/log": "For using the console logger",
@@ -1918,7 +1625,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "4.3-dev"
+                    "dev-master": "4.2-dev"
                 }
             },
             "autoload": {
@@ -1945,39 +1652,107 @@
             ],
             "description": "Symfony Console Component",
             "homepage": "https://symfony.com",
-            "time": "2019-06-13T11:03:18+00:00"
+            "time": "2019-01-25T14:35:16+00:00"
         },
         {
-            "name": "symfony/dependency-injection",
-            "version": "v4.3.2",
+            "name": "symfony/contracts",
+            "version": "v1.0.2",
             "source": {
                 "type": "git",
-                "url": "https://github.com/symfony/dependency-injection.git",
-                "reference": "b851928be349c065197fdc0832f78d85139e3903"
+                "url": "https://github.com/symfony/contracts.git",
+                "reference": "1aa7ab2429c3d594dd70689604b5cf7421254cdf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/dependency-injection/zipball/b851928be349c065197fdc0832f78d85139e3903",
-                "reference": "b851928be349c065197fdc0832f78d85139e3903",
+                "url": "https://api.github.com/repos/symfony/contracts/zipball/1aa7ab2429c3d594dd70689604b5cf7421254cdf",
+                "reference": "1aa7ab2429c3d594dd70689604b5cf7421254cdf",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.1.3"
+            },
+            "require-dev": {
+                "psr/cache": "^1.0",
+                "psr/container": "^1.0"
+            },
+            "suggest": {
+                "psr/cache": "When using the Cache contracts",
+                "psr/container": "When using the Service contracts",
+                "symfony/cache-contracts-implementation": "",
+                "symfony/service-contracts-implementation": "",
+                "symfony/translation-contracts-implementation": ""
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Contracts\\": ""
+                },
+                "exclude-from-classmap": [
+                    "**/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Nicolas Grekas",
+                    "email": "p@tchwork.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "A set of abstractions extracted out of the Symfony components",
+            "homepage": "https://symfony.com",
+            "keywords": [
+                "abstractions",
+                "contracts",
+                "decoupling",
+                "interfaces",
+                "interoperability",
+                "standards"
+            ],
+            "time": "2018-12-05T08:06:11+00:00"
+        },
+        {
+            "name": "symfony/dependency-injection",
+            "version": "v4.2.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/dependency-injection.git",
+                "reference": "72c14cbc0c27706b9b4c33b9cd7a280972ff4806"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/dependency-injection/zipball/72c14cbc0c27706b9b4c33b9cd7a280972ff4806",
+                "reference": "72c14cbc0c27706b9b4c33b9cd7a280972ff4806",
                 "shasum": ""
             },
             "require": {
                 "php": "^7.1.3",
                 "psr/container": "^1.0",
-                "symfony/service-contracts": "^1.1.2"
+                "symfony/contracts": "^1.0"
             },
             "conflict": {
-                "symfony/config": "<4.3",
+                "symfony/config": "<4.2",
                 "symfony/finder": "<3.4",
                 "symfony/proxy-manager-bridge": "<3.4",
                 "symfony/yaml": "<3.4"
             },
             "provide": {
                 "psr/container-implementation": "1.0",
-                "symfony/service-implementation": "1.0"
+                "symfony/service-contracts-implementation": "1.0"
             },
             "require-dev": {
-                "symfony/config": "^4.3",
+                "symfony/config": "~4.2",
                 "symfony/expression-language": "~3.4|~4.0",
                 "symfony/yaml": "~3.4|~4.0"
             },
@@ -1991,7 +1766,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "4.3-dev"
+                    "dev-master": "4.2-dev"
                 }
             },
             "autoload": {
@@ -2018,20 +1793,71 @@
             ],
             "description": "Symfony DependencyInjection Component",
             "homepage": "https://symfony.com",
-            "time": "2019-06-15T04:08:07+00:00"
+            "time": "2019-01-30T17:51:38+00:00"
         },
         {
-            "name": "symfony/filesystem",
-            "version": "v4.3.2",
+            "name": "symfony/expression-language",
+            "version": "v4.2.3",
             "source": {
                 "type": "git",
-                "url": "https://github.com/symfony/filesystem.git",
-                "reference": "b9896d034463ad6fd2bf17e2bf9418caecd6313d"
+                "url": "https://github.com/symfony/expression-language.git",
+                "reference": "a69b153996a13ffdb05395e8724c7217a8448e9e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/filesystem/zipball/b9896d034463ad6fd2bf17e2bf9418caecd6313d",
-                "reference": "b9896d034463ad6fd2bf17e2bf9418caecd6313d",
+                "url": "https://api.github.com/repos/symfony/expression-language/zipball/a69b153996a13ffdb05395e8724c7217a8448e9e",
+                "reference": "a69b153996a13ffdb05395e8724c7217a8448e9e",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.1.3",
+                "symfony/cache": "~3.4|~4.0",
+                "symfony/contracts": "^1.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "4.2-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Component\\ExpressionLanguage\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony ExpressionLanguage Component",
+            "homepage": "https://symfony.com",
+            "time": "2019-01-16T20:31:39+00:00"
+        },
+        {
+            "name": "symfony/filesystem",
+            "version": "v4.2.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/filesystem.git",
+                "reference": "7c16ebc2629827d4ec915a52ac809768d060a4ee"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/filesystem/zipball/7c16ebc2629827d4ec915a52ac809768d060a4ee",
+                "reference": "7c16ebc2629827d4ec915a52ac809768d060a4ee",
                 "shasum": ""
             },
             "require": {
@@ -2041,7 +1867,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "4.3-dev"
+                    "dev-master": "4.2-dev"
                 }
             },
             "autoload": {
@@ -2068,20 +1894,20 @@
             ],
             "description": "Symfony Filesystem Component",
             "homepage": "https://symfony.com",
-            "time": "2019-06-23T08:51:25+00:00"
+            "time": "2019-01-16T20:35:37+00:00"
         },
         {
             "name": "symfony/polyfill-ctype",
-            "version": "v1.11.0",
+            "version": "v1.10.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-ctype.git",
-                "reference": "82ebae02209c21113908c229e9883c419720738a"
+                "reference": "e3d826245268269cd66f8326bd8bc066687b4a19"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-ctype/zipball/82ebae02209c21113908c229e9883c419720738a",
-                "reference": "82ebae02209c21113908c229e9883c419720738a",
+                "url": "https://api.github.com/repos/symfony/polyfill-ctype/zipball/e3d826245268269cd66f8326bd8bc066687b4a19",
+                "reference": "e3d826245268269cd66f8326bd8bc066687b4a19",
                 "shasum": ""
             },
             "require": {
@@ -2093,7 +1919,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.11-dev"
+                    "dev-master": "1.9-dev"
                 }
             },
             "autoload": {
@@ -2126,20 +1952,20 @@
                 "polyfill",
                 "portable"
             ],
-            "time": "2019-02-06T07:57:58+00:00"
+            "time": "2018-08-06T14:22:27+00:00"
         },
         {
             "name": "symfony/polyfill-mbstring",
-            "version": "v1.11.0",
+            "version": "v1.10.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-mbstring.git",
-                "reference": "fe5e94c604826c35a32fa832f35bd036b6799609"
+                "reference": "c79c051f5b3a46be09205c73b80b346e4153e494"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/fe5e94c604826c35a32fa832f35bd036b6799609",
-                "reference": "fe5e94c604826c35a32fa832f35bd036b6799609",
+                "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/c79c051f5b3a46be09205c73b80b346e4153e494",
+                "reference": "c79c051f5b3a46be09205c73b80b346e4153e494",
                 "shasum": ""
             },
             "require": {
@@ -2151,7 +1977,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.11-dev"
+                    "dev-master": "1.9-dev"
                 }
             },
             "autoload": {
@@ -2185,40 +2011,40 @@
                 "portable",
                 "shim"
             ],
-            "time": "2019-02-06T07:57:58+00:00"
+            "time": "2018-09-21T13:07:52+00:00"
         },
         {
-            "name": "symfony/polyfill-php73",
-            "version": "v1.11.0",
+            "name": "symfony/var-exporter",
+            "version": "v4.2.3",
             "source": {
                 "type": "git",
-                "url": "https://github.com/symfony/polyfill-php73.git",
-                "reference": "d1fb4abcc0c47be136208ad9d68bf59f1ee17abd"
+                "url": "https://github.com/symfony/var-exporter.git",
+                "reference": "d8bf4424c232b55f4c1816037d3077a89258557e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-php73/zipball/d1fb4abcc0c47be136208ad9d68bf59f1ee17abd",
-                "reference": "d1fb4abcc0c47be136208ad9d68bf59f1ee17abd",
+                "url": "https://api.github.com/repos/symfony/var-exporter/zipball/d8bf4424c232b55f4c1816037d3077a89258557e",
+                "reference": "d8bf4424c232b55f4c1816037d3077a89258557e",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.3"
+                "php": "^7.1.3"
+            },
+            "require-dev": {
+                "symfony/var-dumper": "^4.1.1"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.11-dev"
+                    "dev-master": "4.2-dev"
                 }
             },
             "autoload": {
                 "psr-4": {
-                    "Symfony\\Polyfill\\Php73\\": ""
+                    "Symfony\\Component\\VarExporter\\": ""
                 },
-                "files": [
-                    "bootstrap.php"
-                ],
-                "classmap": [
-                    "Resources/stubs"
+                "exclude-from-classmap": [
+                    "/Tests/"
                 ]
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -2235,47 +2061,58 @@
                     "homepage": "https://symfony.com/contributors"
                 }
             ],
-            "description": "Symfony polyfill backporting some PHP 7.3+ features to lower PHP versions",
+            "description": "A blend of var_export() + serialize() to turn any serializable data structure to plain PHP code",
             "homepage": "https://symfony.com",
             "keywords": [
-                "compatibility",
-                "polyfill",
-                "portable",
-                "shim"
+                "clone",
+                "construct",
+                "export",
+                "hydrate",
+                "instantiate",
+                "serialize"
             ],
-            "time": "2019-02-06T07:57:58+00:00"
+            "time": "2019-01-16T20:35:37+00:00"
         },
         {
-            "name": "symfony/service-contracts",
-            "version": "v1.1.5",
+            "name": "symfony/yaml",
+            "version": "v4.2.3",
             "source": {
                 "type": "git",
-                "url": "https://github.com/symfony/service-contracts.git",
-                "reference": "f391a00de78ec7ec8cf5cdcdae59ec7b883edb8d"
+                "url": "https://github.com/symfony/yaml.git",
+                "reference": "d461670ee145092b7e2a56c1da7118f19cadadb0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/service-contracts/zipball/f391a00de78ec7ec8cf5cdcdae59ec7b883edb8d",
-                "reference": "f391a00de78ec7ec8cf5cdcdae59ec7b883edb8d",
+                "url": "https://api.github.com/repos/symfony/yaml/zipball/d461670ee145092b7e2a56c1da7118f19cadadb0",
+                "reference": "d461670ee145092b7e2a56c1da7118f19cadadb0",
                 "shasum": ""
             },
             "require": {
                 "php": "^7.1.3",
-                "psr/container": "^1.0"
+                "symfony/polyfill-ctype": "~1.8"
+            },
+            "conflict": {
+                "symfony/console": "<3.4"
+            },
+            "require-dev": {
+                "symfony/console": "~3.4|~4.0"
             },
             "suggest": {
-                "symfony/service-implementation": ""
+                "symfony/console": "For validating YAML files using the lint command"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.1-dev"
+                    "dev-master": "4.2-dev"
                 }
             },
             "autoload": {
                 "psr-4": {
-                    "Symfony\\Contracts\\Service\\": ""
-                }
+                    "Symfony\\Component\\Yaml\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -2283,52 +2120,39 @@
             ],
             "authors": [
                 {
-                    "name": "Nicolas Grekas",
-                    "email": "p@tchwork.com"
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
                 },
                 {
                     "name": "Symfony Community",
                     "homepage": "https://symfony.com/contributors"
                 }
             ],
-            "description": "Generic abstractions related to writing services",
+            "description": "Symfony Yaml Component",
             "homepage": "https://symfony.com",
-            "keywords": [
-                "abstractions",
-                "contracts",
-                "decoupling",
-                "interfaces",
-                "interoperability",
-                "standards"
-            ],
-            "time": "2019-06-13T11:15:36+00:00"
+            "time": "2019-01-16T20:35:37+00:00"
         },
         {
             "name": "techdivision/import",
-            "version": "12.0.4",
+            "version": "6.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import.git",
-                "reference": "3b024ba5ec2b357df985c8d4ef311a11f4bbd98a"
+                "reference": "d9bbfd312ef7ccfe03f9a94970584e8a273492a8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import/zipball/3b024ba5ec2b357df985c8d4ef311a11f4bbd98a",
-                "reference": "3b024ba5ec2b357df985c8d4ef311a11f4bbd98a",
+                "url": "https://api.github.com/repos/techdivision/import/zipball/d9bbfd312ef7ccfe03f9a94970584e8a273492a8",
+                "reference": "d9bbfd312ef7ccfe03f9a94970584e8a273492a8",
                 "shasum": ""
             },
             "require": {
-                "cache/array-adapter": "1.0.*",
-                "cache/namespaced-cache": "1.0.*",
-                "cache/prefixed-cache": "1.0.*",
                 "goodby/csv": "~1.0",
                 "league/event": "~2.0",
                 "league/flysystem": "~1.0",
                 "php": ">=5.6.0",
-                "psr/cache": "~1.0",
                 "psr/container": "~1.0",
                 "psr/log": "~1.0",
-                "ramsey/uuid": "3.8.*",
                 "swiftmailer/swiftmailer": "5.4.*",
                 "zendframework/zend-filter": "~2.0"
             },
@@ -2364,20 +2188,20 @@
                 }
             ],
             "description": "A library supporting generic Magento 2 import functionality",
-            "time": "2019-07-09T14:20:26+00:00"
+            "time": "2019-01-18T13:15:15+00:00"
         },
         {
             "name": "techdivision/import-app-simple",
-            "version": "13.0.0",
+            "version": "6.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-app-simple.git",
-                "reference": "15d0b9639c1ddcf4272ddcd7621a078f058e9b1a"
+                "reference": "71366a37304f50cecabcd00ab88f2d0b11f1c14a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-app-simple/zipball/15d0b9639c1ddcf4272ddcd7621a078f058e9b1a",
-                "reference": "15d0b9639c1ddcf4272ddcd7621a078f058e9b1a",
+                "url": "https://api.github.com/repos/techdivision/import-app-simple/zipball/71366a37304f50cecabcd00ab88f2d0b11f1c14a",
+                "reference": "71366a37304f50cecabcd00ab88f2d0b11f1c14a",
                 "shasum": ""
             },
             "require": {
@@ -2385,7 +2209,7 @@
                 "php": ">=7.1.0",
                 "ramsey/uuid": "~3.0",
                 "symfony/console": "~2.3,!=2.7.0|~4.0",
-                "techdivision/import": "12.*"
+                "techdivision/import": "6.0.*"
             },
             "require-dev": {
                 "consolidation/robo": "~1.0",
@@ -2419,25 +2243,25 @@
                 }
             ],
             "description": "M2IF simple application implementation providing basic Magento 2 import functionality",
-            "time": "2019-07-03T11:05:06+00:00"
+            "time": "2019-01-18T13:59:50+00:00"
         },
         {
             "name": "techdivision/import-attribute",
-            "version": "14.0.0",
+            "version": "6.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-attribute.git",
-                "reference": "0bc6d52877829fdda690fb24738a1c72efe01ebb"
+                "reference": "eb92cbad298adb5e1e42e771b9a8a82911a14e5c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-attribute/zipball/0bc6d52877829fdda690fb24738a1c72efe01ebb",
-                "reference": "0bc6d52877829fdda690fb24738a1c72efe01ebb",
+                "url": "https://api.github.com/repos/techdivision/import-attribute/zipball/eb92cbad298adb5e1e42e771b9a8a82911a14e5c",
+                "reference": "eb92cbad298adb5e1e42e771b9a8a82911a14e5c",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.6.0",
-                "techdivision/import": "12.*"
+                "techdivision/import": "6.0.*"
             },
             "require-dev": {
                 "consolidation/robo": "~1.0",
@@ -2471,25 +2295,25 @@
                 }
             ],
             "description": "M2IF library providing basic Magento 2 attribute import functionality",
-            "time": "2019-07-03T11:11:50+00:00"
+            "time": "2019-01-10T14:49:34+00:00"
         },
         {
             "name": "techdivision/import-attribute-set",
-            "version": "9.0.0",
+            "version": "2.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-attribute-set.git",
-                "reference": "d03bde1e77eefaeb19d19ddd3d4d38d79afc897c"
+                "reference": "963e583a0421c31e92cc96ff33e9787881c6de6d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-attribute-set/zipball/d03bde1e77eefaeb19d19ddd3d4d38d79afc897c",
-                "reference": "d03bde1e77eefaeb19d19ddd3d4d38d79afc897c",
+                "url": "https://api.github.com/repos/techdivision/import-attribute-set/zipball/963e583a0421c31e92cc96ff33e9787881c6de6d",
+                "reference": "963e583a0421c31e92cc96ff33e9787881c6de6d",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.6.0",
-                "techdivision/import-attribute": "14.*"
+                "techdivision/import-attribute": "6.0.*"
             },
             "require-dev": {
                 "consolidation/robo": "~1.0",
@@ -2523,25 +2347,25 @@
                 }
             ],
             "description": "M2IF library providing basic Magento 2 attribute set + group import functionality",
-            "time": "2019-07-03T11:46:38+00:00"
+            "time": "2019-01-10T14:58:38+00:00"
         },
         {
             "name": "techdivision/import-category",
-            "version": "14.0.0",
+            "version": "7.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-category.git",
-                "reference": "9c66d1b4e68c33a218cee0998ccd0c1f0082f97c"
+                "reference": "b20188a8979e7cdbca3fe78a05efa0eb23297493"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-category/zipball/9c66d1b4e68c33a218cee0998ccd0c1f0082f97c",
-                "reference": "9c66d1b4e68c33a218cee0998ccd0c1f0082f97c",
+                "url": "https://api.github.com/repos/techdivision/import-category/zipball/b20188a8979e7cdbca3fe78a05efa0eb23297493",
+                "reference": "b20188a8979e7cdbca3fe78a05efa0eb23297493",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.6.0",
-                "techdivision/import": "12.*"
+                "techdivision/import": "6.0.*"
             },
             "require-dev": {
                 "consolidation/robo": "~1.0",
@@ -2575,26 +2399,26 @@
                 }
             ],
             "description": "M2IF library providing basic Magento 2 category import functionality",
-            "time": "2019-07-03T11:16:17+00:00"
+            "time": "2019-02-27T16:55:27+00:00"
         },
         {
             "name": "techdivision/import-category-ee",
-            "version": "15.0.0",
+            "version": "8.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-category-ee.git",
-                "reference": "7c499f3dde7f8447727a90ba527d15f0bf337e9c"
+                "reference": "2434e731340f11ab8858bb7e1992ff3723546fbd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-category-ee/zipball/7c499f3dde7f8447727a90ba527d15f0bf337e9c",
-                "reference": "7c499f3dde7f8447727a90ba527d15f0bf337e9c",
+                "url": "https://api.github.com/repos/techdivision/import-category-ee/zipball/2434e731340f11ab8858bb7e1992ff3723546fbd",
+                "reference": "2434e731340f11ab8858bb7e1992ff3723546fbd",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.6.0",
-                "techdivision/import-category": "14.*",
-                "techdivision/import-ee": "11.*"
+                "techdivision/import-category": "7.0.*",
+                "techdivision/import-ee": "5.0.*"
             },
             "require-dev": {
                 "consolidation/robo": "~1.0",
@@ -2628,27 +2452,27 @@
                 }
             ],
             "description": "M2IF library providing basic Magento 2 EE category import functionality",
-            "time": "2019-07-03T11:54:04+00:00"
+            "time": "2019-02-27T18:28:54+00:00"
         },
         {
             "name": "techdivision/import-configuration-jms",
-            "version": "12.0.0",
+            "version": "6.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-configuration-jms.git",
-                "reference": "41c1da33a5d21dc70b8ceaf4f6d35afee57993bc"
+                "reference": "53533fdb9d64956f809127cf7013f2ffe2af054e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-configuration-jms/zipball/41c1da33a5d21dc70b8ceaf4f6d35afee57993bc",
-                "reference": "41c1da33a5d21dc70b8ceaf4f6d35afee57993bc",
+                "url": "https://api.github.com/repos/techdivision/import-configuration-jms/zipball/53533fdb9d64956f809127cf7013f2ffe2af054e",
+                "reference": "53533fdb9d64956f809127cf7013f2ffe2af054e",
                 "shasum": ""
             },
             "require": {
                 "doctrine/dbal": "2.5.*",
                 "jms/serializer": "~1.0",
                 "php": ">=5.6.0",
-                "techdivision/import": "12.*"
+                "techdivision/import": "6.0.*"
             },
             "require-dev": {
                 "consolidation/robo": "~1.0",
@@ -2679,25 +2503,25 @@
                 }
             ],
             "description": "Library providing a JMS based configuration implementation for the M2IF",
-            "time": "2019-07-03T11:23:05+00:00"
+            "time": "2019-01-07T15:58:29+00:00"
         },
         {
             "name": "techdivision/import-customer",
-            "version": "10.0.0",
+            "version": "4.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-customer.git",
-                "reference": "0b0d6cad9c9b4224c2ad643eeb94708e9cdce65a"
+                "reference": "a9dddd1048a036160af7b83b3df3a5ff57da3dba"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-customer/zipball/0b0d6cad9c9b4224c2ad643eeb94708e9cdce65a",
-                "reference": "0b0d6cad9c9b4224c2ad643eeb94708e9cdce65a",
+                "url": "https://api.github.com/repos/techdivision/import-customer/zipball/a9dddd1048a036160af7b83b3df3a5ff57da3dba",
+                "reference": "a9dddd1048a036160af7b83b3df3a5ff57da3dba",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.6.0",
-                "techdivision/import": "12.*"
+                "techdivision/import": "6.0.*"
             },
             "require-dev": {
                 "consolidation/robo": "~1.0",
@@ -2731,25 +2555,25 @@
                 }
             ],
             "description": "M2IF library providing basic Magento 2 customer import functionality",
-            "time": "2019-07-03T11:27:06+00:00"
+            "time": "2019-03-02T14:37:10+00:00"
         },
         {
             "name": "techdivision/import-customer-address",
-            "version": "10.0.0",
+            "version": "4.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-customer-address.git",
-                "reference": "fd7901d5c202ff65ab078eb8c67c1bebd37abdf7"
+                "reference": "bf7261917c8ca81a79c73324207f378591b263ce"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-customer-address/zipball/fd7901d5c202ff65ab078eb8c67c1bebd37abdf7",
-                "reference": "fd7901d5c202ff65ab078eb8c67c1bebd37abdf7",
+                "url": "https://api.github.com/repos/techdivision/import-customer-address/zipball/bf7261917c8ca81a79c73324207f378591b263ce",
+                "reference": "bf7261917c8ca81a79c73324207f378591b263ce",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.6.0",
-                "techdivision/import-customer": "10.*"
+                "techdivision/import-customer": "4.0.*"
             },
             "require-dev": {
                 "consolidation/robo": "~1.0",
@@ -2783,25 +2607,25 @@
                 }
             ],
             "description": "M2IF library providing basic Magento 2 customer address import functionality",
-            "time": "2019-07-03T11:57:47+00:00"
+            "time": "2019-03-02T14:44:57+00:00"
         },
         {
             "name": "techdivision/import-ee",
-            "version": "11.0.0",
+            "version": "5.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-ee.git",
-                "reference": "70b5d13643b531c779ef27108e5ad31f9b03e8cc"
+                "reference": "815edc10c49fdb01abdf78a7fcf2203cc91a5b80"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-ee/zipball/70b5d13643b531c779ef27108e5ad31f9b03e8cc",
-                "reference": "70b5d13643b531c779ef27108e5ad31f9b03e8cc",
+                "url": "https://api.github.com/repos/techdivision/import-ee/zipball/815edc10c49fdb01abdf78a7fcf2203cc91a5b80",
+                "reference": "815edc10c49fdb01abdf78a7fcf2203cc91a5b80",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.6.0",
-                "techdivision/import": "12.*"
+                "techdivision/import": "6.0.*"
             },
             "require-dev": {
                 "consolidation/robo": "~1.0",
@@ -2837,25 +2661,25 @@
                 }
             ],
             "description": "M2IF library providing basic Magento 2 EE import functionality",
-            "time": "2019-07-03T11:40:34+00:00"
+            "time": "2019-01-07T15:51:26+00:00"
         },
         {
             "name": "techdivision/import-product",
-            "version": "13.0.0",
+            "version": "6.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-product.git",
-                "reference": "4cdde717305b1eed71ab40c59cf3af8e622b444d"
+                "reference": "96c890ed804a1263185ed171042dc58bc7f0e5a6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-product/zipball/4cdde717305b1eed71ab40c59cf3af8e622b444d",
-                "reference": "4cdde717305b1eed71ab40c59cf3af8e622b444d",
+                "url": "https://api.github.com/repos/techdivision/import-product/zipball/96c890ed804a1263185ed171042dc58bc7f0e5a6",
+                "reference": "96c890ed804a1263185ed171042dc58bc7f0e5a6",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.6.0",
-                "techdivision/import": "12.*"
+                "techdivision/import": "6.0.*"
             },
             "require-dev": {
                 "consolidation/robo": "~1.0",
@@ -2889,25 +2713,25 @@
                 }
             ],
             "description": "M2IF library providing basic Magento 2 product import functionality",
-            "time": "2019-07-03T11:44:22+00:00"
+            "time": "2019-02-28T14:31:10+00:00"
         },
         {
             "name": "techdivision/import-product-bundle",
-            "version": "13.0.0",
+            "version": "6.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-product-bundle.git",
-                "reference": "370b43fdcab5b79ada77023c0dc33ea6515a04eb"
+                "reference": "bdb454b5ffc577d86a3ca198beebc060fb925d1d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-product-bundle/zipball/370b43fdcab5b79ada77023c0dc33ea6515a04eb",
-                "reference": "370b43fdcab5b79ada77023c0dc33ea6515a04eb",
+                "url": "https://api.github.com/repos/techdivision/import-product-bundle/zipball/bdb454b5ffc577d86a3ca198beebc060fb925d1d",
+                "reference": "bdb454b5ffc577d86a3ca198beebc060fb925d1d",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.6.0",
-                "techdivision/import-product": "13.*"
+                "techdivision/import-product": "6.0.*"
             },
             "require-dev": {
                 "consolidation/robo": "~1.0",
@@ -2941,26 +2765,26 @@
                 }
             ],
             "description": "M2IF library providing basic Magento 2 bundle product import functionality",
-            "time": "2019-07-03T13:28:34+00:00"
+            "time": "2019-02-28T13:35:49+00:00"
         },
         {
             "name": "techdivision/import-product-bundle-ee",
-            "version": "13.0.1",
+            "version": "6.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-product-bundle-ee.git",
-                "reference": "60c2a8f2983e4fcc6360008c71efd071d562646d"
+                "reference": "18ec3828199aca9faed75074d197f8c8cebaafb1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-product-bundle-ee/zipball/60c2a8f2983e4fcc6360008c71efd071d562646d",
-                "reference": "60c2a8f2983e4fcc6360008c71efd071d562646d",
+                "url": "https://api.github.com/repos/techdivision/import-product-bundle-ee/zipball/18ec3828199aca9faed75074d197f8c8cebaafb1",
+                "reference": "18ec3828199aca9faed75074d197f8c8cebaafb1",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.6.0",
-                "techdivision/import-product-bundle": "13.*",
-                "techdivision/import-product-ee": "13.*"
+                "techdivision/import-product-bundle": "6.0.*",
+                "techdivision/import-product-ee": "6.0.*"
             },
             "require-dev": {
                 "consolidation/robo": "~1.0",
@@ -2994,26 +2818,26 @@
                 }
             ],
             "description": "M2IF library providing basic Magento 2 EE bundle product import functionality",
-            "time": "2019-07-04T14:35:05+00:00"
+            "time": "2019-02-28T13:56:18+00:00"
         },
         {
             "name": "techdivision/import-product-ee",
-            "version": "13.0.0",
+            "version": "6.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-product-ee.git",
-                "reference": "0228839d2cbdb11ae5699ccd408459128454efdd"
+                "reference": "35bdfc5f1599df68eaf9ce7cf2ae3f8e837721bb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-product-ee/zipball/0228839d2cbdb11ae5699ccd408459128454efdd",
-                "reference": "0228839d2cbdb11ae5699ccd408459128454efdd",
+                "url": "https://api.github.com/repos/techdivision/import-product-ee/zipball/35bdfc5f1599df68eaf9ce7cf2ae3f8e837721bb",
+                "reference": "35bdfc5f1599df68eaf9ce7cf2ae3f8e837721bb",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.6.0",
-                "techdivision/import-ee": "11.*",
-                "techdivision/import-product": "13.*"
+                "techdivision/import-ee": "5.0.*",
+                "techdivision/import-product": "6.0.*"
             },
             "require-dev": {
                 "consolidation/robo": "~1.0",
@@ -3047,130 +2871,25 @@
                 }
             ],
             "description": "M2IF library providing basic Magento 2 EE product import functionality",
-            "time": "2019-07-03T13:25:00+00:00"
-        },
-        {
-            "name": "techdivision/import-product-grouped",
-            "version": "8.0.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/techdivision/import-product-grouped.git",
-                "reference": "c9f6d4210f3f03ad466add4ca50cac597d03bfef"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-product-grouped/zipball/c9f6d4210f3f03ad466add4ca50cac597d03bfef",
-                "reference": "c9f6d4210f3f03ad466add4ca50cac597d03bfef",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.6.0",
-                "techdivision/import-product-link": "14.*"
-            },
-            "require-dev": {
-                "consolidation/robo": "~1.0",
-                "doctrine/dbal": "2.5.*",
-                "mikey179/vfsstream": "~1.0",
-                "pdepend/pdepend": "2.5.2",
-                "phpmd/phpmd": "@stable",
-                "phpunit/phpunit": "~5.0",
-                "sebastian/phpcpd": "~3.0.0",
-                "squizlabs/php_codesniffer": "3.3.1",
-                "symfony/http-kernel": "~3.4"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "TechDivision\\Import\\Product\\Grouped\\": [
-                        "src/",
-                        "symfony/",
-                        "tests/unit"
-                    ]
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "OSL-3.0"
-            ],
-            "authors": [
-                {
-                    "name": "Tim Wagner",
-                    "email": "t.wagner@techdivision.com"
-                }
-            ],
-            "description": "M2IF library providing basic Magento 2 grouped product import functionality",
-            "time": "2019-07-04T13:54:04+00:00"
-        },
-        {
-            "name": "techdivision/import-product-grouped-ee",
-            "version": "8.0.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/techdivision/import-product-grouped-ee.git",
-                "reference": "94302b730963f05d25730ec566d4c4afd7fc1635"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-product-grouped-ee/zipball/94302b730963f05d25730ec566d4c4afd7fc1635",
-                "reference": "94302b730963f05d25730ec566d4c4afd7fc1635",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.6.0",
-                "techdivision/import-product-ee": "13.*",
-                "techdivision/import-product-grouped": "8.*"
-            },
-            "require-dev": {
-                "consolidation/robo": "~1.0",
-                "doctrine/dbal": "2.5.*",
-                "mikey179/vfsstream": "~1.0",
-                "pdepend/pdepend": "2.5.2",
-                "phpmd/phpmd": "@stable",
-                "phpunit/phpunit": "~5.0",
-                "sebastian/phpcpd": "~3.0.0",
-                "squizlabs/php_codesniffer": "3.3.1",
-                "symfony/http-kernel": "~3.4"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "TechDivision\\Import\\Product\\Grouped\\Ee\\": [
-                        "src/",
-                        "symfony/",
-                        "tests/unit"
-                    ]
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "OSL-3.0"
-            ],
-            "authors": [
-                {
-                    "name": "Tim Wagner",
-                    "email": "t.wagner@techdivision.com"
-                }
-            ],
-            "description": "M2IF library providing basic Magento 2 EE grouped product import functionality",
-            "time": "2019-07-04T13:56:37+00:00"
+            "time": "2019-02-28T13:44:09+00:00"
         },
         {
             "name": "techdivision/import-product-link",
-            "version": "14.0.0",
+            "version": "6.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-product-link.git",
-                "reference": "03a2d035296a64fe500e8dd98d47282328c65997"
+                "reference": "e2b196e58bd44828e1b1476381b088488a1e5fd7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-product-link/zipball/03a2d035296a64fe500e8dd98d47282328c65997",
-                "reference": "03a2d035296a64fe500e8dd98d47282328c65997",
+                "url": "https://api.github.com/repos/techdivision/import-product-link/zipball/e2b196e58bd44828e1b1476381b088488a1e5fd7",
+                "reference": "e2b196e58bd44828e1b1476381b088488a1e5fd7",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.6.0",
-                "techdivision/import-product": "13.*"
+                "techdivision/import-product": "6.0.*"
             },
             "require-dev": {
                 "consolidation/robo": "~1.0",
@@ -3204,26 +2923,26 @@
                 }
             ],
             "description": "M2IF library providing basic Magento 2 product link import functionality",
-            "time": "2019-07-04T10:19:01+00:00"
+            "time": "2019-02-28T13:37:56+00:00"
         },
         {
             "name": "techdivision/import-product-link-ee",
-            "version": "14.0.0",
+            "version": "6.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-product-link-ee.git",
-                "reference": "3fec6cb7a50cf893f54c11ec421db26649d8b3dd"
+                "reference": "7e9d5f998d44beaabec120a3bfb8540bd63d97c8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-product-link-ee/zipball/3fec6cb7a50cf893f54c11ec421db26649d8b3dd",
-                "reference": "3fec6cb7a50cf893f54c11ec421db26649d8b3dd",
+                "url": "https://api.github.com/repos/techdivision/import-product-link-ee/zipball/7e9d5f998d44beaabec120a3bfb8540bd63d97c8",
+                "reference": "7e9d5f998d44beaabec120a3bfb8540bd63d97c8",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.6.0",
-                "techdivision/import-product-ee": "13.*",
-                "techdivision/import-product-link": "14.*"
+                "techdivision/import-product-ee": "6.0.*",
+                "techdivision/import-product-link": "6.0.*"
             },
             "require-dev": {
                 "consolidation/robo": "~1.0",
@@ -3257,25 +2976,25 @@
                 }
             ],
             "description": "M2IF library providing basic Magento 2 EE product link import functionality",
-            "time": "2019-07-04T13:41:16+00:00"
+            "time": "2019-02-28T13:57:53+00:00"
         },
         {
             "name": "techdivision/import-product-media",
-            "version": "13.0.0",
+            "version": "6.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-product-media.git",
-                "reference": "0de3025b4b89ff3e30b9996fbf2be481bd767d32"
+                "reference": "c64bd47918685c36c0f4724530028d70c6b041ea"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-product-media/zipball/0de3025b4b89ff3e30b9996fbf2be481bd767d32",
-                "reference": "0de3025b4b89ff3e30b9996fbf2be481bd767d32",
+                "url": "https://api.github.com/repos/techdivision/import-product-media/zipball/c64bd47918685c36c0f4724530028d70c6b041ea",
+                "reference": "c64bd47918685c36c0f4724530028d70c6b041ea",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.6.0",
-                "techdivision/import-product": "13.*"
+                "techdivision/import-product": "6.0.*"
             },
             "require-dev": {
                 "consolidation/robo": "~1.0",
@@ -3309,26 +3028,26 @@
                 }
             ],
             "description": "M2IF library providing basic Magento 2 product media import functionality",
-            "time": "2019-07-04T10:22:32+00:00"
+            "time": "2019-02-28T13:40:00+00:00"
         },
         {
             "name": "techdivision/import-product-media-ee",
-            "version": "13.0.0",
+            "version": "6.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-product-media-ee.git",
-                "reference": "69015d4334ecd63212ccc26f1e814b0e090774a2"
+                "reference": "9a0c2917df65350d8cef826c24aab4b29dde8f83"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-product-media-ee/zipball/69015d4334ecd63212ccc26f1e814b0e090774a2",
-                "reference": "69015d4334ecd63212ccc26f1e814b0e090774a2",
+                "url": "https://api.github.com/repos/techdivision/import-product-media-ee/zipball/9a0c2917df65350d8cef826c24aab4b29dde8f83",
+                "reference": "9a0c2917df65350d8cef826c24aab4b29dde8f83",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.6.0",
-                "techdivision/import-product-ee": "13.*",
-                "techdivision/import-product-media": "13.*"
+                "techdivision/import-product-ee": "6.0.*",
+                "techdivision/import-product-media": "6.0.*"
             },
             "require-dev": {
                 "consolidation/robo": "~1.0",
@@ -3362,133 +3081,25 @@
                 }
             ],
             "description": "M2IF library providing basic Magento 2 EE product media import functionality",
-            "time": "2019-07-04T13:45:39+00:00"
-        },
-        {
-            "name": "techdivision/import-product-msi",
-            "version": "8.0.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/techdivision/import-product-msi.git",
-                "reference": "664134344512712ad17a429a55b45bc5342e0466"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-product-msi/zipball/664134344512712ad17a429a55b45bc5342e0466",
-                "reference": "664134344512712ad17a429a55b45bc5342e0466",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.6.0",
-                "techdivision/import-product": "13.*"
-            },
-            "require-dev": {
-                "consolidation/robo": "~1.0",
-                "doctrine/dbal": "2.5.*",
-                "mikey179/vfsstream": "~1.0",
-                "pdepend/pdepend": "2.5.2",
-                "phpmd/phpmd": "@stable",
-                "phpunit/phpunit": "~5.0",
-                "sebastian/phpcpd": "~3.0.0",
-                "squizlabs/php_codesniffer": "3.3.1",
-                "symfony/http-kernel": "~3.4"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "TechDivision\\Import\\Product\\Msi\\": [
-                        "src/",
-                        "symfony/",
-                        "tests/unit"
-                    ]
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "OSL-3.0"
-            ],
-            "authors": [
-                {
-                    "name": "Tim Wagner",
-                    "email": "t.wagner@techdivision.com"
-                }
-            ],
-            "description": "M2IF library providing basic Magento 2 MSI product stock import functionality",
-            "time": "2019-07-04T10:25:39+00:00"
-        },
-        {
-            "name": "techdivision/import-product-tier-price",
-            "version": "6.0.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/techdivision/import-product-tier-price.git",
-                "reference": "cf7de0a385fad949a1ad92e9e01a9c17db04f62e"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-product-tier-price/zipball/cf7de0a385fad949a1ad92e9e01a9c17db04f62e",
-                "reference": "cf7de0a385fad949a1ad92e9e01a9c17db04f62e",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.6.0",
-                "techdivision/import-product": "13.*"
-            },
-            "require-dev": {
-                "consolidation/robo": "~1.0",
-                "doctrine/dbal": "2.5.*",
-                "mikey179/vfsstream": "~1.0",
-                "pdepend/pdepend": "2.5.2",
-                "phpmd/phpmd": "@stable",
-                "phpunit/phpunit": "~5.0",
-                "sebastian/phpcpd": "~3.0.0",
-                "squizlabs/php_codesniffer": "3.3.1",
-                "symfony/http-kernel": "~3.4"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "TechDivision\\Import\\Product\\TierPrice\\": [
-                        "src/",
-                        "symfony/",
-                        "tests/unit"
-                    ]
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "OSL-3.0"
-            ],
-            "authors": [
-                {
-                    "name": "Tim Wagner",
-                    "email": "t.wagner@techdivision.com"
-                },
-                {
-                    "name": "Klaas-Tido Rühl",
-                    "email": "kr@refusion.com"
-                }
-            ],
-            "description": "M2IF library providing basic Magento 2 product tier price import functionality",
-            "time": "2019-07-04T10:27:04+00:00"
+            "time": "2019-02-28T14:00:28+00:00"
         },
         {
             "name": "techdivision/import-product-url-rewrite",
-            "version": "13.0.0",
+            "version": "6.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-product-url-rewrite.git",
-                "reference": "1a3f2ae232c3049b222889bee5e7bec450089d1c"
+                "reference": "ccf06408d3b979df8c645fc6cb4bc770bb332230"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-product-url-rewrite/zipball/1a3f2ae232c3049b222889bee5e7bec450089d1c",
-                "reference": "1a3f2ae232c3049b222889bee5e7bec450089d1c",
+                "url": "https://api.github.com/repos/techdivision/import-product-url-rewrite/zipball/ccf06408d3b979df8c645fc6cb4bc770bb332230",
+                "reference": "ccf06408d3b979df8c645fc6cb4bc770bb332230",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.6.0",
-                "techdivision/import-product": "13.*"
+                "techdivision/import-product": "6.0.*"
             },
             "require-dev": {
                 "consolidation/robo": "~1.0",
@@ -3522,25 +3133,25 @@
                 }
             ],
             "description": "M2IF library providing basic Magento 2 product URL rewrite import functionality",
-            "time": "2019-07-04T10:29:20+00:00"
+            "time": "2019-02-28T14:06:13+00:00"
         },
         {
             "name": "techdivision/import-product-variant",
-            "version": "14.0.0",
+            "version": "7.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-product-variant.git",
-                "reference": "3346de2be441d99693366b5e51b6e15898f2022c"
+                "reference": "46be1d61339f472e374f0e294700995a7dcdbf69"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-product-variant/zipball/3346de2be441d99693366b5e51b6e15898f2022c",
-                "reference": "3346de2be441d99693366b5e51b6e15898f2022c",
+                "url": "https://api.github.com/repos/techdivision/import-product-variant/zipball/46be1d61339f472e374f0e294700995a7dcdbf69",
+                "reference": "46be1d61339f472e374f0e294700995a7dcdbf69",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.6.0",
-                "techdivision/import-product": "13.*"
+                "techdivision/import-product": "6.0.*"
             },
             "require-dev": {
                 "consolidation/robo": "~1.0",
@@ -3574,26 +3185,26 @@
                 }
             ],
             "description": "M2IF library providing basic Magento 2 configurable product import functionality",
-            "time": "2019-07-04T10:32:06+00:00"
+            "time": "2019-02-28T13:41:26+00:00"
         },
         {
             "name": "techdivision/import-product-variant-ee",
-            "version": "14.0.0",
+            "version": "7.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-product-variant-ee.git",
-                "reference": "01c250247ee02f7760e243d02d5ec13ce2ba890e"
+                "reference": "059fcbb4bfdcff778fd464127f6350619616a242"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-product-variant-ee/zipball/01c250247ee02f7760e243d02d5ec13ce2ba890e",
-                "reference": "01c250247ee02f7760e243d02d5ec13ce2ba890e",
+                "url": "https://api.github.com/repos/techdivision/import-product-variant-ee/zipball/059fcbb4bfdcff778fd464127f6350619616a242",
+                "reference": "059fcbb4bfdcff778fd464127f6350619616a242",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.6.0",
-                "techdivision/import-product-ee": "13.*",
-                "techdivision/import-product-variant": "14.*"
+                "techdivision/import-product-ee": "6.0.*",
+                "techdivision/import-product-variant": "7.0.*"
             },
             "require-dev": {
                 "consolidation/robo": "~1.0",
@@ -3627,7 +3238,7 @@
                 }
             ],
             "description": "M2IF library providing basic Magento 2 EE configurable product import functionality",
-            "time": "2019-07-04T13:48:05+00:00"
+            "time": "2019-02-28T14:02:08+00:00"
         },
         {
             "name": "zendframework/zend-filter",
@@ -3744,16 +3355,16 @@
     "packages-dev": [
         {
             "name": "consolidation/annotated-command",
-            "version": "2.12.0",
+            "version": "2.11.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/consolidation/annotated-command.git",
-                "reference": "512a2e54c98f3af377589de76c43b24652bcb789"
+                "reference": "004af26391cd7d1cd04b0ac736dc1324d1b4f572"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/consolidation/annotated-command/zipball/512a2e54c98f3af377589de76c43b24652bcb789",
-                "reference": "512a2e54c98f3af377589de76c43b24652bcb789",
+                "url": "https://api.github.com/repos/consolidation/annotated-command/zipball/004af26391cd7d1cd04b0ac736dc1324d1b4f572",
+                "reference": "004af26391cd7d1cd04b0ac736dc1324d1b4f572",
                 "shasum": ""
             },
             "require": {
@@ -3836,20 +3447,20 @@
                 }
             ],
             "description": "Initialize Symfony Console commands from annotated command class methods.",
-            "time": "2019-03-08T16:55:03+00:00"
+            "time": "2019-02-02T02:29:53+00:00"
         },
         {
             "name": "consolidation/config",
-            "version": "1.2.1",
+            "version": "1.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/consolidation/config.git",
-                "reference": "cac1279bae7efb5c7fb2ca4c3ba4b8eb741a96c1"
+                "reference": "11ab7ecd19131ce084390171b9c070eedecf7dab"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/consolidation/config/zipball/cac1279bae7efb5c7fb2ca4c3ba4b8eb741a96c1",
-                "reference": "cac1279bae7efb5c7fb2ca4c3ba4b8eb741a96c1",
+                "url": "https://api.github.com/repos/consolidation/config/zipball/11ab7ecd19131ce084390171b9c070eedecf7dab",
+                "reference": "11ab7ecd19131ce084390171b9c070eedecf7dab",
                 "shasum": ""
             },
             "require": {
@@ -3917,7 +3528,7 @@
                 }
             ],
             "description": "Provide configuration services for a commandline tool.",
-            "time": "2019-03-03T19:37:04+00:00"
+            "time": "2019-02-16T01:18:47+00:00"
         },
         {
             "name": "consolidation/log",
@@ -4011,16 +3622,16 @@
         },
         {
             "name": "consolidation/output-formatters",
-            "version": "3.5.0",
+            "version": "3.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/consolidation/output-formatters.git",
-                "reference": "99ec998ffb697e0eada5aacf81feebfb13023605"
+                "reference": "a942680232094c4a5b21c0b7e54c20cce623ae19"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/consolidation/output-formatters/zipball/99ec998ffb697e0eada5aacf81feebfb13023605",
-                "reference": "99ec998ffb697e0eada5aacf81feebfb13023605",
+                "url": "https://api.github.com/repos/consolidation/output-formatters/zipball/a942680232094c4a5b21c0b7e54c20cce623ae19",
+                "reference": "a942680232094c4a5b21c0b7e54c20cce623ae19",
                 "shasum": ""
             },
             "require": {
@@ -4030,10 +3641,11 @@
                 "symfony/finder": "^2.5|^3|^4"
             },
             "require-dev": {
-                "g1a/composer-test-scenarios": "^3",
-                "php-coveralls/php-coveralls": "^1",
+                "g1a/composer-test-scenarios": "^2",
                 "phpunit/phpunit": "^5.7.27",
+                "satooshi/php-coveralls": "^2",
                 "squizlabs/php_codesniffer": "^2.7",
+                "symfony/console": "3.2.3",
                 "symfony/var-dumper": "^2.8|^3|^4",
                 "victorjonsson/markdowndocs": "^1.3"
             },
@@ -4042,52 +3654,6 @@
             },
             "type": "library",
             "extra": {
-                "scenarios": {
-                    "symfony4": {
-                        "require": {
-                            "symfony/console": "^4.0"
-                        },
-                        "require-dev": {
-                            "phpunit/phpunit": "^6"
-                        },
-                        "config": {
-                            "platform": {
-                                "php": "7.1.3"
-                            }
-                        }
-                    },
-                    "symfony3": {
-                        "require": {
-                            "symfony/console": "^3.4",
-                            "symfony/finder": "^3.4",
-                            "symfony/var-dumper": "^3.4"
-                        },
-                        "config": {
-                            "platform": {
-                                "php": "5.6.32"
-                            }
-                        }
-                    },
-                    "symfony2": {
-                        "require": {
-                            "symfony/console": "^2.8"
-                        },
-                        "require-dev": {
-                            "phpunit/phpunit": "^4.8.36"
-                        },
-                        "remove": [
-                            "php-coveralls/php-coveralls"
-                        ],
-                        "config": {
-                            "platform": {
-                                "php": "5.4.8"
-                            }
-                        },
-                        "scenario-options": {
-                            "create-lockfile": "false"
-                        }
-                    }
-                },
                 "branch-alias": {
                     "dev-master": "3.x-dev"
                 }
@@ -4108,25 +3674,25 @@
                 }
             ],
             "description": "Format text by applying transformations provided by plug-in formatters.",
-            "time": "2019-05-30T23:16:01+00:00"
+            "time": "2018-10-19T22:35:38+00:00"
         },
         {
             "name": "consolidation/robo",
-            "version": "1.4.9",
+            "version": "1.4.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/consolidation/Robo.git",
-                "reference": "5c6b3840a45afda1cbffbb3bb1f94dd5f9f83345"
+                "reference": "d4805a1abbc730e9a6d64ede2eba56f91a2b4eb3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/consolidation/Robo/zipball/5c6b3840a45afda1cbffbb3bb1f94dd5f9f83345",
-                "reference": "5c6b3840a45afda1cbffbb3bb1f94dd5f9f83345",
+                "url": "https://api.github.com/repos/consolidation/Robo/zipball/d4805a1abbc730e9a6d64ede2eba56f91a2b4eb3",
+                "reference": "d4805a1abbc730e9a6d64ede2eba56f91a2b4eb3",
                 "shasum": ""
             },
             "require": {
                 "consolidation/annotated-command": "^2.10.2",
-                "consolidation/config": "^1.2",
+                "consolidation/config": "^1.0.10",
                 "consolidation/log": "~1",
                 "consolidation/output-formatters": "^3.1.13",
                 "consolidation/self-update": "^1",
@@ -4216,7 +3782,7 @@
                 }
             ],
             "description": "Modern task runner",
-            "time": "2019-03-19T18:07:19+00:00"
+            "time": "2019-02-17T05:32:27+00:00"
         },
         {
             "name": "consolidation/self-update",
@@ -4520,16 +4086,16 @@
         },
         {
             "name": "mikey179/vfsStream",
-            "version": "v1.6.6",
+            "version": "v1.6.5",
             "source": {
                 "type": "git",
-                "url": "https://github.com/bovigo/vfsStream.git",
-                "reference": "095238a0711c974ae5b4ebf4c4534a23f3f6c99d"
+                "url": "https://github.com/mikey179/vfsStream.git",
+                "reference": "d5fec95f541d4d71c4823bb5e30cf9b9e5b96145"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bovigo/vfsStream/zipball/095238a0711c974ae5b4ebf4c4534a23f3f6c99d",
-                "reference": "095238a0711c974ae5b4ebf4c4534a23f3f6c99d",
+                "url": "https://api.github.com/repos/mikey179/vfsStream/zipball/d5fec95f541d4d71c4823bb5e30cf9b9e5b96145",
+                "reference": "d5fec95f541d4d71c4823bb5e30cf9b9e5b96145",
                 "shasum": ""
             },
             "require": {
@@ -4562,20 +4128,20 @@
             ],
             "description": "Virtual file system to mock the real file system in unit tests.",
             "homepage": "http://vfs.bovigo.org/",
-            "time": "2019-04-08T13:54:32+00:00"
+            "time": "2017-08-01T08:02:14+00:00"
         },
         {
             "name": "myclabs/deep-copy",
-            "version": "1.9.1",
+            "version": "1.8.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/myclabs/DeepCopy.git",
-                "reference": "e6828efaba2c9b79f4499dae1d66ef8bfa7b2b72"
+                "reference": "3e01bdad3e18354c3dce54466b7fbe33a9f9f7f8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/myclabs/DeepCopy/zipball/e6828efaba2c9b79f4499dae1d66ef8bfa7b2b72",
-                "reference": "e6828efaba2c9b79f4499dae1d66ef8bfa7b2b72",
+                "url": "https://api.github.com/repos/myclabs/DeepCopy/zipball/3e01bdad3e18354c3dce54466b7fbe33a9f9f7f8",
+                "reference": "3e01bdad3e18354c3dce54466b7fbe33a9f9f7f8",
                 "shasum": ""
             },
             "require": {
@@ -4610,7 +4176,7 @@
                 "object",
                 "object graph"
             ],
-            "time": "2019-04-07T13:18:21+00:00"
+            "time": "2018-06-11T23:09:50+00:00"
         },
         {
             "name": "pdepend/pdepend",
@@ -4708,16 +4274,16 @@
         },
         {
             "name": "phpdocumentor/reflection-docblock",
-            "version": "4.3.1",
+            "version": "4.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpDocumentor/ReflectionDocBlock.git",
-                "reference": "bdd9f737ebc2a01c06ea7ff4308ec6697db9b53c"
+                "reference": "94fd0001232e47129dd3504189fa1c7225010d08"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpDocumentor/ReflectionDocBlock/zipball/bdd9f737ebc2a01c06ea7ff4308ec6697db9b53c",
-                "reference": "bdd9f737ebc2a01c06ea7ff4308ec6697db9b53c",
+                "url": "https://api.github.com/repos/phpDocumentor/ReflectionDocBlock/zipball/94fd0001232e47129dd3504189fa1c7225010d08",
+                "reference": "94fd0001232e47129dd3504189fa1c7225010d08",
                 "shasum": ""
             },
             "require": {
@@ -4755,7 +4321,7 @@
                 }
             ],
             "description": "With this component, a library can provide support for annotations via DocBlocks or otherwise retrieve information that is embedded in a DocBlock.",
-            "time": "2019-04-30T17:48:53+00:00"
+            "time": "2017-11-30T07:14:17+00:00"
         },
         {
             "name": "phpdocumentor/type-resolver",
@@ -4872,16 +4438,16 @@
         },
         {
             "name": "phpspec/prophecy",
-            "version": "1.8.1",
+            "version": "1.8.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpspec/prophecy.git",
-                "reference": "1927e75f4ed19131ec9bcc3b002e07fb1173ee76"
+                "reference": "4ba436b55987b4bf311cb7c6ba82aa528aac0a06"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpspec/prophecy/zipball/1927e75f4ed19131ec9bcc3b002e07fb1173ee76",
-                "reference": "1927e75f4ed19131ec9bcc3b002e07fb1173ee76",
+                "url": "https://api.github.com/repos/phpspec/prophecy/zipball/4ba436b55987b4bf311cb7c6ba82aa528aac0a06",
+                "reference": "4ba436b55987b4bf311cb7c6ba82aa528aac0a06",
                 "shasum": ""
             },
             "require": {
@@ -4902,8 +4468,8 @@
                 }
             },
             "autoload": {
-                "psr-4": {
-                    "Prophecy\\": "src/Prophecy"
+                "psr-0": {
+                    "Prophecy\\": "src/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -4931,7 +4497,7 @@
                 "spy",
                 "stub"
             ],
-            "time": "2019-06-13T12:50:23+00:00"
+            "time": "2018-08-05T17:53:17+00:00"
         },
         {
             "name": "phpunit/php-code-coverage",
@@ -5979,16 +5545,16 @@
         },
         {
             "name": "symfony/debug",
-            "version": "v4.3.2",
+            "version": "v4.2.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/debug.git",
-                "reference": "d8f4fb38152e0eb6a433705e5f661d25b32c5fcd"
+                "reference": "cf9b2e33f757deb884ce474e06d2647c1c769b65"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/debug/zipball/d8f4fb38152e0eb6a433705e5f661d25b32c5fcd",
-                "reference": "d8f4fb38152e0eb6a433705e5f661d25b32c5fcd",
+                "url": "https://api.github.com/repos/symfony/debug/zipball/cf9b2e33f757deb884ce474e06d2647c1c769b65",
+                "reference": "cf9b2e33f757deb884ce474e06d2647c1c769b65",
                 "shasum": ""
             },
             "require": {
@@ -6004,7 +5570,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "4.3-dev"
+                    "dev-master": "4.2-dev"
                 }
             },
             "autoload": {
@@ -6031,40 +5597,34 @@
             ],
             "description": "Symfony Debug Component",
             "homepage": "https://symfony.com",
-            "time": "2019-06-19T15:27:09+00:00"
+            "time": "2019-01-25T14:35:16+00:00"
         },
         {
             "name": "symfony/event-dispatcher",
-            "version": "v4.3.2",
+            "version": "v4.2.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/event-dispatcher.git",
-                "reference": "d257021c1ab28d48d24a16de79dfab445ce93398"
+                "reference": "bd09ad265cd50b2b9d09d65ce6aba2d29bc81fe1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/event-dispatcher/zipball/d257021c1ab28d48d24a16de79dfab445ce93398",
-                "reference": "d257021c1ab28d48d24a16de79dfab445ce93398",
+                "url": "https://api.github.com/repos/symfony/event-dispatcher/zipball/bd09ad265cd50b2b9d09d65ce6aba2d29bc81fe1",
+                "reference": "bd09ad265cd50b2b9d09d65ce6aba2d29bc81fe1",
                 "shasum": ""
             },
             "require": {
                 "php": "^7.1.3",
-                "symfony/event-dispatcher-contracts": "^1.1"
+                "symfony/contracts": "^1.0"
             },
             "conflict": {
                 "symfony/dependency-injection": "<3.4"
-            },
-            "provide": {
-                "psr/event-dispatcher-implementation": "1.0",
-                "symfony/event-dispatcher-implementation": "1.1"
             },
             "require-dev": {
                 "psr/log": "~1.0",
                 "symfony/config": "~3.4|~4.0",
                 "symfony/dependency-injection": "~3.4|~4.0",
                 "symfony/expression-language": "~3.4|~4.0",
-                "symfony/http-foundation": "^3.4|^4.0",
-                "symfony/service-contracts": "^1.1",
                 "symfony/stopwatch": "~3.4|~4.0"
             },
             "suggest": {
@@ -6074,7 +5634,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "4.3-dev"
+                    "dev-master": "4.2-dev"
                 }
             },
             "autoload": {
@@ -6101,78 +5661,20 @@
             ],
             "description": "Symfony EventDispatcher Component",
             "homepage": "https://symfony.com",
-            "time": "2019-06-13T11:03:18+00:00"
-        },
-        {
-            "name": "symfony/event-dispatcher-contracts",
-            "version": "v1.1.5",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/event-dispatcher-contracts.git",
-                "reference": "c61766f4440ca687de1084a5c00b08e167a2575c"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/event-dispatcher-contracts/zipball/c61766f4440ca687de1084a5c00b08e167a2575c",
-                "reference": "c61766f4440ca687de1084a5c00b08e167a2575c",
-                "shasum": ""
-            },
-            "require": {
-                "php": "^7.1.3"
-            },
-            "suggest": {
-                "psr/event-dispatcher": "",
-                "symfony/event-dispatcher-implementation": ""
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.1-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Symfony\\Contracts\\EventDispatcher\\": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Nicolas Grekas",
-                    "email": "p@tchwork.com"
-                },
-                {
-                    "name": "Symfony Community",
-                    "homepage": "https://symfony.com/contributors"
-                }
-            ],
-            "description": "Generic abstractions related to dispatching event",
-            "homepage": "https://symfony.com",
-            "keywords": [
-                "abstractions",
-                "contracts",
-                "decoupling",
-                "interfaces",
-                "interoperability",
-                "standards"
-            ],
-            "time": "2019-06-20T06:46:26+00:00"
+            "time": "2019-01-16T20:35:37+00:00"
         },
         {
             "name": "symfony/finder",
-            "version": "v4.3.2",
+            "version": "v4.2.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/finder.git",
-                "reference": "33c21f7d5d3dc8a140c282854a7e13aeb5d0f91a"
+                "reference": "ef71816cbb264988bb57fe6a73f610888b9aa70c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/finder/zipball/33c21f7d5d3dc8a140c282854a7e13aeb5d0f91a",
-                "reference": "33c21f7d5d3dc8a140c282854a7e13aeb5d0f91a",
+                "url": "https://api.github.com/repos/symfony/finder/zipball/ef71816cbb264988bb57fe6a73f610888b9aa70c",
+                "reference": "ef71816cbb264988bb57fe6a73f610888b9aa70c",
                 "shasum": ""
             },
             "require": {
@@ -6181,7 +5683,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "4.3-dev"
+                    "dev-master": "4.2-dev"
                 }
             },
             "autoload": {
@@ -6208,25 +5710,24 @@
             ],
             "description": "Symfony Finder Component",
             "homepage": "https://symfony.com",
-            "time": "2019-06-13T11:03:18+00:00"
+            "time": "2019-01-16T20:35:37+00:00"
         },
         {
             "name": "symfony/http-foundation",
-            "version": "v4.3.2",
+            "version": "v4.2.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/http-foundation.git",
-                "reference": "e1b507fcfa4e87d192281774b5ecd4265370180d"
+                "reference": "8d2318b73e0a1bc75baa699d00ebe2ae8b595a39"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/http-foundation/zipball/e1b507fcfa4e87d192281774b5ecd4265370180d",
-                "reference": "e1b507fcfa4e87d192281774b5ecd4265370180d",
+                "url": "https://api.github.com/repos/symfony/http-foundation/zipball/8d2318b73e0a1bc75baa699d00ebe2ae8b595a39",
+                "reference": "8d2318b73e0a1bc75baa699d00ebe2ae8b595a39",
                 "shasum": ""
             },
             "require": {
                 "php": "^7.1.3",
-                "symfony/mime": "^4.3",
                 "symfony/polyfill-mbstring": "~1.1"
             },
             "require-dev": {
@@ -6236,7 +5737,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "4.3-dev"
+                    "dev-master": "4.2-dev"
                 }
             },
             "autoload": {
@@ -6263,20 +5764,20 @@
             ],
             "description": "Symfony HttpFoundation Component",
             "homepage": "https://symfony.com",
-            "time": "2019-06-26T09:25:00+00:00"
+            "time": "2019-01-29T09:49:29+00:00"
         },
         {
             "name": "symfony/http-kernel",
-            "version": "v3.4.29",
+            "version": "v3.4.22",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/http-kernel.git",
-                "reference": "abbb38dbab652ddc40a86d0c3b0e14ca52d58ed2"
+                "reference": "dc6bf17684b7120f7bf74fae85c9155506041002"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/http-kernel/zipball/abbb38dbab652ddc40a86d0c3b0e14ca52d58ed2",
-                "reference": "abbb38dbab652ddc40a86d0c3b0e14ca52d58ed2",
+                "url": "https://api.github.com/repos/symfony/http-kernel/zipball/dc6bf17684b7120f7bf74fae85c9155506041002",
+                "reference": "dc6bf17684b7120f7bf74fae85c9155506041002",
                 "shasum": ""
             },
             "require": {
@@ -6352,196 +5853,20 @@
             ],
             "description": "Symfony HttpKernel Component",
             "homepage": "https://symfony.com",
-            "time": "2019-06-26T13:56:39+00:00"
-        },
-        {
-            "name": "symfony/mime",
-            "version": "v4.3.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/mime.git",
-                "reference": "ec2c5565de60e03f33d4296a655e3273f0ad1f8b"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/mime/zipball/ec2c5565de60e03f33d4296a655e3273f0ad1f8b",
-                "reference": "ec2c5565de60e03f33d4296a655e3273f0ad1f8b",
-                "shasum": ""
-            },
-            "require": {
-                "php": "^7.1.3",
-                "symfony/polyfill-intl-idn": "^1.10",
-                "symfony/polyfill-mbstring": "^1.0"
-            },
-            "require-dev": {
-                "egulias/email-validator": "^2.0",
-                "symfony/dependency-injection": "~3.4|^4.1"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "4.3-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Symfony\\Component\\Mime\\": ""
-                },
-                "exclude-from-classmap": [
-                    "/Tests/"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com"
-                },
-                {
-                    "name": "Symfony Community",
-                    "homepage": "https://symfony.com/contributors"
-                }
-            ],
-            "description": "A library to manipulate MIME messages",
-            "homepage": "https://symfony.com",
-            "keywords": [
-                "mime",
-                "mime-type"
-            ],
-            "time": "2019-06-04T09:22:54+00:00"
-        },
-        {
-            "name": "symfony/polyfill-intl-idn",
-            "version": "v1.11.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/polyfill-intl-idn.git",
-                "reference": "c766e95bec706cdd89903b1eda8afab7d7a6b7af"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-intl-idn/zipball/c766e95bec706cdd89903b1eda8afab7d7a6b7af",
-                "reference": "c766e95bec706cdd89903b1eda8afab7d7a6b7af",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.3",
-                "symfony/polyfill-mbstring": "^1.3",
-                "symfony/polyfill-php72": "^1.9"
-            },
-            "suggest": {
-                "ext-intl": "For best performance"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.9-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Symfony\\Polyfill\\Intl\\Idn\\": ""
-                },
-                "files": [
-                    "bootstrap.php"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Symfony Community",
-                    "homepage": "https://symfony.com/contributors"
-                },
-                {
-                    "name": "Laurent Bassin",
-                    "email": "laurent@bassin.info"
-                }
-            ],
-            "description": "Symfony polyfill for intl's idn_to_ascii and idn_to_utf8 functions",
-            "homepage": "https://symfony.com",
-            "keywords": [
-                "compatibility",
-                "idn",
-                "intl",
-                "polyfill",
-                "portable",
-                "shim"
-            ],
-            "time": "2019-03-04T13:44:35+00:00"
-        },
-        {
-            "name": "symfony/polyfill-php72",
-            "version": "v1.11.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/polyfill-php72.git",
-                "reference": "ab50dcf166d5f577978419edd37aa2bb8eabce0c"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-php72/zipball/ab50dcf166d5f577978419edd37aa2bb8eabce0c",
-                "reference": "ab50dcf166d5f577978419edd37aa2bb8eabce0c",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.3"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.11-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Symfony\\Polyfill\\Php72\\": ""
-                },
-                "files": [
-                    "bootstrap.php"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Nicolas Grekas",
-                    "email": "p@tchwork.com"
-                },
-                {
-                    "name": "Symfony Community",
-                    "homepage": "https://symfony.com/contributors"
-                }
-            ],
-            "description": "Symfony polyfill backporting some PHP 7.2+ features to lower PHP versions",
-            "homepage": "https://symfony.com",
-            "keywords": [
-                "compatibility",
-                "polyfill",
-                "portable",
-                "shim"
-            ],
-            "time": "2019-02-06T07:57:58+00:00"
+            "time": "2019-02-03T12:22:50+00:00"
         },
         {
             "name": "symfony/process",
-            "version": "v4.3.2",
+            "version": "v4.2.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/process.git",
-                "reference": "856d35814cf287480465bb7a6c413bb7f5f5e69c"
+                "reference": "6c05edb11fbeff9e2b324b4270ecb17911a8b7ad"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/process/zipball/856d35814cf287480465bb7a6c413bb7f5f5e69c",
-                "reference": "856d35814cf287480465bb7a6c413bb7f5f5e69c",
+                "url": "https://api.github.com/repos/symfony/process/zipball/6c05edb11fbeff9e2b324b4270ecb17911a8b7ad",
+                "reference": "6c05edb11fbeff9e2b324b4270ecb17911a8b7ad",
                 "shasum": ""
             },
             "require": {
@@ -6550,7 +5875,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "4.3-dev"
+                    "dev-master": "4.2-dev"
                 }
             },
             "autoload": {
@@ -6577,66 +5902,7 @@
             ],
             "description": "Symfony Process Component",
             "homepage": "https://symfony.com",
-            "time": "2019-05-30T16:10:05+00:00"
-        },
-        {
-            "name": "symfony/yaml",
-            "version": "v4.3.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/yaml.git",
-                "reference": "c60ecf5ba842324433b46f58dc7afc4487dbab99"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/yaml/zipball/c60ecf5ba842324433b46f58dc7afc4487dbab99",
-                "reference": "c60ecf5ba842324433b46f58dc7afc4487dbab99",
-                "shasum": ""
-            },
-            "require": {
-                "php": "^7.1.3",
-                "symfony/polyfill-ctype": "~1.8"
-            },
-            "conflict": {
-                "symfony/console": "<3.4"
-            },
-            "require-dev": {
-                "symfony/console": "~3.4|~4.0"
-            },
-            "suggest": {
-                "symfony/console": "For validating YAML files using the lint command"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "4.3-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Symfony\\Component\\Yaml\\": ""
-                },
-                "exclude-from-classmap": [
-                    "/Tests/"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com"
-                },
-                {
-                    "name": "Symfony Community",
-                    "homepage": "https://symfony.com/contributors"
-                }
-            ],
-            "description": "Symfony Yaml Component",
-            "homepage": "https://symfony.com",
-            "time": "2019-04-06T14:04:46+00:00"
+            "time": "2019-01-24T22:05:03+00:00"
         },
         {
             "name": "theseer/fdomdocument",
@@ -6738,7 +6004,7 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": ">=7.1.0"
+        "php": ">=7.0.13"
     },
     "platform-dev": []
 }
