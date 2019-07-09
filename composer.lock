@@ -2605,16 +2605,16 @@
         },
         {
             "name": "techdivision/import",
-            "version": "12.0.4",
+            "version": "12.0.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import.git",
-                "reference": "3b024ba5ec2b357df985c8d4ef311a11f4bbd98a"
+                "reference": "6427e2abb7fe4ecd2390d65f483674fecde84e15"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import/zipball/3b024ba5ec2b357df985c8d4ef311a11f4bbd98a",
-                "reference": "3b024ba5ec2b357df985c8d4ef311a11f4bbd98a",
+                "url": "https://api.github.com/repos/techdivision/import/zipball/6427e2abb7fe4ecd2390d65f483674fecde84e15",
+                "reference": "6427e2abb7fe4ecd2390d65f483674fecde84e15",
                 "shasum": ""
             },
             "require": {
@@ -2628,7 +2628,6 @@
                 "psr/cache": "~1.0",
                 "psr/container": "~1.0",
                 "psr/log": "~1.0",
-                "ramsey/uuid": "3.8.*",
                 "swiftmailer/swiftmailer": "5.4.*",
                 "zendframework/zend-filter": "~2.0"
             },
@@ -2664,7 +2663,7 @@
                 }
             ],
             "description": "A library supporting generic Magento 2 import functionality",
-            "time": "2019-07-09T14:20:26+00:00"
+            "time": "2019-07-09T19:03:18+00:00"
         },
         {
             "name": "techdivision/import-app-simple",
