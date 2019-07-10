@@ -1,3 +1,17 @@
+# Version 3.5.1
+
+## Known Issues
+
+* Up from Magento 2 EE 2.1.10 using the single transaction mode has a massive performance impact (can only be used **WITHOUT** single transaction)
+
+## Bugfixes
+
+* None
+
+## Features
+
+* Remove unnecessary attribute set observer from price and inventory import Symfony DI configuration
+
 # Version 3.5.0
 
 ## Known Issues
