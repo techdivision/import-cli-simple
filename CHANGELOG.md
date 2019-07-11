@@ -1,3 +1,17 @@
+# Version 3.5.2
+
+## Known Issues
+
+* Up from Magento 2 EE 2.1.10 using the single transaction mode has a massive performance impact (can only be used **WITHOUT** single transaction)
+
+## Bugfixes
+
+* None
+
+## Features
+
+* Update composer dependencies to optimize compatibility for Magento 2.3.2
+
 # Version 3.5.1
 
 ## Known Issues
