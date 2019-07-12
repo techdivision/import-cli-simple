@@ -30,7 +30,20 @@ $container->setParameter(DependencyInjectionKeys::CONFIGURATION_VENDOR_DIR, $ven
 
 // initialize the default loader and load the DI configuration for the this library
 $defaultLoader = new XmlFileLoader($container, new FileLocator($vendorDir));
-$defaultLoader->load(__DIR__ . '/symfony/Resources/config/services.xml');
+$defaultLoader->load(
+    implode(
+        DIRECTORY_SEPARATOR,
+        array(
+            $vendorDir,
+            'techdivision',
+            'import-cli',
+            'symfony',
+            'Resources',
+            'config',
+            'services.xml'
+        )
+    )
+);
 
 // initialize and run the application
 $statusCode = $container->get(DependencyInjectionKeys::APPLICATION)

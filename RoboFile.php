@@ -41,13 +41,12 @@ class RoboFile extends \Robo\Tasks
     protected $properties = array(
         'base.dir' => __DIR__,
         'etc.dir' => __DIR__ . '/etc',
-        'src.dir' => __DIR__ . '/src',
         'dist.dir' => __DIR__ . '/dist',
         'vendor.dir' => __DIR__ . '/vendor',
         'target.dir' => __DIR__ . '/target',
         'symfony.dir' => __DIR__ . '/symfony',
         'webapp.name' => 'import-cli-simple',
-        'webapp.version' => '3.5.2'
+        'webapp.version' => '3.6.0'
     );
 
     /**
@@ -144,20 +143,6 @@ class RoboFile extends \Robo\Tasks
                   $targetDir. DIRECTORY_SEPARATOR. 'bootstrap.php'
                )->run();
 
-        // copy the src/etc directory
-        $this->taskCopyDir(
-                  array(
-                      $this->properties['src.dir'] => $targetDir . DIRECTORY_SEPARATOR . 'src'
-                  )
-               )->run();
-
-        // copy the syfmony directory
-        $this->taskCopyDir(
-                   array(
-                       $this->properties['symfony.dir'] => $targetDir . DIRECTORY_SEPARATOR . 'symfony'
-                   )
-               )->run();
-
         // install the composer dependencies
         $this->taskComposerInstall()
             ->dir($targetDir)
@@ -199,63 +184,6 @@ class RoboFile extends \Robo\Tasks
 
         // copy the latest PHAR archive to the dist directory
         $this->taskFilesystemStack()->copy($archiveName, $distArchiveName)->run();
-    }
-
-    /**
-     * Run's the PHPMD.
-     *
-     * @return void
-     */
-    public function runMd()
-    {
-
-        // run the mess detector
-        $this->_exec(
-            sprintf(
-                '%s/bin/phpmd %s xml phpmd.xml --reportfile %s/reports/pmd.xml --ignore-violations-on-exit',
-                $this->properties['vendor.dir'],
-                $this->properties['src.dir'],
-                $this->properties['target.dir']
-            )
-        );
-    }
-
-    /**
-     * Run's the PHPCPD.
-     *
-     * @return void
-     */
-    public function runCpd()
-    {
-
-        // run the copy past detector
-        $this->_exec(
-            sprintf(
-                '%s/bin/phpcpd %s --log-pmd %s/reports/pmd-cpd.xml --names-exclude *Factory.php',
-                $this->properties['vendor.dir'],
-                $this->properties['src.dir'],
-                $this->properties['target.dir']
-            )
-        );
-    }
-
-    /**
-     * Run's the PHPCodeSniffer.
-     *
-     * @return void
-     */
-    public function runCs()
-    {
-
-        // run the code sniffer
-        $this->_exec(
-            sprintf(
-                '%s/bin/phpcs -n --report-full --extensions=php --standard=phpcs.xml --report-checkstyle=%s/reports/phpcs.xml %s',
-                $this->properties['vendor.dir'],
-                $this->properties['target.dir'],
-                $this->properties['src.dir']
-            )
-        );
     }
 
     /**
@@ -365,9 +293,6 @@ class RoboFile extends \Robo\Tasks
     {
         $this->clean();
         $this->prepare();
-        $this->runCs();
-        $this->runCpd();
-        $this->runMd();
         $this->runTestsUnit();
     }
 }
