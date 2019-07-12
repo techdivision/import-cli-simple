@@ -26,6 +26,7 @@ use TechDivision\Import\Cli\Utils\DependencyInjectionKeys;
 
 // initialize the DI container and set the vendor directory
 $container = new ContainerBuilder();
+$container->setParameter(DependencyInjectionKeys::CONFIGURATION_BASE_DIR, dirname(__FILE__));
 $container->setParameter(DependencyInjectionKeys::CONFIGURATION_VENDOR_DIR, $vendorDir);
 
 // initialize the default loader and load the DI configuration for the this library

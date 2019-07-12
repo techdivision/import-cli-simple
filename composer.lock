@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "c1766351b91a6738c7aa6ec40ed1dfc9",
+    "content-hash": "fa3fe680f56ad61b9e85696a019185a5",
     "packages": [
         {
             "name": "cache/adapter-common",
@@ -2641,16 +2641,16 @@
         },
         {
             "name": "techdivision/import-cli",
-            "version": "1.0.2",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-cli.git",
-                "reference": "70bd5dfb959edc220dfd05716fcbb515fbb55a71"
+                "reference": "c6a81b918b21207f7529a8d0c28b22fd55e255da"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-cli/zipball/70bd5dfb959edc220dfd05716fcbb515fbb55a71",
-                "reference": "70bd5dfb959edc220dfd05716fcbb515fbb55a71",
+                "url": "https://api.github.com/repos/techdivision/import-cli/zipball/c6a81b918b21207f7529a8d0c28b22fd55e255da",
+                "reference": "c6a81b918b21207f7529a8d0c28b22fd55e255da",
                 "shasum": ""
             },
             "require": {
@@ -2695,7 +2695,7 @@
                 }
             ],
             "description": "Commands and Helpers to implement a CLI providing single-threaded Magento 2 importing functionality based on M2IF",
-            "time": "2019-07-11T17:22:45+00:00"
+            "time": "2019-07-12T15:40:41+00:00"
         },
         {
             "name": "techdivision/import-configuration-jms",
@@ -6707,16 +6707,16 @@
         },
         {
             "name": "techdivision/import-sample-data",
-            "version": "1.0.2",
+            "version": "1.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-sample-data.git",
-                "reference": "a39bdb44b8f7ba0272cae9f9d5acfe4d6cd86591"
+                "reference": "540f544421de78dec4804e366b30dd93bc52d091"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-sample-data/zipball/a39bdb44b8f7ba0272cae9f9d5acfe4d6cd86591",
-                "reference": "a39bdb44b8f7ba0272cae9f9d5acfe4d6cd86591",
+                "url": "https://api.github.com/repos/techdivision/import-sample-data/zipball/540f544421de78dec4804e366b30dd93bc52d091",
+                "reference": "540f544421de78dec4804e366b30dd93bc52d091",
                 "shasum": ""
             },
             "require": {
@@ -6734,7 +6734,7 @@
                 }
             ],
             "description": "M2IF sample data for Magento 2 Community + Commerce Edition",
-            "time": "2019-07-12T08:45:01+00:00"
+            "time": "2019-07-12T15:39:24+00:00"
         },
         {
             "name": "theseer/fdomdocument",
@@ -6828,9 +6828,17 @@
             "time": "2018-12-25T11:19:39+00:00"
         }
     ],
-    "aliases": [],
+    "aliases": [
+        {
+            "alias": "1.0.0",
+            "alias_normalized": "1.0.0.0",
+            "version": "9999999-dev",
+            "package": "techdivision/import-cli"
+        }
+    ],
     "minimum-stability": "stable",
     "stability-flags": {
+        "techdivision/import-cli": 20,
         "phpmd/phpmd": 0
     },
     "prefer-stable": false,
