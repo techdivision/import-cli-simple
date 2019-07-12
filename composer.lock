@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "fa3fe680f56ad61b9e85696a019185a5",
+    "content-hash": "c1766351b91a6738c7aa6ec40ed1dfc9",
     "packages": [
         {
             "name": "cache/adapter-common",
@@ -2641,16 +2641,16 @@
         },
         {
             "name": "techdivision/import-cli",
-            "version": "dev-master",
+            "version": "1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-cli.git",
-                "reference": "c6a81b918b21207f7529a8d0c28b22fd55e255da"
+                "reference": "b1f5df25397adfedce7ef9136db038925ff888f4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-cli/zipball/c6a81b918b21207f7529a8d0c28b22fd55e255da",
-                "reference": "c6a81b918b21207f7529a8d0c28b22fd55e255da",
+                "url": "https://api.github.com/repos/techdivision/import-cli/zipball/b1f5df25397adfedce7ef9136db038925ff888f4",
+                "reference": "b1f5df25397adfedce7ef9136db038925ff888f4",
                 "shasum": ""
             },
             "require": {
@@ -2695,7 +2695,7 @@
                 }
             ],
             "description": "Commands and Helpers to implement a CLI providing single-threaded Magento 2 importing functionality based on M2IF",
-            "time": "2019-07-12T15:40:41+00:00"
+            "time": "2019-07-12T15:56:37+00:00"
         },
         {
             "name": "techdivision/import-configuration-jms",
@@ -6828,17 +6828,9 @@
             "time": "2018-12-25T11:19:39+00:00"
         }
     ],
-    "aliases": [
-        {
-            "alias": "1.0.0",
-            "alias_normalized": "1.0.0.0",
-            "version": "9999999-dev",
-            "package": "techdivision/import-cli"
-        }
-    ],
+    "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "techdivision/import-cli": 20,
         "phpmd/phpmd": 0
     },
     "prefer-stable": false,
