@@ -204,11 +204,12 @@ abstract class AbstractIntegrationTest extends \PHPUnit_Framework_TestCase
 
         // initialize the DI container and set the vendor directory
         self::$container = new ContainerBuilder();
+        self::$container->setParameter(DependencyInjectionKeys::CONFIGURATION_BASE_DIR, getcwd());
         self::$container->setParameter(DependencyInjectionKeys::CONFIGURATION_VENDOR_DIR, $vendorDir = self::getVendorDir());
 
         // initialize the default loader and load the DI configuration for the this library
         $defaultLoader = new XmlFileLoader(self::$container, new FileLocator($vendorDir));
-        $defaultLoader->load(dirname($vendorDir) . '/symfony/Resources/config/services.xml');
+        $defaultLoader->load($vendorDir . '/techdivision/import-cli/symfony/Resources/config/services.xml');
 
         // load the configuration factory and create the configuration instance
         /** @var \TechDivision\Import\Configuration\Jms\ConfigurationFactory $configurationFactory */
