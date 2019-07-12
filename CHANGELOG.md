@@ -1,3 +1,18 @@
+# Version 3.6.0
+
+## Known Issues
+
+* Up from Magento 2 EE 2.1.10 using the single transaction mode has a massive performance impact (can only be used **WITHOUT** single transaction)
+
+## Bugfixes
+
+* None
+
+## Features
+
+* Extract sample data to its own repository techdivision/import-sample-data
+* Update composer dependencies to be compatible with Magento 2.2.x as well as 2.3.x
+
 # Version 3.5.2
 
 ## Known Issues
