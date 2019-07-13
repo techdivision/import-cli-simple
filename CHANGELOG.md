@@ -12,6 +12,7 @@
 
 * Extract sample data to its own repository techdivision/import-sample-data
 * Update composer dependencies to be compatible with Magento 2.2.x as well as 2.3.x
+* Replace member variable with default library names with value from DI configuration
 
 # Version 3.5.2
 
