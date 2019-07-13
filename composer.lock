@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "c1766351b91a6738c7aa6ec40ed1dfc9",
+    "content-hash": "69b9d3bf03d38a70fb0074b7c3c697de",
     "packages": [
         {
             "name": "cache/adapter-common",
@@ -2377,21 +2377,21 @@
         },
         {
             "name": "techdivision/import-app-simple",
-            "version": "13.0.0",
+            "version": "13.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-app-simple.git",
-                "reference": "15d0b9639c1ddcf4272ddcd7621a078f058e9b1a"
+                "reference": "09cd54c9cc1ab96873535f1d533c8c7733d6948e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-app-simple/zipball/15d0b9639c1ddcf4272ddcd7621a078f058e9b1a",
-                "reference": "15d0b9639c1ddcf4272ddcd7621a078f058e9b1a",
+                "url": "https://api.github.com/repos/techdivision/import-app-simple/zipball/09cd54c9cc1ab96873535f1d533c8c7733d6948e",
+                "reference": "09cd54c9cc1ab96873535f1d533c8c7733d6948e",
                 "shasum": ""
             },
             "require": {
                 "monolog/monolog": "~1.0",
-                "php": ">=7.1.0",
+                "php": ">=5.6.0",
                 "ramsey/uuid": "~3.0",
                 "symfony/console": "~2.3,!=2.7.0|~4.0",
                 "techdivision/import": "12.*"
@@ -2428,7 +2428,7 @@
                 }
             ],
             "description": "M2IF simple application implementation providing basic Magento 2 import functionality",
-            "time": "2019-07-03T11:05:06+00:00"
+            "time": "2019-07-13T20:11:27+00:00"
         },
         {
             "name": "techdivision/import-attribute",
@@ -2641,16 +2641,16 @@
         },
         {
             "name": "techdivision/import-cli",
-            "version": "1.1.1",
+            "version": "2.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-cli.git",
-                "reference": "452c5f6ad3b265314745b04272fde8d4ac9ebaa5"
+                "reference": "6197de85fe078cb9b943fa86647d8bd1fd703c85"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-cli/zipball/452c5f6ad3b265314745b04272fde8d4ac9ebaa5",
-                "reference": "452c5f6ad3b265314745b04272fde8d4ac9ebaa5",
+                "url": "https://api.github.com/repos/techdivision/import-cli/zipball/6197de85fe078cb9b943fa86647d8bd1fd703c85",
+                "reference": "6197de85fe078cb9b943fa86647d8bd1fd703c85",
                 "shasum": ""
             },
             "require": {
@@ -2695,7 +2695,7 @@
                 }
             ],
             "description": "Commands and Helpers to implement a CLI providing single-threaded Magento 2 importing functionality based on M2IF",
-            "time": "2019-07-12T20:12:00+00:00"
+            "time": "2019-07-13T19:59:38+00:00"
         },
         {
             "name": "techdivision/import-configuration-jms",
