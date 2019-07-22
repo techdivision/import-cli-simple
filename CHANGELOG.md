@@ -1,3 +1,17 @@
+# Version 3.6.1
+
+## Known Issues
+
+* Up from Magento 2 EE 2.1.10 using the single transaction mode has a massive performance impact (can only be used **WITHOUT** single transaction)
+
+## Bugfixes
+
+* None
+
+## Features
+
+* Extend clean-up-empty-columns configuration by price specifc columns
+
 # Version 3.6.0
 
 ## Known Issues
