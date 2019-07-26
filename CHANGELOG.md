@@ -1,3 +1,17 @@
+# Version 3.6.2
+
+## Known Issues
+
+* Up from Magento 2 EE 2.1.10 using the single transaction mode has a massive performance impact (can only be used **WITHOUT** single transaction)
+
+## Bugfixes
+
+* Add check if version specific configuration file really exists or not to
+
+## Features
+
+* None
+
 # Version 3.6.1
 
 ## Known Issues
