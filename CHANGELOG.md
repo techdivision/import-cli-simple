@@ -1,3 +1,17 @@
+# Version 3.7.0
+
+## Known Issues
+
+* Up from Magento 2 EE 2.1.10 using the single transaction mode has a massive performance impact (can only be used **WITHOUT** single transaction)
+
+## Bugfixes
+
+* Fixed issue when formatting decimals greater than 999
+
+## Features
+
+* Add support for delta import with relations of bundles, gropued, variants as well as related, cross- and upssell products that a part of the actual import
+
 # Version 3.6.3
 
 ## Known Issues
