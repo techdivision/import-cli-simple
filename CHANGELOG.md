@@ -1,3 +1,34 @@
+# Version 3.7.2
+
+## Known Issues
+
+* Up from Magento 2 EE 2.1.10 using the single transaction mode has a massive performance impact (can only be used **WITHOUT** single transaction)
+
+## Bugfixes
+
+* Fixed techdivision/import#156
+* Make SQL for loading EAV attribute option values case sensitive
+
+## Features
+
+* Extend additional attribute serializer functionality
+* Make SQL for loading EAV attribute option values case sensitive
+* Extend observer and callback instanciation with the possibility to use a factory
+
+# Version 3.7.1
+
+## Known Issues
+
+* Up from Magento 2 EE 2.1.10 using the single transaction mode has a massive performance impact (can only be used **WITHOUT** single transaction)
+
+## Bugfixes
+
+* Fixed issue when formatting float/decimals on a localized system
+
+## Features
+
+* None
+
 # Version 3.7.0
 
 ## Known Issues
