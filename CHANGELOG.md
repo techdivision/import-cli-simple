@@ -1,3 +1,17 @@
+# Version 3.7.1
+
+## Known Issues
+
+* Up from Magento 2 EE 2.1.10 using the single transaction mode has a massive performance impact (can only be used **WITHOUT** single transaction)
+
+## Bugfixes
+
+* Fixed issue when formatting float/decimals on a localized system
+
+## Features
+
+* None
+
 # Version 3.7.0
 
 ## Known Issues
