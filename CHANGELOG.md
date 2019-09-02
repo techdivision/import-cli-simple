@@ -1,3 +1,18 @@
+# Version 3.7.3
+
+## Known Issues
+
+* Up from Magento 2 EE 2.1.10 using the single transaction mode has a massive performance impact (can only be used **WITHOUT** single transaction)
+
+## Bugfixes
+
+* Fixed techdivision/import-cli#1
+* Fixed techdivision/import-category-ee#34
+
+## Features
+
+* Add cache warmer for product varchar values to improve performance on CSV files with missing url_key value
+
 # Version 3.7.2
 
 ## Known Issues
