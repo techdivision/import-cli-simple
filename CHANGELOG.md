@@ -1,3 +1,17 @@
+# Version 3.7.4
+
+## Known Issues
+
+* Up from Magento 2 EE 2.1.10 using the single transaction mode has a massive performance impact (can only be used **WITHOUT** single transaction)
+
+## Bugfixes
+
+* Change artefact prefix for category URL rewrites from url-rewrite to category-url-rewrite to avoid conflicts with product import
+
+## Features
+
+* None
+
 # Version 3.7.3
 
 ## Known Issues

@@ -848,28 +848,30 @@
         },
         {
             "name": "doctrine/lexer",
-            "version": "1.0.2",
+            "version": "1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/lexer.git",
-                "reference": "1febd6c3ef84253d7c815bed85fc622ad207a9f8"
+                "reference": "e17f069ede36f7534b95adec71910ed1b49c74ea"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/lexer/zipball/1febd6c3ef84253d7c815bed85fc622ad207a9f8",
-                "reference": "1febd6c3ef84253d7c815bed85fc622ad207a9f8",
+                "url": "https://api.github.com/repos/doctrine/lexer/zipball/e17f069ede36f7534b95adec71910ed1b49c74ea",
+                "reference": "e17f069ede36f7534b95adec71910ed1b49c74ea",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.2"
+                "php": "^7.2"
             },
             "require-dev": {
-                "phpunit/phpunit": "^4.5"
+                "doctrine/coding-standard": "^6.0",
+                "phpstan/phpstan": "^0.11.8",
+                "phpunit/phpunit": "^8.2"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.0.x-dev"
+                    "dev-master": "1.1.x-dev"
                 }
             },
             "autoload": {
@@ -883,12 +885,12 @@
             ],
             "authors": [
                 {
-                    "name": "Roman Borschel",
-                    "email": "roman@code-factory.org"
-                },
-                {
                     "name": "Guilherme Blanco",
                     "email": "guilhermeblanco@gmail.com"
+                },
+                {
+                    "name": "Roman Borschel",
+                    "email": "roman@code-factory.org"
                 },
                 {
                     "name": "Johannes Schmitt",
@@ -904,7 +906,7 @@
                 "parser",
                 "php"
             ],
-            "time": "2019-06-08T11:03:04+00:00"
+            "time": "2019-07-30T19:33:28+00:00"
         },
         {
             "name": "goodby/csv",
@@ -2536,16 +2538,16 @@
         },
         {
             "name": "techdivision/import-category",
-            "version": "16.0.0",
+            "version": "16.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-category.git",
-                "reference": "ff3b3bd7067fd8b46ba1844cd66f37524e3b4ba6"
+                "reference": "05e4c9b72330f8a79d703fa920bb7c5e6e6e2043"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-category/zipball/ff3b3bd7067fd8b46ba1844cd66f37524e3b4ba6",
-                "reference": "ff3b3bd7067fd8b46ba1844cd66f37524e3b4ba6",
+                "url": "https://api.github.com/repos/techdivision/import-category/zipball/05e4c9b72330f8a79d703fa920bb7c5e6e6e2043",
+                "reference": "05e4c9b72330f8a79d703fa920bb7c5e6e6e2043",
                 "shasum": ""
             },
             "require": {
@@ -2584,20 +2586,20 @@
                 }
             ],
             "description": "M2IF library providing basic Magento 2 category import functionality",
-            "time": "2019-08-15T10:42:16+00:00"
+            "time": "2019-09-05T09:19:48+00:00"
         },
         {
             "name": "techdivision/import-category-ee",
-            "version": "17.0.1",
+            "version": "17.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-category-ee.git",
-                "reference": "93a89291dd358200131c8c22673b8966a7ab4402"
+                "reference": "7e50718be6efe020df43db292e4e6dcc86e7225b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-category-ee/zipball/93a89291dd358200131c8c22673b8966a7ab4402",
-                "reference": "93a89291dd358200131c8c22673b8966a7ab4402",
+                "url": "https://api.github.com/repos/techdivision/import-category-ee/zipball/7e50718be6efe020df43db292e4e6dcc86e7225b",
+                "reference": "7e50718be6efe020df43db292e4e6dcc86e7225b",
                 "shasum": ""
             },
             "require": {
@@ -2637,7 +2639,7 @@
                 }
             ],
             "description": "M2IF library providing basic Magento 2 EE category import functionality",
-            "time": "2019-09-02T09:42:59+00:00"
+            "time": "2019-09-05T09:22:30+00:00"
         },
         {
             "name": "techdivision/import-cli",
@@ -6709,16 +6711,16 @@
         },
         {
             "name": "techdivision/import-sample-data",
-            "version": "2.0.2",
+            "version": "2.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-sample-data.git",
-                "reference": "c411972e4fd7ce3adb51248c676b898d5faa6649"
+                "reference": "85c6552c27f15b0685219dcca99f3c4d40f83f04"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-sample-data/zipball/c411972e4fd7ce3adb51248c676b898d5faa6649",
-                "reference": "c411972e4fd7ce3adb51248c676b898d5faa6649",
+                "url": "https://api.github.com/repos/techdivision/import-sample-data/zipball/85c6552c27f15b0685219dcca99f3c4d40f83f04",
+                "reference": "85c6552c27f15b0685219dcca99f3c4d40f83f04",
                 "shasum": ""
             },
             "require": {
@@ -6736,7 +6738,7 @@
                 }
             ],
             "description": "M2IF sample data for Magento 2 Community + Commerce Edition",
-            "time": "2019-08-15T12:57:06+00:00"
+            "time": "2019-09-05T09:24:10+00:00"
         },
         {
             "name": "theseer/fdomdocument",
