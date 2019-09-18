@@ -9,6 +9,7 @@
 * Fixed techdivision/import-cli-simple#220
 * Fixed techdivision/import-cli-simple#221
 * Fixed techdivision/import-cli-simple#222
+* Fixed techdivision/import-cli-simple#224
 * Fixed techdivision/import-cli-simple#229
 
 ## Features
