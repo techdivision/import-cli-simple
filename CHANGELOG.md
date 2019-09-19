@@ -16,6 +16,7 @@
 
 * Add techdivision/import-product#146
 * Add techdivision/import-cli-simple#216
+* Remove deprecated classes and methods from all dependencies
 
 # Version 3.7.4
 
