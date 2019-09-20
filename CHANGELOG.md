@@ -11,6 +11,7 @@
 * Fixed techdivision/import-cli-simple#222
 * Fixed techdivision/import-cli-simple#224
 * Fixed techdivision/import-cli-simple#229
+* Use website code instead of ID to relate customer with website
 
 ## Features
 
