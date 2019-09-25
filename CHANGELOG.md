@@ -15,6 +15,7 @@
 
 ## Features
 
+* Add converter libraries to community version
 * Add techdivision/import-product#146
 * Add techdivision/import-cli-simple#216
 * Remove deprecated classes and methods from all dependencies
