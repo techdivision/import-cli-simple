@@ -1,3 +1,18 @@
+# Version 3.7.5
+
+## Known Issues
+
+* Up from Magento 2 EE 2.1.10 using the single transaction mode has a massive performance impact (can only be used **WITHOUT** single transaction)
+
+## Bugfixes
+
+* Bugfixing invalid delimiter parameter usage for ValueCsvSerializer::serialize() and ValueCsvSerializer::unserialize() methods
+* Fixed issue with InvalidArgumentException - The "magento-version" option does not exist - when invoking simple commands like import:create:ok-file
+
+## Features
+
+* None
+
 # Version 3.7.4
 
 ## Known Issues
