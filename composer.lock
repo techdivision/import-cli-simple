@@ -368,16 +368,16 @@
         },
         {
             "name": "doctrine/annotations",
-            "version": "v1.7.0",
+            "version": "v1.8.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/annotations.git",
-                "reference": "fa4c4e861e809d6a1103bd620cce63ed91aedfeb"
+                "reference": "904dca4eb10715b92569fbcd79e201d5c349b6bc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/annotations/zipball/fa4c4e861e809d6a1103bd620cce63ed91aedfeb",
-                "reference": "fa4c4e861e809d6a1103bd620cce63ed91aedfeb",
+                "url": "https://api.github.com/repos/doctrine/annotations/zipball/904dca4eb10715b92569fbcd79e201d5c349b6bc",
+                "reference": "904dca4eb10715b92569fbcd79e201d5c349b6bc",
                 "shasum": ""
             },
             "require": {
@@ -386,7 +386,7 @@
             },
             "require-dev": {
                 "doctrine/cache": "1.*",
-                "phpunit/phpunit": "^7.5@dev"
+                "phpunit/phpunit": "^7.5"
             },
             "type": "library",
             "extra": {
@@ -432,7 +432,7 @@
                 "docblock",
                 "parser"
             ],
-            "time": "2019-08-08T18:11:40+00:00"
+            "time": "2019-10-01T18:55:10+00:00"
         },
         {
             "name": "doctrine/cache",
@@ -943,15 +943,15 @@
             "authors": [
                 {
                     "name": "suin",
-                    "role": "Developer, Renaming Specialist",
                     "email": "suinyeze@gmail.com",
-                    "homepage": "https://www.facebook.com/suinyeze"
+                    "homepage": "https://www.facebook.com/suinyeze",
+                    "role": "Developer, Renaming Specialist"
                 },
                 {
                     "name": "reoring",
-                    "role": "Developer",
                     "email": "mori.reo@gmail.com",
-                    "homepage": "https://www.facebook.com/reoring"
+                    "homepage": "https://www.facebook.com/reoring",
+                    "role": "Developer"
                 }
             ],
             "description": "CSV import/export library",
@@ -2319,12 +2319,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import.git",
-                "reference": "53b7d04ea5d8144ef42733c817f3a22ccd8d0cb4"
+                "reference": "2aa3b67dd72f29a21ca38d2b40122a2aa0d41cbc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import/zipball/53b7d04ea5d8144ef42733c817f3a22ccd8d0cb4",
-                "reference": "53b7d04ea5d8144ef42733c817f3a22ccd8d0cb4",
+                "url": "https://api.github.com/repos/techdivision/import/zipball/2aa3b67dd72f29a21ca38d2b40122a2aa0d41cbc",
+                "reference": "2aa3b67dd72f29a21ca38d2b40122a2aa0d41cbc",
                 "shasum": ""
             },
             "require": {
@@ -2373,7 +2373,7 @@
                 }
             ],
             "description": "A library supporting generic Magento 2 import functionality",
-            "time": "2019-09-25T11:17:50+00:00"
+            "time": "2019-10-05T19:48:21+00:00"
         },
         {
             "name": "techdivision/import-app-simple",
@@ -2436,12 +2436,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-attribute.git",
-                "reference": "8eca0395c3d9518252de9dcda816dc79a580836a"
+                "reference": "491e578764a4ed96bed5dd371a07ffa4332b82c8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-attribute/zipball/8eca0395c3d9518252de9dcda816dc79a580836a",
-                "reference": "8eca0395c3d9518252de9dcda816dc79a580836a",
+                "url": "https://api.github.com/repos/techdivision/import-attribute/zipball/491e578764a4ed96bed5dd371a07ffa4332b82c8",
+                "reference": "491e578764a4ed96bed5dd371a07ffa4332b82c8",
                 "shasum": ""
             },
             "require": {
@@ -2480,7 +2480,7 @@
                 }
             ],
             "description": "M2IF library providing basic Magento 2 attribute import functionality",
-            "time": "2019-09-19T14:04:19+00:00"
+            "time": "2019-10-05T19:49:23+00:00"
         },
         {
             "name": "techdivision/import-attribute-set",
@@ -2488,12 +2488,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-attribute-set.git",
-                "reference": "497ae42c8eeacdedb1f6ea9bbf9cc984c23fecf6"
+                "reference": "bee31e7b26c76e9962e250738e6a830c839364e3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-attribute-set/zipball/497ae42c8eeacdedb1f6ea9bbf9cc984c23fecf6",
-                "reference": "497ae42c8eeacdedb1f6ea9bbf9cc984c23fecf6",
+                "url": "https://api.github.com/repos/techdivision/import-attribute-set/zipball/bee31e7b26c76e9962e250738e6a830c839364e3",
+                "reference": "bee31e7b26c76e9962e250738e6a830c839364e3",
                 "shasum": ""
             },
             "require": {
@@ -2533,7 +2533,7 @@
                 }
             ],
             "description": "M2IF library providing basic Magento 2 attribute set + group import functionality",
-            "time": "2019-09-19T14:04:52+00:00"
+            "time": "2019-10-05T19:49:48+00:00"
         },
         {
             "name": "techdivision/import-category",
@@ -2541,12 +2541,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-category.git",
-                "reference": "980e447d08cda03a8d038f10be79397b80e13f5c"
+                "reference": "bd43467a6dc92014b505aff4a175b20850709085"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-category/zipball/980e447d08cda03a8d038f10be79397b80e13f5c",
-                "reference": "980e447d08cda03a8d038f10be79397b80e13f5c",
+                "url": "https://api.github.com/repos/techdivision/import-category/zipball/bd43467a6dc92014b505aff4a175b20850709085",
+                "reference": "bd43467a6dc92014b505aff4a175b20850709085",
                 "shasum": ""
             },
             "require": {
@@ -2585,7 +2585,7 @@
                 }
             ],
             "description": "M2IF library providing basic Magento 2 category import functionality",
-            "time": "2019-09-25T11:32:02+00:00"
+            "time": "2019-10-05T19:53:03+00:00"
         },
         {
             "name": "techdivision/import-category-ee",
@@ -2593,12 +2593,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-category-ee.git",
-                "reference": "a318b66cf4af892c983cb99772d08a5e78456e74"
+                "reference": "b6ff32ff8455433fafb080e722096600d95df692"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-category-ee/zipball/a318b66cf4af892c983cb99772d08a5e78456e74",
-                "reference": "a318b66cf4af892c983cb99772d08a5e78456e74",
+                "url": "https://api.github.com/repos/techdivision/import-category-ee/zipball/b6ff32ff8455433fafb080e722096600d95df692",
+                "reference": "b6ff32ff8455433fafb080e722096600d95df692",
                 "shasum": ""
             },
             "require": {
@@ -2639,7 +2639,7 @@
                 }
             ],
             "description": "M2IF library providing basic Magento 2 EE category import functionality",
-            "time": "2019-09-25T11:34:33+00:00"
+            "time": "2019-10-05T19:53:38+00:00"
         },
         {
             "name": "techdivision/import-cli",
@@ -2647,12 +2647,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-cli.git",
-                "reference": "ffedcbc9c600e4b90fd2ece5fd8ed7defab1800e"
+                "reference": "ab4097bf2518a03785acf6d074b839d8a52fdce1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-cli/zipball/ffedcbc9c600e4b90fd2ece5fd8ed7defab1800e",
-                "reference": "ffedcbc9c600e4b90fd2ece5fd8ed7defab1800e",
+                "url": "https://api.github.com/repos/techdivision/import-cli/zipball/ab4097bf2518a03785acf6d074b839d8a52fdce1",
+                "reference": "ab4097bf2518a03785acf6d074b839d8a52fdce1",
                 "shasum": ""
             },
             "require": {
@@ -2697,7 +2697,7 @@
                 }
             ],
             "description": "Commands and Helpers to implement a CLI providing single-threaded Magento 2 importing functionality based on M2IF",
-            "time": "2019-09-25T11:36:21+00:00"
+            "time": "2019-10-05T19:56:57+00:00"
         },
         {
             "name": "techdivision/import-configuration-jms",
@@ -2705,12 +2705,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-configuration-jms.git",
-                "reference": "64043b64e8325bc08297e6f8173440c3cac90396"
+                "reference": "00a1ccaf661c2d944da7eceefc0fd0df561ecc04"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-configuration-jms/zipball/64043b64e8325bc08297e6f8173440c3cac90396",
-                "reference": "64043b64e8325bc08297e6f8173440c3cac90396",
+                "url": "https://api.github.com/repos/techdivision/import-configuration-jms/zipball/00a1ccaf661c2d944da7eceefc0fd0df561ecc04",
+                "reference": "00a1ccaf661c2d944da7eceefc0fd0df561ecc04",
                 "shasum": ""
             },
             "require": {
@@ -2748,7 +2748,7 @@
                 }
             ],
             "description": "Library providing a JMS based configuration implementation for the M2IF",
-            "time": "2019-09-25T12:11:23+00:00"
+            "time": "2019-10-05T20:01:44+00:00"
         },
         {
             "name": "techdivision/import-converter",
@@ -2917,12 +2917,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-customer.git",
-                "reference": "ecd6948e9b63c46bd9d983eb1cf0325d4bf234b6"
+                "reference": "a5e33cfdc25ebe7a4a72b3eb672daaab5281cf0f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-customer/zipball/ecd6948e9b63c46bd9d983eb1cf0325d4bf234b6",
-                "reference": "ecd6948e9b63c46bd9d983eb1cf0325d4bf234b6",
+                "url": "https://api.github.com/repos/techdivision/import-customer/zipball/a5e33cfdc25ebe7a4a72b3eb672daaab5281cf0f",
+                "reference": "a5e33cfdc25ebe7a4a72b3eb672daaab5281cf0f",
                 "shasum": ""
             },
             "require": {
@@ -2961,7 +2961,7 @@
                 }
             ],
             "description": "M2IF library providing basic Magento 2 customer import functionality",
-            "time": "2019-09-20T11:39:57+00:00"
+            "time": "2019-10-05T19:54:10+00:00"
         },
         {
             "name": "techdivision/import-customer-address",
@@ -2969,12 +2969,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-customer-address.git",
-                "reference": "9b8c85ae04454a6815b46bdee222150fce3a6451"
+                "reference": "8bb327c57469fb5c6da713e05da8fc20f67caba8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-customer-address/zipball/9b8c85ae04454a6815b46bdee222150fce3a6451",
-                "reference": "9b8c85ae04454a6815b46bdee222150fce3a6451",
+                "url": "https://api.github.com/repos/techdivision/import-customer-address/zipball/8bb327c57469fb5c6da713e05da8fc20f67caba8",
+                "reference": "8bb327c57469fb5c6da713e05da8fc20f67caba8",
                 "shasum": ""
             },
             "require": {
@@ -3014,7 +3014,7 @@
                 }
             ],
             "description": "M2IF library providing basic Magento 2 customer address import functionality",
-            "time": "2019-09-19T18:54:09+00:00"
+            "time": "2019-10-05T19:54:30+00:00"
         },
         {
             "name": "techdivision/import-ee",
@@ -3076,12 +3076,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-product.git",
-                "reference": "b3828f9899163964aca241e08a47fca4a428186e"
+                "reference": "6c46d0d55c3b069cfce6ee3c9d87b356b98611bb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-product/zipball/b3828f9899163964aca241e08a47fca4a428186e",
-                "reference": "b3828f9899163964aca241e08a47fca4a428186e",
+                "url": "https://api.github.com/repos/techdivision/import-product/zipball/6c46d0d55c3b069cfce6ee3c9d87b356b98611bb",
+                "reference": "6c46d0d55c3b069cfce6ee3c9d87b356b98611bb",
                 "shasum": ""
             },
             "require": {
@@ -3120,7 +3120,7 @@
                 }
             ],
             "description": "M2IF library providing basic Magento 2 product import functionality",
-            "time": "2019-09-25T11:59:10+00:00"
+            "time": "2019-10-05T19:55:06+00:00"
         },
         {
             "name": "techdivision/import-product-bundle",
@@ -3237,12 +3237,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-product-ee.git",
-                "reference": "f933de44dcd8b3620a67e255edcc239a1dc805ca"
+                "reference": "cd5514d069a76329e29e99688e547a3d6656020f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-product-ee/zipball/f933de44dcd8b3620a67e255edcc239a1dc805ca",
-                "reference": "f933de44dcd8b3620a67e255edcc239a1dc805ca",
+                "url": "https://api.github.com/repos/techdivision/import-product-ee/zipball/cd5514d069a76329e29e99688e547a3d6656020f",
+                "reference": "cd5514d069a76329e29e99688e547a3d6656020f",
                 "shasum": ""
             },
             "require": {
@@ -3283,7 +3283,7 @@
                 }
             ],
             "description": "M2IF library providing basic Magento 2 EE product import functionality",
-            "time": "2019-09-25T12:00:10+00:00"
+            "time": "2019-10-05T19:55:24+00:00"
         },
         {
             "name": "techdivision/import-product-grouped",
@@ -3621,12 +3621,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-product-msi.git",
-                "reference": "af81f0b25fa5c2a7bbfde99d5f8afc76d73ab7ba"
+                "reference": "37b61c4f5b975fb3a8b54b3ec9539390a4e8a388"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-product-msi/zipball/af81f0b25fa5c2a7bbfde99d5f8afc76d73ab7ba",
-                "reference": "af81f0b25fa5c2a7bbfde99d5f8afc76d73ab7ba",
+                "url": "https://api.github.com/repos/techdivision/import-product-msi/zipball/37b61c4f5b975fb3a8b54b3ec9539390a4e8a388",
+                "reference": "37b61c4f5b975fb3a8b54b3ec9539390a4e8a388",
                 "shasum": ""
             },
             "require": {
@@ -3666,7 +3666,7 @@
                 }
             ],
             "description": "M2IF library providing basic Magento 2 MSI product stock import functionality",
-            "time": "2019-09-19T14:13:46+00:00"
+            "time": "2019-10-05T19:56:05+00:00"
         },
         {
             "name": "techdivision/import-product-tier-price",
@@ -3674,12 +3674,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-product-tier-price.git",
-                "reference": "f9412c1d0c71a486b28089de89af27bd1f4b7fb9"
+                "reference": "9d797409f51062f594b155ac94ebb58f8ceb379a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-product-tier-price/zipball/f9412c1d0c71a486b28089de89af27bd1f4b7fb9",
-                "reference": "f9412c1d0c71a486b28089de89af27bd1f4b7fb9",
+                "url": "https://api.github.com/repos/techdivision/import-product-tier-price/zipball/9d797409f51062f594b155ac94ebb58f8ceb379a",
+                "reference": "9d797409f51062f594b155ac94ebb58f8ceb379a",
                 "shasum": ""
             },
             "require": {
@@ -3723,7 +3723,7 @@
                 }
             ],
             "description": "M2IF library providing basic Magento 2 product tier price import functionality",
-            "time": "2019-09-19T11:30:40+00:00"
+            "time": "2019-10-05T19:55:42+00:00"
         },
         {
             "name": "techdivision/import-product-url-rewrite",
@@ -4758,9 +4758,9 @@
             "authors": [
                 {
                     "name": "Phil Bennett",
-                    "role": "Developer",
                     "email": "philipobenito@gmail.com",
-                    "homepage": "http://www.philipobenito.com"
+                    "homepage": "http://www.philipobenito.com",
+                    "role": "Developer"
                 }
             ],
             "description": "A fast and intuitive dependency injection container.",
@@ -4814,8 +4814,8 @@
             "authors": [
                 {
                     "name": "Frank Kleine",
-                    "role": "Developer",
-                    "homepage": "http://frankkleine.de/"
+                    "homepage": "http://frankkleine.de/",
+                    "role": "Developer"
                 }
             ],
             "description": "Virtual file system to mock the real file system in unit tests.",
@@ -5101,20 +5101,20 @@
             "authors": [
                 {
                     "name": "Manuel Pichler",
-                    "role": "Project Founder",
                     "email": "github@manuel-pichler.de",
-                    "homepage": "https://github.com/manuelpichler"
+                    "homepage": "https://github.com/manuelpichler",
+                    "role": "Project Founder"
                 },
                 {
                     "name": "Marc Würth",
-                    "role": "Project Maintainer",
                     "email": "ravage@bluewin.ch",
-                    "homepage": "https://github.com/ravage84"
+                    "homepage": "https://github.com/ravage84",
+                    "role": "Project Maintainer"
                 },
                 {
                     "name": "Other contributors",
-                    "role": "Contributors",
-                    "homepage": "https://github.com/phpmd/phpmd/graphs/contributors"
+                    "homepage": "https://github.com/phpmd/phpmd/graphs/contributors",
+                    "role": "Contributors"
                 }
             ],
             "description": "PHPMD is a spin-off project of PHP Depend and aims to be a PHP equivalent of the well known Java tool PMD.",
@@ -5130,22 +5130,22 @@
         },
         {
             "name": "phpspec/prophecy",
-            "version": "1.8.1",
+            "version": "1.9.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpspec/prophecy.git",
-                "reference": "1927e75f4ed19131ec9bcc3b002e07fb1173ee76"
+                "reference": "f6811d96d97bdf400077a0cc100ae56aa32b9203"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpspec/prophecy/zipball/1927e75f4ed19131ec9bcc3b002e07fb1173ee76",
-                "reference": "1927e75f4ed19131ec9bcc3b002e07fb1173ee76",
+                "url": "https://api.github.com/repos/phpspec/prophecy/zipball/f6811d96d97bdf400077a0cc100ae56aa32b9203",
+                "reference": "f6811d96d97bdf400077a0cc100ae56aa32b9203",
                 "shasum": ""
             },
             "require": {
                 "doctrine/instantiator": "^1.0.2",
                 "php": "^5.3|^7.0",
-                "phpdocumentor/reflection-docblock": "^2.0|^3.0.2|^4.0",
+                "phpdocumentor/reflection-docblock": "^2.0|^3.0.2|^4.0|^5.0",
                 "sebastian/comparator": "^1.1|^2.0|^3.0",
                 "sebastian/recursion-context": "^1.0|^2.0|^3.0"
             },
@@ -5189,7 +5189,7 @@
                 "spy",
                 "stub"
             ],
-            "time": "2019-06-13T12:50:23+00:00"
+            "time": "2019-10-03T11:07:50+00:00"
         },
         {
             "name": "phpunit/php-code-coverage",
@@ -5241,8 +5241,8 @@
             "authors": [
                 {
                     "name": "Sebastian Bergmann",
-                    "role": "lead",
-                    "email": "sb@sebastian-bergmann.de"
+                    "email": "sb@sebastian-bergmann.de",
+                    "role": "lead"
                 }
             ],
             "description": "Library that provides collection, processing, and rendering functionality for PHP code coverage information.",
@@ -5289,8 +5289,8 @@
             "authors": [
                 {
                     "name": "Sebastian Bergmann",
-                    "role": "lead",
-                    "email": "sb@sebastian-bergmann.de"
+                    "email": "sb@sebastian-bergmann.de",
+                    "role": "lead"
                 }
             ],
             "description": "FilterIterator implementation that filters files based on a list of suffixes.",
@@ -5331,8 +5331,8 @@
             "authors": [
                 {
                     "name": "Sebastian Bergmann",
-                    "role": "lead",
-                    "email": "sebastian@phpunit.de"
+                    "email": "sebastian@phpunit.de",
+                    "role": "lead"
                 }
             ],
             "description": "Simple template engine.",
@@ -5380,8 +5380,8 @@
             "authors": [
                 {
                     "name": "Sebastian Bergmann",
-                    "role": "lead",
-                    "email": "sb@sebastian-bergmann.de"
+                    "email": "sb@sebastian-bergmann.de",
+                    "role": "lead"
                 }
             ],
             "description": "Utility class for timing",
@@ -5509,8 +5509,8 @@
             "authors": [
                 {
                     "name": "Sebastian Bergmann",
-                    "role": "lead",
-                    "email": "sebastian@phpunit.de"
+                    "email": "sebastian@phpunit.de",
+                    "role": "lead"
                 }
             ],
             "description": "The PHP Unit Testing framework.",
@@ -5891,8 +5891,8 @@
             "authors": [
                 {
                     "name": "Sebastian Bergmann",
-                    "role": "lead",
-                    "email": "sebastian@phpunit.de"
+                    "email": "sebastian@phpunit.de",
+                    "role": "lead"
                 }
             ],
             "description": "FinderFacade is a convenience wrapper for Symfony's Finder component.",
@@ -6038,8 +6038,8 @@
             "authors": [
                 {
                     "name": "Sebastian Bergmann",
-                    "role": "lead",
-                    "email": "sebastian@phpunit.de"
+                    "email": "sebastian@phpunit.de",
+                    "role": "lead"
                 }
             ],
             "description": "Copy/Paste Detector (CPD) for PHP code.",
@@ -6176,8 +6176,8 @@
             "authors": [
                 {
                     "name": "Sebastian Bergmann",
-                    "role": "lead",
-                    "email": "sebastian@phpunit.de"
+                    "email": "sebastian@phpunit.de",
+                    "role": "lead"
                 }
             ],
             "description": "Library that helps with managing the version number of Git-hosted PHP projects",
@@ -6959,8 +6959,8 @@
             "authors": [
                 {
                     "name": "Arne Blankerts",
-                    "role": "lead",
-                    "email": "arne@blankerts.de"
+                    "email": "arne@blankerts.de",
+                    "role": "lead"
                 }
             ],
             "description": "The classes contained within this repository extend the standard DOM to use exceptions at all occasions of errors instead of PHP warnings or notices. They also add various custom methods and shortcuts for convenience and to simplify the usage of DOM.",
