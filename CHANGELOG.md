@@ -10,7 +10,8 @@
 
 ## Features
 
-* Comaptility with Magento 2.3.3
+* Compatibility with Magento 2.3.3
+* Compatibility with PHP 7.3
 
 # Version 3.7.6
 
