@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "03d8185afc0c11b3b839d5e3589e71d7",
+    "content-hash": "28419f1c7fa375901fd431606d066284",
     "packages": [
         {
             "name": "cache/adapter-common",
@@ -791,62 +791,6 @@
             "time": "2018-01-09T20:05:19+00:00"
         },
         {
-            "name": "doctrine/instantiator",
-            "version": "1.2.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/doctrine/instantiator.git",
-                "reference": "a2c590166b2133a4633738648b6b064edae0814a"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/instantiator/zipball/a2c590166b2133a4633738648b6b064edae0814a",
-                "reference": "a2c590166b2133a4633738648b6b064edae0814a",
-                "shasum": ""
-            },
-            "require": {
-                "php": "^7.1"
-            },
-            "require-dev": {
-                "doctrine/coding-standard": "^6.0",
-                "ext-pdo": "*",
-                "ext-phar": "*",
-                "phpbench/phpbench": "^0.13",
-                "phpstan/phpstan-phpunit": "^0.11",
-                "phpstan/phpstan-shim": "^0.11",
-                "phpunit/phpunit": "^7.0"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.2.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Doctrine\\Instantiator\\": "src/Doctrine/Instantiator/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Marco Pivetta",
-                    "email": "ocramius@gmail.com",
-                    "homepage": "http://ocramius.github.com/"
-                }
-            ],
-            "description": "A small, lightweight utility to instantiate objects in PHP without invoking their constructors",
-            "homepage": "https://www.doctrine-project.org/projects/instantiator.html",
-            "keywords": [
-                "constructor",
-                "instantiate"
-            ],
-            "time": "2019-03-17T17:37:11+00:00"
-        },
-        {
             "name": "doctrine/lexer",
             "version": "1.0.2",
             "source": {
@@ -1055,56 +999,44 @@
         },
         {
             "name": "jms/serializer",
-            "version": "1.14.0",
+            "version": "0.16.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/schmittjoh/serializer.git",
-                "reference": "ee96d57024af9a7716d56fcbe3aa94b3d030f3ca"
+                "reference": "c8a171357ca92b6706e395c757f334902d430ea9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/schmittjoh/serializer/zipball/ee96d57024af9a7716d56fcbe3aa94b3d030f3ca",
-                "reference": "ee96d57024af9a7716d56fcbe3aa94b3d030f3ca",
+                "url": "https://api.github.com/repos/schmittjoh/serializer/zipball/c8a171357ca92b6706e395c757f334902d430ea9",
+                "reference": "c8a171357ca92b6706e395c757f334902d430ea9",
                 "shasum": ""
             },
             "require": {
-                "doctrine/annotations": "^1.0",
-                "doctrine/instantiator": "^1.0.3",
-                "jms/metadata": "^1.3",
+                "doctrine/annotations": "1.*",
+                "jms/metadata": "~1.1",
                 "jms/parser-lib": "1.*",
-                "php": "^5.5|^7.0",
-                "phpcollection/phpcollection": "~0.1",
-                "phpoption/phpoption": "^1.1"
-            },
-            "conflict": {
-                "twig/twig": "<1.12"
+                "php": ">=5.3.2",
+                "phpcollection/phpcollection": "~0.1"
             },
             "require-dev": {
                 "doctrine/orm": "~2.1",
-                "doctrine/phpcr-odm": "^1.3|^2.0",
-                "ext-pdo_sqlite": "*",
-                "jackalope/jackalope-doctrine-dbal": "^1.1.5",
-                "phpunit/phpunit": "^4.8|^5.0",
+                "doctrine/phpcr-odm": "~1.0.1",
+                "jackalope/jackalope-doctrine-dbal": "1.0.*",
                 "propel/propel1": "~1.7",
-                "psr/container": "^1.0",
-                "symfony/dependency-injection": "^2.7|^3.3|^4.0",
-                "symfony/expression-language": "^2.6|^3.0",
-                "symfony/filesystem": "^2.1",
-                "symfony/form": "~2.1|^3.0",
-                "symfony/translation": "^2.1|^3.0",
-                "symfony/validator": "^2.2|^3.0",
-                "symfony/yaml": "^2.1|^3.0",
-                "twig/twig": "~1.12|~2.0"
+                "symfony/filesystem": "2.*",
+                "symfony/form": "~2.1",
+                "symfony/translation": "~2.0",
+                "symfony/validator": "~2.0",
+                "symfony/yaml": "2.*",
+                "twig/twig": ">=1.8,<2.0-dev"
             },
             "suggest": {
-                "doctrine/cache": "Required if you like to use cache functionality.",
-                "doctrine/collections": "Required if you like to use doctrine collection types as ArrayCollection.",
                 "symfony/yaml": "Required if you'd like to serialize data to YAML format."
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-1.x": "1.14-dev"
+                    "dev-master": "0.15-dev"
                 }
             },
             "autoload": {
@@ -1114,16 +1046,14 @@
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "MIT"
+                "Apache2"
             ],
             "authors": [
                 {
-                    "name": "Asmir Mustafic",
-                    "email": "goetas@gmail.com"
-                },
-                {
-                    "name": "Johannes M. Schmitt",
-                    "email": "schmittjoh@gmail.com"
+                    "name": "Johannes Schmitt",
+                    "email": "schmittjoh@gmail.com",
+                    "homepage": "https://github.com/schmittjoh",
+                    "role": "Developer of wrapped JMSSerializerBundle"
                 }
             ],
             "description": "Library for (de-)serializing data of any complexity; supports XML, JSON, and YAML.",
@@ -1135,7 +1065,7 @@
                 "serialization",
                 "xml"
             ],
-            "time": "2019-04-17T08:12:16+00:00"
+            "time": "2014-03-18T08:39:00+00:00"
         },
         {
             "name": "league/event",
@@ -1189,16 +1119,16 @@
         },
         {
             "name": "league/flysystem",
-            "version": "1.0.55",
+            "version": "1.0.56",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/flysystem.git",
-                "reference": "33c91155537c6dc899eacdc54a13ac6303f156e6"
+                "reference": "90e3f83cb10ef6b058d70f95267030e7a6236518"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/33c91155537c6dc899eacdc54a13ac6303f156e6",
-                "reference": "33c91155537c6dc899eacdc54a13ac6303f156e6",
+                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/90e3f83cb10ef6b058d70f95267030e7a6236518",
+                "reference": "90e3f83cb10ef6b058d70f95267030e7a6236518",
                 "shasum": ""
             },
             "require": {
@@ -1269,7 +1199,7 @@
                 "sftp",
                 "storage"
             ],
-            "time": "2019-08-24T11:17:19+00:00"
+            "time": "2019-10-12T13:05:59+00:00"
         },
         {
             "name": "monolog/monolog",
@@ -2319,12 +2249,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import.git",
-                "reference": "d82ad59feaec0e6f70364ff667a991c633117e05"
+                "reference": "f1a10c3df6e723f64e0bbd276e938c41f91ca2e5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import/zipball/d82ad59feaec0e6f70364ff667a991c633117e05",
-                "reference": "d82ad59feaec0e6f70364ff667a991c633117e05",
+                "url": "https://api.github.com/repos/techdivision/import/zipball/f1a10c3df6e723f64e0bbd276e938c41f91ca2e5",
+                "reference": "f1a10c3df6e723f64e0bbd276e938c41f91ca2e5",
                 "shasum": ""
             },
             "require": {
@@ -2373,7 +2303,7 @@
                 }
             ],
             "description": "A library supporting generic Magento 2 import functionality",
-            "time": "2019-10-10T14:22:27+00:00"
+            "time": "2019-10-16T17:37:39+00:00"
         },
         {
             "name": "techdivision/import-app-simple",
@@ -2436,12 +2366,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-attribute.git",
-                "reference": "c8097ed2edce40eae4a55519e580b9d8c88a4331"
+                "reference": "4c17533de38e8488afaa3332179dc053bff0bbdc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-attribute/zipball/c8097ed2edce40eae4a55519e580b9d8c88a4331",
-                "reference": "c8097ed2edce40eae4a55519e580b9d8c88a4331",
+                "url": "https://api.github.com/repos/techdivision/import-attribute/zipball/4c17533de38e8488afaa3332179dc053bff0bbdc",
+                "reference": "4c17533de38e8488afaa3332179dc053bff0bbdc",
                 "shasum": ""
             },
             "require": {
@@ -2480,7 +2410,7 @@
                 }
             ],
             "description": "M2IF library providing basic Magento 2 attribute import functionality",
-            "time": "2019-10-08T15:45:12+00:00"
+            "time": "2019-10-16T17:38:14+00:00"
         },
         {
             "name": "techdivision/import-attribute-set",
@@ -2541,12 +2471,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-category.git",
-                "reference": "7edb3db490ac9ea516bde560d148ad318835cb78"
+                "reference": "4d0f550633acc5b9b100c2a43637bd1c1e3a495b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-category/zipball/7edb3db490ac9ea516bde560d148ad318835cb78",
-                "reference": "7edb3db490ac9ea516bde560d148ad318835cb78",
+                "url": "https://api.github.com/repos/techdivision/import-category/zipball/4d0f550633acc5b9b100c2a43637bd1c1e3a495b",
+                "reference": "4d0f550633acc5b9b100c2a43637bd1c1e3a495b",
                 "shasum": ""
             },
             "require": {
@@ -2585,7 +2515,7 @@
                 }
             ],
             "description": "M2IF library providing basic Magento 2 category import functionality",
-            "time": "2019-10-08T15:45:54+00:00"
+            "time": "2019-10-16T17:38:31+00:00"
         },
         {
             "name": "techdivision/import-category-ee",
@@ -2593,12 +2523,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-category-ee.git",
-                "reference": "93363e364beb34dfcf3d0e210f090c21cc82ea93"
+                "reference": "7e8b5249e1a317cf6701a477965480505f13fce8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-category-ee/zipball/93363e364beb34dfcf3d0e210f090c21cc82ea93",
-                "reference": "93363e364beb34dfcf3d0e210f090c21cc82ea93",
+                "url": "https://api.github.com/repos/techdivision/import-category-ee/zipball/7e8b5249e1a317cf6701a477965480505f13fce8",
+                "reference": "7e8b5249e1a317cf6701a477965480505f13fce8",
                 "shasum": ""
             },
             "require": {
@@ -2639,7 +2569,7 @@
                 }
             ],
             "description": "M2IF library providing basic Magento 2 EE category import functionality",
-            "time": "2019-10-08T15:46:43+00:00"
+            "time": "2019-10-16T17:38:47+00:00"
         },
         {
             "name": "techdivision/import-cli",
@@ -2647,12 +2577,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-cli.git",
-                "reference": "0e6b2eb9f113cf375e680d74582601df4fdbd120"
+                "reference": "2ddcfa21e76d4e913a4099b434a9e53f6f5a84f6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-cli/zipball/0e6b2eb9f113cf375e680d74582601df4fdbd120",
-                "reference": "0e6b2eb9f113cf375e680d74582601df4fdbd120",
+                "url": "https://api.github.com/repos/techdivision/import-cli/zipball/2ddcfa21e76d4e913a4099b434a9e53f6f5a84f6",
+                "reference": "2ddcfa21e76d4e913a4099b434a9e53f6f5a84f6",
                 "shasum": ""
             },
             "require": {
@@ -2660,7 +2590,7 @@
                 "ramsey/uuid": "~3.7.3|3.8.*",
                 "symfony/config": "~2.8|~3.0|~4.0",
                 "symfony/console": "~2.3,!=2.7.0|~4.0",
-                "symfony/dependency-injection": "~2.3,!=2.7.0|~4.0",
+                "symfony/dependency-injection": "~2.3,!=2.7.0|~3.0|~4.0",
                 "techdivision/import": "15.x-dev as 15.0.0",
                 "techdivision/import-app-simple": "16.x-dev as 16.0.0",
                 "techdivision/import-configuration-jms": "15.x-dev as 15.0.0"
@@ -2697,7 +2627,7 @@
                 }
             ],
             "description": "Commands and Helpers to implement a CLI providing single-threaded Magento 2 importing functionality based on M2IF",
-            "time": "2019-10-10T14:23:18+00:00"
+            "time": "2019-10-16T12:25:50+00:00"
         },
         {
             "name": "techdivision/import-configuration-jms",
@@ -2705,17 +2635,17 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-configuration-jms.git",
-                "reference": "df859a096cff67978b7f92c3997a415c3697cd3c"
+                "reference": "013dafc9dd9eb8d5e81b056d2408a438f514d1e8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-configuration-jms/zipball/df859a096cff67978b7f92c3997a415c3697cd3c",
-                "reference": "df859a096cff67978b7f92c3997a415c3697cd3c",
+                "url": "https://api.github.com/repos/techdivision/import-configuration-jms/zipball/013dafc9dd9eb8d5e81b056d2408a438f514d1e8",
+                "reference": "013dafc9dd9eb8d5e81b056d2408a438f514d1e8",
                 "shasum": ""
             },
             "require": {
                 "doctrine/dbal": "2.5.*",
-                "jms/serializer": "~1.0",
+                "jms/serializer": "^0.16.0",
                 "php": ">=5.6.0",
                 "techdivision/import": "15.x-dev as 15.0.0"
             },
@@ -2748,7 +2678,7 @@
                 }
             ],
             "description": "Library providing a JMS based configuration implementation for the M2IF",
-            "time": "2019-10-08T15:50:37+00:00"
+            "time": "2019-10-11T14:53:37+00:00"
         },
         {
             "name": "techdivision/import-converter",
@@ -3076,12 +3006,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-product.git",
-                "reference": "3c9be0fc0579a7c3237c43cf49342ab531b3e840"
+                "reference": "438f7c1044f1844e9b5665b9ee20523092893510"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-product/zipball/3c9be0fc0579a7c3237c43cf49342ab531b3e840",
-                "reference": "3c9be0fc0579a7c3237c43cf49342ab531b3e840",
+                "url": "https://api.github.com/repos/techdivision/import-product/zipball/438f7c1044f1844e9b5665b9ee20523092893510",
+                "reference": "438f7c1044f1844e9b5665b9ee20523092893510",
                 "shasum": ""
             },
             "require": {
@@ -3120,7 +3050,7 @@
                 }
             ],
             "description": "M2IF library providing basic Magento 2 product import functionality",
-            "time": "2019-10-08T15:48:23+00:00"
+            "time": "2019-10-16T17:39:22+00:00"
         },
         {
             "name": "techdivision/import-product-bundle",
@@ -3237,12 +3167,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-product-ee.git",
-                "reference": "08d963e8c1747c8bab7e69d97db95e67fb45dcbc"
+                "reference": "1cf4d573a987736528dc6582ab9724f1ba3c3492"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-product-ee/zipball/08d963e8c1747c8bab7e69d97db95e67fb45dcbc",
-                "reference": "08d963e8c1747c8bab7e69d97db95e67fb45dcbc",
+                "url": "https://api.github.com/repos/techdivision/import-product-ee/zipball/1cf4d573a987736528dc6582ab9724f1ba3c3492",
+                "reference": "1cf4d573a987736528dc6582ab9724f1ba3c3492",
                 "shasum": ""
             },
             "require": {
@@ -3283,7 +3213,7 @@
                 }
             ],
             "description": "M2IF library providing basic Magento 2 EE product import functionality",
-            "time": "2019-10-08T15:48:35+00:00"
+            "time": "2019-10-16T17:39:34+00:00"
         },
         {
             "name": "techdivision/import-product-grouped",
@@ -4615,6 +4545,62 @@
                 "notation"
             ],
             "time": "2017-01-20T21:14:22+00:00"
+        },
+        {
+            "name": "doctrine/instantiator",
+            "version": "1.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/doctrine/instantiator.git",
+                "reference": "a2c590166b2133a4633738648b6b064edae0814a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/doctrine/instantiator/zipball/a2c590166b2133a4633738648b6b064edae0814a",
+                "reference": "a2c590166b2133a4633738648b6b064edae0814a",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.1"
+            },
+            "require-dev": {
+                "doctrine/coding-standard": "^6.0",
+                "ext-pdo": "*",
+                "ext-phar": "*",
+                "phpbench/phpbench": "^0.13",
+                "phpstan/phpstan-phpunit": "^0.11",
+                "phpstan/phpstan-shim": "^0.11",
+                "phpunit/phpunit": "^7.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.2.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Doctrine\\Instantiator\\": "src/Doctrine/Instantiator/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Marco Pivetta",
+                    "email": "ocramius@gmail.com",
+                    "homepage": "http://ocramius.github.com/"
+                }
+            ],
+            "description": "A small, lightweight utility to instantiate objects in PHP without invoking their constructors",
+            "homepage": "https://www.doctrine-project.org/projects/instantiator.html",
+            "keywords": [
+                "constructor",
+                "instantiate"
+            ],
+            "time": "2019-03-17T17:37:11+00:00"
         },
         {
             "name": "grasmash/expander",
@@ -6898,16 +6884,16 @@
         },
         {
             "name": "techdivision/import-sample-data",
-            "version": "3.0.1",
+            "version": "4.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-sample-data.git",
-                "reference": "ada779105d9eb11a1263640ad084a0f2f95d4f47"
+                "reference": "8c13201edcce2e6b976fc84cb698ee56e7252f8f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-sample-data/zipball/ada779105d9eb11a1263640ad084a0f2f95d4f47",
-                "reference": "ada779105d9eb11a1263640ad084a0f2f95d4f47",
+                "url": "https://api.github.com/repos/techdivision/import-sample-data/zipball/8c13201edcce2e6b976fc84cb698ee56e7252f8f",
+                "reference": "8c13201edcce2e6b976fc84cb698ee56e7252f8f",
                 "shasum": ""
             },
             "require": {
@@ -6925,7 +6911,7 @@
                 }
             ],
             "description": "M2IF sample data for Magento 2 Community + Commerce Edition",
-            "time": "2019-09-19T11:32:26+00:00"
+            "time": "2019-10-16T15:23:55+00:00"
         },
         {
             "name": "theseer/fdomdocument",
@@ -7192,6 +7178,12 @@
             "alias_normalized": "1.0.0.0",
             "version": "9999999-dev",
             "package": "techdivision/import-converter-product-category"
+        },
+        {
+            "alias": "4.0.0",
+            "alias_normalized": "4.0.0.0",
+            "version": "4.9999999.9999999.9999999-dev",
+            "package": "techdivision/import-sample-data"
         }
     ],
     "minimum-stability": "stable",
@@ -7225,7 +7217,8 @@
         "techdivision/import-converter": 20,
         "techdivision/import-converter-ee": 20,
         "techdivision/import-converter-product-category": 20,
-        "phpmd/phpmd": 0
+        "phpmd/phpmd": 0,
+        "techdivision/import-sample-data": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,
