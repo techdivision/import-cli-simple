@@ -15,9 +15,11 @@
 
 ## Features
 
+* Add techdivision/import#112
 * Add techdivision/import#146
 * Add techdivision/import-product#146
 * Add techdivision/import-cli-simple#216
+* Add techdivision/import-configuration-jms#25
 * Add converter libraries to community version
 * Remove deprecated classes and methods from all dependencies
 
