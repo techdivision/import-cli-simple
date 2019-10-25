@@ -1519,16 +1519,16 @@
         },
         {
             "name": "psr/log",
-            "version": "1.1.0",
+            "version": "1.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-fig/log.git",
-                "reference": "6c001f1daafa3a3ac1d8ff69ee4db8e799a654dd"
+                "reference": "bf73deb2b3b896a9d9c75f3f0d88185d2faa27e2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-fig/log/zipball/6c001f1daafa3a3ac1d8ff69ee4db8e799a654dd",
-                "reference": "6c001f1daafa3a3ac1d8ff69ee4db8e799a654dd",
+                "url": "https://api.github.com/repos/php-fig/log/zipball/bf73deb2b3b896a9d9c75f3f0d88185d2faa27e2",
+                "reference": "bf73deb2b3b896a9d9c75f3f0d88185d2faa27e2",
                 "shasum": ""
             },
             "require": {
@@ -1537,7 +1537,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.0.x-dev"
+                    "dev-master": "1.1.x-dev"
                 }
             },
             "autoload": {
@@ -1562,7 +1562,7 @@
                 "psr",
                 "psr-3"
             ],
-            "time": "2018-11-20T15:27:04+00:00"
+            "time": "2019-10-25T08:06:51+00:00"
         },
         {
             "name": "psr/simple-cache",
@@ -2249,12 +2249,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import.git",
-                "reference": "66410f7e8fa77005e4ac5ddf944b5a8aec1ab2bb"
+                "reference": "1a38978d6b1e7b017a75f5c0683ee1fc2cf4bb66"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import/zipball/66410f7e8fa77005e4ac5ddf944b5a8aec1ab2bb",
-                "reference": "66410f7e8fa77005e4ac5ddf944b5a8aec1ab2bb",
+                "url": "https://api.github.com/repos/techdivision/import/zipball/1a38978d6b1e7b017a75f5c0683ee1fc2cf4bb66",
+                "reference": "1a38978d6b1e7b017a75f5c0683ee1fc2cf4bb66",
                 "shasum": ""
             },
             "require": {
@@ -2304,7 +2304,7 @@
                 }
             ],
             "description": "A library supporting generic Magento 2 import functionality",
-            "time": "2019-10-23T16:46:54+00:00"
+            "time": "2019-10-25T16:05:55+00:00"
         },
         {
             "name": "techdivision/import-app-simple",
@@ -2686,12 +2686,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-converter.git",
-                "reference": "7a4874411ebfd00c9defe2d4b7a164b76eacda81"
+                "reference": "c89509e55554594deea794c33de95ee431aa2726"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-converter/zipball/7a4874411ebfd00c9defe2d4b7a164b76eacda81",
-                "reference": "7a4874411ebfd00c9defe2d4b7a164b76eacda81",
+                "url": "https://api.github.com/repos/techdivision/import-converter/zipball/c89509e55554594deea794c33de95ee431aa2726",
+                "reference": "c89509e55554594deea794c33de95ee431aa2726",
                 "shasum": ""
             },
             "require": {
@@ -2730,7 +2730,7 @@
                 }
             ],
             "description": "M2IF library providing generic converter functionality",
-            "time": "2019-09-25T11:37:36+00:00"
+            "time": "2019-10-23T16:48:28+00:00"
         },
         {
             "name": "techdivision/import-converter-ee",
@@ -3006,12 +3006,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-product.git",
-                "reference": "9de1c00928ce53d8276bef130640f6362122c6d5"
+                "reference": "c947020613c6426c23bd505c764f6a84a5ceab7f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-product/zipball/9de1c00928ce53d8276bef130640f6362122c6d5",
-                "reference": "9de1c00928ce53d8276bef130640f6362122c6d5",
+                "url": "https://api.github.com/repos/techdivision/import-product/zipball/c947020613c6426c23bd505c764f6a84a5ceab7f",
+                "reference": "c947020613c6426c23bd505c764f6a84a5ceab7f",
                 "shasum": ""
             },
             "require": {
@@ -3050,7 +3050,7 @@
                 }
             ],
             "description": "M2IF library providing basic Magento 2 product import functionality",
-            "time": "2019-10-23T16:48:35+00:00"
+            "time": "2019-10-25T16:06:12+00:00"
         },
         {
             "name": "techdivision/import-product-bundle",
@@ -3167,12 +3167,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-product-ee.git",
-                "reference": "8aec8b032ca280381da7121b0782a2c0b2c06924"
+                "reference": "521c174089602d526ecf572072467dad8cca7f30"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-product-ee/zipball/8aec8b032ca280381da7121b0782a2c0b2c06924",
-                "reference": "8aec8b032ca280381da7121b0782a2c0b2c06924",
+                "url": "https://api.github.com/repos/techdivision/import-product-ee/zipball/521c174089602d526ecf572072467dad8cca7f30",
+                "reference": "521c174089602d526ecf572072467dad8cca7f30",
                 "shasum": ""
             },
             "require": {
@@ -3213,7 +3213,7 @@
                 }
             ],
             "description": "M2IF library providing basic Magento 2 EE product import functionality",
-            "time": "2019-10-23T16:49:04+00:00"
+            "time": "2019-10-25T16:11:53+00:00"
         },
         {
             "name": "techdivision/import-product-grouped",
