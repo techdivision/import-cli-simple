@@ -263,13 +263,13 @@ class RoboFile extends \Robo\Tasks
 
         // run the integration testsuite
         $this->taskPHPUnit(
-                sprintf(
-                    '%s/bin/phpunit --testsuite "techdivision/import-cli-simple PHPUnit integration testsuite"',
-                    $this->properties['vendor.dir']
-                )
-             )
-             ->configFile('phpunit.xml')
-             ->run();
+            sprintf(
+                '%s/bin/phpunit --testsuite "techdivision/import-cli-simple PHPUnit integration testsuite"',
+                $this->properties['vendor.dir']
+            )
+        )
+        ->configFile('phpunit.xml')
+        ->run();
     }
 
     /**
