@@ -436,16 +436,16 @@
         },
         {
             "name": "doctrine/cache",
-            "version": "v1.8.0",
+            "version": "v1.8.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/cache.git",
-                "reference": "d768d58baee9a4862ca783840eca1b9add7a7f57"
+                "reference": "d4374ae95b36062d02ef310100ed33d78738d76c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/cache/zipball/d768d58baee9a4862ca783840eca1b9add7a7f57",
-                "reference": "d768d58baee9a4862ca783840eca1b9add7a7f57",
+                "url": "https://api.github.com/repos/doctrine/cache/zipball/d4374ae95b36062d02ef310100ed33d78738d76c",
+                "reference": "d4374ae95b36062d02ef310100ed33d78738d76c",
                 "shasum": ""
             },
             "require": {
@@ -481,16 +481,16 @@
             ],
             "authors": [
                 {
+                    "name": "Guilherme Blanco",
+                    "email": "guilhermeblanco@gmail.com"
+                },
+                {
                     "name": "Roman Borschel",
                     "email": "roman@code-factory.org"
                 },
                 {
                     "name": "Benjamin Eberlei",
                     "email": "kontakt@beberlei.de"
-                },
-                {
-                    "name": "Guilherme Blanco",
-                    "email": "guilhermeblanco@gmail.com"
                 },
                 {
                     "name": "Jonathan Wage",
@@ -507,7 +507,7 @@
                 "cache",
                 "caching"
             ],
-            "time": "2018-08-21T18:01:43+00:00"
+            "time": "2019-10-28T09:31:32+00:00"
         },
         {
             "name": "doctrine/collections",
@@ -2249,12 +2249,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import.git",
-                "reference": "1a38978d6b1e7b017a75f5c0683ee1fc2cf4bb66"
+                "reference": "4cb80221b5d9583ac70a8b27c8e210d933639290"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import/zipball/1a38978d6b1e7b017a75f5c0683ee1fc2cf4bb66",
-                "reference": "1a38978d6b1e7b017a75f5c0683ee1fc2cf4bb66",
+                "url": "https://api.github.com/repos/techdivision/import/zipball/4cb80221b5d9583ac70a8b27c8e210d933639290",
+                "reference": "4cb80221b5d9583ac70a8b27c8e210d933639290",
                 "shasum": ""
             },
             "require": {
@@ -2304,7 +2304,7 @@
                 }
             ],
             "description": "A library supporting generic Magento 2 import functionality",
-            "time": "2019-10-25T16:05:55+00:00"
+            "time": "2019-10-29T09:20:26+00:00"
         },
         {
             "name": "techdivision/import-app-simple",
@@ -2312,12 +2312,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-app-simple.git",
-                "reference": "ba0a2063d14527bf6db0c6ed618fdcda9c261752"
+                "reference": "b7226350090a94faa1cbc7f464ece02f0ca6c742"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-app-simple/zipball/ba0a2063d14527bf6db0c6ed618fdcda9c261752",
-                "reference": "ba0a2063d14527bf6db0c6ed618fdcda9c261752",
+                "url": "https://api.github.com/repos/techdivision/import-app-simple/zipball/b7226350090a94faa1cbc7f464ece02f0ca6c742",
+                "reference": "b7226350090a94faa1cbc7f464ece02f0ca6c742",
                 "shasum": ""
             },
             "require": {
@@ -2359,7 +2359,7 @@
                 }
             ],
             "description": "M2IF simple application implementation providing basic Magento 2 import functionality",
-            "time": "2019-10-23T16:47:19+00:00"
+            "time": "2019-10-28T10:05:39+00:00"
         },
         {
             "name": "techdivision/import-attribute",
@@ -2367,12 +2367,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-attribute.git",
-                "reference": "ceb3cf88357820452ece7289e9fde409ebd95a8c"
+                "reference": "0c4704848403ed61520fe8f0f0a17bd2ffa110b6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-attribute/zipball/ceb3cf88357820452ece7289e9fde409ebd95a8c",
-                "reference": "ceb3cf88357820452ece7289e9fde409ebd95a8c",
+                "url": "https://api.github.com/repos/techdivision/import-attribute/zipball/0c4704848403ed61520fe8f0f0a17bd2ffa110b6",
+                "reference": "0c4704848403ed61520fe8f0f0a17bd2ffa110b6",
                 "shasum": ""
             },
             "require": {
@@ -2411,7 +2411,7 @@
                 }
             ],
             "description": "M2IF library providing basic Magento 2 attribute import functionality",
-            "time": "2019-10-23T16:47:28+00:00"
+            "time": "2019-10-29T09:21:55+00:00"
         },
         {
             "name": "techdivision/import-attribute-set",
@@ -2472,12 +2472,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-category.git",
-                "reference": "fd82d06fa28181cf365ecdb10cb7cfa04564cbaf"
+                "reference": "cba5f2ec337653f87c14b00a7c2f8139d94cc5d0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-category/zipball/fd82d06fa28181cf365ecdb10cb7cfa04564cbaf",
-                "reference": "fd82d06fa28181cf365ecdb10cb7cfa04564cbaf",
+                "url": "https://api.github.com/repos/techdivision/import-category/zipball/cba5f2ec337653f87c14b00a7c2f8139d94cc5d0",
+                "reference": "cba5f2ec337653f87c14b00a7c2f8139d94cc5d0",
                 "shasum": ""
             },
             "require": {
@@ -2516,7 +2516,7 @@
                 }
             ],
             "description": "M2IF library providing basic Magento 2 category import functionality",
-            "time": "2019-10-23T16:47:56+00:00"
+            "time": "2019-10-29T09:22:30+00:00"
         },
         {
             "name": "techdivision/import-category-ee",
@@ -2635,12 +2635,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-configuration-jms.git",
-                "reference": "fbe8dbca43bb3a25b0c0e27f0d7d01679fd1e169"
+                "reference": "66d9041c042327ba1eda29a4e6d38aa4ee804ebf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-configuration-jms/zipball/fbe8dbca43bb3a25b0c0e27f0d7d01679fd1e169",
-                "reference": "fbe8dbca43bb3a25b0c0e27f0d7d01679fd1e169",
+                "url": "https://api.github.com/repos/techdivision/import-configuration-jms/zipball/66d9041c042327ba1eda29a4e6d38aa4ee804ebf",
+                "reference": "66d9041c042327ba1eda29a4e6d38aa4ee804ebf",
                 "shasum": ""
             },
             "require": {
@@ -2678,7 +2678,7 @@
                 }
             ],
             "description": "Library providing a JMS based configuration implementation for the M2IF",
-            "time": "2019-10-19T14:42:56+00:00"
+            "time": "2019-10-29T09:23:02+00:00"
         },
         {
             "name": "techdivision/import-converter",
@@ -3006,12 +3006,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-product.git",
-                "reference": "c947020613c6426c23bd505c764f6a84a5ceab7f"
+                "reference": "e768089cb833b6ca5275b8f48980d6d862ef249e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-product/zipball/c947020613c6426c23bd505c764f6a84a5ceab7f",
-                "reference": "c947020613c6426c23bd505c764f6a84a5ceab7f",
+                "url": "https://api.github.com/repos/techdivision/import-product/zipball/e768089cb833b6ca5275b8f48980d6d862ef249e",
+                "reference": "e768089cb833b6ca5275b8f48980d6d862ef249e",
                 "shasum": ""
             },
             "require": {
@@ -3050,7 +3050,7 @@
                 }
             ],
             "description": "M2IF library providing basic Magento 2 product import functionality",
-            "time": "2019-10-25T16:06:12+00:00"
+            "time": "2019-10-29T09:23:27+00:00"
         },
         {
             "name": "techdivision/import-product-bundle",
