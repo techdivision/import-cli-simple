@@ -792,28 +792,30 @@
         },
         {
             "name": "doctrine/lexer",
-            "version": "1.0.2",
+            "version": "1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/lexer.git",
-                "reference": "1febd6c3ef84253d7c815bed85fc622ad207a9f8"
+                "reference": "e17f069ede36f7534b95adec71910ed1b49c74ea"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/lexer/zipball/1febd6c3ef84253d7c815bed85fc622ad207a9f8",
-                "reference": "1febd6c3ef84253d7c815bed85fc622ad207a9f8",
+                "url": "https://api.github.com/repos/doctrine/lexer/zipball/e17f069ede36f7534b95adec71910ed1b49c74ea",
+                "reference": "e17f069ede36f7534b95adec71910ed1b49c74ea",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.2"
+                "php": "^7.2"
             },
             "require-dev": {
-                "phpunit/phpunit": "^4.5"
+                "doctrine/coding-standard": "^6.0",
+                "phpstan/phpstan": "^0.11.8",
+                "phpunit/phpunit": "^8.2"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.0.x-dev"
+                    "dev-master": "1.1.x-dev"
                 }
             },
             "autoload": {
@@ -827,12 +829,12 @@
             ],
             "authors": [
                 {
-                    "name": "Roman Borschel",
-                    "email": "roman@code-factory.org"
-                },
-                {
                     "name": "Guilherme Blanco",
                     "email": "guilhermeblanco@gmail.com"
+                },
+                {
+                    "name": "Roman Borschel",
+                    "email": "roman@code-factory.org"
                 },
                 {
                     "name": "Johannes Schmitt",
@@ -848,7 +850,7 @@
                 "parser",
                 "php"
             ],
-            "time": "2019-06-08T11:03:04+00:00"
+            "time": "2019-07-30T19:33:28+00:00"
         },
         {
             "name": "goodby/csv",
@@ -2472,12 +2474,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-category.git",
-                "reference": "cba5f2ec337653f87c14b00a7c2f8139d94cc5d0"
+                "reference": "737de3050a5274a6c9ca61bb106c8a620a9d9bfe"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-category/zipball/cba5f2ec337653f87c14b00a7c2f8139d94cc5d0",
-                "reference": "cba5f2ec337653f87c14b00a7c2f8139d94cc5d0",
+                "url": "https://api.github.com/repos/techdivision/import-category/zipball/737de3050a5274a6c9ca61bb106c8a620a9d9bfe",
+                "reference": "737de3050a5274a6c9ca61bb106c8a620a9d9bfe",
                 "shasum": ""
             },
             "require": {
@@ -2516,7 +2518,7 @@
                 }
             ],
             "description": "M2IF library providing basic Magento 2 category import functionality",
-            "time": "2019-10-29T09:22:30+00:00"
+            "time": "2019-10-30T17:27:23+00:00"
         },
         {
             "name": "techdivision/import-category-ee",
@@ -2524,12 +2526,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-category-ee.git",
-                "reference": "e3cbcf4d4e69dfd3c508b26b429266df285219dc"
+                "reference": "fa850c2eb6d73610f25be5003266ac79ff1aed6b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-category-ee/zipball/e3cbcf4d4e69dfd3c508b26b429266df285219dc",
-                "reference": "e3cbcf4d4e69dfd3c508b26b429266df285219dc",
+                "url": "https://api.github.com/repos/techdivision/import-category-ee/zipball/fa850c2eb6d73610f25be5003266ac79ff1aed6b",
+                "reference": "fa850c2eb6d73610f25be5003266ac79ff1aed6b",
                 "shasum": ""
             },
             "require": {
@@ -2570,7 +2572,7 @@
                 }
             ],
             "description": "M2IF library providing basic Magento 2 EE category import functionality",
-            "time": "2019-10-19T14:40:31+00:00"
+            "time": "2019-10-30T17:27:45+00:00"
         },
         {
             "name": "techdivision/import-cli",
@@ -3006,12 +3008,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-product.git",
-                "reference": "e768089cb833b6ca5275b8f48980d6d862ef249e"
+                "reference": "8328ae9989e47d3b6b3f854c0cd080c548ab8b65"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-product/zipball/e768089cb833b6ca5275b8f48980d6d862ef249e",
-                "reference": "e768089cb833b6ca5275b8f48980d6d862ef249e",
+                "url": "https://api.github.com/repos/techdivision/import-product/zipball/8328ae9989e47d3b6b3f854c0cd080c548ab8b65",
+                "reference": "8328ae9989e47d3b6b3f854c0cd080c548ab8b65",
                 "shasum": ""
             },
             "require": {
@@ -3050,7 +3052,7 @@
                 }
             ],
             "description": "M2IF library providing basic Magento 2 product import functionality",
-            "time": "2019-10-29T09:23:27+00:00"
+            "time": "2019-10-30T17:28:19+00:00"
         },
         {
             "name": "techdivision/import-product-bundle",
@@ -3167,12 +3169,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-product-ee.git",
-                "reference": "521c174089602d526ecf572072467dad8cca7f30"
+                "reference": "2d8dd4887bb4a2a4971ccbfac58bd7ecc8aa9e81"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-product-ee/zipball/521c174089602d526ecf572072467dad8cca7f30",
-                "reference": "521c174089602d526ecf572072467dad8cca7f30",
+                "url": "https://api.github.com/repos/techdivision/import-product-ee/zipball/2d8dd4887bb4a2a4971ccbfac58bd7ecc8aa9e81",
+                "reference": "2d8dd4887bb4a2a4971ccbfac58bd7ecc8aa9e81",
                 "shasum": ""
             },
             "require": {
@@ -3213,7 +3215,7 @@
                 }
             ],
             "description": "M2IF library providing basic Magento 2 EE product import functionality",
-            "time": "2019-10-25T16:11:53+00:00"
+            "time": "2019-10-30T17:28:34+00:00"
         },
         {
             "name": "techdivision/import-product-grouped",
@@ -4300,20 +4302,20 @@
         },
         {
             "name": "consolidation/robo",
-            "version": "1.4.10",
+            "version": "1.4.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/consolidation/Robo.git",
-                "reference": "e5a6ca64cf1324151873672e484aceb21f365681"
+                "reference": "5fa1d901776a628167a325baa9db95d8edf13a80"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/consolidation/Robo/zipball/e5a6ca64cf1324151873672e484aceb21f365681",
-                "reference": "e5a6ca64cf1324151873672e484aceb21f365681",
+                "url": "https://api.github.com/repos/consolidation/Robo/zipball/5fa1d901776a628167a325baa9db95d8edf13a80",
+                "reference": "5fa1d901776a628167a325baa9db95d8edf13a80",
                 "shasum": ""
             },
             "require": {
-                "consolidation/annotated-command": "^2.10.2",
+                "consolidation/annotated-command": "^2.11.0",
                 "consolidation/config": "^1.2",
                 "consolidation/log": "~1",
                 "consolidation/output-formatters": "^3.1.13",
@@ -4343,6 +4345,7 @@
                 "pear/archive_tar": "^1.4.4",
                 "php-coveralls/php-coveralls": "^1",
                 "phpunit/php-code-coverage": "~2|~4",
+                "sebastian/comparator": "^1.2.4",
                 "squizlabs/php_codesniffer": "^2.8"
             },
             "suggest": {
@@ -4404,7 +4407,7 @@
                 }
             ],
             "description": "Modern task runner",
-            "time": "2019-07-29T15:40:50+00:00"
+            "time": "2019-10-29T15:50:02+00:00"
         },
         {
             "name": "consolidation/self-update",
@@ -4764,16 +4767,16 @@
         },
         {
             "name": "mikey179/vfsstream",
-            "version": "v1.6.7",
+            "version": "v1.6.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bovigo/vfsStream.git",
-                "reference": "2b544ac3a21bcc4dde5d90c4ae8d06f4319055fb"
+                "reference": "231c73783ebb7dd9ec77916c10037eff5a2b6efe"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bovigo/vfsStream/zipball/2b544ac3a21bcc4dde5d90c4ae8d06f4319055fb",
-                "reference": "2b544ac3a21bcc4dde5d90c4ae8d06f4319055fb",
+                "url": "https://api.github.com/repos/bovigo/vfsStream/zipball/231c73783ebb7dd9ec77916c10037eff5a2b6efe",
+                "reference": "231c73783ebb7dd9ec77916c10037eff5a2b6efe",
                 "shasum": ""
             },
             "require": {
@@ -4806,7 +4809,7 @@
             ],
             "description": "Virtual file system to mock the real file system in unit tests.",
             "homepage": "http://vfs.bovigo.org/",
-            "time": "2019-08-01T01:38:37+00:00"
+            "time": "2019-10-30T15:31:00+00:00"
         },
         {
             "name": "myclabs/deep-copy",
