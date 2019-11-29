@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b1a0a5acd124969c3934a895d63d8fae",
+    "content-hash": "28419f1c7fa375901fd431606d066284",
     "packages": [
         {
             "name": "cache/adapter-common",
@@ -2579,57 +2579,6 @@
             ],
             "description": "M2IF library providing basic Magento 2 EE category import functionality",
             "time": "2019-11-14T21:42:06+00:00"
-        },
-        {
-            "name": "techdivision/import-change-set",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/techdivision/import-change-set.git",
-                "reference": "1ccaf25efa910e1ab57378fecfaba0b816a410ca"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-change-set/zipball/1ccaf25efa910e1ab57378fecfaba0b816a410ca",
-                "reference": "1ccaf25efa910e1ab57378fecfaba0b816a410ca",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.6.0"
-            },
-            "require-dev": {
-                "consolidation/robo": "~1.0",
-                "doctrine/dbal": "2.5.*",
-                "mikey179/vfsstream": "~1.0",
-                "pdepend/pdepend": "2.5.2",
-                "phpmd/phpmd": "@stable",
-                "phpunit/phpunit": "~5.0",
-                "sebastian/phpcpd": "~3.0.0",
-                "squizlabs/php_codesniffer": "3.3.1",
-                "symfony/http-kernel": "~3.4"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "TechDivision\\Import\\ChangeSet\\": [
-                        "src/",
-                        "symfony/",
-                        "tests/unit"
-                    ]
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "OSL-3.0"
-            ],
-            "authors": [
-                {
-                    "name": "Tim Wagner",
-                    "email": "t.wagner@techdivision.com"
-                }
-            ],
-            "description": "M2IF library providing basic Magento 2 import change set detection functionality",
-            "time": "2019-11-06T13:47:18+00:00"
         },
         {
             "name": "techdivision/import-cli",
@@ -7189,12 +7138,6 @@
             "package": "techdivision/import-cli"
         },
         {
-            "alias": "1.0.0",
-            "alias_normalized": "1.0.0.0",
-            "version": "9999999-dev",
-            "package": "techdivision/import-change-set"
-        },
-        {
             "alias": "16.0.0",
             "alias_normalized": "16.0.0.0",
             "version": "16.9999999.9999999.9999999-dev",
@@ -7367,7 +7310,6 @@
     "stability-flags": {
         "techdivision/import": 20,
         "techdivision/import-cli": 20,
-        "techdivision/import-change-set": 20,
         "techdivision/import-app-simple": 20,
         "techdivision/import-configuration-jms": 20,
         "techdivision/import-ee": 20,
