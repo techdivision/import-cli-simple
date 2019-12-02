@@ -11,6 +11,9 @@
 * Fixed techdivision/import-cli-simple#222
 * Fixed techdivision/import-cli-simple#224
 * Fixed techdivision/import-cli-simple#229
+* Fixed techdivision/import-cli-simple#233
+* Fixed techdivision/import-cli-simple#234
+* Add missing event triggers to AbstractSubject
 * Use website code instead of ID to relate customer with website
 
 ## Features
@@ -22,6 +25,8 @@
 * Add techdivision/import-cli-simple#216
 * Add techdivision/import-configuration-jms#25
 * Add converter libraries to community version
+* Add new events that will be triggered before and after the header has been initialized
+* Add functionality to render recommendations for performce relevant MySQL configurations
 * Remove deprecated classes and methods from all dependencies
 
 # Version 3.7.4
