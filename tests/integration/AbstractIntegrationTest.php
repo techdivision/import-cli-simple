@@ -28,6 +28,7 @@ use TechDivision\Import\Utils\EntityStatus;
 use TechDivision\Import\Utils\StoreViewCodes;
 use TechDivision\Import\Cli\Utils\DependencyInjectionKeys;
 use TechDivision\Import\Configuration\Jms\Configuration\Database;
+use TechDivision\Import\Execution\ConfigurationManager;
 
 /**
  * Test class for the product URL rewrite observer implementation.
@@ -216,29 +217,12 @@ abstract class AbstractIntegrationTest extends \PHPUnit_Framework_TestCase
         $configurationFactory = self::$container->get(DependencyInjectionKeys::CONFIGURATION_FACTORY);
         $configuration = $configurationFactory->factory($this->getConfigurationFile());
 
-        // extend the plugins with the main configuration instance
-        /** @var \TechDivision\Import\Cli\Configuration\Subject $subject */
-        foreach ($configuration->getPlugins() as $plugin) {
-            // set the configuration instance on the plugin
-            $plugin->setConfiguration($configuration);
-
-            // query whether or not the plugin has subjects configured
-            if ($subjects = $plugin->getSubjects()) {
-                // extend the plugin's subjects with the main configuration instance
-                /** @var \TechDivision\Import\Cli\Configuration\Subject $subject */
-                foreach ($subjects as $subject) {
-                    // set the configuration instance on the subject
-                    $subject->setConfiguration($configuration);
-                }
-            }
-        }
-
         // initialize the configuration with the test specific data
+        $configuration->setShortcut($this->getOperationName());
         $configuration->setSerial(Uuid::uuid4()->toString());
         $configuration->setSourceDir($this->getSourceDir());
         $configuration->setTargetDir($this->getTargetDir());
         $configuration->setPidFilename($this->getPidFilename());
-        $configuration->setOperationName($this->getOperationName());
         $configuration->addDatabase($this->getDatabase());
 
         // load the library loader and autoload the libraries
@@ -258,10 +242,13 @@ abstract class AbstractIntegrationTest extends \PHPUnit_Framework_TestCase
         // start the transaction
         self::$container->get(DependencyInjectionKeys::CONNECTION)->getConnection()->beginTransaction();
 
-        // create the temporary directory, if not extists
-        if (!is_dir($tmpDir = $this->getTmpDir())) {
-            mkdir($tmpDir);
+        // query whether or not the directory exists
+        if (is_dir($tmpDir = $this->getTmpDir())) {
+            return;
         }
+
+        // create the temporary directory, if not
+        mkdir($tmpDir);
     }
 
     /**

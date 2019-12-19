@@ -1,0 +1,117 @@
+{
+  "magento-edition": "CE",
+  "magento-version": "2.3.3",
+  "archive-artefacts" : true,
+  "debug-mode" : true,
+  "entity-type-code" : "catalog_product",
+  "system-name" : "system-name/product-import",
+  "databases" : [],
+  "listeners" : [
+    {
+      "app.set.up" : [
+        "import.listener.initialize.registry"
+      ]
+    },
+    {
+      "app.tear.down" : [
+        "import.listener.clear.registry"
+      ]
+    }
+  ],
+  "loggers": {
+    "system": {
+      "id": "import.logger.factory.monolog",
+      "channel-name": "logger/system",
+      "handlers": {
+        "null": {
+          "id" : "import.logger.handler.null"
+        }
+      }
+    }
+  },
+  "extension-libraries" : [
+    "techdivision/import-app-simple",
+    "techdivision/import",
+    "techdivision/import-attribute",
+    "techdivision/import-category",
+    "techdivision/import-product",
+    "techdivision/import-product-bundle",
+    "techdivision/import-product-link",
+    "techdivision/import-product-media",
+    "techdivision/import-product-variant",
+    "techdivision/import-product-url-rewrite"
+  ],
+  "finder-mappings": {
+    "TechDivision\\Import\\Product\\Utils\\SqlStatementKeys::PRODUCT_DATETIMES": "import.repository.finder.factory.yielded",
+    "TechDivision\\Import\\Product\\Utils\\SqlStatementKeys::PRODUCT_DECIMALS": "import.repository.finder.factory.yielded",
+    "TechDivision\\Import\\Product\\Utils\\SqlStatementKeys::PRODUCT_INTS": "import.repository.finder.factory.yielded",
+    "TechDivision\\Import\\Product\\Utils\\SqlStatementKeys::PRODUCT_TEXTS": "import.repository.finder.factory.yielded",
+    "TechDivision\\Import\\Product\\Utils\\SqlStatementKeys::PRODUCT_VARCHARS": "import.repository.finder.factory.yielded",
+    "TechDivision\\Import\\Product\\Utils\\SqlStatementKeys::PRODUCTS": "import.repository.finder.factory.yielded",
+    "TechDivision\\Import\\Product\\Utils\\SqlStatementKeys::PRODUCT": "import.repository.finder.factory.unique",
+    "TechDivision\\Import\\Product\\Utils\\SqlStatementKeys::PRODUCT_DATETIMES_BY_PK_AND_STORE_ID": "import.repository.finder.factory.yielded",
+    "TechDivision\\Import\\Product\\Utils\\SqlStatementKeys::PRODUCT_DECIMALS_BY_PK_AND_STORE_ID": "import.repository.finder.factory.yielded",
+    "TechDivision\\Import\\Product\\Utils\\SqlStatementKeys::PRODUCT_INTS_BY_PK_AND_STORE_ID": "import.repository.finder.factory.yielded",
+    "TechDivision\\Import\\Product\\Utils\\SqlStatementKeys::PRODUCT_TEXTS_BY_PK_AND_STORE_ID": "import.repository.finder.factory.yielded",
+    "TechDivision\\Import\\Product\\Utils\\SqlStatementKeys::PRODUCT_VARCHARS_BY_PK_AND_STORE_ID": "import.repository.finder.factory.yielded",
+    "TechDivision\\Import\\Product\\Utils\\SqlStatementKeys::PRODUCT_VARCHAR_BY_ATTRIBUTE_CODE_AND_ENTITY_TYPE_ID_AND_STORE_ID": "import.repository.finder.factory.yielded",
+    "TechDivision\\Import\\Product\\Utils\\SqlStatementKeys::PRODUCT_VARCHAR_BY_ATTRIBUTE_CODE_AND_ENTITY_TYPE_ID_AND_STORE_ID_AND_VALUE" : "import.repository.finder.factory.unique"
+  },
+  "shortcuts": {
+    "ce": {
+      "catalog_product": {
+        "add-update": [
+          "ce/catalog_product/add-update"
+        ]
+      }
+    }
+  },
+  "operations" : {
+    "ce": {
+      "catalog_product" : {
+        "add-update": {
+          "plugins" : {
+            "global-data": {
+              "id": "import.plugin.global.data"
+            },
+            "subject": {
+              "id": "import.plugin.subject",
+              "subjects": [
+                {
+                  "id": "import.subject.move.files",
+                  "file-resolver": {
+                    "prefix": "product-import"
+                  },
+                  "ok-file-needed": false
+                },
+                {
+                  "id": "import_product.subject.bunch",
+                  "file-resolver": {
+                    "prefix": "product-import"
+                  },
+                  "params" : {
+                    "clean-up-category-product-relations" : true
+                  },
+                  "observers": [
+                    {
+                      "import": [
+                        "import.observer.attribute.set",
+                        "import.observer.additional.attribute",
+                        "import_product.observer.url.key",
+                        "import_product.observer.quality.and.stock.status",
+                        "import_product.observer.product",
+                        "import_product.observer.category.product",
+                        "import_product.observer.product.attribute.update",
+                        "import_product.observer.clean.up"
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -57,7 +57,7 @@ class AddUpdateOperationTest extends AbstractIntegrationTest
      */
     protected function getConfigurationFile()
     {
-        return sprintf('%s/ce/2.3.x/conf/url-rewrite/add-update-operation/techdivision-import.json', $this->getFilesDir());
+        return sprintf('%s/ce/2.3.x/conf/url-rewrite/add-update-operation/configuration.json', $this->getFilesDir());
     }
 
     /**
