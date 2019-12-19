@@ -158,10 +158,10 @@ class RoboFile extends \Robo\Tasks
         // load a list with all the source files from the vendor directory
         $finder = Finder::create()->files()
             ->name('*.php')
+            ->name('*.json')
             ->name('.semver')
             ->name('services.xml')
             ->name('services-1.0.xsd')
-            ->name('techdivision-import.json')
             ->in($targetDir)
             ->ignoreDotFiles(false);
 
