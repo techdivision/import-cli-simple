@@ -21,6 +21,7 @@
 * Add techdivision/import#112
 * Add techdivision/import#146
 * Add techdivision/import#162
+* Add techdivision/import#163
 * Add techdivision/import-product#146
 * Add techdivision/import-cli-simple#216
 * Add techdivision/import-configuration-jms#25
