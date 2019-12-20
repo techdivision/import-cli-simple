@@ -1,3 +1,17 @@
+# Version 3.7.9
+
+## Known Issues
+
+* Up from Magento 2 EE 2.1.10 using the single transaction mode has a massive performance impact (can only be used **WITHOUT** single transaction)
+
+## Bugfixes
+
+* Pack missing configuration files for price and inventory inport when creating PHAR file
+
+## Features
+
+* None
+
 # Version 3.7.8
 
 ## Known Issues

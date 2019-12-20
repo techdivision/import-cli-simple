@@ -46,7 +46,7 @@ class RoboFile extends \Robo\Tasks
         'target.dir' => __DIR__ . '/target',
         'symfony.dir' => __DIR__ . '/symfony',
         'webapp.name' => 'import-cli-simple',
-        'webapp.version' => '3.7.8'
+        'webapp.version' => '3.7.9'
     );
 
     /**
@@ -158,10 +158,10 @@ class RoboFile extends \Robo\Tasks
         // load a list with all the source files from the vendor directory
         $finder = Finder::create()->files()
             ->name('*.php')
+            ->name('techdivision-import*.json')
             ->name('.semver')
             ->name('services.xml')
             ->name('services-1.0.xsd')
-            ->name('techdivision-import.json')
             ->in($targetDir)
             ->ignoreDotFiles(false);
 
