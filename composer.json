@@ -45,6 +45,10 @@
         "consolidation/robo": "~1.0",
         "mikey179/vfsstream": "~1.0",
         "symfony/http-kernel": "~3.4",
+        "behat/behat": "3.5.*",
+        "behat/mink": "1.6.*",
+        "behat/mink-extension": "2.2.*",
+        "behat/mink-goutte-driver": "1.1.*",
         "techdivision/import-sample-data": "4.x-dev as 4.0.0"
     },
     "authors": [
@@ -54,6 +58,7 @@
         }
     ],
     "autoload": {
+        "psr-0": { "": "features/bootstrap" },
         "psr-4": {
             "TechDivision\\Import\\Cli\\": [
                 "tests/integration/"

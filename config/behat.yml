@@ -1,0 +1,32 @@
+default:
+  extensions:
+    Behat\MinkExtension:
+      base_url:  http://magento-ce-233.test
+      sessions:
+        default:
+          goutte: ~
+  suites:
+    attribute_set:
+     paths:
+       features: features/attribute-set
+     contexts:
+       - AttributeSetFeatureContext:
+           installDir: instances/ce/2.3.3
+    attribute:
+     paths:
+       features: features/attribute
+     contexts:
+       - AttributeFeatureContext:
+           installDir: instances/ce/2.3.3
+    category:
+     paths:
+       features: features/category
+     contexts:
+       - CategoryFeatureContext:
+           installDir: instances/ce/2.3.3
+    product:
+     paths:
+       features: features/product
+     contexts:
+       - ProductFeatureContext:
+           installDir: instances/ce/2.3.3
