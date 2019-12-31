@@ -7,22 +7,25 @@ Feature: Add/Update Products
   Rules:
     - Filename starts with product-import_*
     - The file is available in folder "var/importexport"
-
-Background:
+    
+Scenario: Add/Update Products
   Given a third party system has copied the file "vendor/techdivision/import-sample-data/generic/data/products/add-update/product-import_20161021-161909_01.csv" into the import folder "var/importexport"
     And a third party system has copied the file "vendor/techdivision/import-sample-data/generic/data/products/add-update/product-import_20161021-161909_02.csv" into the import folder "var/importexport"
     And a third party system has copied the file "vendor/techdivision/import-sample-data/generic/data/products/add-update/product-import_20161021-161909_03.csv" into the import folder "var/importexport"
     And a third party system has copied the file "vendor/techdivision/import-sample-data/generic/data/products/add-update/product-import_20161021-161909_04.csv" into the import folder "var/importexport"
-    
-Scenario Outline: Add/Update Attributes
-  Given that a new file "var/importexport/product-import_20161021-161909_01.csv" containing data is available
+    And that a new file "var/importexport/product-import_20161021-161909_01.csv" containing data is available
     And that a new file "var/importexport/product-import_20161021-161909_02.csv" containing data is available
     And that a new file "var/importexport/product-import_20161021-161909_03.csv" containing data is available
     And that a new file "var/importexport/product-import_20161021-161909_04.csv" containing data is available
    When the command "bin/import-simple import:create:ok-file" has been executed
     And the command "bin/import-simple import:products" has been executed
     And the Magento command "bin/magento indexer:reindex" has been executed
-   Then the page <url> should return status <status> has title <title> and contain price <price>
+
+Scenario Outline: Check Products
+   Given is on our page
+    When he is on <url> 
+    Then the page should return status <status> 
+     And has title <title> and contain price <price>
 
     Examples:
       | url                     | title             | status   | price    |
