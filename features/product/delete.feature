@@ -1,8 +1,8 @@
- @product @add-update
-Feature: Add/Update Products
+ @product @delete
+Feature: Delete Products
   To import products into my Magento 2 instance
   As an E-Commerce manager
-  I simply want to put a CSV file with the products into a directory on the server and they should be imported
+  I simply want to put a CSV file with the products into a directory on the server and they should be deleted
 
   Rules:
     - Filename starts with product-import_*
@@ -20,11 +20,11 @@ Scenario Outline: Add/Update Attributes
     And that a new file "var/importexport/product-import_20161021-161909_03.csv" containing data is available
     And that a new file "var/importexport/product-import_20161021-161909_04.csv" containing data is available
    When the command "bin/import-simple import:create:ok-file" has been executed
-    And the command "bin/import-simple import:products" has been executed
+    And the command "bin/import-simple import:products delete" has been executed
     And the Magento command "bin/magento indexer:reindex" has been executed
-   Then the page <url> should return status <status> has title <title> and contain price <price>
+   Then the page <url> should return status <status> 
 
     Examples:
-      | url                     | title             | status   | price    |
-      | "/fusion-backpack.html" | "Fusion Backpack" | 200      | "$59.00" |
-      | "/driven-backpack.html" | "Driven Backpack" | 200      | "$36.00" |
+      | url                     | status |
+      | "/fusion-backpack.html" | 404    |
+      | "/driven-backpack.html" | 404    |

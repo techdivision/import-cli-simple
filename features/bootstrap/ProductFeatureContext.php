@@ -6,30 +6,33 @@
 class ProductFeatureContext extends FeatureContext
 {
 
-  /**
-    * @Then the page :arg1 should be available
-    */
-    public function thePageShouldBeAvailable($arg1)
+    /**
+     * @Then the page :arg1 should return status :arg2
+     */
+    public function thePageShouldReturnStatus($arg1, $arg2)
     {
 
         $this->visitPath($arg1);
-        PHPUnit_Framework_Assert::assertSame(200, $this->getSession()->getStatusCode());
+
+        PHPUnit_Framework_Assert::assertSame((integer) $arg2, $this->getSession()->getStatusCode());
     }
 
     /**
-     * @Then the page :arg1 should contain the price :arg2
+     * @Then the page :arg1 should return status :arg2 has title :arg3 and contain price :arg4
      */
-    public function thePageShouldContainThePrice($arg1, $arg2)
+    public function thePageShouldReturnStatusHasTitleAndContainPrice($arg1, $arg2, $arg3, $arg4)
     {
 
         $this->visitPath($arg1);
 
-        /** @var \Behat\Mink\Element\NodeElement $price */
-        $prices = $this->getSession()->getPage()->findAll('xpath', '//*[@id="product-price-21606"]/span');
+        PHPUnit_Framework_Assert::assertSame((integer) $arg2, $this->getSession()->getStatusCode());
 
-        foreach ($prices as $price) {
-            echo "Found value: " . $price->getValue() . PHP_EOL;
-            PHPUnit_Framework_Assert::assertSame($arg2, $price->getValue());
-        }
+        /** @var \Behat\Mink\Element\NodeElement $title */
+        $title = $this->getSession()->getPage()->find('css', 'title');
+        PHPUnit_Framework_Assert::assertSame($arg3, $title->getText());
+
+        /** @var \Behat\Mink\Element\NodeElement $price */
+        $price = $this->getSession()->getPage()->find('xpath', '//*[@class="price"]');
+        PHPUnit_Framework_Assert::assertSame($arg4, $price->getText());
     }
 }
