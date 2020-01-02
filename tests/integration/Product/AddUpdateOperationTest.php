@@ -1,7 +1,7 @@
 <?php
 
 /**
- * TechDivision\Import\Cli\Product\AddUpdateOperationTest
+ * TechDivision\Import\Cli\Simple\Product\AddUpdateOperationTest
  *
  * NOTICE OF LICENSE
  *
@@ -18,12 +18,12 @@
  * @link      http://www.techdivision.com
  */
 
-namespace TechDivision\Import\Cli\Product;
+namespace TechDivision\Import\Cli\Simple\Product;
 
 use TechDivision\Import\Utils\OperationKeys;
 use TechDivision\Import\Product\Utils\ColumnKeys;
 use TechDivision\Import\Product\Utils\MemberNames;
-use TechDivision\Import\Cli\AbstractIntegrationTest;
+use TechDivision\Import\Cli\Simple\AbstractIntegrationTest;
 
 /**
  * Test class for the product functionality.
@@ -51,7 +51,7 @@ class AddUpdateOperationTest extends AbstractIntegrationTest
      * The configuration used for the test case.
      *
      * @return string The absolute path to the configuration file
-     * @see \TechDivision\Import\Cli\AbstractIntegrationTest::getConfigurationFile()
+     * @see \TechDivision\Import\Cli\Simple\AbstractIntegrationTest::getConfigurationFile()
      */
     protected function getConfigurationFile()
     {
@@ -62,7 +62,7 @@ class AddUpdateOperationTest extends AbstractIntegrationTest
      * The additional DI configuration used for the test case.
      *
      * @return string The absolute path to the DI configuration file
-     * @see \TechDivision\Import\Cli\AbstractIntegrationTest::getDiConfigurationFile()
+     * @see \TechDivision\Import\Cli\Simple\AbstractIntegrationTest::getDiConfigurationFile()
      */
     protected function getDiConfigurationFile()
     {

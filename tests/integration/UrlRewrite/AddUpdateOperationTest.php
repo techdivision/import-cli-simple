@@ -1,7 +1,7 @@
 <?php
 
 /**
- * TechDivision\Import\Cli\UrlRewrite\AddUpdateOperationTest
+ * TechDivision\Import\Cli\Simple\UrlRewrite\AddUpdateOperationTest
  *
  * NOTICE OF LICENSE
  *
@@ -18,13 +18,13 @@
  * @link      http://www.techdivision.com
  */
 
-namespace TechDivision\Import\Cli\UrlRewrite;
+namespace TechDivision\Import\Cli\Simple\UrlRewrite;
 
 use TechDivision\Import\Utils\OperationKeys;
 use TechDivision\Import\Utils\EntityStatus;
 use TechDivision\Import\Product\Utils\ColumnKeys;
 use TechDivision\Import\Product\Utils\MemberNames;
-use TechDivision\Import\Cli\AbstractIntegrationTest;
+use TechDivision\Import\Cli\Simple\AbstractIntegrationTest;
 use TechDivision\Import\Product\UrlRewrite\Observers\UrlRewriteObserver;
 
 /**
@@ -53,7 +53,7 @@ class AddUpdateOperationTest extends AbstractIntegrationTest
      * The configuration used for the test case.
      *
      * @return string The absolute path to the configuration file
-     * @see \TechDivision\Import\Cli\AbstractIntegrationTest::getConfigurationFile()
+     * @see \TechDivision\Import\Cli\Simple\AbstractIntegrationTest::getConfigurationFile()
      */
     protected function getConfigurationFile()
     {
@@ -64,7 +64,7 @@ class AddUpdateOperationTest extends AbstractIntegrationTest
      * The additional DI configuration used for the test case.
      *
      * @return string The absolute path to the DI configuration file
-     * @see \TechDivision\Import\Cli\AbstractIntegrationTest::getDiConfigurationFile()
+     * @see \TechDivision\Import\Cli\Simple\AbstractIntegrationTest::getDiConfigurationFile()
      */
     protected function getDiConfigurationFile()
     {

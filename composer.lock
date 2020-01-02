@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "295501962bb764a757c0dbcfd3a5ee3a",
+    "content-hash": "a6be5a1e167598be3c9b64ba55e1fcec",
     "packages": [
         {
             "name": "cache/adapter-common",
@@ -2646,12 +2646,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-configuration-jms.git",
-                "reference": "052a17aee2132a3b64524a57d5c20c31aca9a17b"
+                "reference": "b068b3d849ed691726f4491e43d6fac55f182426"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-configuration-jms/zipball/052a17aee2132a3b64524a57d5c20c31aca9a17b",
-                "reference": "052a17aee2132a3b64524a57d5c20c31aca9a17b",
+                "url": "https://api.github.com/repos/techdivision/import-configuration-jms/zipball/b068b3d849ed691726f4491e43d6fac55f182426",
+                "reference": "b068b3d849ed691726f4491e43d6fac55f182426",
                 "shasum": ""
             },
             "require": {
@@ -2688,7 +2688,7 @@
                 }
             ],
             "description": "Library providing a JMS based configuration implementation for the M2IF",
-            "time": "2019-12-19T21:13:47+00:00"
+            "time": "2019-12-31T12:57:41+00:00"
         },
         {
             "name": "techdivision/import-converter",
@@ -3232,12 +3232,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-product-ee.git",
-                "reference": "5119a6395860537318992171ee625b16bf139362"
+                "reference": "67ab5cc41a9a33dd245b37bc7adf940369e10bea"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-product-ee/zipball/5119a6395860537318992171ee625b16bf139362",
-                "reference": "5119a6395860537318992171ee625b16bf139362",
+                "url": "https://api.github.com/repos/techdivision/import-product-ee/zipball/67ab5cc41a9a33dd245b37bc7adf940369e10bea",
+                "reference": "67ab5cc41a9a33dd245b37bc7adf940369e10bea",
                 "shasum": ""
             },
             "require": {
@@ -3278,7 +3278,7 @@
                 }
             ],
             "description": "M2IF library providing basic Magento 2 EE product import functionality",
-            "time": "2019-12-19T09:18:34+00:00"
+            "time": "2020-01-02T19:10:04+00:00"
         },
         {
             "name": "techdivision/import-product-grouped",
@@ -3945,6 +3945,7 @@
                 "filter",
                 "zf"
             ],
+            "abandoned": "laminas/laminas-filter",
             "time": "2019-08-19T07:08:04+00:00"
         },
         {
@@ -3991,6 +3992,7 @@
                 "stdlib",
                 "zf"
             ],
+            "abandoned": "laminas/laminas-stdlib",
             "time": "2018-08-28T21:34:05+00:00"
         }
     ],
@@ -4356,6 +4358,67 @@
                 "testing"
             ],
             "time": "2014-10-09T09:21:12+00:00"
+        },
+        {
+            "name": "behat/symfony2-extension",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Behat/Symfony2Extension.git",
+                "reference": "31258ea704144c2cd55db1ce58de000c5d59a77b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Behat/Symfony2Extension/zipball/31258ea704144c2cd55db1ce58de000c5d59a77b",
+                "reference": "31258ea704144c2cd55db1ce58de000c5d59a77b",
+                "shasum": ""
+            },
+            "require": {
+                "behat/behat": "^3.4.3",
+                "php": ">=5.3.3",
+                "symfony/framework-bundle": "~2.0|~3.0|~4.0"
+            },
+            "require-dev": {
+                "behat/mink": "~1.7@dev",
+                "behat/mink-browserkit-driver": "~1.3@dev",
+                "behat/mink-extension": "~2.0",
+                "phpspec/phpspec": "~2.0|~3.0|~4.0",
+                "phpunit/phpunit": "~4.0|~5.0",
+                "symfony/symfony": "~2.1|~3.0|~4.0"
+            },
+            "type": "behat-extension",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.1.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Behat\\Symfony2Extension": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Christophe Coevoet",
+                    "email": "stof@notk.org"
+                },
+                {
+                    "name": "Konstantin Kudryashov",
+                    "email": "ever.zet@gmail.com"
+                }
+            ],
+            "description": "Symfony2 framework extension for Behat",
+            "homepage": "http://behat.org",
+            "keywords": [
+                "BDD",
+                "framework",
+                "symfony"
+            ],
+            "time": "2018-06-22T15:30:47+00:00"
         },
         {
             "name": "behat/transliterator",
@@ -7098,6 +7161,142 @@
             "time": "2018-11-26T06:55:10+00:00"
         },
         {
+            "name": "symfony/cache",
+            "version": "v4.3.9",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/cache.git",
+                "reference": "2a7bcc592adcaab9efc165bbced5a91fe905fad4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/cache/zipball/2a7bcc592adcaab9efc165bbced5a91fe905fad4",
+                "reference": "2a7bcc592adcaab9efc165bbced5a91fe905fad4",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.1.3",
+                "psr/cache": "~1.0",
+                "psr/log": "~1.0",
+                "symfony/cache-contracts": "^1.1",
+                "symfony/service-contracts": "^1.1",
+                "symfony/var-exporter": "^4.2"
+            },
+            "conflict": {
+                "doctrine/dbal": "<2.5",
+                "symfony/dependency-injection": "<3.4",
+                "symfony/var-dumper": "<3.4"
+            },
+            "provide": {
+                "psr/cache-implementation": "1.0",
+                "psr/simple-cache-implementation": "1.0",
+                "symfony/cache-implementation": "1.0"
+            },
+            "require-dev": {
+                "cache/integration-tests": "dev-master",
+                "doctrine/cache": "~1.6",
+                "doctrine/dbal": "~2.5",
+                "predis/predis": "~1.1",
+                "psr/simple-cache": "^1.0",
+                "symfony/config": "~4.2",
+                "symfony/dependency-injection": "~3.4|~4.1",
+                "symfony/var-dumper": "^4.1.1"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "4.3-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Component\\Cache\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Nicolas Grekas",
+                    "email": "p@tchwork.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony Cache component with PSR-6, PSR-16, and tags",
+            "homepage": "https://symfony.com",
+            "keywords": [
+                "caching",
+                "psr6"
+            ],
+            "time": "2019-12-01T10:50:31+00:00"
+        },
+        {
+            "name": "symfony/cache-contracts",
+            "version": "v1.1.7",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/cache-contracts.git",
+                "reference": "af50d14ada9e4e82cfabfabdc502d144f89be0a1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/cache-contracts/zipball/af50d14ada9e4e82cfabfabdc502d144f89be0a1",
+                "reference": "af50d14ada9e4e82cfabfabdc502d144f89be0a1",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.1.3",
+                "psr/cache": "^1.0"
+            },
+            "suggest": {
+                "symfony/cache-implementation": ""
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.1-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Contracts\\Cache\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Nicolas Grekas",
+                    "email": "p@tchwork.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Generic abstractions related to caching",
+            "homepage": "https://symfony.com",
+            "keywords": [
+                "abstractions",
+                "contracts",
+                "decoupling",
+                "interfaces",
+                "interoperability",
+                "standards"
+            ],
+            "time": "2019-10-04T21:43:27+00:00"
+        },
+        {
             "name": "symfony/class-loader",
             "version": "v3.4.36",
             "source": {
@@ -7495,6 +7694,120 @@
             "description": "Symfony Finder Component",
             "homepage": "https://symfony.com",
             "time": "2019-11-17T21:56:56+00:00"
+        },
+        {
+            "name": "symfony/framework-bundle",
+            "version": "v4.0.15",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/framework-bundle.git",
+                "reference": "6d2edab310f0010fe0797b7aa9be2b64cc135990"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/framework-bundle/zipball/6d2edab310f0010fe0797b7aa9be2b64cc135990",
+                "reference": "6d2edab310f0010fe0797b7aa9be2b64cc135990",
+                "shasum": ""
+            },
+            "require": {
+                "ext-xml": "*",
+                "php": "^7.1.3",
+                "symfony/cache": "~3.4|~4.0",
+                "symfony/config": "~3.4|~4.0",
+                "symfony/dependency-injection": "^3.4.3|^4.0.3",
+                "symfony/event-dispatcher": "~3.4|~4.0",
+                "symfony/filesystem": "~3.4|~4.0",
+                "symfony/finder": "~3.4|~4.0",
+                "symfony/http-foundation": "~3.4|~4.0",
+                "symfony/http-kernel": "~3.4|~4.0",
+                "symfony/polyfill-mbstring": "~1.0",
+                "symfony/routing": "^3.4.5|^4.0.5"
+            },
+            "conflict": {
+                "phpdocumentor/reflection-docblock": "<3.0",
+                "phpdocumentor/type-resolver": "<0.2.1",
+                "phpunit/phpunit": "<4.8.35|<5.4.3,>=5.0",
+                "symfony/asset": "<3.4",
+                "symfony/console": "<3.4",
+                "symfony/form": "<3.4",
+                "symfony/property-info": "<3.4",
+                "symfony/serializer": "<3.4",
+                "symfony/stopwatch": "<3.4",
+                "symfony/translation": "<3.4",
+                "symfony/validator": "<3.4",
+                "symfony/workflow": "<3.4"
+            },
+            "require-dev": {
+                "doctrine/annotations": "~1.0",
+                "doctrine/cache": "~1.0",
+                "fig/link-util": "^1.0",
+                "phpdocumentor/reflection-docblock": "^3.0|^4.0",
+                "symfony/asset": "~3.4|~4.0",
+                "symfony/browser-kit": "~3.4|~4.0",
+                "symfony/console": "~3.4|~4.0",
+                "symfony/css-selector": "~3.4|~4.0",
+                "symfony/dom-crawler": "~3.4|~4.0",
+                "symfony/expression-language": "~3.4|~4.0",
+                "symfony/form": "~3.4|~4.0",
+                "symfony/lock": "~3.4|~4.0",
+                "symfony/polyfill-intl-icu": "~1.0",
+                "symfony/process": "~3.4|~4.0",
+                "symfony/property-info": "~3.4|~4.0",
+                "symfony/security": "~3.4|~4.0",
+                "symfony/security-core": "~3.4|~4.0",
+                "symfony/security-csrf": "~3.4|~4.0",
+                "symfony/serializer": "~3.4|~4.0",
+                "symfony/stopwatch": "~3.4|~4.0",
+                "symfony/templating": "~3.4|~4.0",
+                "symfony/translation": "~3.4|~4.0",
+                "symfony/validator": "~3.4|~4.0",
+                "symfony/var-dumper": "~3.4|~4.0",
+                "symfony/web-link": "~3.4|~4.0",
+                "symfony/workflow": "~3.4|~4.0",
+                "symfony/yaml": "~3.4|~4.0",
+                "twig/twig": "~1.34|~2.4"
+            },
+            "suggest": {
+                "ext-apcu": "For best performance of the system caches",
+                "symfony/console": "For using the console commands",
+                "symfony/form": "For using forms",
+                "symfony/property-info": "For using the property_info service",
+                "symfony/serializer": "For using the serializer service",
+                "symfony/validator": "For using validation",
+                "symfony/web-link": "For using web links, features such as preloading, prefetching or prerendering",
+                "symfony/yaml": "For using the debug:config and lint:yaml commands"
+            },
+            "type": "symfony-bundle",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "4.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Bundle\\FrameworkBundle\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony FrameworkBundle",
+            "homepage": "https://symfony.com",
+            "time": "2018-08-01T08:23:45+00:00"
         },
         {
             "name": "symfony/http-foundation",
@@ -7978,6 +8291,83 @@
             "time": "2019-12-06T10:06:46+00:00"
         },
         {
+            "name": "symfony/routing",
+            "version": "v4.1.12",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/routing.git",
+                "reference": "da122c1ee55cf15bf9784e739b2251dec638f9cc"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/routing/zipball/da122c1ee55cf15bf9784e739b2251dec638f9cc",
+                "reference": "da122c1ee55cf15bf9784e739b2251dec638f9cc",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.1.3"
+            },
+            "conflict": {
+                "symfony/config": "<3.4",
+                "symfony/dependency-injection": "<3.4",
+                "symfony/yaml": "<3.4"
+            },
+            "require-dev": {
+                "doctrine/annotations": "~1.0",
+                "psr/log": "~1.0",
+                "symfony/config": "~3.4|~4.0",
+                "symfony/dependency-injection": "~3.4|~4.0",
+                "symfony/expression-language": "~3.4|~4.0",
+                "symfony/http-foundation": "~3.4|~4.0",
+                "symfony/yaml": "~3.4|~4.0"
+            },
+            "suggest": {
+                "doctrine/annotations": "For using the annotation loader",
+                "symfony/config": "For using the all-in-one router or any loader",
+                "symfony/dependency-injection": "For loading routes from a service",
+                "symfony/expression-language": "For using expression matching",
+                "symfony/http-foundation": "For using a Symfony Request object",
+                "symfony/yaml": "For using the YAML loader"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "4.1-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Component\\Routing\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony Routing Component",
+            "homepage": "https://symfony.com",
+            "keywords": [
+                "router",
+                "routing",
+                "uri",
+                "url"
+            ],
+            "time": "2019-01-29T09:39:33+00:00"
+        },
+        {
             "name": "symfony/translation",
             "version": "v4.3.9",
             "source": {
@@ -8109,6 +8499,66 @@
                 "standards"
             ],
             "time": "2019-09-17T11:12:18+00:00"
+        },
+        {
+            "name": "symfony/var-exporter",
+            "version": "v4.4.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/var-exporter.git",
+                "reference": "e566070effe60b8d16b99e958cdbd92aa2e470cb"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/var-exporter/zipball/e566070effe60b8d16b99e958cdbd92aa2e470cb",
+                "reference": "e566070effe60b8d16b99e958cdbd92aa2e470cb",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.1.3"
+            },
+            "require-dev": {
+                "symfony/var-dumper": "^4.1.1|^5.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "4.4-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Component\\VarExporter\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Nicolas Grekas",
+                    "email": "p@tchwork.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "A blend of var_export() + serialize() to turn any serializable data structure to plain PHP code",
+            "homepage": "https://symfony.com",
+            "keywords": [
+                "clone",
+                "construct",
+                "export",
+                "hydrate",
+                "instantiate",
+                "serialize"
+            ],
+            "time": "2019-12-01T08:39:58+00:00"
         },
         {
             "name": "symfony/yaml",
@@ -8510,6 +8960,12 @@
             "package": "techdivision/import-converter-product-attribute"
         },
         {
+            "alias": "3.0.0",
+            "alias_normalized": "3.0.0.0",
+            "version": "9999999-dev",
+            "package": "behat/symfony2-extension"
+        },
+        {
             "alias": "4.0.0",
             "alias_normalized": "4.0.0.0",
             "version": "4.9999999.9999999.9999999-dev",
@@ -8549,6 +9005,7 @@
         "techdivision/import-converter-product-category": 20,
         "techdivision/import-converter-product-attribute": 20,
         "phpmd/phpmd": 0,
+        "behat/symfony2-extension": 20,
         "techdivision/import-sample-data": 20
     },
     "prefer-stable": false,

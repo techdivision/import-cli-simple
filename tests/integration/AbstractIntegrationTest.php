@@ -1,7 +1,7 @@
 <?php
 
 /**
- * TechDivision\Import\Cli\AbstractIntegrationTest
+ * TechDivision\Import\Cli\Simple\AbstractIntegrationTest
  *
  * NOTICE OF LICENSE
  *
@@ -18,7 +18,7 @@
  * @link      http://www.techdivision.com
  */
 
-namespace TechDivision\Import\Cli;
+namespace TechDivision\Import\Cli\Simple;
 
 use Ramsey\Uuid\Uuid;
 use Symfony\Component\Config\FileLocator;
@@ -28,7 +28,6 @@ use TechDivision\Import\Utils\EntityStatus;
 use TechDivision\Import\Utils\StoreViewCodes;
 use TechDivision\Import\Cli\Utils\DependencyInjectionKeys;
 use TechDivision\Import\Configuration\Jms\Configuration\Database;
-use TechDivision\Import\Execution\ConfigurationManager;
 
 /**
  * Test class for the product URL rewrite observer implementation.

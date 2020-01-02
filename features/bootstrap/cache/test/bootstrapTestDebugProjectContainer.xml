@@ -1,0 +1,1498 @@
+<?xml version="1.0" encoding="utf-8"?>
+<container xmlns="http://symfony.com/schema/dic/services" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+  <parameters>
+    <parameter key="kernel.root_dir">/Users/wagnert/Workspace_Idea/techdivision/import-cli-simple/features/bootstrap</parameter>
+    <parameter key="kernel.project_dir">/Users/wagnert/Workspace_Idea/techdivision/import-cli-simple</parameter>
+    <parameter key="kernel.environment">test</parameter>
+    <parameter key="kernel.debug">true</parameter>
+    <parameter key="kernel.name">bootstrap</parameter>
+    <parameter key="kernel.cache_dir">/Users/wagnert/Workspace_Idea/techdivision/import-cli-simple/features/bootstrap/cache/test</parameter>
+    <parameter key="kernel.logs_dir">/Users/wagnert/Workspace_Idea/techdivision/import-cli-simple/features/bootstrap/logs</parameter>
+    <parameter key="kernel.bundles" type="collection">
+      <parameter key="FrameworkBundle">Symfony\Bundle\FrameworkBundle\FrameworkBundle</parameter>
+      <parameter key="ImportBundle">TechDivision\Import\Cli\Simple\ImportBundle</parameter>
+    </parameter>
+    <parameter key="kernel.bundles_metadata" type="collection">
+      <parameter key="FrameworkBundle" type="collection">
+        <parameter key="parent">null</parameter>
+        <parameter key="path">/Users/wagnert/Workspace_Idea/techdivision/import-cli-simple/vendor/symfony/framework-bundle</parameter>
+        <parameter key="namespace">Symfony\Bundle\FrameworkBundle</parameter>
+      </parameter>
+      <parameter key="ImportBundle" type="collection">
+        <parameter key="parent">null</parameter>
+        <parameter key="path">/Users/wagnert/Workspace_Idea/techdivision/import-cli-simple/symfony</parameter>
+        <parameter key="namespace">TechDivision\Import\Cli\Simple</parameter>
+      </parameter>
+    </parameter>
+    <parameter key="kernel.charset">UTF-8</parameter>
+    <parameter key="kernel.container_class">bootstrapTestDebugProjectContainer</parameter>
+    <parameter key="install_dir">instances/ce/2.3.3</parameter>
+    <parameter key="base_url">http://magento-ce-233.test</parameter>
+    <parameter key="fragment.renderer.hinclude.global_template"></parameter>
+    <parameter key="fragment.path">/_fragment</parameter>
+    <parameter key="kernel.secret">test_blah</parameter>
+    <parameter key="kernel.http_method_override">true</parameter>
+    <parameter key="kernel.trusted_hosts" type="collection"/>
+    <parameter key="kernel.default_locale">en</parameter>
+    <parameter key="templating.helper.code.file_link_format">null</parameter>
+    <parameter key="debug.file_link_format">null</parameter>
+    <parameter key="test.client.parameters" type="collection"/>
+    <parameter key="session.metadata.storage_key">_sf2_meta</parameter>
+    <parameter key="session.storage.options" type="collection">
+      <parameter key="cache_limiter">0</parameter>
+      <parameter key="cookie_httponly">true</parameter>
+      <parameter key="gc_probability">1</parameter>
+    </parameter>
+    <parameter key="session.save_path">/Users/wagnert/Workspace_Idea/techdivision/import-cli-simple/features/bootstrap/cache/test/sessions</parameter>
+    <parameter key="session.metadata.update_threshold">0</parameter>
+    <parameter key="translator.logging">true</parameter>
+    <parameter key="translator.default_path">/Users/wagnert/Workspace_Idea/techdivision/import-cli-simple/translations</parameter>
+    <parameter key="profiler_listener.only_exceptions">false</parameter>
+    <parameter key="profiler_listener.only_master_requests">false</parameter>
+    <parameter key="profiler.storage.dsn">file:/Users/wagnert/Workspace_Idea/techdivision/import-cli-simple/features/bootstrap/cache/test/profiler</parameter>
+    <parameter key="debug.error_handler.throw_at">-1</parameter>
+    <parameter key="debug.container.dump">/Users/wagnert/Workspace_Idea/techdivision/import-cli-simple/features/bootstrap/cache/test/bootstrapTestDebugProjectContainer.xml</parameter>
+    <parameter key="router.request_context.host">localhost</parameter>
+    <parameter key="router.request_context.scheme">http</parameter>
+    <parameter key="router.request_context.base_url"></parameter>
+    <parameter key="router.resource">/Users/wagnert/Workspace_Idea/techdivision/import-cli-simple/features/bootstrap/config/routing.yml</parameter>
+    <parameter key="router.cache_class_prefix">bootstrapTestDebugProjectContainer</parameter>
+    <parameter key="request_listener.http_port">80</parameter>
+    <parameter key="request_listener.https_port">443</parameter>
+    <parameter key="data_collector.templates" type="collection">
+      <parameter key="data_collector.request" type="collection">
+        <parameter>request</parameter>
+        <parameter>@WebProfiler/Collector/request.html.twig</parameter>
+      </parameter>
+      <parameter key="data_collector.time" type="collection">
+        <parameter>time</parameter>
+        <parameter>@WebProfiler/Collector/time.html.twig</parameter>
+      </parameter>
+      <parameter key="data_collector.memory" type="collection">
+        <parameter>memory</parameter>
+        <parameter>@WebProfiler/Collector/memory.html.twig</parameter>
+      </parameter>
+      <parameter key="data_collector.ajax" type="collection">
+        <parameter>ajax</parameter>
+        <parameter>@WebProfiler/Collector/ajax.html.twig</parameter>
+      </parameter>
+      <parameter key="data_collector.exception" type="collection">
+        <parameter>exception</parameter>
+        <parameter>@WebProfiler/Collector/exception.html.twig</parameter>
+      </parameter>
+      <parameter key="data_collector.logger" type="collection">
+        <parameter>logger</parameter>
+        <parameter>@WebProfiler/Collector/logger.html.twig</parameter>
+      </parameter>
+      <parameter key="data_collector.events" type="collection">
+        <parameter>events</parameter>
+        <parameter>@WebProfiler/Collector/events.html.twig</parameter>
+      </parameter>
+      <parameter key="data_collector.router" type="collection">
+        <parameter>router</parameter>
+        <parameter>@WebProfiler/Collector/router.html.twig</parameter>
+      </parameter>
+      <parameter key="data_collector.cache" type="collection">
+        <parameter>cache</parameter>
+        <parameter>@WebProfiler/Collector/cache.html.twig</parameter>
+      </parameter>
+      <parameter key="data_collector.translation" type="collection">
+        <parameter>translation</parameter>
+        <parameter>@WebProfiler/Collector/translation.html.twig</parameter>
+      </parameter>
+      <parameter key="data_collector.config" type="collection">
+        <parameter>config</parameter>
+        <parameter>@WebProfiler/Collector/config.html.twig</parameter>
+      </parameter>
+    </parameter>
+    <parameter key="console.command.ids" type="collection"/>
+  </parameters>
+  <services>
+    <service id="service_container" class="Symfony\Component\DependencyInjection\ContainerInterface" public="true" synthetic="true"/>
+    <service id="controller_name_converter" class="Symfony\Bundle\FrameworkBundle\Controller\ControllerNameParser" public="false">
+      <tag name="monolog.logger" channel="request"/>
+      <argument type="service" id="kernel"/>
+    </service>
+    <service id="controller_resolver" class="Symfony\Bundle\FrameworkBundle\Controller\ControllerResolver" public="false">
+      <tag name="monolog.logger" channel="request"/>
+      <argument type="service" id="service_container"/>
+      <argument type="service" id="controller_name_converter"/>
+      <argument type="service" id="logger" on-invalid="ignore"/>
+    </service>
+    <service id="argument_metadata_factory" class="Symfony\Component\HttpKernel\ControllerMetadata\ArgumentMetadataFactory" public="false"/>
+    <service id="argument_resolver" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver" public="false">
+      <argument type="service" id="argument_metadata_factory"/>
+      <argument type="iterator">
+        <argument type="service" id="argument_resolver.request_attribute"/>
+        <argument type="service" id="argument_resolver.request"/>
+        <argument type="service" id="argument_resolver.session"/>
+        <argument type="service" id="argument_resolver.service"/>
+        <argument type="service" id="argument_resolver.default"/>
+        <argument type="service" id="argument_resolver.variadic"/>
+      </argument>
+    </service>
+    <service id="argument_resolver.request_attribute" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\RequestAttributeValueResolver" public="false">
+      <tag name="controller.argument_value_resolver" priority="100"/>
+    </service>
+    <service id="argument_resolver.request" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\RequestValueResolver" public="false">
+      <tag name="controller.argument_value_resolver" priority="50"/>
+    </service>
+    <service id="argument_resolver.session" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\SessionValueResolver" public="false">
+      <tag name="controller.argument_value_resolver" priority="50"/>
+    </service>
+    <service id="argument_resolver.service" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver" public="false">
+      <tag name="controller.argument_value_resolver" priority="-50"/>
+      <argument type="service" id="service_locator.v5YYcZp"/>
+    </service>
+    <service id="argument_resolver.default" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver" public="false">
+      <tag name="controller.argument_value_resolver" priority="-100"/>
+    </service>
+    <service id="argument_resolver.variadic" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver" public="false">
+      <tag name="controller.argument_value_resolver" priority="-150"/>
+    </service>
+    <service id="response_listener" class="Symfony\Component\HttpKernel\EventListener\ResponseListener" public="false">
+      <tag name="kernel.event_subscriber"/>
+      <tag name="container.hot_path"/>
+      <argument>UTF-8</argument>
+    </service>
+    <service id="streamed_response_listener" class="Symfony\Component\HttpKernel\EventListener\StreamedResponseListener" public="false">
+      <tag name="kernel.event_subscriber"/>
+      <tag name="container.hot_path"/>
+    </service>
+    <service id="locale_listener" class="Symfony\Component\HttpKernel\EventListener\LocaleListener" public="false">
+      <tag name="kernel.event_subscriber"/>
+      <tag name="container.hot_path"/>
+      <tag name="container.hot_path"/>
+      <argument type="service" id="request_stack"/>
+      <argument>en</argument>
+      <argument type="service" id="router.default" on-invalid="ignore"/>
+    </service>
+    <service id="validate_request_listener" class="Symfony\Component\HttpKernel\EventListener\ValidateRequestListener" public="false">
+      <tag name="kernel.event_subscriber"/>
+      <tag name="container.hot_path"/>
+    </service>
+    <service id="resolve_controller_name_subscriber" class="Symfony\Bundle\FrameworkBundle\EventListener\ResolveControllerNameSubscriber" public="false">
+      <tag name="kernel.event_subscriber"/>
+      <tag name="container.hot_path"/>
+      <argument type="service" id="controller_name_converter"/>
+    </service>
+    <service id="event_dispatcher" class="Symfony\Component\EventDispatcher\EventDispatcher" public="true">
+      <tag name="container.hot_path"/>
+      <call method="addListener">
+        <argument>kernel.controller</argument>
+        <argument type="collection">
+          <argument type="service" id="data_collector.router"/>
+          <argument>onKernelController</argument>
+        </argument>
+        <argument>0</argument>
+      </call>
+      <call method="addListener">
+        <argument>kernel.response</argument>
+        <argument type="collection">
+          <argument type="service" id="response_listener"/>
+          <argument>onKernelResponse</argument>
+        </argument>
+        <argument>0</argument>
+      </call>
+      <call method="addListener">
+        <argument>kernel.response</argument>
+        <argument type="collection">
+          <argument type="service" id="streamed_response_listener"/>
+          <argument>onKernelResponse</argument>
+        </argument>
+        <argument>-1024</argument>
+      </call>
+      <call method="addListener">
+        <argument>kernel.request</argument>
+        <argument type="collection">
+          <argument type="service" id="locale_listener"/>
+          <argument>onKernelRequest</argument>
+        </argument>
+        <argument>16</argument>
+      </call>
+      <call method="addListener">
+        <argument>kernel.finish_request</argument>
+        <argument type="collection">
+          <argument type="service" id="locale_listener"/>
+          <argument>onKernelFinishRequest</argument>
+        </argument>
+        <argument>0</argument>
+      </call>
+      <call method="addListener">
+        <argument>kernel.request</argument>
+        <argument type="collection">
+          <argument type="service" id="validate_request_listener"/>
+          <argument>onKernelRequest</argument>
+        </argument>
+        <argument>256</argument>
+      </call>
+      <call method="addListener">
+        <argument>kernel.request</argument>
+        <argument type="collection">
+          <argument type="service" id="resolve_controller_name_subscriber"/>
+          <argument>onKernelRequest</argument>
+        </argument>
+        <argument>24</argument>
+      </call>
+      <call method="addListener">
+        <argument>console.error</argument>
+        <argument type="collection">
+          <argument type="service" id="console.error_listener"/>
+          <argument>onConsoleError</argument>
+        </argument>
+        <argument>-128</argument>
+      </call>
+      <call method="addListener">
+        <argument>console.terminate</argument>
+        <argument type="collection">
+          <argument type="service" id="console.error_listener"/>
+          <argument>onConsoleTerminate</argument>
+        </argument>
+        <argument>-128</argument>
+      </call>
+      <call method="addListener">
+        <argument>kernel.request</argument>
+        <argument type="collection">
+          <argument type="service" id="test.session.listener"/>
+          <argument>onKernelRequest</argument>
+        </argument>
+        <argument>192</argument>
+      </call>
+      <call method="addListener">
+        <argument>kernel.response</argument>
+        <argument type="collection">
+          <argument type="service" id="test.session.listener"/>
+          <argument>onKernelResponse</argument>
+        </argument>
+        <argument>-128</argument>
+      </call>
+      <call method="addListener">
+        <argument>kernel.request</argument>
+        <argument type="collection">
+          <argument type="service" id="session_listener"/>
+          <argument>onKernelRequest</argument>
+        </argument>
+        <argument>128</argument>
+      </call>
+      <call method="addListener">
+        <argument>kernel.response</argument>
+        <argument type="collection">
+          <argument type="service" id="session_listener"/>
+          <argument>onKernelResponse</argument>
+        </argument>
+        <argument>-1000</argument>
+      </call>
+      <call method="addListener">
+        <argument>kernel.finish_request</argument>
+        <argument type="collection">
+          <argument type="service" id="session_listener"/>
+          <argument>onFinishRequest</argument>
+        </argument>
+        <argument>0</argument>
+      </call>
+      <call method="addListener">
+        <argument>kernel.response</argument>
+        <argument type="collection">
+          <argument type="service" id="session.save_listener"/>
+          <argument>onKernelResponse</argument>
+        </argument>
+        <argument>-1000</argument>
+      </call>
+      <call method="addListener">
+        <argument>kernel.request</argument>
+        <argument type="collection">
+          <argument type="service" id="translator_listener"/>
+          <argument>onKernelRequest</argument>
+        </argument>
+        <argument>10</argument>
+      </call>
+      <call method="addListener">
+        <argument>kernel.finish_request</argument>
+        <argument type="collection">
+          <argument type="service" id="translator_listener"/>
+          <argument>onKernelFinishRequest</argument>
+        </argument>
+        <argument>0</argument>
+      </call>
+      <call method="addListener">
+        <argument>kernel.response</argument>
+        <argument type="collection">
+          <argument type="service" id="profiler_listener"/>
+          <argument>onKernelResponse</argument>
+        </argument>
+        <argument>-100</argument>
+      </call>
+      <call method="addListener">
+        <argument>kernel.exception</argument>
+        <argument type="collection">
+          <argument type="service" id="profiler_listener"/>
+          <argument>onKernelException</argument>
+        </argument>
+        <argument>0</argument>
+      </call>
+      <call method="addListener">
+        <argument>kernel.terminate</argument>
+        <argument type="collection">
+          <argument type="service" id="profiler_listener"/>
+          <argument>onKernelTerminate</argument>
+        </argument>
+        <argument>-1024</argument>
+      </call>
+      <call method="addListener">
+        <argument>kernel.controller</argument>
+        <argument type="collection">
+          <argument type="service" id="data_collector.request"/>
+          <argument>onKernelController</argument>
+        </argument>
+        <argument>0</argument>
+      </call>
+      <call method="addListener">
+        <argument>kernel.response</argument>
+        <argument type="collection">
+          <argument type="service" id="data_collector.request"/>
+          <argument>onKernelResponse</argument>
+        </argument>
+        <argument>0</argument>
+      </call>
+      <call method="addListener">
+        <argument>kernel.request</argument>
+        <argument type="collection">
+          <argument type="service" id="debug.debug_handlers_listener"/>
+          <argument>configure</argument>
+        </argument>
+        <argument>2048</argument>
+      </call>
+      <call method="addListener">
+        <argument>console.command</argument>
+        <argument type="collection">
+          <argument type="service" id="debug.debug_handlers_listener"/>
+          <argument>configure</argument>
+        </argument>
+        <argument>2048</argument>
+      </call>
+      <call method="addListener">
+        <argument>kernel.request</argument>
+        <argument type="collection">
+          <argument type="service" id="router_listener"/>
+          <argument>onKernelRequest</argument>
+        </argument>
+        <argument>32</argument>
+      </call>
+      <call method="addListener">
+        <argument>kernel.finish_request</argument>
+        <argument type="collection">
+          <argument type="service" id="router_listener"/>
+          <argument>onKernelFinishRequest</argument>
+        </argument>
+        <argument>0</argument>
+      </call>
+      <call method="addListener">
+        <argument>kernel.exception</argument>
+        <argument type="collection">
+          <argument type="service" id="router_listener"/>
+          <argument>onKernelException</argument>
+        </argument>
+        <argument>-64</argument>
+      </call>
+    </service>
+    <service id="http_kernel" class="Symfony\Component\HttpKernel\HttpKernel" public="true">
+      <tag name="container.hot_path"/>
+      <argument type="service" id="event_dispatcher"/>
+      <argument type="service" id="controller_resolver"/>
+      <argument type="service" id="request_stack"/>
+      <argument type="service" id="argument_resolver"/>
+    </service>
+    <service id="request_stack" class="Symfony\Component\HttpFoundation\RequestStack" public="true"/>
+    <service id="cache_warmer" class="Symfony\Component\HttpKernel\CacheWarmer\CacheWarmerAggregate" public="true">
+      <argument type="tagged" tag="kernel.cache_warmer"/>
+    </service>
+    <service id="cache_clearer" class="Symfony\Component\HttpKernel\CacheClearer\ChainCacheClearer" public="true">
+      <argument type="tagged" tag="kernel.cache_clearer"/>
+    </service>
+    <service id="kernel" public="true" synthetic="true"/>
+    <service id="filesystem" class="Symfony\Component\Filesystem\Filesystem" public="true"/>
+    <service id="file_locator" class="Symfony\Component\HttpKernel\Config\FileLocator" public="false">
+      <argument type="service" id="kernel"/>
+      <argument>/Users/wagnert/Workspace_Idea/techdivision/import-cli-simple/features/bootstrap/Resources</argument>
+      <argument type="collection">
+        <argument>/Users/wagnert/Workspace_Idea/techdivision/import-cli-simple/features/bootstrap</argument>
+      </argument>
+    </service>
+    <service id="uri_signer" class="Symfony\Component\HttpKernel\UriSigner" public="false">
+      <argument>test_blah</argument>
+    </service>
+    <service id="config_cache_factory" class="Symfony\Component\Config\ResourceCheckerConfigCacheFactory" public="false">
+      <argument type="tagged" tag="config_cache.resource_checker"/>
+    </service>
+    <service id="dependency_injection.config.container_parameters_resource_checker" class="Symfony\Component\DependencyInjection\Config\ContainerParametersResourceChecker" public="false">
+      <tag name="config_cache.resource_checker" priority="-980"/>
+      <argument type="service" id="service_container"/>
+    </service>
+    <service id="config.resource.self_checking_resource_checker" class="Symfony\Component\Config\Resource\SelfCheckingResourceChecker" public="false">
+      <tag name="config_cache.resource_checker" priority="-990"/>
+    </service>
+    <service id="services_resetter" class="Symfony\Component\HttpKernel\DependencyInjection\ServicesResetter" public="true">
+      <argument type="iterator">
+        <argument key="profiler" type="service" id="profiler" on-invalid="ignore_uninitialized"/>
+      </argument>
+      <argument type="collection">
+        <argument key="profiler">reset</argument>
+      </argument>
+    </service>
+    <service id="fragment.handler" class="Symfony\Component\HttpKernel\DependencyInjection\LazyLoadingFragmentHandler" public="false">
+      <argument type="service" id="service_locator.GaqeV69"/>
+      <argument type="service" id="request_stack"/>
+      <argument>true</argument>
+    </service>
+    <service id="fragment.renderer.inline" class="Symfony\Component\HttpKernel\Fragment\InlineFragmentRenderer" public="false">
+      <tag name="kernel.fragment_renderer" alias="inline"/>
+      <argument type="service" id="http_kernel"/>
+      <argument type="service" id="event_dispatcher"/>
+      <call method="setFragmentPath">
+        <argument>/_fragment</argument>
+      </call>
+    </service>
+    <service id="console.error_listener" class="Symfony\Component\Console\EventListener\ErrorListener" public="false">
+      <tag name="kernel.event_subscriber"/>
+      <tag name="monolog.logger" channel="console"/>
+      <argument type="service" id="logger" on-invalid="null"/>
+    </service>
+    <service id="console.command.about" class="Symfony\Bundle\FrameworkBundle\Command\AboutCommand" public="false">
+      <tag name="console.command" command="about"/>
+      <call method="setName">
+        <argument>about</argument>
+      </call>
+    </service>
+    <service id="console.command.assets_install" class="Symfony\Bundle\FrameworkBundle\Command\AssetsInstallCommand" public="false">
+      <tag name="console.command" command="assets:install"/>
+      <argument type="service" id="filesystem"/>
+      <call method="setName">
+        <argument>assets:install</argument>
+      </call>
+    </service>
+    <service id="console.command.cache_clear" class="Symfony\Bundle\FrameworkBundle\Command\CacheClearCommand" public="false">
+      <tag name="console.command" command="cache:clear"/>
+      <argument type="service" id="cache_clearer"/>
+      <argument type="service" id="filesystem"/>
+      <call method="setName">
+        <argument>cache:clear</argument>
+      </call>
+    </service>
+    <service id="console.command.cache_pool_clear" class="Symfony\Bundle\FrameworkBundle\Command\CachePoolClearCommand" public="false">
+      <tag name="console.command" command="cache:pool:clear"/>
+      <argument type="service" id="cache.global_clearer"/>
+      <call method="setName">
+        <argument>cache:pool:clear</argument>
+      </call>
+    </service>
+    <service id="console.command.cache_pool_prune" class="Symfony\Bundle\FrameworkBundle\Command\CachePoolPruneCommand" public="false">
+      <tag name="console.command" command="cache:pool:prune"/>
+      <argument type="iterator"/>
+      <call method="setName">
+        <argument>cache:pool:prune</argument>
+      </call>
+    </service>
+    <service id="console.command.cache_warmup" class="Symfony\Bundle\FrameworkBundle\Command\CacheWarmupCommand" public="false">
+      <tag name="console.command" command="cache:warmup"/>
+      <argument type="service" id="cache_warmer"/>
+      <call method="setName">
+        <argument>cache:warmup</argument>
+      </call>
+    </service>
+    <service id="console.command.config_debug" class="Symfony\Bundle\FrameworkBundle\Command\ConfigDebugCommand" public="false">
+      <tag name="console.command" command="debug:config"/>
+      <call method="setName">
+        <argument>debug:config</argument>
+      </call>
+    </service>
+    <service id="console.command.config_dump_reference" class="Symfony\Bundle\FrameworkBundle\Command\ConfigDumpReferenceCommand" public="false">
+      <tag name="console.command" command="config:dump-reference"/>
+      <call method="setName">
+        <argument>config:dump-reference</argument>
+      </call>
+    </service>
+    <service id="console.command.container_debug" class="Symfony\Bundle\FrameworkBundle\Command\ContainerDebugCommand" public="false">
+      <tag name="console.command" command="debug:container"/>
+      <call method="setName">
+        <argument>debug:container</argument>
+      </call>
+    </service>
+    <service id="console.command.debug_autowiring" class="Symfony\Bundle\FrameworkBundle\Command\DebugAutowiringCommand" public="false">
+      <tag name="console.command" command="debug:autowiring"/>
+      <call method="setName">
+        <argument>debug:autowiring</argument>
+      </call>
+    </service>
+    <service id="console.command.event_dispatcher_debug" class="Symfony\Bundle\FrameworkBundle\Command\EventDispatcherDebugCommand" public="false">
+      <tag name="console.command" command="debug:event-dispatcher"/>
+      <argument type="service" id="event_dispatcher"/>
+      <call method="setName">
+        <argument>debug:event-dispatcher</argument>
+      </call>
+    </service>
+    <service id="console.command.router_debug" class="Symfony\Bundle\FrameworkBundle\Command\RouterDebugCommand" public="false">
+      <tag name="console.command" command="debug:router"/>
+      <argument type="service" id="router.default"/>
+      <call method="setName">
+        <argument>debug:router</argument>
+      </call>
+    </service>
+    <service id="console.command.router_match" class="Symfony\Bundle\FrameworkBundle\Command\RouterMatchCommand" public="false">
+      <tag name="console.command" command="router:match"/>
+      <argument type="service" id="router.default"/>
+      <call method="setName">
+        <argument>router:match</argument>
+      </call>
+    </service>
+    <service id="console.command.translation_debug" class="Symfony\Bundle\FrameworkBundle\Command\TranslationDebugCommand" public="false">
+      <tag name="console.command" command="debug:translation"/>
+      <argument type="service" id="translator.data_collector"/>
+      <argument type="service" id="translation.reader"/>
+      <argument type="service" id="translation.extractor"/>
+      <argument>/Users/wagnert/Workspace_Idea/techdivision/import-cli-simple/translations</argument>
+      <argument></argument>
+      <call method="setName">
+        <argument>debug:translation</argument>
+      </call>
+    </service>
+    <service id="console.command.translation_update" class="Symfony\Bundle\FrameworkBundle\Command\TranslationUpdateCommand" public="false">
+      <tag name="console.command" command="translation:update"/>
+      <argument type="service" id="translation.writer"/>
+      <argument type="service" id="translation.reader"/>
+      <argument type="service" id="translation.extractor"/>
+      <argument>en</argument>
+      <argument>/Users/wagnert/Workspace_Idea/techdivision/import-cli-simple/translations</argument>
+      <argument></argument>
+      <call method="setName">
+        <argument>translation:update</argument>
+      </call>
+    </service>
+    <service id="console.command.xliff_lint" class="Symfony\Bundle\FrameworkBundle\Command\XliffLintCommand" public="false">
+      <tag name="console.command" command="lint:xliff"/>
+      <call method="setName">
+        <argument>lint:xliff</argument>
+      </call>
+    </service>
+    <service id="console.command.yaml_lint" class="Symfony\Bundle\FrameworkBundle\Command\YamlLintCommand" public="false">
+      <tag name="console.command" command="lint:yaml"/>
+      <call method="setName">
+        <argument>lint:yaml</argument>
+      </call>
+    </service>
+    <service id="cache.app" class="Symfony\Component\Cache\Adapter\TraceableAdapter" public="true">
+      <tag name="cache.pool"/>
+      <argument type="service" id="cache.app.recorder_inner"/>
+    </service>
+    <service id="cache.system" class="Symfony\Component\Cache\Adapter\TraceableAdapter" public="true">
+      <tag name="cache.pool"/>
+      <argument type="service" id="cache.system.recorder_inner"/>
+    </service>
+    <service id="cache.validator" class="Symfony\Component\Cache\Adapter\TraceableAdapter" public="false">
+      <tag name="cache.pool"/>
+      <argument type="service" id="cache.validator.recorder_inner"/>
+    </service>
+    <service id="cache.serializer" class="Symfony\Component\Cache\Adapter\TraceableAdapter" public="false">
+      <tag name="cache.pool"/>
+      <argument type="service" id="cache.serializer.recorder_inner"/>
+    </service>
+    <service id="cache.annotations" class="Symfony\Component\Cache\Adapter\TraceableAdapter" public="false">
+      <tag name="cache.pool"/>
+      <argument type="service" id="cache.annotations.recorder_inner"/>
+    </service>
+    <service id="cache.adapter.system" class="Symfony\Component\Cache\Adapter\AdapterInterface" public="false" abstract="true">
+      <tag name="cache.pool" clearer="cache.system_clearer"/>
+      <tag name="monolog.logger" channel="cache"/>
+      <argument></argument>
+      <argument>0</argument>
+      <argument>%container.build_id%</argument>
+      <argument>/Users/wagnert/Workspace_Idea/techdivision/import-cli-simple/features/bootstrap/cache/test/pools</argument>
+      <argument type="service" id="logger" on-invalid="ignore"/>
+      <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
+    </service>
+    <service id="cache.adapter.apcu" class="Symfony\Component\Cache\Adapter\ApcuAdapter" public="false" abstract="true">
+      <tag name="cache.pool" clearer="cache.default_clearer"/>
+      <tag name="monolog.logger" channel="cache"/>
+      <argument></argument>
+      <argument>0</argument>
+      <argument>%container.build_id%</argument>
+      <call method="setLogger">
+        <argument type="service" id="logger" on-invalid="ignore"/>
+      </call>
+    </service>
+    <service id="cache.adapter.doctrine" class="Symfony\Component\Cache\Adapter\DoctrineAdapter" public="false" abstract="true">
+      <tag name="cache.pool" provider="cache.default_doctrine_provider" clearer="cache.default_clearer"/>
+      <tag name="monolog.logger" channel="cache"/>
+      <argument></argument>
+      <argument></argument>
+      <argument>0</argument>
+      <call method="setLogger">
+        <argument type="service" id="logger" on-invalid="ignore"/>
+      </call>
+    </service>
+    <service id="cache.adapter.filesystem" class="Symfony\Component\Cache\Adapter\FilesystemAdapter" public="false" abstract="true">
+      <tag name="cache.pool" clearer="cache.default_clearer"/>
+      <tag name="monolog.logger" channel="cache"/>
+      <argument></argument>
+      <argument>0</argument>
+      <argument>/Users/wagnert/Workspace_Idea/techdivision/import-cli-simple/features/bootstrap/cache/test/pools</argument>
+      <call method="setLogger">
+        <argument type="service" id="logger" on-invalid="ignore"/>
+      </call>
+    </service>
+    <service id="cache.adapter.psr6" class="Symfony\Component\Cache\Adapter\ProxyAdapter" public="false" abstract="true">
+      <tag name="cache.pool" provider="cache.default_psr6_provider" clearer="cache.default_clearer"/>
+      <argument></argument>
+      <argument></argument>
+      <argument>0</argument>
+    </service>
+    <service id="cache.adapter.redis" class="Symfony\Component\Cache\Adapter\RedisAdapter" public="false" abstract="true">
+      <tag name="cache.pool" provider="cache.default_redis_provider" clearer="cache.default_clearer"/>
+      <tag name="monolog.logger" channel="cache"/>
+      <argument></argument>
+      <argument></argument>
+      <argument>0</argument>
+      <call method="setLogger">
+        <argument type="service" id="logger" on-invalid="ignore"/>
+      </call>
+    </service>
+    <service id="cache.adapter.memcached" class="Symfony\Component\Cache\Adapter\MemcachedAdapter" public="false" abstract="true">
+      <tag name="cache.pool" provider="cache.default_memcached_provider" clearer="cache.default_clearer" reset="reset"/>
+      <tag name="monolog.logger" channel="cache"/>
+      <argument></argument>
+      <argument></argument>
+      <argument>0</argument>
+      <call method="setLogger">
+        <argument type="service" id="logger" on-invalid="ignore"/>
+      </call>
+    </service>
+    <service id="cache.default_clearer" class="Symfony\Component\HttpKernel\CacheClearer\Psr6CacheClearer" public="false">
+      <tag name="cache.pool.clearer"/>
+      <argument type="collection">
+        <argument key="cache.app" type="service" id="cache.app" on-invalid="ignore_uninitialized"/>
+      </argument>
+    </service>
+    <service id="cache.system_clearer" class="Symfony\Component\HttpKernel\CacheClearer\Psr6CacheClearer" public="true">
+      <tag name="cache.pool.clearer"/>
+      <tag name="kernel.cache_clearer"/>
+      <argument type="collection">
+        <argument key="cache.system" type="service" id="cache.system" on-invalid="ignore_uninitialized"/>
+        <argument key="cache.validator" type="service" id="cache.validator" on-invalid="ignore_uninitialized"/>
+        <argument key="cache.serializer" type="service" id="cache.serializer" on-invalid="ignore_uninitialized"/>
+        <argument key="cache.annotations" type="service" id="cache.annotations" on-invalid="ignore_uninitialized"/>
+      </argument>
+    </service>
+    <service id="cache.global_clearer" class="Symfony\Component\HttpKernel\CacheClearer\Psr6CacheClearer" public="true">
+      <tag name="cache.pool.clearer"/>
+      <argument type="collection">
+        <argument key="cache.app" type="service" id="cache.app" on-invalid="ignore_uninitialized"/>
+        <argument key="cache.system" type="service" id="cache.system" on-invalid="ignore_uninitialized"/>
+        <argument key="cache.validator" type="service" id="cache.validator" on-invalid="ignore_uninitialized"/>
+        <argument key="cache.serializer" type="service" id="cache.serializer" on-invalid="ignore_uninitialized"/>
+        <argument key="cache.annotations" type="service" id="cache.annotations" on-invalid="ignore_uninitialized"/>
+      </argument>
+    </service>
+    <service id="translator.selector" class="Symfony\Component\Translation\MessageSelector" public="false"/>
+    <service id="1_ServiceLocator~WxApowH" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="session" type="service" id="session" on-invalid="ignore"/>
+      </argument>
+    </service>
+    <service id="test.client" class="Symfony\Bundle\FrameworkBundle\Client" shared="false" public="true">
+      <argument type="service" id="kernel"/>
+      <argument type="collection"/>
+      <argument type="service" id="test.client.history"/>
+      <argument type="service" id="test.client.cookiejar"/>
+    </service>
+    <service id="test.client.history" class="Symfony\Component\BrowserKit\History" shared="false" public="false"/>
+    <service id="test.client.cookiejar" class="Symfony\Component\BrowserKit\CookieJar" shared="false" public="false"/>
+    <service id="test.session.listener" class="Symfony\Component\HttpKernel\EventListener\TestSessionListener" public="false">
+      <tag name="kernel.event_subscriber"/>
+      <tag name="container.hot_path"/>
+      <tag name="container.hot_path"/>
+      <argument type="service" id="1_ServiceLocator~WxApowH"/>
+    </service>
+    <service id="2_ServiceLocator~mrTNeRe" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="session" type="service" id="session" on-invalid="ignore"/>
+      </argument>
+    </service>
+    <service id="1_NativeFileSessionHandler~mrTNeRe" class="Symfony\Component\HttpFoundation\Session\Storage\Handler\NativeFileSessionHandler" public="false">
+      <argument>/Users/wagnert/Workspace_Idea/techdivision/import-cli-simple/features/bootstrap/cache/test/sessions</argument>
+    </service>
+    <service id="session" class="Symfony\Component\HttpFoundation\Session\Session" public="true">
+      <argument type="service" id="session.storage.mock_file"/>
+      <argument type="service" id="session.attribute_bag"/>
+      <argument type="service" id="session.flash_bag"/>
+    </service>
+    <service id="session.storage.metadata_bag" class="Symfony\Component\HttpFoundation\Session\Storage\MetadataBag" public="false">
+      <argument>_sf2_meta</argument>
+      <argument>0</argument>
+    </service>
+    <service id="session.storage.native" class="Symfony\Component\HttpFoundation\Session\Storage\NativeSessionStorage" public="false">
+      <argument>%session.storage.options%</argument>
+      <argument type="service" id="session.handler.native_file"/>
+      <argument type="service" id="session.storage.metadata_bag"/>
+    </service>
+    <service id="session.storage.php_bridge" class="Symfony\Component\HttpFoundation\Session\Storage\PhpBridgeSessionStorage" public="false">
+      <argument type="service" id="session.handler.native_file"/>
+      <argument type="service" id="session.storage.metadata_bag"/>
+    </service>
+    <service id="session.flash_bag" class="Symfony\Component\HttpFoundation\Session\Flash\FlashBag" public="false"/>
+    <service id="session.attribute_bag" class="Symfony\Component\HttpFoundation\Session\Attribute\AttributeBag" public="false"/>
+    <service id="session.storage.mock_file" class="Symfony\Component\HttpFoundation\Session\Storage\MockFileSessionStorage" public="false">
+      <argument>/Users/wagnert/Workspace_Idea/techdivision/import-cli-simple/features/bootstrap/cache/test/sessions</argument>
+      <argument>MOCKSESSID</argument>
+      <argument type="service" id="session.storage.metadata_bag"/>
+    </service>
+    <service id="session.handler.native_file" class="Symfony\Component\HttpFoundation\Session\Storage\Handler\StrictSessionHandler" public="false">
+      <argument type="service" id="1_NativeFileSessionHandler~mrTNeRe"/>
+    </service>
+    <service id="session_listener" class="Symfony\Component\HttpKernel\EventListener\SessionListener" public="false">
+      <tag name="kernel.event_subscriber"/>
+      <tag name="container.hot_path"/>
+      <tag name="container.hot_path"/>
+      <tag name="container.hot_path"/>
+      <argument type="service" id="2_ServiceLocator~mrTNeRe"/>
+    </service>
+    <service id="session.save_listener" class="Symfony\Component\HttpKernel\EventListener\SaveSessionListener" public="false">
+      <tag name="kernel.event_subscriber"/>
+      <tag name="container.hot_path"/>
+    </service>
+    <service id="translator.default" class="Symfony\Bundle\FrameworkBundle\Translation\Translator" public="false">
+      <argument type="service" id="service_locator.MMSrCdb"/>
+      <argument type="service" id="translator.formatter.default"/>
+      <argument>en</argument>
+      <argument type="collection">
+        <argument key="translation.loader.php" type="collection">
+          <argument>php</argument>
+        </argument>
+        <argument key="translation.loader.yml" type="collection">
+          <argument>yaml</argument>
+          <argument>yml</argument>
+        </argument>
+        <argument key="translation.loader.xliff" type="collection">
+          <argument>xlf</argument>
+          <argument>xliff</argument>
+        </argument>
+        <argument key="translation.loader.po" type="collection">
+          <argument>po</argument>
+        </argument>
+        <argument key="translation.loader.mo" type="collection">
+          <argument>mo</argument>
+        </argument>
+        <argument key="translation.loader.qt" type="collection">
+          <argument>ts</argument>
+        </argument>
+        <argument key="translation.loader.csv" type="collection">
+          <argument>csv</argument>
+        </argument>
+        <argument key="translation.loader.res" type="collection">
+          <argument>res</argument>
+        </argument>
+        <argument key="translation.loader.dat" type="collection">
+          <argument>dat</argument>
+        </argument>
+        <argument key="translation.loader.ini" type="collection">
+          <argument>ini</argument>
+        </argument>
+        <argument key="translation.loader.json" type="collection">
+          <argument>json</argument>
+        </argument>
+      </argument>
+      <argument type="collection">
+        <argument key="cache_dir">/Users/wagnert/Workspace_Idea/techdivision/import-cli-simple/features/bootstrap/cache/test/translations</argument>
+        <argument key="debug">true</argument>
+      </argument>
+      <call method="setConfigCacheFactory">
+        <argument type="service" id="config_cache_factory"/>
+      </call>
+      <call method="setFallbackLocales">
+        <argument type="collection">
+          <argument>en</argument>
+        </argument>
+      </call>
+    </service>
+    <service id="translator.logging" class="Symfony\Component\Translation\LoggingTranslator" public="false">
+      <tag name="monolog.logger" channel="translation"/>
+      <argument type="service" id="translator.logging.inner"/>
+      <argument type="service" id="logger"/>
+    </service>
+    <service id="translator.formatter.default" class="Symfony\Component\Translation\Formatter\MessageFormatter" public="false">
+      <argument type="service" id="translator.selector"/>
+    </service>
+    <service id="translation.loader.php" class="Symfony\Component\Translation\Loader\PhpFileLoader" public="false">
+      <tag name="translation.loader" alias="php"/>
+    </service>
+    <service id="translation.loader.yml" class="Symfony\Component\Translation\Loader\YamlFileLoader" public="false">
+      <tag name="translation.loader" alias="yaml" legacy_alias="yml" legacy-alias="yml"/>
+    </service>
+    <service id="translation.loader.xliff" class="Symfony\Component\Translation\Loader\XliffFileLoader" public="false">
+      <tag name="translation.loader" alias="xlf" legacy_alias="xliff" legacy-alias="xliff"/>
+    </service>
+    <service id="translation.loader.po" class="Symfony\Component\Translation\Loader\PoFileLoader" public="false">
+      <tag name="translation.loader" alias="po"/>
+    </service>
+    <service id="translation.loader.mo" class="Symfony\Component\Translation\Loader\MoFileLoader" public="false">
+      <tag name="translation.loader" alias="mo"/>
+    </service>
+    <service id="translation.loader.qt" class="Symfony\Component\Translation\Loader\QtFileLoader" public="false">
+      <tag name="translation.loader" alias="ts"/>
+    </service>
+    <service id="translation.loader.csv" class="Symfony\Component\Translation\Loader\CsvFileLoader" public="false">
+      <tag name="translation.loader" alias="csv"/>
+    </service>
+    <service id="translation.loader.res" class="Symfony\Component\Translation\Loader\IcuResFileLoader" public="false">
+      <tag name="translation.loader" alias="res"/>
+    </service>
+    <service id="translation.loader.dat" class="Symfony\Component\Translation\Loader\IcuDatFileLoader" public="false">
+      <tag name="translation.loader" alias="dat"/>
+    </service>
+    <service id="translation.loader.ini" class="Symfony\Component\Translation\Loader\IniFileLoader" public="false">
+      <tag name="translation.loader" alias="ini"/>
+    </service>
+    <service id="translation.loader.json" class="Symfony\Component\Translation\Loader\JsonFileLoader" public="false">
+      <tag name="translation.loader" alias="json"/>
+    </service>
+    <service id="translation.dumper.php" class="Symfony\Component\Translation\Dumper\PhpFileDumper" public="false">
+      <tag name="translation.dumper" alias="php"/>
+    </service>
+    <service id="translation.dumper.xliff" class="Symfony\Component\Translation\Dumper\XliffFileDumper" public="false">
+      <tag name="translation.dumper" alias="xlf"/>
+    </service>
+    <service id="translation.dumper.po" class="Symfony\Component\Translation\Dumper\PoFileDumper" public="false">
+      <tag name="translation.dumper" alias="po"/>
+    </service>
+    <service id="translation.dumper.mo" class="Symfony\Component\Translation\Dumper\MoFileDumper" public="false">
+      <tag name="translation.dumper" alias="mo"/>
+    </service>
+    <service id="translation.dumper.yml" class="Symfony\Component\Translation\Dumper\YamlFileDumper" public="false">
+      <tag name="translation.dumper" alias="yml"/>
+    </service>
+    <service id="translation.dumper.yaml" class="Symfony\Component\Translation\Dumper\YamlFileDumper" public="false">
+      <tag name="translation.dumper" alias="yaml"/>
+      <argument>yaml</argument>
+    </service>
+    <service id="translation.dumper.qt" class="Symfony\Component\Translation\Dumper\QtFileDumper" public="false">
+      <tag name="translation.dumper" alias="ts"/>
+    </service>
+    <service id="translation.dumper.csv" class="Symfony\Component\Translation\Dumper\CsvFileDumper" public="false">
+      <tag name="translation.dumper" alias="csv"/>
+    </service>
+    <service id="translation.dumper.ini" class="Symfony\Component\Translation\Dumper\IniFileDumper" public="false">
+      <tag name="translation.dumper" alias="ini"/>
+    </service>
+    <service id="translation.dumper.json" class="Symfony\Component\Translation\Dumper\JsonFileDumper" public="false">
+      <tag name="translation.dumper" alias="json"/>
+    </service>
+    <service id="translation.dumper.res" class="Symfony\Component\Translation\Dumper\IcuResFileDumper" public="false">
+      <tag name="translation.dumper" alias="res"/>
+    </service>
+    <service id="translation.extractor.php" class="Symfony\Component\Translation\Extractor\PhpExtractor" public="false">
+      <tag name="translation.extractor" alias="php"/>
+    </service>
+    <service id="translation.reader" class="Symfony\Component\Translation\Reader\TranslationReader" public="false">
+      <call method="addLoader">
+        <argument>php</argument>
+        <argument type="service" id="translation.loader.php"/>
+      </call>
+      <call method="addLoader">
+        <argument>yaml</argument>
+        <argument type="service" id="translation.loader.yml"/>
+      </call>
+      <call method="addLoader">
+        <argument>yml</argument>
+        <argument type="service" id="translation.loader.yml"/>
+      </call>
+      <call method="addLoader">
+        <argument>xlf</argument>
+        <argument type="service" id="translation.loader.xliff"/>
+      </call>
+      <call method="addLoader">
+        <argument>xliff</argument>
+        <argument type="service" id="translation.loader.xliff"/>
+      </call>
+      <call method="addLoader">
+        <argument>po</argument>
+        <argument type="service" id="translation.loader.po"/>
+      </call>
+      <call method="addLoader">
+        <argument>mo</argument>
+        <argument type="service" id="translation.loader.mo"/>
+      </call>
+      <call method="addLoader">
+        <argument>ts</argument>
+        <argument type="service" id="translation.loader.qt"/>
+      </call>
+      <call method="addLoader">
+        <argument>csv</argument>
+        <argument type="service" id="translation.loader.csv"/>
+      </call>
+      <call method="addLoader">
+        <argument>res</argument>
+        <argument type="service" id="translation.loader.res"/>
+      </call>
+      <call method="addLoader">
+        <argument>dat</argument>
+        <argument type="service" id="translation.loader.dat"/>
+      </call>
+      <call method="addLoader">
+        <argument>ini</argument>
+        <argument type="service" id="translation.loader.ini"/>
+      </call>
+      <call method="addLoader">
+        <argument>json</argument>
+        <argument type="service" id="translation.loader.json"/>
+      </call>
+    </service>
+    <service id="translation.extractor" class="Symfony\Component\Translation\Extractor\ChainExtractor" public="false">
+      <call method="addExtractor">
+        <argument>php</argument>
+        <argument type="service" id="translation.extractor.php"/>
+      </call>
+    </service>
+    <service id="translation.writer" class="Symfony\Component\Translation\Writer\TranslationWriter" public="false">
+      <call method="addDumper">
+        <argument>php</argument>
+        <argument type="service" id="translation.dumper.php"/>
+      </call>
+      <call method="addDumper">
+        <argument>xlf</argument>
+        <argument type="service" id="translation.dumper.xliff"/>
+      </call>
+      <call method="addDumper">
+        <argument>po</argument>
+        <argument type="service" id="translation.dumper.po"/>
+      </call>
+      <call method="addDumper">
+        <argument>mo</argument>
+        <argument type="service" id="translation.dumper.mo"/>
+      </call>
+      <call method="addDumper">
+        <argument>yml</argument>
+        <argument type="service" id="translation.dumper.yml"/>
+      </call>
+      <call method="addDumper">
+        <argument>yaml</argument>
+        <argument type="service" id="translation.dumper.yaml"/>
+      </call>
+      <call method="addDumper">
+        <argument>ts</argument>
+        <argument type="service" id="translation.dumper.qt"/>
+      </call>
+      <call method="addDumper">
+        <argument>csv</argument>
+        <argument type="service" id="translation.dumper.csv"/>
+      </call>
+      <call method="addDumper">
+        <argument>ini</argument>
+        <argument type="service" id="translation.dumper.ini"/>
+      </call>
+      <call method="addDumper">
+        <argument>json</argument>
+        <argument type="service" id="translation.dumper.json"/>
+      </call>
+      <call method="addDumper">
+        <argument>res</argument>
+        <argument type="service" id="translation.dumper.res"/>
+      </call>
+    </service>
+    <service id="translation.warmer" class="Symfony\Bundle\FrameworkBundle\CacheWarmer\TranslationsCacheWarmer" public="false">
+      <tag name="container.service_subscriber" id="translator"/>
+      <tag name="kernel.cache_warmer"/>
+      <argument type="service" id="service_locator.evpbTNo.translation.warmer"/>
+    </service>
+    <service id="translator_listener" class="Symfony\Component\HttpKernel\EventListener\TranslatorListener" public="false">
+      <tag name="kernel.event_subscriber"/>
+      <tag name="container.hot_path"/>
+      <tag name="container.hot_path"/>
+      <argument type="service" id="translator.data_collector"/>
+      <argument type="service" id="request_stack"/>
+    </service>
+    <service id="profiler" class="Symfony\Component\HttpKernel\Profiler\Profiler" public="true">
+      <tag name="monolog.logger" channel="profiler"/>
+      <tag name="kernel.reset" method="reset"/>
+      <argument type="service" id="profiler.storage"/>
+      <argument type="service" id="logger" on-invalid="null"/>
+      <argument>true</argument>
+      <call method="add">
+        <argument type="service" id="data_collector.request"/>
+      </call>
+      <call method="add">
+        <argument type="service" id="data_collector.time"/>
+      </call>
+      <call method="add">
+        <argument type="service" id="data_collector.memory"/>
+      </call>
+      <call method="add">
+        <argument type="service" id="data_collector.ajax"/>
+      </call>
+      <call method="add">
+        <argument type="service" id="data_collector.exception"/>
+      </call>
+      <call method="add">
+        <argument type="service" id="data_collector.logger"/>
+      </call>
+      <call method="add">
+        <argument type="service" id="data_collector.events"/>
+      </call>
+      <call method="add">
+        <argument type="service" id="data_collector.router"/>
+      </call>
+      <call method="add">
+        <argument type="service" id="data_collector.cache"/>
+      </call>
+      <call method="add">
+        <argument type="service" id="data_collector.translation"/>
+      </call>
+      <call method="add">
+        <argument type="service" id="data_collector.config"/>
+      </call>
+    </service>
+    <service id="profiler.storage" class="Symfony\Component\HttpKernel\Profiler\FileProfilerStorage" public="false">
+      <argument>file:/Users/wagnert/Workspace_Idea/techdivision/import-cli-simple/features/bootstrap/cache/test/profiler</argument>
+    </service>
+    <service id="profiler_listener" class="Symfony\Component\HttpKernel\EventListener\ProfilerListener" public="false">
+      <tag name="kernel.event_subscriber"/>
+      <tag name="container.hot_path"/>
+      <argument type="service" id="profiler"/>
+      <argument type="service" id="request_stack"/>
+      <argument>null</argument>
+      <argument>false</argument>
+      <argument>false</argument>
+    </service>
+    <service id="data_collector.config" class="Symfony\Component\HttpKernel\DataCollector\ConfigDataCollector" public="false">
+      <tag name="data_collector" template="@WebProfiler/Collector/config.html.twig" id="config" priority="-255"/>
+      <call method="setKernel">
+        <argument type="service" id="kernel" on-invalid="ignore"/>
+      </call>
+    </service>
+    <service id="data_collector.request" class="Symfony\Bundle\FrameworkBundle\DataCollector\RequestDataCollector" public="false">
+      <tag name="kernel.event_subscriber"/>
+      <tag name="data_collector" template="@WebProfiler/Collector/request.html.twig" id="request" priority="335"/>
+      <tag name="container.hot_path"/>
+      <tag name="container.hot_path"/>
+    </service>
+    <service id="data_collector.ajax" class="Symfony\Component\HttpKernel\DataCollector\AjaxDataCollector" public="false">
+      <tag name="data_collector" template="@WebProfiler/Collector/ajax.html.twig" id="ajax" priority="315"/>
+    </service>
+    <service id="data_collector.exception" class="Symfony\Component\HttpKernel\DataCollector\ExceptionDataCollector" public="false">
+      <tag name="data_collector" template="@WebProfiler/Collector/exception.html.twig" id="exception" priority="305"/>
+    </service>
+    <service id="data_collector.events" class="Symfony\Component\HttpKernel\DataCollector\EventDataCollector" public="false">
+      <tag name="data_collector" template="@WebProfiler/Collector/events.html.twig" id="events" priority="290"/>
+      <argument>null</argument>
+    </service>
+    <service id="data_collector.logger" class="Symfony\Component\HttpKernel\DataCollector\LoggerDataCollector" public="false">
+      <tag name="data_collector" template="@WebProfiler/Collector/logger.html.twig" id="logger" priority="300"/>
+      <tag name="monolog.logger" channel="profiler"/>
+      <argument type="service" id="logger" on-invalid="ignore"/>
+      <argument>/Users/wagnert/Workspace_Idea/techdivision/import-cli-simple/features/bootstrap/cache/test/bootstrapTestDebugProjectContainer</argument>
+    </service>
+    <service id="data_collector.time" class="Symfony\Component\HttpKernel\DataCollector\TimeDataCollector" public="false">
+      <tag name="data_collector" template="@WebProfiler/Collector/time.html.twig" id="time" priority="330"/>
+      <argument type="service" id="kernel" on-invalid="ignore"/>
+      <argument>null</argument>
+    </service>
+    <service id="data_collector.memory" class="Symfony\Component\HttpKernel\DataCollector\MemoryDataCollector" public="false">
+      <tag name="data_collector" template="@WebProfiler/Collector/memory.html.twig" id="memory" priority="325"/>
+    </service>
+    <service id="data_collector.router" class="Symfony\Bundle\FrameworkBundle\DataCollector\RouterDataCollector" public="false">
+      <tag name="kernel.event_listener" event="kernel.controller" method="onKernelController"/>
+      <tag name="data_collector" template="@WebProfiler/Collector/router.html.twig" id="router" priority="285"/>
+      <tag name="container.hot_path"/>
+    </service>
+    <service id="data_collector.cache" class="Symfony\Component\Cache\DataCollector\CacheDataCollector" public="false">
+      <tag name="data_collector" template="@WebProfiler/Collector/cache.html.twig" id="cache" priority="275"/>
+      <call method="addInstance">
+        <argument>cache.app</argument>
+        <argument type="service" id="cache.app"/>
+      </call>
+      <call method="addInstance">
+        <argument>cache.system</argument>
+        <argument type="service" id="cache.system"/>
+      </call>
+      <call method="addInstance">
+        <argument>cache.validator</argument>
+        <argument type="service" id="cache.validator"/>
+      </call>
+      <call method="addInstance">
+        <argument>cache.serializer</argument>
+        <argument type="service" id="cache.serializer"/>
+      </call>
+      <call method="addInstance">
+        <argument>cache.annotations</argument>
+        <argument type="service" id="cache.annotations"/>
+      </call>
+    </service>
+    <service id="translator.data_collector" class="Symfony\Component\Translation\DataCollectorTranslator" public="false">
+      <argument type="service" id="translator.default"/>
+    </service>
+    <service id="data_collector.translation" class="Symfony\Component\Translation\DataCollector\TranslationDataCollector" public="false">
+      <tag name="data_collector" template="@WebProfiler/Collector/translation.html.twig" id="translation" priority="275"/>
+      <argument type="service" id="translator.data_collector"/>
+    </service>
+    <service id="cache_connection.GD_MSZC" class="Symfony\Component\Cache\Adapter\AbstractAdapter" public="false">
+      <argument>redis://localhost</argument>
+      <argument type="collection">
+        <argument key="lazy">true</argument>
+      </argument>
+      <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createConnection"/>
+    </service>
+    <service id="cache_connection.JKE6keX" class="Symfony\Component\Cache\Adapter\AbstractAdapter" public="false">
+      <argument>memcached://localhost</argument>
+      <argument type="collection">
+        <argument key="lazy">true</argument>
+      </argument>
+      <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createConnection"/>
+    </service>
+    <service id="debug.debug_handlers_listener" class="Symfony\Component\HttpKernel\EventListener\DebugHandlersListener" public="false">
+      <tag name="kernel.event_subscriber"/>
+      <tag name="monolog.logger" channel="php"/>
+      <tag name="container.hot_path"/>
+      <argument>null</argument>
+      <argument type="service" id="logger" on-invalid="null"/>
+      <argument>-1</argument>
+      <argument>-1</argument>
+      <argument>true</argument>
+      <argument type="service" id="debug.file_link_formatter"/>
+      <argument>true</argument>
+    </service>
+    <service id="debug.file_link_formatter" class="Symfony\Component\HttpKernel\Debug\FileLinkFormatter" public="false">
+      <argument>null</argument>
+    </service>
+    <service id="routing.resolver" class="Symfony\Component\Config\Loader\LoaderResolver" public="false">
+      <call method="addLoader">
+        <argument type="service" id="routing.loader.xml"/>
+      </call>
+      <call method="addLoader">
+        <argument type="service" id="routing.loader.yml"/>
+      </call>
+      <call method="addLoader">
+        <argument type="service" id="routing.loader.php"/>
+      </call>
+      <call method="addLoader">
+        <argument type="service" id="routing.loader.glob"/>
+      </call>
+      <call method="addLoader">
+        <argument type="service" id="routing.loader.directory"/>
+      </call>
+      <call method="addLoader">
+        <argument type="service" id="routing.loader.service"/>
+      </call>
+      <call method="addLoader">
+        <argument type="service" id="routing.loader.annotation"/>
+      </call>
+      <call method="addLoader">
+        <argument type="service" id="routing.loader.annotation.directory"/>
+      </call>
+      <call method="addLoader">
+        <argument type="service" id="routing.loader.annotation.file"/>
+      </call>
+    </service>
+    <service id="routing.loader.xml" class="Symfony\Component\Routing\Loader\XmlFileLoader" public="false">
+      <tag name="routing.loader"/>
+      <argument type="service" id="file_locator"/>
+    </service>
+    <service id="routing.loader.yml" class="Symfony\Component\Routing\Loader\YamlFileLoader" public="false">
+      <tag name="routing.loader"/>
+      <argument type="service" id="file_locator"/>
+    </service>
+    <service id="routing.loader.php" class="Symfony\Component\Routing\Loader\PhpFileLoader" public="false">
+      <tag name="routing.loader"/>
+      <argument type="service" id="file_locator"/>
+    </service>
+    <service id="routing.loader.glob" class="Symfony\Component\Routing\Loader\GlobFileLoader" public="false">
+      <tag name="routing.loader"/>
+      <argument type="service" id="file_locator"/>
+    </service>
+    <service id="routing.loader.directory" class="Symfony\Component\Routing\Loader\DirectoryLoader" public="false">
+      <tag name="routing.loader"/>
+      <argument type="service" id="file_locator"/>
+    </service>
+    <service id="routing.loader.service" class="Symfony\Component\Routing\Loader\DependencyInjection\ServiceRouterLoader" public="false">
+      <tag name="routing.loader"/>
+      <argument type="service" id="service_container"/>
+    </service>
+    <service id="routing.loader" class="Symfony\Bundle\FrameworkBundle\Routing\DelegatingLoader" public="true">
+      <argument type="service" id="controller_name_converter"/>
+      <argument type="service" id="routing.resolver"/>
+    </service>
+    <service id="router.default" class="Symfony\Bundle\FrameworkBundle\Routing\Router" public="false">
+      <argument type="service" id="service_container"/>
+      <argument>/Users/wagnert/Workspace_Idea/techdivision/import-cli-simple/features/bootstrap/config/routing.yml</argument>
+      <argument type="collection">
+        <argument key="cache_dir">/Users/wagnert/Workspace_Idea/techdivision/import-cli-simple/features/bootstrap/cache/test</argument>
+        <argument key="debug">true</argument>
+        <argument key="generator_class">Symfony\Component\Routing\Generator\UrlGenerator</argument>
+        <argument key="generator_base_class">Symfony\Component\Routing\Generator\UrlGenerator</argument>
+        <argument key="generator_dumper_class">Symfony\Component\Routing\Generator\Dumper\PhpGeneratorDumper</argument>
+        <argument key="generator_cache_class">bootstrapTestDebugProjectContainerUrlGenerator</argument>
+        <argument key="matcher_class">Symfony\Bundle\FrameworkBundle\Routing\RedirectableUrlMatcher</argument>
+        <argument key="matcher_base_class">Symfony\Bundle\FrameworkBundle\Routing\RedirectableUrlMatcher</argument>
+        <argument key="matcher_dumper_class">Symfony\Component\Routing\Matcher\Dumper\PhpMatcherDumper</argument>
+        <argument key="matcher_cache_class">bootstrapTestDebugProjectContainerUrlMatcher</argument>
+        <argument key="strict_requirements">true</argument>
+      </argument>
+      <argument type="service" id="router.request_context" on-invalid="ignore"/>
+      <call method="setConfigCacheFactory">
+        <argument type="service" id="config_cache_factory"/>
+      </call>
+    </service>
+    <service id="router.request_context" class="Symfony\Component\Routing\RequestContext" public="false">
+      <argument></argument>
+      <argument>GET</argument>
+      <argument>localhost</argument>
+      <argument>http</argument>
+      <argument>80</argument>
+      <argument>443</argument>
+    </service>
+    <service id="router.cache_warmer" class="Symfony\Bundle\FrameworkBundle\CacheWarmer\RouterCacheWarmer" public="false">
+      <tag name="container.service_subscriber" id="router"/>
+      <tag name="kernel.cache_warmer"/>
+      <argument type="service" id="service_locator.gvlXfzv.router.cache_warmer"/>
+    </service>
+    <service id="router_listener" class="Symfony\Component\HttpKernel\EventListener\RouterListener" public="false">
+      <tag name="kernel.event_subscriber"/>
+      <tag name="monolog.logger" channel="request"/>
+      <tag name="container.hot_path"/>
+      <tag name="container.hot_path"/>
+      <argument type="service" id="router.default"/>
+      <argument type="service" id="request_stack"/>
+      <argument type="service" id="router.request_context" on-invalid="ignore"/>
+      <argument type="service" id="logger" on-invalid="ignore"/>
+      <argument>/Users/wagnert/Workspace_Idea/techdivision/import-cli-simple</argument>
+      <argument>true</argument>
+    </service>
+    <service id="Symfony\Bundle\FrameworkBundle\Controller\RedirectController" class="Symfony\Bundle\FrameworkBundle\Controller\RedirectController" public="true">
+      <argument type="service" id="router.default"/>
+      <argument>80</argument>
+      <argument>443</argument>
+    </service>
+    <service id="Symfony\Bundle\FrameworkBundle\Controller\TemplateController" class="Symfony\Bundle\FrameworkBundle\Controller\TemplateController" public="true">
+      <argument>null</argument>
+      <argument>null</argument>
+    </service>
+    <service id="routing.loader.annotation" class="Symfony\Bundle\FrameworkBundle\Routing\AnnotatedRouteControllerLoader" public="false">
+      <tag name="routing.loader" priority="-10"/>
+      <argument type="service" id="annotations.cached_reader"/>
+    </service>
+    <service id="routing.loader.annotation.directory" class="Symfony\Component\Routing\Loader\AnnotationDirectoryLoader" public="false">
+      <tag name="routing.loader" priority="-10"/>
+      <argument type="service" id="file_locator"/>
+      <argument type="service" id="routing.loader.annotation"/>
+    </service>
+    <service id="routing.loader.annotation.file" class="Symfony\Component\Routing\Loader\AnnotationFileLoader" public="false">
+      <tag name="routing.loader" priority="-10"/>
+      <argument type="service" id="file_locator"/>
+      <argument type="service" id="routing.loader.annotation"/>
+    </service>
+    <service id="2_PhpArrayAdapter~YsAoXC3" class="Symfony\Component\Cache\Adapter\PhpArrayAdapter" public="false">
+      <argument>/Users/wagnert/Workspace_Idea/techdivision/import-cli-simple/features/bootstrap/cache/test/annotations.php</argument>
+      <argument type="service" id="cache.annotations"/>
+      <factory class="Symfony\Component\Cache\Adapter\PhpArrayAdapter" method="create"/>
+    </service>
+    <service id="1_ArrayCache~YsAoXC3" class="Doctrine\Common\Cache\ArrayCache" public="false"/>
+    <service id="annotations.reader" class="Doctrine\Common\Annotations\AnnotationReader" public="false">
+      <call method="addGlobalIgnoredName">
+        <argument>required</argument>
+        <argument type="service" id="annotations.dummy_registry"/>
+      </call>
+    </service>
+    <service id="annotations.dummy_registry" class="Doctrine\Common\Annotations\AnnotationRegistry" public="false">
+      <call method="registerUniqueLoader">
+        <argument>class_exists</argument>
+      </call>
+    </service>
+    <service id="annotations.cached_reader" class="Doctrine\Common\Annotations\CachedReader" public="false">
+      <tag name="annotations.cached_reader"/>
+      <argument type="service" id="annotations.reader"/>
+      <argument type="service" id="1_ArrayCache~YsAoXC3"/>
+      <argument>true</argument>
+      <property name="cacheProviderBackup" type="service" id="annotations.cache"/>
+    </service>
+    <service id="annotations.filesystem_cache" class="Doctrine\Common\Cache\FilesystemCache" public="false">
+      <argument></argument>
+    </service>
+    <service id="annotations.cache_warmer" class="Symfony\Bundle\FrameworkBundle\CacheWarmer\AnnotationsCacheWarmer" public="false">
+      <tag name="kernel.cache_warmer"/>
+      <argument type="service" id="annotations.reader"/>
+      <argument>/Users/wagnert/Workspace_Idea/techdivision/import-cli-simple/features/bootstrap/cache/test/annotations.php</argument>
+      <argument type="service" id="cache.annotations"/>
+      <argument>#^Symfony\\(?:Component\\HttpKernel\\|Bundle\\FrameworkBundle\\Controller\\(?!AbstractController$|Controller$))#</argument>
+      <argument>true</argument>
+    </service>
+    <service id="annotations.cache" class="Symfony\Component\Cache\DoctrineProvider" public="false">
+      <argument type="service" id="2_PhpArrayAdapter~YsAoXC3"/>
+    </service>
+    <service id="service_locator.v5YYcZp" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection"/>
+    </service>
+    <service id="service_locator.MMSrCdb" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="translation.loader.csv" type="service" id="translation.loader.csv"/>
+        <argument key="translation.loader.dat" type="service" id="translation.loader.dat"/>
+        <argument key="translation.loader.ini" type="service" id="translation.loader.ini"/>
+        <argument key="translation.loader.json" type="service" id="translation.loader.json"/>
+        <argument key="translation.loader.mo" type="service" id="translation.loader.mo"/>
+        <argument key="translation.loader.php" type="service" id="translation.loader.php"/>
+        <argument key="translation.loader.po" type="service" id="translation.loader.po"/>
+        <argument key="translation.loader.qt" type="service" id="translation.loader.qt"/>
+        <argument key="translation.loader.res" type="service" id="translation.loader.res"/>
+        <argument key="translation.loader.xliff" type="service" id="translation.loader.xliff"/>
+        <argument key="translation.loader.yml" type="service" id="translation.loader.yml"/>
+      </argument>
+    </service>
+    <service id="service_locator.GaqeV69" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="inline" type="service" id="fragment.renderer.inline"/>
+      </argument>
+    </service>
+    <service id="logger" class="Symfony\Component\HttpKernel\Log\Logger" public="false"/>
+    <service id="service_locator.evpbTNo" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="translator" type="service" id="translator.data_collector"/>
+      </argument>
+    </service>
+    <service id="service_locator.evpbTNo.translation.warmer" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <argument>translation.warmer</argument>
+      <argument type="service" id="service_container"/>
+      <factory service="service_locator.evpbTNo" method="withContext"/>
+    </service>
+    <service id="service_locator.gvlXfzv" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="router" type="service" id="router.default"/>
+      </argument>
+    </service>
+    <service id="service_locator.gvlXfzv.router.cache_warmer" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <argument>router.cache_warmer</argument>
+      <argument type="service" id="service_container"/>
+      <factory service="service_locator.gvlXfzv" method="withContext"/>
+    </service>
+    <service id="console.command_loader" class="Symfony\Component\Console\CommandLoader\ContainerCommandLoader" public="true">
+      <argument type="service" id="service_locator.lNVNHz6"/>
+      <argument type="collection">
+        <argument key="about">console.command.about</argument>
+        <argument key="assets:install">console.command.assets_install</argument>
+        <argument key="cache:clear">console.command.cache_clear</argument>
+        <argument key="cache:pool:clear">console.command.cache_pool_clear</argument>
+        <argument key="cache:pool:prune">console.command.cache_pool_prune</argument>
+        <argument key="cache:warmup">console.command.cache_warmup</argument>
+        <argument key="debug:config">console.command.config_debug</argument>
+        <argument key="config:dump-reference">console.command.config_dump_reference</argument>
+        <argument key="debug:container">console.command.container_debug</argument>
+        <argument key="debug:autowiring">console.command.debug_autowiring</argument>
+        <argument key="debug:event-dispatcher">console.command.event_dispatcher_debug</argument>
+        <argument key="debug:router">console.command.router_debug</argument>
+        <argument key="router:match">console.command.router_match</argument>
+        <argument key="debug:translation">console.command.translation_debug</argument>
+        <argument key="translation:update">console.command.translation_update</argument>
+        <argument key="lint:xliff">console.command.xliff_lint</argument>
+        <argument key="lint:yaml">console.command.yaml_lint</argument>
+      </argument>
+    </service>
+    <service id="service_locator.lNVNHz6" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="console.command.about" type="service" id="console.command.about"/>
+        <argument key="console.command.assets_install" type="service" id="console.command.assets_install"/>
+        <argument key="console.command.cache_clear" type="service" id="console.command.cache_clear"/>
+        <argument key="console.command.cache_pool_clear" type="service" id="console.command.cache_pool_clear"/>
+        <argument key="console.command.cache_pool_prune" type="service" id="console.command.cache_pool_prune"/>
+        <argument key="console.command.cache_warmup" type="service" id="console.command.cache_warmup"/>
+        <argument key="console.command.config_debug" type="service" id="console.command.config_debug"/>
+        <argument key="console.command.config_dump_reference" type="service" id="console.command.config_dump_reference"/>
+        <argument key="console.command.container_debug" type="service" id="console.command.container_debug"/>
+        <argument key="console.command.debug_autowiring" type="service" id="console.command.debug_autowiring"/>
+        <argument key="console.command.event_dispatcher_debug" type="service" id="console.command.event_dispatcher_debug"/>
+        <argument key="console.command.router_debug" type="service" id="console.command.router_debug"/>
+        <argument key="console.command.router_match" type="service" id="console.command.router_match"/>
+        <argument key="console.command.translation_debug" type="service" id="console.command.translation_debug"/>
+        <argument key="console.command.translation_update" type="service" id="console.command.translation_update"/>
+        <argument key="console.command.xliff_lint" type="service" id="console.command.xliff_lint"/>
+        <argument key="console.command.yaml_lint" type="service" id="console.command.yaml_lint"/>
+      </argument>
+    </service>
+    <service id="cache.app.recorder_inner" class="Symfony\Component\Cache\Adapter\FilesystemAdapter" public="false">
+      <argument>a+1pVwmE7U</argument>
+      <argument>0</argument>
+      <argument>/Users/wagnert/Workspace_Idea/techdivision/import-cli-simple/features/bootstrap/cache/test/pools</argument>
+      <call method="setLogger">
+        <argument type="service" id="logger" on-invalid="ignore"/>
+      </call>
+    </service>
+    <service id="cache.system.recorder_inner" class="Symfony\Component\Cache\Adapter\AdapterInterface" public="false">
+      <argument>CAWHuth-uL</argument>
+      <argument>0</argument>
+      <argument>%container.build_id%</argument>
+      <argument>/Users/wagnert/Workspace_Idea/techdivision/import-cli-simple/features/bootstrap/cache/test/pools</argument>
+      <argument type="service" id="logger" on-invalid="ignore"/>
+      <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
+    </service>
+    <service id="cache.validator.recorder_inner" class="Symfony\Component\Cache\Adapter\AdapterInterface" public="false">
+      <argument>2uQ1bYERUR</argument>
+      <argument>0</argument>
+      <argument>%container.build_id%</argument>
+      <argument>/Users/wagnert/Workspace_Idea/techdivision/import-cli-simple/features/bootstrap/cache/test/pools</argument>
+      <argument type="service" id="logger" on-invalid="ignore"/>
+      <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
+    </service>
+    <service id="cache.serializer.recorder_inner" class="Symfony\Component\Cache\Adapter\AdapterInterface" public="false">
+      <argument>S+EekYOh1c</argument>
+      <argument>0</argument>
+      <argument>%container.build_id%</argument>
+      <argument>/Users/wagnert/Workspace_Idea/techdivision/import-cli-simple/features/bootstrap/cache/test/pools</argument>
+      <argument type="service" id="logger" on-invalid="ignore"/>
+      <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
+    </service>
+    <service id="cache.annotations.recorder_inner" class="Symfony\Component\Cache\Adapter\AdapterInterface" public="false">
+      <argument>gz0Nm0Ml7l</argument>
+      <argument>0</argument>
+      <argument>%container.build_id%</argument>
+      <argument>/Users/wagnert/Workspace_Idea/techdivision/import-cli-simple/features/bootstrap/cache/test/pools</argument>
+      <argument type="service" id="logger" on-invalid="ignore"/>
+      <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
+    </service>
+    <service id="Psr\Container\ContainerInterface" alias="service_container" public="false"/>
+    <service id="Symfony\Component\DependencyInjection\ContainerInterface" alias="service_container" public="false"/>
+    <service id="Symfony\Component\EventDispatcher\EventDispatcherInterface" alias="event_dispatcher" public="false"/>
+    <service id="Symfony\Component\HttpKernel\HttpKernelInterface" alias="http_kernel" public="false"/>
+    <service id="Symfony\Component\HttpFoundation\RequestStack" alias="request_stack" public="false"/>
+    <service id="Symfony\Component\HttpKernel\KernelInterface" alias="kernel" public="false"/>
+    <service id="Symfony\Component\Filesystem\Filesystem" alias="filesystem" public="false"/>
+    <service id="Symfony\Component\HttpKernel\Config\FileLocator" alias="file_locator" public="false"/>
+    <service id="cache.app_clearer" alias="cache.default_clearer" public="true"/>
+    <service id="Psr\Cache\CacheItemPoolInterface" alias="cache.app" public="false"/>
+    <service id="Symfony\Component\Cache\Adapter\AdapterInterface" alias="cache.app" public="false"/>
+    <service id="Symfony\Component\Translation\TranslatorInterface" alias="translator.data_collector" public="false"/>
+    <service id="Symfony\Component\HttpFoundation\Session\SessionInterface" alias="session" public="false"/>
+    <service id="Symfony\Component\HttpFoundation\Session\Storage\SessionStorageInterface" alias="session.storage.mock_file" public="false"/>
+    <service id="SessionHandlerInterface" alias="session.handler.native_file" public="false"/>
+    <service id="Symfony\Component\HttpFoundation\Session\Flash\FlashBagInterface" alias="session.flash_bag" public="false"/>
+    <service id="session.storage.filesystem" alias="session.storage.mock_file" public="false"/>
+    <service id="session.storage" alias="session.storage.mock_file"/>
+    <service id="session.handler" alias="session.handler.native_file"/>
+    <service id="translator" alias="translator.data_collector" public="true"/>
+    <service id="translator.formatter" alias="translator.formatter.default" public="false"/>
+    <service id="cache.default_redis_provider" alias="cache_connection.GD_MSZC" public="false"/>
+    <service id="cache.default_memcached_provider" alias="cache_connection.JKE6keX" public="false"/>
+    <service id="Symfony\Component\HttpKernel\Debug\FileLinkFormatter" alias="debug.file_link_formatter" public="false"/>
+    <service id="router" alias="router.default" public="true"/>
+    <service id="Symfony\Component\Routing\RouterInterface" alias="router.default" public="false"/>
+    <service id="Symfony\Component\Routing\Generator\UrlGeneratorInterface" alias="router.default" public="false"/>
+    <service id="Symfony\Component\Routing\Matcher\UrlMatcherInterface" alias="router.default" public="false"/>
+    <service id="Symfony\Component\Routing\RequestContextAwareInterface" alias="router.default" public="false"/>
+    <service id="Symfony\Component\Routing\RequestContext" alias="router.request_context" public="false"/>
+    <service id="annotation_reader" alias="annotations.cached_reader"/>
+    <service id="Doctrine\Common\Annotations\Reader" alias="annotations.cached_reader" public="false"/>
+    <service id="Psr\Log\LoggerInterface" alias="logger" public="false"/>
+    <service id="service_locator.FaDxC1e" alias="2_ServiceLocator~mrTNeRe" public="false"/>
+    <service id="translator.data_collector.inner" alias="translator.default" public="false"/>
+  </services>
+</container>

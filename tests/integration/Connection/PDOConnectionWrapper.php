@@ -1,7 +1,7 @@
 <?php
 
 /**
- * TechDivision\Import\Cli\Connection\PDOConnectionWrapper
+ * TechDivision\Import\Cli\Simple\Connection\PDOConnectionWrapper
  *
  * NOTICE OF LICENSE
  *
@@ -18,7 +18,7 @@
  * @link      http://www.techdivision.com
  */
 
-namespace TechDivision\Import\Cli\Connection;
+namespace TechDivision\Import\Cli\Simple\Connection;
 
 use TechDivision\Import\Connection\ConnectionInterface;
 

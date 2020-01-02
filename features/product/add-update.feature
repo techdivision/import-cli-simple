@@ -9,25 +9,22 @@ Feature: Add/Update Products
     - The file is available in folder "var/importexport"
 
 Scenario: Add/Update Products
-  Given a third party system has copied the file "vendor/techdivision/import-sample-data/generic/data/products/add-update/product-import_20161021-161909_01.csv" into the import folder "var/importexport"
-    And a third party system has copied the file "vendor/techdivision/import-sample-data/generic/data/products/add-update/product-import_20161021-161909_02.csv" into the import folder "var/importexport"
-    And a third party system has copied the file "vendor/techdivision/import-sample-data/generic/data/products/add-update/product-import_20161021-161909_03.csv" into the import folder "var/importexport"
-    And a third party system has copied the file "vendor/techdivision/import-sample-data/generic/data/products/add-update/product-import_20161021-161909_04.csv" into the import folder "var/importexport"
-    And that a new file "var/importexport/product-import_20161021-161909_01.csv" containing data is available
-    And that a new file "var/importexport/product-import_20161021-161909_02.csv" containing data is available
-    And that a new file "var/importexport/product-import_20161021-161909_03.csv" containing data is available
-    And that a new file "var/importexport/product-import_20161021-161909_04.csv" containing data is available
-   When the command "bin/import-simple import:create:ok-file" has been executed
-    And the command "bin/import-simple import:products" has been executed
-    And the Magento command "bin/magento indexer:reindex" has been executed
+  Given attribute sets have been imported
+    And attributes have been imported
+    And categories have been imported
+    And files with products to be updated are available
+    And the import process has been started
+   When the import process has been finished
+   Then a success message has to be rendered
 
 Scenario Outline: Check Products
-   Given is on our page
-    When he is on <url> 
-    Then the page should return status <status> 
-     And has title <title> and contain price <price>
+  Given the magento index has been updated
+   When I go to <page>
+   Then the response status code should be <code>
+    And title and price are <title>, <price>
 
     Examples:
-      | url                     | title             | status   | price    |
-      | "/fusion-backpack.html" | "Fusion Backpack" | 200      | "$59.00" |
-      | "/driven-backpack.html" | "Driven Backpack" | 200      | "$36.00" |
+      | page                     | title             | price    | code |
+      | "/joust-duffle-bag.html" | "404 Not Found"   |          | 404  |
+      | "/fusion-backpack.html"  | "Fusion Backpack" | "$59.00" | 200  |
+      | "/driven-backpack.html"  | "Driven Backpack" | "$36.00" | 200  |

@@ -1,0 +1,13 @@
+framework:
+    secret: test_blah
+    router:
+        resource: "%kernel.root_dir%/config/routing.yml"
+        strict_requirements: "%kernel.debug%"
+    form: false
+    validation: false
+    default_locale: en
+    session: ~
+
+parameters:
+    install_dir: "instances/ee/2.3.3"
+    base_url: "http://magento-ee-233.test"

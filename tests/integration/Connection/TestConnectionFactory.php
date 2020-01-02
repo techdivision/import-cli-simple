@@ -1,7 +1,7 @@
 <?php
 
 /**
- * TechDivision\Import\Cli\Connection\TestConnectionFactory
+ * TechDivision\Import\Cli\Simple\Connection\TestConnectionFactory
  *
  * NOTICE OF LICENSE
  *
@@ -18,7 +18,7 @@
  * @link      http://www.techdivision.com
  */
 
-namespace TechDivision\Import\Cli\Connection;
+namespace TechDivision\Import\Cli\Simple\Connection;
 
 use TechDivision\Import\ConfigurationInterface;
 
@@ -39,7 +39,7 @@ class TestConnectionFactory
      *
      * @param \TechDivision\Import\ConfigurationInterface $configuration The configuration with the data to create the connection with
      *
-     * @return \TechDivision\Import\Cli\Connection\PDOConnectionWrapper The initialized connection
+     * @return \TechDivision\Import\Cli\Simple\Connection\PDOConnectionWrapper The initialized connection
      */
     public static function createConnection(ConfigurationInterface $configuration)
     {
