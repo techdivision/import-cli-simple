@@ -2,6 +2,7 @@
 
 namespace TechDivision\Import\Cli\Simple;
 
+use Symfony\Component\Dotenv\Dotenv;
 use Symfony\Component\HttpKernel\Kernel;
 use Symfony\Component\Config\Loader\LoaderInterface;
 use Symfony\Bundle\FrameworkBundle\FrameworkBundle;
@@ -10,6 +11,10 @@ class AppKernel extends Kernel
 {
     public function registerBundles()
     {
+
+        $dotenv = new Dotenv();
+        $dotenv->loadEnv(__DIR__.'/.env');
+
         $bundles = array(
             new FrameworkBundle(),
             new ImportBundle()

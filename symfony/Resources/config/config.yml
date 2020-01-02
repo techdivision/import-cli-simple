@@ -9,5 +9,5 @@ framework:
     session: ~
 
 parameters:
-    install_dir: "instances/ee/2.3.3"
-    base_url: "http://magento-ee-233.test"
+    install_dir: "%env(INSTALL_DIR)%"
+    base_url: "%env(BASE_URL)%"
