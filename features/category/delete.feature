@@ -1,4 +1,4 @@
-@delete
+@category @delete
 Feature: Delete Categories
   To import categories into my Magento 2 instance
   As an E-Commerce manager

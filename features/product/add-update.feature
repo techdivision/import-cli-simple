@@ -1,4 +1,4 @@
- @product @add-update
+@product @add-update
 Feature: Add/Update Products
   To import products into my Magento 2 instance
   As an E-Commerce manager
@@ -7,7 +7,7 @@ Feature: Add/Update Products
   Rules:
     - Filename starts with product-import_*
     - The file is available in folder "var/importexport"
-    
+
 Scenario: Add/Update Products
   Given a third party system has copied the file "vendor/techdivision/import-sample-data/generic/data/products/add-update/product-import_20161021-161909_01.csv" into the import folder "var/importexport"
     And a third party system has copied the file "vendor/techdivision/import-sample-data/generic/data/products/add-update/product-import_20161021-161909_02.csv" into the import folder "var/importexport"
