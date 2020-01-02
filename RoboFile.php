@@ -273,6 +273,32 @@ class RoboFile extends \Robo\Tasks
     }
 
     /**
+     * Run's the integration testsuite.
+     *
+     * This task uses the Magento 2 docker image generator from https://github.com/techdivision/magento2-docker-imgen. To execute
+     * this task, it is necessary that you've setup a running container with the domain name, passed as argument.
+     *
+     * @return void
+     */
+    public function runTestsAcceptance()
+    {
+
+
+        // prepare the filesystem
+        $this->prepare();
+
+        $editions = array(
+            'http://magento-ce-233.test' => 'instances/ce/2.3.3',
+            'http://magento-ee-232.test' => 'instances/ee/2.3.2',
+            'http://magento-ee-233.test' => 'instances/ee/2.3.3'
+        );
+
+        foreach ($editions as $baseUrl => $installDir) {
+            $this->_exec(sprintf("BASE_URL=%s INSTALL_DIR=%s vendor/bin/behat --tags='@product&&@add-update'", $baseUrl, $installDir));
+        }
+    }
+
+    /**
      * Raising the semver version number.
      *
      * @return void
