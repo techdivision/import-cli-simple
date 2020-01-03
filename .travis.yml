@@ -9,11 +9,11 @@ env:
   global:
     - MAGENTO_BASE_URL=magento.test
     - MAGENTO_CONTAINER_NAME=magento
-    - MAGENTO_IMAGE_NAME=techdivision/magento2-ce:${MAGENTO_INSTALL_VERSION}
   jobs:
     - MAGENTO_INSTALL_VERSION=2.2.9
     - MAGENTO_INSTALL_VERSION=2.3.2
     - MAGENTO_INSTALL_VERSION=2.3.3
+    - MAGENTO_IMAGE_NAME=techdivision/magento2-ce:${MAGENTO_INSTALL_VERSION}
 
 sudo: required
 
