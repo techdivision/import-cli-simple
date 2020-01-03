@@ -4,21 +4,25 @@ php:
   - 7.1
   - 7.2
   - 7.3
- 
+
 env:
   global:
     - MAGENTO_BASE_URL=magento.test
     - MAGENTO_CONTAINER_NAME=magento
   jobs:
-    - MAGENTO_INSTALL_VERSION=2.2.9
-    - MAGENTO_INSTALL_VERSION=2.3.2
-    - MAGENTO_INSTALL_VERSION=2.3.3
-    - MAGENTO_IMAGE_NAME=techdivision/magento2-ce:${MAGENTO_INSTALL_VERSION}
+    - MAGENTO_INSTALL_VERSION=2.2.9 MAGENTO_IMAGE_NAME=techdivision/magento2-ce:${MAGENTO_INSTALL_VERSION}
+    - MAGENTO_INSTALL_VERSION=2.3.2 MAGENTO_IMAGE_NAME=techdivision/magento2-ce:${MAGENTO_INSTALL_VERSION}
+    - MAGENTO_INSTALL_VERSION=2.3.3 MAGENTO_IMAGE_NAME=techdivision/magento2-ce:${MAGENTO_INSTALL_VERSION}
 
 sudo: required
 
 services:
   - docker
+
+jobs:
+  include:
+    - php: 7.1
+     
 
 before_install:
   - phpenv rehash
