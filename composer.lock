@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b21dde8414793e6a30118609da145885",
+    "content-hash": "7808cb5bd2563427914df4ddf3f415d8",
     "packages": [
         {
             "name": "cache/adapter-common",
@@ -2260,12 +2260,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import.git",
-                "reference": "c439ce5b7352d36aa06a4b680c5ec16d266ecce1"
+                "reference": "fda3a5f42830d82dc415c461337a20c915234f2e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import/zipball/c439ce5b7352d36aa06a4b680c5ec16d266ecce1",
-                "reference": "c439ce5b7352d36aa06a4b680c5ec16d266ecce1",
+                "url": "https://api.github.com/repos/techdivision/import/zipball/fda3a5f42830d82dc415c461337a20c915234f2e",
+                "reference": "fda3a5f42830d82dc415c461337a20c915234f2e",
                 "shasum": ""
             },
             "require": {
@@ -2290,9 +2290,9 @@
                 "mikey179/vfsstream": "~1.0",
                 "pdepend/pdepend": "2.5.2",
                 "phpmd/phpmd": "@stable",
-                "phpunit/phpunit": "~5.0",
+                "phpunit/phpunit": "~6.5.0",
                 "sebastian/phpcpd": "~3.0.0",
-                "squizlabs/php_codesniffer": "3.3.1",
+                "squizlabs/php_codesniffer": "~3.4.0",
                 "symfony/http-kernel": "~3.4"
             },
             "type": "library",
@@ -2316,7 +2316,7 @@
                 }
             ],
             "description": "A library supporting generic Magento 2 import functionality",
-            "time": "2019-12-19T16:16:01+00:00"
+            "time": "2020-01-03T12:50:42+00:00"
         },
         {
             "name": "techdivision/import-app-simple",
@@ -2324,12 +2324,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-app-simple.git",
-                "reference": "e563b3d31cde6d3819e1f4c2e3587803fbe7b914"
+                "reference": "05d9738ebd17f0685108a41d057a28a3f56be428"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-app-simple/zipball/e563b3d31cde6d3819e1f4c2e3587803fbe7b914",
-                "reference": "e563b3d31cde6d3819e1f4c2e3587803fbe7b914",
+                "url": "https://api.github.com/repos/techdivision/import-app-simple/zipball/05d9738ebd17f0685108a41d057a28a3f56be428",
+                "reference": "05d9738ebd17f0685108a41d057a28a3f56be428",
                 "shasum": ""
             },
             "require": {
@@ -2344,9 +2344,9 @@
                 "mikey179/vfsstream": "~1.0",
                 "pdepend/pdepend": "2.5.2",
                 "phpmd/phpmd": "@stable",
-                "phpunit/phpunit": "~5.0",
+                "phpunit/phpunit": "~6.5.0",
                 "sebastian/phpcpd": "~3.0.0",
-                "squizlabs/php_codesniffer": "3.3.1",
+                "squizlabs/php_codesniffer": "~3.4.0",
                 "symfony/http-kernel": "~3.4"
             },
             "type": "library",
@@ -2370,7 +2370,7 @@
                 }
             ],
             "description": "M2IF simple application implementation providing basic Magento 2 import functionality",
-            "time": "2019-12-19T16:16:36+00:00"
+            "time": "2020-01-03T12:54:48+00:00"
         },
         {
             "name": "techdivision/import-attribute",
@@ -2378,12 +2378,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-attribute.git",
-                "reference": "265c76c05b57ce5695f34a50b3ee16cb0e56574d"
+                "reference": "76d2f94398cc9c861bb0d5ea44029cd643ef0c25"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-attribute/zipball/265c76c05b57ce5695f34a50b3ee16cb0e56574d",
-                "reference": "265c76c05b57ce5695f34a50b3ee16cb0e56574d",
+                "url": "https://api.github.com/repos/techdivision/import-attribute/zipball/76d2f94398cc9c861bb0d5ea44029cd643ef0c25",
+                "reference": "76d2f94398cc9c861bb0d5ea44029cd643ef0c25",
                 "shasum": ""
             },
             "require": {
@@ -2396,9 +2396,9 @@
                 "mikey179/vfsstream": "~1.0",
                 "pdepend/pdepend": "2.5.2",
                 "phpmd/phpmd": "@stable",
-                "phpunit/phpunit": "~5.0",
+                "phpunit/phpunit": "~6.5.0",
                 "sebastian/phpcpd": "~3.0.0",
-                "squizlabs/php_codesniffer": "3.3.1",
+                "squizlabs/php_codesniffer": "~3.4.0",
                 "symfony/http-kernel": "~3.4"
             },
             "type": "library",
@@ -2422,7 +2422,7 @@
                 }
             ],
             "description": "M2IF library providing basic Magento 2 attribute import functionality",
-            "time": "2019-12-17T08:17:46+00:00"
+            "time": "2020-01-03T12:58:40+00:00"
         },
         {
             "name": "techdivision/import-attribute-set",
@@ -2430,12 +2430,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-attribute-set.git",
-                "reference": "cf4c756a5aef288477a102e03d3702ecc798a1d6"
+                "reference": "685108fff8977229c40bc3849979fadbc3db29b4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-attribute-set/zipball/cf4c756a5aef288477a102e03d3702ecc798a1d6",
-                "reference": "cf4c756a5aef288477a102e03d3702ecc798a1d6",
+                "url": "https://api.github.com/repos/techdivision/import-attribute-set/zipball/685108fff8977229c40bc3849979fadbc3db29b4",
+                "reference": "685108fff8977229c40bc3849979fadbc3db29b4",
                 "shasum": ""
             },
             "require": {
@@ -2449,9 +2449,9 @@
                 "mikey179/vfsstream": "~1.0",
                 "pdepend/pdepend": "2.5.2",
                 "phpmd/phpmd": "@stable",
-                "phpunit/phpunit": "~5.0",
+                "phpunit/phpunit": "~6.5.0",
                 "sebastian/phpcpd": "~3.0.0",
-                "squizlabs/php_codesniffer": "3.3.1",
+                "squizlabs/php_codesniffer": "~3.4.0",
                 "symfony/http-kernel": "~3.4"
             },
             "type": "library",
@@ -2475,7 +2475,7 @@
                 }
             ],
             "description": "M2IF library providing basic Magento 2 attribute set + group import functionality",
-            "time": "2019-12-17T08:18:11+00:00"
+            "time": "2020-01-03T13:05:22+00:00"
         },
         {
             "name": "techdivision/import-category",
@@ -2483,12 +2483,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-category.git",
-                "reference": "45110f5b33a70d2e37689e68c96f6c87b96b23d6"
+                "reference": "507641e457fea6058c2f4436f73ebe7822a6bb8f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-category/zipball/45110f5b33a70d2e37689e68c96f6c87b96b23d6",
-                "reference": "45110f5b33a70d2e37689e68c96f6c87b96b23d6",
+                "url": "https://api.github.com/repos/techdivision/import-category/zipball/507641e457fea6058c2f4436f73ebe7822a6bb8f",
+                "reference": "507641e457fea6058c2f4436f73ebe7822a6bb8f",
                 "shasum": ""
             },
             "require": {
@@ -2501,9 +2501,9 @@
                 "mikey179/vfsstream": "~1.0",
                 "pdepend/pdepend": "2.5.2",
                 "phpmd/phpmd": "@stable",
-                "phpunit/phpunit": "~5.0",
+                "phpunit/phpunit": "~6.5.0",
                 "sebastian/phpcpd": "~3.0.0",
-                "squizlabs/php_codesniffer": "3.3.1",
+                "squizlabs/php_codesniffer": "~3.4.0",
                 "symfony/http-kernel": "~3.4"
             },
             "type": "library",
@@ -2527,7 +2527,7 @@
                 }
             ],
             "description": "M2IF library providing basic Magento 2 category import functionality",
-            "time": "2019-12-17T08:18:29+00:00"
+            "time": "2020-01-03T13:06:58+00:00"
         },
         {
             "name": "techdivision/import-category-ee",
@@ -2535,12 +2535,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-category-ee.git",
-                "reference": "6b56af7496e3f679b1db94fd0d104ac896a0e469"
+                "reference": "1b2fa6c5bd510070bd0be4e893e732eb66223082"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-category-ee/zipball/6b56af7496e3f679b1db94fd0d104ac896a0e469",
-                "reference": "6b56af7496e3f679b1db94fd0d104ac896a0e469",
+                "url": "https://api.github.com/repos/techdivision/import-category-ee/zipball/1b2fa6c5bd510070bd0be4e893e732eb66223082",
+                "reference": "1b2fa6c5bd510070bd0be4e893e732eb66223082",
                 "shasum": ""
             },
             "require": {
@@ -2555,9 +2555,9 @@
                 "mikey179/vfsstream": "~1.0",
                 "pdepend/pdepend": "2.5.2",
                 "phpmd/phpmd": "@stable",
-                "phpunit/phpunit": "~5.0",
+                "phpunit/phpunit": "~6.5.0",
                 "sebastian/phpcpd": "~3.0.0",
-                "squizlabs/php_codesniffer": "3.3.1",
+                "squizlabs/php_codesniffer": "~3.4.0",
                 "symfony/http-kernel": "~3.4"
             },
             "type": "library",
@@ -2581,7 +2581,7 @@
                 }
             ],
             "description": "M2IF library providing basic Magento 2 EE category import functionality",
-            "time": "2019-12-17T08:28:52+00:00"
+            "time": "2020-01-03T13:09:26+00:00"
         },
         {
             "name": "techdivision/import-cli",
@@ -2589,12 +2589,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-cli.git",
-                "reference": "fdde97c55f08333705380cf4e087a881a7f491d0"
+                "reference": "6391a798613fd1fd5dfce58df4546741551f8815"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-cli/zipball/fdde97c55f08333705380cf4e087a881a7f491d0",
-                "reference": "fdde97c55f08333705380cf4e087a881a7f491d0",
+                "url": "https://api.github.com/repos/techdivision/import-cli/zipball/6391a798613fd1fd5dfce58df4546741551f8815",
+                "reference": "6391a798613fd1fd5dfce58df4546741551f8815",
                 "shasum": ""
             },
             "require": {
@@ -2612,9 +2612,9 @@
                 "mikey179/vfsstream": "~1.0",
                 "pdepend/pdepend": "2.5.2",
                 "phpmd/phpmd": "@stable",
-                "phpunit/phpunit": "~5.0",
+                "phpunit/phpunit": "~6.5.0",
                 "sebastian/phpcpd": "~3.0.0",
-                "squizlabs/php_codesniffer": "3.3.1",
+                "squizlabs/php_codesniffer": "~3.4.0",
                 "symfony/http-kernel": "~3.4"
             },
             "type": "library",
@@ -2638,7 +2638,7 @@
                 }
             ],
             "description": "Commands and Helpers to implement a CLI providing single-threaded Magento 2 importing functionality based on M2IF",
-            "time": "2019-12-30T15:23:28+00:00"
+            "time": "2020-01-03T13:12:36+00:00"
         },
         {
             "name": "techdivision/import-configuration-jms",
@@ -2646,12 +2646,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-configuration-jms.git",
-                "reference": "b068b3d849ed691726f4491e43d6fac55f182426"
+                "reference": "7c9114ed8d21e5df473ec07047c069908113f09b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-configuration-jms/zipball/b068b3d849ed691726f4491e43d6fac55f182426",
-                "reference": "b068b3d849ed691726f4491e43d6fac55f182426",
+                "url": "https://api.github.com/repos/techdivision/import-configuration-jms/zipball/7c9114ed8d21e5df473ec07047c069908113f09b",
+                "reference": "7c9114ed8d21e5df473ec07047c069908113f09b",
                 "shasum": ""
             },
             "require": {
@@ -2662,11 +2662,13 @@
             },
             "require-dev": {
                 "consolidation/robo": "~1.0",
+                "mikey179/vfsstream": "~1.0",
                 "pdepend/pdepend": "2.5.2",
                 "phpmd/phpmd": "@stable",
-                "phpunit/phpunit": "~5.0",
+                "phpunit/phpunit": "~6.5.0",
                 "sebastian/phpcpd": "~3.0.0",
-                "squizlabs/php_codesniffer": "3.3.1"
+                "squizlabs/php_codesniffer": "~3.4.0",
+                "symfony/http-kernel": "~3.4"
             },
             "type": "library",
             "autoload": {
@@ -2688,7 +2690,7 @@
                 }
             ],
             "description": "Library providing a JMS based configuration implementation for the M2IF",
-            "time": "2019-12-31T12:57:41+00:00"
+            "time": "2020-01-03T13:15:11+00:00"
         },
         {
             "name": "techdivision/import-converter",
@@ -2748,12 +2750,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-converter-ee.git",
-                "reference": "47038938192b7d9244f902e302e841d818723a7c"
+                "reference": "336c4657acb6c34a11b0671019b99ac3e45b92fb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-converter-ee/zipball/47038938192b7d9244f902e302e841d818723a7c",
-                "reference": "47038938192b7d9244f902e302e841d818723a7c",
+                "url": "https://api.github.com/repos/techdivision/import-converter-ee/zipball/336c4657acb6c34a11b0671019b99ac3e45b92fb",
+                "reference": "336c4657acb6c34a11b0671019b99ac3e45b92fb",
                 "shasum": ""
             },
             "require": {
@@ -2768,9 +2770,9 @@
                 "mikey179/vfsstream": "~1.0",
                 "pdepend/pdepend": "2.5.2",
                 "phpmd/phpmd": "@stable",
-                "phpunit/phpunit": "~5.0",
+                "phpunit/phpunit": "~6.5.0",
                 "sebastian/phpcpd": "~3.0.0",
-                "squizlabs/php_codesniffer": "3.3.1",
+                "squizlabs/php_codesniffer": "~3.4.0",
                 "symfony/http-kernel": "~3.4"
             },
             "type": "library",
@@ -2794,7 +2796,7 @@
                 }
             ],
             "description": "M2IF library providing generic Magento 2 EE converter functionality",
-            "time": "2019-12-18T10:37:29+00:00"
+            "time": "2020-01-03T13:17:43+00:00"
         },
         {
             "name": "techdivision/import-converter-product-attribute",
@@ -2802,12 +2804,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-converter-product-attribute.git",
-                "reference": "c3695fc1f43c21fedcfbeb749f37be6da31c687d"
+                "reference": "8ed1aaf41245141bb582744840d6ebb4c4409357"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-converter-product-attribute/zipball/c3695fc1f43c21fedcfbeb749f37be6da31c687d",
-                "reference": "c3695fc1f43c21fedcfbeb749f37be6da31c687d",
+                "url": "https://api.github.com/repos/techdivision/import-converter-product-attribute/zipball/8ed1aaf41245141bb582744840d6ebb4c4409357",
+                "reference": "8ed1aaf41245141bb582744840d6ebb4c4409357",
                 "shasum": ""
             },
             "require": {
@@ -2823,9 +2825,9 @@
                 "mikey179/vfsstream": "~1.0",
                 "pdepend/pdepend": "2.5.2",
                 "phpmd/phpmd": "@stable",
-                "phpunit/phpunit": "~5.0",
+                "phpunit/phpunit": "~6.5.0",
                 "sebastian/phpcpd": "~3.0.0",
-                "squizlabs/php_codesniffer": "3.3.1",
+                "squizlabs/php_codesniffer": "~3.4.0",
                 "symfony/http-kernel": "~3.4"
             },
             "type": "library",
@@ -2849,7 +2851,7 @@
                 }
             ],
             "description": "M2IF library providing the functionality to convert a CSV file with attribute option values from a CSV file with products",
-            "time": "2019-12-17T08:29:57+00:00"
+            "time": "2020-01-03T14:34:40+00:00"
         },
         {
             "name": "techdivision/import-converter-product-category",
@@ -2857,12 +2859,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-converter-product-category.git",
-                "reference": "0531077f2a7fc57aca05e4ec46f521826adb2552"
+                "reference": "b4067565ac437a90ab342f6152514a3fa66ffa3f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-converter-product-category/zipball/0531077f2a7fc57aca05e4ec46f521826adb2552",
-                "reference": "0531077f2a7fc57aca05e4ec46f521826adb2552",
+                "url": "https://api.github.com/repos/techdivision/import-converter-product-category/zipball/b4067565ac437a90ab342f6152514a3fa66ffa3f",
+                "reference": "b4067565ac437a90ab342f6152514a3fa66ffa3f",
                 "shasum": ""
             },
             "require": {
@@ -2878,9 +2880,9 @@
                 "mikey179/vfsstream": "~1.0",
                 "pdepend/pdepend": "2.5.2",
                 "phpmd/phpmd": "@stable",
-                "phpunit/phpunit": "~5.0",
+                "phpunit/phpunit": "~6.5.0",
                 "sebastian/phpcpd": "~3.0.0",
-                "squizlabs/php_codesniffer": "3.3.1",
+                "squizlabs/php_codesniffer": "~3.4.0",
                 "symfony/http-kernel": "~3.4"
             },
             "type": "library",
@@ -2904,7 +2906,7 @@
                 }
             ],
             "description": "M2IF library providing the functionality to convert a CSV file with category from a CSV file with products",
-            "time": "2019-12-03T19:01:31+00:00"
+            "time": "2020-01-03T14:36:15+00:00"
         },
         {
             "name": "techdivision/import-customer",
@@ -2912,12 +2914,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-customer.git",
-                "reference": "64967dd66234960ca99f8abc59af1fd8dc1b24a2"
+                "reference": "bbe9847fdb42cb814c0edda7e80120748c7a1a97"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-customer/zipball/64967dd66234960ca99f8abc59af1fd8dc1b24a2",
-                "reference": "64967dd66234960ca99f8abc59af1fd8dc1b24a2",
+                "url": "https://api.github.com/repos/techdivision/import-customer/zipball/bbe9847fdb42cb814c0edda7e80120748c7a1a97",
+                "reference": "bbe9847fdb42cb814c0edda7e80120748c7a1a97",
                 "shasum": ""
             },
             "require": {
@@ -2930,9 +2932,9 @@
                 "mikey179/vfsstream": "~1.0",
                 "pdepend/pdepend": "2.5.2",
                 "phpmd/phpmd": "@stable",
-                "phpunit/phpunit": "~5.0",
+                "phpunit/phpunit": "~6.5.0",
                 "sebastian/phpcpd": "~3.0.0",
-                "squizlabs/php_codesniffer": "3.3.1",
+                "squizlabs/php_codesniffer": "~3.4.0",
                 "symfony/http-kernel": "~3.4"
             },
             "type": "library",
@@ -2956,7 +2958,7 @@
                 }
             ],
             "description": "M2IF library providing basic Magento 2 customer import functionality",
-            "time": "2019-12-17T08:30:16+00:00"
+            "time": "2020-01-03T14:37:31+00:00"
         },
         {
             "name": "techdivision/import-customer-address",
@@ -2964,12 +2966,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-customer-address.git",
-                "reference": "a5f981449f138249f556fa760b1bdfad904b9a9c"
+                "reference": "1bdd4e3da2365fdb9e88679f211b945f91704c6d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-customer-address/zipball/a5f981449f138249f556fa760b1bdfad904b9a9c",
-                "reference": "a5f981449f138249f556fa760b1bdfad904b9a9c",
+                "url": "https://api.github.com/repos/techdivision/import-customer-address/zipball/1bdd4e3da2365fdb9e88679f211b945f91704c6d",
+                "reference": "1bdd4e3da2365fdb9e88679f211b945f91704c6d",
                 "shasum": ""
             },
             "require": {
@@ -2983,9 +2985,9 @@
                 "mikey179/vfsstream": "~1.0",
                 "pdepend/pdepend": "2.5.2",
                 "phpmd/phpmd": "@stable",
-                "phpunit/phpunit": "~5.0",
+                "phpunit/phpunit": "~6.5.0",
                 "sebastian/phpcpd": "~3.0.0",
-                "squizlabs/php_codesniffer": "3.3.1",
+                "squizlabs/php_codesniffer": "~3.4.0",
                 "symfony/http-kernel": "~3.4"
             },
             "type": "library",
@@ -3009,7 +3011,7 @@
                 }
             ],
             "description": "M2IF library providing basic Magento 2 customer address import functionality",
-            "time": "2019-12-17T08:30:35+00:00"
+            "time": "2020-01-03T14:39:11+00:00"
         },
         {
             "name": "techdivision/import-ee",
@@ -3017,12 +3019,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-ee.git",
-                "reference": "cf82dbb6dce8734cf10e85afb937fe4a605eefdf"
+                "reference": "096295adb2051f2cf7cb757f8054dcb462ad59a6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-ee/zipball/cf82dbb6dce8734cf10e85afb937fe4a605eefdf",
-                "reference": "cf82dbb6dce8734cf10e85afb937fe4a605eefdf",
+                "url": "https://api.github.com/repos/techdivision/import-ee/zipball/096295adb2051f2cf7cb757f8054dcb462ad59a6",
+                "reference": "096295adb2051f2cf7cb757f8054dcb462ad59a6",
                 "shasum": ""
             },
             "require": {
@@ -3032,15 +3034,13 @@
             "require-dev": {
                 "consolidation/robo": "~1.0",
                 "doctrine/dbal": "2.5.*",
-                "pdepend/pdepend": "2.0.*",
-                "phpdocumentor/phpdocumentor": "2.9.*",
-                "phploc/phploc": "2.0.*",
-                "phpmd/phpmd": "2.5.*",
-                "phpunit/phpunit": "4.4.*",
-                "sebastian/phpcpd": "2.0.*",
-                "squizlabs/php_codesniffer": "2.2.*",
-                "symfony/config": "~2.8|~3.0",
-                "symfony/http-kernel": "~2.8|~3.0"
+                "mikey179/vfsstream": "~1.0",
+                "pdepend/pdepend": "2.5.2",
+                "phpmd/phpmd": "@stable",
+                "phpunit/phpunit": "~6.5.0",
+                "sebastian/phpcpd": "~3.0.0",
+                "squizlabs/php_codesniffer": "~3.4.0",
+                "symfony/http-kernel": "~3.4"
             },
             "type": "library",
             "autoload": {
@@ -3063,7 +3063,7 @@
                 }
             ],
             "description": "M2IF library providing basic Magento 2 EE import functionality",
-            "time": "2019-09-18T13:59:23+00:00"
+            "time": "2020-01-03T14:41:37+00:00"
         },
         {
             "name": "techdivision/import-product",
@@ -3071,12 +3071,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-product.git",
-                "reference": "d1bf4246979f20465406334df14ecda01f5dfcd4"
+                "reference": "a5d21194e5d0a98ef897192d91693a8e89f13d7a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-product/zipball/d1bf4246979f20465406334df14ecda01f5dfcd4",
-                "reference": "d1bf4246979f20465406334df14ecda01f5dfcd4",
+                "url": "https://api.github.com/repos/techdivision/import-product/zipball/a5d21194e5d0a98ef897192d91693a8e89f13d7a",
+                "reference": "a5d21194e5d0a98ef897192d91693a8e89f13d7a",
                 "shasum": ""
             },
             "require": {
@@ -3089,9 +3089,9 @@
                 "mikey179/vfsstream": "~1.0",
                 "pdepend/pdepend": "2.5.2",
                 "phpmd/phpmd": "@stable",
-                "phpunit/phpunit": "~5.0",
+                "phpunit/phpunit": "~6.5.0",
                 "sebastian/phpcpd": "~3.0.0",
-                "squizlabs/php_codesniffer": "3.3.1",
+                "squizlabs/php_codesniffer": "~3.4.0",
                 "symfony/http-kernel": "~3.4"
             },
             "type": "library",
@@ -3115,7 +3115,7 @@
                 }
             ],
             "description": "M2IF library providing basic Magento 2 product import functionality",
-            "time": "2019-12-30T15:25:55+00:00"
+            "time": "2020-01-03T14:45:29+00:00"
         },
         {
             "name": "techdivision/import-product-bundle",
@@ -3123,12 +3123,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-product-bundle.git",
-                "reference": "d13cfc628824553016492c0f04b12204c7d4743d"
+                "reference": "328bde1c4293ddc22a74dfcf1d8452841a8278cc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-product-bundle/zipball/d13cfc628824553016492c0f04b12204c7d4743d",
-                "reference": "d13cfc628824553016492c0f04b12204c7d4743d",
+                "url": "https://api.github.com/repos/techdivision/import-product-bundle/zipball/328bde1c4293ddc22a74dfcf1d8452841a8278cc",
+                "reference": "328bde1c4293ddc22a74dfcf1d8452841a8278cc",
                 "shasum": ""
             },
             "require": {
@@ -3142,9 +3142,9 @@
                 "mikey179/vfsstream": "~1.0",
                 "pdepend/pdepend": "2.5.2",
                 "phpmd/phpmd": "@stable",
-                "phpunit/phpunit": "~5.0",
+                "phpunit/phpunit": "~6.5.0",
                 "sebastian/phpcpd": "~3.0.0",
-                "squizlabs/php_codesniffer": "3.3.1",
+                "squizlabs/php_codesniffer": "~3.4.0",
                 "symfony/http-kernel": "~3.4"
             },
             "type": "library",
@@ -3168,7 +3168,7 @@
                 }
             ],
             "description": "M2IF library providing basic Magento 2 bundle product import functionality",
-            "time": "2019-12-18T13:47:53+00:00"
+            "time": "2020-01-03T14:46:43+00:00"
         },
         {
             "name": "techdivision/import-product-bundle-ee",
@@ -3176,12 +3176,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-product-bundle-ee.git",
-                "reference": "57a9d003017764e21e194ab70182a11271b5f0a7"
+                "reference": "2178b165fbdf5b2d874ba52fe9b9c8237ae1bf5c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-product-bundle-ee/zipball/57a9d003017764e21e194ab70182a11271b5f0a7",
-                "reference": "57a9d003017764e21e194ab70182a11271b5f0a7",
+                "url": "https://api.github.com/repos/techdivision/import-product-bundle-ee/zipball/2178b165fbdf5b2d874ba52fe9b9c8237ae1bf5c",
+                "reference": "2178b165fbdf5b2d874ba52fe9b9c8237ae1bf5c",
                 "shasum": ""
             },
             "require": {
@@ -3198,9 +3198,9 @@
                 "mikey179/vfsstream": "~1.0",
                 "pdepend/pdepend": "2.5.2",
                 "phpmd/phpmd": "@stable",
-                "phpunit/phpunit": "~5.0",
+                "phpunit/phpunit": "~6.5.0",
                 "sebastian/phpcpd": "~3.0.0",
-                "squizlabs/php_codesniffer": "3.3.1",
+                "squizlabs/php_codesniffer": "~3.4.0",
                 "symfony/http-kernel": "~3.4"
             },
             "type": "library",
@@ -3224,7 +3224,7 @@
                 }
             ],
             "description": "M2IF library providing basic Magento 2 EE bundle product import functionality",
-            "time": "2019-11-14T21:43:19+00:00"
+            "time": "2020-01-03T14:48:27+00:00"
         },
         {
             "name": "techdivision/import-product-ee",
@@ -3232,12 +3232,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-product-ee.git",
-                "reference": "67ab5cc41a9a33dd245b37bc7adf940369e10bea"
+                "reference": "e56547bea1ff1d2f9c8686e8b63b2c6886208740"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-product-ee/zipball/67ab5cc41a9a33dd245b37bc7adf940369e10bea",
-                "reference": "67ab5cc41a9a33dd245b37bc7adf940369e10bea",
+                "url": "https://api.github.com/repos/techdivision/import-product-ee/zipball/e56547bea1ff1d2f9c8686e8b63b2c6886208740",
+                "reference": "e56547bea1ff1d2f9c8686e8b63b2c6886208740",
                 "shasum": ""
             },
             "require": {
@@ -3252,9 +3252,9 @@
                 "mikey179/vfsstream": "~1.0",
                 "pdepend/pdepend": "2.5.2",
                 "phpmd/phpmd": "@stable",
-                "phpunit/phpunit": "~5.0",
+                "phpunit/phpunit": "~6.5.0",
                 "sebastian/phpcpd": "~3.0.0",
-                "squizlabs/php_codesniffer": "3.3.1",
+                "squizlabs/php_codesniffer": "~3.4.0",
                 "symfony/http-kernel": "~3.4"
             },
             "type": "library",
@@ -3278,7 +3278,7 @@
                 }
             ],
             "description": "M2IF library providing basic Magento 2 EE product import functionality",
-            "time": "2020-01-02T19:10:04+00:00"
+            "time": "2020-01-03T14:50:14+00:00"
         },
         {
             "name": "techdivision/import-product-grouped",
@@ -3286,12 +3286,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-product-grouped.git",
-                "reference": "a2c1b70f8f1af32b56a6a68514528219c89d90bf"
+                "reference": "1d81a1d519506a54b57f3b42b1e509be6acb1ee2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-product-grouped/zipball/a2c1b70f8f1af32b56a6a68514528219c89d90bf",
-                "reference": "a2c1b70f8f1af32b56a6a68514528219c89d90bf",
+                "url": "https://api.github.com/repos/techdivision/import-product-grouped/zipball/1d81a1d519506a54b57f3b42b1e509be6acb1ee2",
+                "reference": "1d81a1d519506a54b57f3b42b1e509be6acb1ee2",
                 "shasum": ""
             },
             "require": {
@@ -3306,9 +3306,9 @@
                 "mikey179/vfsstream": "~1.0",
                 "pdepend/pdepend": "2.5.2",
                 "phpmd/phpmd": "@stable",
-                "phpunit/phpunit": "~5.0",
+                "phpunit/phpunit": "~6.5.0",
                 "sebastian/phpcpd": "~3.0.0",
-                "squizlabs/php_codesniffer": "3.3.1",
+                "squizlabs/php_codesniffer": "~3.4.0",
                 "symfony/http-kernel": "~3.4"
             },
             "type": "library",
@@ -3332,7 +3332,7 @@
                 }
             ],
             "description": "M2IF library providing basic Magento 2 grouped product import functionality",
-            "time": "2019-12-18T15:43:25+00:00"
+            "time": "2020-01-03T14:51:21+00:00"
         },
         {
             "name": "techdivision/import-product-grouped-ee",
@@ -3340,12 +3340,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-product-grouped-ee.git",
-                "reference": "bc9d6732d9b982a7ff3cd66a1cb26c242d090a78"
+                "reference": "3ae9e86fefd59862a9c3f778fe996a1940cdbc4c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-product-grouped-ee/zipball/bc9d6732d9b982a7ff3cd66a1cb26c242d090a78",
-                "reference": "bc9d6732d9b982a7ff3cd66a1cb26c242d090a78",
+                "url": "https://api.github.com/repos/techdivision/import-product-grouped-ee/zipball/3ae9e86fefd59862a9c3f778fe996a1940cdbc4c",
+                "reference": "3ae9e86fefd59862a9c3f778fe996a1940cdbc4c",
                 "shasum": ""
             },
             "require": {
@@ -3364,9 +3364,9 @@
                 "mikey179/vfsstream": "~1.0",
                 "pdepend/pdepend": "2.5.2",
                 "phpmd/phpmd": "@stable",
-                "phpunit/phpunit": "~5.0",
+                "phpunit/phpunit": "~6.5.0",
                 "sebastian/phpcpd": "~3.0.0",
-                "squizlabs/php_codesniffer": "3.3.1",
+                "squizlabs/php_codesniffer": "~3.4.0",
                 "symfony/http-kernel": "~3.4"
             },
             "type": "library",
@@ -3390,7 +3390,7 @@
                 }
             ],
             "description": "M2IF library providing basic Magento 2 EE grouped product import functionality",
-            "time": "2019-09-18T14:52:45+00:00"
+            "time": "2020-01-03T14:52:30+00:00"
         },
         {
             "name": "techdivision/import-product-link",
@@ -3398,12 +3398,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-product-link.git",
-                "reference": "7213e303c8ed644240e88d66ae6c0d784e0e40f6"
+                "reference": "e33f31ed8a4716f653a5452d57b19e92da1ff425"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-product-link/zipball/7213e303c8ed644240e88d66ae6c0d784e0e40f6",
-                "reference": "7213e303c8ed644240e88d66ae6c0d784e0e40f6",
+                "url": "https://api.github.com/repos/techdivision/import-product-link/zipball/e33f31ed8a4716f653a5452d57b19e92da1ff425",
+                "reference": "e33f31ed8a4716f653a5452d57b19e92da1ff425",
                 "shasum": ""
             },
             "require": {
@@ -3417,9 +3417,9 @@
                 "mikey179/vfsstream": "~1.0",
                 "pdepend/pdepend": "2.5.2",
                 "phpmd/phpmd": "@stable",
-                "phpunit/phpunit": "~5.0",
+                "phpunit/phpunit": "~6.5.0",
                 "sebastian/phpcpd": "~3.0.0",
-                "squizlabs/php_codesniffer": "3.3.1",
+                "squizlabs/php_codesniffer": "~3.4.0",
                 "symfony/http-kernel": "~3.4"
             },
             "type": "library",
@@ -3443,7 +3443,7 @@
                 }
             ],
             "description": "M2IF library providing basic Magento 2 product link import functionality",
-            "time": "2019-12-18T13:54:47+00:00"
+            "time": "2020-01-03T14:53:44+00:00"
         },
         {
             "name": "techdivision/import-product-link-ee",
@@ -3451,12 +3451,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-product-link-ee.git",
-                "reference": "88c211214e1eeb3cb8bbf2f3a1d9a1bf4d6d186b"
+                "reference": "601bb0e52cfa01140e17fe8679d7674d4eef0210"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-product-link-ee/zipball/88c211214e1eeb3cb8bbf2f3a1d9a1bf4d6d186b",
-                "reference": "88c211214e1eeb3cb8bbf2f3a1d9a1bf4d6d186b",
+                "url": "https://api.github.com/repos/techdivision/import-product-link-ee/zipball/601bb0e52cfa01140e17fe8679d7674d4eef0210",
+                "reference": "601bb0e52cfa01140e17fe8679d7674d4eef0210",
                 "shasum": ""
             },
             "require": {
@@ -3473,9 +3473,9 @@
                 "mikey179/vfsstream": "~1.0",
                 "pdepend/pdepend": "2.5.2",
                 "phpmd/phpmd": "@stable",
-                "phpunit/phpunit": "~5.0",
+                "phpunit/phpunit": "~6.5.0",
                 "sebastian/phpcpd": "~3.0.0",
-                "squizlabs/php_codesniffer": "3.3.1",
+                "squizlabs/php_codesniffer": "~3.4.0",
                 "symfony/http-kernel": "~3.4"
             },
             "type": "library",
@@ -3499,7 +3499,7 @@
                 }
             ],
             "description": "M2IF library providing basic Magento 2 EE product link import functionality",
-            "time": "2019-12-18T15:39:32+00:00"
+            "time": "2020-01-03T14:59:47+00:00"
         },
         {
             "name": "techdivision/import-product-media",
@@ -3507,12 +3507,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-product-media.git",
-                "reference": "a94fdb71ab409d8b1ffa80b6a2b482bfb99d6400"
+                "reference": "51db9bd3d0f209c3a3311249454ec6a1a55e768d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-product-media/zipball/a94fdb71ab409d8b1ffa80b6a2b482bfb99d6400",
-                "reference": "a94fdb71ab409d8b1ffa80b6a2b482bfb99d6400",
+                "url": "https://api.github.com/repos/techdivision/import-product-media/zipball/51db9bd3d0f209c3a3311249454ec6a1a55e768d",
+                "reference": "51db9bd3d0f209c3a3311249454ec6a1a55e768d",
                 "shasum": ""
             },
             "require": {
@@ -3526,9 +3526,9 @@
                 "mikey179/vfsstream": "~1.0",
                 "pdepend/pdepend": "2.5.2",
                 "phpmd/phpmd": "@stable",
-                "phpunit/phpunit": "~5.0",
+                "phpunit/phpunit": "~6.5.0",
                 "sebastian/phpcpd": "~3.0.0",
-                "squizlabs/php_codesniffer": "3.3.1",
+                "squizlabs/php_codesniffer": "~3.4.0",
                 "symfony/http-kernel": "~3.4"
             },
             "type": "library",
@@ -3552,7 +3552,7 @@
                 }
             ],
             "description": "M2IF library providing basic Magento 2 product media import functionality",
-            "time": "2019-12-18T13:57:10+00:00"
+            "time": "2020-01-03T15:05:14+00:00"
         },
         {
             "name": "techdivision/import-product-media-ee",
@@ -3560,12 +3560,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-product-media-ee.git",
-                "reference": "d0a1710d359613888b7656535bf17526cac7d383"
+                "reference": "726d234a2af26ae3a0dab443905b4cf3ac216d5b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-product-media-ee/zipball/d0a1710d359613888b7656535bf17526cac7d383",
-                "reference": "d0a1710d359613888b7656535bf17526cac7d383",
+                "url": "https://api.github.com/repos/techdivision/import-product-media-ee/zipball/726d234a2af26ae3a0dab443905b4cf3ac216d5b",
+                "reference": "726d234a2af26ae3a0dab443905b4cf3ac216d5b",
                 "shasum": ""
             },
             "require": {
@@ -3582,9 +3582,9 @@
                 "mikey179/vfsstream": "~1.0",
                 "pdepend/pdepend": "2.5.2",
                 "phpmd/phpmd": "@stable",
-                "phpunit/phpunit": "~5.0",
+                "phpunit/phpunit": "~6.5.0",
                 "sebastian/phpcpd": "~3.0.0",
-                "squizlabs/php_codesniffer": "3.3.1",
+                "squizlabs/php_codesniffer": "~3.4.0",
                 "symfony/http-kernel": "~3.4"
             },
             "type": "library",
@@ -3608,7 +3608,7 @@
                 }
             ],
             "description": "M2IF library providing basic Magento 2 EE product media import functionality",
-            "time": "2019-12-18T15:40:06+00:00"
+            "time": "2020-01-03T15:07:36+00:00"
         },
         {
             "name": "techdivision/import-product-msi",
@@ -3616,12 +3616,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-product-msi.git",
-                "reference": "d321203b595751eaa712f7d3e617892d24f54224"
+                "reference": "25119c7f069f5c4a17d32827e242d4fe4c8b6e7d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-product-msi/zipball/d321203b595751eaa712f7d3e617892d24f54224",
-                "reference": "d321203b595751eaa712f7d3e617892d24f54224",
+                "url": "https://api.github.com/repos/techdivision/import-product-msi/zipball/25119c7f069f5c4a17d32827e242d4fe4c8b6e7d",
+                "reference": "25119c7f069f5c4a17d32827e242d4fe4c8b6e7d",
                 "shasum": ""
             },
             "require": {
@@ -3635,9 +3635,9 @@
                 "mikey179/vfsstream": "~1.0",
                 "pdepend/pdepend": "2.5.2",
                 "phpmd/phpmd": "@stable",
-                "phpunit/phpunit": "~5.0",
+                "phpunit/phpunit": "~6.5.0",
                 "sebastian/phpcpd": "~3.0.0",
-                "squizlabs/php_codesniffer": "3.3.1",
+                "squizlabs/php_codesniffer": "~3.4.0",
                 "symfony/http-kernel": "~3.4"
             },
             "type": "library",
@@ -3661,7 +3661,7 @@
                 }
             ],
             "description": "M2IF library providing basic Magento 2 MSI product stock import functionality",
-            "time": "2019-12-17T08:40:35+00:00"
+            "time": "2020-01-03T15:09:36+00:00"
         },
         {
             "name": "techdivision/import-product-tier-price",
@@ -3669,12 +3669,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-product-tier-price.git",
-                "reference": "cc561e25ec24eb925b5309626fceb6109add3cf0"
+                "reference": "f4b552b5156986939178f8b93e94bfb9ebde8d42"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-product-tier-price/zipball/cc561e25ec24eb925b5309626fceb6109add3cf0",
-                "reference": "cc561e25ec24eb925b5309626fceb6109add3cf0",
+                "url": "https://api.github.com/repos/techdivision/import-product-tier-price/zipball/f4b552b5156986939178f8b93e94bfb9ebde8d42",
+                "reference": "f4b552b5156986939178f8b93e94bfb9ebde8d42",
                 "shasum": ""
             },
             "require": {
@@ -3688,9 +3688,9 @@
                 "mikey179/vfsstream": "~1.0",
                 "pdepend/pdepend": "2.5.2",
                 "phpmd/phpmd": "@stable",
-                "phpunit/phpunit": "~5.0",
+                "phpunit/phpunit": "~6.5.0",
                 "sebastian/phpcpd": "~3.0.0",
-                "squizlabs/php_codesniffer": "3.3.1",
+                "squizlabs/php_codesniffer": "~3.4.0",
                 "symfony/http-kernel": "~3.4"
             },
             "type": "library",
@@ -3718,7 +3718,7 @@
                 }
             ],
             "description": "M2IF library providing basic Magento 2 product tier price import functionality",
-            "time": "2019-12-17T08:40:51+00:00"
+            "time": "2020-01-03T15:13:39+00:00"
         },
         {
             "name": "techdivision/import-product-url-rewrite",
@@ -3726,12 +3726,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-product-url-rewrite.git",
-                "reference": "41e5d470b587f056d75a5c9f988ddfbdda0fdf3c"
+                "reference": "1be283c544242313acf5da1fdd024813a3d1d6ff"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-product-url-rewrite/zipball/41e5d470b587f056d75a5c9f988ddfbdda0fdf3c",
-                "reference": "41e5d470b587f056d75a5c9f988ddfbdda0fdf3c",
+                "url": "https://api.github.com/repos/techdivision/import-product-url-rewrite/zipball/1be283c544242313acf5da1fdd024813a3d1d6ff",
+                "reference": "1be283c544242313acf5da1fdd024813a3d1d6ff",
                 "shasum": ""
             },
             "require": {
@@ -3745,9 +3745,9 @@
                 "mikey179/vfsstream": "~1.0",
                 "pdepend/pdepend": "2.5.2",
                 "phpmd/phpmd": "@stable",
-                "phpunit/phpunit": "~5.0",
+                "phpunit/phpunit": "~6.5.0",
                 "sebastian/phpcpd": "~3.0.0",
-                "squizlabs/php_codesniffer": "3.3.1",
+                "squizlabs/php_codesniffer": "~3.4.0",
                 "symfony/http-kernel": "~3.4"
             },
             "type": "library",
@@ -3771,7 +3771,7 @@
                 }
             ],
             "description": "M2IF library providing basic Magento 2 product URL rewrite import functionality",
-            "time": "2019-09-19T14:14:45+00:00"
+            "time": "2020-01-03T15:17:06+00:00"
         },
         {
             "name": "techdivision/import-product-variant",
@@ -3779,12 +3779,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-product-variant.git",
-                "reference": "3e6fd4349d38581708a183d79f69509b0117f5b3"
+                "reference": "dbb391c2963bf9224f735b53f308e2519632efa0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-product-variant/zipball/3e6fd4349d38581708a183d79f69509b0117f5b3",
-                "reference": "3e6fd4349d38581708a183d79f69509b0117f5b3",
+                "url": "https://api.github.com/repos/techdivision/import-product-variant/zipball/dbb391c2963bf9224f735b53f308e2519632efa0",
+                "reference": "dbb391c2963bf9224f735b53f308e2519632efa0",
                 "shasum": ""
             },
             "require": {
@@ -3798,9 +3798,9 @@
                 "mikey179/vfsstream": "~1.0",
                 "pdepend/pdepend": "2.5.2",
                 "phpmd/phpmd": "@stable",
-                "phpunit/phpunit": "~5.0",
+                "phpunit/phpunit": "~6.5.0",
                 "sebastian/phpcpd": "~3.0.0",
-                "squizlabs/php_codesniffer": "3.3.1",
+                "squizlabs/php_codesniffer": "~3.4.0",
                 "symfony/http-kernel": "~3.4"
             },
             "type": "library",
@@ -3824,7 +3824,7 @@
                 }
             ],
             "description": "M2IF library providing basic Magento 2 configurable product import functionality",
-            "time": "2019-12-18T15:49:55+00:00"
+            "time": "2020-01-03T15:18:29+00:00"
         },
         {
             "name": "techdivision/import-product-variant-ee",
@@ -3832,12 +3832,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-product-variant-ee.git",
-                "reference": "7a372fed1990200e690882a39a136f5be804fcef"
+                "reference": "20859c9c1035d13a045f543ce1ec204331ee53db"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-product-variant-ee/zipball/7a372fed1990200e690882a39a136f5be804fcef",
-                "reference": "7a372fed1990200e690882a39a136f5be804fcef",
+                "url": "https://api.github.com/repos/techdivision/import-product-variant-ee/zipball/20859c9c1035d13a045f543ce1ec204331ee53db",
+                "reference": "20859c9c1035d13a045f543ce1ec204331ee53db",
                 "shasum": ""
             },
             "require": {
@@ -3854,9 +3854,9 @@
                 "mikey179/vfsstream": "~1.0",
                 "pdepend/pdepend": "2.5.2",
                 "phpmd/phpmd": "@stable",
-                "phpunit/phpunit": "~5.0",
+                "phpunit/phpunit": "~6.5.0",
                 "sebastian/phpcpd": "~3.0.0",
-                "squizlabs/php_codesniffer": "3.3.1",
+                "squizlabs/php_codesniffer": "~3.4.0",
                 "symfony/http-kernel": "~3.4"
             },
             "type": "library",
@@ -3880,7 +3880,7 @@
                 }
             ],
             "description": "M2IF library providing basic Magento 2 EE configurable product import functionality",
-            "time": "2019-09-18T14:43:01+00:00"
+            "time": "2020-01-03T15:20:34+00:00"
         },
         {
             "name": "zendframework/zend-filter",
@@ -5732,6 +5732,108 @@
             "time": "2017-12-13T13:21:38+00:00"
         },
         {
+            "name": "phar-io/manifest",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/phar-io/manifest.git",
+                "reference": "2df402786ab5368a0169091f61a7c1e0eb6852d0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/phar-io/manifest/zipball/2df402786ab5368a0169091f61a7c1e0eb6852d0",
+                "reference": "2df402786ab5368a0169091f61a7c1e0eb6852d0",
+                "shasum": ""
+            },
+            "require": {
+                "ext-dom": "*",
+                "ext-phar": "*",
+                "phar-io/version": "^1.0.1",
+                "php": "^5.6 || ^7.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "classmap": [
+                    "src/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Arne Blankerts",
+                    "email": "arne@blankerts.de",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Sebastian Heuer",
+                    "email": "sebastian@phpeople.de",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Sebastian Bergmann",
+                    "email": "sebastian@phpunit.de",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Component for reading phar.io manifest information from a PHP Archive (PHAR)",
+            "time": "2017-03-05T18:14:27+00:00"
+        },
+        {
+            "name": "phar-io/version",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/phar-io/version.git",
+                "reference": "a70c0ced4be299a63d32fa96d9281d03e94041df"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/phar-io/version/zipball/a70c0ced4be299a63d32fa96d9281d03e94041df",
+                "reference": "a70c0ced4be299a63d32fa96d9281d03e94041df",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^5.6 || ^7.0"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "src/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Arne Blankerts",
+                    "email": "arne@blankerts.de",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Sebastian Heuer",
+                    "email": "sebastian@phpeople.de",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Sebastian Bergmann",
+                    "email": "sebastian@phpunit.de",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Library for handling version information and constraints",
+            "time": "2017-03-05T17:38:23+00:00"
+        },
+        {
             "name": "phpdocumentor/reflection-common",
             "version": "2.0.0",
             "source": {
@@ -6015,40 +6117,40 @@
         },
         {
             "name": "phpunit/php-code-coverage",
-            "version": "4.0.8",
+            "version": "5.3.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-code-coverage.git",
-                "reference": "ef7b2f56815df854e66ceaee8ebe9393ae36a40d"
+                "reference": "c89677919c5dd6d3b3852f230a663118762218ac"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/ef7b2f56815df854e66ceaee8ebe9393ae36a40d",
-                "reference": "ef7b2f56815df854e66ceaee8ebe9393ae36a40d",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/c89677919c5dd6d3b3852f230a663118762218ac",
+                "reference": "c89677919c5dd6d3b3852f230a663118762218ac",
                 "shasum": ""
             },
             "require": {
                 "ext-dom": "*",
                 "ext-xmlwriter": "*",
-                "php": "^5.6 || ^7.0",
-                "phpunit/php-file-iterator": "^1.3",
-                "phpunit/php-text-template": "^1.2",
-                "phpunit/php-token-stream": "^1.4.2 || ^2.0",
-                "sebastian/code-unit-reverse-lookup": "^1.0",
-                "sebastian/environment": "^1.3.2 || ^2.0",
-                "sebastian/version": "^1.0 || ^2.0"
+                "php": "^7.0",
+                "phpunit/php-file-iterator": "^1.4.2",
+                "phpunit/php-text-template": "^1.2.1",
+                "phpunit/php-token-stream": "^2.0.1",
+                "sebastian/code-unit-reverse-lookup": "^1.0.1",
+                "sebastian/environment": "^3.0",
+                "sebastian/version": "^2.0.1",
+                "theseer/tokenizer": "^1.1"
             },
             "require-dev": {
-                "ext-xdebug": "^2.1.4",
-                "phpunit/phpunit": "^5.7"
+                "phpunit/phpunit": "^6.0"
             },
             "suggest": {
-                "ext-xdebug": "^2.5.1"
+                "ext-xdebug": "^2.5.5"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "4.0.x-dev"
+                    "dev-master": "5.3.x-dev"
                 }
             },
             "autoload": {
@@ -6063,7 +6165,7 @@
             "authors": [
                 {
                     "name": "Sebastian Bergmann",
-                    "email": "sb@sebastian-bergmann.de",
+                    "email": "sebastian@phpunit.de",
                     "role": "lead"
                 }
             ],
@@ -6074,7 +6176,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2017-04-02T07:44:40+00:00"
+            "time": "2018-04-06T15:36:58+00:00"
         },
         {
             "name": "phpunit/php-file-iterator",
@@ -6264,16 +6366,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "5.7.27",
+            "version": "6.5.14",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "b7803aeca3ccb99ad0a506fa80b64cd6a56bbc0c"
+                "reference": "bac23fe7ff13dbdb461481f706f0e9fe746334b7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/b7803aeca3ccb99ad0a506fa80b64cd6a56bbc0c",
-                "reference": "b7803aeca3ccb99ad0a506fa80b64cd6a56bbc0c",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/bac23fe7ff13dbdb461481f706f0e9fe746334b7",
+                "reference": "bac23fe7ff13dbdb461481f706f0e9fe746334b7",
                 "shasum": ""
             },
             "require": {
@@ -6282,33 +6384,35 @@
                 "ext-libxml": "*",
                 "ext-mbstring": "*",
                 "ext-xml": "*",
-                "myclabs/deep-copy": "~1.3",
-                "php": "^5.6 || ^7.0",
-                "phpspec/prophecy": "^1.6.2",
-                "phpunit/php-code-coverage": "^4.0.4",
-                "phpunit/php-file-iterator": "~1.4",
-                "phpunit/php-text-template": "~1.2",
-                "phpunit/php-timer": "^1.0.6",
-                "phpunit/phpunit-mock-objects": "^3.2",
-                "sebastian/comparator": "^1.2.4",
-                "sebastian/diff": "^1.4.3",
-                "sebastian/environment": "^1.3.4 || ^2.0",
-                "sebastian/exporter": "~2.0",
-                "sebastian/global-state": "^1.1",
-                "sebastian/object-enumerator": "~2.0",
-                "sebastian/resource-operations": "~1.0",
-                "sebastian/version": "^1.0.6|^2.0.1",
-                "symfony/yaml": "~2.1|~3.0|~4.0"
+                "myclabs/deep-copy": "^1.6.1",
+                "phar-io/manifest": "^1.0.1",
+                "phar-io/version": "^1.0",
+                "php": "^7.0",
+                "phpspec/prophecy": "^1.7",
+                "phpunit/php-code-coverage": "^5.3",
+                "phpunit/php-file-iterator": "^1.4.3",
+                "phpunit/php-text-template": "^1.2.1",
+                "phpunit/php-timer": "^1.0.9",
+                "phpunit/phpunit-mock-objects": "^5.0.9",
+                "sebastian/comparator": "^2.1",
+                "sebastian/diff": "^2.0",
+                "sebastian/environment": "^3.1",
+                "sebastian/exporter": "^3.1",
+                "sebastian/global-state": "^2.0",
+                "sebastian/object-enumerator": "^3.0.3",
+                "sebastian/resource-operations": "^1.0",
+                "sebastian/version": "^2.0.1"
             },
             "conflict": {
-                "phpdocumentor/reflection-docblock": "3.0.2"
+                "phpdocumentor/reflection-docblock": "3.0.2",
+                "phpunit/dbunit": "<3.0"
             },
             "require-dev": {
                 "ext-pdo": "*"
             },
             "suggest": {
                 "ext-xdebug": "*",
-                "phpunit/php-invoker": "~1.1"
+                "phpunit/php-invoker": "^1.1"
             },
             "bin": [
                 "phpunit"
@@ -6316,7 +6420,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "5.7.x-dev"
+                    "dev-master": "6.5.x-dev"
                 }
             },
             "autoload": {
@@ -6342,33 +6446,33 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2018-02-01T05:50:59+00:00"
+            "time": "2019-02-01T05:22:47+00:00"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
-            "version": "3.4.4",
+            "version": "5.0.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit-mock-objects.git",
-                "reference": "a23b761686d50a560cc56233b9ecf49597cc9118"
+                "reference": "cd1cf05c553ecfec36b170070573e540b67d3f1f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit-mock-objects/zipball/a23b761686d50a560cc56233b9ecf49597cc9118",
-                "reference": "a23b761686d50a560cc56233b9ecf49597cc9118",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit-mock-objects/zipball/cd1cf05c553ecfec36b170070573e540b67d3f1f",
+                "reference": "cd1cf05c553ecfec36b170070573e540b67d3f1f",
                 "shasum": ""
             },
             "require": {
-                "doctrine/instantiator": "^1.0.2",
-                "php": "^5.6 || ^7.0",
-                "phpunit/php-text-template": "^1.2",
-                "sebastian/exporter": "^1.2 || ^2.0"
+                "doctrine/instantiator": "^1.0.5",
+                "php": "^7.0",
+                "phpunit/php-text-template": "^1.2.1",
+                "sebastian/exporter": "^3.1"
             },
             "conflict": {
-                "phpunit/phpunit": "<5.4.0"
+                "phpunit/phpunit": "<6.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "^5.4"
+                "phpunit/phpunit": "^6.5.11"
             },
             "suggest": {
                 "ext-soap": "*"
@@ -6376,7 +6480,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "3.2.x-dev"
+                    "dev-master": "5.0.x-dev"
                 }
             },
             "autoload": {
@@ -6391,7 +6495,7 @@
             "authors": [
                 {
                     "name": "Sebastian Bergmann",
-                    "email": "sb@sebastian-bergmann.de",
+                    "email": "sebastian@phpunit.de",
                     "role": "lead"
                 }
             ],
@@ -6402,7 +6506,7 @@
                 "xunit"
             ],
             "abandoned": true,
-            "time": "2017-06-30T09:13:00+00:00"
+            "time": "2018-08-09T05:50:03+00:00"
         },
         {
             "name": "react/promise",
@@ -6497,30 +6601,30 @@
         },
         {
             "name": "sebastian/comparator",
-            "version": "1.2.4",
+            "version": "2.1.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/comparator.git",
-                "reference": "2b7424b55f5047b47ac6e5ccb20b2aea4011d9be"
+                "reference": "34369daee48eafb2651bea869b4b15d75ccc35f9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/comparator/zipball/2b7424b55f5047b47ac6e5ccb20b2aea4011d9be",
-                "reference": "2b7424b55f5047b47ac6e5ccb20b2aea4011d9be",
+                "url": "https://api.github.com/repos/sebastianbergmann/comparator/zipball/34369daee48eafb2651bea869b4b15d75ccc35f9",
+                "reference": "34369daee48eafb2651bea869b4b15d75ccc35f9",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.3",
-                "sebastian/diff": "~1.2",
-                "sebastian/exporter": "~1.2 || ~2.0"
+                "php": "^7.0",
+                "sebastian/diff": "^2.0 || ^3.0",
+                "sebastian/exporter": "^3.1"
             },
             "require-dev": {
-                "phpunit/phpunit": "~4.4"
+                "phpunit/phpunit": "^6.4"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.2.x-dev"
+                    "dev-master": "2.1.x-dev"
                 }
             },
             "autoload": {
@@ -6551,38 +6655,38 @@
                 }
             ],
             "description": "Provides the functionality to compare PHP values for equality",
-            "homepage": "http://www.github.com/sebastianbergmann/comparator",
+            "homepage": "https://github.com/sebastianbergmann/comparator",
             "keywords": [
                 "comparator",
                 "compare",
                 "equality"
             ],
-            "time": "2017-01-29T09:50:25+00:00"
+            "time": "2018-02-01T13:46:46+00:00"
         },
         {
             "name": "sebastian/diff",
-            "version": "1.4.3",
+            "version": "2.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/diff.git",
-                "reference": "7f066a26a962dbe58ddea9f72a4e82874a3975a4"
+                "reference": "347c1d8b49c5c3ee30c7040ea6fc446790e6bddd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/diff/zipball/7f066a26a962dbe58ddea9f72a4e82874a3975a4",
-                "reference": "7f066a26a962dbe58ddea9f72a4e82874a3975a4",
+                "url": "https://api.github.com/repos/sebastianbergmann/diff/zipball/347c1d8b49c5c3ee30c7040ea6fc446790e6bddd",
+                "reference": "347c1d8b49c5c3ee30c7040ea6fc446790e6bddd",
                 "shasum": ""
             },
             "require": {
-                "php": "^5.3.3 || ^7.0"
+                "php": "^7.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "^4.8.35 || ^5.7 || ^6.0"
+                "phpunit/phpunit": "^6.2"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.4-dev"
+                    "dev-master": "2.0-dev"
                 }
             },
             "autoload": {
@@ -6609,32 +6713,32 @@
             "keywords": [
                 "diff"
             ],
-            "time": "2017-05-22T07:24:03+00:00"
+            "time": "2017-08-03T08:09:46+00:00"
         },
         {
             "name": "sebastian/environment",
-            "version": "2.0.0",
+            "version": "3.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/environment.git",
-                "reference": "5795ffe5dc5b02460c3e34222fee8cbe245d8fac"
+                "reference": "cd0871b3975fb7fc44d11314fd1ee20925fce4f5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/environment/zipball/5795ffe5dc5b02460c3e34222fee8cbe245d8fac",
-                "reference": "5795ffe5dc5b02460c3e34222fee8cbe245d8fac",
+                "url": "https://api.github.com/repos/sebastianbergmann/environment/zipball/cd0871b3975fb7fc44d11314fd1ee20925fce4f5",
+                "reference": "cd0871b3975fb7fc44d11314fd1ee20925fce4f5",
                 "shasum": ""
             },
             "require": {
-                "php": "^5.6 || ^7.0"
+                "php": "^7.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "^5.0"
+                "phpunit/phpunit": "^6.1"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.0.x-dev"
+                    "dev-master": "3.1.x-dev"
                 }
             },
             "autoload": {
@@ -6659,34 +6763,34 @@
                 "environment",
                 "hhvm"
             ],
-            "time": "2016-11-26T07:53:53+00:00"
+            "time": "2017-07-01T08:51:00+00:00"
         },
         {
             "name": "sebastian/exporter",
-            "version": "2.0.0",
+            "version": "3.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/exporter.git",
-                "reference": "ce474bdd1a34744d7ac5d6aad3a46d48d9bac4c4"
+                "reference": "68609e1261d215ea5b21b7987539cbfbe156ec3e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/exporter/zipball/ce474bdd1a34744d7ac5d6aad3a46d48d9bac4c4",
-                "reference": "ce474bdd1a34744d7ac5d6aad3a46d48d9bac4c4",
+                "url": "https://api.github.com/repos/sebastianbergmann/exporter/zipball/68609e1261d215ea5b21b7987539cbfbe156ec3e",
+                "reference": "68609e1261d215ea5b21b7987539cbfbe156ec3e",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.3",
-                "sebastian/recursion-context": "~2.0"
+                "php": "^7.0",
+                "sebastian/recursion-context": "^3.0"
             },
             "require-dev": {
                 "ext-mbstring": "*",
-                "phpunit/phpunit": "~4.4"
+                "phpunit/phpunit": "^6.0"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.0.x-dev"
+                    "dev-master": "3.1.x-dev"
                 }
             },
             "autoload": {
@@ -6700,6 +6804,10 @@
             ],
             "authors": [
                 {
+                    "name": "Sebastian Bergmann",
+                    "email": "sebastian@phpunit.de"
+                },
+                {
                     "name": "Jeff Welch",
                     "email": "whatthejeff@gmail.com"
                 },
@@ -6708,16 +6816,12 @@
                     "email": "github@wallbash.com"
                 },
                 {
-                    "name": "Bernhard Schussek",
-                    "email": "bschussek@2bepublished.at"
-                },
-                {
-                    "name": "Sebastian Bergmann",
-                    "email": "sebastian@phpunit.de"
-                },
-                {
                     "name": "Adam Harvey",
                     "email": "aharvey@php.net"
+                },
+                {
+                    "name": "Bernhard Schussek",
+                    "email": "bschussek@gmail.com"
                 }
             ],
             "description": "Provides the functionality to export PHP variables for visualization",
@@ -6726,7 +6830,7 @@
                 "export",
                 "exporter"
             ],
-            "time": "2016-11-19T08:54:04+00:00"
+            "time": "2019-09-14T09:02:43+00:00"
         },
         {
             "name": "sebastian/finder-facade",
@@ -6769,23 +6873,23 @@
         },
         {
             "name": "sebastian/global-state",
-            "version": "1.1.1",
+            "version": "2.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/global-state.git",
-                "reference": "bc37d50fea7d017d3d340f230811c9f1d7280af4"
+                "reference": "e8ba02eed7bbbb9e59e43dedd3dddeff4a56b0c4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/global-state/zipball/bc37d50fea7d017d3d340f230811c9f1d7280af4",
-                "reference": "bc37d50fea7d017d3d340f230811c9f1d7280af4",
+                "url": "https://api.github.com/repos/sebastianbergmann/global-state/zipball/e8ba02eed7bbbb9e59e43dedd3dddeff4a56b0c4",
+                "reference": "e8ba02eed7bbbb9e59e43dedd3dddeff4a56b0c4",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.3"
+                "php": "^7.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "~4.2"
+                "phpunit/phpunit": "^6.0"
             },
             "suggest": {
                 "ext-uopz": "*"
@@ -6793,7 +6897,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.0-dev"
+                    "dev-master": "2.0-dev"
                 }
             },
             "autoload": {
@@ -6816,33 +6920,34 @@
             "keywords": [
                 "global state"
             ],
-            "time": "2015-10-12T03:26:01+00:00"
+            "time": "2017-04-27T15:39:26+00:00"
         },
         {
             "name": "sebastian/object-enumerator",
-            "version": "2.0.1",
+            "version": "3.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/object-enumerator.git",
-                "reference": "1311872ac850040a79c3c058bea3e22d0f09cbb7"
+                "reference": "7cfd9e65d11ffb5af41198476395774d4c8a84c5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/object-enumerator/zipball/1311872ac850040a79c3c058bea3e22d0f09cbb7",
-                "reference": "1311872ac850040a79c3c058bea3e22d0f09cbb7",
+                "url": "https://api.github.com/repos/sebastianbergmann/object-enumerator/zipball/7cfd9e65d11ffb5af41198476395774d4c8a84c5",
+                "reference": "7cfd9e65d11ffb5af41198476395774d4c8a84c5",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.6",
-                "sebastian/recursion-context": "~2.0"
+                "php": "^7.0",
+                "sebastian/object-reflector": "^1.1.1",
+                "sebastian/recursion-context": "^3.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "~5"
+                "phpunit/phpunit": "^6.0"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.0.x-dev"
+                    "dev-master": "3.0.x-dev"
                 }
             },
             "autoload": {
@@ -6862,7 +6967,52 @@
             ],
             "description": "Traverses array structures and object graphs to enumerate all referenced objects",
             "homepage": "https://github.com/sebastianbergmann/object-enumerator/",
-            "time": "2017-02-18T15:18:39+00:00"
+            "time": "2017-08-03T12:35:26+00:00"
+        },
+        {
+            "name": "sebastian/object-reflector",
+            "version": "1.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sebastianbergmann/object-reflector.git",
+                "reference": "773f97c67f28de00d397be301821b06708fca0be"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sebastianbergmann/object-reflector/zipball/773f97c67f28de00d397be301821b06708fca0be",
+                "reference": "773f97c67f28de00d397be301821b06708fca0be",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^6.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.1-dev"
+                }
+            },
+            "autoload": {
+                "classmap": [
+                    "src/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Sebastian Bergmann",
+                    "email": "sebastian@phpunit.de"
+                }
+            ],
+            "description": "Allows reflection of object attributes, including inherited and non-public ones",
+            "homepage": "https://github.com/sebastianbergmann/object-reflector/",
+            "time": "2017-03-29T09:07:27+00:00"
         },
         {
             "name": "sebastian/phpcpd",
@@ -6916,28 +7066,28 @@
         },
         {
             "name": "sebastian/recursion-context",
-            "version": "2.0.0",
+            "version": "3.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/recursion-context.git",
-                "reference": "2c3ba150cbec723aa057506e73a8d33bdb286c9a"
+                "reference": "5b0cd723502bac3b006cbf3dbf7a1e3fcefe4fa8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/recursion-context/zipball/2c3ba150cbec723aa057506e73a8d33bdb286c9a",
-                "reference": "2c3ba150cbec723aa057506e73a8d33bdb286c9a",
+                "url": "https://api.github.com/repos/sebastianbergmann/recursion-context/zipball/5b0cd723502bac3b006cbf3dbf7a1e3fcefe4fa8",
+                "reference": "5b0cd723502bac3b006cbf3dbf7a1e3fcefe4fa8",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.3"
+                "php": "^7.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "~4.4"
+                "phpunit/phpunit": "^6.0"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.0.x-dev"
+                    "dev-master": "3.0.x-dev"
                 }
             },
             "autoload": {
@@ -6965,7 +7115,7 @@
             ],
             "description": "Provides functionality to recursively process PHP variables",
             "homepage": "http://www.github.com/sebastianbergmann/recursion-context",
-            "time": "2016-11-19T07:33:16+00:00"
+            "time": "2017-03-03T06:23:57+00:00"
         },
         {
             "name": "sebastian/resource-operations",
@@ -7054,16 +7204,16 @@
         },
         {
             "name": "squizlabs/php_codesniffer",
-            "version": "3.3.1",
+            "version": "3.4.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/squizlabs/PHP_CodeSniffer.git",
-                "reference": "628a481780561150481a9ec74709092b9759b3ec"
+                "reference": "b8a7362af1cc1aadb5bd36c3defc4dda2cf5f0a8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/squizlabs/PHP_CodeSniffer/zipball/628a481780561150481a9ec74709092b9759b3ec",
-                "reference": "628a481780561150481a9ec74709092b9759b3ec",
+                "url": "https://api.github.com/repos/squizlabs/PHP_CodeSniffer/zipball/b8a7362af1cc1aadb5bd36c3defc4dda2cf5f0a8",
+                "reference": "b8a7362af1cc1aadb5bd36c3defc4dda2cf5f0a8",
                 "shasum": ""
             },
             "require": {
@@ -7096,12 +7246,12 @@
                 }
             ],
             "description": "PHP_CodeSniffer tokenizes PHP, JavaScript and CSS files and detects violations of a defined set of coding standards.",
-            "homepage": "http://www.squizlabs.com/php-codesniffer",
+            "homepage": "https://github.com/squizlabs/PHP_CodeSniffer",
             "keywords": [
                 "phpcs",
                 "standards"
             ],
-            "time": "2018-07-26T23:47:18+00:00"
+            "time": "2019-04-10T23:49:02+00:00"
         },
         {
             "name": "symfony/browser-kit",
@@ -8674,6 +8824,46 @@
             "description": "The classes contained within this repository extend the standard DOM to use exceptions at all occasions of errors instead of PHP warnings or notices. They also add various custom methods and shortcuts for convenience and to simplify the usage of DOM.",
             "homepage": "https://github.com/theseer/fDOMDocument",
             "time": "2017-06-30T11:53:12+00:00"
+        },
+        {
+            "name": "theseer/tokenizer",
+            "version": "1.1.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/theseer/tokenizer.git",
+                "reference": "11336f6f84e16a720dae9d8e6ed5019efa85a0f9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/theseer/tokenizer/zipball/11336f6f84e16a720dae9d8e6ed5019efa85a0f9",
+                "reference": "11336f6f84e16a720dae9d8e6ed5019efa85a0f9",
+                "shasum": ""
+            },
+            "require": {
+                "ext-dom": "*",
+                "ext-tokenizer": "*",
+                "ext-xmlwriter": "*",
+                "php": "^7.0"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "src/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Arne Blankerts",
+                    "email": "arne@blankerts.de",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A small library for converting tokenized PHP source code into XML and potentially other formats",
+            "time": "2019-06-13T22:48:21+00:00"
         },
         {
             "name": "webmozart/assert",

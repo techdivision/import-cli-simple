@@ -8,7 +8,7 @@ Feature: Delete Products
     - Filename starts with "product-import_*"
     - The files are available in folder "var/importexport"
     
-Scenario: Add/Update Products
+Scenario: Delete Products
   Given files with products to be deleted are available
     And the product deletion process has been started
    When the product deletion process has been finished

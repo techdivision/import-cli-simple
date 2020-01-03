@@ -1,10 +1,11 @@
 <?php
 
+use PHPUnit\Framework\Assert;
 use Behat\Behat\Context\Context;
 use Behat\Behat\Hook\Scope\AfterScenarioScope;
 use Behat\Behat\Hook\Scope\BeforeScenarioScope;
-use Behat\Behat\Tester\Exception\PendingException;
 use TechDivision\Import\Adapter\PhpFilesystemAdapter;
+use Behat\Symfony2Extension\Context\KernelDictionary;
 use Behat\Symfony2Extension\Context\KernelAwareContext;
 
 /**
@@ -13,7 +14,10 @@ use Behat\Symfony2Extension\Context\KernelAwareContext;
 class ConsoleContext implements Context, KernelAwareContext
 {
 
-    use Behat\Symfony2Extension\Context\KernelDictionary;
+    /**
+     * @var \Behat\Symfony2Extension\Context\KernelDictionary
+     */
+    use KernelDictionary;
 
     /**
      * The Magento 2 installation directory.
@@ -105,7 +109,7 @@ class ConsoleContext implements Context, KernelAwareContext
     public function theCommandHasBeenExecuted($arg1)
     {
         exec($this->appendInstallDir($arg1), $this->output, $this->exitCode);
-        PHPUnit_Framework_Assert::assertNotEquals(1, $this->exitCode);
+        Assert::assertNotEquals(1, $this->exitCode);
     }
 
     /**
@@ -114,7 +118,7 @@ class ConsoleContext implements Context, KernelAwareContext
     public function theMagentoCommandHasBeenExecuted($arg1)
     {
         exec($this->prependInstallDir($arg1), $this->output, $this->exitCode);
-        PHPUnit_Framework_Assert::assertNotEquals(1, $this->exitCode);
+        Assert::assertNotEquals(1, $this->exitCode);
     }
 
     /**
@@ -153,7 +157,7 @@ class ConsoleContext implements Context, KernelAwareContext
      */
     public function assertExitCode()
     {
-        PHPUnit_Framework_Assert::assertSame(0, $this->exitCode);
+        Assert::assertSame(0, $this->exitCode);
     }
 
     /**
@@ -161,7 +165,7 @@ class ConsoleContext implements Context, KernelAwareContext
      */
     public function assertMessage($arg1)
     {
-        PHPUnit_Framework_Assert::assertRegExp($arg1, array_pop($this->output));
+        Assert::assertRegExp($arg1, array_pop($this->output));
     }
 
     protected function appendInstallDir($cmd)

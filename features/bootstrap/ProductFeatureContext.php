@@ -1,5 +1,6 @@
 <?php
 
+use PHPUnit\Framework\Assert;
 use Behat\Behat\Context\Context;
 use Behat\Behat\Hook\Scope\BeforeScenarioScope;
 use TechDivision\Import\Utils\CommandNames;
@@ -42,12 +43,12 @@ class ProductFeatureContext implements Context
 
         /** @var \Behat\Mink\Element\NodeElement $title */
         $title = $this->featureContext->getSession()->getPage()->find('css', 'title');
-        PHPUnit_Framework_Assert::assertSame($arg1, $title->getText());
+        Assert::assertSame($arg1, $title->getText());
 
         if ($this->featureContext->getSession()->getStatusCode() === 200 && $arg2 !== null) {
             /** @var \Behat\Mink\Element\NodeElement $price */
             $price = $this->featureContext->getSession()->getPage()->find('xpath', '//*[@class="price"]');
-            PHPUnit_Framework_Assert::assertSame($arg2, $price->getText());
+            Assert::assertSame($arg2, $price->getText());
         }
     }
 
