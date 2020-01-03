@@ -294,7 +294,7 @@ class RoboFile extends \Robo\Tasks
         );
 
         foreach ($editions as $baseUrl => $installDir) {
-            $this->_exec(sprintf("BASE_URL=%s INSTALL_DIR=%s vendor/bin/behat --tags='@product&&@add-update'", $baseUrl, $installDir));
+            $this->_exec(sprintf("BASE_URL=%s INSTALL_DIR=%s vendor/bin/behat", $baseUrl, $installDir));
         }
     }
 

@@ -7,10 +7,13 @@ php:
  
 env:
   global:
-    - MAGENTO_INSTALL_VERSION=2.3.2
     - MAGENTO_BASE_URL=magento.test
     - MAGENTO_CONTAINER_NAME=magento
     - MAGENTO_IMAGE_NAME=techdivision/magento2-ce:${MAGENTO_INSTALL_VERSION}
+  jobs:
+    - MAGENTO_INSTALL_VERSION=2.2.9
+    - MAGENTO_INSTALL_VERSION=2.3.2
+    - MAGENTO_INSTALL_VERSION=2.3.3
 
 sudo: required
 
@@ -26,7 +29,7 @@ before_script:
 
 script:
   - docker run --rm -d --name ${MAGENTO_CONTAINER_NAME} -p 127.0.0.1:80:80 -p 127.0.0.1:443:443 -p 127.0.0.1:9306:3306 -e MAGENTO_BASE_URL=${MAGENTO_BASE_URL} ${MAGENTO_IMAGE_NAME}
-  - composer update
+  - COMPOSER_MEMORY_LIMIT=-1 travis_retry composer update --prefer-dist --no-interaction --optimize-autoloader
   - vendor/bin/robo run:tests-integration ${MAGENTO_CONTAINER_NAME} ${MAGENTO_BASE_URL}
   - vendor/bin/robo build
   - php ocular.phar code-coverage:upload --format=php-clover $TRAVIS_BUILD_DIR/target/reports/unit/clover.xml

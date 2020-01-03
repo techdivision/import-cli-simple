@@ -1,9 +1,9 @@
 default:
   extensions:
+    DMore\ChromeExtension\Behat\ServiceContainer\ChromeExtension: ~
     Behat\Symfony2Extension:
       kernel:
         class: TechDivision\Import\Cli\Simple\AppKernel
-    DMore\ChromeExtension\Behat\ServiceContainer\ChromeExtension: ~
     Behat\MinkExtension:
       browser_name: chrome
       sessions:
@@ -24,6 +24,7 @@ default:
        features: features/attribute
      contexts:
        - AttributeFeatureContext: ~
+       - AttributeSetFeatureContext: ~
        - ConsoleContext: ~
     category:
      paths:

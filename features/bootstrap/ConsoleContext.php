@@ -63,14 +63,14 @@ class ConsoleContext implements Context, KernelAwareContext
     {
     }
 
-    protected function appendInstallDir($cmd)
+    public function getExitCode()
     {
-        return sprintf('%s --installation-dir=%s', $cmd, $this->installDir);
+        return $this->exitCode;
     }
 
-    protected function prependInstallDir($cmd)
+    public function getOutput()
     {
-        return sprintf('%s/%s', $this->installDir, $cmd);
+        return $this->output;
     }
 
     /**
@@ -126,20 +126,51 @@ class ConsoleContext implements Context, KernelAwareContext
     }
 
     /**
-     * @Then all the data in the file :arg1 has been imported
+     * @Then a success message has to be rendered
      */
-    public function allTheDataInTheFileHasBeenImported2($arg1)
+    public function assertSuccessMessage()
     {
-        throw new PendingException();
+        $this->assertMessage('/Successfully executed command \w+:\w+:?\w+? with serial \w+-\w+-\w+-\w+-\w+ in \d+:\d+:\d+ s/');
     }
 
-    public function getExitCode()
+    /**
+     * @When the process has been finished
+     * @When the import process has been finished
+     * @When the deletion process has been finished
+     * @When the replacement process has been finished
+     * @When the attribute import process has been finished
+     * @When the attribute deletion process has been finished
+     * @When the attribute replacement process has been finished
+     * @When the attribute set import process has been finished
+     * @When the attribute set deletion process has been finished
+     * @When the attribute set replacement process has been finished
+     * @When the category import process has been finished
+     * @When the category deletion process has been finished
+     * @When the category replacement process has been finished
+     * @When the product import process has been finished
+     * @When the product deletion process has been finished
+     * @When the product replacement process has been finished
+     */
+    public function assertExitCode()
     {
-        return $this->exitCode;
+        PHPUnit_Framework_Assert::assertSame(0, $this->exitCode);
     }
 
-    public function getOutput()
+    /**
+     * @Then a message :arg1 has to be rendered
+     */
+    public function assertMessage($arg1)
     {
-        return $this->output;
+        PHPUnit_Framework_Assert::assertRegExp($arg1, array_pop($this->output));
+    }
+
+    protected function appendInstallDir($cmd)
+    {
+        return sprintf('%s --installation-dir=%s', $cmd, $this->installDir);
+    }
+
+    protected function prependInstallDir($cmd)
+    {
+        return sprintf('%s/%s', $this->installDir, $cmd);
     }
 }

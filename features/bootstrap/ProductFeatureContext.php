@@ -24,9 +24,11 @@ class ProductFeatureContext implements Context
     public function before(BeforeScenarioScope $scope)
     {
 
+        // load the environment
         /** @var Behat\Behat\Context\Environment\InitializedContextEnvironment $environment */
         $environment = $scope->getEnvironment();
 
+        // make the console and the feature context available
         $this->consoleContext = $environment->getContext(ConsoleContext::class);
         $this->featureContext = $environment->getContext(FeatureContext::class);
     }
@@ -51,6 +53,7 @@ class ProductFeatureContext implements Context
 
     /**
      * @Given files with products to be updated are available
+     * @Given files with products to be deleted are available
      */
     public function filesWithProductsToBeUpdatedAreAvailable()
     {
@@ -63,46 +66,42 @@ class ProductFeatureContext implements Context
     }
 
     /**
-     * @Given the import process has been started
+     * @Given files with products to be replaced are available
      */
-    public function theImportProcessHasBeenStarted()
+    public function filesWithProductsToBeReplacedAreAvailable()
     {
-        $this->consoleContext->theCommandHasBeenExecuted('bin/import-simple import:create:ok-file');
-        $this->consoleContext->theCommandHasBeenExecuted(sprintf('bin/import-simple %s', CommandNames::IMPORT_PRODUCTS));
+        for ($i = 1; $i < 5; $i++) {
+            $this->consoleContext->aThirdPartySystemHasCopiedTheFileIntoTheImportFolder(
+                sprintf('vendor/techdivision/import-sample-data/generic/data/products/replace/product-import_20161021-161909_0%s.csv', $i),
+                'var/importexport'
+            );
+        }
     }
 
     /**
-     * @When the import process has been finished
+     * @Given the product import process has been started
      */
-    public function assertExitCode()
+    public function theProductImportProcessHasBeenStarted()
     {
-
-        PHPUnit_Framework_Assert::assertSame(0, $this->consoleContext->getExitCode());
-
-        $this->assertSuccessMessage();
+        $this->consoleContext->theCommandHasBeenExecuted(sprintf('bin/import-simple %s', CommandNames::IMPORT_CREATE_OK_FILE));
+        $this->consoleContext->theCommandHasBeenExecuted(sprintf('bin/import-simple %s add-update', CommandNames::IMPORT_PRODUCTS));
     }
 
     /**
-     * @Then a success message has to be rendered
+     * @Given the product deletion process has been started
      */
-    public function assertSuccessMessage()
+    public function theProductDeletionProcessHasBeenStarted()
     {
-        $this->assertMessage(
-            sprintf(
-                '/Successfully executed command %s with serial \w+-\w+-\w+-\w+-\w+ in \d+:\d+:\d+ s/',
-                CommandNames::IMPORT_PRODUCTS
-            )
-        );
+        $this->consoleContext->theCommandHasBeenExecuted(sprintf('bin/import-simple %s', CommandNames::IMPORT_CREATE_OK_FILE));
+        $this->consoleContext->theCommandHasBeenExecuted(sprintf('bin/import-simple %s delete', CommandNames::IMPORT_PRODUCTS));
     }
 
     /**
-     * @Then a message :arg1 has to be rendered
+     * @Given the product replacement process has been started
      */
-    public function assertMessage($arg1)
+    public function theProductReplacementProcessHasBeenStarted()
     {
-
-        $output = $this->consoleContext->getOutput();
-
-        PHPUnit_Framework_Assert::assertRegExp($arg1, array_pop($output));
+        $this->consoleContext->theCommandHasBeenExecuted(sprintf('bin/import-simple %s', CommandNames::IMPORT_CREATE_OK_FILE));
+        $this->consoleContext->theCommandHasBeenExecuted(sprintf('bin/import-simple %s replace', CommandNames::IMPORT_PRODUCTS));
     }
 }

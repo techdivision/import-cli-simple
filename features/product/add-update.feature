@@ -1,19 +1,19 @@
 @product @add-update
 Feature: Add/Update Products
   To import products into my Magento 2 instance
-  As an E-Commerce manager
-  I simply want to put a CSV file with the products into a directory on the server and they should be imported
+  As an e-commerce manager
+  I simply want to put CSV files with products into a directory on the server and they should be imported
 
   Rules:
-    - Filename starts with product-import_*
-    - The file is available in folder "var/importexport"
+    - Filename starts with "product-import_*"
+    - The files are available in folder "var/importexport"
 
 Scenario: Add/Update Products
   Given attribute sets have been imported
     And attributes have been imported
     And categories have been imported
     And files with products to be updated are available
-    And the import process has been started
+    And the product import process has been started
    When the import process has been finished
    Then a success message has to be rendered
 

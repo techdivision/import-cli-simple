@@ -1,17 +1,15 @@
 @category @add-update
 Feature: Add/Update Categories
   To import categories into my Magento 2 instance
-  As an E-Commerce manager
-  I simply want to put a CSV file with the categories into a directory on the server and they should be imported
+  As an e-commerce manager
+  I simply want to put CSV files with categories into a directory on the server and they should be imported
 
   Rules:
-    - Filename starts with category-import_*
-    - The file is available in folder "var/importexport"
-
-Background:
-  Given a third party system has copied the file "vendor/techdivision/import-sample-data/generic/data/categories/add-update/category-import_20161024-194026_01.csv" into the import folder "var/importexport"
+    - Filename starts with "category-import_*"
+    - The files are available in folder "var/importexport"
 
 Scenario: Add/Update Categories
-  Given that a new file "var/importexport/category-import_20161024-194026_01.csv" containing data is available
-    And the command "bin/import-simple import:create:ok-file" has been executed
-   Then the command "bin/import-simple import:categories" has been executed
+  Given files with categories to be updated are available
+    And the category import process has been started
+   When the category import process has been finished
+   Then a success message has to be rendered
