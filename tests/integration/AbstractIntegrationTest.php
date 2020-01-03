@@ -21,6 +21,7 @@
 namespace TechDivision\Import\Cli\Simple;
 
 use Ramsey\Uuid\Uuid;
+use PHPUnit\Framework\TestCase;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Loader\XmlFileLoader;
@@ -38,7 +39,7 @@ use TechDivision\Import\Configuration\Jms\Configuration\Database;
  * @link      https://github.com/techdivision/import-product
  * @link      http://www.techdivision.com
  */
-abstract class AbstractIntegrationTest extends \PHPUnit_Framework_TestCase
+abstract class AbstractIntegrationTest extends TestCase
 {
 
     /**

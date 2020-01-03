@@ -18,6 +18,8 @@
 
 ## Features
 
+* Switch to PHPUnit 6.5
+* Remove compatibility with PHP 5.6 and 7.1
 * Add techdivision/import#112
 * Add techdivision/import#146
 * Add techdivision/import#162
