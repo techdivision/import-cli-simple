@@ -8,8 +8,8 @@
         <service id="output" class="Symfony\Component\Console\Output\NullOutput"/>
         <service id="import.logger.handler.null" class="Monolog\Handler\NullHandler"/>
 
-        <service id="connection" class="TechDivision\Import\Cli\Connection\PDOConnectionWrapper">
-            <factory class="TechDivision\Import\Cli\Connection\TestConnectionFactory" method="createConnection"/>
+        <service id="connection" class="TechDivision\Import\Cli\Simple\Connection\PDOConnectionWrapper">
+            <factory class="TechDivision\Import\Cli\Simple\Connection\TestConnectionFactory" method="createConnection"/>
             <argument type="service" id="configuration"/>
         </service>
 
