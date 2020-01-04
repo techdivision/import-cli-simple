@@ -6,6 +6,5 @@
  [![Build Status](https://img.shields.io/travis/techdivision/import-cli-simple/master.svg?style=flat-square)](http://travis-ci.org/techdivision/import-cli-simple)
  [![Scrutinizer Code Quality](https://img.shields.io/scrutinizer/g/techdivision/import-cli-simple/master.svg?style=flat-square)](https://scrutinizer-ci.com/g/techdivision/import-cli-simple/?branch=master) 
  [![Code Coverage](https://img.shields.io/scrutinizer/coverage/g/techdivision/import-cli-simple/master.svg?style=flat-square)](https://scrutinizer-ci.com/g/techdivision/import-cli-simple/?branch=master)
- [![Known Vulnerabilities](https://snyk.io/test/github/techdivision/import-cli-simple/badge.svg?targetFile=composer.lock)](https://snyk.io/test/github/techdivision/import-cli-simple?targetFile=composer.lock)
 
 Please visit the M2IF [website](https://m2if.com) for documentation and additional information
