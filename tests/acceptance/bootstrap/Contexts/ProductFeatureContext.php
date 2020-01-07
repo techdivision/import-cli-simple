@@ -38,12 +38,12 @@ class ProductFeatureContext implements Context
 {
 
     /**
-     * @var \ConsoleContext
+     * @var \TechDivision\Import\Cli\Simple\Contexts\ConsoleContext
      */
     private $consoleContext;
 
     /**
-     * @var \FeatureContext
+     * @var \TechDivision\Import\Cli\Simple\Contexts\FeatureContext
      */
     private $featureContext;
 
@@ -52,7 +52,7 @@ class ProductFeatureContext implements Context
     {
 
         // load the environment
-        /** @var Behat\Behat\Context\Environment\InitializedContextEnvironment $environment */
+        /** @var \Behat\Behat\Context\Environment\InitializedContextEnvironment $environment */
         $environment = $scope->getEnvironment();
 
         // make the console and the feature context available

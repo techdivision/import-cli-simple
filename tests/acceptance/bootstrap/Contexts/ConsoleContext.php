@@ -27,6 +27,7 @@ use Behat\Behat\Hook\Scope\BeforeScenarioScope;
 use TechDivision\Import\Adapter\PhpFilesystemAdapter;
 use Behat\Symfony2Extension\Context\KernelDictionary;
 use Behat\Symfony2Extension\Context\KernelAwareContext;
+use TechDivision\Import\Adapter\FilesystemAdapterInterface;
 
 /**
  * Defines console features from the specific context.
@@ -68,23 +69,24 @@ class ConsoleContext implements Context, KernelAwareContext
 
     /**
      *
-     * @var \DockerEnvironment
+     * @var \TechDivision\Import\Cli\Simple\Contexts\DockerEnvironment
      */
     private $env;
-
-    /** @BeforeFeature */
-    public static function prepareForTheFeature()
-    {
-    }
 
     /** @BeforeScenario */
     public function before(BeforeScenarioScope $scope)
     {
 
+        /** @var \TechDivision\Import\Cli\Simple\Contexts\DockerEnvironment */
         $this->env = $this->getContainer()->get('environment.docker');
         $this->sourceDir = $this->getContainer()->getParameter('source.dir');
 
+        // create a new filesystem
         $filesystemAdapter = new PhpFilesystemAdapter();
+
+        if (is_dir($this->sourceDir) === false) {
+            mkdir($this->sourceDir, 0644, true);
+        }
 
         foreach (glob(sprintf('%s/*', $this->sourceDir)) as $file) {
             if (is_file($file)) {
@@ -95,16 +97,21 @@ class ConsoleContext implements Context, KernelAwareContext
         }
     }
 
-    /** @AfterScenario */
-    public function after(AfterScenarioScope $scope)
-    {
-    }
-
+    /**
+     * Return's the exit code of the las executed command.
+     *
+     * @return integer The exit code
+     */
     public function getExitCode()
     {
         return $this->exitCode;
     }
 
+    /**
+     * Return's the output of the last executed command.
+     *
+     * @return array The output of the last executed command
+     */
     public function getOutput()
     {
         return $this->output;
@@ -202,6 +209,6 @@ class ConsoleContext implements Context, KernelAwareContext
 
     protected function appendGenericConfig($cmd)
     {
-        return sprintf('%s --custom-configuration-dir=app/etc/configuration --magento-edition=ce --magento-version=2.3.3 --source-dir=%s', $cmd, $this->sourceDir);
+        return sprintf('%s --custom-configuration-dir=tests/acceptance/app/etc/configuration --magento-edition=ce --magento-version=2.3.3 --source-dir=%s', $cmd, $this->sourceDir);
     }
 }
