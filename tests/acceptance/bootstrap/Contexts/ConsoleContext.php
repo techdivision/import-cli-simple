@@ -22,12 +22,10 @@ namespace TechDivision\Import\Cli\Simple\Contexts;
 
 use PHPUnit\Framework\Assert;
 use Behat\Behat\Context\Context;
-use Behat\Behat\Hook\Scope\AfterScenarioScope;
 use Behat\Behat\Hook\Scope\BeforeScenarioScope;
 use TechDivision\Import\Adapter\PhpFilesystemAdapter;
 use Behat\Symfony2Extension\Context\KernelDictionary;
 use Behat\Symfony2Extension\Context\KernelAwareContext;
-use TechDivision\Import\Adapter\FilesystemAdapterInterface;
 
 /**
  * Defines console features from the specific context.
@@ -85,7 +83,8 @@ class ConsoleContext implements Context, KernelAwareContext
         $filesystemAdapter = new PhpFilesystemAdapter();
 
         if (is_dir($this->sourceDir) === false) {
-            mkdir($this->sourceDir, 0644, true);
+            mkdir($this->sourceDir, 0755, true);
+            echo "Successfully created directory: $this->sourceDir" . PHP_EOL;
         }
 
         foreach (glob(sprintf('%s/*', $this->sourceDir)) as $file) {
