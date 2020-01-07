@@ -66,6 +66,7 @@ class ConsoleContext implements Context, KernelAwareContext
     private $exitCode = 0;
 
     /**
+     * The environment used to execute the Magento commands.
      *
      * @var \TechDivision\Import\Cli\Simple\Contexts\DockerEnvironment
      */
@@ -75,18 +76,27 @@ class ConsoleContext implements Context, KernelAwareContext
     public function before(BeforeScenarioScope $scope)
     {
 
+        // initialize the environment and the source directory
         /** @var \TechDivision\Import\Cli\Simple\Contexts\DockerEnvironment */
         $this->env = $this->getContainer()->get('environment.docker');
         $this->sourceDir = $this->getContainer()->getParameter('source.dir');
+        $this->dbHost = $this->getContainer()->getParameter('db.host');
+        $this->dbPort = $this->getContainer()->getParameter('db.port');
+        $this->dbUser = $this->getContainer()->getParameter('db.user');
+        $this->dbName = $this->getContainer()->getParameter('db.name');
+        $this->dbPassword = $this->getContainer()->getParameter('db.password');
+        $this->magentoEdition = $this->getContainer()->getParameter('magento.install_edition');
+        $this->magentoVersion = $this->getContainer()->getParameter('magento.install_version');
 
         // create a new filesystem
         $filesystemAdapter = new PhpFilesystemAdapter();
 
+        // query whether or not the source directory has to be created
         if (is_dir($this->sourceDir) === false) {
             mkdir($this->sourceDir, 0755, true);
-            echo "Successfully created directory: $this->sourceDir" . PHP_EOL;
         }
 
+        // clean-up the source directory, if not empty
         foreach (glob(sprintf('%s/*', $this->sourceDir)) as $file) {
             if (is_file($file)) {
                 $filesystemAdapter->delete($file);
@@ -122,10 +132,12 @@ class ConsoleContext implements Context, KernelAwareContext
     public function aThirdPartySystemHasCopiedTheFileIntoTheImportFolder($arg1)
     {
 
+        // copy the passed file to the source directory
         if (copy($arg1, $dest = sprintf('%s/%s', $this->sourceDir, basename($arg1)))) {
             return;
         }
 
+        // throw an exception if it is NOT possible to copy the file
         throw new \Exception(sprintf('Can\'t copy file %s to %s', $arg1, $dest));
     }
 
@@ -134,6 +146,7 @@ class ConsoleContext implements Context, KernelAwareContext
      */
     public function theSimpleCommandHasBeenExecuted($arg1)
     {
+        // execute the simple command and assert that the exit code is NOT one
         exec($this->appendGenericConfig($arg1), $this->output, $this->exitCode);
         Assert::assertNotEquals(1, $this->exitCode);
     }
@@ -201,13 +214,41 @@ class ConsoleContext implements Context, KernelAwareContext
         Assert::assertRegExp($arg1, array_pop($this->output));
     }
 
+    /**
+     * Append the database connection.
+     *
+     * @param string $cmd The command to execute
+     *
+     * @return string The command with the appended DB connection string
+     */
     protected function appendDbConnection($cmd)
     {
-        return sprintf('%s --db-username=magento --db-password=magento --db-pdo-dsn="mysql:host=127.0.1.1;port=9306;dbname=magento;charset=utf8"', $cmd);
+        return sprintf(
+            '%s --db-username=%s --db-password=%s --db-pdo-dsn="mysql:host=%s;port=%d;dbname=%s;charset=utf8"',
+            $cmd,
+            $this->dbUser,
+            $this->dbPassword,
+            $this->dbHost,
+            $this->dbPort,
+            $this->dbName
+        );
     }
 
+    /**
+     * Append the generic configuration.
+     *
+     * @param string $cmd The command to execute
+     *
+     * @return string The command with the appended generic configuration
+     */
     protected function appendGenericConfig($cmd)
     {
-        return sprintf('%s --custom-configuration-dir=tests/acceptance/app/etc/configuration --magento-edition=ce --magento-version=2.3.3 --source-dir=%s', $cmd, $this->sourceDir);
+        return sprintf(
+            '%s --custom-configuration-dir=tests/acceptance/app/etc/configuration --magento-edition=%s --magento-version=%s --source-dir=%s',
+            $cmd,
+            $this->magentoEdition,
+            $this->magentoVersion,
+            $this->sourceDir
+        );
     }
 }

@@ -5,6 +5,13 @@
   
     <parameters>
         <parameter key="source.dir" type="string">%env(SOURCE_DIR)%</parameter>
+        <parameter key="db.host" type="string">%env(DB_HOST)%</parameter>
+        <parameter key="db.port" type="string">%env(DB_PORT)%</parameter>
+        <parameter key="db.user" type="string">%env(DB_USER)%</parameter>
+        <parameter key="db.name" type="string">%env(DB_NAME)%</parameter>
+        <parameter key="db.password" type="string">%env(DB_PASSWORD)%</parameter>
+        <parameter key="magento.install_edition" type="string">%env(MAGENTO_INSTALL_EDITION)%</parameter>
+        <parameter key="magento.install_version" type="string">%env(MAGENTO_INSTALL_VERSION)%</parameter>
         <parameter key="magento.base_url" type="string">%env(MAGENTO_BASE_URL)%</parameter>
         <parameter key="magento.install_dir" type="string">%env(MAGENTO_INSTALL_DIR)%</parameter>
         <parameter key="magento.container_name" type="string">%env(MAGENTO_CONTAINER_NAME)%</parameter>
