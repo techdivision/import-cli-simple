@@ -128,7 +128,7 @@ class RoboFile extends \Robo\Tasks
                 str_replace(
                     array('{domain-name}'),
                     array($domainName),
-                    'curl --resolve {domain-name}:80:127.0.1.1 http://{domain-name}/magento_version'
+                    'curl --resolve {domain-name}:80:127.0.0.1 http://{domain-name}/magento_version'
                 ),
                 $res
             );

@@ -364,7 +364,7 @@ abstract class AbstractIntegrationTest extends TestCase
      */
     protected function getDbPort()
     {
-        return getenv('DB_PORT') ? (integer) getenv('DB_PORT') : 9306;
+        return getenv('DB_PORT') ? (integer) getenv('DB_PORT') : 3306;
     }
 
     /**
