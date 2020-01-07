@@ -20,7 +20,7 @@ env:
 
 addons:
   hosts:
-    - ${MAGENTO_BASE_URL}
+    - magento.test
 
 sudo: required
 
