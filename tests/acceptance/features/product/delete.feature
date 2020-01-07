@@ -13,9 +13,11 @@ Scenario: Delete Products
     And the product deletion process has been started
    When the product deletion process has been finished
    Then a success message has to be rendered
+    And the magento index has been updated
 
+@product-check
 Scenario Outline: Check Products
-  Given the magento index has been updated
+  Given I am on the homepage
    When I go to <page>
    Then the response status code should be <code>
     And title and price are <title>, <price>

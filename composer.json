@@ -60,11 +60,10 @@
         }
     ],
     "autoload": {
-        "psr-0": { "": "features/bootstrap" },
         "psr-4": {
             "TechDivision\\Import\\Cli\\Simple\\": [
-                "symfony/",
-                "tests/integration/"
+                "tests/integration/",
+                "tests/acceptance/bootstrap/"
             ]
         }
     },

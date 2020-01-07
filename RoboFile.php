@@ -102,6 +102,68 @@ class RoboFile extends \Robo\Tasks
     }
 
     /**
+     * Prepare's the Docker environment for a new build.
+     *
+     * @param string $domainName    The domain name used to invoke the Magento 2 instance inside the Docker container
+     * @param string $containerName The Docker container name
+     *
+     * @return void
+     */
+    public function prepareDocker($domainName, $containerName)
+    {
+
+        // prepare the filesystem
+        $this->prepare();
+
+        // initialize the variables to query whether or not the docker container has been started successfully
+        $counter = 0;
+        $magentoNotAvailable = true;
+
+        do {
+            // reset the result of the CURL request
+            $res = null;
+
+            // query whether or not the image already has been loaded
+            exec(
+                str_replace(
+                    array('{domain-name}'),
+                    array($domainName),
+                    'curl --resolve {domain-name}:80:127.0.1.1 http://{domain-name}/magento_version'
+                ),
+                $res
+            );
+
+            // query whether or not the Docker has been started
+            foreach ($res as $val) {
+                if (strstr($val, 'Magento/')) {
+                    $magentoNotAvailable = false;
+                }
+            }
+
+            // raise the counter
+            $counter++;
+
+            // sleep while the docker container is not available
+            if ($magentoNotAvailable === true) {
+                sleep(1);
+            }
+
+        } while ($magentoNotAvailable && $counter < 30);
+
+        // grant the privilieges to connection from outsite the container
+        $this->taskDockerExec($containerName)
+            ->interactive()
+            ->exec('mysql -uroot -proot -e \'GRANT ALL ON *.* TO "magento"@"%" IDENTIFIED BY "magento"\'')
+            ->run();
+
+        // flush the privileges
+        $this->taskDockerExec($containerName)
+            ->interactive()
+            ->exec('mysql -uroot -proot -e "FLUSH PRIVILEGES"')
+            ->run();
+    }
+
+    /**
      * Creates the a PHAR archive from the sources.
      *
      * @return void
@@ -195,9 +257,14 @@ class RoboFile extends \Robo\Tasks
     {
 
         // run PHPUnit
-        $this->taskPHPUnit(sprintf('%s/bin/phpunit --testsuite "techdivision/import-cli-simple PHPUnit testsuite"', $this->properties['vendor.dir']))
-             ->configFile('phpunit.xml')
-             ->run();
+        $this->taskPHPUnit(
+                sprintf(
+                    '%s/bin/phpunit --testsuite "techdivision/import-cli-simple PHPUnit testsuite"',
+                    $this->properties['vendor.dir']
+                )
+            )
+            ->configFile('phpunit.xml')
+            ->run();
     }
 
     /**
@@ -208,58 +275,8 @@ class RoboFile extends \Robo\Tasks
      *
      * @return void
      */
-    public function runTestsIntegration($containerName, $domainName)
+    public function runTestsIntegration()
     {
-
-        // prepare the filesystem
-        $this->prepare();
-
-        // initialize the variables to query whether or not the docker container has been started successfully
-        $counter = 0;
-        $magentoNotAvailable = true;
-
-        do {
-            // reset the result of the CURL request
-            $res = null;
-
-            // query whether or not the image already has been loaded
-            exec(
-                str_replace(
-                    array('{domain-name}'),
-                    array($domainName),
-                    'curl --resolve {domain-name}:80:127.0.0.1 http://{domain-name}/magento_version'
-                ),
-                $res
-            );
-
-            // query whether or not the Docker has been started
-            foreach ($res as $val) {
-                if (strstr($val, 'Magento/')) {
-                    $magentoNotAvailable = false;
-                }
-            }
-
-            // raise the counter
-            $counter++;
-
-            // sleep while the docker container is not available
-            if ($magentoNotAvailable === true) {
-                sleep(1);
-            }
-
-        } while ($magentoNotAvailable && $counter < 30);
-
-        // grant the privilieges to connection from outsite the container
-        $this->taskDockerExec($containerName)
-             ->interactive()
-             ->exec('mysql -uroot -proot -e \'GRANT ALL ON *.* TO "magento"@"%" IDENTIFIED BY "magento"\'')
-             ->run();
-
-        // flush the privileges
-        $this->taskDockerExec($containerName)
-             ->interactive()
-             ->exec('mysql -uroot -proot -e "FLUSH PRIVILEGES"')
-             ->run();
 
         // run the integration testsuite
         $this->taskPHPUnit(
@@ -273,7 +290,7 @@ class RoboFile extends \Robo\Tasks
     }
 
     /**
-     * Run's the integration testsuite.
+     * Run's the acceptance testsuite.
      *
      * This task uses the Magento 2 docker image generator from https://github.com/techdivision/magento2-docker-imgen. To execute
      * this task, it is necessary that you've setup a running container with the domain name, passed as argument.
@@ -282,21 +299,11 @@ class RoboFile extends \Robo\Tasks
      */
     public function runTestsAcceptance()
     {
-
-
-        // prepare the filesystem
-        $this->prepare();
-
-        $editions = array(
-            'http://magento-ce-233.test' => 'instances/ce/2.3.3',
-            'http://magento-ee-232.test' => 'instances/ee/2.3.2',
-            'http://magento-ee-233.test' => 'instances/ee/2.3.3'
-        );
-
-        foreach ($editions as $baseUrl => $installDir) {
-            $this->_exec(sprintf("BASE_URL=%s INSTALL_DIR=%s vendor/bin/behat", $baseUrl, $installDir));
+        $this->taskBehat()
+            ->format('pretty')
+            ->noInteraction()
+            ->run();
         }
-    }
 
     /**
      * Raising the semver version number.

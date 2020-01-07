@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<container xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+  
+    <parameters>
+        <parameter key="source.dir" type="string">%env(SOURCE_DIR)%</parameter>
+        <parameter key="magento.base_url" type="string">%env(MAGENTO_BASE_URL)%</parameter>
+        <parameter key="magento.install_dir" type="string">%env(MAGENTO_INSTALL_DIR)%</parameter>
+        <parameter key="magento.container_name" type="string">%env(MAGENTO_CONTAINER_NAME)%</parameter>
+    </parameters>
+
+    <services>
+        <service id="environment.docker" class="TechDivision\Import\Cli\Simple\Contexts\DockerEnvironment" public="true">
+            <argument>%magento.container_name%</argument>
+            <argument>%magento.install_dir%</argument>
+        </service>
+    </services>
+</container>

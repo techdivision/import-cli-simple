@@ -12,7 +12,7 @@
  * PHP version 5
  *
  * @author    Tim Wagner <t.wagner@techdivision.com>
- * @copyright 2016 TechDivision GmbH <info@techdivision.com>
+ * @copyright 2019 TechDivision GmbH <info@techdivision.com>
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link      https://github.com/techdivision/import-cli-simple
  * @link      http://www.techdivision.com
@@ -23,10 +23,10 @@ namespace TechDivision\Import\Cli\Simple;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
 /**
- * The symfony bundle implementation for the M2IF import attribute library.
+ * The symfony bundle implementation for the M2IF import acceptance testsuite.
  *
  * @author    Tim Wagner <t.wagner@techdivision.com>
- * @copyright 2016 TechDivision GmbH <info@techdivision.com>
+ * @copyright 2019 TechDivision GmbH <info@techdivision.com>
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link      https://github.com/techdivision/import-cli-simple
  * @link      http://www.techdivision.com

@@ -1,4 +1,4 @@
-<phpunit bootstrap="tests/bootstrap.php">
+<phpunit>
     <testsuites>
         <testsuite name="techdivision/import-cli-simple PHPUnit testsuite">
             <directory suffix="Test.php">tests/unit</directory>

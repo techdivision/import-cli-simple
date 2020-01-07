@@ -1,11 +1,37 @@
 <?php
 
+/**
+ * TechDivision\Import\Cli\Simple\Contexts\AttributeFeatureContext
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Open Software License (OSL 3.0)
+ * that is available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/osl-3.0.php
+ *
+ * PHP version 5
+ *
+ * @author    Tim Wagner <t.wagner@techdivision.com>
+ * @copyright 2019 TechDivision GmbH <info@techdivision.com>
+ * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ * @link      https://github.com/techdivision/import-cli-simple
+ * @link      http://www.techdivision.com
+ */
+
+namespace TechDivision\Import\Cli\Simple\Contexts;
+
 use Behat\Behat\Context\Context;
 use Behat\Behat\Hook\Scope\BeforeScenarioScope;
 use TechDivision\Import\Utils\CommandNames;
 
 /**
- * Defines application features from the specific context.
+ * Defines attribute features from the specific context.
+ *
+ * @author    Tim Wagner <t.wagner@techdivision.com>
+ * @copyright 2019 TechDivision GmbH <info@techdivision.com>
+ * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ * @link      https://github.com/techdivision/import-cli-simple
+ * @link      http://www.techdivision.com
  */
 class AttributeFeatureContext implements Context
 {
@@ -44,8 +70,7 @@ class AttributeFeatureContext implements Context
     public function filesWithAttributesToBeUpdatedAreAvailable()
     {
         $this->consoleContext->aThirdPartySystemHasCopiedTheFileIntoTheImportFolder(
-            'vendor/techdivision/import-sample-data/generic/data/attributes/add-update/attribute-import_20170428-124902_01.csv',
-            'var/importexport'
+            'vendor/techdivision/import-sample-data/generic/data/attributes/add-update/attribute-import_20170428-124902_01.csv'
         );
     }
 
@@ -54,7 +79,7 @@ class AttributeFeatureContext implements Context
      */
     public function theAttributeImportProcessHasBeenStarted()
     {
-        $this->consoleContext->theCommandHasBeenExecuted(sprintf('bin/import-simple %s', CommandNames::IMPORT_CREATE_OK_FILE));
+        $this->consoleContext->theSimpleCommandHasBeenExecuted(sprintf('bin/import-simple %s', CommandNames::IMPORT_CREATE_OK_FILE));
         $this->consoleContext->theCommandHasBeenExecuted(sprintf('bin/import-simple %s add-update', CommandNames::IMPORT_ATTRIBUTES));
     }
 
@@ -63,7 +88,7 @@ class AttributeFeatureContext implements Context
      */
     public function theAttributeDeletionProcessHasBeenStarted()
     {
-        $this->consoleContext->theCommandHasBeenExecuted(sprintf('bin/import-simple %s', CommandNames::IMPORT_CREATE_OK_FILE));
+        $this->consoleContext->theSimpleCommandHasBeenExecuted(sprintf('bin/import-simple %s', CommandNames::IMPORT_CREATE_OK_FILE));
         $this->consoleContext->theCommandHasBeenExecuted(sprintf('bin/import-simple %s delete', CommandNames::IMPORT_ATTRIBUTES));
     }
 
@@ -72,7 +97,7 @@ class AttributeFeatureContext implements Context
      */
     public function theAttributeReplacementProcessHasBeenStarted()
     {
-        $this->consoleContext->theCommandHasBeenExecuted(sprintf('bin/import-simple %s', CommandNames::IMPORT_CREATE_OK_FILE));
+        $this->consoleContext->theSimpleCommandHasBeenExecuted(sprintf('bin/import-simple %s', CommandNames::IMPORT_CREATE_OK_FILE));
         $this->consoleContext->theCommandHasBeenExecuted(sprintf('bin/import-simple %s replace', CommandNames::IMPORT_ATTRIBUTES));
     }
 }

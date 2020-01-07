@@ -1,5 +1,25 @@
 <?php
 
+/**
+ * TechDivision\Import\Cli\Simple\Contexts\ConsoleContext
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Open Software License (OSL 3.0)
+ * that is available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/osl-3.0.php
+ *
+ * PHP version 5
+ *
+ * @author    Tim Wagner <t.wagner@techdivision.com>
+ * @copyright 2019 TechDivision GmbH <info@techdivision.com>
+ * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ * @link      https://github.com/techdivision/import-cli-simple
+ * @link      http://www.techdivision.com
+ */
+
+namespace TechDivision\Import\Cli\Simple\Contexts;
+
 use PHPUnit\Framework\Assert;
 use Behat\Behat\Context\Context;
 use Behat\Behat\Hook\Scope\AfterScenarioScope;
@@ -9,7 +29,13 @@ use Behat\Symfony2Extension\Context\KernelDictionary;
 use Behat\Symfony2Extension\Context\KernelAwareContext;
 
 /**
- * Defines application features from the specific context.
+ * Defines console features from the specific context.
+ *
+ * @author    Tim Wagner <t.wagner@techdivision.com>
+ * @copyright 2019 TechDivision GmbH <info@techdivision.com>
+ * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ * @link      https://github.com/techdivision/import-cli-simple
+ * @link      http://www.techdivision.com
  */
 class ConsoleContext implements Context, KernelAwareContext
 {
@@ -24,7 +50,7 @@ class ConsoleContext implements Context, KernelAwareContext
      *
      * @var string
      */
-    private $installDir;
+    private $sourceDir;
 
     /**
      * The output of the last executed command.
@@ -40,6 +66,12 @@ class ConsoleContext implements Context, KernelAwareContext
      */
     private $exitCode = 0;
 
+    /**
+     *
+     * @var \DockerEnvironment
+     */
+    private $env;
+
     /** @BeforeFeature */
     public static function prepareForTheFeature()
     {
@@ -49,11 +81,12 @@ class ConsoleContext implements Context, KernelAwareContext
     public function before(BeforeScenarioScope $scope)
     {
 
-        $this->installDir = $this->getContainer()->getParameter('install_dir');
+        $this->env = $this->getContainer()->get('environment.docker');
+        $this->sourceDir = $this->getContainer()->getParameter('source.dir');
 
         $filesystemAdapter = new PhpFilesystemAdapter();
 
-        foreach (glob(sprintf('%s/var/importexport/*', $this->installDir)) as $file) {
+        foreach (glob(sprintf('%s/*', $this->sourceDir)) as $file) {
             if (is_file($file)) {
                 $filesystemAdapter->delete($file);
             } else {
@@ -78,12 +111,12 @@ class ConsoleContext implements Context, KernelAwareContext
     }
 
     /**
-     * @Given a third party system has copied the file :arg1 into the import folder :arg2
+     * @Given a third party system has copied the file :arg1 into the import folder
      */
-    public function aThirdPartySystemHasCopiedTheFileIntoTheImportFolder($arg1, $arg2)
+    public function aThirdPartySystemHasCopiedTheFileIntoTheImportFolder($arg1)
     {
 
-        if (copy($arg1, $dest = sprintf('%s/%s/%s', $this->installDir, $arg2, basename($arg1)))) {
+        if (copy($arg1, $dest = sprintf('%s/%s', $this->sourceDir, basename($arg1)))) {
             return;
         }
 
@@ -91,16 +124,12 @@ class ConsoleContext implements Context, KernelAwareContext
     }
 
     /**
-    * @Given that a new file :arg1 containing data is available
-    */
-    public function thatANewFileContainingDataIsAvailable($arg1)
+     * @When the simple command :arg1 has been executed
+     */
+    public function theSimpleCommandHasBeenExecuted($arg1)
     {
-
-        if (is_file($this->prependInstallDir($arg1))) {
-            return;
-        }
-
-        throw new \Exception(sprintf('Can\'t find file %s', $arg1));
+        exec($this->appendGenericConfig($arg1), $this->output, $this->exitCode);
+        Assert::assertNotEquals(1, $this->exitCode);
     }
 
     /**
@@ -108,8 +137,7 @@ class ConsoleContext implements Context, KernelAwareContext
      */
     public function theCommandHasBeenExecuted($arg1)
     {
-        exec($this->appendInstallDir($arg1), $this->output, $this->exitCode);
-        Assert::assertNotEquals(1, $this->exitCode);
+        $this->theSimpleCommandHasBeenExecuted($this->appendDbConnection($this->appendGenericConfig($arg1)));
     }
 
     /**
@@ -117,8 +145,7 @@ class ConsoleContext implements Context, KernelAwareContext
      */
     public function theMagentoCommandHasBeenExecuted($arg1)
     {
-        exec($this->prependInstallDir($arg1), $this->output, $this->exitCode);
-        Assert::assertNotEquals(1, $this->exitCode);
+        $this->env->executeMagentoCommand($arg1);
     }
 
     /**
@@ -126,7 +153,7 @@ class ConsoleContext implements Context, KernelAwareContext
      */
     public function theMagentoIndexHasBeenUpdated()
     {
-        $this->theMagentoCommandHasBeenExecuted('bin/magento indexer:reindex');
+        $this->env->updateMagentoIndex();
     }
 
     /**
@@ -168,13 +195,13 @@ class ConsoleContext implements Context, KernelAwareContext
         Assert::assertRegExp($arg1, array_pop($this->output));
     }
 
-    protected function appendInstallDir($cmd)
+    protected function appendDbConnection($cmd)
     {
-        return sprintf('%s --installation-dir=%s', $cmd, $this->installDir);
+        return sprintf('%s --db-username=magento --db-password=magento --db-pdo-dsn="mysql:host=127.0.1.1;port=9306;dbname=magento;charset=utf8"', $cmd);
     }
 
-    protected function prependInstallDir($cmd)
+    protected function appendGenericConfig($cmd)
     {
-        return sprintf('%s/%s', $this->installDir, $cmd);
+        return sprintf('%s --custom-configuration-dir=app/etc/configuration --magento-edition=ce --magento-version=2.3.3 --source-dir=%s', $cmd, $this->sourceDir);
     }
 }

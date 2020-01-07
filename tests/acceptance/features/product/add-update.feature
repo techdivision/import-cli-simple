@@ -16,15 +16,17 @@ Scenario: Add/Update Products
     And the product import process has been started
    When the import process has been finished
    Then a success message has to be rendered
+    And the magento index has been updated
 
+@product-check
 Scenario Outline: Check Products
-  Given the magento index has been updated
+  Given I am on the homepage
    When I go to <page>
    Then the response status code should be <code>
     And title and price are <title>, <price>
 
     Examples:
-      | page                     | title             | price    | code |
-      | "/joust-duffle-bag.html" | "404 Not Found"   |          | 404  |
-      | "/fusion-backpack.html"  | "Fusion Backpack" | "$59.00" | 200  |
-      | "/driven-backpack.html"  | "Driven Backpack" | "$36.00" | 200  |
+      | page                     | title             | price     | code |
+      | "/joust-duffle-bag.html" | "404 Not Found"   |           | 404  |
+      | "/fusion-backpack.html"  | "Fusion Backpack" | "59,00 €" | 200  |
+      | "/driven-backpack.html"  | "Driven Backpack" | "36,00 €" | 200  |
