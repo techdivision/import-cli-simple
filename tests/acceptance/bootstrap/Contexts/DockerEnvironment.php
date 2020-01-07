@@ -142,7 +142,7 @@ class DockerEnvironment
      */
     protected function prependExecutionEnvironment($cmd)
     {
-        return sprintf('docker exec -ti %s php %s', $this->containerName, $this->prependInstallDir($cmd));
+        return sprintf('docker exec %s php %s', $this->containerName, $this->prependInstallDir($cmd));
     }
 
     /**

@@ -147,8 +147,6 @@ class ConsoleContext implements Context, KernelAwareContext
     public function theSimpleCommandHasBeenExecuted($arg1)
     {
 
-        echo "Now execute: $arg1" . PHP_EOL;
-
         // execute the simple command and assert that the exit code is NOT one
         exec($this->appendGenericConfig($arg1), $this->output, $this->exitCode);
         Assert::assertNotEquals(1, $this->exitCode);
