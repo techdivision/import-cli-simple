@@ -52,12 +52,12 @@ class RoboFile extends \Robo\Tasks
     /**
      * Run's the composer install command.
      *
-     * @return void
+     * @return \Robo\Result The result
      */
     public function composerInstall()
     {
         // optimize autoloader with custom path
-        $this->taskComposerInstall()
+        return $this->taskComposerInstall()
              ->preferDist()
              ->optimizeAutoloader()
              ->run();
@@ -66,12 +66,12 @@ class RoboFile extends \Robo\Tasks
     /**
      * Run's the composer update command.
      *
-     * @return void
+     * @return \Robo\Result The result
      */
     public function composerUpdate()
     {
         // optimize autoloader with custom path
-        $this->taskComposerUpdate()
+        return $this->taskComposerUpdate()
              ->preferDist()
              ->optimizeAutoloader()
              ->run();
@@ -80,21 +80,23 @@ class RoboFile extends \Robo\Tasks
     /**
      * Clean up the environment for a new build.
      *
-     * @return void
+     * @return \Robo\Result The result
      */
     public function clean()
     {
-        $this->taskDeleteDir($this->properties['target.dir'])->run();
+        return $this->taskDeleteDir($this->properties['target.dir'])->run();
     }
 
     /**
      * Prepare's the environment for a new build.
      *
-     * @return void
+     * @return \Robo\Result The result
      */
     public function prepare()
     {
-        $this->taskFileSystemStack()
+
+        // prepare the directories
+        return $this->taskFileSystemStack()
              ->mkdir($this->properties['dist.dir'])
              ->mkdir($this->properties['target.dir'])
              ->mkdir(sprintf('%s/reports', $this->properties['target.dir']))
@@ -111,6 +113,9 @@ class RoboFile extends \Robo\Tasks
      */
     public function prepareDocker($domainName, $containerName)
     {
+
+        // stop the build on first failure of a task
+        $this->stopOnFail(true);
 
         // prepare the filesystem
         $this->prepare();
@@ -170,6 +175,9 @@ class RoboFile extends \Robo\Tasks
      */
     public function createPhar()
     {
+
+        // stop the build on first failure of a task
+        $this->stopOnFail(true);
 
         // run the build process
         $this->build();
@@ -251,13 +259,13 @@ class RoboFile extends \Robo\Tasks
     /**
      * Run's the PHPUnit testsuite.
      *
-     * @return void
+     * @return \Robo\Result The result
      */
     public function runTestsUnit()
     {
 
         // run PHPUnit
-        $this->taskPHPUnit(
+        return $this->taskPHPUnit(
                 sprintf(
                     '%s/bin/phpunit --testsuite "techdivision/import-cli-simple PHPUnit testsuite"',
                     $this->properties['vendor.dir']
@@ -273,13 +281,13 @@ class RoboFile extends \Robo\Tasks
      * This task uses the Magento 2 docker image generator from https://github.com/techdivision/magento2-docker-imgen. To execute
      * this task, it is necessary that you've setup a running container with the domain name, passed as argument.
      *
-     * @return void
+     * @return \Robo\Result The result
      */
     public function runTestsIntegration()
     {
 
         // run the integration testsuite
-        $this->taskPHPUnit(
+        return $this->taskPHPUnit(
                 sprintf(
                     '%s/bin/phpunit --testsuite "techdivision/import-cli-simple PHPUnit integration testsuite"',
                     $this->properties['vendor.dir']
@@ -295,11 +303,11 @@ class RoboFile extends \Robo\Tasks
      * This task uses the Magento 2 docker image generator from https://github.com/techdivision/magento2-docker-imgen. To execute
      * this task, it is necessary that you've setup a running container with the domain name, passed as argument.
      *
-     * @return void
+     * @return \Robo\Result The result
      */
     public function runTestsAcceptance()
     {
-        $this->taskBehat()
+        return $this->taskBehat()
             ->format('pretty')
             ->noInteraction()
             ->run();
@@ -308,11 +316,11 @@ class RoboFile extends \Robo\Tasks
     /**
      * Raising the semver version number.
      *
-     * @return void
+     * @return \Robo\Result The result
      */
     public function semver()
     {
-        $this->taskSemVer('.semver')
+        return $this->taskSemVer('.semver')
              ->prerelease('beta')
              ->run();
     }
@@ -324,6 +332,11 @@ class RoboFile extends \Robo\Tasks
      */
     public function build()
     {
+
+        // stop the build on first failure of a task
+        $this->stopOnFail(true);
+
+        // process the build
         $this->clean();
         $this->prepare();
         $this->runTestsUnit();
