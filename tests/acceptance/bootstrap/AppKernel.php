@@ -40,7 +40,7 @@ class AppKernel extends Kernel
     /**
      * Returns an array of bundles to register.
      *
-     * @return iterable|BundleInterface[] An iterable of bundle instances
+     * @return iterable|\Symfony\Component\HttpKernel\Bundle\BundleInterface[] An iterable of bundle instances
      * @see \Symfony\Component\HttpKernel\KernelInterface::registerBundles()
      */
     public function registerBundles()

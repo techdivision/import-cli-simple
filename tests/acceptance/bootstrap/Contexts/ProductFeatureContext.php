@@ -79,6 +79,24 @@ class ProductFeatureContext implements Context
     }
 
     /**
+     * @Given products have been imported
+     */
+    public function productsHaveBeenImported()
+    {
+        $this->filesWithProductsToBeUpdatedAreAvailable();
+        $this->theProductImportProcessHasBeenStarted();
+    }
+
+    /**
+     * @Given products have been replaced
+     */
+    public function productsHaveBeenReplaced()
+    {
+        $this->filesWithProductsToBeReplacedAreAvailable();
+        $this->theProductImportProcessHasBeenStarted();
+    }
+
+    /**
      * @Given files with products to be updated are available
      * @Given files with products to be deleted are available
      */

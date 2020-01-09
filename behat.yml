@@ -42,4 +42,15 @@ default:
        - TechDivision\Import\Cli\Simple\Contexts\ProductFeatureContext: ~
        - TechDivision\Import\Cli\Simple\Contexts\FeatureContext: ~
        - TechDivision\Import\Cli\Simple\Contexts\ConsoleContext: ~
+    tier-price:
+     paths:
+       features: tests/acceptance/features/tier-price
+     contexts:
+       - TechDivision\Import\Cli\Simple\Contexts\TierPriceFeatureContext: ~
+       - TechDivision\Import\Cli\Simple\Contexts\AttributeSetFeatureContext: ~
+       - TechDivision\Import\Cli\Simple\Contexts\AttributeFeatureContext: ~
+       - TechDivision\Import\Cli\Simple\Contexts\CategoryFeatureContext: ~
+       - TechDivision\Import\Cli\Simple\Contexts\ProductFeatureContext: ~
+       - TechDivision\Import\Cli\Simple\Contexts\FeatureContext: ~
+       - TechDivision\Import\Cli\Simple\Contexts\ConsoleContext: ~
   

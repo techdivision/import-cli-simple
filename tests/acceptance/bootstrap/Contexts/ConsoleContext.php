@@ -181,7 +181,7 @@ class ConsoleContext implements Context, KernelAwareContext
      */
     public function assertSuccessMessage()
     {
-        $this->assertMessage('/Successfully executed command \w+:\w+:?\w+? with serial \w+-\w+-\w+-\w+-\w+ in \d+:\d+:\d+ s/');
+        $this->assertMessage('/Successfully executed command \w+:\w+:?\w+?:?\w+? with serial \w+-\w+-\w+-\w+-\w+ in \d+:\d+:\d+ s/');
     }
 
     /**
@@ -201,6 +201,9 @@ class ConsoleContext implements Context, KernelAwareContext
      * @When the product import process has been finished
      * @When the product deletion process has been finished
      * @When the product replacement process has been finished
+     * @When the tier price import process has been finished
+     * @When the tier price deletion process has been finished
+     * @When the tier price replacement process has been finished
      */
     public function assertExitCode()
     {

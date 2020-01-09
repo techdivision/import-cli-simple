@@ -22,11 +22,11 @@
     "system": {
       "id": "import.logger.factory.monolog",
       "channel-name": "logger/system",
-      "handlers": {
-        "null": {
+      "handlers": [
+        {
           "id" : "import.logger.handler.null"
         }
-      }
+      ]
     }
   },
   "extension-libraries" : [

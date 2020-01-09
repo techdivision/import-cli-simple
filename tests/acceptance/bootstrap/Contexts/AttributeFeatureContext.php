@@ -37,7 +37,7 @@ class AttributeFeatureContext implements Context
 {
 
     /**
-     * @var \ConsoleContext
+     * @var \TechDivision\Import\Cli\Simple\Contexts\ConsoleContext
      */
     private $consoleContext;
 
@@ -46,7 +46,7 @@ class AttributeFeatureContext implements Context
     {
 
         // load the environment
-        /** @var Behat\Behat\Context\Environment\InitializedContextEnvironment $environment */
+        /** @var \Behat\Behat\Context\Environment\InitializedContextEnvironment $environment */
         $environment = $scope->getEnvironment();
 
         // make the console context available
