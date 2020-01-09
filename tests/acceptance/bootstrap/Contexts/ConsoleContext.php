@@ -149,10 +149,10 @@ class ConsoleContext implements Context, KernelAwareContext
 
         // execute the simple command and assert that the exit code is NOT one
         exec($this->appendGenericConfig($arg1), $this->output, $this->exitCode);
-        $this->assertExitCode();
         if ($this->exitCode <> 0) {
-            print_r($this->output);
+            var_export($this->output);
         }
+        $this->assertExitCode();
     }
 
     /**
