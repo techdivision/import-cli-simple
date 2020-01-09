@@ -67,10 +67,12 @@ class ProductFeatureContext implements Context
     public function assertTitleAndPrice($arg1, $arg2 = null)
     {
 
+        // load and validate the title
         /** @var \Behat\Mink\Element\NodeElement $title */
         $title = $this->featureContext->getSession()->getPage()->find('css', 'title');
         Assert::assertEquals($arg1, $title->getText());
 
+        // validate the price if the page has been loaded successfully
         if ($this->featureContext->getSession()->getStatusCode() === 200 && $arg2 !== null) {
             /** @var \Behat\Mink\Element\NodeElement $price */
             $price = $this->featureContext->getSession()->getPage()->find('xpath', '//*[@class="price"]');
