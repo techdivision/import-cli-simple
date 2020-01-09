@@ -38,7 +38,7 @@ script:
   - docker run --rm -d --name ${MAGENTO_CONTAINER_NAME} -p 127.0.0.1:80:80 -p 127.0.0.1:443:443 -p 127.0.0.1:3306:3306 -e MAGENTO_BASE_URL=${MAGENTO_BASE_URL} ${MAGENTO_IMAGE_NAME}
   - COMPOSER_MEMORY_LIMIT=-1 travis_retry composer update --prefer-dist --no-interaction --optimize-autoloader
   - vendor/bin/robo prepare:docker ${MAGENTO_BASE_URL} ${MAGENTO_CONTAINER_NAME}
-  - vendor/bin/robo run:tests-acceptance
+  - vendor/bin/robo run:tests-acceptance ${MAGENTO_INSTALL_EDITION} ${MAGENTO_INSTALL_VERSION}
   - vendor/bin/robo run:tests-integration
   - vendor/bin/robo build
   - php ocular.phar code-coverage:upload --format=php-clover $TRAVIS_BUILD_DIR/target/reports/unit/clover.xml
