@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7b5f5fed29b23e4e1e04a0fe14338e07",
+    "content-hash": "0f9637efbdaf7cd70c1df00f5363dc8b",
     "packages": [
         {
             "name": "cache/adapter-common",
@@ -8872,20 +8872,20 @@
         },
         {
             "name": "techdivision/import-sample-data",
-            "version": "4.x-dev",
+            "version": "4.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-sample-data.git",
-                "reference": "8c13201edcce2e6b976fc84cb698ee56e7252f8f"
+                "reference": "14f3b405bcc9273f845ae697547eeea308da0db5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-sample-data/zipball/8c13201edcce2e6b976fc84cb698ee56e7252f8f",
-                "reference": "8c13201edcce2e6b976fc84cb698ee56e7252f8f",
+                "url": "https://api.github.com/repos/techdivision/import-sample-data/zipball/14f3b405bcc9273f845ae697547eeea308da0db5",
+                "reference": "14f3b405bcc9273f845ae697547eeea308da0db5",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.6.0"
+                "php": ">=7.1.0"
             },
             "type": "library",
             "notification-url": "https://packagist.org/downloads/",
@@ -8899,7 +8899,7 @@
                 }
             ],
             "description": "M2IF sample data for Magento 2 Community + Commerce Edition",
-            "time": "2019-10-16T15:23:55+00:00"
+            "time": "2020-01-09T16:37:33+00:00"
         },
         {
             "name": "textalk/websocket",
@@ -9075,19 +9075,12 @@
             "alias_normalized": "3.0.0.0",
             "version": "9999999-dev",
             "package": "behat/symfony2-extension"
-        },
-        {
-            "alias": "4.0.0",
-            "alias_normalized": "4.0.0.0",
-            "version": "4.9999999.9999999.9999999-dev",
-            "package": "techdivision/import-sample-data"
         }
     ],
     "minimum-stability": "stable",
     "stability-flags": {
         "phpmd/phpmd": 0,
-        "behat/symfony2-extension": 20,
-        "techdivision/import-sample-data": 20
+        "behat/symfony2-extension": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

@@ -27,6 +27,6 @@ Scenario Outline: Check Products
 
     Examples:
       | page                     | title              | price     | code |
-      | "/joust-duffle-bag.html" | "Joust Duffle Bag" | "34,00 €" | 200  |
+      | "/joust-duffle-bag.html" | "Joust Duffle Bag" | "33,00 €" | 200  |
       | "/fusion-backpack.html"  | "Fusion Backpack"  | "59,00 €" | 200  |
       | "/driven-backpack.html"  | "Driven Backpack"  | "36,00 €" | 200  |

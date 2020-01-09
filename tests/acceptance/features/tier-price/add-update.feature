@@ -24,7 +24,7 @@ Scenario: Check Tier Price for Joust Duffle Bag
   Given I am on the homepage
    When I go to "/joust-duffle-bag.html"
    Then the response status code should be 200
-    And I should see "Buy 4 for 29,00 € each and save 15%"
+    And I should see "Buy 4 for 29,00 € each and save 12%"
 
 @product-check
 Scenario: Check Tier Price for Drive Shoulder Pack

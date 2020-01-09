@@ -12,7 +12,7 @@ Scenario: Add/Update MSI
   Given attribute sets have been imported
     And attributes have been imported
     And categories have been imported
-    And products have been imported
+    And products have been replaced
     And files with MSI to be updated are available
     And the MSI import process has been started
    When the import process has been finished
@@ -28,6 +28,6 @@ Scenario Outline: Check Products
 
     Examples:
       | page                         | title                  | status         | price     | code |
-      | "/joust-duffle-bag.html"     | "404 Not Found"        |                |           | 404  |
+      | "/joust-duffle-bag.html"     | "Joust Duffle Bag"     | "IN STOCK"     | "33,00 €" | 200  |
       | "/fusion-backpack.html"      | "Fusion Backpack"      | "IN STOCK"     | "59,00 €" | 200  |
       | "/strive-shoulder-pack.html" | "Strive Shoulder Pack" | "OUT OF STOCK" | "32,00 €" | 200  |
