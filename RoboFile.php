@@ -309,6 +309,7 @@ class RoboFile extends \Robo\Tasks
     {
         return $this->taskBehat()
             ->format('pretty')
+            ->option('tags', '@msi')
             ->noInteraction()
             ->run();
         }
