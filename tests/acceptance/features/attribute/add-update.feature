@@ -1,4 +1,4 @@
-@attribute @add-update
+@2.2 @2.3 @ce @ee @attribute @add-update
 Feature: Add/Update Attributes
   To import attributes into my Magento 2 instance
   As an e-commerce manager

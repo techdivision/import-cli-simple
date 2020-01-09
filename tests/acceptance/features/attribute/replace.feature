@@ -1,4 +1,4 @@
-@attribute @replace
+@2.2 @2.3 @ce @ee @attribute @replace
 Feature: Replace Attributes
   To replace attributes into my Magento 2 instance
   As an e-commerce manager

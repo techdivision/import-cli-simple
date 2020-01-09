@@ -1,4 +1,4 @@
-@tier-price @add-update
+@2.2 @2.3 @ce @ee @tier-price @add-update
 Feature: Add/Update Tier Prices
   To import tier prices into my Magento 2 instance
   As an e-commerce manager

@@ -1,4 +1,4 @@
-@tier-price @delete
+@2.2 @2.3 @ce @ee @tier-price @delete
 Feature: Delete Tier Prices
   To delete tier prices into my Magento 2 instance
   As an e-commerce manager

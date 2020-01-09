@@ -1,4 +1,4 @@
-@attribute @delete
+@2.2 @2.3 @ce @ee @attribute @delete
 Feature: Delete Attributes
   To delete attributes from my Magento 2 instance
   As an e-commerce manager

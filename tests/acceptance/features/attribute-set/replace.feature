@@ -1,4 +1,4 @@
-@attribute-set @replace
+@2.2 @2.3 @ce @ee @attribute-set @replace
 Feature: Replace Attribute-Sets
   To replace attribute sets into my Magento 2 instance
   As an e-commerce manager

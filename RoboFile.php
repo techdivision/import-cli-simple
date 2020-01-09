@@ -155,6 +155,12 @@ class RoboFile extends \Robo\Tasks
 
         } while ($magentoNotAvailable && $counter < 30);
 
+        // activate batch commit behaviour to improve performance
+        $this->taskDockerExec($containerName)
+            ->interactive()
+            ->exec('mysql -uroot -proot -e \'SET GLOBAL innodb_flush_log_at_trx_commit = 2\'')
+            ->run();
+
         // grant the privilieges to connection from outsite the container
         $this->taskDockerExec($containerName)
             ->interactive()
@@ -305,11 +311,11 @@ class RoboFile extends \Robo\Tasks
      *
      * @return \Robo\Result The result
      */
-    public function runTestsAcceptance()
+    public function runTestsAcceptance($magentoEdition = 'ce', $magentoVersion = '2.3.3')
     {
         return $this->taskBehat()
             ->format('pretty')
-            ->option('tags', '@msi')
+            ->option('tags', sprintf('@%s&&@%s', strtolower($magentoEdition), implode('.', sscanf($magentoVersion, "%d.%d"))))
             ->noInteraction()
             ->run();
         }

@@ -1,4 +1,4 @@
-@msi @add-update
+@2.3 @ce @ee @msi @add-update
 Feature: Add/Update MSI
   To import MSI into my Magento 2 instance
   As an e-commerce manager

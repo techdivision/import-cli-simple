@@ -1,4 +1,4 @@
-@category @add-update
+@2.2 @2.3 @ce @ee @category @add-update
 Feature: Add/Update Categories
   To import categories into my Magento 2 instance
   As an e-commerce manager

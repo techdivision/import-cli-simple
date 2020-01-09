@@ -1,4 +1,4 @@
-@tier-price @replace
+@2.2 @2.3 @ce @ee @tier-price @replace
 Feature: Replace Tier Prices
   To replace tier prices into my Magento 2 instance
   As an e-commerce manager

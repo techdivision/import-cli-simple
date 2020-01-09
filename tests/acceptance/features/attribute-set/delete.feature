@@ -1,4 +1,4 @@
-@attribute-set @delete
+@2.2 @2.3 @ce @ee @attribute-set @delete
 Feature: Delete Attribute-Sets
   To delete attribute from into my Magento 2 instance
   As an e-commerce manager

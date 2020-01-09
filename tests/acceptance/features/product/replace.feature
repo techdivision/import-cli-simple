@@ -1,4 +1,4 @@
-@product @replace
+@2.2 @2.3 @ce @ee @product @replace
 Feature: Replace Products
   To replace products into my Magento 2 instance
   As an e-commerce manager

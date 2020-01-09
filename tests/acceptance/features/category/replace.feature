@@ -1,4 +1,4 @@
-@category @replace
+@2.2 @2.3 @ce @ee @category @replace
 Feature: Replace Categories
   To replace categories into my Magento 2 instance
   As an e-commerce manager

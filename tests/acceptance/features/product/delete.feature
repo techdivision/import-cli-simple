@@ -1,4 +1,4 @@
-@product @delete
+@2.2 @2.3 @ce @ee @product @delete
 Feature: Delete Products
   To delete products from my Magento 2 instance
   As an e-commerce manager
