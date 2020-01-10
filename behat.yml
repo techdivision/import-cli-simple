@@ -1,4 +1,7 @@
 default:
+  gherkin:
+    filters:
+      tags: ~@customer&&~@customer-address
   extensions:
     DMore\ChromeExtension\Behat\ServiceContainer\ChromeExtension: ~
     Behat\Symfony2Extension:
@@ -16,61 +19,68 @@ default:
             api_url: http://localhost:9222
   suites:
     customer:
-     paths:
-       features: tests/acceptance/features/customer
-     contexts:
-       - TechDivision\Import\Cli\Simple\Contexts\CustomerFeatureContext: ~
-       - TechDivision\Import\Cli\Simple\Contexts\FeatureContext: ~
-       - TechDivision\Import\Cli\Simple\Contexts\ConsoleContext: ~
+      paths:
+        features: tests/acceptance/features/customer-address
+      contexts:
+        - TechDivision\Import\Cli\Simple\Contexts\CustomerAddressFeatureContext: ~
+        - TechDivision\Import\Cli\Simple\Contexts\FeatureContext: ~
+        - TechDivision\Import\Cli\Simple\Contexts\ConsoleContext: ~
+    customer_address:
+      paths:
+        features: tests/acceptance/features/customer
+      contexts:
+        - TechDivision\Import\Cli\Simple\Contexts\CustomerFeatureContext: ~
+        - TechDivision\Import\Cli\Simple\Contexts\FeatureContext: ~
+        - TechDivision\Import\Cli\Simple\Contexts\ConsoleContext: ~
     attribute_set:
-     paths:
-       features: tests/acceptance/features/attribute-set
-     contexts:
-       - TechDivision\Import\Cli\Simple\Contexts\AttributeSetFeatureContext: ~
-       - TechDivision\Import\Cli\Simple\Contexts\ConsoleContext: ~
+      paths:
+        features: tests/acceptance/features/attribute-set
+      contexts:
+        - TechDivision\Import\Cli\Simple\Contexts\AttributeSetFeatureContext: ~
+        - TechDivision\Import\Cli\Simple\Contexts\ConsoleContext: ~
     attribute:
-     paths:
-       features: tests/acceptance/features/attribute
-     contexts:
-       - TechDivision\Import\Cli\Simple\Contexts\AttributeFeatureContext: ~
-       - TechDivision\Import\Cli\Simple\Contexts\AttributeSetFeatureContext: ~
-       - TechDivision\Import\Cli\Simple\Contexts\ConsoleContext: ~
+      paths:
+        features: tests/acceptance/features/attribute
+      contexts:
+        - TechDivision\Import\Cli\Simple\Contexts\AttributeFeatureContext: ~
+        - TechDivision\Import\Cli\Simple\Contexts\AttributeSetFeatureContext: ~
+        - TechDivision\Import\Cli\Simple\Contexts\ConsoleContext: ~
     category:
-     paths:
-       features: tests/acceptance/features/category
-     contexts:
-       - TechDivision\Import\Cli\Simple\Contexts\CategoryFeatureContext: ~
-       - TechDivision\Import\Cli\Simple\Contexts\ConsoleContext: ~
+      paths:
+        features: tests/acceptance/features/category
+      contexts:
+        - TechDivision\Import\Cli\Simple\Contexts\CategoryFeatureContext: ~
+        - TechDivision\Import\Cli\Simple\Contexts\ConsoleContext: ~
     product:
-     paths:
-       features: tests/acceptance/features/product
-     contexts:
-       - TechDivision\Import\Cli\Simple\Contexts\AttributeSetFeatureContext: ~
-       - TechDivision\Import\Cli\Simple\Contexts\AttributeFeatureContext: ~
-       - TechDivision\Import\Cli\Simple\Contexts\CategoryFeatureContext: ~
-       - TechDivision\Import\Cli\Simple\Contexts\ProductFeatureContext: ~
-       - TechDivision\Import\Cli\Simple\Contexts\FeatureContext: ~
-       - TechDivision\Import\Cli\Simple\Contexts\ConsoleContext: ~
-    tier-price:
-     paths:
-       features: tests/acceptance/features/tier-price
-     contexts:
-       - TechDivision\Import\Cli\Simple\Contexts\TierPriceFeatureContext: ~
-       - TechDivision\Import\Cli\Simple\Contexts\AttributeSetFeatureContext: ~
-       - TechDivision\Import\Cli\Simple\Contexts\AttributeFeatureContext: ~
-       - TechDivision\Import\Cli\Simple\Contexts\CategoryFeatureContext: ~
-       - TechDivision\Import\Cli\Simple\Contexts\ProductFeatureContext: ~
-       - TechDivision\Import\Cli\Simple\Contexts\FeatureContext: ~
-       - TechDivision\Import\Cli\Simple\Contexts\ConsoleContext: ~
+      paths:
+        features: tests/acceptance/features/product
+      contexts:
+        - TechDivision\Import\Cli\Simple\Contexts\AttributeSetFeatureContext: ~
+        - TechDivision\Import\Cli\Simple\Contexts\AttributeFeatureContext: ~
+        - TechDivision\Import\Cli\Simple\Contexts\CategoryFeatureContext: ~
+        - TechDivision\Import\Cli\Simple\Contexts\ProductFeatureContext: ~
+        - TechDivision\Import\Cli\Simple\Contexts\FeatureContext: ~
+        - TechDivision\Import\Cli\Simple\Contexts\ConsoleContext: ~
+    tier_price:
+      paths:
+        features: tests/acceptance/features/tier-price
+      contexts:
+        - TechDivision\Import\Cli\Simple\Contexts\TierPriceFeatureContext: ~
+        - TechDivision\Import\Cli\Simple\Contexts\AttributeSetFeatureContext: ~
+        - TechDivision\Import\Cli\Simple\Contexts\AttributeFeatureContext: ~
+        - TechDivision\Import\Cli\Simple\Contexts\CategoryFeatureContext: ~
+        - TechDivision\Import\Cli\Simple\Contexts\ProductFeatureContext: ~
+        - TechDivision\Import\Cli\Simple\Contexts\FeatureContext: ~
+        - TechDivision\Import\Cli\Simple\Contexts\ConsoleContext: ~
     msi:
-     paths:
-       features: tests/acceptance/features/msi
-     contexts:
-       - TechDivision\Import\Cli\Simple\Contexts\MsiFeatureContext: ~
-       - TechDivision\Import\Cli\Simple\Contexts\AttributeSetFeatureContext: ~
-       - TechDivision\Import\Cli\Simple\Contexts\AttributeFeatureContext: ~
-       - TechDivision\Import\Cli\Simple\Contexts\CategoryFeatureContext: ~
-       - TechDivision\Import\Cli\Simple\Contexts\ProductFeatureContext: ~
-       - TechDivision\Import\Cli\Simple\Contexts\FeatureContext: ~
-       - TechDivision\Import\Cli\Simple\Contexts\ConsoleContext: ~
+      paths:
+        features: tests/acceptance/features/msi
+      contexts:
+        - TechDivision\Import\Cli\Simple\Contexts\MsiFeatureContext: ~
+        - TechDivision\Import\Cli\Simple\Contexts\AttributeSetFeatureContext: ~
+        - TechDivision\Import\Cli\Simple\Contexts\AttributeFeatureContext: ~
+        - TechDivision\Import\Cli\Simple\Contexts\CategoryFeatureContext: ~
+        - TechDivision\Import\Cli\Simple\Contexts\ProductFeatureContext: ~
+        - TechDivision\Import\Cli\Simple\Contexts\FeatureContext: ~
+        - TechDivision\Import\Cli\Simple\Contexts\ConsoleContext: ~
   

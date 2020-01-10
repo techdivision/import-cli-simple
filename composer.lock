@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0f9637efbdaf7cd70c1df00f5363dc8b",
+    "content-hash": "f4595dcafcadaec80df4406c9b7e8a70",
     "packages": [
         {
             "name": "cache/adapter-common",
@@ -2906,16 +2906,16 @@
         },
         {
             "name": "techdivision/import-customer",
-            "version": "13.0.0",
+            "version": "14.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-customer.git",
-                "reference": "0d6995a30d8891c59dd0f5fc4cea92d7531716bb"
+                "reference": "5424101466d16f16635d3a78e30f6a7d6c149d04"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-customer/zipball/0d6995a30d8891c59dd0f5fc4cea92d7531716bb",
-                "reference": "0d6995a30d8891c59dd0f5fc4cea92d7531716bb",
+                "url": "https://api.github.com/repos/techdivision/import-customer/zipball/5424101466d16f16635d3a78e30f6a7d6c149d04",
+                "reference": "5424101466d16f16635d3a78e30f6a7d6c149d04",
                 "shasum": ""
             },
             "require": {
@@ -2954,25 +2954,25 @@
                 }
             ],
             "description": "M2IF library providing basic Magento 2 customer import functionality",
-            "time": "2020-01-03T16:48:58+00:00"
+            "time": "2020-01-10T17:18:07+00:00"
         },
         {
             "name": "techdivision/import-customer-address",
-            "version": "13.0.0",
+            "version": "14.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-customer-address.git",
-                "reference": "22c7cbb1b5671a7e9e3d274a42268ac14d11683f"
+                "reference": "75a97f753ee9a55ae954a2dcdac28da31a4e2008"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-customer-address/zipball/22c7cbb1b5671a7e9e3d274a42268ac14d11683f",
-                "reference": "22c7cbb1b5671a7e9e3d274a42268ac14d11683f",
+                "url": "https://api.github.com/repos/techdivision/import-customer-address/zipball/75a97f753ee9a55ae954a2dcdac28da31a4e2008",
+                "reference": "75a97f753ee9a55ae954a2dcdac28da31a4e2008",
                 "shasum": ""
             },
             "require": {
                 "php": ">=7.1.0",
-                "techdivision/import-customer": "13.*"
+                "techdivision/import-customer": "14.*"
             },
             "require-dev": {
                 "consolidation/robo": "~1.0",
@@ -3006,7 +3006,7 @@
                 }
             ],
             "description": "M2IF library providing basic Magento 2 customer address import functionality",
-            "time": "2020-01-03T16:56:49+00:00"
+            "time": "2020-01-10T17:24:19+00:00"
         },
         {
             "name": "techdivision/import-ee",
@@ -8872,16 +8872,16 @@
         },
         {
             "name": "techdivision/import-sample-data",
-            "version": "4.0.1",
+            "version": "4.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-sample-data.git",
-                "reference": "14f3b405bcc9273f845ae697547eeea308da0db5"
+                "reference": "82513499a49adfdf4e7fead46191ed8f17efc281"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-sample-data/zipball/14f3b405bcc9273f845ae697547eeea308da0db5",
-                "reference": "14f3b405bcc9273f845ae697547eeea308da0db5",
+                "url": "https://api.github.com/repos/techdivision/import-sample-data/zipball/82513499a49adfdf4e7fead46191ed8f17efc281",
+                "reference": "82513499a49adfdf4e7fead46191ed8f17efc281",
                 "shasum": ""
             },
             "require": {
@@ -8899,7 +8899,7 @@
                 }
             ],
             "description": "M2IF sample data for Magento 2 Community + Commerce Edition",
-            "time": "2020-01-09T16:37:33+00:00"
+            "time": "2020-01-10T18:41:08+00:00"
         },
         {
             "name": "textalk/websocket",
