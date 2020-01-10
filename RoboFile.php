@@ -315,7 +315,7 @@ class RoboFile extends \Robo\Tasks
     {
         return $this->taskBehat()
             ->format('pretty')
-            ->option('tags', sprintf('@%s&&@%s', strtolower($magentoEdition), implode('.', sscanf($magentoVersion, "%d.%d"))))
+            ->option('tags', sprintf('@%s&&@%s&&~@customer&&~@customer-address', strtolower($magentoEdition), implode('.', sscanf($magentoVersion, "%d.%d"))))
             ->noInteraction()
             ->run();
         }
