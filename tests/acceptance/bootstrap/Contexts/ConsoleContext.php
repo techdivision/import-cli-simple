@@ -180,6 +180,16 @@ class ConsoleContext implements Context, KernelAwareContext
     }
 
     /**
+     * @Given the magento customer grid index has been updated
+     *
+     * @return void
+     */
+    public function theMagentoCustomerGridIndexHasBeenUpdated()
+    {
+        $this->env->updateMagentoIndex(array('customer_grid'));
+    }
+
+    /**
      * @Then a success message has to be rendered
      */
     public function assertSuccessMessage()
@@ -207,6 +217,12 @@ class ConsoleContext implements Context, KernelAwareContext
      * @When the tier price import process has been finished
      * @When the tier price deletion process has been finished
      * @When the tier price replacement process has been finished
+     * @When the customer import process has been finished
+     * @When the customer deletion process has been finished
+     * @When the customer replacement process has been finished
+     * @When the customer address import process has been finished
+     * @When the customer address deletion process has been finished
+     * @When the customer address replacement process has been finished
      */
     public function assertExitCode()
     {

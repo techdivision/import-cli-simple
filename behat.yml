@@ -8,11 +8,20 @@ default:
       browser_name: chrome
       sessions:
         default:
-          goutte: ~
+          goutte:
+            guzzle_parameters:
+              verify: false
         production:
           chrome:
             api_url: http://localhost:9222
   suites:
+    customer:
+     paths:
+       features: tests/acceptance/features/customer
+     contexts:
+       - TechDivision\Import\Cli\Simple\Contexts\CustomerFeatureContext: ~
+       - TechDivision\Import\Cli\Simple\Contexts\FeatureContext: ~
+       - TechDivision\Import\Cli\Simple\Contexts\ConsoleContext: ~
     attribute_set:
      paths:
        features: tests/acceptance/features/attribute-set
