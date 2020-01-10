@@ -1,7 +1,7 @@
 default:
   gherkin:
     filters:
-      tags: ~@customer&&~@customer-address
+      tags: "~@customer&&~@customer-address"
   extensions:
     DMore\ChromeExtension\Behat\ServiceContainer\ChromeExtension: ~
     Behat\Symfony2Extension:
