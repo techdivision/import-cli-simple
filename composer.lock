@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7042e30c20af58ba9097e34818d30a0e",
+    "content-hash": "5b797ef4517dcdecdb638161eed70e39",
     "packages": [
         {
             "name": "cache/adapter-common",
@@ -3203,16 +3203,16 @@
         },
         {
             "name": "techdivision/import-product-bundle",
-            "version": "18.0.0",
+            "version": "19.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-product-bundle.git",
-                "reference": "48bd49563d92c96374845d2bb326135fcb044678"
+                "reference": "019ccc4c8b20bfbd1c12c1f55cb83101edbaa1f8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-product-bundle/zipball/48bd49563d92c96374845d2bb326135fcb044678",
-                "reference": "48bd49563d92c96374845d2bb326135fcb044678",
+                "url": "https://api.github.com/repos/techdivision/import-product-bundle/zipball/019ccc4c8b20bfbd1c12c1f55cb83101edbaa1f8",
+                "reference": "019ccc4c8b20bfbd1c12c1f55cb83101edbaa1f8",
                 "shasum": ""
             },
             "require": {
@@ -3251,25 +3251,25 @@
                 }
             ],
             "description": "M2IF library providing basic Magento 2 bundle product import functionality",
-            "time": "2020-01-03T17:08:24+00:00"
+            "time": "2020-01-20T14:19:14+00:00"
         },
         {
             "name": "techdivision/import-product-bundle-ee",
-            "version": "18.0.0",
+            "version": "19.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-product-bundle-ee.git",
-                "reference": "2f498a6fd7f5ad0f7bb6f550f343a5f7a6b18bfd"
+                "reference": "93d26fc55f3d6e0f7a476e282533d3d5380f45d8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-product-bundle-ee/zipball/2f498a6fd7f5ad0f7bb6f550f343a5f7a6b18bfd",
-                "reference": "2f498a6fd7f5ad0f7bb6f550f343a5f7a6b18bfd",
+                "url": "https://api.github.com/repos/techdivision/import-product-bundle-ee/zipball/93d26fc55f3d6e0f7a476e282533d3d5380f45d8",
+                "reference": "93d26fc55f3d6e0f7a476e282533d3d5380f45d8",
                 "shasum": ""
             },
             "require": {
                 "php": ">=7.1.0",
-                "techdivision/import-product-bundle": "18.*",
+                "techdivision/import-product-bundle": "19.*",
                 "techdivision/import-product-ee": "18.*"
             },
             "require-dev": {
@@ -3304,7 +3304,7 @@
                 }
             ],
             "description": "M2IF library providing basic Magento 2 EE bundle product import functionality",
-            "time": "2020-01-03T17:25:32+00:00"
+            "time": "2020-01-20T14:27:21+00:00"
         },
         {
             "name": "techdivision/import-product-ee",
@@ -5647,16 +5647,16 @@
         },
         {
             "name": "myclabs/deep-copy",
-            "version": "1.9.4",
+            "version": "1.9.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/myclabs/DeepCopy.git",
-                "reference": "579bb7356d91f9456ccd505f24ca8b667966a0a7"
+                "reference": "b2c28789e80a97badd14145fda39b545d83ca3ef"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/myclabs/DeepCopy/zipball/579bb7356d91f9456ccd505f24ca8b667966a0a7",
-                "reference": "579bb7356d91f9456ccd505f24ca8b667966a0a7",
+                "url": "https://api.github.com/repos/myclabs/DeepCopy/zipball/b2c28789e80a97badd14145fda39b545d83ca3ef",
+                "reference": "b2c28789e80a97badd14145fda39b545d83ca3ef",
                 "shasum": ""
             },
             "require": {
@@ -5691,7 +5691,7 @@
                 "object",
                 "object graph"
             ],
-            "time": "2019-12-15T19:12:40+00:00"
+            "time": "2020-01-17T21:11:47+00:00"
         },
         {
             "name": "pdepend/pdepend",
