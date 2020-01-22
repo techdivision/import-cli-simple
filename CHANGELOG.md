@@ -1,3 +1,17 @@
+# Version 3.7.12
+
+## Known Issues
+
+* Up from Magento 2 EE 2.1.10 using the single transaction mode has a massive performance impact (can only be used **WITHOUT** single transaction)
+
+## Bugfixes
+
+* None
+
+## Features
+
+* Compatibility with Magento CE/EE version 2.3.4
+
 # Version 3.7.11
 
 ## Known Issues
