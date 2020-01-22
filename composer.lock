@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3789c29456cc73c34607af2706843887",
+    "content-hash": "ff7bd918989625d54084ca5c753a5d32",
     "packages": [
         {
             "name": "cache/adapter-common",
@@ -197,63 +197,6 @@
                 "psr-6"
             ],
             "time": "2017-07-16T21:58:17+00:00"
-        },
-        {
-            "name": "cache/namespaced-cache",
-            "version": "1.0.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/php-cache/namespaced-cache.git",
-                "reference": "c36d9105c44d6cbbf905b7aafebcb29d488f397c"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/php-cache/namespaced-cache/zipball/c36d9105c44d6cbbf905b7aafebcb29d488f397c",
-                "reference": "c36d9105c44d6cbbf905b7aafebcb29d488f397c",
-                "shasum": ""
-            },
-            "require": {
-                "cache/hierarchical-cache": "^1.0",
-                "php": "^5.6 || ^7.0",
-                "psr/cache": "^1.0"
-            },
-            "require-dev": {
-                "cache/memcached-adapter": "^1.0",
-                "phpunit/phpunit": "^5.7.21"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.0-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Cache\\Namespaced\\": ""
-                },
-                "exclude-from-classmap": [
-                    "/Tests/"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Tobias Nyholm",
-                    "email": "tobias.nyholm@gmail.com",
-                    "homepage": "https://github.com/Nyholm"
-                }
-            ],
-            "description": "A decorator that makes your cache support namespaces",
-            "homepage": "http://www.php-cache.com/en/latest/",
-            "keywords": [
-                "cache",
-                "namespace",
-                "psr-6"
-            ],
-            "time": "2017-07-16T20:20:51+00:00"
         },
         {
             "name": "cache/prefixed-cache",
@@ -2347,21 +2290,20 @@
         },
         {
             "name": "techdivision/import",
-            "version": "15.0.2",
+            "version": "15.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import.git",
-                "reference": "d1c769a6f88f06b4895c6337a4cb9272f6dbbce4"
+                "reference": "0b42e4a9046067bdd38107b1d6b55ffe05cf0bdf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import/zipball/d1c769a6f88f06b4895c6337a4cb9272f6dbbce4",
-                "reference": "d1c769a6f88f06b4895c6337a4cb9272f6dbbce4",
+                "url": "https://api.github.com/repos/techdivision/import/zipball/0b42e4a9046067bdd38107b1d6b55ffe05cf0bdf",
+                "reference": "0b42e4a9046067bdd38107b1d6b55ffe05cf0bdf",
                 "shasum": ""
             },
             "require": {
                 "cache/array-adapter": "1.0.*",
-                "cache/namespaced-cache": "1.0.*",
                 "cache/prefixed-cache": "1.0.*",
                 "goodby/csv": "~1.0",
                 "league/event": "~2.0",
@@ -2407,7 +2349,7 @@
                 }
             ],
             "description": "A library supporting generic Magento 2 import functionality",
-            "time": "2020-01-22T12:21:31+00:00"
+            "time": "2020-01-22T18:25:41+00:00"
         },
         {
             "name": "techdivision/import-app-simple",
@@ -8666,16 +8608,16 @@
         },
         {
             "name": "techdivision/import-sample-data",
-            "version": "4.0.4",
+            "version": "4.0.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-sample-data.git",
-                "reference": "a73a32cd7f0df297226932c40be78710ddd6fbc1"
+                "reference": "b0da367e5e8d69d774146e2de8bbc6847f782252"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-sample-data/zipball/a73a32cd7f0df297226932c40be78710ddd6fbc1",
-                "reference": "a73a32cd7f0df297226932c40be78710ddd6fbc1",
+                "url": "https://api.github.com/repos/techdivision/import-sample-data/zipball/b0da367e5e8d69d774146e2de8bbc6847f782252",
+                "reference": "b0da367e5e8d69d774146e2de8bbc6847f782252",
                 "shasum": ""
             },
             "require": {
@@ -8693,7 +8635,7 @@
                 }
             ],
             "description": "M2IF sample data for Magento 2 Community + Commerce Edition",
-            "time": "2020-01-16T13:22:57+00:00"
+            "time": "2020-01-20T08:28:58+00:00"
         },
         {
             "name": "textalk/websocket",
@@ -8865,6 +8807,12 @@
     ],
     "aliases": [
         {
+            "alias": "15.0.3",
+            "alias_normalized": "15.0.3.0",
+            "version": "15.9999999.9999999.9999999-dev",
+            "package": "techdivision/import"
+        },
+        {
             "alias": "3.0.0",
             "alias_normalized": "3.0.0.0",
             "version": "9999999-dev",
@@ -8873,6 +8821,7 @@
     ],
     "minimum-stability": "stable",
     "stability-flags": {
+        "techdivision/import": 20,
         "phpmd/phpmd": 0,
         "behat/symfony2-extension": 20
     },
