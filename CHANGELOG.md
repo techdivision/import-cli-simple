@@ -1,3 +1,17 @@
+# Version 3.7.11
+
+## Known Issues
+
+* Up from Magento 2 EE 2.1.10 using the single transaction mode has a massive performance impact (can only be used **WITHOUT** single transaction)
+
+## Bugfixes
+
+* Fixed invalid product URL rewrite metadata that results in dead product URL rewrites
+
+## Features
+
+* None
+
 # Version 3.7.10
 
 ## Known Issues
