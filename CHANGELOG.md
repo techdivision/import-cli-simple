@@ -6,7 +6,7 @@
 
 ## Bugfixes
 
-* None
+* Fixed typo in Symfony DI configuration of library techdivision/import-customer-address
 
 ## Features
 
