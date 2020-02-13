@@ -1,0 +1,16 @@
+diff --git a/src/Parsers/JsonParser.php b/src/Parsers/JsonParser.php
+index ef88ec5..a9a0c04 100644
+--- a/src/Parsers/JsonParser.php
++++ b/src/Parsers/JsonParser.php
+@@ -137,6 +137,11 @@
+             array_unshift($files, $file);
+         }
+ 
++        // sort the files ascending
++        usort($files, function ($a, $b) {
++            return strcmp($a, $b);
++        });
++
+         // return the array with the files
+         return $files;
+     }
