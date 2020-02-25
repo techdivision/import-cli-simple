@@ -1,3 +1,17 @@
+# Version 3.8.8
+
+## Known Issues
+
+* Up from Magento 2 EE 2.1.10 using the single transaction mode has a massive performance impact (can only be used **WITHOUT** single transaction)
+
+## Bugfixes
+
+* Fix associated_skus without qty
+
+## Features
+
+* Allow import of product relations in debug mode whether or not the related simple product exists
+
 # Version 3.8.7
 
 ## Known Issues
