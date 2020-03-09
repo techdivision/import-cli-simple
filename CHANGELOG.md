@@ -1,3 +1,18 @@
+# Version 3.7.17
+
+## Known Issues
+
+* Up from Magento 2 EE 2.1.10 using the single transaction mode has a massive performance impact (can only be used **WITHOUT** single transaction)
+
+## Bugfixes
+
+* None
+
+## Features
+
+* Clear cache references also, when an cache item has been removed
+* Remove functionality to make given URL keys unique (we assume, that given URL keys HAVE to be provided in a unique manner)
+
 # Version 3.7.16
 
 ## Known Issues
