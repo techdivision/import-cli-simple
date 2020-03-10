@@ -10,7 +10,9 @@
 
 ## Features
 
+* Remove not referenced legacy code
 * Clear cache references also, when an cache item has been removed
+* Optimize additional attribute destruction to avoid unnecessary warnings
 * Remove functionality to make given URL keys unique (we assume, that given URL keys HAVE to be provided in a unique manner)
 
 # Version 3.8.8
