@@ -1,3 +1,17 @@
+# Version 3.7.18
+
+## Known Issues
+
+* Up from Magento 2 EE 2.1.10 using the single transaction mode has a massive performance impact (can only be used **WITHOUT** single transaction)
+
+## Bugfixes
+
+* Fixed issue with delta import when SKUs of simples, that are related with grouped, are in database but will not be loaded
+
+## Features
+
+* Remove duplicated SQLs and SQL statement keys
+
 # Version 3.7.17
 
 ## Known Issues
