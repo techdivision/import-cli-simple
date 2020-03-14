@@ -1,20 +1,3 @@
-# Version 3.8.9
-
-## Known Issues
-
-* Up from Magento 2 EE 2.1.10 using the single transaction mode has a massive performance impact (can only be used **WITHOUT** single transaction)
-
-## Bugfixes
-
-* None
-
-## Features
-
-* Remove not referenced legacy code
-* Clear cache references also, when an cache item has been removed
-* Optimize additional attribute destruction to avoid unnecessary warnings
-* Remove functionality to make given URL keys unique (we assume, that given URL keys HAVE to be provided in a unique manner)
-
 # Version 3.8.8
 
 ## Known Issues
@@ -24,10 +7,19 @@
 ## Bugfixes
 
 * Fix associated_skus without qty
+* Fixed techdivision/import-product#149
+* Fixed techdivision/import-cli-simple#238
+* Fixed issue with delta import when SKUs of simples, that are related with grouped, are in database but will not be loaded
 
 ## Features
 
+* Remove not referenced legacy code
+* Extract dev autoloading (where possible)
+* Clear cache references also, when an cache item has been removed
+* Add command to import URL rewrites as well as necessary class constants
+* Optimize additional attribute destruction to avoid unnecessary warnings
 * Allow import of product relations in debug mode whether or not the related simple product exists
+* Remove functionality to make given URL keys unique (we assume, that given URL keys HAVE to be provided in a unique manner)
 
 # Version 3.8.7
 
