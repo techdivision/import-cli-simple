@@ -1,3 +1,17 @@
+# Version 3.8.9
+
+## Known Issues
+
+* Up from Magento 2 EE 2.1.10 using the single transaction mode has a massive performance impact (can only be used **WITHOUT** single transaction)
+
+## Bugfixes
+
+* Fixed significant performance issue by removing unnecessary and slow reference clean-up when removing an item from cache
+
+## Features
+
+* None
+
 # Version 3.8.8
 
 ## Known Issues
