@@ -11,6 +11,7 @@
 ## Features
 
 * Add compiler implementations for dynamic column handling
+* Add functionality for dynamic column handling in customer entity
 
 # Version 3.8.9
 
