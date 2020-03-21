@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "bd6f1fb438c5f4bf0b80d88656819016",
+    "content-hash": "b801071547bd418794c312b7477b8863",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -1646,16 +1646,16 @@
         },
         {
             "name": "techdivision/import",
-            "version": "15.2.0",
+            "version": "15.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import.git",
-                "reference": "e89609362da00097285c82de7c3a125ff627d76a"
+                "reference": "e8c070d5609a11c2fc162d6202621f5eaf2e5a53"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import/zipball/e89609362da00097285c82de7c3a125ff627d76a",
-                "reference": "e89609362da00097285c82de7c3a125ff627d76a",
+                "url": "https://api.github.com/repos/techdivision/import/zipball/e8c070d5609a11c2fc162d6202621f5eaf2e5a53",
+                "reference": "e8c070d5609a11c2fc162d6202621f5eaf2e5a53",
                 "shasum": ""
             },
             "require": {
@@ -1703,7 +1703,7 @@
                 }
             ],
             "description": "A library supporting generic Magento 2 import functionality",
-            "time": "2020-03-20T16:44:33+00:00"
+            "time": "2020-03-21T13:28:07+00:00"
         },
         {
             "name": "techdivision/import-app-simple",
@@ -1966,16 +1966,16 @@
         },
         {
             "name": "techdivision/import-cli",
-            "version": "9.0.3",
+            "version": "9.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-cli.git",
-                "reference": "b42dc06e3768f68a4844fe2d10c7a53cdace2a3c"
+                "reference": "df759c840984ec7dbbf1565c244c41733c2d7eeb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-cli/zipball/b42dc06e3768f68a4844fe2d10c7a53cdace2a3c",
-                "reference": "b42dc06e3768f68a4844fe2d10c7a53cdace2a3c",
+                "url": "https://api.github.com/repos/techdivision/import-cli/zipball/df759c840984ec7dbbf1565c244c41733c2d7eeb",
+                "reference": "df759c840984ec7dbbf1565c244c41733c2d7eeb",
                 "shasum": ""
             },
             "require": {
@@ -2017,7 +2017,7 @@
                 }
             ],
             "description": "Commands and Helpers to implement a CLI providing single-threaded Magento 2 importing functionality based on M2IF",
-            "time": "2020-03-14T13:46:21+00:00"
+            "time": "2020-03-21T13:35:53+00:00"
         },
         {
             "name": "techdivision/import-configuration-jms",
@@ -2744,16 +2744,16 @@
         },
         {
             "name": "techdivision/import-product-link",
-            "version": "19.0.2",
+            "version": "19.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-product-link.git",
-                "reference": "b6ee1a8a7e36589673b1c09fb8c88a9139b888da"
+                "reference": "4c477dad125f71366520fccf618f0efa0be08d3e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-product-link/zipball/b6ee1a8a7e36589673b1c09fb8c88a9139b888da",
-                "reference": "b6ee1a8a7e36589673b1c09fb8c88a9139b888da",
+                "url": "https://api.github.com/repos/techdivision/import-product-link/zipball/4c477dad125f71366520fccf618f0efa0be08d3e",
+                "reference": "4c477dad125f71366520fccf618f0efa0be08d3e",
                 "shasum": ""
             },
             "require": {
@@ -2791,20 +2791,20 @@
                 }
             ],
             "description": "M2IF library providing basic Magento 2 product link import functionality",
-            "time": "2020-03-14T15:30:37+00:00"
+            "time": "2020-03-21T09:46:50+00:00"
         },
         {
             "name": "techdivision/import-product-link-ee",
-            "version": "20.0.1",
+            "version": "20.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-product-link-ee.git",
-                "reference": "aad934bbf350286985840dfd758f440cb65c2a0e"
+                "reference": "4be0caede109304c0dddde22d0d66de5c0a0f80b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-product-link-ee/zipball/aad934bbf350286985840dfd758f440cb65c2a0e",
-                "reference": "aad934bbf350286985840dfd758f440cb65c2a0e",
+                "url": "https://api.github.com/repos/techdivision/import-product-link-ee/zipball/4be0caede109304c0dddde22d0d66de5c0a0f80b",
+                "reference": "4be0caede109304c0dddde22d0d66de5c0a0f80b",
                 "shasum": ""
             },
             "require": {
@@ -2843,7 +2843,7 @@
                 }
             ],
             "description": "M2IF library providing basic Magento 2 EE product link import functionality",
-            "time": "2020-03-14T15:49:55+00:00"
+            "time": "2020-03-21T13:19:04+00:00"
         },
         {
             "name": "techdivision/import-product-media",

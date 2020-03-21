@@ -1,3 +1,19 @@
+# Version 3.8.11
+
+## Known Issues
+
+* Up from Magento 2 EE 2.1.10 using the single transaction mode has a massive performance impact (can only be used **WITHOUT** single transaction)
+
+## Bugfixes
+
+* Add entity type code CATALOG_PRODUCT_URL to EntityTypeCodes list
+* Add missing mapping EntityTypeCodes::CATALOG_PRODUCT_URL => EntityTypeCodes::CATALOG_PRODUCT to AbstractSubject
+* Add missing observer to pre-load entity + row ID for replace operation in delta update mode for techdivision/import-product-link + techdivision/import-product-link-ee
+
+## Features
+
+* Extract the import.configuration.manager DI configuration to techdivision/import-cli to make it overwritable
+
 # Version 3.8.10
 
 ## Known Issues
