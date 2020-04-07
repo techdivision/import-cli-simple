@@ -12,7 +12,12 @@ behat testsuite. You'll find them on [Docker Hub](https://hub.docker.com/reposit
 open the CLI and enter
 
 ```sh
-docker run --rm -d --name mage-ce-233 -p 127.0.1.1:80:80 -p 127.0.1.1:443:443 -p 127.0.1.1:3306:3306 -e MAGENTO_BASE_URL=mage-ce-233.test techdivision/magento2-ce:2.3.3
+docker run --rm -d --name mage-ce-233 \
+  -p 127.0.1.1:80:80 \
+  -p 127.0.1.1:443:443 \
+  -p 127.0.1.1:3306:3306 \
+  -e MAGENTO_BASE_URL=mage-ce-233.test \
+  techdivision/magento2-ce:2.3.3
 ```
 
 When the Docker container has been stopped after processing the behat testsuite, it'll be removed because of the `--rm` parameter. Do not add this, if you want to keep the
@@ -35,5 +40,11 @@ Do not forget, that you've to change domain and container name, when you're usin
 When the Docker container is running and has been prepared, you can finally start the behat testsuite, also by invoking the Robo taskrunner, with
 
 ```sh
-MAGENTO_INSTALL_DIR=/var/www/dist MAGENTO_CONTAINER_NAME=mage-ce-233 MAGENTO_BASE_URL=mage-ce-233.test DB_HOST=127.0.1.1 DB_PORT=9306 vendor/bin/behat --tags=@ce&&@2.3&&~@customer&&~@customer-address
+MAGENTO_INSTALL_DIR=/var/www/dist \
+  MAGENTO_CONTAINER_NAME=mage-ce-233 \
+  MAGENTO_BASE_URL=mage-ce-233.test \
+  DB_HOST=127.0.1.1 \
+  DB_PORT=9306 \
+  vendor/bin/behat \
+    --tags=@ce&&@2.3&&~@customer&&~@customer-address
 ```
