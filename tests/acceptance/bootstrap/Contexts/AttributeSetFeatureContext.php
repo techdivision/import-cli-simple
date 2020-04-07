@@ -79,7 +79,7 @@ class AttributeSetFeatureContext implements Context
      */
     public function theAttributeSetImportProcessHasBeenStarted()
     {
-        $this->consoleContext->theSimpleCommandHasBeenExecuted(sprintf('bin/import-simple %s', CommandNames::IMPORT_CREATE_OK_FILE));
+        $this->consoleContext->theCommandHasBeenExecuted(sprintf('bin/import-simple %s', CommandNames::IMPORT_CREATE_OK_FILE));
         $this->consoleContext->theCommandHasBeenExecuted(sprintf('bin/import-simple %s add-update', CommandNames::IMPORT_ATTRIBUTES_SET));
     }
 
@@ -88,7 +88,7 @@ class AttributeSetFeatureContext implements Context
      */
     public function theAttributeSetDeletionProcessHasBeenStarted()
     {
-        $this->consoleContext->theSimpleCommandHasBeenExecuted(sprintf('bin/import-simple %s', CommandNames::IMPORT_CREATE_OK_FILE));
+        $this->consoleContext->theCommandHasBeenExecuted(sprintf('bin/import-simple %s', CommandNames::IMPORT_CREATE_OK_FILE));
         $this->consoleContext->theCommandHasBeenExecuted(sprintf('bin/import-simple %s delete', CommandNames::IMPORT_ATTRIBUTES_SET));
     }
 
@@ -97,7 +97,7 @@ class AttributeSetFeatureContext implements Context
      */
     public function theAttributeSetReplacementProcessHasBeenStarted()
     {
-        $this->consoleContext->theSimpleCommandHasBeenExecuted(sprintf('bin/import-simple %s', CommandNames::IMPORT_CREATE_OK_FILE));
+        $this->consoleContext->theCommandHasBeenExecuted(sprintf('bin/import-simple %s', CommandNames::IMPORT_CREATE_OK_FILE));
         $this->consoleContext->theCommandHasBeenExecuted(sprintf('bin/import-simple %s replace', CommandNames::IMPORT_ATTRIBUTES_SET));
     }
 }

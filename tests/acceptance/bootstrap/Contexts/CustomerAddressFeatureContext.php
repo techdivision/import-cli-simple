@@ -79,7 +79,7 @@ class CustomerAddressFeatureContext implements Context
      */
     public function theCustomerAddressImportProcessHasBeenStarted()
     {
-        $this->consoleContext->theSimpleCommandHasBeenExecuted(sprintf('bin/import-simple %s', CommandNames::IMPORT_CREATE_OK_FILE));
+        $this->consoleContext->theCommandHasBeenExecuted(sprintf('bin/import-simple %s', CommandNames::IMPORT_CREATE_OK_FILE));
         $this->consoleContext->theCommandHasBeenExecuted(sprintf('bin/import-simple %s add-update', CommandNames::IMPORT_CUSTOMERS_ADDRESS));
     }
 
@@ -88,7 +88,7 @@ class CustomerAddressFeatureContext implements Context
      */
     public function theCustomerAddressDeletionProcessHasBeenStarted()
     {
-        $this->consoleContext->theSimpleCommandHasBeenExecuted(sprintf('bin/import-simple %s', CommandNames::IMPORT_CREATE_OK_FILE));
+        $this->consoleContext->theCommandHasBeenExecuted(sprintf('bin/import-simple %s', CommandNames::IMPORT_CREATE_OK_FILE));
         $this->consoleContext->theCommandHasBeenExecuted(sprintf('bin/import-simple %s delete', CommandNames::IMPORT_CUSTOMERS_ADDRESS));
     }
 
@@ -97,7 +97,7 @@ class CustomerAddressFeatureContext implements Context
      */
     public function theCustomerAddressReplacementProcessHasBeenStarted()
     {
-        $this->consoleContext->theSimpleCommandHasBeenExecuted(sprintf('bin/import-simple %s', CommandNames::IMPORT_CREATE_OK_FILE));
+        $this->consoleContext->theCommandHasBeenExecuted(sprintf('bin/import-simple %s', CommandNames::IMPORT_CREATE_OK_FILE));
         $this->consoleContext->theCommandHasBeenExecuted(sprintf('bin/import-simple %s replace', CommandNames::IMPORT_CUSTOMERS_ADDRESS));
     }
 }

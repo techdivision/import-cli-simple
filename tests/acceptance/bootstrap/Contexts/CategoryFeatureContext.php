@@ -79,7 +79,7 @@ class CategoryFeatureContext implements Context
      */
     public function theCategoryImportProcessHasBeenStarted()
     {
-        $this->consoleContext->theSimpleCommandHasBeenExecuted(sprintf('bin/import-simple %s', CommandNames::IMPORT_CREATE_OK_FILE));
+        $this->consoleContext->theCommandHasBeenExecuted(sprintf('bin/import-simple %s', CommandNames::IMPORT_CREATE_OK_FILE));
         $this->consoleContext->theCommandHasBeenExecuted(sprintf('bin/import-simple %s add-update', CommandNames::IMPORT_CATEGORIES));
     }
 
@@ -88,7 +88,7 @@ class CategoryFeatureContext implements Context
      */
     public function theCategoryDeletionProcessHasBeenStarted()
     {
-        $this->consoleContext->theSimpleCommandHasBeenExecuted(sprintf('bin/import-simple %s', CommandNames::IMPORT_CREATE_OK_FILE));
+        $this->consoleContext->theCommandHasBeenExecuted(sprintf('bin/import-simple %s', CommandNames::IMPORT_CREATE_OK_FILE));
         $this->consoleContext->theCommandHasBeenExecuted(sprintf('bin/import-simple %s delete', CommandNames::IMPORT_CATEGORIES));
     }
 
@@ -97,7 +97,7 @@ class CategoryFeatureContext implements Context
      */
     public function theCategoryReplacementProcessHasBeenStarted()
     {
-        $this->consoleContext->theSimpleCommandHasBeenExecuted(sprintf('bin/import-simple %s', CommandNames::IMPORT_CREATE_OK_FILE));
+        $this->consoleContext->theCommandHasBeenExecuted(sprintf('bin/import-simple %s', CommandNames::IMPORT_CREATE_OK_FILE));
         $this->consoleContext->theCommandHasBeenExecuted(sprintf('bin/import-simple %s replace', CommandNames::IMPORT_CATEGORIES));
     }
 }

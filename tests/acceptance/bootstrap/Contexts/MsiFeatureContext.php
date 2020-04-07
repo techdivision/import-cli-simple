@@ -113,7 +113,7 @@ class MsiFeatureContext implements Context
      */
     public function theMsiImportProcessHasBeenStarted()
     {
-        $this->consoleContext->theSimpleCommandHasBeenExecuted(sprintf('bin/import-simple %s', CommandNames::IMPORT_CREATE_OK_FILE));
+        $this->consoleContext->theCommandHasBeenExecuted(sprintf('bin/import-simple %s', CommandNames::IMPORT_CREATE_OK_FILE));
         $this->consoleContext->theCommandHasBeenExecuted(sprintf('bin/import-simple %s add-update', CommandNames::IMPORT_PRODUCTS_INVENTORY_MSI));
     }
 
@@ -122,7 +122,7 @@ class MsiFeatureContext implements Context
      */
     public function theMsiDeletionProcessHasBeenStarted()
     {
-        $this->consoleContext->theSimpleCommandHasBeenExecuted(sprintf('bin/import-simple %s', CommandNames::IMPORT_CREATE_OK_FILE));
+        $this->consoleContext->theCommandHasBeenExecuted(sprintf('bin/import-simple %s', CommandNames::IMPORT_CREATE_OK_FILE));
         $this->consoleContext->theCommandHasBeenExecuted(sprintf('bin/import-simple %s delete', CommandNames::IMPORT_PRODUCTS_INVENTORY_MSI));
     }
 
@@ -131,7 +131,7 @@ class MsiFeatureContext implements Context
      */
     public function theMsiReplacementProcessHasBeenStarted()
     {
-        $this->consoleContext->theSimpleCommandHasBeenExecuted(sprintf('bin/import-simple %s', CommandNames::IMPORT_CREATE_OK_FILE));
+        $this->consoleContext->theCommandHasBeenExecuted(sprintf('bin/import-simple %s', CommandNames::IMPORT_CREATE_OK_FILE));
         $this->consoleContext->theCommandHasBeenExecuted(sprintf('bin/import-simple %s replace', CommandNames::IMPORT_PRODUCTS_INVENTORY_MSI));
     }
 }
