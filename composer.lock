@@ -2142,12 +2142,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-cli.git",
-                "reference": "f9701db5d9b523577e1cfe1729869f357faf0b53"
+                "reference": "85f97c642ef79c2c6942cc8816852d8b0954463b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-cli/zipball/f9701db5d9b523577e1cfe1729869f357faf0b53",
-                "reference": "f9701db5d9b523577e1cfe1729869f357faf0b53",
+                "url": "https://api.github.com/repos/techdivision/import-cli/zipball/85f97c642ef79c2c6942cc8816852d8b0954463b",
+                "reference": "85f97c642ef79c2c6942cc8816852d8b0954463b",
                 "shasum": ""
             },
             "require": {
@@ -2189,7 +2189,7 @@
                 }
             ],
             "description": "Commands and Helpers to implement a CLI providing single-threaded Magento 2 importing functionality based on M2IF",
-            "time": "2020-03-31T15:43:14+00:00"
+            "time": "2020-04-13T16:04:49+00:00"
         },
         {
             "name": "techdivision/import-configuration-jms",
@@ -2197,12 +2197,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-configuration-jms.git",
-                "reference": "6819b32be068d20c11600be2ef8e593153ed6e7d"
+                "reference": "6fe8f19839d8397fea9b227bdd3150c05164942e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-configuration-jms/zipball/6819b32be068d20c11600be2ef8e593153ed6e7d",
-                "reference": "6819b32be068d20c11600be2ef8e593153ed6e7d",
+                "url": "https://api.github.com/repos/techdivision/import-configuration-jms/zipball/6fe8f19839d8397fea9b227bdd3150c05164942e",
+                "reference": "6fe8f19839d8397fea9b227bdd3150c05164942e",
                 "shasum": ""
             },
             "require": {
@@ -2240,7 +2240,7 @@
                 }
             ],
             "description": "Library providing a JMS based configuration implementation for the M2IF",
-            "time": "2020-04-06T17:15:05+00:00"
+            "time": "2020-04-13T16:05:52+00:00"
         },
         {
             "name": "techdivision/import-converter",
@@ -4215,22 +4215,22 @@
         },
         {
             "name": "consolidation/self-update",
-            "version": "1.1.5",
+            "version": "1.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/consolidation/self-update.git",
-                "reference": "a1c273b14ce334789825a09d06d4c87c0a02ad54"
+                "reference": "dba6b2c0708f20fa3ba8008a2353b637578849b4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/consolidation/self-update/zipball/a1c273b14ce334789825a09d06d4c87c0a02ad54",
-                "reference": "a1c273b14ce334789825a09d06d4c87c0a02ad54",
+                "url": "https://api.github.com/repos/consolidation/self-update/zipball/dba6b2c0708f20fa3ba8008a2353b637578849b4",
+                "reference": "dba6b2c0708f20fa3ba8008a2353b637578849b4",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.5.0",
-                "symfony/console": "^2.8|^3|^4",
-                "symfony/filesystem": "^2.5|^3|^4"
+                "symfony/console": "^2.8|^3|^4|^5",
+                "symfony/filesystem": "^2.5|^3|^4|^5"
             },
             "bin": [
                 "scripts/release"
@@ -4252,16 +4252,16 @@
             ],
             "authors": [
                 {
-                    "name": "Greg Anderson",
-                    "email": "greg.1.anderson@greenknowe.org"
-                },
-                {
                     "name": "Alexander Menk",
                     "email": "menk@mestrona.net"
+                },
+                {
+                    "name": "Greg Anderson",
+                    "email": "greg.1.anderson@greenknowe.org"
                 }
             ],
             "description": "Provides a self:update command for Symfony Console applications.",
-            "time": "2018-10-28T01:52:03+00:00"
+            "time": "2020-04-13T02:49:20+00:00"
         },
         {
             "name": "container-interop/container-interop",

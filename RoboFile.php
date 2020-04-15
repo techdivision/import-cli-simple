@@ -313,9 +313,19 @@ class RoboFile extends \Robo\Tasks
      */
     public function runTestsAcceptance($magentoEdition = 'ce', $magentoVersion = '2.3.3')
     {
+
+        // initialize the default tags
+        $tags = sprintf('@%s&&@%s&&~@customer&&~@customer-address', strtolower($magentoEdition), implode('.', sscanf($magentoVersion, "%d.%d")));
+
+        // query whether or not the version is lower than 2.3.3, because then we've to ignore the MSI tests
+        if (version_compare($magentoVersion, '2.3.2') < 1) {
+            $tags = sprintf('%s&&~msi', $tags);
+        }
+
+        // finally, invoke the acceptance tests
         return $this->taskBehat()
             ->format('pretty')
-            ->option('tags', sprintf('@%s&&@%s&&~@customer&&~@customer-address', strtolower($magentoEdition), implode('.', sscanf($magentoVersion, "%d.%d"))))
+            ->option('tags', $tags)
             ->noInteraction()
             ->run();
         }
