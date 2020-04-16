@@ -1,3 +1,18 @@
+# Version 3.7.20
+
+## Known Issues
+
+* Up from Magento 2 EE 2.1.10 using the single transaction mode has a massive performance impact (can only be used **WITHOUT** single transaction)
+
+## Bugfixes
+
+* Fixed techdivision/import-cli#2
+
+## Features
+
+* Replace old default observer configuration for MSI sources, if inventory_source_items column is missing
+* Add functionality to create a default value for column inventory_source_items, if empty (to replace actual default observer)
+
 # Version 3.7.19
 
 ## Known Issues
