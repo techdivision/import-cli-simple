@@ -10,7 +10,7 @@
 
 ## Features
 
-* TBD
+* Add techdivision/import-attribute#46 (Possibility to import files for option swatch)
 
 # Version 3.8.11
 

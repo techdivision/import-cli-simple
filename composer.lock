@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a77afd2eee27b65344d6cf889cab2864",
+    "content-hash": "5a6ae27161278dd4704b172a553c615a",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -1932,21 +1932,21 @@
         },
         {
             "name": "techdivision/import-attribute",
-            "version": "17.0.3",
+            "version": "18.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-attribute.git",
-                "reference": "ae752015cfa0fddfcda97ee765fee8d9c479237d"
+                "reference": "5ab581600c781227fce1f74a7ca8bf8a21ba40d6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-attribute/zipball/ae752015cfa0fddfcda97ee765fee8d9c479237d",
-                "reference": "ae752015cfa0fddfcda97ee765fee8d9c479237d",
+                "url": "https://api.github.com/repos/techdivision/import-attribute/zipball/5ab581600c781227fce1f74a7ca8bf8a21ba40d6",
+                "reference": "5ab581600c781227fce1f74a7ca8bf8a21ba40d6",
                 "shasum": ""
             },
             "require": {
                 "php": ">=7.1.0",
-                "techdivision/import": "15.*"
+                "techdivision/import": "16.x-dev as 15.2.1"
             },
             "require-dev": {
                 "consolidation/robo": "~1.0",
@@ -1980,25 +1980,26 @@
                 }
             ],
             "description": "M2IF library providing basic Magento 2 attribute import functionality",
-            "time": "2020-03-14T14:21:42+00:00"
+            "time": "2020-04-15T15:41:31+00:00"
         },
         {
             "name": "techdivision/import-attribute-set",
-            "version": "12.0.1",
+            "version": "13.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-attribute-set.git",
-                "reference": "828cbba7b07a61d6ff1e60475f392ebd9173b2c4"
+                "reference": "8c9d47e36f01bcd0507226ea0e1958e18365a34c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-attribute-set/zipball/828cbba7b07a61d6ff1e60475f392ebd9173b2c4",
-                "reference": "828cbba7b07a61d6ff1e60475f392ebd9173b2c4",
+                "url": "https://api.github.com/repos/techdivision/import-attribute-set/zipball/8c9d47e36f01bcd0507226ea0e1958e18365a34c",
+                "reference": "8c9d47e36f01bcd0507226ea0e1958e18365a34c",
                 "shasum": ""
             },
             "require": {
                 "php": ">=7.1.0",
-                "techdivision/import-attribute": "17.*"
+                "techdivision/import": "16.x-dev as 15.2.1",
+                "techdivision/import-attribute": "18.x-dev as 17.0.3"
             },
             "require-dev": {
                 "consolidation/robo": "~1.0",
@@ -2031,7 +2032,7 @@
                 }
             ],
             "description": "M2IF library providing basic Magento 2 attribute set + group import functionality",
-            "time": "2020-03-14T13:38:00+00:00"
+            "time": "2020-04-15T15:36:16+00:00"
         },
         {
             "name": "techdivision/import-category",
@@ -8350,6 +8351,18 @@
             "package": "techdivision/import-ee"
         },
         {
+            "alias": "17.0.3",
+            "alias_normalized": "17.0.3.0",
+            "version": "18.9999999.9999999.9999999-dev",
+            "package": "techdivision/import-attribute"
+        },
+        {
+            "alias": "12.0.1",
+            "alias_normalized": "12.0.1.0",
+            "version": "13.9999999.9999999.9999999-dev",
+            "package": "techdivision/import-attribute-set"
+        },
+        {
             "alias": "19.0.6",
             "alias_normalized": "19.0.6.0",
             "version": "20.9999999.9999999.9999999-dev",
@@ -8381,6 +8394,8 @@
         "techdivision/import-app-simple": 20,
         "techdivision/import-configuration-jms": 20,
         "techdivision/import-ee": 20,
+        "techdivision/import-attribute": 20,
+        "techdivision/import-attribute-set": 20,
         "techdivision/import-product": 20,
         "techdivision/import-product-msi": 20,
         "techdivision/import-product-ee": 20,
