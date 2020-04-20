@@ -10,6 +10,7 @@
 
 ## Features
 
+* Add #PAC-85
 * Add techdivision/import-attribute#46 (Possibility to import files for option swatch)
 * Replace old default observer configuration for MSI sources, if inventory_source_items column is missing
 * Add functionality to create a default value for column inventory_source_items, if empty (to replace actual default observer)
