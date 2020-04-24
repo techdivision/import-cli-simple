@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "114cbf975bb82bf2a12d8a68aec0cab2",
+    "content-hash": "70cd01c12467ed088a8e6e57ce918a1f",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -3072,21 +3072,22 @@
         },
         {
             "name": "techdivision/import-product-media",
-            "version": "19.0.1",
+            "version": "20.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-product-media.git",
-                "reference": "acbe6edf0abdde256f41bb7fdfcc80ce215a250a"
+                "reference": "e48080b8eb73c29d4a8936477c43954fc52d6260"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-product-media/zipball/acbe6edf0abdde256f41bb7fdfcc80ce215a250a",
-                "reference": "acbe6edf0abdde256f41bb7fdfcc80ce215a250a",
+                "url": "https://api.github.com/repos/techdivision/import-product-media/zipball/e48080b8eb73c29d4a8936477c43954fc52d6260",
+                "reference": "e48080b8eb73c29d4a8936477c43954fc52d6260",
                 "shasum": ""
             },
             "require": {
                 "php": ">=7.1.0",
-                "techdivision/import-product": "19.*"
+                "techdivision/import": "16.x-dev as 15.2.1",
+                "techdivision/import-product": "20.x-dev as 19.0.6"
             },
             "require-dev": {
                 "consolidation/robo": "~1.0",
@@ -3119,26 +3120,29 @@
                 }
             ],
             "description": "M2IF library providing basic Magento 2 product media import functionality",
-            "time": "2020-03-14T15:30:43+00:00"
+            "time": "2020-04-24T17:48:51+00:00"
         },
         {
             "name": "techdivision/import-product-media-ee",
-            "version": "19.0.1",
+            "version": "20.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-product-media-ee.git",
-                "reference": "a6aceb6746477a2e8547b74fe04c88cee15080a9"
+                "reference": "bcc9c5fd3e440df7314b62752ccba11935397977"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-product-media-ee/zipball/a6aceb6746477a2e8547b74fe04c88cee15080a9",
-                "reference": "a6aceb6746477a2e8547b74fe04c88cee15080a9",
+                "url": "https://api.github.com/repos/techdivision/import-product-media-ee/zipball/bcc9c5fd3e440df7314b62752ccba11935397977",
+                "reference": "bcc9c5fd3e440df7314b62752ccba11935397977",
                 "shasum": ""
             },
             "require": {
                 "php": ">=7.1.0",
-                "techdivision/import-product-ee": "19.*",
-                "techdivision/import-product-media": "19.*"
+                "techdivision/import": "16.x-dev as 15.2.1",
+                "techdivision/import-ee": "15.x-dev as 14.0.1",
+                "techdivision/import-product": "20.x-dev as 19.0.6",
+                "techdivision/import-product-media": "20.x-dev as 19.0.1",
+                "techdivision/import-product-media-ee": "20.x-dev as 19.0.1"
             },
             "require-dev": {
                 "consolidation/robo": "~1.0",
@@ -3171,7 +3175,7 @@
                 }
             ],
             "description": "M2IF library providing basic Magento 2 EE product media import functionality",
-            "time": "2020-03-14T15:50:04+00:00"
+            "time": "2020-04-24T17:59:01+00:00"
         },
         {
             "name": "techdivision/import-product-msi",
@@ -8439,10 +8443,22 @@
             "package": "techdivision/import-product-msi"
         },
         {
+            "alias": "19.0.1",
+            "alias_normalized": "19.0.1.0",
+            "version": "20.9999999.9999999.9999999-dev",
+            "package": "techdivision/import-product-media"
+        },
+        {
             "alias": "19.0.3",
             "alias_normalized": "19.0.3.0",
             "version": "20.9999999.9999999.9999999-dev",
             "package": "techdivision/import-product-ee"
+        },
+        {
+            "alias": "19.0.1",
+            "alias_normalized": "19.0.1.0",
+            "version": "20.9999999.9999999.9999999-dev",
+            "package": "techdivision/import-product-media-ee"
         },
         {
             "alias": "3.0.0",
@@ -8464,7 +8480,9 @@
         "techdivision/import-category-ee": 20,
         "techdivision/import-product": 20,
         "techdivision/import-product-msi": 20,
+        "techdivision/import-product-media": 20,
         "techdivision/import-product-ee": 20,
+        "techdivision/import-product-media-ee": 20,
         "phpmd/phpmd": 0,
         "behat/symfony2-extension": 20
     },
