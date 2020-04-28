@@ -6,6 +6,7 @@
 
 ## Bugfixes
 
+* Fixed #PAC-101
 * Fixed techdivision/import-cli#2
 
 ## Features
