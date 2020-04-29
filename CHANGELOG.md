@@ -14,8 +14,10 @@
 
 * Add #PAC-34
 * Add #PAC-85
+* Add techdivision/import-cli-simple#243
 * Add techdivision/import-cli-simple#244
 * Add techdivision/import-attribute#46 (Possibility to import files for option swatch)
+* Add functionality to robo.li build process to invoke PHPCPD, PHPMD and PHPCS when running a build
 * Replace old default observer configuration for MSI sources, if inventory_source_items column is missing
 * Add functionality to also parse configuration files that'll be available in configured additional vendor directory
 * Add functionality to create a default value for column inventory_source_items, if empty (to replace actual default observer)

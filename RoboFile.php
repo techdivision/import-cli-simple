@@ -263,6 +263,102 @@ class RoboFile extends \Robo\Tasks
     }
 
     /**
+     * Load the repository source directories that matches the passed pattern.
+     *
+     * @param string $glue    The glue used the the directory are concatenated to a string
+     * @param string $pattern The pattern used to load the source directories
+     *
+     * @return string The concatenated relative source directories
+     */
+    protected function loadLibrarySourceDirs(string $glue = ',', string $pattern = 'techdivision/*/src') : string
+    {
+
+        // load the source directories
+        $sourceDirs = glob(sprintf('%s/%s', $this->properties['vendor.dir'], $pattern), GLOB_ONLYDIR);
+
+        // cut-off the actual path
+        array_walk($sourceDirs, function (&$value) {
+            $value = ltrim(str_replace(__DIR__, '', $value), '/');
+        });
+
+        // implode and return the source directories
+        return implode($glue, $sourceDirs);
+    }
+
+    /**
+     * Run's the PHPMD.
+     *
+     * @return \Robo\Result The result
+     */
+    public function runMd()
+    {
+
+        // run the mess detector
+        return $this->_exec(
+            sprintf(
+                '%s/bin/phpmd %s xml phpmd.xml --reportfile %s/reports/pmd.xml --ignore-violations-on-exit',
+                $this->properties['vendor.dir'],
+                $this->loadLibrarySourceDirs(),
+                $this->properties['target.dir']
+            )
+        );
+    }
+
+    /**
+     * Run's the PHPCodeSniffer.
+     *
+     * @return \Robo\Result The result
+     */
+    public function runCs()
+    {
+
+        // load the repositories that matches the pattern the vendor/techdivision/*/src directories
+        $dirs = glob(sprintf('%s/techdivision/*/src', $this->properties['vendor.dir']), GLOB_ONLYDIR);
+
+        // run the code sniffer
+        return $this->_exec(
+            sprintf(
+                '%s/bin/phpcs -n --report-full --extensions=php --standard=phpcs.xml --report-checkstyle=%s/reports/phpcs.xml %s',
+                $this->properties['vendor.dir'],
+                $this->properties['target.dir'],
+                $this->loadLibrarySourceDirs(' ')
+            )
+        );
+    }
+
+    /**
+     * Run's the PHPCPD.
+     *
+     * @return \Robo\Result The result
+     */
+    public function runCpd()
+    {
+
+        // prepare the patterns for the files that has to be ignored
+        $ignore = array(
+            'Utils/MemberNames',
+            'Subjects/ConverterSubject',
+            'Observers/CustomerAddressAttributeObserver',
+            'Subjects/EeBunchSubject',
+            'Subjects/BunchSubject',
+            'Services/CategoryBunchProcessor',
+            'Plugins/MissingOptionValuesPlugin',
+            'Observers/ProductToAttributeOptionValueConverterObserver'
+        );
+
+        // run the copy past detector
+        return $this->_exec(
+            sprintf(
+                '%s/bin/phpcpd --regexps-exclude %s %s/techdivision/*/src --log-pmd %s/reports/pmd-cpd.xml',
+                $this->properties['vendor.dir'],
+                implode(',', $ignore),
+                $this->properties['vendor.dir'],
+                $this->properties['target.dir']
+            )
+        );
+    }
+
+    /**
      * Run's the PHPUnit testsuite.
      *
      * @return \Robo\Result The result
@@ -356,6 +452,9 @@ class RoboFile extends \Robo\Tasks
         // process the build
         $this->clean();
         $this->prepare();
+        $this->runCpd();
+        $this->runCs();
+        $this->runMd();
         $this->runTestsUnit();
     }
 }
