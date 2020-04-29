@@ -14,6 +14,7 @@
 
 * Add #PAC-34
 * Add #PAC-85
+* Add techdivision/import#175
 * Add techdivision/import-cli-simple#243
 * Add techdivision/import-cli-simple#244
 * Add techdivision/import-attribute#46 (Possibility to import files for option swatch)
