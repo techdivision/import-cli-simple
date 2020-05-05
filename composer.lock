@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ebf9456e9409e85b07c63eeb70461806",
+    "content-hash": "d1ed8de93c11b330994ab1d44b74c48b",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -2139,16 +2139,16 @@
         },
         {
             "name": "techdivision/import-cli",
-            "version": "10.0.1",
+            "version": "10.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-cli.git",
-                "reference": "a83bedf78c0a8b91dc1c669a909f9b210317c34e"
+                "reference": "1723fe5c6f62028c507095df7694cdeb261272b9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-cli/zipball/a83bedf78c0a8b91dc1c669a909f9b210317c34e",
-                "reference": "a83bedf78c0a8b91dc1c669a909f9b210317c34e",
+                "url": "https://api.github.com/repos/techdivision/import-cli/zipball/1723fe5c6f62028c507095df7694cdeb261272b9",
+                "reference": "1723fe5c6f62028c507095df7694cdeb261272b9",
                 "shasum": ""
             },
             "require": {
@@ -2190,7 +2190,7 @@
                 }
             ],
             "description": "Commands and Helpers to implement a CLI providing single-threaded Magento 2 importing functionality based on Pacemaker",
-            "time": "2020-04-30T20:15:19+00:00"
+            "time": "2020-05-05T07:07:44+00:00"
         },
         {
             "name": "techdivision/import-configuration",
@@ -3068,16 +3068,16 @@
         },
         {
             "name": "techdivision/import-product-media",
-            "version": "20.0.0",
+            "version": "21.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-product-media.git",
-                "reference": "4a32899141f4619a026cd9cb1f91bf0abe0f2129"
+                "reference": "bb9c8eff89e5014c6ae0fd35f1534ed9d3adac53"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-product-media/zipball/4a32899141f4619a026cd9cb1f91bf0abe0f2129",
-                "reference": "4a32899141f4619a026cd9cb1f91bf0abe0f2129",
+                "url": "https://api.github.com/repos/techdivision/import-product-media/zipball/bb9c8eff89e5014c6ae0fd35f1534ed9d3adac53",
+                "reference": "bb9c8eff89e5014c6ae0fd35f1534ed9d3adac53",
                 "shasum": ""
             },
             "require": {
@@ -3115,26 +3115,26 @@
                 }
             ],
             "description": "Pacemaker library providing basic Magento 2 product media import functionality",
-            "time": "2020-05-01T08:04:50+00:00"
+            "time": "2020-05-05T06:51:57+00:00"
         },
         {
             "name": "techdivision/import-product-media-ee",
-            "version": "20.0.0",
+            "version": "21.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-product-media-ee.git",
-                "reference": "3b509e314c0b63ee341db2c49e71974a803b92db"
+                "reference": "4939f8562f9028908fa9a0294173f37157975032"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-product-media-ee/zipball/3b509e314c0b63ee341db2c49e71974a803b92db",
-                "reference": "3b509e314c0b63ee341db2c49e71974a803b92db",
+                "url": "https://api.github.com/repos/techdivision/import-product-media-ee/zipball/4939f8562f9028908fa9a0294173f37157975032",
+                "reference": "4939f8562f9028908fa9a0294173f37157975032",
                 "shasum": ""
             },
             "require": {
                 "php": ">=7.1.0",
                 "techdivision/import-product-ee": "20.*",
-                "techdivision/import-product-media": "20.*"
+                "techdivision/import-product-media": "21.*"
             },
             "require-dev": {
                 "consolidation/robo": "~1.0",
@@ -3167,7 +3167,7 @@
                 }
             ],
             "description": "Pacemaker library providing basic Magento 2 EE product media import functionality",
-            "time": "2020-05-01T09:04:49+00:00"
+            "time": "2020-05-05T06:57:29+00:00"
         },
         {
             "name": "techdivision/import-product-msi",

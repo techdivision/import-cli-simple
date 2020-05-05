@@ -1,3 +1,18 @@
+# Version 3.8.13
+
+## Known Issues
+
+* Up from Magento 2 EE 2.1.10 using the single transaction mode has a massive performance impact (can only be used **WITHOUT** single transaction)
+
+## Bugfixes
+
+* None
+
+## Features
+
+* Update console application name
+* Add dynamic attribute loader functionality for #PAC-34
+
 # Version 3.8.12
 
 ## Known Issues
