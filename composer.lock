@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d1ed8de93c11b330994ab1d44b74c48b",
+    "content-hash": "0ffbf6d48a2b4e86f44390bfcde93aa8",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -1818,7 +1818,7 @@
         },
         {
             "name": "techdivision/import",
-            "version": "16.0.1",
+            "version": "17.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import.git",
@@ -2036,21 +2036,21 @@
         },
         {
             "name": "techdivision/import-category",
-            "version": "18.0.0",
+            "version": "dev-devel-3.9.x",
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-category.git",
-                "reference": "61972271df7fa0bd68037028a91f64290167dd46"
+                "reference": "da2aeeb2683967c085a1a4aa988e25065269550f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-category/zipball/61972271df7fa0bd68037028a91f64290167dd46",
-                "reference": "61972271df7fa0bd68037028a91f64290167dd46",
+                "url": "https://api.github.com/repos/techdivision/import-category/zipball/da2aeeb2683967c085a1a4aa988e25065269550f",
+                "reference": "da2aeeb2683967c085a1a4aa988e25065269550f",
                 "shasum": ""
             },
             "require": {
                 "php": ">=7.1.0",
-                "techdivision/import": "16.*"
+                "techdivision/import": "17.x-dev as 17.0.0"
             },
             "require-dev": {
                 "consolidation/robo": "~1.0",
@@ -2082,8 +2082,8 @@
                     "email": "t.wagner@techdivision.com"
                 }
             ],
-            "description": "Pacemaker library providing basic Magento 2 category import functionality",
-            "time": "2020-04-30T19:54:40+00:00"
+            "description": "M2IF library providing basic Magento 2 category import functionality",
+            "time": "2020-05-07T16:39:32+00:00"
         },
         {
             "name": "techdivision/import-category-ee",
@@ -2656,21 +2656,21 @@
         },
         {
             "name": "techdivision/import-product",
-            "version": "20.0.0",
+            "version": "dev-devel-3.9.x",
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-product.git",
-                "reference": "065cac7c993457ef794322c4c1fad0016a1d8593"
+                "reference": "8059beff68cef8075021b753d30e1da0bab82b6a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-product/zipball/065cac7c993457ef794322c4c1fad0016a1d8593",
-                "reference": "065cac7c993457ef794322c4c1fad0016a1d8593",
+                "url": "https://api.github.com/repos/techdivision/import-product/zipball/8059beff68cef8075021b753d30e1da0bab82b6a",
+                "reference": "8059beff68cef8075021b753d30e1da0bab82b6a",
                 "shasum": ""
             },
             "require": {
                 "php": ">=7.1.0",
-                "techdivision/import": "16.*"
+                "techdivision/import": "17.x-dev as 17.0.0"
             },
             "require-dev": {
                 "consolidation/robo": "~1.0",
@@ -2703,7 +2703,7 @@
                 }
             ],
             "description": "Pacemaker library providing basic Magento 2 product import functionality",
-            "time": "2020-04-30T20:52:57+00:00"
+            "time": "2020-05-07T16:37:47+00:00"
         },
         {
             "name": "techdivision/import-product-bundle",
@@ -8365,6 +8365,24 @@
     ],
     "aliases": [
         {
+            "alias": "16.0.2",
+            "alias_normalized": "16.0.2.0",
+            "version": "17.9999999.9999999.9999999-dev",
+            "package": "techdivision/import"
+        },
+        {
+            "alias": "18.0.0",
+            "alias_normalized": "18.0.0.0",
+            "version": "dev-devel-3.9.x",
+            "package": "techdivision/import-category"
+        },
+        {
+            "alias": "20.0.0",
+            "alias_normalized": "20.0.0.0",
+            "version": "dev-devel-3.9.x",
+            "package": "techdivision/import-product"
+        },
+        {
             "alias": "3.0.0",
             "alias_normalized": "3.0.0.0",
             "version": "9999999-dev",
@@ -8373,6 +8391,9 @@
     ],
     "minimum-stability": "stable",
     "stability-flags": {
+        "techdivision/import": 20,
+        "techdivision/import-category": 20,
+        "techdivision/import-product": 20,
         "phpmd/phpmd": 0,
         "behat/symfony2-extension": 20
     },
