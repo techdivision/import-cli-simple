@@ -1,3 +1,17 @@
+# Version 3.8.17
+
+## Known Issues
+
+* Up from Magento 2 EE 2.1.10 using the single transaction mode has a massive performance impact (can only be used **WITHOUT** single transaction)
+
+## Bugfixes
+
+* None
+
+## Features
+
+* Add #PAC-49
+
 # Version 3.8.16
 
 ## Known Issues
