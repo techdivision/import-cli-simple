@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "65b6f3bd6688bad92e435b1b058ad90d",
+    "content-hash": "b2be15fac240c133bcd592ac5c49ae92",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -1865,16 +1865,16 @@
         },
         {
             "name": "techdivision/import-category",
-            "version": "18.0.2",
+            "version": "19.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-category.git",
-                "reference": "bfb80a6051c0c8c608ee120cb31dbb8ef91c8c03"
+                "reference": "5de20e64fad720f0b56848941d3f512321171da0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-category/zipball/bfb80a6051c0c8c608ee120cb31dbb8ef91c8c03",
-                "reference": "bfb80a6051c0c8c608ee120cb31dbb8ef91c8c03",
+                "url": "https://api.github.com/repos/techdivision/import-category/zipball/5de20e64fad720f0b56848941d3f512321171da0",
+                "reference": "5de20e64fad720f0b56848941d3f512321171da0",
                 "shasum": ""
             },
             "require": {
@@ -1912,25 +1912,25 @@
                 }
             ],
             "description": "Pacemaker library providing basic Magento 2 category import functionality",
-            "time": "2020-05-15T17:17:07+00:00"
+            "time": "2020-05-16T12:29:08+00:00"
         },
         {
             "name": "techdivision/import-category-ee",
-            "version": "19.0.2",
+            "version": "20.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-category-ee.git",
-                "reference": "41ffc15def55c6085b1956dde5c68e8c180680a6"
+                "reference": "7887737c8c58e8d404bf7d846573af615c254143"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-category-ee/zipball/41ffc15def55c6085b1956dde5c68e8c180680a6",
-                "reference": "41ffc15def55c6085b1956dde5c68e8c180680a6",
+                "url": "https://api.github.com/repos/techdivision/import-category-ee/zipball/7887737c8c58e8d404bf7d846573af615c254143",
+                "reference": "7887737c8c58e8d404bf7d846573af615c254143",
                 "shasum": ""
             },
             "require": {
                 "php": ">=7.1.0",
-                "techdivision/import-category": "18.*",
+                "techdivision/import-category": "19.*",
                 "techdivision/import-ee": "15.*"
             },
             "require-dev": {
@@ -1964,7 +1964,7 @@
                 }
             ],
             "description": "Pacemaker library providing basic Magento 2 EE category import functionality",
-            "time": "2020-05-15T17:25:29+00:00"
+            "time": "2020-05-16T12:35:31+00:00"
         },
         {
             "name": "techdivision/import-cli",
@@ -2279,21 +2279,21 @@
         },
         {
             "name": "techdivision/import-converter-product-category",
-            "version": "3.0.0",
+            "version": "4.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-converter-product-category.git",
-                "reference": "fbad19147bf19707eeed09528f358c35ff058905"
+                "reference": "4bc7e46723ae2cbe260e12b13152900b73c2aad4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-converter-product-category/zipball/fbad19147bf19707eeed09528f358c35ff058905",
-                "reference": "fbad19147bf19707eeed09528f358c35ff058905",
+                "url": "https://api.github.com/repos/techdivision/import-converter-product-category/zipball/4bc7e46723ae2cbe260e12b13152900b73c2aad4",
+                "reference": "4bc7e46723ae2cbe260e12b13152900b73c2aad4",
                 "shasum": ""
             },
             "require": {
                 "php": ">=7.1.0",
-                "techdivision/import-category": "18.*",
+                "techdivision/import-category": "19.*",
                 "techdivision/import-converter": "10.*",
                 "techdivision/import-product": "21.*"
             },
@@ -2328,7 +2328,7 @@
                 }
             ],
             "description": "Pacemaker library providing the functionality to convert a CSV file with category from a CSV file with products",
-            "time": "2020-05-08T12:59:08+00:00"
+            "time": "2020-05-16T12:36:12+00:00"
         },
         {
             "name": "techdivision/import-customer",
