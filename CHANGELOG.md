@@ -10,7 +10,9 @@
 
 ## Features
 
+* Add #PAC-46
 * Add #PAC-47
+* Add #PAC-96
 * Add default configuration for media + images file dirctory
 * Add functionality write a log warning instead throwing an exception if the configured media + images file dirctory are not available
 
