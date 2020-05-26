@@ -344,7 +344,9 @@ class RoboFile extends \Robo\Tasks
             'Subjects/BunchSubject',
             'Services/CategoryBunchProcessor',
             'Plugins/MissingOptionValuesPlugin',
-            'Observers/ProductToAttributeOptionValueConverterObserver'
+            'Observers/ProductToAttributeOptionValueConverterObserver',
+            'EeBundleSelectionUpdateObserver',
+            'Observers/EeBundleOptionObserver'
         );
 
         // run the copy past detector
