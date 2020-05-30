@@ -337,16 +337,17 @@ class RoboFile extends \Robo\Tasks
         // prepare the patterns for the files that has to be ignored
         $ignore = array(
             'Utils/MemberNames',
-            'Subjects/ConverterSubject',
             'Loaders/RawEntityLoader',
-            'Observers/CustomerAddressAttributeObserver',
-            'Subjects/EeBunchSubject',
             'Subjects/BunchSubject',
+            'Subjects/EeBunchSubject',
+            'Subjects/ConverterSubject',
             'Services/CategoryBunchProcessor',
             'Plugins/MissingOptionValuesPlugin',
-            'Observers/ProductToAttributeOptionValueConverterObserver',
-            'EeBundleSelectionUpdateObserver',
-            'Observers/EeBundleOptionObserver'
+            'Observers/EeBundleOptionObserver',
+            'Observers/EeMediaGalleryValueObserver',
+            'Observers/EeBundleSelectionUpdateObserver',
+            'Observers/CustomerAddressAttributeObserver',
+            'Observers/ProductToAttributeOptionValueConverterObserver'
         );
 
         // run the copy past detector
