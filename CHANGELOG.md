@@ -1,3 +1,17 @@
+# Version 3.8.19
+
+## Known Issues
+
+* Up from Magento 2 EE 2.1.10 using the single transaction mode has a massive performance impact (can only be used **WITHOUT** single transaction)
+
+## Bugfixes
+
+* Fixed import-customer-address#18
+
+## Features
+
+* None
+
 # Version 3.8.18
 
 ## Known Issues
