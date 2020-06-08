@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f7c8645e7f8c43ede1841ee3196f6b02",
+    "content-hash": "0ebe718fb0770abe39a616834babca58",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -793,16 +793,16 @@
         },
         {
             "name": "phpoption/phpoption",
-            "version": "1.7.3",
+            "version": "1.7.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/schmittjoh/php-option.git",
-                "reference": "4acfd6a4b33a509d8c88f50e5222f734b6aeebae"
+                "reference": "b2ada2ad5d8a32b89088b8adc31ecd2e3a13baf3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/schmittjoh/php-option/zipball/4acfd6a4b33a509d8c88f50e5222f734b6aeebae",
-                "reference": "4acfd6a4b33a509d8c88f50e5222f734b6aeebae",
+                "url": "https://api.github.com/repos/schmittjoh/php-option/zipball/b2ada2ad5d8a32b89088b8adc31ecd2e3a13baf3",
+                "reference": "b2ada2ad5d8a32b89088b8adc31ecd2e3a13baf3",
                 "shasum": ""
             },
             "require": {
@@ -844,7 +844,7 @@
                 "php",
                 "type"
             ],
-            "time": "2020-03-21T18:07:53+00:00"
+            "time": "2020-06-07T10:40:07+00:00"
         },
         {
             "name": "psr/cache",
@@ -1704,16 +1704,16 @@
         },
         {
             "name": "techdivision/import",
-            "version": "16.3.1",
+            "version": "16.3.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import.git",
-                "reference": "ac1fd4c29ef0c1667e25a5eb0760e7630e6aa533"
+                "reference": "360c3d5b4563de2017e73c53521c8cd680ffe8be"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import/zipball/ac1fd4c29ef0c1667e25a5eb0760e7630e6aa533",
-                "reference": "ac1fd4c29ef0c1667e25a5eb0760e7630e6aa533",
+                "url": "https://api.github.com/repos/techdivision/import/zipball/360c3d5b4563de2017e73c53521c8cd680ffe8be",
+                "reference": "360c3d5b4563de2017e73c53521c8cd680ffe8be",
                 "shasum": ""
             },
             "require": {
@@ -1762,7 +1762,7 @@
                 }
             ],
             "description": "A library supporting generic Magento 2 import functionality",
-            "time": "2020-06-04T11:04:54+00:00"
+            "time": "2020-06-08T11:46:40+00:00"
         },
         {
             "name": "techdivision/import-app-simple",
@@ -2644,22 +2644,22 @@
         },
         {
             "name": "techdivision/import-product-bundle-ee",
-            "version": "23.0.0",
+            "version": "24.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-product-bundle-ee.git",
-                "reference": "071e53ece1285d75e036420a0706b15548a37bd5"
+                "reference": "dd723aa35e429c75e01b04ba5dc08f696e280d94"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-product-bundle-ee/zipball/071e53ece1285d75e036420a0706b15548a37bd5",
-                "reference": "071e53ece1285d75e036420a0706b15548a37bd5",
+                "url": "https://api.github.com/repos/techdivision/import-product-bundle-ee/zipball/dd723aa35e429c75e01b04ba5dc08f696e280d94",
+                "reference": "dd723aa35e429c75e01b04ba5dc08f696e280d94",
                 "shasum": ""
             },
             "require": {
                 "php": ">=7.1.0",
                 "techdivision/import-product-bundle": "22.*",
-                "techdivision/import-product-ee": "22.*"
+                "techdivision/import-product-ee": "23.*"
             },
             "require-dev": {
                 "consolidation/robo": "~1.0",
@@ -2692,20 +2692,20 @@
                 }
             ],
             "description": "Pacemaker library providing basic Magento 2 EE bundle product import functionality",
-            "time": "2020-06-01T11:07:55+00:00"
+            "time": "2020-06-08T11:54:28+00:00"
         },
         {
             "name": "techdivision/import-product-ee",
-            "version": "22.0.0",
+            "version": "23.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-product-ee.git",
-                "reference": "d0d449c00d85b98ed44b3a08d2a802d04d6990c9"
+                "reference": "2e271433fc979b086c0dd45e09430c4a48956961"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-product-ee/zipball/d0d449c00d85b98ed44b3a08d2a802d04d6990c9",
-                "reference": "d0d449c00d85b98ed44b3a08d2a802d04d6990c9",
+                "url": "https://api.github.com/repos/techdivision/import-product-ee/zipball/2e271433fc979b086c0dd45e09430c4a48956961",
+                "reference": "2e271433fc979b086c0dd45e09430c4a48956961",
                 "shasum": ""
             },
             "require": {
@@ -2744,7 +2744,7 @@
                 }
             ],
             "description": "Pacemaker library providing basic Magento 2 EE product import functionality",
-            "time": "2020-06-01T11:02:30+00:00"
+            "time": "2020-06-08T09:01:11+00:00"
         },
         {
             "name": "techdivision/import-product-grouped",
@@ -2799,22 +2799,22 @@
         },
         {
             "name": "techdivision/import-product-grouped-ee",
-            "version": "17.0.0",
+            "version": "18.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-product-grouped-ee.git",
-                "reference": "b678f2ce92501399336a9c7d2d8e3d0362377604"
+                "reference": "b74543329640ddba34cc965c82984246811f0a39"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-product-grouped-ee/zipball/b678f2ce92501399336a9c7d2d8e3d0362377604",
-                "reference": "b678f2ce92501399336a9c7d2d8e3d0362377604",
+                "url": "https://api.github.com/repos/techdivision/import-product-grouped-ee/zipball/b74543329640ddba34cc965c82984246811f0a39",
+                "reference": "b74543329640ddba34cc965c82984246811f0a39",
                 "shasum": ""
             },
             "require": {
                 "php": ">=7.1.0",
                 "techdivision/import-product-grouped": "16.*",
-                "techdivision/import-product-link-ee": "23.*"
+                "techdivision/import-product-link-ee": "24.*"
             },
             "require-dev": {
                 "consolidation/robo": "~1.0",
@@ -2847,7 +2847,7 @@
                 }
             ],
             "description": "Pacemaker library providing basic Magento 2 EE grouped product import functionality",
-            "time": "2020-06-01T11:34:25+00:00"
+            "time": "2020-06-08T12:45:37+00:00"
         },
         {
             "name": "techdivision/import-product-link",
@@ -2902,21 +2902,21 @@
         },
         {
             "name": "techdivision/import-product-link-ee",
-            "version": "23.0.0",
+            "version": "24.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-product-link-ee.git",
-                "reference": "26b8d37524a509d3236b4e7109e98b48fa30cf05"
+                "reference": "f2d2a83b8c21aad6a543fee4252c0f184c823712"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-product-link-ee/zipball/26b8d37524a509d3236b4e7109e98b48fa30cf05",
-                "reference": "26b8d37524a509d3236b4e7109e98b48fa30cf05",
+                "url": "https://api.github.com/repos/techdivision/import-product-link-ee/zipball/f2d2a83b8c21aad6a543fee4252c0f184c823712",
+                "reference": "f2d2a83b8c21aad6a543fee4252c0f184c823712",
                 "shasum": ""
             },
             "require": {
                 "php": ">=7.1.0",
-                "techdivision/import-product-ee": "22.*",
+                "techdivision/import-product-ee": "23.*",
                 "techdivision/import-product-link": "22.*"
             },
             "require-dev": {
@@ -2950,7 +2950,7 @@
                 }
             ],
             "description": "Pacemaker library providing basic Magento 2 EE product link import functionality",
-            "time": "2020-06-01T11:22:50+00:00"
+            "time": "2020-06-08T11:58:31+00:00"
         },
         {
             "name": "techdivision/import-product-media",
@@ -3005,21 +3005,21 @@
         },
         {
             "name": "techdivision/import-product-media-ee",
-            "version": "23.0.0",
+            "version": "24.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-product-media-ee.git",
-                "reference": "87feb65a796383bb7c58154ab6809169286e378a"
+                "reference": "8045238fb9a9545948e046bf5af92448099e237a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-product-media-ee/zipball/87feb65a796383bb7c58154ab6809169286e378a",
-                "reference": "87feb65a796383bb7c58154ab6809169286e378a",
+                "url": "https://api.github.com/repos/techdivision/import-product-media-ee/zipball/8045238fb9a9545948e046bf5af92448099e237a",
+                "reference": "8045238fb9a9545948e046bf5af92448099e237a",
                 "shasum": ""
             },
             "require": {
                 "php": ">=7.1.0",
-                "techdivision/import-product-ee": "22.*",
+                "techdivision/import-product-ee": "23.*",
                 "techdivision/import-product-media": "23.*"
             },
             "require-dev": {
@@ -3053,7 +3053,7 @@
                 }
             ],
             "description": "Pacemaker library providing basic Magento 2 EE product media import functionality",
-            "time": "2020-06-01T11:09:38+00:00"
+            "time": "2020-06-08T12:34:43+00:00"
         },
         {
             "name": "techdivision/import-product-msi",
@@ -3266,21 +3266,21 @@
         },
         {
             "name": "techdivision/import-product-variant-ee",
-            "version": "23.0.0",
+            "version": "24.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-product-variant-ee.git",
-                "reference": "6c600cfe506fba5fcd5331c0c012dcee16bd59d5"
+                "reference": "e07292dd4845df70b7337f71f6bcfc5898274483"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-product-variant-ee/zipball/6c600cfe506fba5fcd5331c0c012dcee16bd59d5",
-                "reference": "6c600cfe506fba5fcd5331c0c012dcee16bd59d5",
+                "url": "https://api.github.com/repos/techdivision/import-product-variant-ee/zipball/e07292dd4845df70b7337f71f6bcfc5898274483",
+                "reference": "e07292dd4845df70b7337f71f6bcfc5898274483",
                 "shasum": ""
             },
             "require": {
                 "php": ">=7.1.0",
-                "techdivision/import-product-ee": "22.*",
+                "techdivision/import-product-ee": "23.*",
                 "techdivision/import-product-variant": "22.*"
             },
             "require-dev": {
@@ -3314,7 +3314,7 @@
                 }
             ],
             "description": "Pacemaker library providing basic Magento 2 EE configurable product import functionality",
-            "time": "2020-06-01T11:12:23+00:00"
+            "time": "2020-06-08T12:43:50+00:00"
         },
         {
             "name": "zendframework/zend-filter",
@@ -8218,16 +8218,16 @@
         },
         {
             "name": "textalk/websocket",
-            "version": "1.3.0",
+            "version": "1.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Textalk/websocket-php.git",
-                "reference": "9fbb3b4ebaeb823c97270b409431b0d85617e5a7"
+                "reference": "fe348408a43cc646d08a3ae73e7877370441c7ee"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Textalk/websocket-php/zipball/9fbb3b4ebaeb823c97270b409431b0d85617e5a7",
-                "reference": "9fbb3b4ebaeb823c97270b409431b0d85617e5a7",
+                "url": "https://api.github.com/repos/Textalk/websocket-php/zipball/fe348408a43cc646d08a3ae73e7877370441c7ee",
+                "reference": "fe348408a43cc646d08a3ae73e7877370441c7ee",
                 "shasum": ""
             },
             "require": {
@@ -8259,7 +8259,7 @@
                 }
             ],
             "description": "WebSocket client and server",
-            "time": "2020-05-31T08:15:03+00:00"
+            "time": "2020-06-07T12:11:38+00:00"
         },
         {
             "name": "theseer/fdomdocument",

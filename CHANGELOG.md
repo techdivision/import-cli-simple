@@ -1,3 +1,18 @@
+# Version 3.8.20
+
+## Known Issues
+
+* Up from Magento 2 EE 2.1.10 using the single transaction mode has a massive performance impact (can only be used **WITHOUT** single transaction)
+
+## Bugfixes
+
+* Fixed #PAC-130
+* Fixed techdivision/import#183
+
+## Features
+
+* None
+
 # Version 3.8.19
 
 ## Known Issues
