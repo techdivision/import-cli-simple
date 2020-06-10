@@ -7,6 +7,7 @@
 ## Bugfixes
 
 * Fixed techdivision/import#185
+* Fixed techdivision/import#186
 
 ## Features
 
