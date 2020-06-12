@@ -11,7 +11,7 @@
 
 ## Features
 
-* None
+* Add #PAC-102: Dedicated CLI command to import videos (professional + enterpries edition)
 
 # Version 3.8.20
 
