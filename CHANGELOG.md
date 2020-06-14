@@ -1,18 +1,3 @@
-# Version 3.8.22
-
-## Known Issues
-
-* Up from Magento 2 EE 2.1.10 using the single transaction mode has a massive performance impact (can only be used **WITHOUT** single transaction)
-
-## Bugfixes
-
-* None
-
-## Features
-
-* Add #PAC-72: Extend dedicated CLI command to delete existing videos (professional + enterprise edition)
-* Add #PAC-75: Extend dedicated CLI command to replace existing videos (professional + enterprise edition)
-
 # Version 3.8.21
 
 ## Known Issues
@@ -27,6 +12,8 @@
 ## Features
 
 * Add #PAC-102: Dedicated CLI command to import videos (professional + enterpries edition)
+* Add #PAC-72: Extend dedicated CLI command to delete existing videos (professional + enterprise edition)
+* Add #PAC-75: Extend dedicated CLI command to replace existing videos (professional + enterprise edition)
 
 # Version 3.8.20
 
