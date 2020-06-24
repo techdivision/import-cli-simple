@@ -1,3 +1,17 @@
+# Version 3.7.21
+
+## Known Issues
+
+* Up from Magento 2 EE 2.1.10 using the single transaction mode has a massive performance impact (can only be used **WITHOUT** single transaction)
+
+## Bugfixes
+
+* Fixed #PAC-141: `clean-up-empty-columns` only works for attributes in column `additional_attributes` that are available in the first row
+
+## Features
+
+* None
+
 # Version 3.7.20
 
 ## Known Issues
