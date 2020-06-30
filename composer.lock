@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d5615e66f5194efe799b04520d51fcf0",
+    "content-hash": "d36afc496529323defa05bd90ae2e31c",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -2041,16 +2041,16 @@
         },
         {
             "name": "techdivision/import-cli",
-            "version": "10.0.2",
+            "version": "10.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-cli.git",
-                "reference": "1723fe5c6f62028c507095df7694cdeb261272b9"
+                "reference": "a3428a4cc7d3f7d6593271e4b1fa5f925d43c1a3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-cli/zipball/1723fe5c6f62028c507095df7694cdeb261272b9",
-                "reference": "1723fe5c6f62028c507095df7694cdeb261272b9",
+                "url": "https://api.github.com/repos/techdivision/import-cli/zipball/a3428a4cc7d3f7d6593271e4b1fa5f925d43c1a3",
+                "reference": "a3428a4cc7d3f7d6593271e4b1fa5f925d43c1a3",
                 "shasum": ""
             },
             "require": {
@@ -2092,7 +2092,7 @@
                 }
             ],
             "description": "Commands and Helpers to implement a CLI providing single-threaded Magento 2 importing functionality based on Pacemaker",
-            "time": "2020-05-05T07:07:44+00:00"
+            "time": "2020-06-30T14:00:15+00:00"
         },
         {
             "name": "techdivision/import-configuration",
@@ -5242,20 +5242,20 @@
         },
         {
             "name": "myclabs/deep-copy",
-            "version": "1.9.5",
+            "version": "1.10.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/myclabs/DeepCopy.git",
-                "reference": "b2c28789e80a97badd14145fda39b545d83ca3ef"
+                "reference": "969b211f9a51aa1f6c01d1d2aef56d3bd91598e5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/myclabs/DeepCopy/zipball/b2c28789e80a97badd14145fda39b545d83ca3ef",
-                "reference": "b2c28789e80a97badd14145fda39b545d83ca3ef",
+                "url": "https://api.github.com/repos/myclabs/DeepCopy/zipball/969b211f9a51aa1f6c01d1d2aef56d3bd91598e5",
+                "reference": "969b211f9a51aa1f6c01d1d2aef56d3bd91598e5",
                 "shasum": ""
             },
             "require": {
-                "php": "^7.1"
+                "php": "^7.1 || ^8.0"
             },
             "replace": {
                 "myclabs/deep-copy": "self.version"
@@ -5286,7 +5286,7 @@
                 "object",
                 "object graph"
             ],
-            "time": "2020-01-17T21:11:47+00:00"
+            "time": "2020-06-29T13:22:24+00:00"
         },
         {
             "name": "pdepend/pdepend",
