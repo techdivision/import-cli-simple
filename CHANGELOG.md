@@ -1,3 +1,17 @@
+# Version 3.8.24
+
+## Known Issues
+
+* Up from Magento 2 EE 2.1.10 using the single transaction mode has a massive performance impact (can only be used **WITHOUT** single transaction)
+
+## Bugfixes
+
+* Fixed #PAC-153: Valdiation of columns for attributes of frontend input type `select` and `multiselect` fails
+
+## Features
+
+* None
+
 # Version 3.8.23
 
 ## Known Issues
