@@ -1,4 +1,4 @@
-# Version 3.8.25
+# Version 3.8.24
 
 ## Known Issues
 
@@ -9,19 +9,6 @@
 * Fixed techdivision/import-product#156
 * Fixed techdivision/import-attribute#52
 * Fixed techdivision/import-cli-simple#250
-
-## Features
-
-* None
-
-# Version 3.8.24
-
-## Known Issues
-
-* Up from Magento 2 EE 2.1.10 using the single transaction mode has a massive performance impact (can only be used **WITHOUT** single transaction)
-
-## Bugfixes
-
 * Fixed #PAC-153: Valdiation of columns for attributes of frontend input type `select` and `multiselect` fails
 
 ## Features
