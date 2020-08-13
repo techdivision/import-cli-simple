@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "dd41f89b5c9dad88025b20c0b86665a2",
+    "content-hash": "9c7a1fb0bbd3498afeb9f61dd07296c9",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -2544,16 +2544,16 @@
         },
         {
             "name": "techdivision/import-product",
-            "version": "24.0.1",
+            "version": "24.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-product.git",
-                "reference": "c842891f5e1625b055b9219bcd4fa864a852e792"
+                "reference": "0d48058da6cc9f995549b49d77a6a18b2f67482f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-product/zipball/c842891f5e1625b055b9219bcd4fa864a852e792",
-                "reference": "c842891f5e1625b055b9219bcd4fa864a852e792",
+                "url": "https://api.github.com/repos/techdivision/import-product/zipball/0d48058da6cc9f995549b49d77a6a18b2f67482f",
+                "reference": "0d48058da6cc9f995549b49d77a6a18b2f67482f",
                 "shasum": ""
             },
             "require": {
@@ -2591,7 +2591,7 @@
                 }
             ],
             "description": "Pacemaker library providing basic Magento 2 product import functionality",
-            "time": "2020-07-18T11:25:03+00:00"
+            "time": "2020-08-13T11:19:23+00:00"
         },
         {
             "name": "techdivision/import-product-bundle",
@@ -5942,6 +5942,7 @@
             "keywords": [
                 "tokenizer"
             ],
+            "abandoned": true,
             "time": "2017-11-27T05:48:46+00:00"
         },
         {
@@ -6453,6 +6454,7 @@
             ],
             "description": "FinderFacade is a convenience wrapper for Symfony's Finder component.",
             "homepage": "https://github.com/sebastianbergmann/finder-facade",
+            "abandoned": true,
             "time": "2020-01-16T08:08:45+00:00"
         },
         {
