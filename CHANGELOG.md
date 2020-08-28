@@ -6,11 +6,14 @@
 
 ## Bugfixes
 
-* TBD
+* Fixed techdivision/import-category#66
+* Fixed #PAC-206: Prevent finder mappings of different libraries to be overwritten
 
 ## Features
 
-* TBD
+* Add second log handler to log to console also
+* Adjust log messages to log only message with log level `notice` to console
+* Remove stack trace of exception for missing media directories > log a simple debug message instead
 
 # Version 3.8.27
 
