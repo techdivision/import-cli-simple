@@ -341,7 +341,7 @@ class RoboFile extends \Robo\Tasks
             'Subjects/BunchSubject',
             'Subjects/EeBunchSubject',
             'Subjects/ConverterSubject',
-            'src/Subjects/OptionSubject',
+            'Subjects/OptionSubject',
             'Services/CategoryBunchProcessor',
             'Plugins/MissingOptionValuesPlugin',
             'Observers/EeBundleOptionObserver',
