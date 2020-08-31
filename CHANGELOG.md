@@ -1,3 +1,19 @@
+# Version 3.8.28
+
+## Known Issues
+
+* Up from Magento 2 EE 2.1.10 using the single transaction mode has a massive performance impact (can only be used **WITHOUT** single transaction)
+
+## Bugfixes
+
+* None
+
+## Features
+
+* Remove default log level initialization to `info` from configuration
+* Use only log message instead of stack trace for missing media directory
+* Added #PAC-196: Add additional console logger and log messages with log level `notice` to console
+
 # Version 3.8.27
 
 ## Known Issues
