@@ -340,6 +340,7 @@ class RoboFile extends \Robo\Tasks
             'Loaders/RawEntityLoader',
             'Subjects/BunchSubject',
             'Subjects/EeBunchSubject',
+            'Subjects/OptionSubject',
             'Subjects/ConverterSubject',
             'Services/CategoryBunchProcessor',
             'Plugins/MissingOptionValuesPlugin',
