@@ -1,3 +1,17 @@
+# Version 3.8.30
+
+## Known Issues
+
+* Up from Magento 2 EE 2.1.10 using the single transaction mode has a massive performance impact (can only be used **WITHOUT** single transaction)
+
+## Bugfixes
+
+* Add missing operation `general/catalog_product/add-update.msi` to `ce|ee/catalog_product_inventory/add-update` shortcut to also process the MSI artefact
+
+## Features
+
+* None
+
 # Version 3.8.29
 
 ## Known Issues
