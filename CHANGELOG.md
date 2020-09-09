@@ -1,3 +1,18 @@
+# Version 4.0.0-alpha2
+
+## Known Issues
+
+* Up from Magento 2 EE 2.1.10 using the single transaction mode has a massive performance impact (can only be used **WITHOUT** single transaction)
+
+## Bugfixes
+
+* Fixed techdivision/import-category#68
+
+## Features
+
+* Add `"include_in_menu": null` to `etc/configuration/default-values.json`
+* Remove stack trace of exception for missing media directories > log a simple debug message instead
+
 # Version 4.0.0-alpha1
 
 ## Known Issues
