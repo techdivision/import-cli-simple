@@ -1,3 +1,17 @@
+# Version 4.0.0-alpha3
+
+## Known Issues
+
+* Up from Magento 2 EE 2.1.10 using the single transaction mode has a massive performance impact (can only be used **WITHOUT** single transaction)
+
+## Bugfixes
+
+* Fixed issue when root category has to be created
+
+## Features
+
+* None
+
 # Version 4.0.0-alpha2
 
 ## Known Issues
