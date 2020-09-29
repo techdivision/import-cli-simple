@@ -10,7 +10,7 @@
 
 ## Features
 
-* None
+* Add #PAC-89: Add debug email command + DebugSendPlugin
 
 # Version 4.0.0-alpha2
 
