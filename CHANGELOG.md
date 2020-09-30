@@ -7,6 +7,7 @@
 ## Bugfixes
 
 * Fixed issue when root category has to be created
+* PAC-239: Allow null values for for attribute 'gender' during customer import
 
 ## Features
 
