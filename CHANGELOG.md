@@ -1,3 +1,17 @@
+# Version 3.8.33
+
+## Known Issues
+
+* Up from Magento 2 EE 2.1.10 using the single transaction mode has a massive performance impact (can only be used **WITHOUT** single transaction)
+
+## Bugfixes
+
+* PAC-239: Allow null values for for attribute 'gender' during customer import
+
+## Features
+
+* None
+
 # Version 3.8.32
 
 ## Known Issues
