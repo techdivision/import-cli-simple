@@ -6,11 +6,13 @@
 
 ## Bugfixes
 
-* PAC-239: Allow null values for for attribute 'gender' during customer import
+* Fixed techdivision/import-category#69
+* Fixed #PAC-243: Fixed issue of attributes that can not be updated
+* Fixed #PAC-239: Allow null values for for attribute `gender` during customer import
 
 ## Features
 
-* None
+* Switch log level for exception stack trace for missing media directories from warning to debug
 
 # Version 3.8.32
 
