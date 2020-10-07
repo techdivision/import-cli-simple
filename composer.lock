@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c4fe9d67e79a2203d42d8ac5d30c26fd",
+    "content-hash": "e3ac0695a3245d2e7877488c23af5ab4",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -2108,12 +2108,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import.git",
-                "reference": "ff27a5b14767a977e659610bd76758533f99707e"
+                "reference": "1d963a249d7f104fd144d1e1e7a874b313ff34b7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import/zipball/ff27a5b14767a977e659610bd76758533f99707e",
-                "reference": "ff27a5b14767a977e659610bd76758533f99707e",
+                "url": "https://api.github.com/repos/techdivision/import/zipball/1d963a249d7f104fd144d1e1e7a874b313ff34b7",
+                "reference": "1d963a249d7f104fd144d1e1e7a874b313ff34b7",
                 "shasum": ""
             },
             "require": {
@@ -2164,52 +2164,7 @@
                 }
             ],
             "description": "A library supporting generic Magento 2 import functionality",
-            "time": "2020-10-01T16:31:03+00:00"
-        },
-        {
-            "name": "techdivision/import-adapter-xml",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://gitlab.met.tdintern.de/techdivision/eip/import-adapter-xml.git",
-                "reference": "1d7ce5e73a21917f401c4508b02f6d7a60da492a"
-            },
-            "require": {
-                "php": ">=7.1.0",
-                "techdivision/import": "dev-master"
-            },
-            "require-dev": {
-                "consolidation/robo": "~1.0",
-                "doctrine/dbal": "2.5.*",
-                "mikey179/vfsstream": "~1.0",
-                "pdepend/pdepend": "2.5.2",
-                "phpmd/phpmd": "@stable",
-                "phpunit/phpunit": "~6.5.0",
-                "sebastian/phpcpd": "~3.0.0",
-                "squizlabs/php_codesniffer": "~3.4.0",
-                "symfony/http-kernel": "~3.4"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "TechDivision\\Import\\Adapter\\Xml\\": [
-                        "src/",
-                        "symfony/",
-                        "tests/unit/"
-                    ]
-                }
-            },
-            "license": [
-                "OSL-3.0"
-            ],
-            "authors": [
-                {
-                    "name": "Tim Wagner",
-                    "email": "t.wagner@techdivision.com"
-                }
-            ],
-            "description": "Pacemaker library providing a basic XML adapter import functionality",
-            "time": "2020-10-06T16:25:33+00:00"
+            "time": "2020-10-07T08:17:26+00:00"
         },
         {
             "name": "techdivision/import-app-simple",
@@ -2642,8 +2597,8 @@
                 "shasum": ""
             },
             "require": {
-                "php": ">=7.1.0",
-                "techdivision/import": "dev-master"
+                "php": ">=5.6.0",
+                "techdivision/import": "4.0.*"
             },
             "require-dev": {
                 "consolidation/robo": "~1.0",
@@ -2693,9 +2648,10 @@
                 "shasum": ""
             },
             "require": {
-                "php": ">=7.1.0",
-                "techdivision/import-converter": "dev-master",
-                "techdivision/import-ee": "dev-master"
+                "php": ">=5.6.0",
+                "techdivision/import": "4.x-dev as 4.0.0",
+                "techdivision/import-converter": "dev-master as 1.0.0",
+                "techdivision/import-ee": "3.x-dev as 3.0.0"
             },
             "require-dev": {
                 "consolidation/robo": "~1.0",
@@ -3519,8 +3475,8 @@
                 "shasum": ""
             },
             "require": {
-                "php": ">=7.1.0",
-                "techdivision/import-product": "dev-master"
+                "php": ">=5.6.0",
+                "techdivision/import-product": "4.0.*"
             },
             "require-dev": {
                 "consolidation/robo": "~1.0",
@@ -9126,7 +9082,6 @@
         "techdivision/import-converter-ee": 20,
         "techdivision/import-converter-product-category": 20,
         "techdivision/import-converter-product-attribute": 20,
-        "techdivision/import-adapter-xml": 20,
         "phpmd/phpmd": 0,
         "behat/symfony2-extension": 20,
         "techdivision/import-sample-data": 20
