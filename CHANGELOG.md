@@ -1,3 +1,17 @@
+# Version 4.0.0-alpha4
+
+## Known Issues
+
+* Up from Magento 2 EE 2.1.10 using the single transaction mode has a massive performance impact (can only be used **WITHOUT** single transaction)
+
+## Bugfixes
+
+* Fixed #PAC-212: .OK file filter only supports suffix .csv
+
+## Features
+
+* None
+
 # Version 4.0.0-alpha3
 
 ## Known Issues
@@ -8,6 +22,7 @@
 
 * Fixed techdivision/import-category#69
 * Fixed issue when root category has to be created
+* Fixed #PAC-212: .OK file filter only supports suffix .csv
 * PAC-239: Allow null values for for attribute 'gender' during customer import
 
 ## Features
