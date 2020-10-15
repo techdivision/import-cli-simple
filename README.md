@@ -8,4 +8,4 @@
  [![Code Coverage](https://img.shields.io/scrutinizer/coverage/g/techdivision/import-cli-simple/master.svg?style=flat-square)](https://scrutinizer-ci.com/g/techdivision/import-cli-simple/?branch=master)
  [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Ftechdivision%2Fimport-cli-simple.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Ftechdivision%2Fimport-cli-simple?ref=badge_shield)
 
-Please visit the M2IF [website](https://m2if.com) for documentation and additional information
+Please visit the Pacemaker [website](https://pacemaker.techdivision.com) or our [documentation](https://docs.met.tdintern.de/pacemaker/1.3/) for additional information
