@@ -42,20 +42,22 @@
     "techdivision/import-product-url-rewrite"
   ],
   "finder-mappings": {
-    "TechDivision\\Import\\Product\\Utils\\SqlStatementKeys::PRODUCT_DATETIMES": "import.repository.finder.factory.yielded",
-    "TechDivision\\Import\\Product\\Utils\\SqlStatementKeys::PRODUCT_DECIMALS": "import.repository.finder.factory.yielded",
-    "TechDivision\\Import\\Product\\Utils\\SqlStatementKeys::PRODUCT_INTS": "import.repository.finder.factory.yielded",
-    "TechDivision\\Import\\Product\\Utils\\SqlStatementKeys::PRODUCT_TEXTS": "import.repository.finder.factory.yielded",
-    "TechDivision\\Import\\Product\\Utils\\SqlStatementKeys::PRODUCT_VARCHARS": "import.repository.finder.factory.yielded",
-    "TechDivision\\Import\\Product\\Utils\\SqlStatementKeys::PRODUCTS": "import.repository.finder.factory.yielded",
-    "TechDivision\\Import\\Product\\Utils\\SqlStatementKeys::PRODUCT": "import.repository.finder.factory.unique",
-    "TechDivision\\Import\\Product\\Utils\\SqlStatementKeys::PRODUCT_DATETIMES_BY_PK_AND_STORE_ID": "import.repository.finder.factory.yielded",
-    "TechDivision\\Import\\Product\\Utils\\SqlStatementKeys::PRODUCT_DECIMALS_BY_PK_AND_STORE_ID": "import.repository.finder.factory.yielded",
-    "TechDivision\\Import\\Product\\Utils\\SqlStatementKeys::PRODUCT_INTS_BY_PK_AND_STORE_ID": "import.repository.finder.factory.yielded",
-    "TechDivision\\Import\\Product\\Utils\\SqlStatementKeys::PRODUCT_TEXTS_BY_PK_AND_STORE_ID": "import.repository.finder.factory.yielded",
-    "TechDivision\\Import\\Product\\Utils\\SqlStatementKeys::PRODUCT_VARCHARS_BY_PK_AND_STORE_ID": "import.repository.finder.factory.yielded",
-    "TechDivision\\Import\\Product\\Utils\\SqlStatementKeys::PRODUCT_VARCHAR_BY_ATTRIBUTE_CODE_AND_ENTITY_TYPE_ID_AND_STORE_ID": "import.repository.finder.factory.yielded",
-    "TechDivision\\Import\\Product\\Utils\\SqlStatementKeys::PRODUCT_VARCHAR_BY_ATTRIBUTE_CODE_AND_ENTITY_TYPE_ID_AND_STORE_ID_AND_VALUE" : "import.repository.finder.factory.unique"
+    "catalog_product": {
+      "TechDivision\\Import\\Product\\Utils\\SqlStatementKeys::PRODUCT_DATETIMES": "import.repository.finder.factory.yielded",
+      "TechDivision\\Import\\Product\\Utils\\SqlStatementKeys::PRODUCT_DECIMALS": "import.repository.finder.factory.yielded",
+      "TechDivision\\Import\\Product\\Utils\\SqlStatementKeys::PRODUCT_INTS": "import.repository.finder.factory.yielded",
+      "TechDivision\\Import\\Product\\Utils\\SqlStatementKeys::PRODUCT_TEXTS": "import.repository.finder.factory.yielded",
+      "TechDivision\\Import\\Product\\Utils\\SqlStatementKeys::PRODUCT_VARCHARS": "import.repository.finder.factory.yielded",
+      "TechDivision\\Import\\Product\\Utils\\SqlStatementKeys::PRODUCTS": "import.repository.finder.factory.yielded",
+      "TechDivision\\Import\\Product\\Utils\\SqlStatementKeys::PRODUCT": "import.repository.finder.factory.unique",
+      "TechDivision\\Import\\Product\\Utils\\SqlStatementKeys::PRODUCT_DATETIMES_BY_PK_AND_STORE_ID": "import.repository.finder.factory.yielded",
+      "TechDivision\\Import\\Product\\Utils\\SqlStatementKeys::PRODUCT_DECIMALS_BY_PK_AND_STORE_ID": "import.repository.finder.factory.yielded",
+      "TechDivision\\Import\\Product\\Utils\\SqlStatementKeys::PRODUCT_INTS_BY_PK_AND_STORE_ID": "import.repository.finder.factory.yielded",
+      "TechDivision\\Import\\Product\\Utils\\SqlStatementKeys::PRODUCT_TEXTS_BY_PK_AND_STORE_ID": "import.repository.finder.factory.yielded",
+      "TechDivision\\Import\\Product\\Utils\\SqlStatementKeys::PRODUCT_VARCHARS_BY_PK_AND_STORE_ID": "import.repository.finder.factory.yielded",
+      "TechDivision\\Import\\Product\\Utils\\SqlStatementKeys::PRODUCT_VARCHAR_BY_ATTRIBUTE_CODE_AND_ENTITY_TYPE_ID_AND_STORE_ID": "import.repository.finder.factory.yielded",
+      "TechDivision\\Import\\Product\\Utils\\SqlStatementKeys::PRODUCT_VARCHAR_BY_ATTRIBUTE_CODE_AND_ENTITY_TYPE_ID_AND_STORE_ID_AND_VALUE" : "import.repository.finder.factory.unique"
+    }
   },
   "shortcuts": {
     "ce": {

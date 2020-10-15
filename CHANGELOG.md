@@ -1,3 +1,97 @@
+# Version 4.0.0-alpha4
+
+## Known Issues
+
+* Up from Magento 2 EE 2.1.10 using the single transaction mode has a massive performance impact (can only be used **WITHOUT** single transaction)
+
+## Bugfixes
+
+* Fixed #PAC-212: .OK file filter only supports suffix .csv
+
+## Features
+
+* None
+
+# Version 4.0.0-alpha3
+
+## Known Issues
+
+* Up from Magento 2 EE 2.1.10 using the single transaction mode has a massive performance impact (can only be used **WITHOUT** single transaction)
+
+## Bugfixes
+
+* Fixed techdivision/import-category#69
+* Fixed issue when root category has to be created
+* Fixed #PAC-212: .OK file filter only supports suffix .csv
+* PAC-239: Allow null values for for attribute 'gender' during customer import
+
+## Features
+
+* Add #PAC-89: Add debug email command + DebugSendPlugin
+
+# Version 4.0.0-alpha2
+
+## Known Issues
+
+* Up from Magento 2 EE 2.1.10 using the single transaction mode has a massive performance impact (can only be used **WITHOUT** single transaction)
+
+## Bugfixes
+
+* Fixed techdivision/import-category#68
+
+## Features
+
+* Add `"include_in_menu": null` to `etc/configuration/default-values.json`
+* Remove stack trace of exception for missing media directories > log a simple debug message instead
+
+# Version 4.0.0-alpha1
+
+## Known Issues
+
+* Up from Magento 2 EE 2.1.10 using the single transaction mode has a massive performance impact (can only be used **WITHOUT** single transaction)
+
+## Bugfixes
+
+* Fixed techdivision/import-category#66
+* Fixed #PAC-206: Prevent finder mappings of different libraries to be overwritten
+
+## Features
+
+* Add second log handler to log to console also
+* Adjust log messages to log only message with log level `notice` to console
+* Remove stack trace of exception for missing media directories > log a simple debug message instead
+
+# Version 3.8.27
+
+## Known Issues
+
+* Up from Magento 2 EE 2.1.10 using the single transaction mode has a massive performance impact (can only be used **WITHOUT** single transaction)
+
+## Bugfixes
+
+* None
+
+## Features
+
+* Update symfony dependencies for Magento 2.4 compatibility
+
+# Version 3.8.26
+
+## Known Issues
+
+* Up from Magento 2 EE 2.1.10 using the single transaction mode has a massive performance impact (can only be used **WITHOUT** single transaction)
+
+## Bugfixes
+
+* Fixed invalid member name
+* Fixed typo in swift transport sendmail declaration
+* Fixed issue in initialization of StreamHandlerFactory
+* Fixed techdivision/import-category#64
+
+## Features
+
+* None
+
 # Version 3.8.25
 
 ## Known Issues
