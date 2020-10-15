@@ -1,4 +1,4 @@
-# M2IF - Simple Console Tool
+# Pacemaker - Simple Console Tool
 
 [![Latest Stable Version](https://img.shields.io/packagist/v/techdivision/import-cli-simple.svg?style=flat-square)](https://packagist.org/packages/techdivision/import-cli-simple) 
  [![Total Downloads](https://img.shields.io/packagist/dt/techdivision/import-cli-simple.svg?style=flat-square)](https://packagist.org/packages/techdivision/import-cli-simple)
