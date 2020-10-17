@@ -10,7 +10,7 @@
 
 ## Features
 
-* None
+* Add #PAC-227: Dynamic Handling of columns for import of EAV attributes
 
 # Version 4.0.0-alpha3
 
@@ -38,6 +38,7 @@
 ## Bugfixes
 
 * Fixed techdivision/import-category#68
+* Fixed #PAC-243: Fixed issue of attributes that can not be updated
 
 ## Features
 
