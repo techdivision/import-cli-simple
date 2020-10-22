@@ -11,6 +11,7 @@
 ## Features
 
 * Add techdivision/import#191
+* Add techdivision/import-cli-simple#256
 
 # Version 3.8.33
 
