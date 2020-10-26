@@ -23,7 +23,7 @@
 * Fixed techdivision/import-category#69
 * Fixed issue when root category has to be created
 * Fixed #PAC-212: .OK file filter only supports suffix .csv
-* PAC-239: Allow null values for for attribute 'gender' during customer import
+* Fixed #PAC-239: Allow null values for for attribute 'gender' during customer import
 
 ## Features
 
