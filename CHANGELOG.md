@@ -1,3 +1,17 @@
+# Version 4.0.0-alpha5
+
+## Known Issues
+
+* Up from Magento 2 EE 2.1.10 using the single transaction mode has a massive performance impact (can only be used **WITHOUT** single transaction)
+
+## Bugfixes
+
+* None
+
+## Features
+
+* Add #PAC-252: Only generate category product rewrites if enabled in backend
+
 # Version 4.0.0-alpha4
 
 ## Known Issues
