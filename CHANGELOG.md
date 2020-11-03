@@ -1,3 +1,17 @@
+# Version 4.0.0-alpha5
+
+## Known Issues
+
+* Up from Magento 2 EE 2.1.10 using the single transaction mode has a massive performance impact (can only be used **WITHOUT** single transaction)
+
+## Bugfixes
+
+* None
+
+## Features
+
+* Add #PAC-252: Only generate category product rewrites if enabled in backend
+
 # Version 4.0.0-alpha4
 
 ## Known Issues
@@ -10,7 +24,7 @@
 
 ## Features
 
-* None
+* Add #PAC-227: Dynamic Handling of columns for import of EAV attributes
 
 # Version 4.0.0-alpha3
 
@@ -23,7 +37,7 @@
 * Fixed techdivision/import-category#69
 * Fixed issue when root category has to be created
 * Fixed #PAC-212: .OK file filter only supports suffix .csv
-* PAC-239: Allow null values for for attribute 'gender' during customer import
+* Fixed #PAC-239: Allow null values for for attribute 'gender' during customer import
 
 ## Features
 
@@ -38,6 +52,7 @@
 ## Bugfixes
 
 * Fixed techdivision/import-category#68
+* Fixed #PAC-243: Fixed issue of attributes that can not be updated
 
 ## Features
 
