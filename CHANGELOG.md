@@ -6,7 +6,7 @@
 
 ## Bugfixes
 
-* None
+* Fixed #PAC-269: `additional-vendor-dirs` directive depends on `getcwd()` when resolving media diretories in `TechDivision\Import\Subjects\FilesystemTrait`
 
 ## Features
 
