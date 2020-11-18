@@ -10,7 +10,9 @@
 
 ## Features
 
+* Add techdivision/import-product-variant#22
 * Add #PAC-252: Only generate category product rewrites if enabled in backend
+* Add #PAC-273: Update product 301 URL redirects to forward to active URL rewrite
 
 # Version 4.0.0-alpha4
 
