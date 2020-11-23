@@ -6,10 +6,12 @@
 
 ## Bugfixes
 
+* Fixed #PAC-280: Extension library requires `etc` configuration directory
 * Fixed #PAC-269: `additional-vendor-dirs` directive depends on `getcwd()` when resolving media diretories in `TechDivision\Import\Subjects\FilesystemTrait`
 
 ## Features
 
+* Add #PAC-273: Update product 301 URL redirects to forward to active URL rewrite
 * Add #PAC-252: Only generate category product rewrites if enabled in backend (backport)
 
 # Version 3.8.34
