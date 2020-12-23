@@ -13,6 +13,7 @@
 
 * Add #PAC-273: Update product 301 URL redirects to forward to active URL rewrite
 * Add #PAC-252: Only generate category product rewrites if enabled in backend (backport)
+* Add #PAC-307: Functionality to control automatic update of URL rewrites when product or category name changes
 
 # Version 3.8.34
 
