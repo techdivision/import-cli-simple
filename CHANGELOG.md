@@ -1,3 +1,17 @@
+# Version 3.8.36
+
+## Known Issues
+
+* Up from Magento 2 EE 2.1.10 using the single transaction mode has a massive performance impact (can only be used **WITHOUT** single transaction)
+
+## Bugfixes
+
+* Fixed invalid behaviour of #PAC-307: Add fallback for URL key to value of default store view when initial import has been done without store view rows
+
+## Features
+
+* Noe
+
 # Version 3.8.35
 
 ## Known Issues
