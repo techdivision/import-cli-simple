@@ -1,3 +1,17 @@
+# Version 3.8.37
+
+## Known Issues
+
+* Up from Magento 2 EE 2.1.10 using the single transaction mode has a massive performance impact (can only be used **WITHOUT** single transaction)
+
+## Bugfixes
+
+* Fixed issue with missing `sprintf()` function when creating an exception in `UrlKeyObserver::process()` and `UrlKeyAndPathObserver::process()` methods 
+
+## Features
+
+* None
+
 # Version 3.8.36
 
 ## Known Issues
@@ -10,7 +24,7 @@
 
 ## Features
 
-* Noe
+* None
 
 # Version 3.8.35
 
