@@ -13,8 +13,7 @@
 * Add techdivision/import-product-variant#22
 * Add #PAC-252: Only generate category product rewrites if enabled in backend
 * Add #PAC-273: Update product 301 URL redirects to forward to active URL rewrite
-* Add #PAC-302: Functionality to clean-up product links (related, upssell + crosssell) when using `add-update` operation
-* Add #PAC-307: Functionality to control automatic update of URL rewrites when product or category name changes
+* Add #PAC-302 + techdivision/import-product-link#27: Functionality to clean-up product links (related, upssell + crosssell) when using `add-update` operation
 
 # Version 4.0.0-alpha4
 
