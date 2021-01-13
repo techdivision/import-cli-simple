@@ -1,6 +1,5 @@
 # Upgrade from 3.8.27 to 4.0.0
 
-
 ## Removed Methods
 
 ### techdivision/import
@@ -19,7 +18,7 @@
 * `TechDivision\Import\Loaders\StoreViewCodeLoader` has been replaced with `\TechDivision\Import\Loaders\GenericMemberNameLoader`
 * `TechDivision\Import\Actions\Processors\ImportHistoryCreateProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericIdentifierProcessor`
 * `TechDivision\Import\Actions\Processors\ImportHistoryUpdateProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericIdentifierProcessor`
-* `TechDivision\Import\Actions\Processors\ImportHistoryDeleteProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericIdentifierProcessor`
+* `TechDivision\Import\Actions\Processors\ImportHistoryDeleteProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericProcessor`
 * `TechDivision\Import\Actions\Processors\StoreCreateProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericIdentifierProcessor`
 * `TechDivision\Import\Actions\Processors\StoreUpdateProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericIdentifierProcessor`
 * `TechDivision\Import\Actions\Processors\StoreGroupCreateProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericIdentifierProcessor`
@@ -28,12 +27,212 @@
 * `TechDivision\Import\Actions\Processors\StoreWebsiteUpdateProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericIdentifierProcessor`
 * `TechDivision\Import\Actions\Processors\UrlRewriteCreateProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericIdentifierProcessor`
 * `TechDivision\Import\Actions\Processors\UrlRewriteUpdateProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericIdentifierProcessor`
-* `TechDivision\Import\Actions\Processors\UrlRewriteDeleteProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericIdentifierProcessor`
+* `TechDivision\Import\Actions\Processors\UrlRewriteDeleteProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericProcessor`
+
+### techdivision/import-attribute
+
+* `TechDivision\Import\Attribute\Actions\Processors\AttributeCreateProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericIdentifierProcessor`
+* `TechDivision\Import\Attribute\Actions\Processors\AttributeUpdateProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericIdentifierProcessor`
+* `TechDivision\Import\Attribute\Actions\Processors\AttributeDeleteProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericProcessor`
+* `TechDivision\Import\Attribute\Actions\Processors\AttributeLabelCreateProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericProcessor`
+* `TechDivision\Import\Attribute\Actions\Processors\AttributeLabelUpdateProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericProcessor`
+* `TechDivision\Import\Attribute\Actions\Processors\AttributeLabelDeleteProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericProcessor`
+* `TechDivision\Import\Attribute\Actions\Processors\AttributeOptionCreateProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericIdentifierProcessor`
+* `TechDivision\Import\Attribute\Actions\Processors\AttributeOptionUpdateProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericIdentifierProcessor`
+* `TechDivision\Import\Attribute\Actions\Processors\AttributeOptionDeleteProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericProcessor`
+* `TechDivision\Import\Attribute\Actions\Processors\AttributeOptionValueCreateProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericProcessor`
+* `TechDivision\Import\Attribute\Actions\Processors\AttributeOptionValueUpdateProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericProcessor`
+* `TechDivision\Import\Attribute\Actions\Processors\AttributeOptionValueDeleteProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericProcessor`
+* `TechDivision\Import\Attribute\Actions\Processors\AttributeOptionSwatchCreateProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericProcessor`
+* `TechDivision\Import\Attribute\Actions\Processors\AttributeOptionSwatchUpdateProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericProcessor`
+* `TechDivision\Import\Attribute\Actions\Processors\AttributeOptionSwatchDeleteProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericProcessor`
+* `TechDivision\Import\Attribute\Actions\Processors\EntityAttributeCreateProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericProcessor`
+* `TechDivision\Import\Attribute\Actions\Processors\EntityAttributeUpdateProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericProcessor`
+* `TechDivision\Import\Attribute\Actions\Processors\EntityAttributeDeleteProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericProcessor`
+* `TechDivision\Import\Attribute\Actions\Processors\CatalogAttributeDeleteProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericProcessor`
+
+### techdivision/import-attribute-set
+
+* `TechDivision\Import\Attribute\Set\Actions\Processors\EavAttributeGroupCreateProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericIdentifierProcessor`
+* `TechDivision\Import\Attribute\Set\Actions\Processors\EavAttributeGroupUpdateProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericIdentifierProcessor`
+* `TechDivision\Import\Attribute\Set\Actions\Processors\EavAttributeGroupDeleteProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericProcessor`
+* `TechDivision\Import\Attribute\Set\Actions\Processors\EavAttributeSetCreateProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericIdentifierProcessor`
+* `TechDivision\Import\Attribute\Set\Actions\Processors\EavAttributeSetUpdateProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericIdentifierProcessor`
+* `TechDivision\Import\Attribute\Set\Actions\Processors\EavAttributeSetDeleteProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericProcessor`
+
+### techdivision/import-category
+
+* `TechDivision\Import\Category\Actions\Processors\CategoryCreateProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericIdentifierProcessor`
+* `TechDivision\Import\Category\Actions\Processors\CategoryUpdateProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericIdentifierProcessor`
+* `TechDivision\Import\Category\Actions\Processors\CategoryDeleteProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericProcessor`
+* `TechDivision\Import\Category\Actions\Processors\CategoryDatetimeCreateProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericProcessor`
+* `TechDivision\Import\Category\Actions\Processors\CategoryDatetimeUpdateProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericProcessor`
+* `TechDivision\Import\Category\Actions\Processors\CategoryDatetimeDeleteProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericProcessor`
+* `TechDivision\Import\Category\Actions\Processors\CategoryDecimalCreateProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericProcessor`
+* `TechDivision\Import\Category\Actions\Processors\CategoryDecimalUpdateProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericProcessor`
+* `TechDivision\Import\Category\Actions\Processors\CategoryDecimalDeleteProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericProcessor`
+* `TechDivision\Import\Category\Actions\Processors\CategoryIntCreateProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericProcessor`
+* `TechDivision\Import\Category\Actions\Processors\CategoryIntUpdateProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericProcessor`
+* `TechDivision\Import\Category\Actions\Processors\CategoryIntDeleteProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericProcessor`
+* `TechDivision\Import\Category\Actions\Processors\CategoryTextCreateProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericProcessor`
+* `TechDivision\Import\Category\Actions\Processors\CategoryTextUpdateProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericProcessor`
+* `TechDivision\Import\Category\Actions\Processors\CategoryTextDeleteProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericProcessor`
+* `TechDivision\Import\Category\Actions\Processors\CategoryVarcharCreateProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericProcessor`
+* `TechDivision\Import\Category\Actions\Processors\CategoryVarcharUpdateProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericProcessor`
+* `TechDivision\Import\Category\Actions\Processors\CategoryVarcharDeleteProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericProcessor`
+
+### techdivision/import-category-ee
+
+* `TechDivision\Import\Category\Ee\Actions\Processors\CategoryUpdateProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericIdentifierProcessor`
+
+### techdivision/import-customer
+
+* `TechDivision\Import\Customer\Actions\Processors\CustomerCreateProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericIdentifierProcessor`
+* `TechDivision\Import\Customer\Actions\Processors\CustomerUpdateProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericIdentifierProcessor`
+* `TechDivision\Import\Customer\Actions\Processors\CustomerDeleteProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericProcessor`
+* `TechDivision\Import\Customer\Actions\Processors\CustomerDatetimeDeleteProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericProcessor`
+* `TechDivision\Import\Customer\Actions\Processors\CustomerDatetimeDeleteProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericProcessor`
+* `TechDivision\Import\Customer\Actions\Processors\CustomerDatetimeDeleteProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericProcessor`
+* `TechDivision\Import\Customer\Actions\Processors\CustomerDecimalDeleteProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericProcessor`
+* `TechDivision\Import\Customer\Actions\Processors\CustomerDecimalDeleteProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericProcessor`
+* `TechDivision\Import\Customer\Actions\Processors\CustomerDecimalDeleteProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericProcessor`
+* `TechDivision\Import\Customer\Actions\Processors\CustomerIntDeleteProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericProcessor`
+* `TechDivision\Import\Customer\Actions\Processors\CustomerIntDeleteProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericProcessor`
+* `TechDivision\Import\Customer\Actions\Processors\CustomerIntDeleteProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericProcessor`
+* `TechDivision\Import\Customer\Actions\Processors\CustomerTextDeleteProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericProcessor`
+* `TechDivision\Import\Customer\Actions\Processors\CustomerTextDeleteProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericProcessor`
+* `TechDivision\Import\Customer\Actions\Processors\CustomerTextDeleteProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericProcessor`
+* `TechDivision\Import\Customer\Actions\Processors\CustomerVarcharDeleteProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericProcessor`
+* `TechDivision\Import\Customer\Actions\Processors\CustomerVarcharDeleteProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericProcessor`
+* `TechDivision\Import\Customer\Actions\Processors\CustomerVarcharDeleteProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericProcessor`
+
+### techdivision/import-customer-address
+
+* `TechDivision\Import\Customer\Address\Actions\Processors\CustomerAddressCreateProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericIdentifierProcessor`
+* `TechDivision\Import\Customer\Address\Actions\Processors\CustomerAddressUpdateProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericIdentifierProcessor`
+* `TechDivision\Import\Customer\Address\Actions\Processors\CustomerAddressDeleteProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericProcessor`
+* `TechDivision\Import\Customer\Address\Actions\Processors\CustomerAddressDatetimeCreateProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericProcessor`
+* `TechDivision\Import\Customer\Address\Actions\Processors\CustomerAddressDatetimeUpdateProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericProcessor`
+* `TechDivision\Import\Customer\Address\Actions\Processors\CustomerAddressDatetimeDeleteProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericProcessor`
+* `TechDivision\Import\Customer\Address\Actions\Processors\CustomerAddressDecimalCreateProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericProcessor`
+* `TechDivision\Import\Customer\Address\Actions\Processors\CustomerAddressDecimalUpdateProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericProcessor`
+* `TechDivision\Import\Customer\Address\Actions\Processors\CustomerAddressDecimalDeleteProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericProcessor`
+* `TechDivision\Import\Customer\Address\Actions\Processors\CustomerAddressIntCreateProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericProcessor`
+* `TechDivision\Import\Customer\Address\Actions\Processors\CustomerAddressIntUpdateProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericProcessor`
+* `TechDivision\Import\Customer\Address\Actions\Processors\CustomerAddressIntDeleteProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericProcessor`
+* `TechDivision\Import\Customer\Address\Actions\Processors\CustomerAddressTextCreateProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericProcessor`
+* `TechDivision\Import\Customer\Address\Actions\Processors\CustomerAddressTextUpdateProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericProcessor`
+* `TechDivision\Import\Customer\Address\Actions\Processors\CustomerAddressTextDeleteProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericProcessor`
+* `TechDivision\Import\Customer\Address\Actions\Processors\CustomerAddressVarcharCreateProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericProcessor`
+* `TechDivision\Import\Customer\Address\Actions\Processors\CustomerAddressVarcharUpdateProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericProcessor`
+* `TechDivision\Import\Customer\Address\Actions\Processors\CustomerAddressVarcharDeleteProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericProcessor`
+
+### techdivision/import-product
+
+* `TechDivision\Import\Product\Actions\Processors\ProductCreateProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericIdentifierProcessor`
+* `TechDivision\Import\Product\Actions\Processors\ProductUpdateProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericIdentifierProcessor`
+* `TechDivision\Import\Product\Actions\Processors\ProductDeleteProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericProcessor`
+* `TechDivision\Import\Product\Actions\Processors\CategoryProductCreateProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericProcessor`
+* `TechDivision\Import\Product\Actions\Processors\CategoryProductDeleteProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericProcessor`
+* `TechDivision\Import\Product\Actions\Processors\CategoryProductUpdateProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericProcessor`
+* `TechDivision\Import\Product\Actions\Processors\ProductDatetimeCreateProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericIdentifierProcessor`
+* `TechDivision\Import\Product\Actions\Processors\ProductDatetimeUpdateProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericIdentifierProcessor`
+* `TechDivision\Import\Product\Actions\Processors\ProductDatetimeDeleteProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericProcessor`
+* `TechDivision\Import\Product\Actions\Processors\ProductDecimalCreateProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericIdentifierProcessor`
+* `TechDivision\Import\Product\Actions\Processors\ProductDecimalUpdateProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericIdentifierProcessor`
+* `TechDivision\Import\Product\Actions\Processors\ProductDecimalDeleteProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericProcessor`
+* `TechDivision\Import\Product\Actions\Processors\ProductIntCreateProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericIdentifierProcessor`
+* `TechDivision\Import\Product\Actions\Processors\ProductIntUpdateProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericIdentifierProcessor`
+* `TechDivision\Import\Product\Actions\Processors\ProductIntDeleteProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericProcessor`
+* `TechDivision\Import\Product\Actions\Processors\ProductTextCreateProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericIdentifierProcessor`
+* `TechDivision\Import\Product\Actions\Processors\ProductTextUpdateProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericIdentifierProcessor`
+* `TechDivision\Import\Product\Actions\Processors\ProductTextDeleteProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericProcessor`
+* `TechDivision\Import\Product\Actions\Processors\ProductVarcharCreateProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericIdentifierProcessor`
+* `TechDivision\Import\Product\Actions\Processors\ProductVarcharUpdateProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericIdentifierProcessor`
+* `TechDivision\Import\Product\Actions\Processors\ProductVarcharDeleteProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericProcessor`
+* `TechDivision\Import\Product\Actions\Processors\StockItemDeleteProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericProcessor`
+* `TechDivision\Import\Product\Actions\Processors\ProductRelationCreateProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericProcessor`
+* `TechDivision\Import\Product\Actions\Processors\ProductWebsiteCreateProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericProcessor`
+* `TechDivision\Import\Product\Actions\Processors\ProductWebsiteDeleteProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericProcessor`
+
+### techdivision/import-product-bundle
+
+* `TechDivision\Import\Product\Bundle\Actions\Processors\ProductBundleOptionCreateProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericIdentifierProcessor`
+* `TechDivision\Import\Product\Bundle\Actions\Processors\ProductBundleOptionUpdateProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericIdentifierProcessor`
+* `TechDivision\Import\Product\Bundle\Actions\Processors\ProductBundleSelectionCreateProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericIdentifierProcessor`
+* `TechDivision\Import\Product\Bundle\Actions\Processors\ProductBundleSelectionUpdateProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericIdentifierProcessor`
+* `TechDivision\Import\Product\Bundle\Actions\Processors\ProductBundleOptionValueCreateProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericProcessor`
+* `TechDivision\Import\Product\Bundle\Actions\Processors\ProductBundleSelectionPriceCreateProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericProcessor`
+* `TechDivision\Import\Product\Bundle\Actions\Processors\ProductBundleSelectionPriceUpdateProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericProcessor`
+
+### techdivision/import-product-bundle-ee
+
+* `TechDivision\Import\Product\Bundle\Actions\Processors\ProductBundleOptionCreateProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericIdentifierProcessor`
+* `TechDivision\Import\Product\Bundle\Actions\Processors\ProductBundleSelectionCreateProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericIdentifierProcessor`
+
+### techdivision/import-product-link
+
+* `TechDivision\Import\Product\Link\Actions\Processors\ProductLinkCreateProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericIdentifierProcessor`
+* `TechDivision\Import\Product\Link\Actions\Processors\ProductLinkUpdateProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericIdentifierProcessor`
+* `TechDivision\Import\Product\Link\Actions\Processors\ProductLinkAttributeIntCreateProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericProcessor`
+* `TechDivision\Import\Product\Link\Actions\Processors\ProductLinkAttributeIntUpdateProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericProcessor`
+* `TechDivision\Import\Product\Link\Actions\Processors\ProductLinkAttributeDecimalCreateProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericProcessor`
+* `TechDivision\Import\Product\Link\Actions\Processors\ProductLinkAttributeDecimalUpdateProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericProcessor`
+* `TechDivision\Import\Product\Link\Actions\Processors\ProductLinkAttributeVarcharCreateProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericProcessor`
+* `TechDivision\Import\Product\Link\Actions\Processors\ProductLinkAttributeVarcharUpdateProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericProcessor`
+
+### techdivision/import-product-media
+
+* `TechDivision\Import\Product\Media\Actions\Processors\ProductMediaGalleryCreateProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericIdentifierProcessor`
+* `TechDivision\Import\Product\Media\Actions\Processors\ProductMediaGalleryUpdateProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericIdentifierProcessor`
+* `TechDivision\Import\Product\Media\Actions\Processors\ProductMediaGalleryDeleteProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericProcessor`
+* `TechDivision\Import\Product\Media\Actions\Processors\ProductMediaGalleryValueCreateProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericProcessor`
+* `TechDivision\Import\Product\Media\Actions\Processors\ProductMediaGalleryValueUpdateProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericProcessor`
+* `TechDivision\Import\Product\Media\Actions\Processors\ProductMediaGalleryValueToEntityCreateProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericProcessor`
+
+### techdivision/import-product-msi
+
+* `TechDivision\Import\Product\Msi\Actions\Processors\InventorySourceItemCreateProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericProcessor`
+* `TechDivision\Import\Product\Msi\Actions\Processors\InventorySourceItemUpdateProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericProcessor`
+* `TechDivision\Import\Product\Msi\Actions\Processors\InventorySourceItemDeleteProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericProcessor`
+
+### techdivision/import-product-tier-price
+
+* `TechDivision\Import\Product\TierPrice\Actions\Processors\TierPriceCreateProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericIdentifierProcessor`
+* `TechDivision\Import\Product\TierPrice\Actions\Processors\TierPriceUpdateProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericIdentifierProcessor`
+* `TechDivision\Import\Product\TierPrice\Actions\Processors\TierPriceDeleteProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericProcessor`
+
+### techdivision/import-product-url-rewrite
+
+* `TechDivision\Import\Product\UrlRewrite\Actions\Processors\UrlRewriteProductCategoryCreateProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericProcessor`
+* `TechDivision\Import\Product\UrlRewrite\Actions\Processors\UrlRewriteProductCategoryUpdateProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericProcessor`
+* `TechDivision\Import\Product\UrlRewrite\Actions\Processors\UrlRewriteProductCategoryDeleteProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericProcessor`
+
+### techdivision/import-product-variant
+
+* `TechDivision\Import\Product\Variant\Actions\Processors\ProductSuperAttributeCreateProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericIdentifierProcessor`
+* `TechDivision\Import\Product\Variant\Actions\Processors\ProductSuperAttributeUpdateProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericIdentifierProcessor`
+* `TechDivision\Import\Product\Variant\Actions\Processors\ProductSuperAttributeLabelCreateProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericProcessor`
+* `TechDivision\Import\Product\Variant\Actions\Processors\ProductSuperAttributeLabelUpdateProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericProcessor`
+* `TechDivision\Import\Product\Variant\Actions\Processors\ProductSuperLinkCreateProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericProcessor`
 
 ## Moved Classes
 
 While adding addional functionality, e. g. the extenden URL handling, it has been necessary to
 migrate some classes from the professional to the community edition.
+
+### techdivision/import > techdivision/import-serializer
+
+* `TechDivision\Import\Serializers\SerializerInterface` > `TechDivision\Import\Serializer\SerializerInterface`
+* `TechDivision\Import\Serializers\SerializerAwareInterface` > `TechDivision\Import\Serializer\SerializerAwareInterface`
+* `TechDivision\Import\Serializers\ConfigurationAwareSerializerFactoryInterface` > `TechDivision\Import\Serializer\SerializerFactoryInterface`
+* `TechDivision\Import\Serializers\ConfigurationAwareSerializerInterface` > `TechDivision\Import\Serializer\ConfigurationAwareSerializerInterface`
+
+### techdivision/import > techdivision/import-serializer-csv
+
+* `TechDivision\Import\Serializers\ValueCsvSerializer` > `TechDivision\Import\Serializer\Csv\ValueCsvSerializer`
+* `TechDivision\Import\Serializers\AbstractCsvSerializer` > `TechDivision\Import\Serializer\Csv\AbstractCsvSerializer`
+* `TechDivision\Import\Serializers\AdditionalAttributeCsvSerializer` > `TechDivision\Import\Serializer\Csv\AdditionalAttributeCsvSerializer`
 
 ### techdivision/import > techdivision/import-cache
 

@@ -31,10 +31,12 @@
         "techdivision/import-product-variant-ee": "dev-pac-264--pdo-exception as dev-master",
         "techdivision/import-product-grouped-ee": "dev-pac-264--pdo-exception as dev-master",
         "techdivision/import-cache": "dev-master",
+        "techdivision/import-dbal": "dev-master",
+        "techdivision/import-serializer": "dev-master",
+        "techdivision/import-converter": "dev-pac-264--pdo-exception as dev-master",
         "techdivision/import-converter-ee": "dev-master",
         "techdivision/import-converter-product-category": "dev-master",
-        "techdivision/import-converter-product-attribute": "dev-master",
-        "techdivision/import-cache-collection": "dev-master"
+        "techdivision/import-converter-product-attribute": "dev-master"
     },
     "require-dev": {
         "doctrine/dbal": "2.5.*",
