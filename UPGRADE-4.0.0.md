@@ -13,6 +13,9 @@
 
 ## Removed Classes
 
+As of generalization purposes, many boilerplate classes have been removed and replaced with a 
+generic implementation. The removed classes are listed below, grouped by their library name.
+
 ### techdivision/import
 
 * `TechDivision\Import\Loaders\StoreViewCodeLoader` has been replaced with `\TechDivision\Import\Loaders\GenericMemberNameLoader`
@@ -218,8 +221,8 @@
 
 ## Moved Classes
 
-While adding addional functionality, e. g. the extenden URL handling, it has been necessary to
-migrate some classes from the professional to the community edition.
+While adding addional functionality, e. g. the extended URL handling, it has been necessary to
+migrate some classes from existing libraries to another ones or to new libraries.
 
 ### techdivision/import > techdivision/import-serializer
 
@@ -249,12 +252,9 @@ migrate some classes from the professional to the community edition.
 * `TechDivision\Import\Cache\LocalCacheAdapter` > `TechDivision\Import\Cache\Collection\LocalCacheAdapter`
 * `TechDivision\Import\Utils\CacheKeyUtil` > `TechDivision\Import\Cache\Collection\Utils\CacheKeyUtil`
 
-### techdivision/import-cli-extended > techdivision/import-dbal
+### techdivision/import-cli > techdivision/import-dbal
 
-* `TechDivision\Import\Cli\Extended\Utils\EventNames` > `TechDivision\Import\Dbal\Utils\EventNames`
-* `TechDivision\Import\Cli\Extended\Utils\EntityStatus` > `TechDivision\Import\Dbal\Utils\EntityStatus`
-* `TechDivision\Import\Cli\Extended\Actions\GenericEventAwareAction` > `TechDivision\Import\Dbal\Actions\GenericEventAwareAction`
-* `TechDivision\Import\Cli\Extended\Actions\GenericEventAwareIdentifierAction` > `TechDivision\Import\Dbal\Actions\GenericEventAwareIdentifierAction`
+* `TechDivision\Import\Cli\Connection\ConnectionFactory` > `TechDivision\Import\Dbal\Connection\ConnectionFactory`
 
 ### techdivision/import > techdivision/import-dbal
 
@@ -302,7 +302,12 @@ migrate some classes from the professional to the community edition.
 * `TechDivision\Import\Utils\SanitizerInterface` > `TechDivision\Import\Dbal\Utils\SanitizerInterface`
 * `TechDivision\Import\Utils\SqlCompilerInterface` > `TechDivision\Import\Dbal\Utils\SqlCompilerInterface`
 
+## Moved Classes from Professional to Community Edition
+
 ### techdivision/import-caching > techdivision/import-dbal
+
+While adding addional functionality, e. g. the extenden URL handling, it has been necessary to migrate 
+some classes from the libraries of the Professional to libraries of the Community Edition.
 
 * `TechDivision\Import\Caching\Listeners\CacheUpdateListener` > `TechDivision\Import\Dbal\Listeners\CacheUpdateListener`
 * `TechDivision\Import\Caching\Actions\CachedActionInterface` >  `TechDivision\Import\Dbal\Actions\CachedActionInterface`
@@ -317,11 +322,9 @@ migrate some classes from the professional to the community edition.
 * `TechDivision\Import\Caching\Repositories\Finders\EntityFinderInterface` > `TechDivision\Import\Dbal\Repositories\Finders\EntityFinderInterface`
 * `TechDivision\Import\Caching\Repositories\Finders\UniqueEntityFinder` > `TechDivision\Import\Dbal\Repositories\Finders\UniqueEntityFinder`
 
-### techdivision/import-caching > techdivision/import-dbal
+### techdivision/import-cli-extended > techdivision/import-dbal
 
-* `TechDivision\Import\Cli\Connection\ConnectionFactory` > `TechDivision\Import\Dbal\Connection\ConnectionFactory`
-
-### Symfony DI
-
-* `import_caching.listener.cache.update` > `import_cache.listener.cache.update`
-* `import_caching.repository.finder.factory.unique.cached` > `import_cache.repository.finder.factory.unique.cached`
+* `TechDivision\Import\Cli\Extended\Utils\EventNames` > `TechDivision\Import\Dbal\Utils\EventNames`
+* `TechDivision\Import\Cli\Extended\Utils\EntityStatus` > `TechDivision\Import\Dbal\Utils\EntityStatus`
+* `TechDivision\Import\Cli\Extended\Actions\GenericEventAwareAction` > `TechDivision\Import\Dbal\Actions\GenericEventAwareAction`
+* `TechDivision\Import\Cli\Extended\Actions\GenericEventAwareIdentifierAction` > `TechDivision\Import\Dbal\Actions\GenericEventAwareIdentifierAction`
