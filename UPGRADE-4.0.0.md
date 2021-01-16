@@ -1,5 +1,16 @@
 # Upgrade from 3.8.27 to 4.0.0
 
+## New Functionality
+
+### Interface for Hook aware Observers
+
+Up from this version, the new interface `TechDivision\Import\Interfaces\HookAwareObserverInterface` can be used
+to add the hooks `setUp()` and `tearDown()` to an observer that will be invoked when the parent subject will
+be set-up or teared down.
+
+These functions can and should be used to add collected data from an observer to the registry for further
+processing. A use case can be found in the `TechDivision\Import\Observers\GenericColumnCollectorObserver`.
+
 ## Removed Methods
 
 ### techdivision/import
