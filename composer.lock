@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "525fbee85948112680a0c99f1f1d3bf1",
+    "content-hash": "7c97712ed86af4b8306bb8ab35be3b0c",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -2133,16 +2133,16 @@
         },
         {
             "name": "techdivision/import",
-            "version": "dev-pac-264--pdo-exception",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import.git",
-                "reference": "73943ccf1d32969537ddcda877b8eb984f913cb8"
+                "reference": "aee93b4813bc26139a67105604e92b664c4da74a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import/zipball/73943ccf1d32969537ddcda877b8eb984f913cb8",
-                "reference": "73943ccf1d32969537ddcda877b8eb984f913cb8",
+                "url": "https://api.github.com/repos/techdivision/import/zipball/aee93b4813bc26139a67105604e92b664c4da74a",
+                "reference": "aee93b4813bc26139a67105604e92b664c4da74a",
                 "shasum": ""
             },
             "require": {
@@ -2158,13 +2158,13 @@
                 "psr/log": "~1.0",
                 "ramsey/uuid": "~3.7.3|3.8.*",
                 "swiftmailer/swiftmailer": "5.4.*",
-                "techdivision/import-cache": "dev-master@dev",
-                "techdivision/import-cache-collection": "dev-master@dev",
-                "techdivision/import-configuration": "dev-pac-264--pdo-exception as dev-master",
-                "techdivision/import-dbal": "dev-master@dev",
-                "techdivision/import-dbal-collection": "dev-master@dev",
-                "techdivision/import-serializer": "dev-master@dev",
-                "techdivision/import-serializer-csv": "dev-master@dev",
+                "techdivision/import-cache": "dev-master",
+                "techdivision/import-cache-collection": "dev-master",
+                "techdivision/import-configuration": "dev-master",
+                "techdivision/import-dbal": "dev-master",
+                "techdivision/import-dbal-collection": "dev-master",
+                "techdivision/import-serializer": "dev-master",
+                "techdivision/import-serializer-csv": "dev-master",
                 "zendframework/zend-filter": "~2.0"
             },
             "require-dev": {
@@ -2199,27 +2199,27 @@
                 }
             ],
             "description": "A library supporting generic Magento 2 import functionality",
-            "time": "2021-01-16T17:36:37+00:00"
+            "time": "2021-01-16T18:47:07+00:00"
         },
         {
             "name": "techdivision/import-app-simple",
-            "version": "dev-pac-264--pdo-exception",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-app-simple.git",
-                "reference": "0b0ad492195126723f859c9a7e1752b4354d6253"
+                "reference": "fa1b748caa7a7c831160d785085dd06e69965b3d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-app-simple/zipball/0b0ad492195126723f859c9a7e1752b4354d6253",
-                "reference": "0b0ad492195126723f859c9a7e1752b4354d6253",
+                "url": "https://api.github.com/repos/techdivision/import-app-simple/zipball/fa1b748caa7a7c831160d785085dd06e69965b3d",
+                "reference": "fa1b748caa7a7c831160d785085dd06e69965b3d",
                 "shasum": ""
             },
             "require": {
                 "php": ">=7.1.0",
                 "ramsey/uuid": "~3.0",
                 "symfony/console": "~2.3,!=2.7.0|~4.0",
-                "techdivision/import": "dev-pac-264--pdo-exception as dev-master"
+                "techdivision/import": "dev-master"
             },
             "require-dev": {
                 "consolidation/robo": "~1.0",
@@ -2252,25 +2252,25 @@
                 }
             ],
             "description": "Pacemaker simple application implementation providing basic Magento 2 import functionality",
-            "time": "2021-01-08T10:31:08+00:00"
+            "time": "2021-01-16T18:56:06+00:00"
         },
         {
             "name": "techdivision/import-attribute",
-            "version": "dev-pac-264--pdo-exception",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-attribute.git",
-                "reference": "28b70476fbddc84aeb4c29e69a36cc9617c4edcd"
+                "reference": "a590daa5af51c266927423d5b87199c9e0b4ee64"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-attribute/zipball/28b70476fbddc84aeb4c29e69a36cc9617c4edcd",
-                "reference": "28b70476fbddc84aeb4c29e69a36cc9617c4edcd",
+                "url": "https://api.github.com/repos/techdivision/import-attribute/zipball/a590daa5af51c266927423d5b87199c9e0b4ee64",
+                "reference": "a590daa5af51c266927423d5b87199c9e0b4ee64",
                 "shasum": ""
             },
             "require": {
                 "php": ">=7.1.0",
-                "techdivision/import": "dev-pac-264--pdo-exception as dev-master"
+                "techdivision/import": "dev-master"
             },
             "require-dev": {
                 "consolidation/robo": "~1.0",
@@ -2304,26 +2304,25 @@
                 }
             ],
             "description": "Pacemaker library providing basic Magento 2 attribute import functionality",
-            "time": "2021-01-09T15:54:50+00:00"
+            "time": "2021-01-16T19:04:27+00:00"
         },
         {
             "name": "techdivision/import-attribute-set",
-            "version": "dev-pac-264--pdo-exception",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-attribute-set.git",
-                "reference": "a0755242889f98d484421d2f06b4694f0e00804d"
+                "reference": "d3e24609d5cffe9b84e92c498b106c0ddebd1fec"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-attribute-set/zipball/a0755242889f98d484421d2f06b4694f0e00804d",
-                "reference": "a0755242889f98d484421d2f06b4694f0e00804d",
+                "url": "https://api.github.com/repos/techdivision/import-attribute-set/zipball/d3e24609d5cffe9b84e92c498b106c0ddebd1fec",
+                "reference": "d3e24609d5cffe9b84e92c498b106c0ddebd1fec",
                 "shasum": ""
             },
             "require": {
                 "php": ">=7.1.0",
-                "techdivision/import": "dev-pac-264--pdo-exception as dev-master",
-                "techdivision/import-attribute": "dev-pac-264--pdo-exception as dev-master"
+                "techdivision/import-attribute": "dev-master"
             },
             "require-dev": {
                 "consolidation/robo": "~1.0",
@@ -2356,7 +2355,7 @@
                 }
             ],
             "description": "Pacemaker library providing basic Magento 2 attribute set + group import functionality",
-            "time": "2021-01-09T16:12:51+00:00"
+            "time": "2021-01-16T19:27:40+00:00"
         },
         {
             "name": "techdivision/import-cache",
@@ -2464,21 +2463,21 @@
         },
         {
             "name": "techdivision/import-category",
-            "version": "dev-pac-264--pdo-exception",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-category.git",
-                "reference": "ca83631ed9bbbc11f08bd55ef3dd471837d3b5b5"
+                "reference": "3ad691c69050f410b9770c6dea250fb18d28f8bd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-category/zipball/ca83631ed9bbbc11f08bd55ef3dd471837d3b5b5",
-                "reference": "ca83631ed9bbbc11f08bd55ef3dd471837d3b5b5",
+                "url": "https://api.github.com/repos/techdivision/import-category/zipball/3ad691c69050f410b9770c6dea250fb18d28f8bd",
+                "reference": "3ad691c69050f410b9770c6dea250fb18d28f8bd",
                 "shasum": ""
             },
             "require": {
                 "php": ">=7.1.0",
-                "techdivision/import": "dev-pac-264--pdo-exception as dev-master"
+                "techdivision/import": "dev-master"
             },
             "require-dev": {
                 "consolidation/robo": "~1.0",
@@ -2511,26 +2510,25 @@
                 }
             ],
             "description": "Pacemaker library providing basic Magento 2 category import functionality",
-            "time": "2021-01-15T12:56:14+00:00"
+            "time": "2021-01-16T19:10:42+00:00"
         },
         {
             "name": "techdivision/import-category-ee",
-            "version": "dev-pac-264--pdo-exception",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-category-ee.git",
-                "reference": "f226cdcd28e42fda546a368236f656365b6a5fa5"
+                "reference": "802965ca2879344fe6a9fcc67aa23e986055adc8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-category-ee/zipball/f226cdcd28e42fda546a368236f656365b6a5fa5",
-                "reference": "f226cdcd28e42fda546a368236f656365b6a5fa5",
+                "url": "https://api.github.com/repos/techdivision/import-category-ee/zipball/802965ca2879344fe6a9fcc67aa23e986055adc8",
+                "reference": "802965ca2879344fe6a9fcc67aa23e986055adc8",
                 "shasum": ""
             },
             "require": {
                 "php": ">=7.1.0",
-                "techdivision/import": "dev-pac-264--pdo-exception as dev-master",
-                "techdivision/import-category": "dev-pac-264--pdo-exception as dev-master",
+                "techdivision/import-category": "dev-master",
                 "techdivision/import-ee": "dev-master"
             },
             "require-dev": {
@@ -2564,20 +2562,20 @@
                 }
             ],
             "description": "Pacemaker library providing basic Magento 2 EE category import functionality",
-            "time": "2021-01-11T10:38:21+00:00"
+            "time": "2021-01-16T19:27:46+00:00"
         },
         {
             "name": "techdivision/import-cli",
-            "version": "dev-pac-264--pdo-exception",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-cli.git",
-                "reference": "69984224f4d5d3464fb99b070a2741327259e500"
+                "reference": "52eeac7314cc49b70e0977ff4f8531412feacb09"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-cli/zipball/69984224f4d5d3464fb99b070a2741327259e500",
-                "reference": "69984224f4d5d3464fb99b070a2741327259e500",
+                "url": "https://api.github.com/repos/techdivision/import-cli/zipball/52eeac7314cc49b70e0977ff4f8531412feacb09",
+                "reference": "52eeac7314cc49b70e0977ff4f8531412feacb09",
                 "shasum": ""
             },
             "require": {
@@ -2586,9 +2584,8 @@
                 "symfony/console": "~2.3,!=2.7.0|~4.0|~5.0",
                 "symfony/dependency-injection": "~2.3,!=2.7.0|~3.0|~4.0|~5.0",
                 "symfony/expression-language": "~2.3,!=2.7.0|~4.0|~5.0",
-                "techdivision/import": "dev-pac-264--pdo-exception as dev-master",
-                "techdivision/import-app-simple": "dev-pac-264--pdo-exception as dev-master",
-                "techdivision/import-configuration-jms": "dev-pac-264--pdo-exception as dev-master"
+                "techdivision/import-app-simple": "dev-master",
+                "techdivision/import-configuration-jms": "dev-master"
             },
             "require-dev": {
                 "consolidation/robo": "~1.0",
@@ -2621,20 +2618,20 @@
                 }
             ],
             "description": "Commands and Helpers to implement a CLI providing single-threaded Magento 2 importing functionality based on Pacemaker",
-            "time": "2021-01-09T14:25:51+00:00"
+            "time": "2021-01-16T19:10:45+00:00"
         },
         {
             "name": "techdivision/import-configuration",
-            "version": "dev-pac-264--pdo-exception",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-configuration.git",
-                "reference": "0c04a0738c08cf31e0e2e0d40aafdd943a44bddc"
+                "reference": "68756288d21291bb2dc8c265afcb36ac3eeb59ff"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-configuration/zipball/0c04a0738c08cf31e0e2e0d40aafdd943a44bddc",
-                "reference": "0c04a0738c08cf31e0e2e0d40aafdd943a44bddc",
+                "url": "https://api.github.com/repos/techdivision/import-configuration/zipball/68756288d21291bb2dc8c265afcb36ac3eeb59ff",
+                "reference": "68756288d21291bb2dc8c265afcb36ac3eeb59ff",
                 "shasum": ""
             },
             "require": {
@@ -2670,20 +2667,20 @@
                 }
             ],
             "description": "The configuration interfaces for generic import functionality implementations",
-            "time": "2021-01-08T10:28:05+00:00"
+            "time": "2021-01-16T18:39:14+00:00"
         },
         {
             "name": "techdivision/import-configuration-jms",
-            "version": "dev-pac-264--pdo-exception",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-configuration-jms.git",
-                "reference": "b500ded3110355f9ebd59549b9db9205ca264fb7"
+                "reference": "7dce86955d321572f5fafcbce5b55bc7b9ea26cc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-configuration-jms/zipball/b500ded3110355f9ebd59549b9db9205ca264fb7",
-                "reference": "b500ded3110355f9ebd59549b9db9205ca264fb7",
+                "url": "https://api.github.com/repos/techdivision/import-configuration-jms/zipball/7dce86955d321572f5fafcbce5b55bc7b9ea26cc",
+                "reference": "7dce86955d321572f5fafcbce5b55bc7b9ea26cc",
                 "shasum": ""
             },
             "require": {
@@ -2691,7 +2688,7 @@
                 "jms/serializer": "^1.0",
                 "php": ">=7.1.0",
                 "symfony/expression-language": "4.*",
-                "techdivision/import": "dev-pac-264--pdo-exception as dev-master",
+                "techdivision/import": "dev-master",
                 "techdivision/import-dbal": "dev-master"
             },
             "require-dev": {
@@ -2723,25 +2720,25 @@
                 }
             ],
             "description": "Library providing a JMS based configuration implementation for Pacemaker",
-            "time": "2021-01-12T22:10:45+00:00"
+            "time": "2021-01-16T19:02:35+00:00"
         },
         {
             "name": "techdivision/import-converter",
-            "version": "dev-pac-264--pdo-exception",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-converter.git",
-                "reference": "aec893a5431c266166d70c1f2756d16bbe8e0008"
+                "reference": "0e78fd7d8a37875aedb50d81058f25ba78c3a3bc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-converter/zipball/aec893a5431c266166d70c1f2756d16bbe8e0008",
-                "reference": "aec893a5431c266166d70c1f2756d16bbe8e0008",
+                "url": "https://api.github.com/repos/techdivision/import-converter/zipball/0e78fd7d8a37875aedb50d81058f25ba78c3a3bc",
+                "reference": "0e78fd7d8a37875aedb50d81058f25ba78c3a3bc",
                 "shasum": ""
             },
             "require": {
                 "php": ">=7.1.0",
-                "techdivision/import": "dev-pac-264--pdo-exception as dev-master"
+                "techdivision/import": "dev-master"
             },
             "require-dev": {
                 "consolidation/robo": "~1.0",
@@ -2774,7 +2771,7 @@
                 }
             ],
             "description": "Pacemaker library providing generic converter functionality",
-            "time": "2021-01-13T15:50:14+00:00"
+            "time": "2021-01-16T19:10:35+00:00"
         },
         {
             "name": "techdivision/import-converter-ee",
@@ -2936,21 +2933,21 @@
         },
         {
             "name": "techdivision/import-customer",
-            "version": "dev-pac-264--pdo-exception",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-customer.git",
-                "reference": "20a2fcb7a30525237e28b2dba9f48f38f1f08c31"
+                "reference": "ff9aab42d6f5def5f2d2ea58ca705399917dc8b7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-customer/zipball/20a2fcb7a30525237e28b2dba9f48f38f1f08c31",
-                "reference": "20a2fcb7a30525237e28b2dba9f48f38f1f08c31",
+                "url": "https://api.github.com/repos/techdivision/import-customer/zipball/ff9aab42d6f5def5f2d2ea58ca705399917dc8b7",
+                "reference": "ff9aab42d6f5def5f2d2ea58ca705399917dc8b7",
                 "shasum": ""
             },
             "require": {
                 "php": ">=7.1.0",
-                "techdivision/import": "dev-pac-264--pdo-exception as dev-master"
+                "techdivision/import": "dev-master"
             },
             "require-dev": {
                 "consolidation/robo": "~1.0",
@@ -2983,26 +2980,25 @@
                 }
             ],
             "description": "Pacemaker library providing basic Magento 2 customer import functionality",
-            "time": "2021-01-11T12:52:01+00:00"
+            "time": "2021-01-16T19:05:08+00:00"
         },
         {
             "name": "techdivision/import-customer-address",
-            "version": "dev-pac-264--pdo-exception",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-customer-address.git",
-                "reference": "6cb5ec03526dea195b20bb1774375300f0321acb"
+                "reference": "38c8f427b46e7f3b709590e01af4cbfc38449be0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-customer-address/zipball/6cb5ec03526dea195b20bb1774375300f0321acb",
-                "reference": "6cb5ec03526dea195b20bb1774375300f0321acb",
+                "url": "https://api.github.com/repos/techdivision/import-customer-address/zipball/38c8f427b46e7f3b709590e01af4cbfc38449be0",
+                "reference": "38c8f427b46e7f3b709590e01af4cbfc38449be0",
                 "shasum": ""
             },
             "require": {
                 "php": ">=7.1.0",
-                "techdivision/import": "dev-pac-264--pdo-exception as dev-master",
-                "techdivision/import-customer": "dev-pac-264--pdo-exception as dev-master"
+                "techdivision/import-customer": "dev-master"
             },
             "require-dev": {
                 "consolidation/robo": "~1.0",
@@ -3035,7 +3031,7 @@
                 }
             ],
             "description": "Pacemaker library providing basic Magento 2 customer address import functionality",
-            "time": "2021-01-11T13:08:39+00:00"
+            "time": "2021-01-16T19:27:56+00:00"
         },
         {
             "name": "techdivision/import-dbal",
@@ -3196,22 +3192,21 @@
         },
         {
             "name": "techdivision/import-product",
-            "version": "dev-pac-264--pdo-exception",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-product.git",
-                "reference": "48221533c132a695b937225465334968b445bed5"
+                "reference": "4787a27af42ab29a0254407beed61fd3c67a750d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-product/zipball/48221533c132a695b937225465334968b445bed5",
-                "reference": "48221533c132a695b937225465334968b445bed5",
+                "url": "https://api.github.com/repos/techdivision/import-product/zipball/4787a27af42ab29a0254407beed61fd3c67a750d",
+                "reference": "4787a27af42ab29a0254407beed61fd3c67a750d",
                 "shasum": ""
             },
             "require": {
                 "php": ">=7.1.0",
-                "techdivision/import": "dev-pac-264--pdo-exception as dev-master",
-                "techdivision/import-dbal": "dev-master"
+                "techdivision/import": "dev-master"
             },
             "require-dev": {
                 "consolidation/robo": "~1.0",
@@ -3244,26 +3239,25 @@
                 }
             ],
             "description": "Pacemaker library providing basic Magento 2 product import functionality",
-            "time": "2021-01-11T14:08:16+00:00"
+            "time": "2021-01-16T19:27:36+00:00"
         },
         {
             "name": "techdivision/import-product-bundle",
-            "version": "dev-pac-264--pdo-exception",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-product-bundle.git",
-                "reference": "d0337516522d29ff45c69495257c9a4fba579924"
+                "reference": "fb81e9151767edba31e5b2bacbf464cf97be67db"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-product-bundle/zipball/d0337516522d29ff45c69495257c9a4fba579924",
-                "reference": "d0337516522d29ff45c69495257c9a4fba579924",
+                "url": "https://api.github.com/repos/techdivision/import-product-bundle/zipball/fb81e9151767edba31e5b2bacbf464cf97be67db",
+                "reference": "fb81e9151767edba31e5b2bacbf464cf97be67db",
                 "shasum": ""
             },
             "require": {
                 "php": ">=7.1.0",
-                "techdivision/import": "dev-pac-264--pdo-exception as dev-master",
-                "techdivision/import-product": "dev-pac-264--pdo-exception as dev-master"
+                "techdivision/import-product": "dev-master"
             },
             "require-dev": {
                 "consolidation/robo": "~1.0",
@@ -3296,28 +3290,26 @@
                 }
             ],
             "description": "Pacemaker library providing basic Magento 2 bundle product import functionality",
-            "time": "2021-01-11T16:08:12+00:00"
+            "time": "2021-01-16T19:40:36+00:00"
         },
         {
             "name": "techdivision/import-product-bundle-ee",
-            "version": "dev-pac-264--pdo-exception",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-product-bundle-ee.git",
-                "reference": "33b8dbda4cdb0c611af6aba98fd0bd49c5074327"
+                "reference": "1becedff871bd800bfcb83b3459052c55349b25a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-product-bundle-ee/zipball/33b8dbda4cdb0c611af6aba98fd0bd49c5074327",
-                "reference": "33b8dbda4cdb0c611af6aba98fd0bd49c5074327",
+                "url": "https://api.github.com/repos/techdivision/import-product-bundle-ee/zipball/1becedff871bd800bfcb83b3459052c55349b25a",
+                "reference": "1becedff871bd800bfcb83b3459052c55349b25a",
                 "shasum": ""
             },
             "require": {
                 "php": ">=7.1.0",
-                "techdivision/import": "dev-pac-264--pdo-exception as dev-master",
-                "techdivision/import-product": "dev-pac-264--pdo-exception as dev-master",
-                "techdivision/import-product-bundle": "dev-pac-264--pdo-exception as dev-master",
-                "techdivision/import-product-ee": "dev-pac-264--pdo-exception as dev-master"
+                "techdivision/import-product-bundle": "dev-master",
+                "techdivision/import-product-ee": "dev-master"
             },
             "require-dev": {
                 "consolidation/robo": "~1.0",
@@ -3350,27 +3342,26 @@
                 }
             ],
             "description": "Pacemaker library providing basic Magento 2 EE bundle product import functionality",
-            "time": "2021-01-11T16:34:48+00:00"
+            "time": "2021-01-16T19:54:58+00:00"
         },
         {
             "name": "techdivision/import-product-ee",
-            "version": "dev-pac-264--pdo-exception",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-product-ee.git",
-                "reference": "991ec926e1e388115688218bb349df53698f3d31"
+                "reference": "70c9d51485cc5a08fc9b7a006c9915dffcf9b1bb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-product-ee/zipball/991ec926e1e388115688218bb349df53698f3d31",
-                "reference": "991ec926e1e388115688218bb349df53698f3d31",
+                "url": "https://api.github.com/repos/techdivision/import-product-ee/zipball/70c9d51485cc5a08fc9b7a006c9915dffcf9b1bb",
+                "reference": "70c9d51485cc5a08fc9b7a006c9915dffcf9b1bb",
                 "shasum": ""
             },
             "require": {
                 "php": ">=7.1.0",
-                "techdivision/import": "dev-pac-264--pdo-exception as dev-master",
                 "techdivision/import-ee": "dev-master",
-                "techdivision/import-product": "dev-pac-264--pdo-exception as dev-master"
+                "techdivision/import-product": "dev-master"
             },
             "require-dev": {
                 "consolidation/robo": "~1.0",
@@ -3403,27 +3394,25 @@
                 }
             ],
             "description": "Pacemaker library providing basic Magento 2 EE product import functionality",
-            "time": "2021-01-09T14:45:40+00:00"
+            "time": "2021-01-16T19:40:24+00:00"
         },
         {
             "name": "techdivision/import-product-grouped",
-            "version": "dev-pac-264--pdo-exception",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-product-grouped.git",
-                "reference": "ad94d914eb5982451a37fb6c5e04ee29fea524ae"
+                "reference": "0d986da882b406ca477ea6dab911dd6655e4f26a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-product-grouped/zipball/ad94d914eb5982451a37fb6c5e04ee29fea524ae",
-                "reference": "ad94d914eb5982451a37fb6c5e04ee29fea524ae",
+                "url": "https://api.github.com/repos/techdivision/import-product-grouped/zipball/0d986da882b406ca477ea6dab911dd6655e4f26a",
+                "reference": "0d986da882b406ca477ea6dab911dd6655e4f26a",
                 "shasum": ""
             },
             "require": {
                 "php": ">=7.1.0",
-                "techdivision/import": "dev-pac-264--pdo-exception as dev-master",
-                "techdivision/import-product": "dev-pac-264--pdo-exception as dev-master",
-                "techdivision/import-product-link": "dev-pac-264--pdo-exception as dev-master"
+                "techdivision/import-product-link": "dev-master"
             },
             "require-dev": {
                 "consolidation/robo": "~1.0",
@@ -3456,28 +3445,26 @@
                 }
             ],
             "description": "Pacemaker library providing basic Magento 2 grouped product import functionality",
-            "time": "2021-01-08T10:32:26+00:00"
+            "time": "2021-01-16T19:55:02+00:00"
         },
         {
             "name": "techdivision/import-product-grouped-ee",
-            "version": "dev-pac-264--pdo-exception",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-product-grouped-ee.git",
-                "reference": "01d6ae9c1c1f5ff5a07a5fc08a6e6f79ea281f73"
+                "reference": "ffcbe3d2848592fe77e2860e47e73b705662badf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-product-grouped-ee/zipball/01d6ae9c1c1f5ff5a07a5fc08a6e6f79ea281f73",
-                "reference": "01d6ae9c1c1f5ff5a07a5fc08a6e6f79ea281f73",
+                "url": "https://api.github.com/repos/techdivision/import-product-grouped-ee/zipball/ffcbe3d2848592fe77e2860e47e73b705662badf",
+                "reference": "ffcbe3d2848592fe77e2860e47e73b705662badf",
                 "shasum": ""
             },
             "require": {
                 "php": ">=7.1.0",
-                "techdivision/import": "dev-pac-264--pdo-exception as dev-master",
-                "techdivision/import-product": "dev-pac-264--pdo-exception as dev-master",
-                "techdivision/import-product-ee": "dev-pac-264--pdo-exception as dev-master",
-                "techdivision/import-product-grouped": "dev-pac-264--pdo-exception as dev-master"
+                "techdivision/import-product-grouped": "dev-master",
+                "techdivision/import-product-link-ee": "dev-master"
             },
             "require-dev": {
                 "consolidation/robo": "~1.0",
@@ -3510,26 +3497,25 @@
                 }
             ],
             "description": "Pacemaker library providing basic Magento 2 EE grouped product import functionality",
-            "time": "2021-01-09T15:02:42+00:00"
+            "time": "2020-10-15T20:16:11+00:00"
         },
         {
             "name": "techdivision/import-product-link",
-            "version": "dev-pac-264--pdo-exception",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-product-link.git",
-                "reference": "eb5ae2aa834843dd2f958540d6edebb1e8f1e5f7"
+                "reference": "aa7b39d7d1933e7c3aa664193f3003e72f820a27"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-product-link/zipball/eb5ae2aa834843dd2f958540d6edebb1e8f1e5f7",
-                "reference": "eb5ae2aa834843dd2f958540d6edebb1e8f1e5f7",
+                "url": "https://api.github.com/repos/techdivision/import-product-link/zipball/aa7b39d7d1933e7c3aa664193f3003e72f820a27",
+                "reference": "aa7b39d7d1933e7c3aa664193f3003e72f820a27",
                 "shasum": ""
             },
             "require": {
                 "php": ">=7.1.0",
-                "techdivision/import": "dev-pac-264--pdo-exception as dev-master",
-                "techdivision/import-product": "dev-pac-264--pdo-exception as dev-master"
+                "techdivision/import-product": "dev-master"
             },
             "require-dev": {
                 "consolidation/robo": "~1.0",
@@ -3562,28 +3548,26 @@
                 }
             ],
             "description": "Pacemaker library providing basic Magento 2 product link import functionality",
-            "time": "2021-01-11T16:50:55+00:00"
+            "time": "2021-01-16T19:40:39+00:00"
         },
         {
             "name": "techdivision/import-product-link-ee",
-            "version": "dev-pac-264--pdo-exception",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-product-link-ee.git",
-                "reference": "446a6d1105e687129d862eb662f6b5b093a38b09"
+                "reference": "18f5da3fab729a6a45cbcb8ca9deb73bd500a3ff"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-product-link-ee/zipball/446a6d1105e687129d862eb662f6b5b093a38b09",
-                "reference": "446a6d1105e687129d862eb662f6b5b093a38b09",
+                "url": "https://api.github.com/repos/techdivision/import-product-link-ee/zipball/18f5da3fab729a6a45cbcb8ca9deb73bd500a3ff",
+                "reference": "18f5da3fab729a6a45cbcb8ca9deb73bd500a3ff",
                 "shasum": ""
             },
             "require": {
                 "php": ">=7.1.0",
-                "techdivision/import": "dev-pac-264--pdo-exception as dev-master",
-                "techdivision/import-product": "dev-pac-264--pdo-exception as dev-master",
-                "techdivision/import-product-ee": "dev-pac-264--pdo-exception as dev-master",
-                "techdivision/import-product-link": "dev-pac-264--pdo-exception as dev-master"
+                "techdivision/import-product-ee": "dev-master",
+                "techdivision/import-product-link": "dev-master"
             },
             "require-dev": {
                 "consolidation/robo": "~1.0",
@@ -3616,26 +3600,25 @@
                 }
             ],
             "description": "Pacemaker library providing basic Magento 2 EE product link import functionality",
-            "time": "2021-01-08T10:32:49+00:00"
+            "time": "2021-01-16T19:55:06+00:00"
         },
         {
             "name": "techdivision/import-product-media",
-            "version": "dev-pac-264--pdo-exception",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-product-media.git",
-                "reference": "c3940af983d1c0b3e4a26b472aabc20c36b4ae89"
+                "reference": "1788e34aec13f6f720f7e741cc4d054c90ae9c0c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-product-media/zipball/c3940af983d1c0b3e4a26b472aabc20c36b4ae89",
-                "reference": "c3940af983d1c0b3e4a26b472aabc20c36b4ae89",
+                "url": "https://api.github.com/repos/techdivision/import-product-media/zipball/1788e34aec13f6f720f7e741cc4d054c90ae9c0c",
+                "reference": "1788e34aec13f6f720f7e741cc4d054c90ae9c0c",
                 "shasum": ""
             },
             "require": {
                 "php": ">=7.1.0",
-                "techdivision/import": "dev-pac-264--pdo-exception as dev-master",
-                "techdivision/import-product": "dev-pac-264--pdo-exception as dev-master"
+                "techdivision/import-product": "dev-master"
             },
             "require-dev": {
                 "consolidation/robo": "~1.0",
@@ -3668,28 +3651,26 @@
                 }
             ],
             "description": "Pacemaker library providing basic Magento 2 product media import functionality",
-            "time": "2021-01-11T17:34:56+00:00"
+            "time": "2021-01-16T19:40:43+00:00"
         },
         {
             "name": "techdivision/import-product-media-ee",
-            "version": "dev-pac-264--pdo-exception",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-product-media-ee.git",
-                "reference": "26c35bebdf51b562735b230e9853df77f300bffd"
+                "reference": "a3600c7f5ad33939f29ab6937219079fd623fef7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-product-media-ee/zipball/26c35bebdf51b562735b230e9853df77f300bffd",
-                "reference": "26c35bebdf51b562735b230e9853df77f300bffd",
+                "url": "https://api.github.com/repos/techdivision/import-product-media-ee/zipball/a3600c7f5ad33939f29ab6937219079fd623fef7",
+                "reference": "a3600c7f5ad33939f29ab6937219079fd623fef7",
                 "shasum": ""
             },
             "require": {
                 "php": ">=7.1.0",
-                "techdivision/import": "dev-pac-264--pdo-exception as dev-master",
-                "techdivision/import-product": "dev-pac-264--pdo-exception as dev-master",
-                "techdivision/import-product-ee": "dev-pac-264--pdo-exception as dev-master",
-                "techdivision/import-product-media": "dev-pac-264--pdo-exception as dev-master"
+                "techdivision/import-product-ee": "dev-master",
+                "techdivision/import-product-media": "dev-master"
             },
             "require-dev": {
                 "consolidation/robo": "~1.0",
@@ -3722,27 +3703,25 @@
                 }
             ],
             "description": "Pacemaker library providing basic Magento 2 EE product media import functionality",
-            "time": "2021-01-08T10:33:31+00:00"
+            "time": "2021-01-16T19:55:10+00:00"
         },
         {
             "name": "techdivision/import-product-msi",
-            "version": "dev-pac-264--pdo-exception",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-product-msi.git",
-                "reference": "a7d14919267802c5ab817e8798510def8ff30ee6"
+                "reference": "4120443a43bf27b8681957745a1d98e8db574711"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-product-msi/zipball/a7d14919267802c5ab817e8798510def8ff30ee6",
-                "reference": "a7d14919267802c5ab817e8798510def8ff30ee6",
+                "url": "https://api.github.com/repos/techdivision/import-product-msi/zipball/4120443a43bf27b8681957745a1d98e8db574711",
+                "reference": "4120443a43bf27b8681957745a1d98e8db574711",
                 "shasum": ""
             },
             "require": {
                 "php": ">=7.1.0",
-                "techdivision/import": "dev-pac-264--pdo-exception as dev-master",
-                "techdivision/import-dbal": "dev-master",
-                "techdivision/import-product": "dev-pac-264--pdo-exception as dev-master"
+                "techdivision/import-product": "dev-master"
             },
             "require-dev": {
                 "consolidation/robo": "~1.0",
@@ -3775,26 +3754,25 @@
                 }
             ],
             "description": "Pacemaker library providing basic Magento 2 MSI product stock import functionality",
-            "time": "2021-01-11T17:43:48+00:00"
+            "time": "2021-01-16T19:40:32+00:00"
         },
         {
             "name": "techdivision/import-product-tier-price",
-            "version": "dev-pac-264--pdo-exception",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-product-tier-price.git",
-                "reference": "87adb3d98cd14c1d0d74e01e000832f4230d74e2"
+                "reference": "2f990dceeb28ef1c8eff7a0458f4d77f12507b32"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-product-tier-price/zipball/87adb3d98cd14c1d0d74e01e000832f4230d74e2",
-                "reference": "87adb3d98cd14c1d0d74e01e000832f4230d74e2",
+                "url": "https://api.github.com/repos/techdivision/import-product-tier-price/zipball/2f990dceeb28ef1c8eff7a0458f4d77f12507b32",
+                "reference": "2f990dceeb28ef1c8eff7a0458f4d77f12507b32",
                 "shasum": ""
             },
             "require": {
                 "php": ">=7.1.0",
-                "techdivision/import": "dev-pac-264--pdo-exception as dev-master",
-                "techdivision/import-product": "dev-pac-264--pdo-exception as dev-master"
+                "techdivision/import-product": "dev-master"
             },
             "require-dev": {
                 "consolidation/robo": "~1.0",
@@ -3832,27 +3810,25 @@
                 }
             ],
             "description": "Pacemaker library providing basic Magento 2 product tier price import functionality",
-            "time": "2021-01-11T17:49:36+00:00"
+            "time": "2021-01-16T19:40:47+00:00"
         },
         {
             "name": "techdivision/import-product-url-rewrite",
-            "version": "dev-pac-264--pdo-exception",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-product-url-rewrite.git",
-                "reference": "a3ced7e23082f6c6b8b9594c57087e21f87dcce9"
+                "reference": "7bc7575747a5d48c7ff07d084f18ef8286f84755"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-product-url-rewrite/zipball/a3ced7e23082f6c6b8b9594c57087e21f87dcce9",
-                "reference": "a3ced7e23082f6c6b8b9594c57087e21f87dcce9",
+                "url": "https://api.github.com/repos/techdivision/import-product-url-rewrite/zipball/7bc7575747a5d48c7ff07d084f18ef8286f84755",
+                "reference": "7bc7575747a5d48c7ff07d084f18ef8286f84755",
                 "shasum": ""
             },
             "require": {
                 "php": ">=7.1.0",
-                "techdivision/import": "dev-pac-264--pdo-exception as dev-master",
-                "techdivision/import-dbal": "dev-master",
-                "techdivision/import-product": "dev-pac-264--pdo-exception as dev-master"
+                "techdivision/import-product": "dev-master"
             },
             "require-dev": {
                 "consolidation/robo": "~1.0",
@@ -3885,26 +3861,25 @@
                 }
             ],
             "description": "Pacemaker library providing basic Magento 2 product URL rewrite import functionality",
-            "time": "2021-01-11T17:54:39+00:00"
+            "time": "2021-01-16T19:40:28+00:00"
         },
         {
             "name": "techdivision/import-product-variant",
-            "version": "dev-pac-264--pdo-exception",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-product-variant.git",
-                "reference": "d7c07b6e63b29e460fed44d000a18b497061385c"
+                "reference": "4bb06c01c981fe12808905e04822160a9e8b5727"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-product-variant/zipball/d7c07b6e63b29e460fed44d000a18b497061385c",
-                "reference": "d7c07b6e63b29e460fed44d000a18b497061385c",
+                "url": "https://api.github.com/repos/techdivision/import-product-variant/zipball/4bb06c01c981fe12808905e04822160a9e8b5727",
+                "reference": "4bb06c01c981fe12808905e04822160a9e8b5727",
                 "shasum": ""
             },
             "require": {
                 "php": ">=7.1.0",
-                "techdivision/import": "dev-pac-264--pdo-exception as dev-master",
-                "techdivision/import-product": "dev-pac-264--pdo-exception as dev-master"
+                "techdivision/import-product": "dev-master"
             },
             "require-dev": {
                 "consolidation/robo": "~1.0",
@@ -3937,28 +3912,26 @@
                 }
             ],
             "description": "Pacemaker library providing basic Magento 2 configurable product import functionality",
-            "time": "2021-01-11T18:09:01+00:00"
+            "time": "2021-01-16T19:40:51+00:00"
         },
         {
             "name": "techdivision/import-product-variant-ee",
-            "version": "dev-pac-264--pdo-exception",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-product-variant-ee.git",
-                "reference": "656b4f3e1a29fec6337111d973c61f211c1ddf0f"
+                "reference": "b1a7354993a78437651027fb190ed3115240d568"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-product-variant-ee/zipball/656b4f3e1a29fec6337111d973c61f211c1ddf0f",
-                "reference": "656b4f3e1a29fec6337111d973c61f211c1ddf0f",
+                "url": "https://api.github.com/repos/techdivision/import-product-variant-ee/zipball/b1a7354993a78437651027fb190ed3115240d568",
+                "reference": "b1a7354993a78437651027fb190ed3115240d568",
                 "shasum": ""
             },
             "require": {
                 "php": ">=7.1.0",
-                "techdivision/import": "dev-pac-264--pdo-exception as dev-master",
-                "techdivision/import-product": "dev-pac-264--pdo-exception as dev-master",
-                "techdivision/import-product-ee": "dev-pac-264--pdo-exception as dev-master",
-                "techdivision/import-product-variant": "dev-pac-264--pdo-exception as dev-master"
+                "techdivision/import-product-ee": "dev-master",
+                "techdivision/import-product-variant": "dev-master"
             },
             "require-dev": {
                 "consolidation/robo": "~1.0",
@@ -3991,7 +3964,7 @@
                 }
             ],
             "description": "Pacemaker library providing basic Magento 2 EE configurable product import functionality",
-            "time": "2021-01-09T15:06:44+00:00"
+            "time": "2021-01-16T19:55:14+00:00"
         },
         {
             "name": "techdivision/import-serializer",
@@ -9318,162 +9291,6 @@
         }
     ],
     "aliases": [
-        {
-            "alias": "dev-master",
-            "alias_normalized": "9999999-dev",
-            "version": "dev-pac-264--pdo-exception",
-            "package": "techdivision/import"
-        },
-        {
-            "alias": "dev-master",
-            "alias_normalized": "9999999-dev",
-            "version": "dev-pac-264--pdo-exception",
-            "package": "techdivision/import-cli"
-        },
-        {
-            "alias": "dev-master",
-            "alias_normalized": "9999999-dev",
-            "version": "dev-pac-264--pdo-exception",
-            "package": "techdivision/import-app-simple"
-        },
-        {
-            "alias": "dev-master",
-            "alias_normalized": "9999999-dev",
-            "version": "dev-pac-264--pdo-exception",
-            "package": "techdivision/import-configuration-jms"
-        },
-        {
-            "alias": "dev-master",
-            "alias_normalized": "9999999-dev",
-            "version": "dev-pac-264--pdo-exception",
-            "package": "techdivision/import-attribute"
-        },
-        {
-            "alias": "dev-master",
-            "alias_normalized": "9999999-dev",
-            "version": "dev-pac-264--pdo-exception",
-            "package": "techdivision/import-attribute-set"
-        },
-        {
-            "alias": "dev-master",
-            "alias_normalized": "9999999-dev",
-            "version": "dev-pac-264--pdo-exception",
-            "package": "techdivision/import-customer"
-        },
-        {
-            "alias": "dev-master",
-            "alias_normalized": "9999999-dev",
-            "version": "dev-pac-264--pdo-exception",
-            "package": "techdivision/import-customer-address"
-        },
-        {
-            "alias": "dev-master",
-            "alias_normalized": "9999999-dev",
-            "version": "dev-pac-264--pdo-exception",
-            "package": "techdivision/import-category"
-        },
-        {
-            "alias": "dev-master",
-            "alias_normalized": "9999999-dev",
-            "version": "dev-pac-264--pdo-exception",
-            "package": "techdivision/import-category-ee"
-        },
-        {
-            "alias": "dev-master",
-            "alias_normalized": "9999999-dev",
-            "version": "dev-pac-264--pdo-exception",
-            "package": "techdivision/import-product"
-        },
-        {
-            "alias": "dev-master",
-            "alias_normalized": "9999999-dev",
-            "version": "dev-pac-264--pdo-exception",
-            "package": "techdivision/import-product-msi"
-        },
-        {
-            "alias": "dev-master",
-            "alias_normalized": "9999999-dev",
-            "version": "dev-pac-264--pdo-exception",
-            "package": "techdivision/import-product-tier-price"
-        },
-        {
-            "alias": "dev-master",
-            "alias_normalized": "9999999-dev",
-            "version": "dev-pac-264--pdo-exception",
-            "package": "techdivision/import-product-url-rewrite"
-        },
-        {
-            "alias": "dev-master",
-            "alias_normalized": "9999999-dev",
-            "version": "dev-pac-264--pdo-exception",
-            "package": "techdivision/import-product-link"
-        },
-        {
-            "alias": "dev-master",
-            "alias_normalized": "9999999-dev",
-            "version": "dev-pac-264--pdo-exception",
-            "package": "techdivision/import-product-media"
-        },
-        {
-            "alias": "dev-master",
-            "alias_normalized": "9999999-dev",
-            "version": "dev-pac-264--pdo-exception",
-            "package": "techdivision/import-product-bundle"
-        },
-        {
-            "alias": "dev-master",
-            "alias_normalized": "9999999-dev",
-            "version": "dev-pac-264--pdo-exception",
-            "package": "techdivision/import-product-variant"
-        },
-        {
-            "alias": "dev-master",
-            "alias_normalized": "9999999-dev",
-            "version": "dev-pac-264--pdo-exception",
-            "package": "techdivision/import-product-grouped"
-        },
-        {
-            "alias": "dev-master",
-            "alias_normalized": "9999999-dev",
-            "version": "dev-pac-264--pdo-exception",
-            "package": "techdivision/import-product-ee"
-        },
-        {
-            "alias": "dev-master",
-            "alias_normalized": "9999999-dev",
-            "version": "dev-pac-264--pdo-exception",
-            "package": "techdivision/import-product-link-ee"
-        },
-        {
-            "alias": "dev-master",
-            "alias_normalized": "9999999-dev",
-            "version": "dev-pac-264--pdo-exception",
-            "package": "techdivision/import-product-media-ee"
-        },
-        {
-            "alias": "dev-master",
-            "alias_normalized": "9999999-dev",
-            "version": "dev-pac-264--pdo-exception",
-            "package": "techdivision/import-product-bundle-ee"
-        },
-        {
-            "alias": "dev-master",
-            "alias_normalized": "9999999-dev",
-            "version": "dev-pac-264--pdo-exception",
-            "package": "techdivision/import-product-variant-ee"
-        },
-        {
-            "alias": "dev-master",
-            "alias_normalized": "9999999-dev",
-            "version": "dev-pac-264--pdo-exception",
-            "package": "techdivision/import-product-grouped-ee"
-        },
-        {
-            "alias": "dev-master",
-            "alias_normalized": "9999999-dev",
-            "version": "dev-pac-264--pdo-exception",
-            "package": "techdivision/import-converter"
-        },
         {
             "alias": "3.0.0",
             "alias_normalized": "3.0.0.0",
