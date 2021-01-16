@@ -1,3 +1,19 @@
+# Version 4.0.0-alpha6
+
+## Known Issues
+
+* Up from Magento 2 EE 2.1.10 using the single transaction mode has a massive performance impact (can only be used **WITHOUT** single transaction)
+
+## Bugfixes
+
+* Fixed techdivision/import-category#62
+* Fixed #PAC-264: PDOException: SQLSTATE[23000] : Integrity constraint violation: 1062 Duplicate entry xxx.html-0 for key 'URL_REWRITE_REQUEST_PATH_STORE_ID
+* Fixed #PAC-265: Also use url_path when generate unique url_key for categories
+
+## Features
+
+* Add #PAC-326: Cross-entity import of URLs (rewrites + redirects)  
+
 # Version 4.0.0-alpha5
 
 ## Known Issues

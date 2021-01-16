@@ -46,7 +46,7 @@ class RoboFile extends \Robo\Tasks
         'target.dir' => __DIR__ . '/target',
         'symfony.dir' => __DIR__ . '/symfony',
         'webapp.name' => 'import-cli-simple',
-        'webapp.version' => '4.0.0-alpha5'
+        'webapp.version' => '4.0.0-alpha6'
     );
 
     /**
@@ -342,6 +342,7 @@ class RoboFile extends \Robo\Tasks
             'Subjects/EeBunchSubject',
             'Subjects/ConverterSubject',
             'Subjects/OptionSubject',
+            'Loaders/CoreConfigDataLoader',
             'Services/CategoryBunchProcessor',
             'Plugins/MissingOptionValuesPlugin',
             'Observers/EeBundleOptionObserver',
