@@ -3453,18 +3453,18 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-product-grouped-ee.git",
-                "reference": "ffcbe3d2848592fe77e2860e47e73b705662badf"
+                "reference": "0dc2c8633b7a1bcb4e17134ecb486c4e7be6ea3e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-product-grouped-ee/zipball/ffcbe3d2848592fe77e2860e47e73b705662badf",
-                "reference": "ffcbe3d2848592fe77e2860e47e73b705662badf",
+                "url": "https://api.github.com/repos/techdivision/import-product-grouped-ee/zipball/0dc2c8633b7a1bcb4e17134ecb486c4e7be6ea3e",
+                "reference": "0dc2c8633b7a1bcb4e17134ecb486c4e7be6ea3e",
                 "shasum": ""
             },
             "require": {
                 "php": ">=7.1.0",
-                "techdivision/import-product-grouped": "dev-master",
-                "techdivision/import-product-link-ee": "dev-master"
+                "techdivision/import-product-ee": "dev-master",
+                "techdivision/import-product-grouped": "dev-master"
             },
             "require-dev": {
                 "consolidation/robo": "~1.0",
@@ -3497,7 +3497,7 @@
                 }
             ],
             "description": "Pacemaker library providing basic Magento 2 EE grouped product import functionality",
-            "time": "2020-10-15T20:16:11+00:00"
+            "time": "2021-01-16T20:02:08+00:00"
         },
         {
             "name": "techdivision/import-product-link",
