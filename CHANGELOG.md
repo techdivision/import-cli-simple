@@ -12,7 +12,8 @@
 
 ## Features
 
-* Add #PAC-326: Cross-entity import of URLs (rewrites + redirects)  
+* Add #PAC-326: Cross-entity import of URLs (rewrites + redirects)
+* Add functionality to clear URL rewrites when categories have been deleted
 
 # Version 4.0.0-alpha5
 
