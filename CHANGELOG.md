@@ -1,3 +1,17 @@
+# Version 3.8.38
+
+## Known Issues
+
+* Up from Magento 2 EE 2.1.10 using the single transaction mode has a massive performance impact (can only be used **WITHOUT** single transaction)
+
+## Bugfixes
+
+* Fixed invalid validation for columns with header mappings
+
+## Features
+
+* Refactoring collection of data to improve performance
+
 # Version 3.8.37
 
 ## Known Issues
