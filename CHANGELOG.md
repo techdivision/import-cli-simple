@@ -1,3 +1,17 @@
+# Version 4.0.0-alpha7
+
+## Known Issues
+
+* Up from Magento 2 EE 2.1.10 using the single transaction mode has a massive performance impact (can only be used **WITHOUT** single transaction)
+
+## Bugfixes
+
+* Fixed issue with uncaught exception when trying to delete categories 
+
+## Features
+
+* None
+
 # Version 4.0.0-alpha6
 
 ## Known Issues
