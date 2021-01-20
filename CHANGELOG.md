@@ -1,3 +1,18 @@
+# Version 4.0.0-alpha8
+
+## Known Issues
+
+* Up from Magento 2 EE 2.1.10 using the single transaction mode has a massive performance impact (can only be used **WITHOUT** single transaction)
+
+## Bugfixes
+
+* Fixed import-cli-simple#258
+* Fixed #PAC-318: Serialization exception when using a custom database configuration
+
+## Features
+
+* None
+
 # Version 4.0.0-alpha7
 
 ## Known Issues
