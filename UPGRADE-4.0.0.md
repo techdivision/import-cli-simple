@@ -1,5 +1,9 @@
 # Upgrade from 3.8.27 to 4.0.0
 
+## Configuration
+
+Up from version `4.0.0-alpha8` the default import path has been changed from `var/importexport` to `var/pacemaker/import`.
+
 ## New Functionality
 
 ### Interface for Hook aware Observers
@@ -229,6 +233,11 @@ generic implementation. The removed classes are listed below, grouped by their l
 * `TechDivision\Import\Product\Variant\Actions\Processors\ProductSuperAttributeLabelCreateProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericProcessor`
 * `TechDivision\Import\Product\Variant\Actions\Processors\ProductSuperAttributeLabelUpdateProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericProcessor`
 * `TechDivision\Import\Product\Variant\Actions\Processors\ProductSuperLinkCreateProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericProcessor`
+
+### techdivision/import-converter-product-category
+
+* `TechDivision\Import\Converter\Product\Category\Observers\Filters\FilterInterface` has been removed without any replacement
+* `TechDivision\Import\Converter\Product\Category\Observers\Filters\CategoryUpgradeFilter` has been replaced with `TechDivision\Import\Utils\CategoryPathUtil`
 
 ## Moved Classes
 
