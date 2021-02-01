@@ -349,7 +349,8 @@ class RoboFile extends \Robo\Tasks
             'Observers/EeMediaGalleryValueObserver',
             'Observers/EeBundleSelectionUpdateObserver',
             'Observers/CustomerAddressAttributeObserver',
-            'Observers/ProductToAttributeOptionValueConverterObserver'
+            'Observers/ProductToAttributeOptionValueConverterObserver',
+            'CategoryCsvSerializer'
         );
 
         // run the copy past detector
