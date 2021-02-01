@@ -4,6 +4,65 @@
 
 Up from version `4.0.0-alpha8` the default import path has been changed from `var/importexport` to `var/pacemaker/import`.
 
+## Symfony DI Configuration
+
+### techdivision/import-category
+
+Up from version `4.0.0-alpha8` a new observer with the DI ID `import_category.observer.normalize.path` has been introduced
+that is necessary to take care that the category paths are normalized according to the CSV standard. For example, a
+valid category path can look like `"Default Category/Example Path"`. For several purpses, it is necessary that the path 
+internally will be converted to `"""Default Category""/""Excample Path"""` which this observer takes care for.
+
+The following composite observer has been customized
+
+* `import_category.observer.composite.base.delete`
+* `import_category.observer.composite.create.replace`
+* `import_category.observer.composite.add_update`
+* `import_category.observer.composite.base.validate`
+
+For example have a look at the file `symfony/Resources/config/services.xml` where the composite observer for deleting
+categories has been exendend from
+
+```
+<service id="import_category.observer.composite.base.delete" class="TechDivision\Import\Observers\GenericCompositeObserver">
+    <call method="addObserver">
+        <argument id="import_category.observer.clear.url.rewrite" type="service"/>
+    </call>
+    <call method="addObserver">
+        <argument id="import_category.observer.clear.category" type="service"/>
+    </call>
+</service>
+```
+
+to
+
+```
+<service id="import_category.observer.composite.base.delete" class="TechDivision\Import\Observers\GenericCompositeObserver">
+    <call method="addObserver">
+        <argument id="import_category.observer.normalize.path" type="service"/>
+    </call>
+    <call method="addObserver">
+        <argument id="import_category.observer.clear.url.rewrite" type="service"/>
+    </call>
+    <call method="addObserver">
+        <argument id="import_category.observer.clear.category" type="service"/>
+    </call>
+</service>
+```
+
+> So do *NOT* forget, if you've a custom Symfony DI configuration in your project, to prepend the observer to your
+> configuration. Also keep in mind, that we/you heavily use the composite observers which also needs to be customized.
+
+### techdivision/import-category-ee
+
+Up from version `4.0.0-alpha8`  and according to the changes in the `techdivision/import-category` library,
+additionally the Symfony DI configuration of the following composite observers has been extendend with 
+the observer `import_category.observer.normalize.path`.
+
+* `import_category_ee.observer.composite.base.delete`
+* `import_category_ee.observer.composite.create.replace`
+* `import_category_ee.observer.composite.add_update` 
+
 ## New Functionality
 
 ### Interface for Hook aware Observers

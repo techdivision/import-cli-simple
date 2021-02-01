@@ -6,9 +6,11 @@
 
 ## Bugfixes
 
-* Fixed import-cli-simple#258
+* Fixed techdivision/import#209
+* Fixed techdivision/import-cli-simple#258
 * Fixed #PAC-318: Serialization exception when using a custom database configuration
 * Fixed #PAC-320: Children of deleted category are not removed
+* Fixed #PAC-335: Properly support slashes in category names
 
 ## Features
 
