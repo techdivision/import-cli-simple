@@ -1,3 +1,13 @@
+# Version 3.8.39
+
+## Known Issues
+
+* None
+
+## Bugfixes
+
+* Fixes bug with crash in date conversion with standard date format
+
 # Version 3.8.38
 
 ## Known Issues
