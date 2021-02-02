@@ -6,6 +6,7 @@
 
 ## Bugfixes
 
+* Fixed #PAC-338: Exception when category sorting changes
 * Fixes bug with crash in date conversion with standard date format
 
 # Version 3.8.38
