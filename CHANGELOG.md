@@ -7,7 +7,8 @@
 ## Bugfixes
 
 * Fixed #PAC-338: Exception when category sorting changes
-* Fixes bug with crash in date conversion with standard date format
+* Fixed #PAC-317: Remove UTF-8 BOM from windows generated csv file
+* Fixes #PAC-244: bug with crash in date conversion with standard date format
 
 # Version 3.8.38
 
