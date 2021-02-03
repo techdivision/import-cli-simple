@@ -157,6 +157,8 @@ generic implementation. The removed classes are listed below, grouped by their l
 * `TechDivision\Import\Category\Actions\Processors\CategoryVarcharCreateProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericProcessor`
 * `TechDivision\Import\Category\Actions\Processors\CategoryVarcharUpdateProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericProcessor`
 * `TechDivision\Import\Category\Actions\Processors\CategoryVarcharDeleteProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericProcessor`
+* `TechDivision\Import\Category\Filters\FilterInterface` has been removed without any replacement
+* `TechDivision\Import\Category\Filters\CategoryUpgradeFilter` has been removed without any replacement
 
 ### techdivision/import-category-ee
 
@@ -296,7 +298,7 @@ generic implementation. The removed classes are listed below, grouped by their l
 ### techdivision/import-converter-product-category
 
 * `TechDivision\Import\Converter\Product\Category\Observers\Filters\FilterInterface` has been removed without any replacement
-* `TechDivision\Import\Converter\Product\Category\Observers\Filters\CategoryUpgradeFilter` has been replaced with `TechDivision\Import\Utils\CategoryPathUtil`
+* `TechDivision\Import\Converter\Product\Category\Observers\Filters\CategoryUpgradeFilter` has been removed without any replacement
 
 ## Moved Classes
 

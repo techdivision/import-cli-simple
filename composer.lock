@@ -2069,12 +2069,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import.git",
-                "reference": "666597d595389a181f9f0dbb52147a482869f4b6"
+                "reference": "e188ea3c958265acc9056ab441e04dedb4b04787"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import/zipball/666597d595389a181f9f0dbb52147a482869f4b6",
-                "reference": "666597d595389a181f9f0dbb52147a482869f4b6",
+                "url": "https://api.github.com/repos/techdivision/import/zipball/e188ea3c958265acc9056ab441e04dedb4b04787",
+                "reference": "e188ea3c958265acc9056ab441e04dedb4b04787",
                 "shasum": ""
             },
             "require": {
@@ -2131,7 +2131,7 @@
                 }
             ],
             "description": "A library supporting generic Magento 2 import functionality",
-            "time": "2021-02-01T16:24:00+00:00"
+            "time": "2021-02-03T16:18:14+00:00"
         },
         {
             "name": "techdivision/import-app-simple",
@@ -2139,12 +2139,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-app-simple.git",
-                "reference": "fa1b748caa7a7c831160d785085dd06e69965b3d"
+                "reference": "17d2cfcb621f5e2d17444a6eb3e68ffc7e5b81b3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-app-simple/zipball/fa1b748caa7a7c831160d785085dd06e69965b3d",
-                "reference": "fa1b748caa7a7c831160d785085dd06e69965b3d",
+                "url": "https://api.github.com/repos/techdivision/import-app-simple/zipball/17d2cfcb621f5e2d17444a6eb3e68ffc7e5b81b3",
+                "reference": "17d2cfcb621f5e2d17444a6eb3e68ffc7e5b81b3",
                 "shasum": ""
             },
             "require": {
@@ -2184,7 +2184,7 @@
                 }
             ],
             "description": "Pacemaker simple application implementation providing basic Magento 2 import functionality",
-            "time": "2021-01-16T18:56:06+00:00"
+            "time": "2021-02-03T16:36:33+00:00"
         },
         {
             "name": "techdivision/import-attribute",
@@ -3128,12 +3128,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-product.git",
-                "reference": "a3ff39fae1cb77aa8545973b291d23b1aeba7459"
+                "reference": "fb9441f358ef7524dcb8f569207ceed03e04d208"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-product/zipball/a3ff39fae1cb77aa8545973b291d23b1aeba7459",
-                "reference": "a3ff39fae1cb77aa8545973b291d23b1aeba7459",
+                "url": "https://api.github.com/repos/techdivision/import-product/zipball/fb9441f358ef7524dcb8f569207ceed03e04d208",
+                "reference": "fb9441f358ef7524dcb8f569207ceed03e04d208",
                 "shasum": ""
             },
             "require": {
@@ -3171,7 +3171,7 @@
                 }
             ],
             "description": "Pacemaker library providing basic Magento 2 product import functionality",
-            "time": "2021-02-01T16:24:55+00:00"
+            "time": "2021-02-02T13:02:39+00:00"
         },
         {
             "name": "techdivision/import-product-bundle",
@@ -4198,23 +4198,24 @@
         },
         {
             "name": "behat/gherkin",
-            "version": "v4.7.1",
+            "version": "v4.7.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Behat/Gherkin.git",
-                "reference": "987bcdc3d29ba433e6bd4b1db4ae59737ba3dacd"
+                "reference": "d1ff9aa23bb280e8aee9118d42eec386d6f851f7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Behat/Gherkin/zipball/987bcdc3d29ba433e6bd4b1db4ae59737ba3dacd",
-                "reference": "987bcdc3d29ba433e6bd4b1db4ae59737ba3dacd",
+                "url": "https://api.github.com/repos/Behat/Gherkin/zipball/d1ff9aa23bb280e8aee9118d42eec386d6f851f7",
+                "reference": "d1ff9aa23bb280e8aee9118d42eec386d6f851f7",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.6"
             },
             "require-dev": {
-                "phpunit/phpunit": "~5.7|~6|~7",
+                "cucumber/cucumber": "dev-gherkin-16.0.0",
+                "phpunit/phpunit": "^5.7.1|~6|~7",
                 "symfony/phpunit-bridge": "~2.7|~3|~4",
                 "symfony/yaml": "~2.3|~3|~4"
             },
@@ -4253,7 +4254,7 @@
                 "gherkin",
                 "parser"
             ],
-            "time": "2021-01-26T16:24:32+00:00"
+            "time": "2021-02-03T16:10:01+00:00"
         },
         {
             "name": "behat/mink",
