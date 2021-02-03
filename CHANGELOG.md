@@ -1,3 +1,13 @@
+# Version 3.8.40
+
+## Known Issues
+
+* None
+
+## Bugfixes
+
+* Fixed: update-url-key-from-name=false functionality
+
 # Version 3.8.39
 
 ## Known Issues
