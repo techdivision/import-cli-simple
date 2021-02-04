@@ -164,20 +164,20 @@ generic implementation. The removed classes are listed below, grouped by their l
 * `TechDivision\Import\Customer\Actions\Processors\CustomerCreateProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericIdentifierProcessor`
 * `TechDivision\Import\Customer\Actions\Processors\CustomerUpdateProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericIdentifierProcessor`
 * `TechDivision\Import\Customer\Actions\Processors\CustomerDeleteProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericProcessor`
+* `TechDivision\Import\Customer\Actions\Processors\CustomerDatetimeCreateProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericProcessor`
+* `TechDivision\Import\Customer\Actions\Processors\CustomerDatetimeUpdateProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericProcessor`
 * `TechDivision\Import\Customer\Actions\Processors\CustomerDatetimeDeleteProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericProcessor`
-* `TechDivision\Import\Customer\Actions\Processors\CustomerDatetimeDeleteProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericProcessor`
-* `TechDivision\Import\Customer\Actions\Processors\CustomerDatetimeDeleteProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericProcessor`
+* `TechDivision\Import\Customer\Actions\Processors\CustomerDecimalCreateProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericProcessor`
+* `TechDivision\Import\Customer\Actions\Processors\CustomerDecimalUpdateProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericProcessor`
 * `TechDivision\Import\Customer\Actions\Processors\CustomerDecimalDeleteProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericProcessor`
-* `TechDivision\Import\Customer\Actions\Processors\CustomerDecimalDeleteProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericProcessor`
-* `TechDivision\Import\Customer\Actions\Processors\CustomerDecimalDeleteProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericProcessor`
+* `TechDivision\Import\Customer\Actions\Processors\CustomerIntCreateProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericProcessor`
+* `TechDivision\Import\Customer\Actions\Processors\CustomerIntUpdateProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericProcessor`
 * `TechDivision\Import\Customer\Actions\Processors\CustomerIntDeleteProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericProcessor`
-* `TechDivision\Import\Customer\Actions\Processors\CustomerIntDeleteProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericProcessor`
-* `TechDivision\Import\Customer\Actions\Processors\CustomerIntDeleteProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericProcessor`
+* `TechDivision\Import\Customer\Actions\Processors\CustomerTextCreateProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericProcessor`
+* `TechDivision\Import\Customer\Actions\Processors\CustomerTextUpdateProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericProcessor`
 * `TechDivision\Import\Customer\Actions\Processors\CustomerTextDeleteProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericProcessor`
-* `TechDivision\Import\Customer\Actions\Processors\CustomerTextDeleteProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericProcessor`
-* `TechDivision\Import\Customer\Actions\Processors\CustomerTextDeleteProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericProcessor`
-* `TechDivision\Import\Customer\Actions\Processors\CustomerVarcharDeleteProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericProcessor`
-* `TechDivision\Import\Customer\Actions\Processors\CustomerVarcharDeleteProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericProcessor`
+* `TechDivision\Import\Customer\Actions\Processors\CustomerVarcharCreateProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericProcessor`
+* `TechDivision\Import\Customer\Actions\Processors\CustomerVarcharUpdateProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericProcessor`
 * `TechDivision\Import\Customer\Actions\Processors\CustomerVarcharDeleteProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericProcessor`
 
 ### techdivision/import-customer-address
