@@ -144,19 +144,14 @@ generic implementation. The removed classes are listed below, grouped by their l
 * `TechDivision\Import\Category\Actions\Processors\CategoryDeleteProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericProcessor`
 * `TechDivision\Import\Category\Actions\Processors\CategoryDatetimeCreateProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericProcessor`
 * `TechDivision\Import\Category\Actions\Processors\CategoryDatetimeUpdateProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericProcessor`
-* `TechDivision\Import\Category\Actions\Processors\CategoryDatetimeDeleteProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericProcessor`
 * `TechDivision\Import\Category\Actions\Processors\CategoryDecimalCreateProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericProcessor`
 * `TechDivision\Import\Category\Actions\Processors\CategoryDecimalUpdateProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericProcessor`
-* `TechDivision\Import\Category\Actions\Processors\CategoryDecimalDeleteProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericProcessor`
 * `TechDivision\Import\Category\Actions\Processors\CategoryIntCreateProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericProcessor`
 * `TechDivision\Import\Category\Actions\Processors\CategoryIntUpdateProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericProcessor`
-* `TechDivision\Import\Category\Actions\Processors\CategoryIntDeleteProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericProcessor`
 * `TechDivision\Import\Category\Actions\Processors\CategoryTextCreateProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericProcessor`
 * `TechDivision\Import\Category\Actions\Processors\CategoryTextUpdateProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericProcessor`
-* `TechDivision\Import\Category\Actions\Processors\CategoryTextDeleteProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericProcessor`
 * `TechDivision\Import\Category\Actions\Processors\CategoryVarcharCreateProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericProcessor`
 * `TechDivision\Import\Category\Actions\Processors\CategoryVarcharUpdateProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericProcessor`
-* `TechDivision\Import\Category\Actions\Processors\CategoryVarcharDeleteProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericProcessor`
 * `TechDivision\Import\Category\Filters\FilterInterface` has been removed without any replacement
 * `TechDivision\Import\Category\Filters\CategoryUpgradeFilter` has been removed without any replacement
 
