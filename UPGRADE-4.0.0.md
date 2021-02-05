@@ -335,7 +335,6 @@ migrate some classes from existing libraries to another ones or to new libraries
 ### techdivision/import > techdivision/import-dbal
 
 * `TechDivision\Import\Actions\ActionInterface` > `TechDivision\Import\Dbal\Actions\ActionInterface`
-* `TechDivision\Import\Actions\CachedActionInterface` > `TechDivision\Import\Dbal\Actions\CachedActionInterface`
 * `TechDivision\Import\Actions\IdentifierActionInterface` > `TechDivision\Import\Dbal\Actions\IdentifierActionInterface`
 * `TechDivision\Import\Actions\Processors\ProcessorInterface` > `TechDivision\Import\Dbal\Actions\Processors\ProcessorInterface`
 * `TechDivision\Import\Connection\ConnectionInterface` > `TechDivision\Import\Dbal\Connection\ConnectionInterface`
