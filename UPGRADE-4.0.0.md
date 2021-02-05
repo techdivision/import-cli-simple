@@ -92,6 +92,9 @@ generic implementation. The removed classes are listed below, grouped by their l
 
 ### techdivision/import
 
+* `TechDivision\Import\Actions\Processors\AbstractCreateProcessor` without replacement
+* `TechDivision\Import\Actions\Processors\AbstractDeleteProcessor` without replacement
+* `TechDivision\Import\Actions\Processors\AbstractUpdateProcessor` without replacement
 * `TechDivision\Import\Loaders\StoreViewCodeLoader` has been replaced with `\TechDivision\Import\Loaders\GenericMemberNameLoader`
 * `TechDivision\Import\Actions\Processors\ImportHistoryCreateProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericIdentifierProcessor`
 * `TechDivision\Import\Actions\Processors\ImportHistoryUpdateProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericIdentifierProcessor`
@@ -350,7 +353,7 @@ migrate some classes from existing libraries to another ones or to new libraries
 * `TechDivision\Import\Utils\TablePrefixUtilInterface` > `TechDivision\Import\Dbal\Utils\TablePrefixUtilInterface`
 * `TechDivision\Import\Utils\SanitizerInterface` > `TechDivision\Import\Dbal\Utils\SanitizerInterface`
 * `TechDivision\Import\Utils\SqlCompilerInterface` > `TechDivision\Import\Dbal\Utils\SqlCompilerInterface`
-* `TechDivision\Import\Utils\EntityStatus` > `TechDivision\Import\Dbal\Utils\EntityStatus`
+* `TechDivision\Import\Utils\EntityStatus` > `TechDivision\Import\Dbal\Utils\EntityStatus` (class will still be available but extends the new class only)
 
 ### techdivision/import > techdivision/import-dbal-collection
 
@@ -373,7 +376,7 @@ migrate some classes from existing libraries to another ones or to new libraries
 * `TechDivision\Import\Repositories\AbstractRepository` > `TechDivision\Import\Dbal\Collection\Repositories\AbstractRepository`
 * `TechDivision\Import\Repositories\AbstractSqlStatementRepository` > `TechDivision\Import\Dbal\Collection\Repositories\AbstractSqlStatementRepository`
 * `TechDivision\Import\Utils\ColumnSanitizer` > `TechDivision\Import\Dbal\Collection\Utils\ColumnSanitizer`
-* `TechDivision\Import\Utils\EventNames` > `TechDivision\Import\Dbal\Collection\Utils\EventNames`
+* `TechDivision\Import\Utils\EventNames` > `TechDivision\Import\Dbal\Collection\Utils\EventNames` (class will still be available and extends the new class)
 
 ## Moved Classes from Professional to Community Edition
 
