@@ -11,11 +11,18 @@
     {
       "app.set.up" : [
         "import.listener.initialize.registry"
-      ]
-    },
-    {
+      ],
       "app.tear.down" : [
         "import.listener.clear.registry"
+      ],
+      "action.create.success.create.url_rewrite": [
+        "import_product.listener.cache.url.rewrite"
+      ],
+      "action.create.success.update.url_rewrite": [
+        "import_product.listener.cache.url.rewrite"
+      ],
+      "action.create.success.delete.url_rewrite": [
+        "import_product.listener.cache.url.rewrite"
       ]
     }
   ],
@@ -43,6 +50,15 @@
     "techdivision/import-product-url-rewrite"
   ],
   "finder-mappings": {
+    "store": {
+      "TechDivision\\Import\\Utils\\SqlStatementKeys::STORES": "import.repository.finder.factory.yielded"
+    },
+    "url_rewrite": {
+      "TechDivision\\Import\\Utils\\SqlStatementKeys::URL_REWRITES": "import.repository.finder.factory.yielded",
+      "TechDivision\\Import\\Utils\\SqlStatementKeys::URL_REWRITE_BY_REQUEST_PATH_AND_STORE_ID": "import.repository.finder.factory.unique.cached.static",
+      "TechDivision\\Import\\Utils\\SqlStatementKeys::URL_REWRITES_BY_ENTITY_TYPE_AND_ENTITY_ID": "import.repository.finder.factory.yielded",
+      "TechDivision\\Import\\Utils\\SqlStatementKeys::URL_REWRITES_BY_ENTITY_TYPE_AND_ENTITY_ID_AND_STORE_ID": "import.repository.finder.factory.yielded"
+    },
     "catalog_product": {
       "TechDivision\\Import\\Product\\Utils\\SqlStatementKeys::PRODUCT_DATETIMES": "import.repository.finder.factory.yielded",
       "TechDivision\\Import\\Product\\Utils\\SqlStatementKeys::PRODUCT_DECIMALS": "import.repository.finder.factory.yielded",
@@ -57,7 +73,8 @@
       "TechDivision\\Import\\Product\\Utils\\SqlStatementKeys::PRODUCT_TEXTS_BY_PK_AND_STORE_ID": "import.repository.finder.factory.yielded",
       "TechDivision\\Import\\Product\\Utils\\SqlStatementKeys::PRODUCT_VARCHARS_BY_PK_AND_STORE_ID": "import.repository.finder.factory.yielded",
       "TechDivision\\Import\\Product\\Utils\\SqlStatementKeys::PRODUCT_VARCHAR_BY_ATTRIBUTE_CODE_AND_ENTITY_TYPE_ID_AND_STORE_ID": "import.repository.finder.factory.yielded",
-      "TechDivision\\Import\\Product\\Utils\\SqlStatementKeys::PRODUCT_VARCHAR_BY_ATTRIBUTE_CODE_AND_ENTITY_TYPE_ID_AND_STORE_ID_AND_VALUE" : "import.repository.finder.factory.unique"
+      "TechDivision\\Import\\Product\\Utils\\SqlStatementKeys::PRODUCT_VARCHAR_BY_ATTRIBUTE_CODE_AND_ENTITY_TYPE_ID_AND_STORE_ID_AND_VALUE" : "import.repository.finder.factory.unique",
+      "TechDivision\\Import\\Product\\Utils\\SqlStatementKeys::PRODUCT_VARCHAR_BY_ATTRIBUTE_CODE_AND_ENTITY_TYPE_ID_AND_STORE_ID_AND_PK" : "import.repository.finder.factory.unique"
     }
   },
   "shortcuts": {

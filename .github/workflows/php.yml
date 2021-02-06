@@ -11,6 +11,15 @@ jobs:
   run:
     name: Build ${{ matrix.operating-system }} > ${{ matrix.php-versions }}
     runs-on: ${{ matrix.operating-system }}
+    services:
+      magento:
+        image: docker://techdivision/magento2-ce:2.3.5
+        env:
+          MAGENTO_BASE_URL: magento.test
+        ports:
+          - 80:80
+          - 443:443
+          - 3306:3306
     strategy:
       matrix:
         operating-system: [ ubuntu-latest, macos-latest ]
@@ -32,7 +41,13 @@ jobs:
     - name: Install Dependencies
       run: composer install --prefer-dist --no-progress --no-suggest
 
-    - name: Run Robo Build
+    - name: Prepare Docker Container
+      run: vendor/bin/robo prepare:docker magento.test magento
+
+    - name: Run Integration Tests
+      run: vendor/bin/robo run:tests-integration
+
+    - name: Run Build
       run: vendor/bin/robo build
       
     - name: Download Scrutinizer-CI Binary

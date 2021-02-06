@@ -115,7 +115,7 @@ class AddUpdateOperationTest extends AbstractIntegrationTest
         $categoryId = (integer) $this->createCategory('Testcategory');
 
         // prepare the file we want to import
-        $filename = $this->prepareFileWithSingleRow(array(ColumnKeys::CATEGORIES => 'Default Category/Testcategory'));
+        $filename = $this->prepareFileWithSingleRow(array(ColumnKeys::CATEGORIES => '"""Default Category""/Testcategory"'));
 
         // process the import operation
         $this->processImport();
@@ -155,8 +155,8 @@ class AddUpdateOperationTest extends AbstractIntegrationTest
 
         // initialize the array for for the names of the import files
         $filenames = array(
-            $this->prepareFileWithSingleRow(array(ColumnKeys::CATEGORIES => 'Default Category/Testcategory 1')),
-            $this->prepareFileWithSingleRow(array(ColumnKeys::CATEGORIES => 'Default Category/Testcategory 2'))
+            $this->prepareFileWithSingleRow(array(ColumnKeys::CATEGORIES => '"""Default Category""/""Testcategory 1"""')),
+            $this->prepareFileWithSingleRow(array(ColumnKeys::CATEGORIES => '"""Default Category""/""Testcategory 2"""'))
         );
 
         // invoke the import operation twice to import both files
