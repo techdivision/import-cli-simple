@@ -44,6 +44,9 @@ jobs:
     - name: Prepare Docker Container
       run: vendor/bin/robo prepare:docker magento.test ${{ job.services.magento.id }}
 
+    - name: Update local DNS configuration
+      run: sudo echo "127.0.0.1 magento.test" >> /etc/hosts
+
     - name: Run Acceptance Tests
       run: MAGENTO_CONTAINER_NAME=${{ job.services.magento.id }} vendor/bin/robo run:tests-acceptance
 
