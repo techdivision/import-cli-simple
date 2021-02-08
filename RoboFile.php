@@ -157,19 +157,16 @@ class RoboFile extends \Robo\Tasks
 
         // activate batch commit behaviour to improve performance
         $this->taskDockerExec($containerName)
-            ->option('-it')
             ->exec('mysql -uroot -proot -e \'SET GLOBAL innodb_flush_log_at_trx_commit = 2\'')
             ->run();
 
         // grant the privilieges to connection from outsite the container
         $this->taskDockerExec($containerName)
-            ->option('-it')
             ->exec('mysql -uroot -proot -e \'GRANT ALL ON *.* TO "magento"@"%" IDENTIFIED BY "magento"\'')
             ->run();
 
         // flush the privileges
         $this->taskDockerExec($containerName)
-            ->option('-it')
             ->exec('mysql -uroot -proot -e "FLUSH PRIVILEGES"')
             ->run();
     }
