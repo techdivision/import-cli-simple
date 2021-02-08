@@ -411,7 +411,7 @@ class RoboFile extends \Robo\Tasks
      *
      * @return \Robo\Result The result
      */
-    public function runTestsAcceptance($magentoEdition = 'ce', $magentoVersion = '2.3.3')
+    public function runTestsAcceptance($magentoEdition = 'ce', $magentoVersion = '2.3.5')
     {
 
         // initialize the default tags

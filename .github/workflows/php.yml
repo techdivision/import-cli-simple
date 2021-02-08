@@ -44,6 +44,9 @@ jobs:
     - name: Prepare Docker Container
       run: vendor/bin/robo prepare:docker magento.test ${{ job.services.magento.id }}
 
+    - name: Run Acceptance Tests
+      run: vendor/bin/robo run:tests-acceptance
+
     - name: Run Integration Tests
       run: vendor/bin/robo run:tests-integration
 
