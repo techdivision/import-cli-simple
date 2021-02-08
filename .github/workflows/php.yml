@@ -42,7 +42,7 @@ jobs:
       run: composer install --prefer-dist --no-progress --no-suggest
 
     - name: Prepare Docker Container
-      run: vendor/bin/robo prepare:docker magento.test magento
+      run: vendor/bin/robo prepare:docker magento.test ${{ job.services.magento.name }}
 
     - name: Run Integration Tests
       run: vendor/bin/robo run:tests-integration
