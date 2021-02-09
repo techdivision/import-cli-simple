@@ -129,7 +129,7 @@ class DockerEnvironment
 
         // render the command and the output if an error occurs
         if ($this->exitCode <> $exitCode) {
-            echo sprintf('Executed command: %s with output', $this->cmd, print_r($this->output, true)) . PHP_EOL;
+            echo sprintf('Executed command: %s with output %s', $this->cmd, print_r($this->output, true)) . PHP_EOL;
         }
     }
 
