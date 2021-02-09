@@ -48,7 +48,7 @@ jobs:
       run: sudo echo "127.0.0.1 magento.test" | sudo tee -a /etc/hosts
 
     - name: Run Acceptance Tests
-      run: MAGENTO_CONTAINER_NAME=${{ job.services.magento.id }} vendor/bin/robo run:tests-acceptance
+      run: MAGENTO_INSTALL_DIR=/var/www/dist MAGENTO_CONTAINER_NAME=${{ job.services.magento.id }} vendor/bin/robo run:tests-acceptance
 
     - name: Run Integration Tests
       run: MAGENTO_CONTAINER_NAME=${{ job.services.magento.id }} vendor/bin/robo run:tests-integration
