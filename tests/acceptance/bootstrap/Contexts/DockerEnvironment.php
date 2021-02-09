@@ -124,13 +124,13 @@ class DockerEnvironment
         // executes the prepared command
         exec($this->cmd, $this->output, $this->exitCode);
 
-        // assert that the exit code matches the passed one
-        Assert::assertEquals($exitCode, $this->exitCode);
-
         // render the command and the output if an error occurs
         if ($this->exitCode <> $exitCode) {
             echo sprintf('Executed command: %s with output %s', $this->cmd, print_r($this->output, true)) . PHP_EOL;
         }
+
+        // assert that the exit code matches the passed one
+        Assert::assertEquals($exitCode, $this->exitCode);
     }
 
     /**
