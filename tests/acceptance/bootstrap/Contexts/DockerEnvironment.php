@@ -56,6 +56,13 @@ class DockerEnvironment
     private $exitCode = 0;
 
     /**
+     * The fully prepared command that has to be executed.
+     *
+     * @var string
+     */
+    private $cmd;
+
+    /**
      * The output of the last executed command.
      *
      * @var array
@@ -111,11 +118,19 @@ class DockerEnvironment
     public function executeMagentoCommand($arg1, $exitCode = 0)
     {
 
-        // executes the passed command
-        exec($this->prependExecutionEnvironment($arg1), $this->output, $this->exitCode);
+        // initialize the command
+        $this->cmd = $this->prependExecutionEnvironment($arg1);
+
+        // executes the prepared command
+        exec($this->cmd, $this->output, $this->exitCode);
 
         // assert that the exit code matches the passed one
         Assert::assertEquals($exitCode, $this->exitCode);
+
+        // render the command and the output if an error occurs
+        if ($this->exitCode <> $exitCode) {
+            echo sprintf('Executed command: %s with output', $this->cmd, print_r($this->output, true)) . PHP_EOL;
+        }
     }
 
     /**
