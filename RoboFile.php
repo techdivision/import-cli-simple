@@ -46,7 +46,7 @@ class RoboFile extends \Robo\Tasks
         'target.dir' => __DIR__ . '/target',
         'symfony.dir' => __DIR__ . '/symfony',
         'webapp.name' => 'import-cli-simple',
-        'webapp.version' => '4.0.0-alpha9'
+        'webapp.version' => '4.0.0-alpha10'
     );
 
     /**
@@ -157,19 +157,16 @@ class RoboFile extends \Robo\Tasks
 
         // activate batch commit behaviour to improve performance
         $this->taskDockerExec($containerName)
-            ->interactive()
             ->exec('mysql -uroot -proot -e \'SET GLOBAL innodb_flush_log_at_trx_commit = 2\'')
             ->run();
 
         // grant the privilieges to connection from outsite the container
         $this->taskDockerExec($containerName)
-            ->interactive()
             ->exec('mysql -uroot -proot -e \'GRANT ALL ON *.* TO "magento"@"%" IDENTIFIED BY "magento"\'')
             ->run();
 
         // flush the privileges
         $this->taskDockerExec($containerName)
-            ->interactive()
             ->exec('mysql -uroot -proot -e "FLUSH PRIVILEGES"')
             ->run();
     }
@@ -414,7 +411,7 @@ class RoboFile extends \Robo\Tasks
      *
      * @return \Robo\Result The result
      */
-    public function runTestsAcceptance($magentoEdition = 'ce', $magentoVersion = '2.3.3')
+    public function runTestsAcceptance($magentoEdition = 'ce', $magentoVersion = '2.3.5')
     {
 
         // initialize the default tags
