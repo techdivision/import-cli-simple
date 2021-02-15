@@ -2,18 +2,27 @@ name: techdivision/import-cli-simple
 
 on:
   push:
-    branches: [ master ]
+    branches: [ '**' ]
   pull_request:
-    branches: [ master ]
+    branches: [ '**' ]
 
 jobs:
     
   run:
     name: Build ${{ matrix.operating-system }} > ${{ matrix.php-versions }}
     runs-on: ${{ matrix.operating-system }}
+    services:
+      magento:
+        image: docker://techdivision/magento2-ce:2.3.5
+        env:
+          MAGENTO_BASE_URL: magento.test
+        ports:
+          - 80:80
+          - 443:443
+          - 3306:3306
     strategy:
       matrix:
-        operating-system: [ ubuntu-latest, macos-latest ]
+        operating-system: [ ubuntu-latest ]
         php-versions: [ '7.1', '7.2', '7.3' ]
 
     steps:
@@ -32,7 +41,19 @@ jobs:
     - name: Install Dependencies
       run: composer install --prefer-dist --no-progress --no-suggest
 
-    - name: Run Robo Build
+    - name: Prepare Docker Container
+      run: vendor/bin/robo prepare:docker magento.test ${{ job.services.magento.id }}
+
+    - name: Update local DNS configuration
+      run: sudo echo "127.0.0.1 magento.test" | sudo tee -a /etc/hosts
+
+    - name: Run Acceptance Tests
+      run: MAGENTO_INSTALL_DIR=/var/www/dist MAGENTO_CONTAINER_NAME=${{ job.services.magento.id }} vendor/bin/robo run:tests-acceptance
+
+    - name: Run Integration Tests
+      run: MAGENTO_CONTAINER_NAME=${{ job.services.magento.id }} vendor/bin/robo run:tests-integration
+
+    - name: Run Build
       run: vendor/bin/robo build
       
     - name: Download Scrutinizer-CI Binary

@@ -20,7 +20,7 @@
 
 namespace TechDivision\Import\Cli\Simple\Connection;
 
-use TechDivision\Import\Connection\ConnectionInterface;
+use TechDivision\Import\Dbal\Connection\ConnectionInterface;
 
 /**
  * A wrapper for a \PDO connection instance that ignores transaction handling for testing purposes only.

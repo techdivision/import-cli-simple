@@ -1,3 +1,17 @@
+# Version 4.0.0-alpha10
+
+## Known Issues
+
+* Up from Magento 2 EE 2.1.10 using the single transaction mode has a massive performance impact (can only be used **WITHOUT** single transaction)
+
+## Bugfixes
+
+* Fixed issue with method `UrlKeyUtil::makeUnique()` when import products without category
+
+## Features
+
+* Migrated PHP Unit integration testsuite to Github Actions
+
 # Version 4.0.0-alpha9
 
 ## Known Issues
