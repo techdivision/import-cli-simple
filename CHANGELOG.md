@@ -7,6 +7,7 @@
 ## Bugfixes
 
 * Fixed issue with method `UrlKeyUtil::makeUnique()` when import products without category
+* Fixed #PAC-347: Parsing of version specific configuration does not work when using PHAR version
 
 ## Features
 
