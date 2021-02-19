@@ -10,7 +10,7 @@
 
 ## Features
 
-* None
+* Add #PAC-349: Support for JMS serializer v2.0 + v3.0
 
 # Version 3.8.41
 
