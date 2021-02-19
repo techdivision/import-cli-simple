@@ -33,7 +33,7 @@ jobs:
       uses: shivammathur/setup-php@v2
       with:
           php-version: ${{ matrix.php-versions }}
-          extensions: zip, xdebug-2.9.8 
+          extensions: pdo, pdo-mysql, zip, xdebug-2.9.8 
 
     - name: Validate Composer Files
       run: composer validate
