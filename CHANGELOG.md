@@ -11,6 +11,7 @@
 
 ## Features
 
+* Add #PAC-349: Support for JMS serializer v2.0 + v3.0
 * Migrated PHP Unit integration testsuite to Github Actions
 
 # Version 4.0.0-alpha9

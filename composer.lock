@@ -2189,12 +2189,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import.git",
-                "reference": "fbc2fdd56d4d3501fc36b37fe9cd26be1a02d673"
+                "reference": "73c9d5db314ab7ad1f6ad39233be817848ed2409"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import/zipball/fbc2fdd56d4d3501fc36b37fe9cd26be1a02d673",
-                "reference": "fbc2fdd56d4d3501fc36b37fe9cd26be1a02d673",
+                "url": "https://api.github.com/repos/techdivision/import/zipball/73c9d5db314ab7ad1f6ad39233be817848ed2409",
+                "reference": "73c9d5db314ab7ad1f6ad39233be817848ed2409",
                 "shasum": ""
             },
             "require": {
@@ -2251,7 +2251,7 @@
                 }
             ],
             "description": "A library supporting generic Magento 2 import functionality",
-            "time": "2021-02-19T13:24:22+00:00"
+            "time": "2021-02-19T17:27:16+00:00"
         },
         {
             "name": "techdivision/import-app-simple",
@@ -2622,16 +2622,15 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-cli.git",
-                "reference": "d69c68f47ef35d5431ab5e0493a669e368b4e53b"
+                "reference": "bb63c17f36d9ec373e214bb25ab82c6becb49d7d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-cli/zipball/d69c68f47ef35d5431ab5e0493a669e368b4e53b",
-                "reference": "d69c68f47ef35d5431ab5e0493a669e368b4e53b",
+                "url": "https://api.github.com/repos/techdivision/import-cli/zipball/bb63c17f36d9ec373e214bb25ab82c6becb49d7d",
+                "reference": "bb63c17f36d9ec373e214bb25ab82c6becb49d7d",
                 "shasum": ""
             },
             "require": {
-                "jean85/pretty-package-versions": "~1.6",
                 "php": ">=7.1.0",
                 "symfony/config": "~2.8|~3.0|~4.0|~5.0",
                 "symfony/console": "~2.3,!=2.7.0|~4.0|~5.0",
@@ -2671,7 +2670,7 @@
                 }
             ],
             "description": "Commands and Helpers to implement a CLI providing single-threaded Magento 2 importing functionality based on Pacemaker",
-            "time": "2021-02-19T13:39:38+00:00"
+            "time": "2021-02-19T17:36:40+00:00"
         },
         {
             "name": "techdivision/import-configuration",
@@ -2728,16 +2727,17 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-configuration-jms.git",
-                "reference": "c37c7c644f526d29c950a276ec34d0da393e21fb"
+                "reference": "f0aaa69ebc3eb4e0b7799906a9aaabc614f36c5e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-configuration-jms/zipball/c37c7c644f526d29c950a276ec34d0da393e21fb",
-                "reference": "c37c7c644f526d29c950a276ec34d0da393e21fb",
+                "url": "https://api.github.com/repos/techdivision/import-configuration-jms/zipball/f0aaa69ebc3eb4e0b7799906a9aaabc614f36c5e",
+                "reference": "f0aaa69ebc3eb4e0b7799906a9aaabc614f36c5e",
                 "shasum": ""
             },
             "require": {
                 "doctrine/collections": "^1.6",
+                "jean85/pretty-package-versions": "~1.6",
                 "jms/serializer": "^1.0 | ^2.0 | ^3.0",
                 "php": ">=7.1.0",
                 "symfony/expression-language": "4.*",
@@ -2773,7 +2773,7 @@
                 }
             ],
             "description": "Library providing a JMS based configuration implementation for Pacemaker",
-            "time": "2021-02-18T12:24:48+00:00"
+            "time": "2021-02-19T18:03:48+00:00"
         },
         {
             "name": "techdivision/import-converter",
