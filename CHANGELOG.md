@@ -1,3 +1,17 @@
+# Version 3.8.42
+
+## Known Issues
+
+* Up from Magento 2 EE 2.1.10 using the single transaction mode has a massive performance impact (can only be used **WITHOUT** single transaction)
+
+## Bugfixes
+
+* Fixed #PAC-347: Parsing of version specific configuration does not work when using PHAR version
+
+## Features
+
+* Add #PAC-349: Support for JMS serializer v2.0 + v3.0
+
 # Version 3.8.41
 
 ## Known Issues
@@ -8,27 +22,39 @@
 
 * Fixed: getPrimaryKey from import-product and import-category returned null
 
+## Features
+
+* None
+
 # Version 3.8.40
 
 ## Known Issues
 
-* None
+* Up from Magento 2 EE 2.1.10 using the single transaction mode has a massive performance impact (can only be used **WITHOUT** single transaction)
 
 ## Bugfixes
 
 * Fixed: update-url-key-from-name=false functionality
 
+## Features
+
+* None
+
 # Version 3.8.39
 
 ## Known Issues
 
-* None
+* Up from Magento 2 EE 2.1.10 using the single transaction mode has a massive performance impact (can only be used **WITHOUT** single transaction)
 
 ## Bugfixes
 
 * Fixed #PAC-338: Exception when category sorting changes
 * Fixed #PAC-317: Remove UTF-8 BOM from windows generated csv file
 * Fixes #PAC-244: bug with crash in date conversion with standard date format
+
+## Features
+
+* None
 
 # Version 3.8.38
 
