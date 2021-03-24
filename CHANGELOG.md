@@ -1,3 +1,21 @@
+# Version 3.8.43 coming soon
+
+## Known Issues
+
+* Up from Magento 2 EE 2.1.10 using the single transaction mode has a massive performance impact (can only be used **WITHOUT** single transaction)
+
+## Bugfixes
+
+* Fixes bug to add more listener when event name has already some listener
+
+## Features
+
+* PAC-96: Define new constants for FileUploadConfiguration
+    * https://github.com/techdivision/import/issues/181
+* PAC-361: Don't check file system if copy-images defined as false
+    * https://github.com/techdivision/import-cli-simple/issues/262
+* Add #PAC-233: CSV file with missing option values contains duplicates
+    
 # Version 3.8.42
 
 ## Known Issues
