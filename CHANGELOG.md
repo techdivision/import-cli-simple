@@ -1,4 +1,4 @@
-# Version 3.8.43 coming soon
+# Version 3.8.43
 
 ## Known Issues
 
@@ -7,6 +7,7 @@
 ## Bugfixes
 
 * Fixes bug to add more listener when event name has already some listener
+* Fix bug on clean up gallery images on multi store import
 
 ## Features
 
