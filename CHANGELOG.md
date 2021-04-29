@@ -1,4 +1,4 @@
-# Version 4.0.0-alpha11
+# Version 4.0.0-alpha11 ---next version---
 
 # Known Issues
 
@@ -6,11 +6,15 @@
 
 ## Bugfixes
 
+* Fix php 7.4 notice
 * Fixed #PAC-339: Permission issue when updating import-cli-simple via composer
+* import-product-msi: Providing decimal values for "qty" results in inconsistencies
+* import-product-media: Clean up gallery images on multi store import
 
 ## Features
 
-* TBA
+* import-product: Add missing validation for min_qty, min_sale_qty, max_sale_qty, notify_stock_qty, qty_increments, weight fields
+* import-product-ee: Add missing validation for min_qty, min_sale_qty, max_sale_qty, notify_stock_qty, qty_increments, weight fields
 
 # Version 4.0.0-alpha10
 
