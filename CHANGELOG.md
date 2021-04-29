@@ -1,3 +1,19 @@
+# Version 3.8.45 -- coming soon --
+
+## Known Issues
+
+* Up from Magento 2 EE 2.1.10 using the single transaction mode has a massive performance impact (can only be used **WITHOUT** single transaction)
+
+## Bugfixes
+
+* Fix php 7.4 notice
+* import-product-msi: Providing decimal values for "qty" results in inconsistencies
+
+## Features
+
+* import-product: Add missing validation for min_qty, min_sale_qty, max_sale_qty, notify_stock_qty, qty_increments, weight fields
+* import-product-ee: Add missing validation for min_qty, min_sale_qty, max_sale_qty, notify_stock_qty, qty_increments, weight fields
+
 # Version 3.8.44
 
 ## Known Issues
