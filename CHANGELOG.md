@@ -8,11 +8,15 @@
 
 * Fix php 7.4 notice
 * import-product-msi: Providing decimal values for "qty" results in inconsistencies
+* import-category: getUniqueIdentifier returned category path
 
 ## Features
 
 * import-product: Add missing validation for min_qty, min_sale_qty, max_sale_qty, notify_stock_qty, qty_increments, weight fields
 * import-product-ee: Add missing validation for min_qty, min_sale_qty, max_sale_qty, notify_stock_qty, qty_increments, weight fields
+* import: Note attributes entity type for customer attribute
+* import-converter-product-attribute: Implement importing customer attributes
+* import-customer: Import customer attributes
 
 # Version 3.8.44
 
