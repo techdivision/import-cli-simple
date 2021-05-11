@@ -10,8 +10,8 @@ Up from version `4.0.0-alpha8` the default import path has been changed from `va
 
 Up from version `4.0.0-alpha8` a new observer with the DI ID `import_category.observer.normalize.path` has been introduced
 that is necessary to take care that the category paths are normalized according to the CSV standard. For example, a
-valid category path can look like `"Default Category/Example Path"`. For several purpses, it is necessary that the path 
-internally will be converted to `"""Default Category""/""Excample Path"""` which this observer takes care for.
+valid category path can look like `"Default Category/Example Path"`. For several purposes, it is necessary that the path 
+internally will be converted to `"""Default Category""/""Example Path"""` which this observer takes care for.
 
 The following composite observer has been customized
 
