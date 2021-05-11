@@ -10,11 +10,15 @@
 * Fixed #PAC-339: Permission issue when updating import-cli-simple via composer
 * import-product-msi: Providing decimal values for "qty" results in inconsistencies
 * import-product-media: Clean up gallery images on multi store import
+* import-category: getUniqueIdentifier returned category path
 
 ## Features
 
 * import-product: Add missing validation for min_qty, min_sale_qty, max_sale_qty, notify_stock_qty, qty_increments, weight fields
 * import-product-ee: Add missing validation for min_qty, min_sale_qty, max_sale_qty, notify_stock_qty, qty_increments, weight fields
+* import: Note attributes entity type for customer attribute
+* import-converter-product-attribute: Implement importing customer attributes
+* import-customer: Import customer attributes
 
 # Version 4.0.0-alpha10
 

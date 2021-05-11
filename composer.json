@@ -36,7 +36,8 @@
         "techdivision/import-converter": "dev-master",
         "techdivision/import-converter-ee": "dev-master",
         "techdivision/import-converter-product-category": "dev-master",
-        "techdivision/import-converter-product-attribute": "dev-master"
+        "techdivision/import-converter-product-attribute": "dev-master",
+        "techdivision/import-converter-customer-attribute": "dev-master"
     },
     "require-dev": {
         "doctrine/dbal": "2.5.*",
@@ -87,5 +88,11 @@
     "bin": [
         "bin/import-simple",
         "bin/import-simple.php"
-    ]
+    ],
+    "repositories": {
+        "github.com": {
+            "type": "vcs",
+            "url": "https://github.com/techdivision/import-converter-customer-attribute"
+        }
+    }
 }
