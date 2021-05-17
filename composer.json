@@ -5,15 +5,15 @@
     "require": {
         "php": ">=7.1.0",
         "techdivision/import": "16.8.5",
-        "techdivision/import-cli": "11.1.2",
+        "techdivision/import-cli": "11.1.3",
         "techdivision/import-app-simple": "17.0.0",
         "techdivision/import-configuration-jms": "16.1.2",
         "techdivision/import-ee": "15.0.0",
         "techdivision/import-attribute": "21.0.1",
         "techdivision/import-attribute-set": "16.0.0",
-        "techdivision/import-customer": "16.0.1",
+        "techdivision/import-customer": "16.0.2",
         "techdivision/import-customer-address": "16.0.1",
-        "techdivision/import-category": "20.0.11",
+        "techdivision/import-category": "20.0.12",
         "techdivision/import-category-ee": "21.0.3",
         "techdivision/import-product": "24.0.11",
         "techdivision/import-product-msi": "19.0.1",
@@ -33,7 +33,8 @@
         "techdivision/import-converter": "10.0.1",
         "techdivision/import-converter-ee": "10.0.0",
         "techdivision/import-converter-product-category": "9.0.1",
-        "techdivision/import-converter-product-attribute": "9.0.1"
+        "techdivision/import-converter-product-attribute": "9.0.2",
+        "techdivision/import-converter-customer-attribute": "2.0.1"
     },
     "require-dev": {
         "doctrine/dbal": "2.5.*",
@@ -82,5 +83,11 @@
     "bin": [
         "bin/import-simple",
         "bin/import-simple.php"
-    ]
+    ],
+    "repositories": {
+        "github.com": {
+            "type": "vcs",
+            "url": "https://github.com/techdivision/import-converter-customer-attribute"
+        }
+    }
 }
