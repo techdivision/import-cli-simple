@@ -11,7 +11,13 @@
 * import-product-msi: Providing decimal values for "qty" results in inconsistencies
 * import-product-media: Clean up gallery images on multi store import
 * import-category: getUniqueIdentifier returned category path
-
+* import-product-url-rewrite: Rewrites for the store views are updated unintentionally
+* import-product-tier-price:
+    * Tier price Import with non-existent website
+    * Import of tier price for import-product-scenario
+* Fixes #PAC-348: Prevent processing global attributes in all stores
+* Prepare generic workflow and defined deprecated interface PrimaryKeyUtilInterface
+  
 ## Features
 
 * import-product: Add missing validation for min_qty, min_sale_qty, max_sale_qty, notify_stock_qty, qty_increments, weight fields
