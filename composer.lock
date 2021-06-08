@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "bb9124882c706183c93b99bceb87ec02",
+    "content-hash": "272ea9e16711d9b9d8b8a144b6b7f13e",
     "packages": [
         {
             "name": "composer/package-versions-deprecated",
@@ -77,28 +77,30 @@
         },
         {
             "name": "doctrine/annotations",
-            "version": "1.12.1",
+            "version": "1.13.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/annotations.git",
-                "reference": "b17c5014ef81d212ac539f07a1001832df1b6d3b"
+                "reference": "e6e7b7d5b45a2f2abc5460cc6396480b2b1d321f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/annotations/zipball/b17c5014ef81d212ac539f07a1001832df1b6d3b",
-                "reference": "b17c5014ef81d212ac539f07a1001832df1b6d3b",
+                "url": "https://api.github.com/repos/doctrine/annotations/zipball/e6e7b7d5b45a2f2abc5460cc6396480b2b1d321f",
+                "reference": "e6e7b7d5b45a2f2abc5460cc6396480b2b1d321f",
                 "shasum": ""
             },
             "require": {
                 "doctrine/lexer": "1.*",
                 "ext-tokenizer": "*",
-                "php": "^7.1 || ^8.0"
+                "php": "^7.1 || ^8.0",
+                "psr/cache": "^1 || ^2 || ^3"
             },
             "require-dev": {
-                "doctrine/cache": "1.*",
+                "doctrine/cache": "^1.11 || ^2.0",
                 "doctrine/coding-standard": "^6.0 || ^8.1",
                 "phpstan/phpstan": "^0.12.20",
-                "phpunit/phpunit": "^7.5 || ^9.1.5"
+                "phpunit/phpunit": "^7.5 || ^8.0 || ^9.1.5",
+                "symfony/cache": "^4.4 || ^5.2"
             },
             "type": "library",
             "autoload": {
@@ -139,7 +141,7 @@
                 "docblock",
                 "parser"
             ],
-            "time": "2021-02-21T21:00:45+00:00"
+            "time": "2021-05-16T18:07:53+00:00"
         },
         {
             "name": "doctrine/collections",
@@ -1273,16 +1275,16 @@
         },
         {
             "name": "symfony/config",
-            "version": "v4.4.22",
+            "version": "v4.4.23",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/config.git",
-                "reference": "f6d8318c14e4be81525ae47b30e618f0bed4c7b3"
+                "reference": "be9e601f17fc684ddfd6c675fdfcd04bb51fa928"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/config/zipball/f6d8318c14e4be81525ae47b30e618f0bed4c7b3",
-                "reference": "f6d8318c14e4be81525ae47b30e618f0bed4c7b3",
+                "url": "https://api.github.com/repos/symfony/config/zipball/be9e601f17fc684ddfd6c675fdfcd04bb51fa928",
+                "reference": "be9e601f17fc684ddfd6c675fdfcd04bb51fa928",
                 "shasum": ""
             },
             "require": {
@@ -1342,20 +1344,20 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-04-07T15:47:03+00:00"
+            "time": "2021-05-07T13:37:51+00:00"
         },
         {
             "name": "symfony/console",
-            "version": "v4.4.22",
+            "version": "v4.4.24",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/console.git",
-                "reference": "36bbd079b69b94bcc9c9c9e1e37ca3b1e7971625"
+                "reference": "1b15ca1b1bedda86f98064da9ff5d800560d4c6d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/console/zipball/36bbd079b69b94bcc9c9c9e1e37ca3b1e7971625",
-                "reference": "36bbd079b69b94bcc9c9c9e1e37ca3b1e7971625",
+                "url": "https://api.github.com/repos/symfony/console/zipball/1b15ca1b1bedda86f98064da9ff5d800560d4c6d",
+                "reference": "1b15ca1b1bedda86f98064da9ff5d800560d4c6d",
                 "shasum": ""
             },
             "require": {
@@ -1428,7 +1430,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-04-16T17:32:19+00:00"
+            "time": "2021-05-13T06:28:07+00:00"
         },
         {
             "name": "symfony/contracts",
@@ -1523,16 +1525,16 @@
         },
         {
             "name": "symfony/dependency-injection",
-            "version": "v4.4.22",
+            "version": "v4.4.24",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/dependency-injection.git",
-                "reference": "778b140b3e8f6890f43dc2c978e58e69f188909a"
+                "reference": "8422396fb0b477ecbbe130907f90a0809b49c835"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/dependency-injection/zipball/778b140b3e8f6890f43dc2c978e58e69f188909a",
-                "reference": "778b140b3e8f6890f43dc2c978e58e69f188909a",
+                "url": "https://api.github.com/repos/symfony/dependency-injection/zipball/8422396fb0b477ecbbe130907f90a0809b49c835",
+                "reference": "8422396fb0b477ecbbe130907f90a0809b49c835",
                 "shasum": ""
             },
             "require": {
@@ -1553,7 +1555,7 @@
             "require-dev": {
                 "symfony/config": "^4.3",
                 "symfony/expression-language": "^3.4|^4.0|^5.0",
-                "symfony/yaml": "^3.4|^4.0|^5.0"
+                "symfony/yaml": "^4.4|^5.0"
             },
             "suggest": {
                 "symfony/config": "",
@@ -1601,7 +1603,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-04-07T15:47:03+00:00"
+            "time": "2021-05-16T09:52:47+00:00"
         },
         {
             "name": "symfony/filesystem",
@@ -2140,16 +2142,16 @@
         },
         {
             "name": "techdivision/import-attribute-set",
-            "version": "16.0.0",
+            "version": "16.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-attribute-set.git",
-                "reference": "3ac6b254cd40e280ceccd878380675a78ae25753"
+                "reference": "ffe5a639c49364191d5b48e1acceb8126469483a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-attribute-set/zipball/3ac6b254cd40e280ceccd878380675a78ae25753",
-                "reference": "3ac6b254cd40e280ceccd878380675a78ae25753",
+                "url": "https://api.github.com/repos/techdivision/import-attribute-set/zipball/ffe5a639c49364191d5b48e1acceb8126469483a",
+                "reference": "ffe5a639c49364191d5b48e1acceb8126469483a",
                 "shasum": ""
             },
             "require": {
@@ -2187,7 +2189,7 @@
                 }
             ],
             "description": "Pacemaker library providing basic Magento 2 attribute set + group import functionality",
-            "time": "2020-10-17T11:34:40+00:00"
+            "time": "2021-05-21T07:10:12+00:00"
         },
         {
             "name": "techdivision/import-category",
@@ -2242,16 +2244,16 @@
         },
         {
             "name": "techdivision/import-category-ee",
-            "version": "21.0.3",
+            "version": "21.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-category-ee.git",
-                "reference": "9bcc1367d4009ea8cbf22d35a17d82c9a4dd0f59"
+                "reference": "50b1947dce4de8992b0e29ba4a3fbe57df83d473"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-category-ee/zipball/9bcc1367d4009ea8cbf22d35a17d82c9a4dd0f59",
-                "reference": "9bcc1367d4009ea8cbf22d35a17d82c9a4dd0f59",
+                "url": "https://api.github.com/repos/techdivision/import-category-ee/zipball/50b1947dce4de8992b0e29ba4a3fbe57df83d473",
+                "reference": "50b1947dce4de8992b0e29ba4a3fbe57df83d473",
                 "shasum": ""
             },
             "require": {
@@ -2290,7 +2292,7 @@
                 }
             ],
             "description": "Pacemaker library providing basic Magento 2 EE category import functionality",
-            "time": "2020-12-28T16:29:55+00:00"
+            "time": "2021-05-21T07:09:06+00:00"
         },
         {
             "name": "techdivision/import-cli",
@@ -2773,16 +2775,16 @@
         },
         {
             "name": "techdivision/import-customer-address",
-            "version": "16.0.1",
+            "version": "16.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-customer-address.git",
-                "reference": "d06e4fd02284d7bf3e144cf66e84d2d495ced893"
+                "reference": "db1cc88f76a6cd8930a4b10884088874b4d25dea"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-customer-address/zipball/d06e4fd02284d7bf3e144cf66e84d2d495ced893",
-                "reference": "d06e4fd02284d7bf3e144cf66e84d2d495ced893",
+                "url": "https://api.github.com/repos/techdivision/import-customer-address/zipball/db1cc88f76a6cd8930a4b10884088874b4d25dea",
+                "reference": "db1cc88f76a6cd8930a4b10884088874b4d25dea",
                 "shasum": ""
             },
             "require": {
@@ -2820,7 +2822,7 @@
                 }
             ],
             "description": "Pacemaker library providing basic Magento 2 customer address import functionality",
-            "time": "2020-06-06T11:22:45+00:00"
+            "time": "2021-05-21T07:07:20+00:00"
         },
         {
             "name": "techdivision/import-ee",
@@ -2926,16 +2928,16 @@
         },
         {
             "name": "techdivision/import-product-bundle",
-            "version": "24.0.0",
+            "version": "24.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-product-bundle.git",
-                "reference": "decdb14cb7e2e3fa87793f7f870b56e8aa283b4e"
+                "reference": "546f3b5f1869fea78acf48cd03341052fe158635"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-product-bundle/zipball/decdb14cb7e2e3fa87793f7f870b56e8aa283b4e",
-                "reference": "decdb14cb7e2e3fa87793f7f870b56e8aa283b4e",
+                "url": "https://api.github.com/repos/techdivision/import-product-bundle/zipball/546f3b5f1869fea78acf48cd03341052fe158635",
+                "reference": "546f3b5f1869fea78acf48cd03341052fe158635",
                 "shasum": ""
             },
             "require": {
@@ -2973,20 +2975,20 @@
                 }
             ],
             "description": "Pacemaker library providing basic Magento 2 bundle product import functionality",
-            "time": "2020-06-27T10:39:54+00:00"
+            "time": "2021-05-21T07:05:57+00:00"
         },
         {
             "name": "techdivision/import-product-bundle-ee",
-            "version": "26.0.0",
+            "version": "26.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-product-bundle-ee.git",
-                "reference": "32fb2002d47a1e4e08de4c81337700bf456bb900"
+                "reference": "f24dbda93325634d96a797c0d014617f5ff5f51d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-product-bundle-ee/zipball/32fb2002d47a1e4e08de4c81337700bf456bb900",
-                "reference": "32fb2002d47a1e4e08de4c81337700bf456bb900",
+                "url": "https://api.github.com/repos/techdivision/import-product-bundle-ee/zipball/f24dbda93325634d96a797c0d014617f5ff5f51d",
+                "reference": "f24dbda93325634d96a797c0d014617f5ff5f51d",
                 "shasum": ""
             },
             "require": {
@@ -3025,7 +3027,7 @@
                 }
             ],
             "description": "Pacemaker library providing basic Magento 2 EE bundle product import functionality",
-            "time": "2020-06-27T11:17:59+00:00"
+            "time": "2021-05-21T07:04:57+00:00"
         },
         {
             "name": "techdivision/import-product-ee",
@@ -3184,16 +3186,16 @@
         },
         {
             "name": "techdivision/import-product-link",
-            "version": "24.0.0",
+            "version": "24.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-product-link.git",
-                "reference": "0b9a23d37135489d45f3a171de47779e0657d8c2"
+                "reference": "1d0e01ce2c77ac0924d717583a1139b0a2a4ca89"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-product-link/zipball/0b9a23d37135489d45f3a171de47779e0657d8c2",
-                "reference": "0b9a23d37135489d45f3a171de47779e0657d8c2",
+                "url": "https://api.github.com/repos/techdivision/import-product-link/zipball/1d0e01ce2c77ac0924d717583a1139b0a2a4ca89",
+                "reference": "1d0e01ce2c77ac0924d717583a1139b0a2a4ca89",
                 "shasum": ""
             },
             "require": {
@@ -3231,7 +3233,7 @@
                 }
             ],
             "description": "Pacemaker library providing basic Magento 2 product link import functionality",
-            "time": "2020-06-27T10:47:52+00:00"
+            "time": "2021-05-21T07:03:24+00:00"
         },
         {
             "name": "techdivision/import-product-link-ee",
@@ -3441,16 +3443,16 @@
         },
         {
             "name": "techdivision/import-product-tier-price",
-            "version": "17.0.0",
+            "version": "17.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-product-tier-price.git",
-                "reference": "7e89a25fe22ad43fad1850fabea98e959e4210b5"
+                "reference": "10fdb12cfb04f4580c2e5fd6e01c05dea76398fb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-product-tier-price/zipball/7e89a25fe22ad43fad1850fabea98e959e4210b5",
-                "reference": "7e89a25fe22ad43fad1850fabea98e959e4210b5",
+                "url": "https://api.github.com/repos/techdivision/import-product-tier-price/zipball/10fdb12cfb04f4580c2e5fd6e01c05dea76398fb",
+                "reference": "10fdb12cfb04f4580c2e5fd6e01c05dea76398fb",
                 "shasum": ""
             },
             "require": {
@@ -3493,20 +3495,20 @@
                 }
             ],
             "description": "Pacemaker library providing basic Magento 2 product tier price import functionality",
-            "time": "2020-06-27T10:59:53+00:00"
+            "time": "2021-05-21T06:59:44+00:00"
         },
         {
             "name": "techdivision/import-product-url-rewrite",
-            "version": "24.1.3",
+            "version": "24.1.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-product-url-rewrite.git",
-                "reference": "bfcf9ef5ff4a88c4080eeca0dd7137d4bd31bbff"
+                "reference": "79d96218f4805db15c156c0ad2130da027a186f5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-product-url-rewrite/zipball/bfcf9ef5ff4a88c4080eeca0dd7137d4bd31bbff",
-                "reference": "bfcf9ef5ff4a88c4080eeca0dd7137d4bd31bbff",
+                "url": "https://api.github.com/repos/techdivision/import-product-url-rewrite/zipball/79d96218f4805db15c156c0ad2130da027a186f5",
+                "reference": "79d96218f4805db15c156c0ad2130da027a186f5",
                 "shasum": ""
             },
             "require": {
@@ -3544,20 +3546,20 @@
                 }
             ],
             "description": "Pacemaker library providing basic Magento 2 product URL rewrite import functionality",
-            "time": "2021-02-02T18:06:14+00:00"
+            "time": "2021-05-21T06:50:14+00:00"
         },
         {
             "name": "techdivision/import-product-variant",
-            "version": "24.0.0",
+            "version": "24.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-product-variant.git",
-                "reference": "741046f270e50cb765b67f654970a0f3062de511"
+                "reference": "d5df7429a345fb6edb72431c6027f2cb7f6add81"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-product-variant/zipball/741046f270e50cb765b67f654970a0f3062de511",
-                "reference": "741046f270e50cb765b67f654970a0f3062de511",
+                "url": "https://api.github.com/repos/techdivision/import-product-variant/zipball/d5df7429a345fb6edb72431c6027f2cb7f6add81",
+                "reference": "d5df7429a345fb6edb72431c6027f2cb7f6add81",
                 "shasum": ""
             },
             "require": {
@@ -3595,7 +3597,7 @@
                 }
             ],
             "description": "Pacemaker library providing basic Magento 2 configurable product import functionality",
-            "time": "2020-06-27T11:00:37+00:00"
+            "time": "2021-05-21T06:46:11+00:00"
         },
         {
             "name": "techdivision/import-product-variant-ee",
@@ -4828,16 +4830,16 @@
         },
         {
             "name": "doctrine/cache",
-            "version": "1.11.0",
+            "version": "1.11.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/cache.git",
-                "reference": "a9c1b59eba5a08ca2770a76eddb88922f504e8e0"
+                "reference": "9c53086695937c50c47936ed86d96150ffbcf60d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/cache/zipball/a9c1b59eba5a08ca2770a76eddb88922f504e8e0",
-                "reference": "a9c1b59eba5a08ca2770a76eddb88922f504e8e0",
+                "url": "https://api.github.com/repos/doctrine/cache/zipball/9c53086695937c50c47936ed86d96150ffbcf60d",
+                "reference": "9c53086695937c50c47936ed86d96150ffbcf60d",
                 "shasum": ""
             },
             "require": {
@@ -4919,7 +4921,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-04-13T14:46:17+00:00"
+            "time": "2021-05-20T14:57:29+00:00"
         },
         {
             "name": "doctrine/common",
@@ -7684,16 +7686,16 @@
         },
         {
             "name": "symfony/finder",
-            "version": "v4.4.20",
+            "version": "v4.4.24",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/finder.git",
-                "reference": "2543795ab1570df588b9bbd31e1a2bd7037b94f6"
+                "reference": "a96bc19ed87c88eec78e1a4c803bdc1446952983"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/finder/zipball/2543795ab1570df588b9bbd31e1a2bd7037b94f6",
-                "reference": "2543795ab1570df588b9bbd31e1a2bd7037b94f6",
+                "url": "https://api.github.com/repos/symfony/finder/zipball/a96bc19ed87c88eec78e1a4c803bdc1446952983",
+                "reference": "a96bc19ed87c88eec78e1a4c803bdc1446952983",
                 "shasum": ""
             },
             "require": {
@@ -7738,7 +7740,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-02-12T10:48:09+00:00"
+            "time": "2021-05-16T12:27:45+00:00"
         },
         {
             "name": "symfony/framework-bundle",
@@ -7862,16 +7864,16 @@
         },
         {
             "name": "symfony/http-foundation",
-            "version": "v4.4.22",
+            "version": "v4.4.23",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/http-foundation.git",
-                "reference": "1a6f87ef99d05b1bf5c865b4ef7992263e1cb081"
+                "reference": "2ffb43bd6c589a274ee1e93a5fd6b7ef1577b9c5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/http-foundation/zipball/1a6f87ef99d05b1bf5c865b4ef7992263e1cb081",
-                "reference": "1a6f87ef99d05b1bf5c865b4ef7992263e1cb081",
+                "url": "https://api.github.com/repos/symfony/http-foundation/zipball/2ffb43bd6c589a274ee1e93a5fd6b7ef1577b9c5",
+                "reference": "2ffb43bd6c589a274ee1e93a5fd6b7ef1577b9c5",
                 "shasum": ""
             },
             "require": {
@@ -7923,7 +7925,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-04-30T12:05:50+00:00"
+            "time": "2021-05-05T07:40:41+00:00"
         },
         {
             "name": "symfony/http-kernel",
@@ -8017,16 +8019,16 @@
         },
         {
             "name": "symfony/mime",
-            "version": "v4.4.22",
+            "version": "v4.4.24",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/mime.git",
-                "reference": "36f2e59c90762bb09170553130a4dc1934cada58"
+                "reference": "7e8e9192500d0bae9f6aff60c842befc7d887b68"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/mime/zipball/36f2e59c90762bb09170553130a4dc1934cada58",
-                "reference": "36f2e59c90762bb09170553130a4dc1934cada58",
+                "url": "https://api.github.com/repos/symfony/mime/zipball/7e8e9192500d0bae9f6aff60c842befc7d887b68",
+                "reference": "7e8e9192500d0bae9f6aff60c842befc7d887b68",
                 "shasum": ""
             },
             "require": {
@@ -8085,7 +8087,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-04-27T14:58:50+00:00"
+            "time": "2021-05-16T09:52:47+00:00"
         },
         {
             "name": "symfony/polyfill-intl-idn",
@@ -8450,16 +8452,16 @@
         },
         {
             "name": "symfony/routing",
-            "version": "v4.4.22",
+            "version": "v4.4.24",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/routing.git",
-                "reference": "049e7c5c41f98511959668791b4adc0898a821b3"
+                "reference": "b42c3631fd9e3511610afb2ba081ea7e38d9fa38"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/routing/zipball/049e7c5c41f98511959668791b4adc0898a821b3",
-                "reference": "049e7c5c41f98511959668791b4adc0898a821b3",
+                "url": "https://api.github.com/repos/symfony/routing/zipball/b42c3631fd9e3511610afb2ba081ea7e38d9fa38",
+                "reference": "b42c3631fd9e3511610afb2ba081ea7e38d9fa38",
                 "shasum": ""
             },
             "require": {
@@ -8531,7 +8533,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-04-11T12:59:39+00:00"
+            "time": "2021-05-16T09:52:47+00:00"
         },
         {
             "name": "symfony/translation",
@@ -8611,16 +8613,16 @@
         },
         {
             "name": "symfony/var-exporter",
-            "version": "v4.4.22",
+            "version": "v4.4.23",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/var-exporter.git",
-                "reference": "ef3054c7e878fe0837ef9ac2c5ecfddfd27dd9e9"
+                "reference": "11439b8e3264502293bd5e5ecd6957f70319f526"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/var-exporter/zipball/ef3054c7e878fe0837ef9ac2c5ecfddfd27dd9e9",
-                "reference": "ef3054c7e878fe0837ef9ac2c5ecfddfd27dd9e9",
+                "url": "https://api.github.com/repos/symfony/var-exporter/zipball/11439b8e3264502293bd5e5ecd6957f70319f526",
+                "reference": "11439b8e3264502293bd5e5ecd6957f70319f526",
                 "shasum": ""
             },
             "require": {
@@ -8676,20 +8678,20 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-04-01T10:24:12+00:00"
+            "time": "2021-05-06T19:16:33+00:00"
         },
         {
             "name": "symfony/yaml",
-            "version": "v4.4.22",
+            "version": "v4.4.24",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/yaml.git",
-                "reference": "1c2fd24147961525eaefb65b11987cab75adab59"
+                "reference": "8b6d1b97521e2f125039b3fcb4747584c6dfa0ef"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/yaml/zipball/1c2fd24147961525eaefb65b11987cab75adab59",
-                "reference": "1c2fd24147961525eaefb65b11987cab75adab59",
+                "url": "https://api.github.com/repos/symfony/yaml/zipball/8b6d1b97521e2f125039b3fcb4747584c6dfa0ef",
+                "reference": "8b6d1b97521e2f125039b3fcb4747584c6dfa0ef",
                 "shasum": ""
             },
             "require": {
@@ -8744,20 +8746,20 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-04-23T12:09:37+00:00"
+            "time": "2021-05-16T09:52:47+00:00"
         },
         {
             "name": "techdivision/import-sample-data",
-            "version": "4.3.4",
+            "version": "4.3.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-sample-data.git",
-                "reference": "35bf1422bba16be31bab963b84f920ab357a1431"
+                "reference": "f3de368ea003a9803cb59af52db3321b7190fe60"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-sample-data/zipball/35bf1422bba16be31bab963b84f920ab357a1431",
-                "reference": "35bf1422bba16be31bab963b84f920ab357a1431",
+                "url": "https://api.github.com/repos/techdivision/import-sample-data/zipball/f3de368ea003a9803cb59af52db3321b7190fe60",
+                "reference": "f3de368ea003a9803cb59af52db3321b7190fe60",
                 "shasum": ""
             },
             "require": {
@@ -8775,7 +8777,7 @@
                 }
             ],
             "description": "Pacemaker sample data for Magento 2 Community + Commerce Edition",
-            "time": "2020-07-21T10:01:34+00:00"
+            "time": "2021-05-21T06:42:41+00:00"
         },
         {
             "name": "textalk/websocket",
