@@ -7,6 +7,7 @@
 ## Bugfixes
 
 * import: Call to a member function getSystemLogger() on null
+* import-customer: PAC-276 Backport - Optionally retrieve store_id via store_code (_store)
 
 ## Features
 
