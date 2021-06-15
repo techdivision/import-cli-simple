@@ -8,6 +8,7 @@
 
 * import: Call to a member function getSystemLogger() on null
 * import-customer: PAC-276 Backport - Optionally retrieve store_id via store_code (_store)
+* import-attribute-set: Fix missing import attribute_group_sort_order
 
 ## Features
 
