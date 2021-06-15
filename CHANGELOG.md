@@ -17,7 +17,9 @@
     * Import of tier price for import-product-scenario
 * Fixes #PAC-348: Prevent processing global attributes in all stores
 * Prepare generic workflow and defined deprecated interface PrimaryKeyUtilInterface
-  
+* PAC-362: Call to a member function getSystemLogger() on null
+* import-attribute-set: Fix missing import attribute_group_sort_order
+
 ## Features
 
 * import-product: Add missing validation for min_qty, min_sale_qty, max_sale_qty, notify_stock_qty, qty_increments, weight fields
