@@ -1,4 +1,4 @@
-# Version 3.8.47 -- comming soon --
+# Version 3.8.47
 
 ## Known Issues
 
