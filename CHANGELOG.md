@@ -19,6 +19,8 @@
 * Prepare generic workflow and defined deprecated interface PrimaryKeyUtilInterface
 * PAC-362: Call to a member function getSystemLogger() on null
 * import-attribute-set: Fix missing import attribute_group_sort_order
+* import: Clear properties after success unlock
+* import-app-simple: * Fix write error message before shutdown
 
 ## Features
 
