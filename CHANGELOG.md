@@ -21,6 +21,7 @@
 * import-attribute-set: Fix missing import attribute_group_sort_order
 * import: Clear properties after success unlock
 * import-app-simple: * Fix write error message before shutdown
+* import-product-url-rewrite: Duplicate error for url rewrites on replace shortcut
 
 ## Features
 
