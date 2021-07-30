@@ -1,4 +1,4 @@
-# Version 3.8.49
+# Version 3.8.50
 
 ## Known Issues
 
@@ -16,7 +16,7 @@
 * import-product-media: Prepare optimize performance cache
 * import-product-media-ee: Prepare optimize performance cache
 
-# Version 3.8.48
+# Version 3.8.49
 
 ## Known Issues
 
