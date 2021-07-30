@@ -1,3 +1,21 @@
+# Version 3.8.49
+
+## Known Issues
+
+* Up from Magento 2 EE 2.1.10 using the single transaction mode has a massive performance impact (can only be used **WITHOUT** single transaction)
+
+## Bugfixes
+
+* import-category: Update multistore categories only on new category from default line
+
+## Features
+
+* import: Prepare optimize performance cache
+* import-product: Define new finder mappings for prepare optimize performance cache
+* import-product-url-rewrite: Prepare optimize performance cache
+* import-product-media: Prepare optimize performance cache
+* import-product-media-ee: Prepare optimize performance cache
+
 # Version 3.8.48
 
 ## Known Issues
