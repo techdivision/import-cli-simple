@@ -1,3 +1,21 @@
+# Version 3.8.51
+
+## Known Issues
+
+* Up from Magento 2 EE 2.1.10 using the single transaction mode has a massive performance impact (can only be used **WITHOUT** single transaction)
+
+## Bugfixes
+
+* Magento 2.4.3 compatibility
+* Remove League\Flysystem and set deprecated exception for
+  * LeagueFilesystemAdapter
+  * LeagueFilesystemAdapterFactory
+* Third party module ramsey/uuid can use version ~4.1.0
+
+## Features
+
+* none 
+
 # Version 3.8.50
 
 ## Known Issues
