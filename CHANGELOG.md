@@ -1,3 +1,17 @@
+# Version 3.8.52
+
+## Known Issues
+
+* Up from Magento 2 EE 2.1.10 using the single transaction mode has a massive performance impact (can only be used **WITHOUT** single transaction)
+
+## Bugfixes
+
+* Fix website relation clean up on Magento Commerce
+
+## Features
+
+* none 
+
 # Version 3.8.51
 
 ## Known Issues
