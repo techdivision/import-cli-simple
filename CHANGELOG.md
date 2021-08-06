@@ -22,6 +22,13 @@
 * import: Clear properties after success unlock
 * import-app-simple: * Fix write error message before shutdown
 * import-product-url-rewrite: Duplicate error for url rewrites on replace shortcut
+* Fix website relation clean up on Magento Commerce
+* Magento 2.4.3 compatibility
+* Remove League\Flysystem and set deprecated exception for
+  * LeagueFilesystemAdapter
+  * LeagueFilesystemAdapterFactory
+* Third party module ramsey/uuid can use version ~4.1.0
+* import-category: Update multistore categories only on new category from default line
 
 ## Features
 
@@ -30,6 +37,11 @@
 * import: Note attributes entity type for customer attribute
 * import-converter-product-attribute: Implement importing customer attributes
 * import-customer: Import customer attributes
+* import: Prepare optimize performance cache
+* import-product: Define new finder mappings for prepare optimize performance cache
+* import-product-url-rewrite: Prepare optimize performance cache
+* import-product-media: Prepare optimize performance cache
+* import-product-media-ee: Prepare optimize performance cache
 
 # Version 4.0.0-alpha10
 
