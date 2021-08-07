@@ -666,96 +666,6 @@
             "time": "2018-11-26T11:52:41+00:00"
         },
         {
-            "name": "league/flysystem",
-            "version": "1.0.70",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/thephpleague/flysystem.git",
-                "reference": "585824702f534f8d3cf7fab7225e8466cc4b7493"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/585824702f534f8d3cf7fab7225e8466cc4b7493",
-                "reference": "585824702f534f8d3cf7fab7225e8466cc4b7493",
-                "shasum": ""
-            },
-            "require": {
-                "ext-fileinfo": "*",
-                "php": ">=5.5.9"
-            },
-            "conflict": {
-                "league/flysystem-sftp": "<1.0.6"
-            },
-            "require-dev": {
-                "phpspec/phpspec": "^3.4 || ^4.0 || ^5.0 || ^6.0",
-                "phpunit/phpunit": "^5.7.26"
-            },
-            "suggest": {
-                "ext-fileinfo": "Required for MimeType",
-                "ext-ftp": "Allows you to use FTP server storage",
-                "ext-openssl": "Allows you to use FTPS server storage",
-                "league/flysystem-aws-s3-v2": "Allows you to use S3 storage with AWS SDK v2",
-                "league/flysystem-aws-s3-v3": "Allows you to use S3 storage with AWS SDK v3",
-                "league/flysystem-azure": "Allows you to use Windows Azure Blob storage",
-                "league/flysystem-cached-adapter": "Flysystem adapter decorator for metadata caching",
-                "league/flysystem-eventable-filesystem": "Allows you to use EventableFilesystem",
-                "league/flysystem-rackspace": "Allows you to use Rackspace Cloud Files",
-                "league/flysystem-sftp": "Allows you to use SFTP server storage via phpseclib",
-                "league/flysystem-webdav": "Allows you to use WebDAV storage",
-                "league/flysystem-ziparchive": "Allows you to use ZipArchive adapter",
-                "spatie/flysystem-dropbox": "Allows you to use Dropbox storage",
-                "srmklive/flysystem-dropbox-v2": "Allows you to use Dropbox storage for PHP 5 applications"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.1-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "League\\Flysystem\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Frank de Jonge",
-                    "email": "info@frenky.net"
-                }
-            ],
-            "description": "Filesystem abstraction: Many filesystems, one API.",
-            "keywords": [
-                "Cloud Files",
-                "WebDAV",
-                "abstraction",
-                "aws",
-                "cloud",
-                "copy.com",
-                "dropbox",
-                "file systems",
-                "files",
-                "filesystem",
-                "filesystems",
-                "ftp",
-                "rackspace",
-                "remote",
-                "s3",
-                "sftp",
-                "storage"
-            ],
-            "funding": [
-                {
-                    "url": "https://offset.earth/frankdejonge",
-                    "type": "other"
-                }
-            ],
-            "time": "2020-07-26T07:20:36+00:00"
-        },
-        {
             "name": "monolog/monolog",
             "version": "1.26.1",
             "source": {
@@ -2269,12 +2179,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import.git",
-                "reference": "f52824ee563b997ffada137f52d78cfb9dd5fa28"
+                "reference": "dd44611bdfe2b419792a79b9897d29f17b4a16cb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import/zipball/f52824ee563b997ffada137f52d78cfb9dd5fa28",
-                "reference": "f52824ee563b997ffada137f52d78cfb9dd5fa28",
+                "url": "https://api.github.com/repos/techdivision/import/zipball/dd44611bdfe2b419792a79b9897d29f17b4a16cb",
+                "reference": "dd44611bdfe2b419792a79b9897d29f17b4a16cb",
                 "shasum": ""
             },
             "require": {
@@ -2282,13 +2192,12 @@
                 "ext-zip": "*",
                 "goodby/csv": "~1.0",
                 "league/event": "~2.0",
-                "league/flysystem": "~1.0",
                 "monolog/monolog": "~1.0",
                 "php": ">=7.1.0",
                 "psr/cache": "~1.0",
                 "psr/container": "~1.0",
                 "psr/log": "~1.0",
-                "ramsey/uuid": "~3.7.3|3.8.*",
+                "ramsey/uuid": "~3.7.3|3.8.*|~4.1.0",
                 "swiftmailer/swiftmailer": "5.4.*",
                 "techdivision/import-cache": "dev-master",
                 "techdivision/import-cache-collection": "dev-master",
@@ -2331,7 +2240,7 @@
                 }
             ],
             "description": "A library supporting generic Magento 2 import functionality",
-            "time": "2021-06-25T18:00:17+00:00"
+            "time": "2021-08-06T17:31:11+00:00"
         },
         {
             "name": "techdivision/import-app-simple",
@@ -2339,17 +2248,16 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-app-simple.git",
-                "reference": "822aaa2f1275f4e7881dd104c58034d7a6e9d3bd"
+                "reference": "55868b45a99603b4d35acde452304e2973e119fb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-app-simple/zipball/822aaa2f1275f4e7881dd104c58034d7a6e9d3bd",
-                "reference": "822aaa2f1275f4e7881dd104c58034d7a6e9d3bd",
+                "url": "https://api.github.com/repos/techdivision/import-app-simple/zipball/55868b45a99603b4d35acde452304e2973e119fb",
+                "reference": "55868b45a99603b4d35acde452304e2973e119fb",
                 "shasum": ""
             },
             "require": {
                 "php": ">=7.1.0",
-                "ramsey/uuid": "~3.0",
                 "symfony/console": "~2.3,!=2.7.0|~4.0",
                 "techdivision/import": "dev-master"
             },
@@ -2384,7 +2292,7 @@
                 }
             ],
             "description": "Pacemaker simple application implementation providing basic Magento 2 import functionality",
-            "time": "2021-06-25T18:00:42+00:00"
+            "time": "2021-08-06T17:31:50+00:00"
         },
         {
             "name": "techdivision/import-attribute",
@@ -2599,12 +2507,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-category.git",
-                "reference": "2fbe2abe976215d7f27481529e4ae85f762c7b23"
+                "reference": "585dec57f31680b46a9fc4bd938c54687561be77"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-category/zipball/2fbe2abe976215d7f27481529e4ae85f762c7b23",
-                "reference": "2fbe2abe976215d7f27481529e4ae85f762c7b23",
+                "url": "https://api.github.com/repos/techdivision/import-category/zipball/585dec57f31680b46a9fc4bd938c54687561be77",
+                "reference": "585dec57f31680b46a9fc4bd938c54687561be77",
                 "shasum": ""
             },
             "require": {
@@ -2642,7 +2550,7 @@
                 }
             ],
             "description": "Pacemaker library providing basic Magento 2 category import functionality",
-            "time": "2021-07-02T08:03:07+00:00"
+            "time": "2021-08-06T17:32:22+00:00"
         },
         {
             "name": "techdivision/import-category-ee",
@@ -2702,16 +2610,17 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-cli.git",
-                "reference": "ca27432d99daa3ec55bffddff7f4323a28b5d3f4"
+                "reference": "451c862469930be1e508136c38b89ecba8b75079"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-cli/zipball/ca27432d99daa3ec55bffddff7f4323a28b5d3f4",
-                "reference": "ca27432d99daa3ec55bffddff7f4323a28b5d3f4",
+                "url": "https://api.github.com/repos/techdivision/import-cli/zipball/451c862469930be1e508136c38b89ecba8b75079",
+                "reference": "451c862469930be1e508136c38b89ecba8b75079",
                 "shasum": ""
             },
             "require": {
                 "php": ">=7.1.0",
+                "ramsey/uuid": "~3.7.3|3.8.*|~4.1.0",
                 "symfony/config": "~2.8|~3.0|~4.0|~5.0",
                 "symfony/console": "~2.3,!=2.7.0|~4.0|~5.0",
                 "symfony/dependency-injection": "~2.3,!=2.7.0|~3.0|~4.0|~5.0",
@@ -2750,7 +2659,7 @@
                 }
             ],
             "description": "Commands and Helpers to implement a CLI providing single-threaded Magento 2 importing functionality based on Pacemaker",
-            "time": "2021-05-11T18:34:55+00:00"
+            "time": "2021-08-06T17:32:50+00:00"
         },
         {
             "name": "techdivision/import-configuration",
@@ -3392,12 +3301,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-product.git",
-                "reference": "43626e5fef9fa5ee4754ae39268b5fd1bce757b0"
+                "reference": "cd4fa06c970d38bc027e5a25bf003eb2fbeb5bc6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-product/zipball/43626e5fef9fa5ee4754ae39268b5fd1bce757b0",
-                "reference": "43626e5fef9fa5ee4754ae39268b5fd1bce757b0",
+                "url": "https://api.github.com/repos/techdivision/import-product/zipball/cd4fa06c970d38bc027e5a25bf003eb2fbeb5bc6",
+                "reference": "cd4fa06c970d38bc027e5a25bf003eb2fbeb5bc6",
                 "shasum": ""
             },
             "require": {
@@ -3435,7 +3344,7 @@
                 }
             ],
             "description": "Pacemaker library providing basic Magento 2 product import functionality",
-            "time": "2021-04-29T05:43:33+00:00"
+            "time": "2021-08-06T17:35:46+00:00"
         },
         {
             "name": "techdivision/import-product-bundle",
@@ -3855,12 +3764,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-product-media-ee.git",
-                "reference": "a3600c7f5ad33939f29ab6937219079fd623fef7"
+                "reference": "1af0a89c515ef92eebc75874884437d84f9c8b02"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-product-media-ee/zipball/a3600c7f5ad33939f29ab6937219079fd623fef7",
-                "reference": "a3600c7f5ad33939f29ab6937219079fd623fef7",
+                "url": "https://api.github.com/repos/techdivision/import-product-media-ee/zipball/1af0a89c515ef92eebc75874884437d84f9c8b02",
+                "reference": "1af0a89c515ef92eebc75874884437d84f9c8b02",
                 "shasum": ""
             },
             "require": {
@@ -3899,7 +3808,7 @@
                 }
             ],
             "description": "Pacemaker library providing basic Magento 2 EE product media import functionality",
-            "time": "2021-01-16T19:55:10+00:00"
+            "time": "2021-08-06T17:36:51+00:00"
         },
         {
             "name": "techdivision/import-product-msi",
@@ -4014,12 +3923,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-product-url-rewrite.git",
-                "reference": "0efcf630eaf1f5b75a957ad6a323b51f39520f58"
+                "reference": "ec7b814f5987bcff136fa56e5db81f1f2fe28926"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-product-url-rewrite/zipball/0efcf630eaf1f5b75a957ad6a323b51f39520f58",
-                "reference": "0efcf630eaf1f5b75a957ad6a323b51f39520f58",
+                "url": "https://api.github.com/repos/techdivision/import-product-url-rewrite/zipball/ec7b814f5987bcff136fa56e5db81f1f2fe28926",
+                "reference": "ec7b814f5987bcff136fa56e5db81f1f2fe28926",
                 "shasum": ""
             },
             "require": {
@@ -4057,7 +3966,7 @@
                 }
             ],
             "description": "Pacemaker library providing basic Magento 2 product URL rewrite import functionality",
-            "time": "2021-07-02T19:21:49+00:00"
+            "time": "2021-08-06T17:37:14+00:00"
         },
         {
             "name": "techdivision/import-product-variant",
