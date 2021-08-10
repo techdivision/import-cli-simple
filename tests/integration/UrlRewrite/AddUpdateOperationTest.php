@@ -364,7 +364,7 @@ class AddUpdateOperationTest extends AbstractIntegrationTest
         $this->assertCount(2, $urlRewrites);
 
         // try to load the URL rewrite product category relations by their SKU and count them
-        $urlRewriteProductCategories = $productUrlRewriteProcessor->getUrlRewriteProductCategoriesBySku($sku);
+        $urlRewriteProductCategories = iterator_to_array($productUrlRewriteProcessor->getUrlRewriteProductCategoriesBySku($sku));
         $this->assertCount(1, $urlRewriteProductCategories);
 
         // load the second and last found URL rewrite
@@ -531,7 +531,7 @@ class AddUpdateOperationTest extends AbstractIntegrationTest
         $this->assertCount($expectedCount = 8, $urlRewrites);
 
         // try to load the URL rewrite product category relations by their SKU and count them
-        $urlRewriteProductCategories = $productUrlRewriteProcessor->getUrlRewriteProductCategoriesBySku($sku);
+        $urlRewriteProductCategories = iterator_to_array($productUrlRewriteProcessor->getUrlRewriteProductCategoriesBySku($sku));
         $this->assertCount($expectedCount / 2, $urlRewriteProductCategories);
 
         // iterate over the URL rewrites/rewrite product category relations
