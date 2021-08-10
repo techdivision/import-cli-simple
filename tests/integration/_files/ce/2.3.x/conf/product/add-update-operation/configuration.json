@@ -75,6 +75,19 @@
       "TechDivision\\Import\\Product\\Utils\\SqlStatementKeys::PRODUCT_VARCHAR_BY_ATTRIBUTE_CODE_AND_ENTITY_TYPE_ID_AND_STORE_ID": "import.repository.finder.factory.yielded",
       "TechDivision\\Import\\Product\\Utils\\SqlStatementKeys::PRODUCT_VARCHAR_BY_ATTRIBUTE_CODE_AND_ENTITY_TYPE_ID_AND_STORE_ID_AND_VALUE" : "import.repository.finder.factory.unique",
       "TechDivision\\Import\\Product\\Utils\\SqlStatementKeys::PRODUCT_VARCHAR_BY_ATTRIBUTE_CODE_AND_ENTITY_TYPE_ID_AND_STORE_ID_AND_PK" : "import.repository.finder.factory.unique"
+    },
+    "product_media_gallery": {
+      "TechDivision\\Import\\Product\\Media\\Utils\\SqlStatementKeys::PRODUCT_MEDIA_GALLERIES": "import.repository.finder.factory.yielded",
+      "TechDivision\\Import\\Product\\Media\\Utils\\SqlStatementKeys::PRODUCT_MEDIA_GALLERY": "import.repository.finder.factory.unique",
+      "TechDivision\\Import\\Product\\Media\\Utils\\SqlStatementKeys::PRODUCT_MEDIA_GALLERIES_BY_SKU": "import.repository.finder.factory.yielded",
+      "TechDivision\\Import\\Product\\Media\\Utils\\SqlStatementKeys::PRODUCT_MEDIA_GALLERY_VALUE": "import.repository.finder.factory.unique",
+      "TechDivision\\Import\\Product\\Media\\Utils\\SqlStatementKeys::PRODUCT_MEDIA_GALLERY_VALUES": "import.repository.finder.factory.yielded"
+    },
+    "product_url_rewrite": {
+      "TechDivision\\Import\\Product\\UrlRewrite\\Utils\\SqlStatementKeys::URL_REWRITE_PRODUCT_CATEGORIES": "import.repository.finder.factory.yielded",
+      "TechDivision\\Import\\Product\\UrlRewrite\\Utils\\SqlStatementKeys::URL_REWRITES_BY_SKU": "import.repository.finder.factory.yielded",
+      "TechDivision\\Import\\Product\\UrlRewrite\\Utils\\SqlStatementKeys::URL_REWRITE_PRODUCT_CATEGORY": "import.repository.finder.factory.unique",
+      "TechDivision\\Import\\Product\\UrlRewrite\\Utils\\SqlStatementKeys::URL_REWRITE_PRODUCT_CATEGORIES_BY_SKU": "import.repository.finder.factory.yielded"
     }
   },
   "shortcuts": {
