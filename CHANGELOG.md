@@ -29,6 +29,7 @@
   * LeagueFilesystemAdapterFactory
 * Third party module ramsey/uuid can use version ~4.1.0
 * import-category: Update multistore categories only on new category from default line
+* import-attribute-set: Fix fallback for attribute_group_sort_order when empty
 
 ## Features
 
