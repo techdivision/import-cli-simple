@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "93b9a58c5d410b885283aa2b7407e54e",
+    "content-hash": "fb058e5044ac8b3b77ee2dd133e3e567",
     "packages": [
         {
             "name": "brick/math",
@@ -119,6 +119,10 @@
                 }
             ],
             "description": "Composer plugin that provides efficient querying for installed package versions (no runtime IO)",
+            "support": {
+                "issues": "https://github.com/composer/package-versions-deprecated/issues",
+                "source": "https://github.com/composer/package-versions-deprecated/tree/1.11.99.4"
+            },
             "funding": [
                 {
                     "url": "https://packagist.com",
@@ -201,6 +205,10 @@
                 "docblock",
                 "parser"
             ],
+            "support": {
+                "issues": "https://github.com/doctrine/annotations/issues",
+                "source": "https://github.com/doctrine/annotations/tree/1.13.2"
+            },
             "time": "2021-08-05T19:00:23+00:00"
         },
         {
@@ -321,6 +329,10 @@
                 "constructor",
                 "instantiate"
             ],
+            "support": {
+                "issues": "https://github.com/doctrine/instantiator/issues",
+                "source": "https://github.com/doctrine/instantiator/tree/1.4.0"
+            },
             "funding": [
                 {
                     "url": "https://www.doctrine-project.org/sponsorship.html",
@@ -472,6 +484,10 @@
                 "export",
                 "import"
             ],
+            "support": {
+                "issues": "https://github.com/goodby/csv/issues",
+                "source": "https://github.com/goodby/csv/tree/master"
+            },
             "time": "2015-06-29T10:28:19+00:00"
         },
         {
@@ -523,6 +539,10 @@
                 "release",
                 "versions"
             ],
+            "support": {
+                "issues": "https://github.com/Jean85/pretty-package-versions/issues",
+                "source": "https://github.com/Jean85/pretty-package-versions/tree/1.6.0"
+            },
             "time": "2021-02-04T16:20:16+00:00"
         },
         {
@@ -730,6 +750,10 @@
                 "event",
                 "listener"
             ],
+            "support": {
+                "issues": "https://github.com/thephpleague/event/issues",
+                "source": "https://github.com/thephpleague/event/tree/master"
+            },
             "time": "2018-11-26T11:52:41+00:00"
         },
         {
@@ -802,6 +826,10 @@
                 "logging",
                 "psr-3"
             ],
+            "support": {
+                "issues": "https://github.com/Seldaek/monolog/issues",
+                "source": "https://github.com/Seldaek/monolog/tree/1.26.1"
+            },
             "funding": [
                 {
                     "url": "https://github.com/Seldaek",
@@ -857,6 +885,10 @@
                 "MIT"
             ],
             "description": "PHPDoc parser with support for nullable, intersection and generic types",
+            "support": {
+                "issues": "https://github.com/phpstan/phpdoc-parser/issues",
+                "source": "https://github.com/phpstan/phpdoc-parser/tree/0.5.7"
+            },
             "time": "2021-09-12T11:52:00+00:00"
         },
         {
@@ -903,6 +935,9 @@
                 "psr",
                 "psr-6"
             ],
+            "support": {
+                "source": "https://github.com/php-fig/cache/tree/master"
+            },
             "time": "2016-08-06T20:24:11+00:00"
         },
         {
@@ -998,6 +1033,9 @@
                 "psr",
                 "psr-3"
             ],
+            "support": {
+                "source": "https://github.com/php-fig/log/tree/1.1.4"
+            },
             "time": "2021-05-03T11:20:27+00:00"
         },
         {
@@ -1221,6 +1259,10 @@
                 "mail",
                 "mailer"
             ],
+            "support": {
+                "issues": "https://github.com/swiftmailer/swiftmailer/issues",
+                "source": "https://github.com/swiftmailer/swiftmailer/tree/v5.4.12"
+            },
             "time": "2018-07-31T09:26:32+00:00"
         },
         {
@@ -1299,6 +1341,9 @@
                 "caching",
                 "psr6"
             ],
+            "support": {
+                "source": "https://github.com/symfony/cache/tree/v4.3.11"
+            },
             "time": "2020-01-27T09:15:09+00:00"
         },
         {
@@ -1544,6 +1589,9 @@
                 "interoperability",
                 "standards"
             ],
+            "support": {
+                "source": "https://github.com/symfony/contracts/tree/v1.1.10"
+            },
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -1627,6 +1675,9 @@
             ],
             "description": "Allows you to standardize and centralize the way objects are constructed in your application",
             "homepage": "https://symfony.com",
+            "support": {
+                "source": "https://github.com/symfony/dependency-injection/tree/v4.4.27"
+            },
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -1750,6 +1801,9 @@
             ],
             "description": "Provides basic utilities for the filesystem",
             "homepage": "https://symfony.com",
+            "support": {
+                "source": "https://github.com/symfony/filesystem/tree/v4.4.27"
+            },
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -1826,6 +1880,9 @@
                 "polyfill",
                 "portable"
             ],
+            "support": {
+                "source": "https://github.com/symfony/polyfill-ctype/tree/v1.23.0"
+            },
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -1903,6 +1960,9 @@
                 "portable",
                 "shim"
             ],
+            "support": {
+                "source": "https://github.com/symfony/polyfill-mbstring/tree/v1.23.1"
+            },
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -1979,6 +2039,9 @@
                 "portable",
                 "shim"
             ],
+            "support": {
+                "source": "https://github.com/symfony/polyfill-php73/tree/v1.23.0"
+            },
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -2059,6 +2122,9 @@
                 "portable",
                 "shim"
             ],
+            "support": {
+                "source": "https://github.com/symfony/polyfill-php80/tree/v1.23.1"
+            },
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -2135,6 +2201,9 @@
                 "portable",
                 "shim"
             ],
+            "support": {
+                "source": "https://github.com/symfony/polyfill-php81/tree/v1.23.0"
+            },
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -2230,12 +2299,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import.git",
-                "reference": "c960b897c83c2c38c845ea18b0ad13e126261f8b"
+                "reference": "d8fbb810a3832fdee5a7effa68dcac0026b6d84d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import/zipball/c960b897c83c2c38c845ea18b0ad13e126261f8b",
-                "reference": "c960b897c83c2c38c845ea18b0ad13e126261f8b",
+                "url": "https://api.github.com/repos/techdivision/import/zipball/d8fbb810a3832fdee5a7effa68dcac0026b6d84d",
+                "reference": "d8fbb810a3832fdee5a7effa68dcac0026b6d84d",
                 "shasum": ""
             },
             "require": {
@@ -2265,11 +2334,12 @@
                 "mikey179/vfsstream": "~1.0",
                 "pdepend/pdepend": "2.5.2",
                 "phpmd/phpmd": "@stable",
-                "phpunit/phpunit": "~6.5.0",
+                "phpunit/phpunit": "^6.5.0|^8.0.0",
                 "sebastian/phpcpd": "~3.0|~4.0|~5.0|~6.0",
                 "squizlabs/php_codesniffer": "~3.4.0",
                 "symfony/http-kernel": "~3.4"
             },
+            "default-branch": true,
             "type": "library",
             "autoload": {
                 "psr-4": {
@@ -2291,7 +2361,11 @@
                 }
             ],
             "description": "A library supporting generic Magento 2 import functionality",
-            "time": "2021-09-16T17:07:39+00:00"
+            "support": {
+                "issues": "https://github.com/techdivision/import/issues",
+                "source": "https://github.com/techdivision/import/tree/master"
+            },
+            "time": "2021-09-20T11:45:53+00:00"
         },
         {
             "name": "techdivision/import-app-simple",
@@ -2299,12 +2373,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-app-simple.git",
-                "reference": "133124271b1ef68f0425b593b237b71c42bc38c7"
+                "reference": "3cc827afdbc173d5347f39cdfbf2aca89d423785"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-app-simple/zipball/133124271b1ef68f0425b593b237b71c42bc38c7",
-                "reference": "133124271b1ef68f0425b593b237b71c42bc38c7",
+                "url": "https://api.github.com/repos/techdivision/import-app-simple/zipball/3cc827afdbc173d5347f39cdfbf2aca89d423785",
+                "reference": "3cc827afdbc173d5347f39cdfbf2aca89d423785",
                 "shasum": ""
             },
             "require": {
@@ -2318,11 +2392,12 @@
                 "mikey179/vfsstream": "~1.0",
                 "pdepend/pdepend": "2.5.2",
                 "phpmd/phpmd": "@stable",
-                "phpunit/phpunit": "~6.5.0",
-                "sebastian/phpcpd": "~3.0.0",
+                "phpunit/phpunit": "^6.5.0|^8.0.0",
+                "sebastian/phpcpd": "~3.0|~4.0|~5.0|~6.0",
                 "squizlabs/php_codesniffer": "~3.4.0",
                 "symfony/http-kernel": "~3.4"
             },
+            "default-branch": true,
             "type": "library",
             "autoload": {
                 "psr-4": {
@@ -2343,7 +2418,11 @@
                 }
             ],
             "description": "Pacemaker simple application implementation providing basic Magento 2 import functionality",
-            "time": "2021-09-16T17:07:40+00:00"
+            "support": {
+                "issues": "https://github.com/techdivision/import-app-simple/issues",
+                "source": "https://github.com/techdivision/import-app-simple/tree/master"
+            },
+            "time": "2021-09-20T11:45:54+00:00"
         },
         {
             "name": "techdivision/import-attribute",
@@ -2351,12 +2430,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-attribute.git",
-                "reference": "d0c14dab4685edf06b38d2266d0a45026f2a5668"
+                "reference": "91661d0689d993b2567065abf763c0f0367cdeb2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-attribute/zipball/d0c14dab4685edf06b38d2266d0a45026f2a5668",
-                "reference": "d0c14dab4685edf06b38d2266d0a45026f2a5668",
+                "url": "https://api.github.com/repos/techdivision/import-attribute/zipball/91661d0689d993b2567065abf763c0f0367cdeb2",
+                "reference": "91661d0689d993b2567065abf763c0f0367cdeb2",
                 "shasum": ""
             },
             "require": {
@@ -2369,11 +2448,12 @@
                 "mikey179/vfsstream": "~1.0",
                 "pdepend/pdepend": "2.5.2",
                 "phpmd/phpmd": "@stable",
-                "phpunit/phpunit": "~6.5.0",
-                "sebastian/phpcpd": "~3.0.0",
+                "phpunit/phpunit": "^6.5.0|^8.0.0",
+                "sebastian/phpcpd": "~3.0|~4.0|~5.0|~6.0",
                 "squizlabs/php_codesniffer": "~3.4.0",
                 "symfony/http-kernel": "~3.4"
             },
+            "default-branch": true,
             "type": "library",
             "autoload": {
                 "psr-4": {
@@ -2395,7 +2475,11 @@
                 }
             ],
             "description": "Pacemaker library providing basic Magento 2 attribute import functionality",
-            "time": "2021-09-16T17:08:43+00:00"
+            "support": {
+                "issues": "https://github.com/techdivision/import-attribute/issues",
+                "source": "https://github.com/techdivision/import-attribute/tree/master"
+            },
+            "time": "2021-09-20T11:45:54+00:00"
         },
         {
             "name": "techdivision/import-attribute-set",
@@ -2403,12 +2487,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-attribute-set.git",
-                "reference": "6394efe89075c5b0f497db2b2e4deb3e14b0d6a6"
+                "reference": "3a939e0b69357744bfd28ee701d24294b7e2d0e1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-attribute-set/zipball/6394efe89075c5b0f497db2b2e4deb3e14b0d6a6",
-                "reference": "6394efe89075c5b0f497db2b2e4deb3e14b0d6a6",
+                "url": "https://api.github.com/repos/techdivision/import-attribute-set/zipball/3a939e0b69357744bfd28ee701d24294b7e2d0e1",
+                "reference": "3a939e0b69357744bfd28ee701d24294b7e2d0e1",
                 "shasum": ""
             },
             "require": {
@@ -2421,11 +2505,12 @@
                 "mikey179/vfsstream": "~1.0",
                 "pdepend/pdepend": "2.5.2",
                 "phpmd/phpmd": "@stable",
-                "phpunit/phpunit": "~6.5.0",
-                "sebastian/phpcpd": "~3.0.0",
+                "phpunit/phpunit": "^6.5.0|^8.0.0",
+                "sebastian/phpcpd": "~3.0|~4.0|~5.0|~6.0",
                 "squizlabs/php_codesniffer": "~3.4.0",
                 "symfony/http-kernel": "~3.4"
             },
+            "default-branch": true,
             "type": "library",
             "autoload": {
                 "psr-4": {
@@ -2446,7 +2531,11 @@
                 }
             ],
             "description": "Pacemaker library providing basic Magento 2 attribute set + group import functionality",
-            "time": "2021-09-16T17:08:44+00:00"
+            "support": {
+                "issues": "https://github.com/techdivision/import-attribute-set/issues",
+                "source": "https://github.com/techdivision/import-attribute-set/tree/master"
+            },
+            "time": "2021-09-20T11:45:54+00:00"
         },
         {
             "name": "techdivision/import-cache",
@@ -2454,12 +2543,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-cache.git",
-                "reference": "0fbec6029cca8cf465dd3840928404ce59fcb8d2"
+                "reference": "e8475c3e680bb378b168a0d66726575c0bf957b0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-cache/zipball/0fbec6029cca8cf465dd3840928404ce59fcb8d2",
-                "reference": "0fbec6029cca8cf465dd3840928404ce59fcb8d2",
+                "url": "https://api.github.com/repos/techdivision/import-cache/zipball/e8475c3e680bb378b168a0d66726575c0bf957b0",
+                "reference": "e8475c3e680bb378b168a0d66726575c0bf957b0",
                 "shasum": ""
             },
             "require": {
@@ -2471,11 +2560,12 @@
                 "mikey179/vfsstream": "~1.0",
                 "pdepend/pdepend": "2.5.2",
                 "phpmd/phpmd": "@stable",
-                "phpunit/phpunit": "~6.5.0",
+                "phpunit/phpunit": "^6.5.0|^8.0.0",
                 "sebastian/phpcpd": "~3.0|~4.0|~5.0|~6.0",
                 "squizlabs/php_codesniffer": "~3.4.0",
                 "symfony/http-kernel": "~3.4"
             },
+            "default-branch": true,
             "type": "library",
             "autoload": {
                 "psr-4": {
@@ -2496,7 +2586,11 @@
                 }
             ],
             "description": "Pacemaker library providing interfaces for Magento 2 import cache functionality",
-            "time": "2021-09-16T17:08:44+00:00"
+            "support": {
+                "issues": "https://github.com/techdivision/import-cache/issues",
+                "source": "https://github.com/techdivision/import-cache/tree/master"
+            },
+            "time": "2021-09-20T11:45:55+00:00"
         },
         {
             "name": "techdivision/import-cache-collection",
@@ -2504,12 +2598,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-cache-collection.git",
-                "reference": "ee88f90354e92e4e93cbf8d94f530639c82968e0"
+                "reference": "c76a0520710c7c5b7ed566cd629669abe43c0a8d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-cache-collection/zipball/ee88f90354e92e4e93cbf8d94f530639c82968e0",
-                "reference": "ee88f90354e92e4e93cbf8d94f530639c82968e0",
+                "url": "https://api.github.com/repos/techdivision/import-cache-collection/zipball/c76a0520710c7c5b7ed566cd629669abe43c0a8d",
+                "reference": "c76a0520710c7c5b7ed566cd629669abe43c0a8d",
                 "shasum": ""
             },
             "require": {
@@ -2523,11 +2617,12 @@
                 "mikey179/vfsstream": "~1.0",
                 "pdepend/pdepend": "2.5.2",
                 "phpmd/phpmd": "@stable",
-                "phpunit/phpunit": "~6.5.0",
+                "phpunit/phpunit": "^6.5.0|^8.0.0",
                 "sebastian/phpcpd": "~3.0|~4.0|~5.0|~6.0",
                 "squizlabs/php_codesniffer": "~3.4.0",
                 "symfony/http-kernel": "~3.4"
             },
+            "default-branch": true,
             "type": "library",
             "autoload": {
                 "psr-4": {
@@ -2548,7 +2643,11 @@
                 }
             ],
             "description": "Pacemaker library providing basic Magento 2 import cache functionality based on a simple collection",
-            "time": "2021-09-16T17:08:45+00:00"
+            "support": {
+                "issues": "https://github.com/techdivision/import-cache-collection/issues",
+                "source": "https://github.com/techdivision/import-cache-collection/tree/master"
+            },
+            "time": "2021-09-20T11:45:55+00:00"
         },
         {
             "name": "techdivision/import-category",
@@ -2556,12 +2655,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-category.git",
-                "reference": "5f85fa930b2c4bfe8162b00f47808a3da91a2ba2"
+                "reference": "da661af721f168cfd1ac468e9a9ca408f9709b44"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-category/zipball/5f85fa930b2c4bfe8162b00f47808a3da91a2ba2",
-                "reference": "5f85fa930b2c4bfe8162b00f47808a3da91a2ba2",
+                "url": "https://api.github.com/repos/techdivision/import-category/zipball/da661af721f168cfd1ac468e9a9ca408f9709b44",
+                "reference": "da661af721f168cfd1ac468e9a9ca408f9709b44",
                 "shasum": ""
             },
             "require": {
@@ -2574,11 +2673,12 @@
                 "mikey179/vfsstream": "~1.0",
                 "pdepend/pdepend": "2.5.2",
                 "phpmd/phpmd": "@stable",
-                "phpunit/phpunit": "~6.5.0",
+                "phpunit/phpunit": "^6.5.0|^8.0.0",
                 "sebastian/phpcpd": "~3.0|~4.0|~5.0|~6.0",
                 "squizlabs/php_codesniffer": "~3.4.0",
                 "symfony/http-kernel": "~3.4"
             },
+            "default-branch": true,
             "type": "library",
             "autoload": {
                 "psr-4": {
@@ -2599,7 +2699,11 @@
                 }
             ],
             "description": "Pacemaker library providing basic Magento 2 category import functionality",
-            "time": "2021-09-16T17:08:45+00:00"
+            "support": {
+                "issues": "https://github.com/techdivision/import-category/issues",
+                "source": "https://github.com/techdivision/import-category/tree/master"
+            },
+            "time": "2021-09-20T11:45:55+00:00"
         },
         {
             "name": "techdivision/import-category-ee",
@@ -2607,12 +2711,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-category-ee.git",
-                "reference": "b1b8c78a258e340d44084caf833ae554ed840a0b"
+                "reference": "a462d7077d54b3b2c7a0c32e9dd2a8cfdd858a71"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-category-ee/zipball/b1b8c78a258e340d44084caf833ae554ed840a0b",
-                "reference": "b1b8c78a258e340d44084caf833ae554ed840a0b",
+                "url": "https://api.github.com/repos/techdivision/import-category-ee/zipball/a462d7077d54b3b2c7a0c32e9dd2a8cfdd858a71",
+                "reference": "a462d7077d54b3b2c7a0c32e9dd2a8cfdd858a71",
                 "shasum": ""
             },
             "require": {
@@ -2626,11 +2730,12 @@
                 "mikey179/vfsstream": "~1.0",
                 "pdepend/pdepend": "2.5.2",
                 "phpmd/phpmd": "@stable",
-                "phpunit/phpunit": "~6.5.0",
+                "phpunit/phpunit": "^6.5.0|^8.0.0",
                 "sebastian/phpcpd": "~3.0|~4.0|~5.0|~6.0",
                 "squizlabs/php_codesniffer": "~3.4.0",
                 "symfony/http-kernel": "~3.4"
             },
+            "default-branch": true,
             "type": "library",
             "autoload": {
                 "psr-4": {
@@ -2651,7 +2756,11 @@
                 }
             ],
             "description": "Pacemaker library providing basic Magento 2 EE category import functionality",
-            "time": "2021-09-16T17:08:46+00:00"
+            "support": {
+                "issues": "https://github.com/techdivision/import-category-ee/issues",
+                "source": "https://github.com/techdivision/import-category-ee/tree/master"
+            },
+            "time": "2021-09-20T11:45:55+00:00"
         },
         {
             "name": "techdivision/import-cli",
@@ -2659,12 +2768,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-cli.git",
-                "reference": "062498461ae999ee3cefac57364f667819a9d734"
+                "reference": "c22413d2fda18db127c85987b30d38564033a936"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-cli/zipball/062498461ae999ee3cefac57364f667819a9d734",
-                "reference": "062498461ae999ee3cefac57364f667819a9d734",
+                "url": "https://api.github.com/repos/techdivision/import-cli/zipball/c22413d2fda18db127c85987b30d38564033a936",
+                "reference": "c22413d2fda18db127c85987b30d38564033a936",
                 "shasum": ""
             },
             "require": {
@@ -2683,11 +2792,12 @@
                 "mikey179/vfsstream": "~1.0",
                 "pdepend/pdepend": "2.5.2",
                 "phpmd/phpmd": "@stable",
-                "phpunit/phpunit": "~6.5.0",
-                "sebastian/phpcpd": "~3.0.0",
+                "phpunit/phpunit": "^6.5.0|^8.0.0",
+                "sebastian/phpcpd": "~3.0|~4.0|~5.0|~6.0",
                 "squizlabs/php_codesniffer": "~3.4.0",
                 "symfony/http-kernel": "~3.4"
             },
+            "default-branch": true,
             "type": "library",
             "autoload": {
                 "psr-4": {
@@ -2708,7 +2818,11 @@
                 }
             ],
             "description": "Commands and Helpers to implement a CLI providing single-threaded Magento 2 importing functionality based on Pacemaker",
-            "time": "2021-09-16T17:08:46+00:00"
+            "support": {
+                "issues": "https://github.com/techdivision/import-cli/issues",
+                "source": "https://github.com/techdivision/import-cli/tree/master"
+            },
+            "time": "2021-09-20T11:45:56+00:00"
         },
         {
             "name": "techdivision/import-configuration",
@@ -2716,12 +2830,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-configuration.git",
-                "reference": "456773f3560473623ac34e11f331f4bb8fc4d940"
+                "reference": "d7eb09b503e74f70c35d1052e1c6e03c9ccca157"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-configuration/zipball/456773f3560473623ac34e11f331f4bb8fc4d940",
-                "reference": "456773f3560473623ac34e11f331f4bb8fc4d940",
+                "url": "https://api.github.com/repos/techdivision/import-configuration/zipball/d7eb09b503e74f70c35d1052e1c6e03c9ccca157",
+                "reference": "d7eb09b503e74f70c35d1052e1c6e03c9ccca157",
                 "shasum": ""
             },
             "require": {
@@ -2733,11 +2847,12 @@
                 "mikey179/vfsstream": "~1.0",
                 "pdepend/pdepend": "2.5.2",
                 "phpmd/phpmd": "@stable",
-                "phpunit/phpunit": "~6.5.0",
-                "sebastian/phpcpd": "~3.0.0",
+                "phpunit/phpunit": "^6.5.0|^8.0.0",
+                "sebastian/phpcpd": "~3.0|~4.0|~5.0|~6.0",
                 "squizlabs/php_codesniffer": "~3.4.0",
                 "symfony/http-kernel": "~3.4"
             },
+            "default-branch": true,
             "type": "library",
             "autoload": {
                 "psr-4": {
@@ -2757,7 +2872,11 @@
                 }
             ],
             "description": "The configuration interfaces for generic import functionality implementations",
-            "time": "2021-09-16T17:08:47+00:00"
+            "support": {
+                "issues": "https://github.com/techdivision/import-configuration/issues",
+                "source": "https://github.com/techdivision/import-configuration/tree/master"
+            },
+            "time": "2021-09-20T11:45:56+00:00"
         },
         {
             "name": "techdivision/import-configuration-jms",
@@ -2765,12 +2884,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-configuration-jms.git",
-                "reference": "630207104d0297a9143c5418379c7fab1f67f8f2"
+                "reference": "0c0e19d6e4d0bc61667c55c71d2f11dfa61a8d31"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-configuration-jms/zipball/630207104d0297a9143c5418379c7fab1f67f8f2",
-                "reference": "630207104d0297a9143c5418379c7fab1f67f8f2",
+                "url": "https://api.github.com/repos/techdivision/import-configuration-jms/zipball/0c0e19d6e4d0bc61667c55c71d2f11dfa61a8d31",
+                "reference": "0c0e19d6e4d0bc61667c55c71d2f11dfa61a8d31",
                 "shasum": ""
             },
             "require": {
@@ -2787,11 +2906,12 @@
                 "mikey179/vfsstream": "~1.0",
                 "pdepend/pdepend": "2.5.2",
                 "phpmd/phpmd": "@stable",
-                "phpunit/phpunit": "~6.5.0",
-                "sebastian/phpcpd": "~3.0.0",
+                "phpunit/phpunit": "^6.5.0|^8.0.0",
+                "sebastian/phpcpd": "~3.0|~4.0|~5.0|~6.0",
                 "squizlabs/php_codesniffer": "~3.4.0",
                 "symfony/http-kernel": "~3.4"
             },
+            "default-branch": true,
             "type": "library",
             "autoload": {
                 "psr-4": {
@@ -2811,7 +2931,11 @@
                 }
             ],
             "description": "Library providing a JMS based configuration implementation for Pacemaker",
-            "time": "2021-09-16T17:08:47+00:00"
+            "support": {
+                "issues": "https://github.com/techdivision/import-configuration-jms/issues",
+                "source": "https://github.com/techdivision/import-configuration-jms/tree/master"
+            },
+            "time": "2021-09-20T11:45:56+00:00"
         },
         {
             "name": "techdivision/import-converter",
@@ -2819,12 +2943,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-converter.git",
-                "reference": "558f73ac8d4e042484d73e037185fea1f9e4300d"
+                "reference": "cd43eb8222a1a0eb3a05e7548f85212317a01f94"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-converter/zipball/558f73ac8d4e042484d73e037185fea1f9e4300d",
-                "reference": "558f73ac8d4e042484d73e037185fea1f9e4300d",
+                "url": "https://api.github.com/repos/techdivision/import-converter/zipball/cd43eb8222a1a0eb3a05e7548f85212317a01f94",
+                "reference": "cd43eb8222a1a0eb3a05e7548f85212317a01f94",
                 "shasum": ""
             },
             "require": {
@@ -2837,11 +2961,12 @@
                 "mikey179/vfsstream": "~1.0",
                 "pdepend/pdepend": "2.5.2",
                 "phpmd/phpmd": "@stable",
-                "phpunit/phpunit": "~6.5.0",
-                "sebastian/phpcpd": "~3.0.0",
+                "phpunit/phpunit": "^6.5.0|^8.0.0",
+                "sebastian/phpcpd": "~3.0|~4.0|~5.0|~6.0",
                 "squizlabs/php_codesniffer": "~3.4.0",
                 "symfony/http-kernel": "~3.4"
             },
+            "default-branch": true,
             "type": "library",
             "autoload": {
                 "psr-4": {
@@ -2862,7 +2987,11 @@
                 }
             ],
             "description": "Pacemaker library providing generic converter functionality",
-            "time": "2021-09-16T17:08:47+00:00"
+            "support": {
+                "issues": "https://github.com/techdivision/import-converter/issues",
+                "source": "https://github.com/techdivision/import-converter/tree/master"
+            },
+            "time": "2021-09-20T11:45:57+00:00"
         },
         {
             "name": "techdivision/import-converter-customer-attribute",
@@ -2870,12 +2999,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-converter-customer-attribute.git",
-                "reference": "8b2fc271f9b50ed23482fe7cb50f19cb0f0ef3b3"
+                "reference": "df1c28bd60ddb9778b77655ba60fb247c2741f6f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-converter-customer-attribute/zipball/8b2fc271f9b50ed23482fe7cb50f19cb0f0ef3b3",
-                "reference": "8b2fc271f9b50ed23482fe7cb50f19cb0f0ef3b3",
+                "url": "https://api.github.com/repos/techdivision/import-converter-customer-attribute/zipball/df1c28bd60ddb9778b77655ba60fb247c2741f6f",
+                "reference": "df1c28bd60ddb9778b77655ba60fb247c2741f6f",
                 "shasum": ""
             },
             "require": {
@@ -2890,11 +3019,12 @@
                 "mikey179/vfsstream": "~1.0",
                 "pdepend/pdepend": "2.5.2",
                 "phpmd/phpmd": "@stable",
-                "phpunit/phpunit": "~6.5.0",
-                "sebastian/phpcpd": "~3.0.0",
+                "phpunit/phpunit": "^6.5.0|^8.0.0",
+                "sebastian/phpcpd": "~3.0|~4.0|~5.0|~6.0",
                 "squizlabs/php_codesniffer": "~3.4.0",
                 "symfony/http-kernel": "~3.4"
             },
+            "default-branch": true,
             "type": "library",
             "autoload": {
                 "psr-4": {
@@ -2915,7 +3045,11 @@
                 }
             ],
             "description": "Pacemaker library providing the functionality to convert a CSV file with attribute option values from a CSV file with customer",
-            "time": "2021-09-16T17:09:28+00:00"
+            "support": {
+                "issues": "https://github.com/techdivision/import-converter-customer-attribute/issues",
+                "source": "https://github.com/techdivision/import-converter-customer-attribute/tree/master"
+            },
+            "time": "2021-09-20T11:45:57+00:00"
         },
         {
             "name": "techdivision/import-converter-ee",
@@ -2923,12 +3057,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-converter-ee.git",
-                "reference": "4ff6815b4d9990139c2395d773be386fcef0358d"
+                "reference": "f182ff4ad2d27ed7283d6ef980ad6e4d4d9aec4e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-converter-ee/zipball/4ff6815b4d9990139c2395d773be386fcef0358d",
-                "reference": "4ff6815b4d9990139c2395d773be386fcef0358d",
+                "url": "https://api.github.com/repos/techdivision/import-converter-ee/zipball/f182ff4ad2d27ed7283d6ef980ad6e4d4d9aec4e",
+                "reference": "f182ff4ad2d27ed7283d6ef980ad6e4d4d9aec4e",
                 "shasum": ""
             },
             "require": {
@@ -2942,11 +3076,12 @@
                 "mikey179/vfsstream": "~1.0",
                 "pdepend/pdepend": "2.5.2",
                 "phpmd/phpmd": "@stable",
-                "phpunit/phpunit": "~6.5.0",
-                "sebastian/phpcpd": "~3.0.0",
+                "phpunit/phpunit": "^6.5.0|^8.0.0",
+                "sebastian/phpcpd": "~3.0|~4.0|~5.0|~6.0",
                 "squizlabs/php_codesniffer": "~3.4.0",
                 "symfony/http-kernel": "~3.4"
             },
+            "default-branch": true,
             "type": "library",
             "autoload": {
                 "psr-4": {
@@ -2967,7 +3102,11 @@
                 }
             ],
             "description": "Pacemaker library providing generic Magento 2 EE converter functionality",
-            "time": "2021-09-16T17:09:28+00:00"
+            "support": {
+                "issues": "https://github.com/techdivision/import-converter-ee/issues",
+                "source": "https://github.com/techdivision/import-converter-ee/tree/master"
+            },
+            "time": "2021-09-20T11:45:57+00:00"
         },
         {
             "name": "techdivision/import-converter-product-attribute",
@@ -2975,12 +3114,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-converter-product-attribute.git",
-                "reference": "b063c59a13d112b6a2f1b8f10793d523ea9cdce5"
+                "reference": "dc6641e8e6ec1fa0ddd2eed79a6a0c550430f60b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-converter-product-attribute/zipball/b063c59a13d112b6a2f1b8f10793d523ea9cdce5",
-                "reference": "b063c59a13d112b6a2f1b8f10793d523ea9cdce5",
+                "url": "https://api.github.com/repos/techdivision/import-converter-product-attribute/zipball/dc6641e8e6ec1fa0ddd2eed79a6a0c550430f60b",
+                "reference": "dc6641e8e6ec1fa0ddd2eed79a6a0c550430f60b",
                 "shasum": ""
             },
             "require": {
@@ -2995,11 +3134,12 @@
                 "mikey179/vfsstream": "~1.0",
                 "pdepend/pdepend": "2.5.2",
                 "phpmd/phpmd": "@stable",
-                "phpunit/phpunit": "~6.5.0",
-                "sebastian/phpcpd": "~3.0.0",
+                "phpunit/phpunit": "^6.5.0|^8.0.0",
+                "sebastian/phpcpd": "~3.0|~4.0|~5.0|~6.0",
                 "squizlabs/php_codesniffer": "~3.4.0",
                 "symfony/http-kernel": "~3.4"
             },
+            "default-branch": true,
             "type": "library",
             "autoload": {
                 "psr-4": {
@@ -3020,7 +3160,11 @@
                 }
             ],
             "description": "Pacemaker library providing the functionality to convert a CSV file with attribute option values from a CSV file with products",
-            "time": "2021-09-16T17:09:28+00:00"
+            "support": {
+                "issues": "https://github.com/techdivision/import-converter-product-attribute/issues",
+                "source": "https://github.com/techdivision/import-converter-product-attribute/tree/master"
+            },
+            "time": "2021-09-20T11:45:58+00:00"
         },
         {
             "name": "techdivision/import-converter-product-category",
@@ -3028,12 +3172,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-converter-product-category.git",
-                "reference": "a02c101496bebd0bb62e46b3409d0ce3aba354fa"
+                "reference": "a19eb7662226bdb0e25f398341497ad458f3581b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-converter-product-category/zipball/a02c101496bebd0bb62e46b3409d0ce3aba354fa",
-                "reference": "a02c101496bebd0bb62e46b3409d0ce3aba354fa",
+                "url": "https://api.github.com/repos/techdivision/import-converter-product-category/zipball/a19eb7662226bdb0e25f398341497ad458f3581b",
+                "reference": "a19eb7662226bdb0e25f398341497ad458f3581b",
                 "shasum": ""
             },
             "require": {
@@ -3048,11 +3192,12 @@
                 "mikey179/vfsstream": "~1.0",
                 "pdepend/pdepend": "2.5.2",
                 "phpmd/phpmd": "@stable",
-                "phpunit/phpunit": "~6.5.0",
-                "sebastian/phpcpd": "~3.0.0",
+                "phpunit/phpunit": "^6.5.0|^8.0.0",
+                "sebastian/phpcpd": "~3.0|~4.0|~5.0|~6.0",
                 "squizlabs/php_codesniffer": "~3.4.0",
                 "symfony/http-kernel": "~3.4"
             },
+            "default-branch": true,
             "type": "library",
             "autoload": {
                 "psr-4": {
@@ -3073,7 +3218,11 @@
                 }
             ],
             "description": "Pacemaker library providing the functionality to convert a CSV file with category from a CSV file with products",
-            "time": "2021-09-16T17:09:29+00:00"
+            "support": {
+                "issues": "https://github.com/techdivision/import-converter-product-category/issues",
+                "source": "https://github.com/techdivision/import-converter-product-category/tree/master"
+            },
+            "time": "2021-09-20T11:45:58+00:00"
         },
         {
             "name": "techdivision/import-customer",
@@ -3081,12 +3230,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-customer.git",
-                "reference": "8a647afb68c7f7ede4175ada11d61a522ab879b8"
+                "reference": "995811dc65ccbf9257cbc182f85f15460ea1f98e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-customer/zipball/8a647afb68c7f7ede4175ada11d61a522ab879b8",
-                "reference": "8a647afb68c7f7ede4175ada11d61a522ab879b8",
+                "url": "https://api.github.com/repos/techdivision/import-customer/zipball/995811dc65ccbf9257cbc182f85f15460ea1f98e",
+                "reference": "995811dc65ccbf9257cbc182f85f15460ea1f98e",
                 "shasum": ""
             },
             "require": {
@@ -3099,11 +3248,12 @@
                 "mikey179/vfsstream": "~1.0",
                 "pdepend/pdepend": "2.5.2",
                 "phpmd/phpmd": "@stable",
-                "phpunit/phpunit": "~6.5.0",
-                "sebastian/phpcpd": "~3.0.0",
+                "phpunit/phpunit": "^6.5.0|^8.0.0",
+                "sebastian/phpcpd": "~3.0|~4.0|~5.0|~6.0",
                 "squizlabs/php_codesniffer": "~3.4.0",
                 "symfony/http-kernel": "~3.4"
             },
+            "default-branch": true,
             "type": "library",
             "autoload": {
                 "psr-4": {
@@ -3124,7 +3274,11 @@
                 }
             ],
             "description": "Pacemaker library providing basic Magento 2 customer import functionality",
-            "time": "2021-09-16T17:09:29+00:00"
+            "support": {
+                "issues": "https://github.com/techdivision/import-customer/issues",
+                "source": "https://github.com/techdivision/import-customer/tree/master"
+            },
+            "time": "2021-09-20T11:45:58+00:00"
         },
         {
             "name": "techdivision/import-customer-address",
@@ -3132,12 +3286,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-customer-address.git",
-                "reference": "93d717265ff575b2e242780d7fe134d0a967f9e3"
+                "reference": "e0dda833e8c5a9ebf44e1ee4b375c8e0e542a398"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-customer-address/zipball/93d717265ff575b2e242780d7fe134d0a967f9e3",
-                "reference": "93d717265ff575b2e242780d7fe134d0a967f9e3",
+                "url": "https://api.github.com/repos/techdivision/import-customer-address/zipball/e0dda833e8c5a9ebf44e1ee4b375c8e0e542a398",
+                "reference": "e0dda833e8c5a9ebf44e1ee4b375c8e0e542a398",
                 "shasum": ""
             },
             "require": {
@@ -3150,11 +3304,12 @@
                 "mikey179/vfsstream": "~1.0",
                 "pdepend/pdepend": "2.5.2",
                 "phpmd/phpmd": "@stable",
-                "phpunit/phpunit": "~6.5.0",
-                "sebastian/phpcpd": "~3.0.0",
+                "phpunit/phpunit": "^6.5.0|^8.0.0",
+                "sebastian/phpcpd": "~3.0|~4.0|~5.0|~6.0",
                 "squizlabs/php_codesniffer": "~3.4.0",
                 "symfony/http-kernel": "~3.4"
             },
+            "default-branch": true,
             "type": "library",
             "autoload": {
                 "psr-4": {
@@ -3175,7 +3330,11 @@
                 }
             ],
             "description": "Pacemaker library providing basic Magento 2 customer address import functionality",
-            "time": "2021-09-16T17:09:30+00:00"
+            "support": {
+                "issues": "https://github.com/techdivision/import-customer-address/issues",
+                "source": "https://github.com/techdivision/import-customer-address/tree/master"
+            },
+            "time": "2021-09-20T11:45:59+00:00"
         },
         {
             "name": "techdivision/import-dbal",
@@ -3183,12 +3342,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-dbal.git",
-                "reference": "89cdd065e551dec4282d9c3723988814c8eda328"
+                "reference": "13a04952f1bc7d70fdbf0358d207a0f12a3cce26"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-dbal/zipball/89cdd065e551dec4282d9c3723988814c8eda328",
-                "reference": "89cdd065e551dec4282d9c3723988814c8eda328",
+                "url": "https://api.github.com/repos/techdivision/import-dbal/zipball/13a04952f1bc7d70fdbf0358d207a0f12a3cce26",
+                "reference": "13a04952f1bc7d70fdbf0358d207a0f12a3cce26",
                 "shasum": ""
             },
             "require": {
@@ -3201,11 +3360,12 @@
                 "mikey179/vfsstream": "~1.0",
                 "pdepend/pdepend": "2.5.2",
                 "phpmd/phpmd": "@stable",
-                "phpunit/phpunit": "~6.5.0",
+                "phpunit/phpunit": "^6.5.0|^8.0.0",
                 "sebastian/phpcpd": "~3.0|~4.0|~5.0|~6.0",
                 "squizlabs/php_codesniffer": "~3.4.0",
                 "symfony/http-kernel": "~3.4"
             },
+            "default-branch": true,
             "type": "library",
             "autoload": {
                 "psr-4": {
@@ -3227,7 +3387,11 @@
                 }
             ],
             "description": "Pacemaker library providing interfaces for Magento 2 import DBAL functionality",
-            "time": "2021-09-16T17:09:30+00:00"
+            "support": {
+                "issues": "https://github.com/techdivision/import-dbal/issues",
+                "source": "https://github.com/techdivision/import-dbal/tree/master"
+            },
+            "time": "2021-09-20T11:45:59+00:00"
         },
         {
             "name": "techdivision/import-dbal-collection",
@@ -3235,12 +3399,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-dbal-collection.git",
-                "reference": "1752db0d6f866e024cebed811fb5f3595554b4d2"
+                "reference": "56b13191d46912dae0c9567f24167fa644487822"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-dbal-collection/zipball/1752db0d6f866e024cebed811fb5f3595554b4d2",
-                "reference": "1752db0d6f866e024cebed811fb5f3595554b4d2",
+                "url": "https://api.github.com/repos/techdivision/import-dbal-collection/zipball/56b13191d46912dae0c9567f24167fa644487822",
+                "reference": "56b13191d46912dae0c9567f24167fa644487822",
                 "shasum": ""
             },
             "require": {
@@ -3255,11 +3419,12 @@
                 "mikey179/vfsstream": "~1.0",
                 "pdepend/pdepend": "2.5.2",
                 "phpmd/phpmd": "@stable",
-                "phpunit/phpunit": "~6.5.0",
+                "phpunit/phpunit": "^6.5.0|^8.0.0",
                 "sebastian/phpcpd": "~3.0|~4.0|~5.0|~6.0",
                 "squizlabs/php_codesniffer": "~3.4.0",
                 "symfony/http-kernel": "~3.4"
             },
+            "default-branch": true,
             "type": "library",
             "autoload": {
                 "psr-4": {
@@ -3281,7 +3446,11 @@
                 }
             ],
             "description": "Pacemaker library providing a hyperfast Magento 2 import DBAL functionality",
-            "time": "2021-09-16T17:09:30+00:00"
+            "support": {
+                "issues": "https://github.com/techdivision/import-dbal-collection/issues",
+                "source": "https://github.com/techdivision/import-dbal-collection/tree/master"
+            },
+            "time": "2021-09-20T11:45:59+00:00"
         },
         {
             "name": "techdivision/import-ee",
@@ -3289,12 +3458,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-ee.git",
-                "reference": "100ec0e525205aa6ef969227e2a731b7a574db62"
+                "reference": "2fe61fca36328802f7f2d90e8e8c4fdf49f0760c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-ee/zipball/100ec0e525205aa6ef969227e2a731b7a574db62",
-                "reference": "100ec0e525205aa6ef969227e2a731b7a574db62",
+                "url": "https://api.github.com/repos/techdivision/import-ee/zipball/2fe61fca36328802f7f2d90e8e8c4fdf49f0760c",
+                "reference": "2fe61fca36328802f7f2d90e8e8c4fdf49f0760c",
                 "shasum": ""
             },
             "require": {
@@ -3307,11 +3476,12 @@
                 "mikey179/vfsstream": "~1.0",
                 "pdepend/pdepend": "2.5.2",
                 "phpmd/phpmd": "@stable",
-                "phpunit/phpunit": "~6.5.0",
-                "sebastian/phpcpd": "~3.0.0",
+                "phpunit/phpunit": "^6.5.0|^8.0.0",
+                "sebastian/phpcpd": "~3.0|~4.0|~5.0|~6.0",
                 "squizlabs/php_codesniffer": "~3.4.0",
                 "symfony/http-kernel": "~3.4"
             },
+            "default-branch": true,
             "type": "library",
             "autoload": {
                 "psr-4": {
@@ -3332,7 +3502,11 @@
                 }
             ],
             "description": "Pacemaker library providing basic Magento 2 EE import functionality",
-            "time": "2021-09-16T17:09:31+00:00"
+            "support": {
+                "issues": "https://github.com/techdivision/import-ee/issues",
+                "source": "https://github.com/techdivision/import-ee/tree/master"
+            },
+            "time": "2021-09-20T11:46:00+00:00"
         },
         {
             "name": "techdivision/import-product",
@@ -3340,12 +3514,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-product.git",
-                "reference": "6bdb39e4ea12e4a387cd378b0443c81b2bd50348"
+                "reference": "348f4ccc8eac537d4f2c1161270311309a4d8675"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-product/zipball/6bdb39e4ea12e4a387cd378b0443c81b2bd50348",
-                "reference": "6bdb39e4ea12e4a387cd378b0443c81b2bd50348",
+                "url": "https://api.github.com/repos/techdivision/import-product/zipball/348f4ccc8eac537d4f2c1161270311309a4d8675",
+                "reference": "348f4ccc8eac537d4f2c1161270311309a4d8675",
                 "shasum": ""
             },
             "require": {
@@ -3358,11 +3532,12 @@
                 "mikey179/vfsstream": "~1.0",
                 "pdepend/pdepend": "2.5.2",
                 "phpmd/phpmd": "@stable",
-                "phpunit/phpunit": "~6.5.0",
+                "phpunit/phpunit": "^6.5.0|^8.0.0",
                 "sebastian/phpcpd": "~3.0|~4.0|~5.0|~6.0",
                 "squizlabs/php_codesniffer": "~3.4.0",
                 "symfony/http-kernel": "~3.4"
             },
+            "default-branch": true,
             "type": "library",
             "autoload": {
                 "psr-4": {
@@ -3383,7 +3558,11 @@
                 }
             ],
             "description": "Pacemaker library providing basic Magento 2 product import functionality",
-            "time": "2021-09-16T17:09:32+00:00"
+            "support": {
+                "issues": "https://github.com/techdivision/import-product/issues",
+                "source": "https://github.com/techdivision/import-product/tree/master"
+            },
+            "time": "2021-09-20T11:46:00+00:00"
         },
         {
             "name": "techdivision/import-product-bundle",
@@ -3391,12 +3570,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-product-bundle.git",
-                "reference": "78d524026b1d8f8d32db2bf7bfc344b878175cf4"
+                "reference": "cd1560f39bfcdfb2bc40c21cb242ddca61066e43"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-product-bundle/zipball/78d524026b1d8f8d32db2bf7bfc344b878175cf4",
-                "reference": "78d524026b1d8f8d32db2bf7bfc344b878175cf4",
+                "url": "https://api.github.com/repos/techdivision/import-product-bundle/zipball/cd1560f39bfcdfb2bc40c21cb242ddca61066e43",
+                "reference": "cd1560f39bfcdfb2bc40c21cb242ddca61066e43",
                 "shasum": ""
             },
             "require": {
@@ -3409,11 +3588,12 @@
                 "mikey179/vfsstream": "~1.0",
                 "pdepend/pdepend": "2.5.2",
                 "phpmd/phpmd": "@stable",
-                "phpunit/phpunit": "~6.5.0",
-                "sebastian/phpcpd": "~3.0.0",
+                "phpunit/phpunit": "^6.5.0|^8.0.0",
+                "sebastian/phpcpd": "~3.0|~4.0|~5.0|~6.0",
                 "squizlabs/php_codesniffer": "~3.4.0",
                 "symfony/http-kernel": "~3.4"
             },
+            "default-branch": true,
             "type": "library",
             "autoload": {
                 "psr-4": {
@@ -3434,7 +3614,11 @@
                 }
             ],
             "description": "Pacemaker library providing basic Magento 2 bundle product import functionality",
-            "time": "2021-09-16T17:09:32+00:00"
+            "support": {
+                "issues": "https://github.com/techdivision/import-product-bundle/issues",
+                "source": "https://github.com/techdivision/import-product-bundle/tree/master"
+            },
+            "time": "2021-09-20T11:46:00+00:00"
         },
         {
             "name": "techdivision/import-product-bundle-ee",
@@ -3442,12 +3626,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-product-bundle-ee.git",
-                "reference": "b87220c4c872305022fb9eea66351d1a4f30e3fc"
+                "reference": "cb6eb9ff13cceee641148b37bd25300906b16eac"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-product-bundle-ee/zipball/b87220c4c872305022fb9eea66351d1a4f30e3fc",
-                "reference": "b87220c4c872305022fb9eea66351d1a4f30e3fc",
+                "url": "https://api.github.com/repos/techdivision/import-product-bundle-ee/zipball/cb6eb9ff13cceee641148b37bd25300906b16eac",
+                "reference": "cb6eb9ff13cceee641148b37bd25300906b16eac",
                 "shasum": ""
             },
             "require": {
@@ -3461,11 +3645,12 @@
                 "mikey179/vfsstream": "~1.0",
                 "pdepend/pdepend": "2.5.2",
                 "phpmd/phpmd": "@stable",
-                "phpunit/phpunit": "~6.5.0",
-                "sebastian/phpcpd": "~3.0.0",
+                "phpunit/phpunit": "^6.5.0|^8.0.0",
+                "sebastian/phpcpd": "~3.0|~4.0|~5.0|~6.0",
                 "squizlabs/php_codesniffer": "~3.4.0",
                 "symfony/http-kernel": "~3.4"
             },
+            "default-branch": true,
             "type": "library",
             "autoload": {
                 "psr-4": {
@@ -3486,7 +3671,11 @@
                 }
             ],
             "description": "Pacemaker library providing basic Magento 2 EE bundle product import functionality",
-            "time": "2021-09-16T17:09:32+00:00"
+            "support": {
+                "issues": "https://github.com/techdivision/import-product-bundle-ee/issues",
+                "source": "https://github.com/techdivision/import-product-bundle-ee/tree/master"
+            },
+            "time": "2021-09-20T11:46:01+00:00"
         },
         {
             "name": "techdivision/import-product-ee",
@@ -3494,12 +3683,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-product-ee.git",
-                "reference": "afbf8e6cee8599e699862a7e2c4ccc2157bea8aa"
+                "reference": "20be3319bb9dfb6f574940d55b93a6cf67944336"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-product-ee/zipball/afbf8e6cee8599e699862a7e2c4ccc2157bea8aa",
-                "reference": "afbf8e6cee8599e699862a7e2c4ccc2157bea8aa",
+                "url": "https://api.github.com/repos/techdivision/import-product-ee/zipball/20be3319bb9dfb6f574940d55b93a6cf67944336",
+                "reference": "20be3319bb9dfb6f574940d55b93a6cf67944336",
                 "shasum": ""
             },
             "require": {
@@ -3513,11 +3702,12 @@
                 "mikey179/vfsstream": "~1.0",
                 "pdepend/pdepend": "2.5.2",
                 "phpmd/phpmd": "@stable",
-                "phpunit/phpunit": "~6.5.0",
+                "phpunit/phpunit": "^6.5.0|^8.0.0",
                 "sebastian/phpcpd": "~3.0|~4.0|~5.0|~6.0",
                 "squizlabs/php_codesniffer": "~3.4.0",
                 "symfony/http-kernel": "~3.4"
             },
+            "default-branch": true,
             "type": "library",
             "autoload": {
                 "psr-4": {
@@ -3538,7 +3728,11 @@
                 }
             ],
             "description": "Pacemaker library providing basic Magento 2 EE product import functionality",
-            "time": "2021-09-16T17:09:33+00:00"
+            "support": {
+                "issues": "https://github.com/techdivision/import-product-ee/issues",
+                "source": "https://github.com/techdivision/import-product-ee/tree/master"
+            },
+            "time": "2021-09-20T11:46:01+00:00"
         },
         {
             "name": "techdivision/import-product-grouped",
@@ -3546,12 +3740,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-product-grouped.git",
-                "reference": "1ac85fc17d0398ed380bc44af7481a9ad87b5321"
+                "reference": "c431a102f78338f86cfcb6459769be4aa1d46422"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-product-grouped/zipball/1ac85fc17d0398ed380bc44af7481a9ad87b5321",
-                "reference": "1ac85fc17d0398ed380bc44af7481a9ad87b5321",
+                "url": "https://api.github.com/repos/techdivision/import-product-grouped/zipball/c431a102f78338f86cfcb6459769be4aa1d46422",
+                "reference": "c431a102f78338f86cfcb6459769be4aa1d46422",
                 "shasum": ""
             },
             "require": {
@@ -3564,11 +3758,12 @@
                 "mikey179/vfsstream": "~1.0",
                 "pdepend/pdepend": "2.5.2",
                 "phpmd/phpmd": "@stable",
-                "phpunit/phpunit": "~6.5.0",
-                "sebastian/phpcpd": "~3.0.0",
+                "phpunit/phpunit": "^6.5.0|^8.0.0",
+                "sebastian/phpcpd": "~3.0|~4.0|~5.0|~6.0",
                 "squizlabs/php_codesniffer": "~3.4.0",
                 "symfony/http-kernel": "~3.4"
             },
+            "default-branch": true,
             "type": "library",
             "autoload": {
                 "psr-4": {
@@ -3589,7 +3784,11 @@
                 }
             ],
             "description": "Pacemaker library providing basic Magento 2 grouped product import functionality",
-            "time": "2021-09-16T17:09:33+00:00"
+            "support": {
+                "issues": "https://github.com/techdivision/import-product-grouped/issues",
+                "source": "https://github.com/techdivision/import-product-grouped/tree/master"
+            },
+            "time": "2021-09-20T11:46:01+00:00"
         },
         {
             "name": "techdivision/import-product-grouped-ee",
@@ -3597,12 +3796,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-product-grouped-ee.git",
-                "reference": "fe1aa9bdf6111f86b0bd191fdd9ed99880dde0d6"
+                "reference": "89b9cedc61768c291fa4fcee1e0131f0e04ba6c0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-product-grouped-ee/zipball/fe1aa9bdf6111f86b0bd191fdd9ed99880dde0d6",
-                "reference": "fe1aa9bdf6111f86b0bd191fdd9ed99880dde0d6",
+                "url": "https://api.github.com/repos/techdivision/import-product-grouped-ee/zipball/89b9cedc61768c291fa4fcee1e0131f0e04ba6c0",
+                "reference": "89b9cedc61768c291fa4fcee1e0131f0e04ba6c0",
                 "shasum": ""
             },
             "require": {
@@ -3616,11 +3815,12 @@
                 "mikey179/vfsstream": "~1.0",
                 "pdepend/pdepend": "2.5.2",
                 "phpmd/phpmd": "@stable",
-                "phpunit/phpunit": "~6.5.0",
-                "sebastian/phpcpd": "~3.0.0",
+                "phpunit/phpunit": "^6.5.0|^8.0.0",
+                "sebastian/phpcpd": "~3.0|~4.0|~5.0|~6.0",
                 "squizlabs/php_codesniffer": "~3.4.0",
                 "symfony/http-kernel": "~3.4"
             },
+            "default-branch": true,
             "type": "library",
             "autoload": {
                 "psr-4": {
@@ -3641,7 +3841,11 @@
                 }
             ],
             "description": "Pacemaker library providing basic Magento 2 EE grouped product import functionality",
-            "time": "2021-09-16T17:09:34+00:00"
+            "support": {
+                "issues": "https://github.com/techdivision/import-product-grouped-ee/issues",
+                "source": "https://github.com/techdivision/import-product-grouped-ee/tree/master"
+            },
+            "time": "2021-09-20T11:46:01+00:00"
         },
         {
             "name": "techdivision/import-product-link",
@@ -3649,12 +3853,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-product-link.git",
-                "reference": "69b6e722562692b866c3545d2db777abadeeaf3e"
+                "reference": "7f787621bdfebc77f3c7eb2b3b60a8f946e5c42e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-product-link/zipball/69b6e722562692b866c3545d2db777abadeeaf3e",
-                "reference": "69b6e722562692b866c3545d2db777abadeeaf3e",
+                "url": "https://api.github.com/repos/techdivision/import-product-link/zipball/7f787621bdfebc77f3c7eb2b3b60a8f946e5c42e",
+                "reference": "7f787621bdfebc77f3c7eb2b3b60a8f946e5c42e",
                 "shasum": ""
             },
             "require": {
@@ -3667,11 +3871,12 @@
                 "mikey179/vfsstream": "~1.0",
                 "pdepend/pdepend": "2.5.2",
                 "phpmd/phpmd": "@stable",
-                "phpunit/phpunit": "~6.5.0",
-                "sebastian/phpcpd": "~3.0.0",
+                "phpunit/phpunit": "^6.5.0|^8.0.0",
+                "sebastian/phpcpd": "~3.0|~4.0|~5.0|~6.0",
                 "squizlabs/php_codesniffer": "~3.4.0",
                 "symfony/http-kernel": "~3.4"
             },
+            "default-branch": true,
             "type": "library",
             "autoload": {
                 "psr-4": {
@@ -3692,7 +3897,11 @@
                 }
             ],
             "description": "Pacemaker library providing basic Magento 2 product link import functionality",
-            "time": "2021-09-16T17:09:34+00:00"
+            "support": {
+                "issues": "https://github.com/techdivision/import-product-link/issues",
+                "source": "https://github.com/techdivision/import-product-link/tree/master"
+            },
+            "time": "2021-09-20T11:46:02+00:00"
         },
         {
             "name": "techdivision/import-product-link-ee",
@@ -3700,12 +3909,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-product-link-ee.git",
-                "reference": "81c0752ebf6a95876d142b825d2f4781769f2dea"
+                "reference": "1906d9bc00631433a264b06b3fbef7bdcfb75c97"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-product-link-ee/zipball/81c0752ebf6a95876d142b825d2f4781769f2dea",
-                "reference": "81c0752ebf6a95876d142b825d2f4781769f2dea",
+                "url": "https://api.github.com/repos/techdivision/import-product-link-ee/zipball/1906d9bc00631433a264b06b3fbef7bdcfb75c97",
+                "reference": "1906d9bc00631433a264b06b3fbef7bdcfb75c97",
                 "shasum": ""
             },
             "require": {
@@ -3719,11 +3928,12 @@
                 "mikey179/vfsstream": "~1.0",
                 "pdepend/pdepend": "2.5.2",
                 "phpmd/phpmd": "@stable",
-                "phpunit/phpunit": "~6.5.0",
-                "sebastian/phpcpd": "~3.0.0",
+                "phpunit/phpunit": "^6.5.0|^8.0.0",
+                "sebastian/phpcpd": "~3.0|~4.0|~5.0|~6.0",
                 "squizlabs/php_codesniffer": "~3.4.0",
                 "symfony/http-kernel": "~3.4"
             },
+            "default-branch": true,
             "type": "library",
             "autoload": {
                 "psr-4": {
@@ -3744,7 +3954,11 @@
                 }
             ],
             "description": "Pacemaker library providing basic Magento 2 EE product link import functionality",
-            "time": "2021-09-16T17:09:34+00:00"
+            "support": {
+                "issues": "https://github.com/techdivision/import-product-link-ee/issues",
+                "source": "https://github.com/techdivision/import-product-link-ee/tree/master"
+            },
+            "time": "2021-09-20T11:46:02+00:00"
         },
         {
             "name": "techdivision/import-product-media",
@@ -3752,12 +3966,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-product-media.git",
-                "reference": "1c9a81bb121fc30eb9bd012350c111eb7162644e"
+                "reference": "8592629117a243621414f072142fba68c0eb7682"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-product-media/zipball/1c9a81bb121fc30eb9bd012350c111eb7162644e",
-                "reference": "1c9a81bb121fc30eb9bd012350c111eb7162644e",
+                "url": "https://api.github.com/repos/techdivision/import-product-media/zipball/8592629117a243621414f072142fba68c0eb7682",
+                "reference": "8592629117a243621414f072142fba68c0eb7682",
                 "shasum": ""
             },
             "require": {
@@ -3770,11 +3984,12 @@
                 "mikey179/vfsstream": "~1.0",
                 "pdepend/pdepend": "2.5.2",
                 "phpmd/phpmd": "@stable",
-                "phpunit/phpunit": "~6.5.0",
-                "sebastian/phpcpd": "~3.0.0",
+                "phpunit/phpunit": "^6.5.0|^8.0.0",
+                "sebastian/phpcpd": "~3.0|~4.0|~5.0|~6.0",
                 "squizlabs/php_codesniffer": "~3.4.0",
                 "symfony/http-kernel": "~3.4"
             },
+            "default-branch": true,
             "type": "library",
             "autoload": {
                 "psr-4": {
@@ -3795,7 +4010,11 @@
                 }
             ],
             "description": "Pacemaker library providing basic Magento 2 product media import functionality",
-            "time": "2021-09-16T17:09:35+00:00"
+            "support": {
+                "issues": "https://github.com/techdivision/import-product-media/issues",
+                "source": "https://github.com/techdivision/import-product-media/tree/master"
+            },
+            "time": "2021-09-20T11:46:02+00:00"
         },
         {
             "name": "techdivision/import-product-media-ee",
@@ -3803,12 +4022,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-product-media-ee.git",
-                "reference": "b9ac50c5c20b3d0d2bb4cf9fd0ac298fdd65a698"
+                "reference": "b35efdba2f9a8e41e5337d8aa465e03f193d25c3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-product-media-ee/zipball/b9ac50c5c20b3d0d2bb4cf9fd0ac298fdd65a698",
-                "reference": "b9ac50c5c20b3d0d2bb4cf9fd0ac298fdd65a698",
+                "url": "https://api.github.com/repos/techdivision/import-product-media-ee/zipball/b35efdba2f9a8e41e5337d8aa465e03f193d25c3",
+                "reference": "b35efdba2f9a8e41e5337d8aa465e03f193d25c3",
                 "shasum": ""
             },
             "require": {
@@ -3822,11 +4041,12 @@
                 "mikey179/vfsstream": "~1.0",
                 "pdepend/pdepend": "2.5.2",
                 "phpmd/phpmd": "@stable",
-                "phpunit/phpunit": "~6.5.0",
-                "sebastian/phpcpd": "~3.0.0",
+                "phpunit/phpunit": "^6.5.0|^8.0.0",
+                "sebastian/phpcpd": "~3.0|~4.0|~5.0|~6.0",
                 "squizlabs/php_codesniffer": "~3.4.0",
                 "symfony/http-kernel": "~3.4"
             },
+            "default-branch": true,
             "type": "library",
             "autoload": {
                 "psr-4": {
@@ -3847,7 +4067,11 @@
                 }
             ],
             "description": "Pacemaker library providing basic Magento 2 EE product media import functionality",
-            "time": "2021-09-16T17:09:35+00:00"
+            "support": {
+                "issues": "https://github.com/techdivision/import-product-media-ee/issues",
+                "source": "https://github.com/techdivision/import-product-media-ee/tree/master"
+            },
+            "time": "2021-09-20T11:46:03+00:00"
         },
         {
             "name": "techdivision/import-product-msi",
@@ -3855,12 +4079,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-product-msi.git",
-                "reference": "9e4c5db3708671832a2dc3c0d5f4409e4aac49b2"
+                "reference": "62294d920f35c442fc60aa42cea2c97c59721ffb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-product-msi/zipball/9e4c5db3708671832a2dc3c0d5f4409e4aac49b2",
-                "reference": "9e4c5db3708671832a2dc3c0d5f4409e4aac49b2",
+                "url": "https://api.github.com/repos/techdivision/import-product-msi/zipball/62294d920f35c442fc60aa42cea2c97c59721ffb",
+                "reference": "62294d920f35c442fc60aa42cea2c97c59721ffb",
                 "shasum": ""
             },
             "require": {
@@ -3873,11 +4097,12 @@
                 "mikey179/vfsstream": "~1.0",
                 "pdepend/pdepend": "2.5.2",
                 "phpmd/phpmd": "@stable",
-                "phpunit/phpunit": "~6.5.0",
-                "sebastian/phpcpd": "~3.0.0",
+                "phpunit/phpunit": "^6.5.0|^8.0.0",
+                "sebastian/phpcpd": "~3.0|~4.0|~5.0|~6.0",
                 "squizlabs/php_codesniffer": "~3.4.0",
                 "symfony/http-kernel": "~3.4"
             },
+            "default-branch": true,
             "type": "library",
             "autoload": {
                 "psr-4": {
@@ -3898,7 +4123,11 @@
                 }
             ],
             "description": "Pacemaker library providing basic Magento 2 MSI product stock import functionality",
-            "time": "2021-09-16T17:09:36+00:00"
+            "support": {
+                "issues": "https://github.com/techdivision/import-product-msi/issues",
+                "source": "https://github.com/techdivision/import-product-msi/tree/master"
+            },
+            "time": "2021-09-20T11:46:03+00:00"
         },
         {
             "name": "techdivision/import-product-tier-price",
@@ -3906,12 +4135,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-product-tier-price.git",
-                "reference": "10991217d3b5c2093644438349b4ccbbaecd80a6"
+                "reference": "90942d4b5d392f8c3b8e25003731f63a15e500b5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-product-tier-price/zipball/10991217d3b5c2093644438349b4ccbbaecd80a6",
-                "reference": "10991217d3b5c2093644438349b4ccbbaecd80a6",
+                "url": "https://api.github.com/repos/techdivision/import-product-tier-price/zipball/90942d4b5d392f8c3b8e25003731f63a15e500b5",
+                "reference": "90942d4b5d392f8c3b8e25003731f63a15e500b5",
                 "shasum": ""
             },
             "require": {
@@ -3924,11 +4153,12 @@
                 "mikey179/vfsstream": "~1.0",
                 "pdepend/pdepend": "2.5.2",
                 "phpmd/phpmd": "@stable",
-                "phpunit/phpunit": "~6.5.0",
-                "sebastian/phpcpd": "~3.0.0",
+                "phpunit/phpunit": "^6.5.0|^8.0.0",
+                "sebastian/phpcpd": "~3.0|~4.0|~5.0|~6.0",
                 "squizlabs/php_codesniffer": "~3.4.0",
                 "symfony/http-kernel": "~3.4"
             },
+            "default-branch": true,
             "type": "library",
             "autoload": {
                 "psr-4": {
@@ -3954,7 +4184,11 @@
                 }
             ],
             "description": "Pacemaker library providing basic Magento 2 product tier price import functionality",
-            "time": "2021-09-16T17:09:36+00:00"
+            "support": {
+                "issues": "https://github.com/techdivision/import-product-tier-price/issues",
+                "source": "https://github.com/techdivision/import-product-tier-price/tree/master"
+            },
+            "time": "2021-09-20T11:46:03+00:00"
         },
         {
             "name": "techdivision/import-product-url-rewrite",
@@ -3962,12 +4196,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-product-url-rewrite.git",
-                "reference": "27ce75a90278651477ca963b9bd38c3110da78f3"
+                "reference": "47b37b0501c87dc4da9eb0bfbdbe99f1abf897cd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-product-url-rewrite/zipball/27ce75a90278651477ca963b9bd38c3110da78f3",
-                "reference": "27ce75a90278651477ca963b9bd38c3110da78f3",
+                "url": "https://api.github.com/repos/techdivision/import-product-url-rewrite/zipball/47b37b0501c87dc4da9eb0bfbdbe99f1abf897cd",
+                "reference": "47b37b0501c87dc4da9eb0bfbdbe99f1abf897cd",
                 "shasum": ""
             },
             "require": {
@@ -3980,11 +4214,12 @@
                 "mikey179/vfsstream": "~1.0",
                 "pdepend/pdepend": "2.5.2",
                 "phpmd/phpmd": "@stable",
-                "phpunit/phpunit": "~6.5.0",
+                "phpunit/phpunit": "^6.5.0|^8.0.0",
                 "sebastian/phpcpd": "~3.0|~4.0|~5.0|~6.0",
                 "squizlabs/php_codesniffer": "~3.4.0",
                 "symfony/http-kernel": "~3.4"
             },
+            "default-branch": true,
             "type": "library",
             "autoload": {
                 "psr-4": {
@@ -4005,7 +4240,11 @@
                 }
             ],
             "description": "Pacemaker library providing basic Magento 2 product URL rewrite import functionality",
-            "time": "2021-09-16T17:09:37+00:00"
+            "support": {
+                "issues": "https://github.com/techdivision/import-product-url-rewrite/issues",
+                "source": "https://github.com/techdivision/import-product-url-rewrite/tree/master"
+            },
+            "time": "2021-09-20T11:46:04+00:00"
         },
         {
             "name": "techdivision/import-product-variant",
@@ -4013,12 +4252,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-product-variant.git",
-                "reference": "55045e9041d82df26ea81f198f35ecb5fd4fa2c9"
+                "reference": "8b1c4f2da37dd2c7dca302bb7e8160479f7c8c16"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-product-variant/zipball/55045e9041d82df26ea81f198f35ecb5fd4fa2c9",
-                "reference": "55045e9041d82df26ea81f198f35ecb5fd4fa2c9",
+                "url": "https://api.github.com/repos/techdivision/import-product-variant/zipball/8b1c4f2da37dd2c7dca302bb7e8160479f7c8c16",
+                "reference": "8b1c4f2da37dd2c7dca302bb7e8160479f7c8c16",
                 "shasum": ""
             },
             "require": {
@@ -4031,11 +4270,12 @@
                 "mikey179/vfsstream": "~1.0",
                 "pdepend/pdepend": "2.5.2",
                 "phpmd/phpmd": "@stable",
-                "phpunit/phpunit": "~6.5.0",
-                "sebastian/phpcpd": "~3.0.0",
+                "phpunit/phpunit": "^6.5.0|^8.0.0",
+                "sebastian/phpcpd": "~3.0|~4.0|~5.0|~6.0",
                 "squizlabs/php_codesniffer": "~3.4.0",
                 "symfony/http-kernel": "~3.4"
             },
+            "default-branch": true,
             "type": "library",
             "autoload": {
                 "psr-4": {
@@ -4056,7 +4296,11 @@
                 }
             ],
             "description": "Pacemaker library providing basic Magento 2 configurable product import functionality",
-            "time": "2021-09-16T17:09:37+00:00"
+            "support": {
+                "issues": "https://github.com/techdivision/import-product-variant/issues",
+                "source": "https://github.com/techdivision/import-product-variant/tree/master"
+            },
+            "time": "2021-09-20T11:46:04+00:00"
         },
         {
             "name": "techdivision/import-product-variant-ee",
@@ -4064,12 +4308,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-product-variant-ee.git",
-                "reference": "7aaaa804db1a41b90a640f1e175a981e339a152e"
+                "reference": "ad8e6192f37738403a2bb1a78d6e0d6ac55ce901"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-product-variant-ee/zipball/7aaaa804db1a41b90a640f1e175a981e339a152e",
-                "reference": "7aaaa804db1a41b90a640f1e175a981e339a152e",
+                "url": "https://api.github.com/repos/techdivision/import-product-variant-ee/zipball/ad8e6192f37738403a2bb1a78d6e0d6ac55ce901",
+                "reference": "ad8e6192f37738403a2bb1a78d6e0d6ac55ce901",
                 "shasum": ""
             },
             "require": {
@@ -4083,11 +4327,12 @@
                 "mikey179/vfsstream": "~1.0",
                 "pdepend/pdepend": "2.5.2",
                 "phpmd/phpmd": "@stable",
-                "phpunit/phpunit": "~6.5.0",
-                "sebastian/phpcpd": "~3.0.0",
+                "phpunit/phpunit": "^6.5.0|^8.0.0",
+                "sebastian/phpcpd": "~3.0|~4.0|~5.0|~6.0",
                 "squizlabs/php_codesniffer": "~3.4.0",
                 "symfony/http-kernel": "~3.4"
             },
+            "default-branch": true,
             "type": "library",
             "autoload": {
                 "psr-4": {
@@ -4108,7 +4353,11 @@
                 }
             ],
             "description": "Pacemaker library providing basic Magento 2 EE configurable product import functionality",
-            "time": "2021-09-16T17:09:38+00:00"
+            "support": {
+                "issues": "https://github.com/techdivision/import-product-variant-ee/issues",
+                "source": "https://github.com/techdivision/import-product-variant-ee/tree/master"
+            },
+            "time": "2021-09-20T11:46:04+00:00"
         },
         {
             "name": "techdivision/import-serializer",
@@ -4116,12 +4365,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-serializer.git",
-                "reference": "669613a1a7fc1a53c4b2b53cb118009c70e6782f"
+                "reference": "1ba8e562bdd3121f28224f63f8fbb74cb5824300"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-serializer/zipball/669613a1a7fc1a53c4b2b53cb118009c70e6782f",
-                "reference": "669613a1a7fc1a53c4b2b53cb118009c70e6782f",
+                "url": "https://api.github.com/repos/techdivision/import-serializer/zipball/1ba8e562bdd3121f28224f63f8fbb74cb5824300",
+                "reference": "1ba8e562bdd3121f28224f63f8fbb74cb5824300",
                 "shasum": ""
             },
             "require": {
@@ -4133,11 +4382,12 @@
                 "mikey179/vfsstream": "~1.0",
                 "pdepend/pdepend": "2.5.2",
                 "phpmd/phpmd": "@stable",
-                "phpunit/phpunit": "~6.5.0",
+                "phpunit/phpunit": "^6.5.0|^8.0.0",
                 "sebastian/phpcpd": "~3.0|~4.0|~5.0|~6.0",
                 "squizlabs/php_codesniffer": "~3.4.0",
                 "symfony/http-kernel": "~3.4"
             },
+            "default-branch": true,
             "type": "library",
             "autoload": {
                 "psr-4": {
@@ -4158,7 +4408,11 @@
                 }
             ],
             "description": "Pacemaker library providing interfaces for Magento 2 import serializer functionality",
-            "time": "2021-09-16T17:09:38+00:00"
+            "support": {
+                "issues": "https://github.com/techdivision/import-serializer/issues",
+                "source": "https://github.com/techdivision/import-serializer/tree/master"
+            },
+            "time": "2021-09-20T11:46:04+00:00"
         },
         {
             "name": "techdivision/import-serializer-csv",
@@ -4166,12 +4420,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-serializer-csv.git",
-                "reference": "f496832fcc47d9f0fe0640aa891dda83b00bf64c"
+                "reference": "4fdece37daa36d901f08766755f061611f0583ad"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-serializer-csv/zipball/f496832fcc47d9f0fe0640aa891dda83b00bf64c",
-                "reference": "f496832fcc47d9f0fe0640aa891dda83b00bf64c",
+                "url": "https://api.github.com/repos/techdivision/import-serializer-csv/zipball/4fdece37daa36d901f08766755f061611f0583ad",
+                "reference": "4fdece37daa36d901f08766755f061611f0583ad",
                 "shasum": ""
             },
             "require": {
@@ -4184,11 +4438,12 @@
                 "mikey179/vfsstream": "~1.0",
                 "pdepend/pdepend": "2.5.2",
                 "phpmd/phpmd": "@stable",
-                "phpunit/phpunit": "~6.5.0",
+                "phpunit/phpunit": "^6.5.0|^8.0.0",
                 "sebastian/phpcpd": "~3.0|~4.0|~5.0|~6.0",
                 "squizlabs/php_codesniffer": "~3.4.0",
                 "symfony/http-kernel": "~3.4"
             },
+            "default-branch": true,
             "type": "library",
             "autoload": {
                 "psr-4": {
@@ -4209,7 +4464,11 @@
                 }
             ],
             "description": "Pacemaker library providing basic Magento 2 import CSV serializer functionality",
-            "time": "2021-09-16T17:09:38+00:00"
+            "support": {
+                "issues": "https://github.com/techdivision/import-serializer-csv/issues",
+                "source": "https://github.com/techdivision/import-serializer-csv/tree/master"
+            },
+            "time": "2021-09-20T11:51:17+00:00"
         },
         {
             "name": "zendframework/zend-filter",
@@ -4274,6 +4533,14 @@
                 "filter",
                 "zf"
             ],
+            "support": {
+                "chat": "https://zendframework-slack.herokuapp.com",
+                "docs": "https://docs.zendframework.com/zend-filter/",
+                "forum": "https://discourse.zendframework.com/c/questions/components",
+                "issues": "https://github.com/zendframework/zend-filter/issues",
+                "rss": "https://github.com/zendframework/zend-filter/releases.atom",
+                "source": "https://github.com/zendframework/zend-filter"
+            },
             "abandoned": "laminas/laminas-filter",
             "time": "2019-08-19T07:08:04+00:00"
         },
@@ -4321,6 +4588,14 @@
                 "stdlib",
                 "zf"
             ],
+            "support": {
+                "docs": "https://docs.zendframework.com/zend-stdlib/",
+                "forum": "https://discourse.zendframework.com/c/questions/components",
+                "issues": "https://github.com/zendframework/zend-stdlib/issues",
+                "rss": "https://github.com/zendframework/zend-stdlib/releases.atom",
+                "slack": "https://zendframework-slack.herokuapp.com",
+                "source": "https://github.com/zendframework/zend-stdlib"
+            },
             "abandoned": "laminas/laminas-stdlib",
             "time": "2018-08-28T21:34:05+00:00"
         }
@@ -4404,6 +4679,10 @@
                 "symfony",
                 "testing"
             ],
+            "support": {
+                "issues": "https://github.com/Behat/Behat/issues",
+                "source": "https://github.com/Behat/Behat/tree/v3.7.0"
+            },
             "time": "2020-06-03T13:08:44+00:00"
         },
         {
@@ -4529,6 +4808,10 @@
                 "testing",
                 "web"
             ],
+            "support": {
+                "issues": "https://github.com/minkphp/Mink/issues",
+                "source": "https://github.com/minkphp/Mink/tree/v1.8.1"
+            },
             "time": "2020-03-11T15:45:53+00:00"
         },
         {
@@ -4586,6 +4869,10 @@
                 "browser",
                 "testing"
             ],
+            "support": {
+                "issues": "https://github.com/minkphp/MinkBrowserKitDriver/issues",
+                "source": "https://github.com/minkphp/MinkBrowserKitDriver/tree/v1.3.4"
+            },
             "time": "2020-03-11T09:49:45+00:00"
         },
         {
@@ -4645,6 +4932,10 @@
                 "test",
                 "web"
             ],
+            "support": {
+                "issues": "https://github.com/Behat/MinkExtension/issues",
+                "source": "https://github.com/Behat/MinkExtension/tree/master"
+            },
             "time": "2018-02-06T15:36:30+00:00"
         },
         {
@@ -4697,6 +4988,10 @@
                 "headless",
                 "testing"
             ],
+            "support": {
+                "issues": "https://github.com/minkphp/MinkGoutteDriver/issues",
+                "source": "https://github.com/minkphp/MinkGoutteDriver/tree/v1.1.0"
+            },
             "time": "2014-10-09T09:21:12+00:00"
         },
         {
@@ -4726,6 +5021,7 @@
                 "phpunit/phpunit": "~4.0|~5.0",
                 "symfony/symfony": "~2.1|~3.0|~4.0"
             },
+            "default-branch": true,
             "type": "behat-extension",
             "extra": {
                 "branch-alias": {
@@ -4758,6 +5054,10 @@
                 "framework",
                 "symfony"
             ],
+            "support": {
+                "issues": "https://github.com/Behat/Symfony2Extension/issues",
+                "source": "https://github.com/Behat/Symfony2Extension/tree/master"
+            },
             "time": "2018-06-22T15:30:47+00:00"
         },
         {
@@ -4803,20 +5103,24 @@
                 "slug",
                 "transliterator"
             ],
+            "support": {
+                "issues": "https://github.com/Behat/Transliterator/issues",
+                "source": "https://github.com/Behat/Transliterator/tree/v1.3.0"
+            },
             "time": "2020-01-14T16:39:13+00:00"
         },
         {
             "name": "consolidation/annotated-command",
-            "version": "4.3.1",
+            "version": "4.3.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/consolidation/annotated-command.git",
-                "reference": "386d2c9253675bbb4b7f04c6bc52f8e74c0d4cc6"
+                "reference": "101c7dd0388259cfbba41b705b9255d2b1976bbf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/consolidation/annotated-command/zipball/386d2c9253675bbb4b7f04c6bc52f8e74c0d4cc6",
-                "reference": "386d2c9253675bbb4b7f04c6bc52f8e74c0d4cc6",
+                "url": "https://api.github.com/repos/consolidation/annotated-command/zipball/101c7dd0388259cfbba41b705b9255d2b1976bbf",
+                "reference": "101c7dd0388259cfbba41b705b9255d2b1976bbf",
                 "shasum": ""
             },
             "require": {
@@ -4856,9 +5160,9 @@
             "description": "Initialize Symfony Console commands from annotated command class methods.",
             "support": {
                 "issues": "https://github.com/consolidation/annotated-command/issues",
-                "source": "https://github.com/consolidation/annotated-command/tree/4.3.1"
+                "source": "https://github.com/consolidation/annotated-command/tree/4.3.2"
             },
-            "time": "2021-08-30T03:50:47+00:00"
+            "time": "2021-09-19T14:35:36+00:00"
         },
         {
             "name": "consolidation/config",
@@ -4939,6 +5243,10 @@
                 }
             ],
             "description": "Provide configuration services for a commandline tool.",
+            "support": {
+                "issues": "https://github.com/consolidation/config/issues",
+                "source": "https://github.com/consolidation/config/tree/master"
+            },
             "time": "2019-03-03T19:37:04+00:00"
         },
         {
@@ -4987,6 +5295,10 @@
                 }
             ],
             "description": "Improved Psr-3 / Psr\\Log logger based on Symfony Console components.",
+            "support": {
+                "issues": "https://github.com/consolidation/log/issues",
+                "source": "https://github.com/consolidation/log/tree/2.0.2"
+            },
             "time": "2020-12-10T16:26:23+00:00"
         },
         {
@@ -5042,6 +5354,10 @@
                 }
             ],
             "description": "Format text by applying transformations provided by plug-in formatters.",
+            "support": {
+                "issues": "https://github.com/consolidation/output-formatters/issues",
+                "source": "https://github.com/consolidation/output-formatters/tree/4.1.2"
+            },
             "time": "2020-12-12T19:04:59+00:00"
         },
         {
@@ -5157,6 +5473,10 @@
                 }
             ],
             "description": "Modern task runner",
+            "support": {
+                "issues": "https://github.com/consolidation/Robo/issues",
+                "source": "https://github.com/consolidation/Robo/tree/1.4.13"
+            },
             "time": "2020-10-11T04:51:34+00:00"
         },
         {
@@ -5207,6 +5527,10 @@
                 }
             ],
             "description": "Provides a self:update command for Symfony Console applications.",
+            "support": {
+                "issues": "https://github.com/consolidation/self-update/issues",
+                "source": "https://github.com/consolidation/self-update/tree/1.2.0"
+            },
             "time": "2020-04-13T02:49:20+00:00"
         },
         {
@@ -5238,6 +5562,10 @@
             ],
             "description": "Promoting the interoperability of container objects (DIC, SL, etc.)",
             "homepage": "https://github.com/container-interop/container-interop",
+            "support": {
+                "issues": "https://github.com/container-interop/container-interop/issues",
+                "source": "https://github.com/container-interop/container-interop/tree/master"
+            },
             "abandoned": "psr/container",
             "time": "2017-02-14T19:40:03+00:00"
         },
@@ -5298,6 +5626,10 @@
                 "dot",
                 "notation"
             ],
+            "support": {
+                "issues": "https://github.com/dflydev/dflydev-dot-access-data/issues",
+                "source": "https://github.com/dflydev/dflydev-dot-access-data/tree/master"
+            },
             "time": "2017-01-20T21:14:22+00:00"
         },
         {
@@ -5475,6 +5807,10 @@
                 "redis",
                 "xcache"
             ],
+            "support": {
+                "issues": "https://github.com/doctrine/cache/issues",
+                "source": "https://github.com/doctrine/cache/tree/1.12.1"
+            },
             "funding": [
                 {
                     "url": "https://www.doctrine-project.org/sponsorship.html",
@@ -5562,6 +5898,10 @@
                 "persistence",
                 "spl"
             ],
+            "support": {
+                "issues": "https://github.com/doctrine/common/issues",
+                "source": "https://github.com/doctrine/common/tree/v2.7.3"
+            },
             "time": "2017-07-22T08:35:12+00:00"
         },
         {
@@ -5633,6 +5973,10 @@
                 "persistence",
                 "queryobject"
             ],
+            "support": {
+                "issues": "https://github.com/doctrine/dbal/issues",
+                "source": "https://github.com/doctrine/dbal/tree/v2.5.13"
+            },
             "time": "2017-07-22T20:44:48+00:00"
         },
         {
@@ -5711,6 +6055,10 @@
                 "uppercase",
                 "words"
             ],
+            "support": {
+                "issues": "https://github.com/doctrine/inflector/issues",
+                "source": "https://github.com/doctrine/inflector/tree/1.4.4"
+            },
             "funding": [
                 {
                     "url": "https://www.doctrine-project.org/sponsorship.html",
@@ -5774,6 +6122,10 @@
             "keywords": [
                 "scraper"
             ],
+            "support": {
+                "issues": "https://github.com/FriendsOfPHP/Goutte/issues",
+                "source": "https://github.com/FriendsOfPHP/Goutte/tree/master"
+            },
             "time": "2015-05-05T21:14:57+00:00"
         },
         {
@@ -5821,6 +6173,10 @@
                 }
             ],
             "description": "Expands internal property references in PHP arrays file.",
+            "support": {
+                "issues": "https://github.com/grasmash/expander/issues",
+                "source": "https://github.com/grasmash/expander/tree/master"
+            },
             "time": "2017-12-21T22:14:55+00:00"
         },
         {
@@ -5869,6 +6225,10 @@
                 }
             ],
             "description": "Expands internal property references in a yaml file.",
+            "support": {
+                "issues": "https://github.com/grasmash/yaml-expander/issues",
+                "source": "https://github.com/grasmash/yaml-expander/tree/master"
+            },
             "time": "2017-12-16T16:06:03+00:00"
         },
         {
@@ -5922,6 +6282,10 @@
                 "rest",
                 "web service"
             ],
+            "support": {
+                "issues": "https://github.com/guzzle/guzzle/issues",
+                "source": "https://github.com/guzzle/guzzle/tree/5.3"
+            },
             "time": "2019-10-30T09:32:00+00:00"
         },
         {
@@ -5973,6 +6337,10 @@
                 }
             ],
             "description": "Provides a simple API and specification that abstracts away the details of HTTP into a single PHP function.",
+            "support": {
+                "issues": "https://github.com/guzzle/RingPHP/issues",
+                "source": "https://github.com/guzzle/RingPHP/tree/1.1.1"
+            },
             "abandoned": true,
             "time": "2018-07-31T13:22:33+00:00"
         },
@@ -6024,6 +6392,10 @@
                 "Guzzle",
                 "stream"
             ],
+            "support": {
+                "issues": "https://github.com/guzzle/streams/issues",
+                "source": "https://github.com/guzzle/streams/tree/master"
+            },
             "abandoned": true,
             "time": "2014-10-12T19:18:40+00:00"
         },
@@ -6092,6 +6464,10 @@
                 "provider",
                 "service"
             ],
+            "support": {
+                "issues": "https://github.com/thephpleague/container/issues",
+                "source": "https://github.com/thephpleague/container/tree/2.5.0"
+            },
             "funding": [
                 {
                     "url": "https://github.com/philipobenito",
@@ -6144,6 +6520,11 @@
             ],
             "description": "Virtual file system to mock the real file system in unit tests.",
             "homepage": "http://vfs.bovigo.org/",
+            "support": {
+                "issues": "https://github.com/bovigo/vfsStream/issues",
+                "source": "https://github.com/bovigo/vfsStream/tree/master",
+                "wiki": "https://github.com/bovigo/vfsStream/wiki"
+            },
             "time": "2021-07-16T08:08:02+00:00"
         },
         {
@@ -6192,6 +6573,10 @@
                 "object",
                 "object graph"
             ],
+            "support": {
+                "issues": "https://github.com/myclabs/DeepCopy/issues",
+                "source": "https://github.com/myclabs/DeepCopy/tree/1.10.2"
+            },
             "funding": [
                 {
                     "url": "https://tidelift.com/funding/github/packagist/myclabs/deep-copy",
@@ -6238,32 +6623,37 @@
                 "BSD-3-Clause"
             ],
             "description": "Official version of pdepend to be handled with Composer",
+            "support": {
+                "issues": "https://github.com/pdepend/pdepend/issues",
+                "source": "https://github.com/pdepend/pdepend/tree/master"
+            },
             "time": "2017-12-13T13:21:38+00:00"
         },
         {
             "name": "phar-io/manifest",
-            "version": "1.0.1",
+            "version": "2.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phar-io/manifest.git",
-                "reference": "2df402786ab5368a0169091f61a7c1e0eb6852d0"
+                "reference": "97803eca37d319dfa7826cc2437fc020857acb53"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phar-io/manifest/zipball/2df402786ab5368a0169091f61a7c1e0eb6852d0",
-                "reference": "2df402786ab5368a0169091f61a7c1e0eb6852d0",
+                "url": "https://api.github.com/repos/phar-io/manifest/zipball/97803eca37d319dfa7826cc2437fc020857acb53",
+                "reference": "97803eca37d319dfa7826cc2437fc020857acb53",
                 "shasum": ""
             },
             "require": {
                 "ext-dom": "*",
                 "ext-phar": "*",
-                "phar-io/version": "^1.0.1",
-                "php": "^5.6 || ^7.0"
+                "ext-xmlwriter": "*",
+                "phar-io/version": "^3.0.1",
+                "php": "^7.2 || ^8.0"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.0.x-dev"
+                    "dev-master": "2.0.x-dev"
                 }
             },
             "autoload": {
@@ -6293,24 +6683,28 @@
                 }
             ],
             "description": "Component for reading phar.io manifest information from a PHP Archive (PHAR)",
-            "time": "2017-03-05T18:14:27+00:00"
+            "support": {
+                "issues": "https://github.com/phar-io/manifest/issues",
+                "source": "https://github.com/phar-io/manifest/tree/2.0.3"
+            },
+            "time": "2021-07-20T11:28:43+00:00"
         },
         {
             "name": "phar-io/version",
-            "version": "1.0.1",
+            "version": "3.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phar-io/version.git",
-                "reference": "a70c0ced4be299a63d32fa96d9281d03e94041df"
+                "reference": "bae7c545bef187884426f042434e561ab1ddb182"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phar-io/version/zipball/a70c0ced4be299a63d32fa96d9281d03e94041df",
-                "reference": "a70c0ced4be299a63d32fa96d9281d03e94041df",
+                "url": "https://api.github.com/repos/phar-io/version/zipball/bae7c545bef187884426f042434e561ab1ddb182",
+                "reference": "bae7c545bef187884426f042434e561ab1ddb182",
                 "shasum": ""
             },
             "require": {
-                "php": "^5.6 || ^7.0"
+                "php": "^7.2 || ^8.0"
             },
             "type": "library",
             "autoload": {
@@ -6340,7 +6734,11 @@
                 }
             ],
             "description": "Library for handling version information and constraints",
-            "time": "2017-03-05T17:38:23+00:00"
+            "support": {
+                "issues": "https://github.com/phar-io/version/issues",
+                "source": "https://github.com/phar-io/version/tree/3.1.0"
+            },
+            "time": "2021-02-23T14:00:09+00:00"
         },
         {
             "name": "phpdocumentor/reflection-common",
@@ -6453,16 +6851,16 @@
         },
         {
             "name": "phpdocumentor/type-resolver",
-            "version": "1.4.0",
+            "version": "1.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpDocumentor/TypeResolver.git",
-                "reference": "6a467b8989322d92aa1c8bf2bebcc6e5c2ba55c0"
+                "reference": "30f38bffc6f24293dadd1823936372dfa9e86e2f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpDocumentor/TypeResolver/zipball/6a467b8989322d92aa1c8bf2bebcc6e5c2ba55c0",
-                "reference": "6a467b8989322d92aa1c8bf2bebcc6e5c2ba55c0",
+                "url": "https://api.github.com/repos/phpDocumentor/TypeResolver/zipball/30f38bffc6f24293dadd1823936372dfa9e86e2f",
+                "reference": "30f38bffc6f24293dadd1823936372dfa9e86e2f",
                 "shasum": ""
             },
             "require": {
@@ -6470,7 +6868,8 @@
                 "phpdocumentor/reflection-common": "^2.0"
             },
             "require-dev": {
-                "ext-tokenizer": "*"
+                "ext-tokenizer": "*",
+                "psalm/phar": "^4.8"
             },
             "type": "library",
             "extra": {
@@ -6496,9 +6895,9 @@
             "description": "A PSR-5 based resolver of Class names, Types and Structural Element Names",
             "support": {
                 "issues": "https://github.com/phpDocumentor/TypeResolver/issues",
-                "source": "https://github.com/phpDocumentor/TypeResolver/tree/1.4.0"
+                "source": "https://github.com/phpDocumentor/TypeResolver/tree/1.5.0"
             },
-            "time": "2020-09-17T18:55:26+00:00"
+            "time": "2021-09-17T15:28:14+00:00"
         },
         {
             "name": "phpmd/phpmd",
@@ -6566,37 +6965,42 @@
                 "phpmd",
                 "pmd"
             ],
+            "support": {
+                "irc": "irc://irc.freenode.org/phpmd",
+                "issues": "https://github.com/phpmd/phpmd/issues",
+                "source": "https://github.com/phpmd/phpmd/tree/master"
+            },
             "time": "2019-07-30T21:13:32+00:00"
         },
         {
             "name": "phpspec/prophecy",
-            "version": "v1.10.3",
+            "version": "1.14.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpspec/prophecy.git",
-                "reference": "451c3cd1418cf640de218914901e51b064abb093"
+                "reference": "d86dfc2e2a3cd366cee475e52c6bb3bbc371aa0e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpspec/prophecy/zipball/451c3cd1418cf640de218914901e51b064abb093",
-                "reference": "451c3cd1418cf640de218914901e51b064abb093",
+                "url": "https://api.github.com/repos/phpspec/prophecy/zipball/d86dfc2e2a3cd366cee475e52c6bb3bbc371aa0e",
+                "reference": "d86dfc2e2a3cd366cee475e52c6bb3bbc371aa0e",
                 "shasum": ""
             },
             "require": {
-                "doctrine/instantiator": "^1.0.2",
-                "php": "^5.3|^7.0",
-                "phpdocumentor/reflection-docblock": "^2.0|^3.0.2|^4.0|^5.0",
-                "sebastian/comparator": "^1.2.3|^2.0|^3.0|^4.0",
-                "sebastian/recursion-context": "^1.0|^2.0|^3.0|^4.0"
+                "doctrine/instantiator": "^1.2",
+                "php": "^7.2 || ~8.0, <8.2",
+                "phpdocumentor/reflection-docblock": "^5.2",
+                "sebastian/comparator": "^3.0 || ^4.0",
+                "sebastian/recursion-context": "^3.0 || ^4.0"
             },
             "require-dev": {
-                "phpspec/phpspec": "^2.5 || ^3.2",
-                "phpunit/phpunit": "^4.8.35 || ^5.7 || ^6.5 || ^7.1"
+                "phpspec/phpspec": "^6.0 || ^7.0",
+                "phpunit/phpunit": "^8.0 || ^9.0"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.10.x-dev"
+                    "dev-master": "1.x-dev"
                 }
             },
             "autoload": {
@@ -6629,44 +7033,48 @@
                 "spy",
                 "stub"
             ],
-            "time": "2020-03-05T15:02:03+00:00"
+            "support": {
+                "issues": "https://github.com/phpspec/prophecy/issues",
+                "source": "https://github.com/phpspec/prophecy/tree/1.14.0"
+            },
+            "time": "2021-09-10T09:02:12+00:00"
         },
         {
             "name": "phpunit/php-code-coverage",
-            "version": "5.3.2",
+            "version": "7.0.15",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-code-coverage.git",
-                "reference": "c89677919c5dd6d3b3852f230a663118762218ac"
+                "reference": "819f92bba8b001d4363065928088de22f25a3a48"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/c89677919c5dd6d3b3852f230a663118762218ac",
-                "reference": "c89677919c5dd6d3b3852f230a663118762218ac",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/819f92bba8b001d4363065928088de22f25a3a48",
+                "reference": "819f92bba8b001d4363065928088de22f25a3a48",
                 "shasum": ""
             },
             "require": {
                 "ext-dom": "*",
                 "ext-xmlwriter": "*",
-                "php": "^7.0",
-                "phpunit/php-file-iterator": "^1.4.2",
+                "php": ">=7.2",
+                "phpunit/php-file-iterator": "^2.0.2",
                 "phpunit/php-text-template": "^1.2.1",
-                "phpunit/php-token-stream": "^2.0.1",
+                "phpunit/php-token-stream": "^3.1.3 || ^4.0",
                 "sebastian/code-unit-reverse-lookup": "^1.0.1",
-                "sebastian/environment": "^3.0",
+                "sebastian/environment": "^4.2.2",
                 "sebastian/version": "^2.0.1",
-                "theseer/tokenizer": "^1.1"
+                "theseer/tokenizer": "^1.1.3"
             },
             "require-dev": {
-                "phpunit/phpunit": "^6.0"
+                "phpunit/phpunit": "^8.2.2"
             },
             "suggest": {
-                "ext-xdebug": "^2.5.5"
+                "ext-xdebug": "^2.7.2"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "5.3.x-dev"
+                    "dev-master": "7.0-dev"
                 }
             },
             "autoload": {
@@ -6692,29 +7100,42 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2018-04-06T15:36:58+00:00"
+            "support": {
+                "issues": "https://github.com/sebastianbergmann/php-code-coverage/issues",
+                "source": "https://github.com/sebastianbergmann/php-code-coverage/tree/7.0.15"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/sebastianbergmann",
+                    "type": "github"
+                }
+            ],
+            "time": "2021-07-26T12:20:09+00:00"
         },
         {
             "name": "phpunit/php-file-iterator",
-            "version": "1.4.5",
+            "version": "2.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-file-iterator.git",
-                "reference": "730b01bc3e867237eaac355e06a36b85dd93a8b4"
+                "reference": "28af674ff175d0768a5a978e6de83f697d4a7f05"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-file-iterator/zipball/730b01bc3e867237eaac355e06a36b85dd93a8b4",
-                "reference": "730b01bc3e867237eaac355e06a36b85dd93a8b4",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-file-iterator/zipball/28af674ff175d0768a5a978e6de83f697d4a7f05",
+                "reference": "28af674ff175d0768a5a978e6de83f697d4a7f05",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.3"
+                "php": ">=7.1"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^8.5"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.4.x-dev"
+                    "dev-master": "2.0.x-dev"
                 }
             },
             "autoload": {
@@ -6729,7 +7150,7 @@
             "authors": [
                 {
                     "name": "Sebastian Bergmann",
-                    "email": "sb@sebastian-bergmann.de",
+                    "email": "sebastian@phpunit.de",
                     "role": "lead"
                 }
             ],
@@ -6739,7 +7160,17 @@
                 "filesystem",
                 "iterator"
             ],
-            "time": "2017-11-27T13:52:08+00:00"
+            "support": {
+                "issues": "https://github.com/sebastianbergmann/php-file-iterator/issues",
+                "source": "https://github.com/sebastianbergmann/php-file-iterator/tree/2.0.4"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/sebastianbergmann",
+                    "type": "github"
+                }
+            ],
+            "time": "2021-07-19T06:46:01+00:00"
         },
         {
             "name": "phpunit/php-text-template",
@@ -6780,32 +7211,36 @@
             "keywords": [
                 "template"
             ],
+            "support": {
+                "issues": "https://github.com/sebastianbergmann/php-text-template/issues",
+                "source": "https://github.com/sebastianbergmann/php-text-template/tree/1.2.1"
+            },
             "time": "2015-06-21T13:50:34+00:00"
         },
         {
             "name": "phpunit/php-timer",
-            "version": "1.0.9",
+            "version": "2.1.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-timer.git",
-                "reference": "3dcf38ca72b158baf0bc245e9184d3fdffa9c46f"
+                "reference": "2454ae1765516d20c4ffe103d85a58a9a3bd5662"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-timer/zipball/3dcf38ca72b158baf0bc245e9184d3fdffa9c46f",
-                "reference": "3dcf38ca72b158baf0bc245e9184d3fdffa9c46f",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-timer/zipball/2454ae1765516d20c4ffe103d85a58a9a3bd5662",
+                "reference": "2454ae1765516d20c4ffe103d85a58a9a3bd5662",
                 "shasum": ""
             },
             "require": {
-                "php": "^5.3.3 || ^7.0"
+                "php": ">=7.1"
             },
             "require-dev": {
-                "phpunit/phpunit": "^4.8.35 || ^5.7 || ^6.0"
+                "phpunit/phpunit": "^8.5"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.0-dev"
+                    "dev-master": "2.1-dev"
                 }
             },
             "autoload": {
@@ -6820,7 +7255,7 @@
             "authors": [
                 {
                     "name": "Sebastian Bergmann",
-                    "email": "sb@sebastian-bergmann.de",
+                    "email": "sebastian@phpunit.de",
                     "role": "lead"
                 }
             ],
@@ -6829,33 +7264,43 @@
             "keywords": [
                 "timer"
             ],
-            "time": "2017-02-26T11:10:40+00:00"
+            "support": {
+                "issues": "https://github.com/sebastianbergmann/php-timer/issues",
+                "source": "https://github.com/sebastianbergmann/php-timer/tree/2.1.3"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/sebastianbergmann",
+                    "type": "github"
+                }
+            ],
+            "time": "2020-11-30T08:20:02+00:00"
         },
         {
             "name": "phpunit/php-token-stream",
-            "version": "2.0.2",
+            "version": "3.1.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-token-stream.git",
-                "reference": "791198a2c6254db10131eecfe8c06670700904db"
+                "reference": "9c1da83261628cb24b6a6df371b6e312b3954768"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-token-stream/zipball/791198a2c6254db10131eecfe8c06670700904db",
-                "reference": "791198a2c6254db10131eecfe8c06670700904db",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-token-stream/zipball/9c1da83261628cb24b6a6df371b6e312b3954768",
+                "reference": "9c1da83261628cb24b6a6df371b6e312b3954768",
                 "shasum": ""
             },
             "require": {
                 "ext-tokenizer": "*",
-                "php": "^7.0"
+                "php": ">=7.1"
             },
             "require-dev": {
-                "phpunit/phpunit": "^6.2.4"
+                "phpunit/phpunit": "^7.0"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.0-dev"
+                    "dev-master": "3.1-dev"
                 }
             },
             "autoload": {
@@ -6878,58 +7323,67 @@
             "keywords": [
                 "tokenizer"
             ],
+            "support": {
+                "issues": "https://github.com/sebastianbergmann/php-token-stream/issues",
+                "source": "https://github.com/sebastianbergmann/php-token-stream/tree/3.1.3"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/sebastianbergmann",
+                    "type": "github"
+                }
+            ],
             "abandoned": true,
-            "time": "2017-11-27T05:48:46+00:00"
+            "time": "2021-07-26T12:15:06+00:00"
         },
         {
             "name": "phpunit/phpunit",
-            "version": "6.5.14",
+            "version": "8.5.20",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "bac23fe7ff13dbdb461481f706f0e9fe746334b7"
+                "reference": "9deefba183198398a09b927a6ac6bc1feb0b7b70"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/bac23fe7ff13dbdb461481f706f0e9fe746334b7",
-                "reference": "bac23fe7ff13dbdb461481f706f0e9fe746334b7",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/9deefba183198398a09b927a6ac6bc1feb0b7b70",
+                "reference": "9deefba183198398a09b927a6ac6bc1feb0b7b70",
                 "shasum": ""
             },
             "require": {
+                "doctrine/instantiator": "^1.3.1",
                 "ext-dom": "*",
                 "ext-json": "*",
                 "ext-libxml": "*",
                 "ext-mbstring": "*",
                 "ext-xml": "*",
-                "myclabs/deep-copy": "^1.6.1",
-                "phar-io/manifest": "^1.0.1",
-                "phar-io/version": "^1.0",
-                "php": "^7.0",
-                "phpspec/prophecy": "^1.7",
-                "phpunit/php-code-coverage": "^5.3",
-                "phpunit/php-file-iterator": "^1.4.3",
+                "ext-xmlwriter": "*",
+                "myclabs/deep-copy": "^1.10.0",
+                "phar-io/manifest": "^2.0.3",
+                "phar-io/version": "^3.0.2",
+                "php": ">=7.2",
+                "phpspec/prophecy": "^1.10.3",
+                "phpunit/php-code-coverage": "^7.0.12",
+                "phpunit/php-file-iterator": "^2.0.4",
                 "phpunit/php-text-template": "^1.2.1",
-                "phpunit/php-timer": "^1.0.9",
-                "phpunit/phpunit-mock-objects": "^5.0.9",
-                "sebastian/comparator": "^2.1",
-                "sebastian/diff": "^2.0",
-                "sebastian/environment": "^3.1",
-                "sebastian/exporter": "^3.1",
-                "sebastian/global-state": "^2.0",
+                "phpunit/php-timer": "^2.1.2",
+                "sebastian/comparator": "^3.0.2",
+                "sebastian/diff": "^3.0.2",
+                "sebastian/environment": "^4.2.3",
+                "sebastian/exporter": "^3.1.2",
+                "sebastian/global-state": "^3.0.0",
                 "sebastian/object-enumerator": "^3.0.3",
-                "sebastian/resource-operations": "^1.0",
+                "sebastian/resource-operations": "^2.0.1",
+                "sebastian/type": "^1.1.3",
                 "sebastian/version": "^2.0.1"
-            },
-            "conflict": {
-                "phpdocumentor/reflection-docblock": "3.0.2",
-                "phpunit/dbunit": "<3.0"
             },
             "require-dev": {
                 "ext-pdo": "*"
             },
             "suggest": {
+                "ext-soap": "*",
                 "ext-xdebug": "*",
-                "phpunit/php-invoker": "^1.1"
+                "phpunit/php-invoker": "^2.0.0"
             },
             "bin": [
                 "phpunit"
@@ -6937,7 +7391,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "6.5.x-dev"
+                    "dev-master": "8.5-dev"
                 }
             },
             "autoload": {
@@ -6963,67 +7417,21 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2019-02-01T05:22:47+00:00"
-        },
-        {
-            "name": "phpunit/phpunit-mock-objects",
-            "version": "5.0.10",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/sebastianbergmann/phpunit-mock-objects.git",
-                "reference": "cd1cf05c553ecfec36b170070573e540b67d3f1f"
+            "support": {
+                "issues": "https://github.com/sebastianbergmann/phpunit/issues",
+                "source": "https://github.com/sebastianbergmann/phpunit/tree/8.5.20"
             },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit-mock-objects/zipball/cd1cf05c553ecfec36b170070573e540b67d3f1f",
-                "reference": "cd1cf05c553ecfec36b170070573e540b67d3f1f",
-                "shasum": ""
-            },
-            "require": {
-                "doctrine/instantiator": "^1.0.5",
-                "php": "^7.0",
-                "phpunit/php-text-template": "^1.2.1",
-                "sebastian/exporter": "^3.1"
-            },
-            "conflict": {
-                "phpunit/phpunit": "<6.0"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "^6.5.11"
-            },
-            "suggest": {
-                "ext-soap": "*"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "5.0.x-dev"
-                }
-            },
-            "autoload": {
-                "classmap": [
-                    "src/"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-3-Clause"
-            ],
-            "authors": [
+            "funding": [
                 {
-                    "name": "Sebastian Bergmann",
-                    "email": "sebastian@phpunit.de",
-                    "role": "lead"
+                    "url": "https://phpunit.de/donate.html",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/sebastianbergmann",
+                    "type": "github"
                 }
             ],
-            "description": "Mock Object library for PHPUnit",
-            "homepage": "https://github.com/sebastianbergmann/phpunit-mock-objects/",
-            "keywords": [
-                "mock",
-                "xunit"
-            ],
-            "abandoned": true,
-            "time": "2018-08-09T05:50:03+00:00"
+            "time": "2021-08-31T06:44:38+00:00"
         },
         {
             "name": "react/promise",
@@ -7069,6 +7477,10 @@
                 "promise",
                 "promises"
             ],
+            "support": {
+                "issues": "https://github.com/reactphp/promise/issues",
+                "source": "https://github.com/reactphp/promise/tree/v2.8.0"
+            },
             "time": "2020-05-12T15:16:56+00:00"
         },
         {
@@ -7114,6 +7526,10 @@
             ],
             "description": "Looks up which function or method a line of code belongs to",
             "homepage": "https://github.com/sebastianbergmann/code-unit-reverse-lookup/",
+            "support": {
+                "issues": "https://github.com/sebastianbergmann/code-unit-reverse-lookup/issues",
+                "source": "https://github.com/sebastianbergmann/code-unit-reverse-lookup/tree/1.0.2"
+            },
             "funding": [
                 {
                     "url": "https://github.com/sebastianbergmann",
@@ -7124,30 +7540,30 @@
         },
         {
             "name": "sebastian/comparator",
-            "version": "2.1.3",
+            "version": "3.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/comparator.git",
-                "reference": "34369daee48eafb2651bea869b4b15d75ccc35f9"
+                "reference": "1071dfcef776a57013124ff35e1fc41ccd294758"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/comparator/zipball/34369daee48eafb2651bea869b4b15d75ccc35f9",
-                "reference": "34369daee48eafb2651bea869b4b15d75ccc35f9",
+                "url": "https://api.github.com/repos/sebastianbergmann/comparator/zipball/1071dfcef776a57013124ff35e1fc41ccd294758",
+                "reference": "1071dfcef776a57013124ff35e1fc41ccd294758",
                 "shasum": ""
             },
             "require": {
-                "php": "^7.0",
-                "sebastian/diff": "^2.0 || ^3.0",
+                "php": ">=7.1",
+                "sebastian/diff": "^3.0",
                 "sebastian/exporter": "^3.1"
             },
             "require-dev": {
-                "phpunit/phpunit": "^6.4"
+                "phpunit/phpunit": "^8.5"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.1.x-dev"
+                    "dev-master": "3.0-dev"
                 }
             },
             "autoload": {
@@ -7160,6 +7576,10 @@
                 "BSD-3-Clause"
             ],
             "authors": [
+                {
+                    "name": "Sebastian Bergmann",
+                    "email": "sebastian@phpunit.de"
+                },
                 {
                     "name": "Jeff Welch",
                     "email": "whatthejeff@gmail.com"
@@ -7171,10 +7591,6 @@
                 {
                     "name": "Bernhard Schussek",
                     "email": "bschussek@2bepublished.at"
-                },
-                {
-                    "name": "Sebastian Bergmann",
-                    "email": "sebastian@phpunit.de"
                 }
             ],
             "description": "Provides the functionality to compare PHP values for equality",
@@ -7184,32 +7600,43 @@
                 "compare",
                 "equality"
             ],
-            "time": "2018-02-01T13:46:46+00:00"
+            "support": {
+                "issues": "https://github.com/sebastianbergmann/comparator/issues",
+                "source": "https://github.com/sebastianbergmann/comparator/tree/3.0.3"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/sebastianbergmann",
+                    "type": "github"
+                }
+            ],
+            "time": "2020-11-30T08:04:30+00:00"
         },
         {
             "name": "sebastian/diff",
-            "version": "2.0.1",
+            "version": "3.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/diff.git",
-                "reference": "347c1d8b49c5c3ee30c7040ea6fc446790e6bddd"
+                "reference": "14f72dd46eaf2f2293cbe79c93cc0bc43161a211"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/diff/zipball/347c1d8b49c5c3ee30c7040ea6fc446790e6bddd",
-                "reference": "347c1d8b49c5c3ee30c7040ea6fc446790e6bddd",
+                "url": "https://api.github.com/repos/sebastianbergmann/diff/zipball/14f72dd46eaf2f2293cbe79c93cc0bc43161a211",
+                "reference": "14f72dd46eaf2f2293cbe79c93cc0bc43161a211",
                 "shasum": ""
             },
             "require": {
-                "php": "^7.0"
+                "php": ">=7.1"
             },
             "require-dev": {
-                "phpunit/phpunit": "^6.2"
+                "phpunit/phpunit": "^7.5 || ^8.0",
+                "symfony/process": "^2 || ^3.3 || ^4"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.0-dev"
+                    "dev-master": "3.0-dev"
                 }
             },
             "autoload": {
@@ -7223,45 +7650,61 @@
             ],
             "authors": [
                 {
-                    "name": "Kore Nordmann",
-                    "email": "mail@kore-nordmann.de"
-                },
-                {
                     "name": "Sebastian Bergmann",
                     "email": "sebastian@phpunit.de"
+                },
+                {
+                    "name": "Kore Nordmann",
+                    "email": "mail@kore-nordmann.de"
                 }
             ],
             "description": "Diff implementation",
             "homepage": "https://github.com/sebastianbergmann/diff",
             "keywords": [
-                "diff"
+                "diff",
+                "udiff",
+                "unidiff",
+                "unified diff"
             ],
-            "time": "2017-08-03T08:09:46+00:00"
+            "support": {
+                "issues": "https://github.com/sebastianbergmann/diff/issues",
+                "source": "https://github.com/sebastianbergmann/diff/tree/3.0.3"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/sebastianbergmann",
+                    "type": "github"
+                }
+            ],
+            "time": "2020-11-30T07:59:04+00:00"
         },
         {
             "name": "sebastian/environment",
-            "version": "3.1.0",
+            "version": "4.2.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/environment.git",
-                "reference": "cd0871b3975fb7fc44d11314fd1ee20925fce4f5"
+                "reference": "d47bbbad83711771f167c72d4e3f25f7fcc1f8b0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/environment/zipball/cd0871b3975fb7fc44d11314fd1ee20925fce4f5",
-                "reference": "cd0871b3975fb7fc44d11314fd1ee20925fce4f5",
+                "url": "https://api.github.com/repos/sebastianbergmann/environment/zipball/d47bbbad83711771f167c72d4e3f25f7fcc1f8b0",
+                "reference": "d47bbbad83711771f167c72d4e3f25f7fcc1f8b0",
                 "shasum": ""
             },
             "require": {
-                "php": "^7.0"
+                "php": ">=7.1"
             },
             "require-dev": {
-                "phpunit/phpunit": "^6.1"
+                "phpunit/phpunit": "^7.5"
+            },
+            "suggest": {
+                "ext-posix": "*"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "3.1.x-dev"
+                    "dev-master": "4.2-dev"
                 }
             },
             "autoload": {
@@ -7286,7 +7729,17 @@
                 "environment",
                 "hhvm"
             ],
-            "time": "2017-07-01T08:51:00+00:00"
+            "support": {
+                "issues": "https://github.com/sebastianbergmann/environment/issues",
+                "source": "https://github.com/sebastianbergmann/environment/tree/4.2.4"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/sebastianbergmann",
+                    "type": "github"
+                }
+            ],
+            "time": "2020-11-30T07:53:42+00:00"
         },
         {
             "name": "sebastian/exporter",
@@ -7353,6 +7806,10 @@
                 "export",
                 "exporter"
             ],
+            "support": {
+                "issues": "https://github.com/sebastianbergmann/exporter/issues",
+                "source": "https://github.com/sebastianbergmann/exporter/tree/3.1.3"
+            },
             "funding": [
                 {
                     "url": "https://github.com/sebastianbergmann",
@@ -7402,28 +7859,35 @@
             ],
             "description": "FinderFacade is a convenience wrapper for Symfony's Finder component.",
             "homepage": "https://github.com/sebastianbergmann/finder-facade",
+            "support": {
+                "issues": "https://github.com/sebastianbergmann/finder-facade/issues",
+                "source": "https://github.com/sebastianbergmann/finder-facade/tree/1.2"
+            },
             "abandoned": true,
             "time": "2020-01-16T08:08:45+00:00"
         },
         {
             "name": "sebastian/global-state",
-            "version": "2.0.0",
+            "version": "3.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/global-state.git",
-                "reference": "e8ba02eed7bbbb9e59e43dedd3dddeff4a56b0c4"
+                "reference": "474fb9edb7ab891665d3bfc6317f42a0a150454b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/global-state/zipball/e8ba02eed7bbbb9e59e43dedd3dddeff4a56b0c4",
-                "reference": "e8ba02eed7bbbb9e59e43dedd3dddeff4a56b0c4",
+                "url": "https://api.github.com/repos/sebastianbergmann/global-state/zipball/474fb9edb7ab891665d3bfc6317f42a0a150454b",
+                "reference": "474fb9edb7ab891665d3bfc6317f42a0a150454b",
                 "shasum": ""
             },
             "require": {
-                "php": "^7.0"
+                "php": ">=7.2",
+                "sebastian/object-reflector": "^1.1.1",
+                "sebastian/recursion-context": "^3.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "^6.0"
+                "ext-dom": "*",
+                "phpunit/phpunit": "^8.0"
             },
             "suggest": {
                 "ext-uopz": "*"
@@ -7431,7 +7895,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.0-dev"
+                    "dev-master": "3.0-dev"
                 }
             },
             "autoload": {
@@ -7454,7 +7918,17 @@
             "keywords": [
                 "global state"
             ],
-            "time": "2017-04-27T15:39:26+00:00"
+            "support": {
+                "issues": "https://github.com/sebastianbergmann/global-state/issues",
+                "source": "https://github.com/sebastianbergmann/global-state/tree/3.0.1"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/sebastianbergmann",
+                    "type": "github"
+                }
+            ],
+            "time": "2020-11-30T07:43:24+00:00"
         },
         {
             "name": "sebastian/object-enumerator",
@@ -7501,6 +7975,10 @@
             ],
             "description": "Traverses array structures and object graphs to enumerate all referenced objects",
             "homepage": "https://github.com/sebastianbergmann/object-enumerator/",
+            "support": {
+                "issues": "https://github.com/sebastianbergmann/object-enumerator/issues",
+                "source": "https://github.com/sebastianbergmann/object-enumerator/tree/3.0.4"
+            },
             "funding": [
                 {
                     "url": "https://github.com/sebastianbergmann",
@@ -7552,6 +8030,10 @@
             ],
             "description": "Allows reflection of object attributes, including inherited and non-public ones",
             "homepage": "https://github.com/sebastianbergmann/object-reflector/",
+            "support": {
+                "issues": "https://github.com/sebastianbergmann/object-reflector/issues",
+                "source": "https://github.com/sebastianbergmann/object-reflector/tree/1.1.2"
+            },
             "funding": [
                 {
                     "url": "https://github.com/sebastianbergmann",
@@ -7562,21 +8044,22 @@
         },
         {
             "name": "sebastian/phpcpd",
-            "version": "3.0.1",
+            "version": "4.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpcpd.git",
-                "reference": "dfed51c1288790fc957c9433e2f49ab152e8a564"
+                "reference": "0d9afa762f2400de077b2192f4a9d127de0bb78e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpcpd/zipball/dfed51c1288790fc957c9433e2f49ab152e8a564",
-                "reference": "dfed51c1288790fc957c9433e2f49ab152e8a564",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpcpd/zipball/0d9afa762f2400de077b2192f4a9d127de0bb78e",
+                "reference": "0d9afa762f2400de077b2192f4a9d127de0bb78e",
                 "shasum": ""
             },
             "require": {
-                "php": "^5.6|^7.0",
-                "phpunit/php-timer": "^1.0.6",
+                "ext-dom": "*",
+                "php": "^7.1",
+                "phpunit/php-timer": "^2.0",
                 "sebastian/finder-facade": "^1.1",
                 "sebastian/version": "^1.0|^2.0",
                 "symfony/console": "^2.7|^3.0|^4.0"
@@ -7587,7 +8070,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "3.0-dev"
+                    "dev-master": "4.0-dev"
                 }
             },
             "autoload": {
@@ -7608,7 +8091,11 @@
             ],
             "description": "Copy/Paste Detector (CPD) for PHP code.",
             "homepage": "https://github.com/sebastianbergmann/phpcpd",
-            "time": "2017-11-16T08:49:28+00:00"
+            "support": {
+                "issues": "https://github.com/sebastianbergmann/phpcpd/issues",
+                "source": "https://github.com/sebastianbergmann/phpcpd/tree/4.1.0"
+            },
+            "time": "2018-09-17T17:17:27+00:00"
         },
         {
             "name": "sebastian/recursion-context",
@@ -7661,6 +8148,10 @@
             ],
             "description": "Provides functionality to recursively process PHP variables",
             "homepage": "http://www.github.com/sebastianbergmann/recursion-context",
+            "support": {
+                "issues": "https://github.com/sebastianbergmann/recursion-context/issues",
+                "source": "https://github.com/sebastianbergmann/recursion-context/tree/3.0.1"
+            },
             "funding": [
                 {
                     "url": "https://github.com/sebastianbergmann",
@@ -7671,25 +8162,25 @@
         },
         {
             "name": "sebastian/resource-operations",
-            "version": "1.0.0",
+            "version": "2.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/resource-operations.git",
-                "reference": "ce990bb21759f94aeafd30209e8cfcdfa8bc3f52"
+                "reference": "31d35ca87926450c44eae7e2611d45a7a65ea8b3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/resource-operations/zipball/ce990bb21759f94aeafd30209e8cfcdfa8bc3f52",
-                "reference": "ce990bb21759f94aeafd30209e8cfcdfa8bc3f52",
+                "url": "https://api.github.com/repos/sebastianbergmann/resource-operations/zipball/31d35ca87926450c44eae7e2611d45a7a65ea8b3",
+                "reference": "31d35ca87926450c44eae7e2611d45a7a65ea8b3",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.6.0"
+                "php": ">=7.1"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.0.x-dev"
+                    "dev-master": "2.0-dev"
                 }
             },
             "autoload": {
@@ -7709,7 +8200,73 @@
             ],
             "description": "Provides a list of PHP built-in functions that operate on resources",
             "homepage": "https://www.github.com/sebastianbergmann/resource-operations",
-            "time": "2015-07-28T20:34:47+00:00"
+            "support": {
+                "issues": "https://github.com/sebastianbergmann/resource-operations/issues",
+                "source": "https://github.com/sebastianbergmann/resource-operations/tree/2.0.2"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/sebastianbergmann",
+                    "type": "github"
+                }
+            ],
+            "time": "2020-11-30T07:30:19+00:00"
+        },
+        {
+            "name": "sebastian/type",
+            "version": "1.1.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sebastianbergmann/type.git",
+                "reference": "0150cfbc4495ed2df3872fb31b26781e4e077eb4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sebastianbergmann/type/zipball/0150cfbc4495ed2df3872fb31b26781e4e077eb4",
+                "reference": "0150cfbc4495ed2df3872fb31b26781e4e077eb4",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.2"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^8.2"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.1-dev"
+                }
+            },
+            "autoload": {
+                "classmap": [
+                    "src/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Sebastian Bergmann",
+                    "email": "sebastian@phpunit.de",
+                    "role": "lead"
+                }
+            ],
+            "description": "Collection of value objects that represent the types of the PHP type system",
+            "homepage": "https://github.com/sebastianbergmann/type",
+            "support": {
+                "issues": "https://github.com/sebastianbergmann/type/issues",
+                "source": "https://github.com/sebastianbergmann/type/tree/1.1.4"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/sebastianbergmann",
+                    "type": "github"
+                }
+            ],
+            "time": "2020-11-30T07:25:11+00:00"
         },
         {
             "name": "sebastian/version",
@@ -7752,6 +8309,10 @@
             ],
             "description": "Library that helps with managing the version number of Git-hosted PHP projects",
             "homepage": "https://github.com/sebastianbergmann/version",
+            "support": {
+                "issues": "https://github.com/sebastianbergmann/version/issues",
+                "source": "https://github.com/sebastianbergmann/version/tree/master"
+            },
             "time": "2016-10-03T07:35:21+00:00"
         },
         {
@@ -7803,6 +8364,11 @@
                 "phpcs",
                 "standards"
             ],
+            "support": {
+                "issues": "https://github.com/squizlabs/PHP_CodeSniffer/issues",
+                "source": "https://github.com/squizlabs/PHP_CodeSniffer",
+                "wiki": "https://github.com/squizlabs/PHP_CodeSniffer/wiki"
+            },
             "time": "2019-04-10T23:49:02+00:00"
         },
         {
@@ -7860,6 +8426,9 @@
             ],
             "description": "Symfony BrowserKit Component",
             "homepage": "https://symfony.com",
+            "support": {
+                "source": "https://github.com/symfony/browser-kit/tree/v2.8.52"
+            },
             "time": "2018-11-26T06:55:10+00:00"
         },
         {
@@ -7913,6 +8482,9 @@
             ],
             "description": "Symfony CssSelector Component",
             "homepage": "https://symfony.com",
+            "support": {
+                "source": "https://github.com/symfony/css-selector/tree/v2.8.52"
+            },
             "time": "2018-11-11T11:18:13+00:00"
         },
         {
@@ -7964,6 +8536,9 @@
             ],
             "description": "Provides tools to ease debugging PHP code",
             "homepage": "https://symfony.com",
+            "support": {
+                "source": "https://github.com/symfony/debug/tree/v4.4.27"
+            },
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -8102,6 +8677,9 @@
             ],
             "description": "Symfony DomCrawler Component",
             "homepage": "https://symfony.com",
+            "support": {
+                "source": "https://github.com/symfony/dom-crawler/tree/v2.8.50"
+            },
             "time": "2018-11-24T22:30:19+00:00"
         },
         {
@@ -8154,6 +8732,9 @@
                 "env",
                 "environment"
             ],
+            "support": {
+                "source": "https://github.com/symfony/dotenv/tree/v4.4.29"
+            },
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -8434,6 +9015,9 @@
             ],
             "description": "Symfony FrameworkBundle",
             "homepage": "https://symfony.com",
+            "support": {
+                "source": "https://github.com/symfony/framework-bundle/tree/v4.2.12"
+            },
             "time": "2019-07-24T17:13:20+00:00"
         },
         {
@@ -8592,6 +9176,9 @@
             ],
             "description": "Symfony HttpKernel Component",
             "homepage": "https://symfony.com",
+            "support": {
+                "source": "https://github.com/symfony/http-kernel/tree/v4.2.12"
+            },
             "time": "2019-11-13T08:51:34+00:00"
         },
         {
@@ -8745,6 +9332,9 @@
                 "portable",
                 "shim"
             ],
+            "support": {
+                "source": "https://github.com/symfony/polyfill-intl-idn/tree/v1.23.0"
+            },
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -8826,6 +9416,9 @@
                 "portable",
                 "shim"
             ],
+            "support": {
+                "source": "https://github.com/symfony/polyfill-intl-normalizer/tree/v1.23.0"
+            },
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -8891,6 +9484,9 @@
                 "portable",
                 "shim"
             ],
+            "support": {
+                "source": "https://github.com/symfony/polyfill-php56/tree/v1.20.0"
+            },
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -8964,6 +9560,9 @@
                 "portable",
                 "shim"
             ],
+            "support": {
+                "source": "https://github.com/symfony/polyfill-php72/tree/v1.23.0"
+            },
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -9205,6 +9804,9 @@
             ],
             "description": "Symfony Translation Component",
             "homepage": "https://symfony.com",
+            "support": {
+                "source": "https://github.com/symfony/translation/tree/4.3"
+            },
             "time": "2020-01-04T12:24:57+00:00"
         },
         {
@@ -9259,6 +9861,9 @@
             ],
             "description": "Loads and dumps YAML files",
             "homepage": "https://symfony.com",
+            "support": {
+                "source": "https://github.com/symfony/yaml/tree/v4.4.29"
+            },
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -9292,6 +9897,7 @@
             "require": {
                 "php": ">=7.1.0"
             },
+            "default-branch": true,
             "type": "library",
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -9304,6 +9910,10 @@
                 }
             ],
             "description": "Pacemaker sample data for Magento 2 Community + Commerce Edition",
+            "support": {
+                "issues": "https://github.com/techdivision/import-sample-data/issues",
+                "source": "https://github.com/techdivision/import-sample-data/tree/master"
+            },
             "time": "2021-02-19T11:42:14+00:00"
         },
         {
@@ -9393,6 +10003,10 @@
             ],
             "description": "The classes contained within this repository extend the standard DOM to use exceptions at all occasions of errors instead of PHP warnings or notices. They also add various custom methods and shortcuts for convenience and to simplify the usage of DOM.",
             "homepage": "https://github.com/theseer/fDOMDocument",
+            "support": {
+                "issues": "https://github.com/theseer/fDOMDocument/issues",
+                "source": "https://github.com/theseer/fDOMDocument/tree/master"
+            },
             "time": "2017-06-30T11:53:12+00:00"
         },
         {
@@ -9506,10 +10120,10 @@
     ],
     "aliases": [
         {
-            "alias": "3.0.0",
-            "alias_normalized": "3.0.0.0",
+            "package": "behat/symfony2-extension",
             "version": "9999999-dev",
-            "package": "behat/symfony2-extension"
+            "alias": "3.0.0",
+            "alias_normalized": "3.0.0.0"
         }
     ],
     "minimum-stability": "dev",
@@ -9558,5 +10172,5 @@
         "php": ">=7.2.0"
     },
     "platform-dev": [],
-    "plugin-api-version": "1.1.0"
+    "plugin-api-version": "2.1.0"
 }
