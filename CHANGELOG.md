@@ -1,4 +1,7 @@
-# Version 4.0.0-alpha11 ---next version---
+# Version 4.0.0-alpha11
+
+* Min. PHP version set to 7.2
+* Support PhpUnit 8.0
 
 # Known Issues
 
