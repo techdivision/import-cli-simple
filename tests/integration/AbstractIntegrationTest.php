@@ -166,7 +166,7 @@ abstract class AbstractIntegrationTest extends TestCase
      *
      * @since Method available since Release 3.4.0
      */
-    public static function setUpBeforeClass()
+    public static function setUpBeforeClass(): void
     {
 
         // initialize the vendor directory
@@ -200,7 +200,7 @@ abstract class AbstractIntegrationTest extends TestCase
      * @return void
      * @see \PHPUnit\Framework\TestCase::setUp()
      */
-    protected function setUp()
+    protected function setUp(): void
     {
 
         // initialize the DI container and set the vendor directory
@@ -258,7 +258,7 @@ abstract class AbstractIntegrationTest extends TestCase
      * @return void
      * @see \PHPUnit\Framework\TestCase::tearDown()
      */
-    protected function tearDown()
+    protected function tearDown(): void
     {
 
         // stop the transaction and rollback
