@@ -1,4 +1,4 @@
-# Version 3.8.53 -- comming soon --
+# Version 3.8.53
 
 ## Known Issues
 
@@ -6,7 +6,9 @@
 
 ## Bugfixes
 
-* import-attrbute-set: Fix fallback for attribute_group_sort_order when empty
+* import-attribute-set: Fix fallback for attribute_group_sort_order when empty
+* import-product-url-rewrite: Case sensitiv url request path
+* import-product-url-rewrite: #33 Header categories is not available in file
 
 ## Features
 
