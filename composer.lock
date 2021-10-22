@@ -670,10 +670,6 @@
                 "serialization",
                 "xml"
             ],
-            "support": {
-                "issues": "https://github.com/schmittjoh/serializer/issues",
-                "source": "https://github.com/schmittjoh/serializer/tree/3.14.0"
-            },
             "funding": [
                 {
                     "url": "https://github.com/goetas",
@@ -1156,15 +1152,14 @@
                 "identifier",
                 "uuid"
             ],
-            "support": {
-                "issues": "https://github.com/ramsey/uuid/issues",
-                "rss": "https://github.com/ramsey/uuid/releases.atom",
-                "source": "https://github.com/ramsey/uuid"
-            },
             "funding": [
                 {
                     "url": "https://github.com/ramsey",
                     "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/ramsey/uuid",
+                    "type": "tidelift"
                 }
             ],
             "time": "2020-08-18T17:17:46+00:00"
@@ -2205,9 +2200,6 @@
                 "instantiate",
                 "serialize"
             ],
-            "support": {
-                "source": "https://github.com/symfony/var-exporter/tree/v4.4.30"
-            },
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -2230,12 +2222,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import.git",
-                "reference": "431404903e0567a053d735e176379efe546a38b6"
+                "reference": "bd07d6d70f6edf22e4bb95ac87dd3076be7bdd70"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import/zipball/431404903e0567a053d735e176379efe546a38b6",
-                "reference": "431404903e0567a053d735e176379efe546a38b6",
+                "url": "https://api.github.com/repos/techdivision/import/zipball/bd07d6d70f6edf22e4bb95ac87dd3076be7bdd70",
+                "reference": "bd07d6d70f6edf22e4bb95ac87dd3076be7bdd70",
                 "shasum": ""
             },
             "require": {
@@ -2291,7 +2283,7 @@
                 }
             ],
             "description": "A library supporting generic Magento 2 import functionality",
-            "time": "2021-09-20T13:08:19+00:00"
+            "time": "2021-10-22T14:20:07+00:00"
         },
         {
             "name": "techdivision/import-app-simple",
@@ -2659,12 +2651,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-cli.git",
-                "reference": "c22413d2fda18db127c85987b30d38564033a936"
+                "reference": "0aba3d2709d32208a86cb9f4e5e48c2376a4f4c0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-cli/zipball/c22413d2fda18db127c85987b30d38564033a936",
-                "reference": "c22413d2fda18db127c85987b30d38564033a936",
+                "url": "https://api.github.com/repos/techdivision/import-cli/zipball/0aba3d2709d32208a86cb9f4e5e48c2376a4f4c0",
+                "reference": "0aba3d2709d32208a86cb9f4e5e48c2376a4f4c0",
                 "shasum": ""
             },
             "require": {
@@ -2708,7 +2700,7 @@
                 }
             ],
             "description": "Commands and Helpers to implement a CLI providing single-threaded Magento 2 importing functionality based on Pacemaker",
-            "time": "2021-09-20T11:45:56+00:00"
+            "time": "2021-10-22T14:18:19+00:00"
         },
         {
             "name": "techdivision/import-configuration",
@@ -2765,12 +2757,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-configuration-jms.git",
-                "reference": "0c0e19d6e4d0bc61667c55c71d2f11dfa61a8d31"
+                "reference": "a9acbb37d9a5bf531f000db99726abaea300ecb3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-configuration-jms/zipball/0c0e19d6e4d0bc61667c55c71d2f11dfa61a8d31",
-                "reference": "0c0e19d6e4d0bc61667c55c71d2f11dfa61a8d31",
+                "url": "https://api.github.com/repos/techdivision/import-configuration-jms/zipball/a9acbb37d9a5bf531f000db99726abaea300ecb3",
+                "reference": "a9acbb37d9a5bf531f000db99726abaea300ecb3",
                 "shasum": ""
             },
             "require": {
@@ -2811,7 +2803,7 @@
                 }
             ],
             "description": "Library providing a JMS based configuration implementation for Pacemaker",
-            "time": "2021-09-20T11:45:56+00:00"
+            "time": "2021-10-22T14:21:43+00:00"
         },
         {
             "name": "techdivision/import-converter",
@@ -4464,10 +4456,6 @@
                 "gherkin",
                 "parser"
             ],
-            "support": {
-                "issues": "https://github.com/Behat/Gherkin/issues",
-                "source": "https://github.com/Behat/Gherkin/tree/v4.8.0"
-            },
             "time": "2021-02-04T12:44:21+00:00"
         },
         {
@@ -4854,10 +4842,6 @@
                 }
             ],
             "description": "Initialize Symfony Console commands from annotated command class methods.",
-            "support": {
-                "issues": "https://github.com/consolidation/annotated-command/issues",
-                "source": "https://github.com/consolidation/annotated-command/tree/4.3.2"
-            },
             "time": "2021-09-19T14:35:36+00:00"
         },
         {
@@ -6454,10 +6438,6 @@
                 }
             ],
             "description": "With this component, a library can provide support for annotations via DocBlocks or otherwise retrieve information that is embedded in a DocBlock.",
-            "support": {
-                "issues": "https://github.com/phpDocumentor/ReflectionDocBlock/issues",
-                "source": "https://github.com/phpDocumentor/ReflectionDocBlock/tree/master"
-            },
             "time": "2020-09-03T19:13:55+00:00"
         },
         {
@@ -6504,10 +6484,6 @@
                 }
             ],
             "description": "A PSR-5 based resolver of Class names, Types and Structural Element Names",
-            "support": {
-                "issues": "https://github.com/phpDocumentor/TypeResolver/issues",
-                "source": "https://github.com/phpDocumentor/TypeResolver/tree/1.5.0"
-            },
             "time": "2021-09-17T15:28:14+00:00"
         },
         {
@@ -7019,10 +6995,6 @@
                 "testing",
                 "xunit"
             ],
-            "support": {
-                "issues": "https://github.com/sebastianbergmann/phpunit/issues",
-                "source": "https://github.com/sebastianbergmann/phpunit/tree/8.5.20"
-            },
             "funding": [
                 {
                     "url": "https://phpunit.de/donate.html",
@@ -7784,6 +7756,7 @@
                     "type": "github"
                 }
             ],
+            "abandoned": true,
             "time": "2020-11-30T07:30:19+00:00"
         },
         {
@@ -8789,9 +8762,6 @@
                 "mime",
                 "mime-type"
             ],
-            "support": {
-                "source": "https://github.com/symfony/mime/tree/v5.3.7"
-            },
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",

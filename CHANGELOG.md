@@ -38,7 +38,9 @@
 
 * import-product: Add missing validation for min_qty, min_sale_qty, max_sale_qty, notify_stock_qty, qty_increments, weight fields
 * import-product-ee: Add missing validation for min_qty, min_sale_qty, max_sale_qty, notify_stock_qty, qty_increments, weight fields
-* import: Note attributes entity type for customer attribute
+* import: 
+  * Note attributes entity type for customer attribute
+  * Add #PAC-486: Add `--log-file` commandline parameter
 * import-converter-product-attribute: Implement importing customer attributes
 * import-customer: Import customer attributes
 * import: Prepare optimize performance cache
@@ -46,6 +48,15 @@
 * import-product-url-rewrite: Prepare optimize performance cache
 * import-product-media: Prepare optimize performance cache
 * import-product-media-ee: Prepare optimize performance cache
+* import-configuration-jms: Add #PAC-486: Add `--log-file` commandline parameter
+* import-cli:
+  * Add `--strict-type` commandline parameter
+  * Add functionality to also parse JSON configuration in extension libraries
+  * Add #PAC-89: Add debug email command + DebugSendPlugin
+  * Add #PAC-57: "--empty-attribute-value-constant" for deleting dedicated attribute values via import by setting a configurable value
+  * Add #PAC-349: Support for JMS serializer v2.0 + v3.0
+  * Implement import-converter-product-attribute for importing customer attributes
+  * Add #PAC-486: Add `--log-file` commandline parameter
 
 # Version 4.0.0-alpha10
 
