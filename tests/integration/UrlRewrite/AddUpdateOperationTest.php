@@ -21,7 +21,7 @@
 namespace TechDivision\Import\Cli\Simple\UrlRewrite;
 
 use TechDivision\Import\Utils\OperationKeys;
-use TechDivision\Import\Utils\EntityStatus;
+use TechDivision\Import\Dbal\Utils\EntityStatus;
 use TechDivision\Import\Product\Utils\ColumnKeys;
 use TechDivision\Import\Product\Utils\MemberNames;
 use TechDivision\Import\Cli\Simple\AbstractIntegrationTest;

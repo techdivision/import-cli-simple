@@ -1,7 +1,7 @@
 <?php
 
 /**
- * TechDivision\Import\Attribute\Observers\AttributeUpdateObserver
+ * bin/import-simple.php
  *
  * PHP version 7
  *
@@ -19,7 +19,7 @@ $actualDirectory = dirname(__DIR__);
 $possibleVendorDirs = array(
     array($actualDirectory, sprintf('%s/techdivision/import-cli-simple/bootstrap.php', $actualDirectory)), // when installed as library in vendor/bin/pacemaker (QUICKFIX: this should never happen, because files has been copied and not symlinked)
     array($actualDirectory . '/vendor', sprintf('%s/bootstrap.php', $actualDirectory)),                    // when called directly from the root directory of this library
-    array(dirname(dirname($actualDirectory)), sprintf('%s/bootstrap.php', $actualDirectory))               // when installed as library in directory vendor/techdivision/import-cli-pacemaker/bin/pacemaker
+    array(dirname(dirname($actualDirectory)), sprintf('%s/bootstrap.php', $actualDirectory))               // when installed as library in directory vendor/techdivision/import-cli-simple/bin/pacemaker
 );
 
 // try to locate the actual vendor directory

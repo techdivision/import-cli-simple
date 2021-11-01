@@ -2,6 +2,7 @@
 
 * Min. PHP version set to 7.2
 * Support PhpUnit 8.0
+* Please take a look at [UPGRADE-4.0.0](UPGRADE-4.0.0.md)
 
 # Known Issues
 

@@ -1,4 +1,4 @@
-# Upgrade from 3.8.27 to 4.0.0
+# Upgrade from 3.8.* to 4.0.0
 
 ## Configuration
 
@@ -6,7 +6,7 @@ Up from version `4.0.0-alpha8` the default import path has been changed from `va
 
 ## Symfony DI Configuration
 
-### techdivision/import-category
+### techdivision/import-category 
 
 Up from version `4.0.0-alpha8` a new observer with the DI ID `import_category.observer.normalize.path` has been introduced
 that is necessary to take care that the category paths are normalized according to the CSV standard. For example, a
@@ -63,6 +63,26 @@ the observer `import_category.observer.normalize.path`.
 * `import_category_ee.observer.composite.create.replace`
 * `import_category_ee.observer.composite.add_update` 
 
+### techdivision/import-product
+
+Up from version `4.0.0-alpha8` and according to the changes in the `techdivision/import-category` library,
+additionally the Symfony DI configuration of the following composite observers has been extendend with 
+the observer `import_product.observer.normalize.categories`.
+
+* `import_product.observer.composite.base.delete`
+* `import_product.observer.composite.base.replace`
+* `import_product.observer.composite.base.add_update` 
+
+### techdivision/import-product-ee
+
+Up from version `4.0.0-alpha8` and according to the changes in the `techdivision/import-category` library,
+additionally the Symfony DI configuration of the following composite observers has been extendend with 
+the observer `import_product.observer.normalize.categories`.
+
+* `import_product_ee.observer.composite.base.delete`
+* `import_product_ee.observer.composite.base.replace`
+* `import_product_ee.observer.composite.base.add_update` 
+
 ## New Functionality
 
 ### Interface for Hook aware Observers
@@ -96,6 +116,7 @@ generic implementation. The removed classes are listed below, grouped by their l
 * `TechDivision\Import\Actions\Processors\AbstractDeleteProcessor` without replacement
 * `TechDivision\Import\Actions\Processors\AbstractUpdateProcessor` without replacement
 * `TechDivision\Import\Loaders\StoreViewCodeLoader` has been replaced with `\TechDivision\Import\Loaders\GenericMemberNameLoader`
+* `TechDivision\Import\Loggers\ErrorLogHandlerFactory` has been replaced with `\TechDivision\Import\Loggers\GenericLogHandlerFactory`. Search for `import.logger.factory.handler.error.log` in system.xml
 * `TechDivision\Import\Actions\Processors\ImportHistoryCreateProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericIdentifierProcessor`
 * `TechDivision\Import\Actions\Processors\ImportHistoryUpdateProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericIdentifierProcessor`
 * `TechDivision\Import\Actions\Processors\ImportHistoryDeleteProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericProcessor`
@@ -108,6 +129,7 @@ generic implementation. The removed classes are listed below, grouped by their l
 * `TechDivision\Import\Actions\Processors\UrlRewriteCreateProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericIdentifierProcessor`
 * `TechDivision\Import\Actions\Processors\UrlRewriteUpdateProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericIdentifierProcessor`
 * `TechDivision\Import\Actions\Processors\UrlRewriteDeleteProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericProcessor`
+* `TechDivision\Import\Adapter\PhpFilesystemAdapterInterface`, has been replaced with `\TechDivision\Import\Adapter\FilesystemAdapterInterface instead`
 
 ### techdivision/import-attribute
 
@@ -266,6 +288,7 @@ generic implementation. The removed classes are listed below, grouped by their l
 * `TechDivision\Import\Product\Media\Actions\Processors\ProductMediaGalleryValueCreateProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericProcessor`
 * `TechDivision\Import\Product\Media\Actions\Processors\ProductMediaGalleryValueUpdateProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericProcessor`
 * `TechDivision\Import\Product\Media\Actions\Processors\ProductMediaGalleryValueToEntityCreateProcessor` has been replaced with `\TechDivision\Import\Actions\Processors\GenericProcessor`
+* `TechDivision\Import\Product\Media\Observers\ClearMediaGalleryObserver`, has been replaced with `\TechDivision\Import\Product\Media\Observers\CleanUpMediaGalleryObserver` (class will still be available but extends the new class only)
 
 ### techdivision/import-product-msi
 
@@ -347,10 +370,10 @@ migrate some classes from existing libraries to another ones or to new libraries
 * `TechDivision\Import\Repositories\CachedRepositoryInterface` > `TechDivision\Import\Dbal\Repositories\CachedRepositoryInterface`
 * `TechDivision\Import\Repositories\FinderAwareRepositoryInterface` > `TechDivision\Import\Dbal\Repositories\FinderAwareRepositoryInterface`
 * `TechDivision\Import\Repositories\FinderAwareEntityRepositoryInterface` > `TechDivision\Import\Dbal\Repositories\FinderAwareEntityRepositoryInterface`
-* `TechDivision\Import\Repositories\RepositoryInterface` > `TechDivision\Import\Dbal\Repositories\RepositoryInterface`
+* `TechDivision\Import\Repositories\RepositoryInterface` > `TechDivision\Import\Dbal\Repositories\RepositoryInterface` (class will still be available but extends the new class only)
 * `TechDivision\Import\Repositories\SqlStatementRepositoryInterface` > `TechDivision\Import\Dbal\Repositories\SqlStatementRepositoryInterface`
-* `TechDivision\Import\Utils\PrimaryKeyUtilInterface` > `TechDivision\Import\Dbal\Utils\PrimaryKeyUtilInterface`
-* `TechDivision\Import\Utils\TablePrefixUtilInterface` > `TechDivision\Import\Dbal\Utils\TablePrefixUtilInterface`
+* `TechDivision\Import\Utils\PrimaryKeyUtilInterface` > `TechDivision\Import\Dbal\Utils\PrimaryKeyUtilInterface` (class will still be available but extends the new class only)
+* `TechDivision\Import\Utils\TablePrefixUtilInterface` > `TechDivision\Import\Dbal\Utils\TablePrefixUtilInterface` (class will still be available but extends the new class only)
 * `TechDivision\Import\Utils\SanitizerInterface` > `TechDivision\Import\Dbal\Utils\SanitizerInterface`
 * `TechDivision\Import\Utils\SqlCompilerInterface` > `TechDivision\Import\Dbal\Utils\SqlCompilerInterface`
 * `TechDivision\Import\Utils\EntityStatus` > `TechDivision\Import\Dbal\Utils\EntityStatus` (class will still be available but extends the new class only)

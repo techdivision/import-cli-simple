@@ -26,25 +26,12 @@ use TechDivision\Import\Cli\Utils\DependencyInjectionKeys;
 
 // initialize the DI container and set the vendor directory
 $container = new ContainerBuilder();
-$container->setParameter(DependencyInjectionKeys::CONFIGURATION_BASE_DIR, dirname(__FILE__));
 $container->setParameter(DependencyInjectionKeys::CONFIGURATION_VENDOR_DIR, $vendorDir);
+$container->setParameter(DependencyInjectionKeys::CONFIGURATION_BASE_DIR, dirname(__FILE__));
 
 // initialize the default loader and load the DI configuration for the this library
 $defaultLoader = new XmlFileLoader($container, new FileLocator($vendorDir));
-$defaultLoader->load(
-    implode(
-        DIRECTORY_SEPARATOR,
-        array(
-            $vendorDir,
-            'techdivision',
-            'import-cli',
-            'symfony',
-            'Resources',
-            'config',
-            'services.xml'
-        )
-    )
-);
+$defaultLoader->load(implode(DIRECTORY_SEPARATOR, array($vendorDir,'techdivision', 'import-cli', 'symfony', 'Resources', 'config', 'services.xml')));
 
 // initialize and run the application
 $statusCode = $container->get(DependencyInjectionKeys::APPLICATION)
