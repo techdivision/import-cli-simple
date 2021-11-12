@@ -23,7 +23,9 @@
 * Prepare generic workflow and defined deprecated interface PrimaryKeyUtilInterface
 * PAC-362: Call to a member function getSystemLogger() on null
 * import-attribute-set: Fix missing import attribute_group_sort_order
-* import: Clear properties after success unlock
+* import: 
+  * Clear properties after success unlock
+  * Create validation callback for sku relations for grouped, configurables and bundles
 * import-app-simple: * Fix write error message before shutdown
 * import-product-url-rewrite: Duplicate error for url rewrites on replace shortcut
 * Fix website relation clean up on Magento Commerce
@@ -34,6 +36,7 @@
 * Third party module ramsey/uuid can use version ~4.1.0
 * import-category: Update multistore categories only on new category from default line
 * import-attribute-set: Fix fallback for attribute_group_sort_order when empty
+* import-attribute: Missing specification of attribute_set_name and attribute_set_group leads to PHP warning
 
 ## Features
 
