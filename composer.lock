@@ -527,16 +527,16 @@
         },
         {
             "name": "jms/metadata",
-            "version": "2.5.1",
+            "version": "2.5.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/schmittjoh/metadata.git",
-                "reference": "a995e6cef6d6f56a6226e1616a519630e2ef0aeb"
+                "reference": "3c5f34f622fdabe89af80c406d4733c8a77cc5d2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/schmittjoh/metadata/zipball/a995e6cef6d6f56a6226e1616a519630e2ef0aeb",
-                "reference": "a995e6cef6d6f56a6226e1616a519630e2ef0aeb",
+                "url": "https://api.github.com/repos/schmittjoh/metadata/zipball/3c5f34f622fdabe89af80c406d4733c8a77cc5d2",
+                "reference": "3c5f34f622fdabe89af80c406d4733c8a77cc5d2",
                 "shasum": ""
             },
             "require": {
@@ -583,11 +583,7 @@
                 "xml",
                 "yaml"
             ],
-            "support": {
-                "issues": "https://github.com/schmittjoh/metadata/issues",
-                "source": "https://github.com/schmittjoh/metadata/tree/2.5.1"
-            },
-            "time": "2021-08-04T19:32:08+00:00"
+            "time": "2021-11-15T12:06:20+00:00"
         },
         {
             "name": "jms/serializer",
@@ -2751,12 +2747,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-configuration-jms.git",
-                "reference": "d07aed1dfa89ea3cde50bc36cc1aaa415a056866"
+                "reference": "ed348241d0968b17ddf0f06b94bc4a807a96c451"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-configuration-jms/zipball/d07aed1dfa89ea3cde50bc36cc1aaa415a056866",
-                "reference": "d07aed1dfa89ea3cde50bc36cc1aaa415a056866",
+                "url": "https://api.github.com/repos/techdivision/import-configuration-jms/zipball/ed348241d0968b17ddf0f06b94bc4a807a96c451",
+                "reference": "ed348241d0968b17ddf0f06b94bc4a807a96c451",
                 "shasum": ""
             },
             "require": {
@@ -2797,7 +2793,7 @@
                 }
             ],
             "description": "Library providing a JMS based configuration implementation for Pacemaker",
-            "time": "2021-11-02T09:57:00+00:00"
+            "time": "2021-11-16T14:00:00+00:00"
         },
         {
             "name": "techdivision/import-converter",

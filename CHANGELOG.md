@@ -37,6 +37,7 @@
 * import-category: Update multistore categories only on new category from default line
 * import-attribute-set: Fix fallback for attribute_group_sort_order when empty
 * import-attribute: Missing specification of attribute_set_name and attribute_set_group leads to PHP warning
+* import-configuration-jms: Debug log compatibility with jms/serializer >= 2.0
 
 ## Features
 
