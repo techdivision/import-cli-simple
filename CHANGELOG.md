@@ -45,7 +45,6 @@
 * import-product-ee: Add missing validation for min_qty, min_sale_qty, max_sale_qty, notify_stock_qty, qty_increments, weight fields
 * import: 
   * Note attributes entity type for customer attribute
-  * Add #PAC-486: Add `--log-file` commandline parameter
 * import-converter-product-attribute: Implement importing customer attributes
 * import-customer: Import customer attributes
 * import: Prepare optimize performance cache
