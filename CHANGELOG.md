@@ -26,6 +26,7 @@
 * import: 
   * Clear properties after success unlock
   * Create validation callback for sku relations for grouped, configurables and bundles
+  * Fix counter from 'skippedRow'
 * import-app-simple: * Fix write error message before shutdown
 * import-product-url-rewrite: Duplicate error for url rewrites on replace shortcut
 * Fix website relation clean up on Magento Commerce
@@ -46,6 +47,8 @@
 * import-product-ee: Add missing validation for min_qty, min_sale_qty, max_sale_qty, notify_stock_qty, qty_increments, weight fields
 * import: 
   * Note attributes entity type for customer attribute
+  * Integration strict mode
+  * New Returncodes for Missing File (4) and warnings on Strict Mode = false (13)
 * import-converter-product-attribute: Implement importing customer attributes
 * import-customer: Import customer attributes
 * import: Prepare optimize performance cache
@@ -62,6 +65,10 @@
   * Add #PAC-349: Support for JMS serializer v2.0 + v3.0
   * Implement import-converter-product-attribute for importing customer attributes
   * Add #PAC-486: Add `--log-file` commandline parameter
+* import-app-simple: Add catch for MissingFileException and InvalidDataException
+* import-attributes: New validator callbacks
+  * Relation between fontend_input and backent_type
+  * Improve regex for attribute code like Magento allowed
 
 # Version 4.0.0-alpha10
 
