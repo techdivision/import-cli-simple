@@ -52,11 +52,14 @@
 * import-converter-product-attribute: Implement importing customer attributes
 * import-customer: Import customer attributes
 * import: Prepare optimize performance cache
-* import-product: Define new finder mappings for prepare optimize performance cache
+* import-product: 
+  * Define new finder mappings for prepare optimize performance cache
+  * Integration strict mode
 * import-product-url-rewrite: Prepare optimize performance cache
 * import-product-media: Prepare optimize performance cache
 * import-product-media-ee: Prepare optimize performance cache
-* import-configuration-jms: Add #PAC-486: Add `--log-file` commandline parameter
+* import-configuration-jms: 
+  * Add #PAC-294: integration of the strict mode
 * import-cli:
   * Add `--strict-type` commandline parameter
   * Add functionality to also parse JSON configuration in extension libraries
@@ -69,6 +72,7 @@
 * import-attributes: New validator callbacks
   * Relation between fontend_input and backent_type
   * Improve regex for attribute code like Magento allowed
+* import-product-bundle: integration of the strict mode
 
 # Version 4.0.0-alpha10
 
