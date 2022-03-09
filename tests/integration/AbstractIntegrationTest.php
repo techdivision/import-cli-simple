@@ -510,7 +510,7 @@ abstract class AbstractIntegrationTest extends TestCase
         array_unshift($rows, array_keys($this->templates[$type]));
 
         // prepare the file we want to export to
-        $filename = sprintf('%s/%s_%s-%s_01.csv', $this->getTmpDir(), $type, date('Ymd'), ++$this->counter, $bunchCounter);
+        $filename = sprintf('%s/%s_%s-%s_%s.csv', $this->getTmpDir(), $type, date('Ymd'), ++$this->counter, $bunchCounter);
 
         // export the data to the file
         self::$container->get(DependencyInjectionKeys::IMPORT_ADAPTER_EXPORT)->export($filename, $rows);
@@ -607,7 +607,7 @@ abstract class AbstractIntegrationTest extends TestCase
         }
 
         // throw an exception, if not
-        throw \Exception(sprintf('Can\'t find root category for store view code "%s"', $storeViewCode));
+        throw new \Exception(sprintf('Can\'t find root category for store view code "%s"', $storeViewCode));
     }
 
     /**
