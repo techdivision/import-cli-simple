@@ -1,0 +1,7 @@
+parameters:
+  level: 0
+  paths:
+    - vendor/techdivision
+  excludePaths:
+    - vendor/techdivision/*/tests/*
+
