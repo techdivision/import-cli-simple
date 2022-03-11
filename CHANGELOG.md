@@ -1,3 +1,19 @@
+# Version 3.8.54
+
+## Known Issues
+
+* Up from Magento 2 EE 2.1.10 using the single transaction mode has a massive performance impact (can only be used **WITHOUT** single transaction)
+
+## Bugfixes
+
+* import: Extend prepareRow() method remove not found entities.
+* import-customer: Default date fields initialized with null instead 'now'
+* import-customer-address: Update adresse with increment_id for unique identifier
+
+## Features
+
+* none
+
 # Version 3.8.53
 
 ## Known Issues
