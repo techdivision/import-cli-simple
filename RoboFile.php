@@ -327,30 +327,35 @@ class RoboFile extends \Robo\Tasks
 
         // prepare the patterns for the files that has to be ignored
         $ignore = array(
-            'Utils/MemberNames',
-            'Loaders/RawEntityLoader',
-            'Subjects/BunchSubject',
-            'Subjects/EeBunchSubject',
-            'Subjects/ConverterSubject',
-            'Subjects/OptionSubject',
-            'Loaders/CoreConfigDataLoader',
-            'Services/CategoryBunchProcessor',
-            'Plugins/MissingOptionValuesPlugin',
-            'Observers/EeBundleOptionObserver',
-            'Observers/EeMediaGalleryValueObserver',
-            'Observers/EeBundleSelectionUpdateObserver',
-            'Observers/CustomerAddressAttributeObserver',
-            'Observers/ProductToAttributeOptionValueConverterObserver',
-            'CategoryCsvSerializer'
+            $this->properties['vendor.dir'].'/techdivision/import/src/Plugins/MissingOptionValuesPlugin.php',
+            $this->properties['vendor.dir'].'/techdivision/import/src/Subjects/AbstractSubject.php',
+            $this->properties['vendor.dir'].'/techdivision/import-attribute/src/Utils/MemberNames.php',
+            $this->properties['vendor.dir'].'/techdivision/import-attribute/src/Subjects/OptionSubject.php',
+            $this->properties['vendor.dir'].'/techdivision/import-attribute/src/Loaders/RawEntityLoader.php',
+            $this->properties['vendor.dir'].'/techdivision/import-category/src/Loaders/RawEntityLoader.php',
+            $this->properties['vendor.dir'].'/techdivision/import-category/src/Services/CategoryBunchProcessor.php',
+            $this->properties['vendor.dir'].'/techdivision/import-product/src/Loaders/RawEntityLoader.php',
+            $this->properties['vendor.dir'].'/techdivision/import-product/src/Subjects/BunchSubject.php',
+            $this->properties['vendor.dir'].'/techdivision/import-product/src/Observers/UrlKeyObserver.php',
+            $this->properties['vendor.dir'].'/techdivision/import-product-bundle/src/Loaders/RawEntityLoader.php',
+            $this->properties['vendor.dir'].'/techdivision/import-product-bundle-ee/src/Observers/EeBundleOptionObserver.php',
+            $this->properties['vendor.dir'].'/techdivision/import-product-media/src/Loaders/RawEntityLoader.php',
+            $this->properties['vendor.dir'].'/techdivision/import-product-media/src/Observers/MediaGalleryValueObserver.php',
+            $this->properties['vendor.dir'].'/techdivision/import-product-variant/src/Loaders/RawEntityLoader.php',
+            $this->properties['vendor.dir'].'/techdivision/import-converter-customer-attribute/src/Subjects/ConverterSubject.php',
+            $this->properties['vendor.dir'].'/techdivision/import-converter-product-attribute/src/Subjects/ConverterSubject.php',
+            $this->properties['vendor.dir'].'/techdivision/import-converter-product-attribute/src/Observers/ProductToAttributeOptionValueConverterObserver.php',
+            $this->properties['vendor.dir'].'/techdivision/import-customer-address/src/Observers/CustomerAddressAttributeObserver.php',
+            $this->properties['vendor.dir'].'/techdivision/import-serializer-csv/src/CategoryCsvSerializer.php',
         );
 
         // run the copy past detector
         return $this->_exec(
             sprintf(
-                '%s/bin/phpcpd --regexps-exclude %s %s/techdivision/*/src --log-pmd %s/reports/pmd-cpd.xml',
+                '%s/bin/phpcpd %s/techdivision/*/src --exclude %s --log-pmd %s/reports/pmd-cpd.xml',
                 $this->properties['vendor.dir'],
-                implode(',', $ignore),
                 $this->properties['vendor.dir'],
+                implode(' --exclude ', $ignore),
                 $this->properties['target.dir']
             )
         );
@@ -450,7 +455,11 @@ class RoboFile extends \Robo\Tasks
         // process the build
         $this->clean();
         $this->prepare();
-        $this->runCpd();
+        try {
+            $this->runCpd();
+        } catch (\Exception $e) {
+
+        }
         $this->runCs();
         $this->runMd();
         $this->runTestsUnit();
