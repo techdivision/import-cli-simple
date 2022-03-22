@@ -1,6 +1,6 @@
-# Version 4.0.0-alpha11
+# Version 4.0.0 -- coming soon --
 
-* Min. PHP version set to 7.2
+* Min. PHP Version set to 7.3
 * Support PhpUnit 8.0
 * Please take a look at [UPGRADE-4.0.0](UPGRADE-4.0.0.md)
 
