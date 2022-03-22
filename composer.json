@@ -3,7 +3,7 @@
     "description": "CLI providing single-threaded Magento 2 importing functionality based on Pacemaker",
     "license": "MIT",
     "require": {
-        "php": ">=7.2.0",
+        "php": ">=7.3.0",
         "techdivision/import": "dev-master",
         "techdivision/import-cli": "dev-master",
         "techdivision/import-app-simple": "dev-master",
@@ -41,11 +41,11 @@
     },
     "require-dev": {
         "doctrine/dbal": "2.5.*",
-        "pdepend/pdepend": "2.5.2",
-        "phpmd/phpmd": "@stable",
-        "phpunit/phpunit": "^6.5.0|^8.0.0",
+        "pdepend/pdepend": "^2.5.2",
+        "phpmd/phpmd": "^2.11.0",
+        "phpunit/phpunit": "^6.5.0|^8.0.0|~9.5.0",
         "sebastian/phpcpd": "~3.0|~4.0|~5.0|~6.0",
-        "squizlabs/php_codesniffer": "~3.4.0",
+        "squizlabs/php_codesniffer": "~3.4.0|~3.6.0",
         "consolidation/robo": "~1.0",
         "mikey179/vfsstream": "~1.0",
         "symfony/dotenv": "~3.0|~4.0",
@@ -55,7 +55,9 @@
         "dmore/behat-chrome-extension": "1.3.*",
         "behat/mink-goutte-driver": "1.1.*",
         "behat/symfony2-extension": "dev-master as 3.0.0",
-        "techdivision/import-sample-data": "dev-master"
+        "phpcompatibility/php-compatibility": "*",
+        "techdivision/import-sample-data": "dev-master",
+        "phpstan/phpstan": "^1.4"
     },
     "authors": [
         {
@@ -88,5 +90,9 @@
     "bin": [
         "bin/import-simple",
         "bin/import-simple.php"
-    ]
+    ],
+"scripts": {
+    "post-install-cmd": "\"vendor/bin/phpcs\" --config-set installed_paths vendor/phpcompatibility/php-compatibility",
+    "post-update-cmd" : "\"vendor/bin/phpcs\" --config-set installed_paths vendor/phpcompatibility/php-compatibility"
+}
 }

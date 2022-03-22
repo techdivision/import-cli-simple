@@ -21,7 +21,7 @@ The following composite observer has been customized
 * `import_category.observer.composite.base.validate`
 
 For example have a look at the file `symfony/Resources/config/services.xml` where the composite observer for deleting
-categories has been exendend from
+categories has been extended from
 
 ```
 <service id="import_category.observer.composite.base.delete" class="TechDivision\Import\Observers\GenericCompositeObserver">
@@ -56,32 +56,125 @@ to
 ### techdivision/import-category-ee
 
 Up from version `4.0.0-alpha8`  and according to the changes in the `techdivision/import-category` library,
-additionally the Symfony DI configuration of the following composite observers has been extendend with 
+additionally the Symfony DI configuration of the following composite observers has been extended with 
 the observer `import_category.observer.normalize.path`.
 
 * `import_category_ee.observer.composite.base.delete`
 * `import_category_ee.observer.composite.create.replace`
 * `import_category_ee.observer.composite.add_update` 
 
-### techdivision/import-product
+### techdivision/import_product
 
-Up from version `4.0.0-alpha8` and according to the changes in the `techdivision/import-category` library,
-additionally the Symfony DI configuration of the following composite observers has been extendend with 
+Up from version `4.0.0-alpha8` and according to the changes in the `techdivision/import_product` library,
+additionally the Symfony DI configuration of the following composite observers has been extended with 
 the observer `import_product.observer.normalize.categories`.
 
 * `import_product.observer.composite.base.delete`
 * `import_product.observer.composite.base.replace`
 * `import_product.observer.composite.base.add_update` 
 
-### techdivision/import-product-ee
+### techdivision/import_product_ee
 
-Up from version `4.0.0-alpha8` and according to the changes in the `techdivision/import-category` library,
-additionally the Symfony DI configuration of the following composite observers has been extendend with 
+Up from version `4.0.0-alpha8` and according to the changes in the `techdivision/import_product_ee` library,
+additionally the Symfony DI configuration of the following composite observers has been extended with 
 the observer `import_product.observer.normalize.categories`.
 
 * `import_product_ee.observer.composite.base.delete`
 * `import_product_ee.observer.composite.base.replace`
 * `import_product_ee.observer.composite.base.add_update` 
+
+### techdivision/import-product-url-rewrite
+Up from version `4.0.0-alpha8` and according to the changes in the `techdivision/import-category` library,
+additionally the Symfony DI configuration of the following composite observers has been added and extend with
+the observer `import_product.observer.normalize.categories`.
+
+* `import_product_url_rewrite.observer.composite.url.rewrite.base.replace`
+* `import_product_url_rewrite.observer.composite.url.rewrite.base`
+
+
+For example have a look at the file `symfony/Resources/config/services.xml` where the composite observer for replacing and updating url-rewrite has been added
+```
+   <service id="import_product_url_rewrite.observer.composite.url.rewrite.base.replace" class="TechDivision\Import\Observers\GenericCompositeObserver">
+            <call method="addObserver">
+                <argument id="import_product.observer.normalize.categories" type="service"/>
+            </call>
+            <call method="addObserver">
+                <argument id="import_product_url_rewrite.observer.clear.url.rewrite" type="service"/>
+            </call>
+            <call method="addObserver">
+                <argument id="import_product_url_rewrite.observer.url.rewrite" type="service"/>
+            </call>
+        </service>
+```
+```
+    <service id="import_product_url_rewrite.observer.composite.url.rewrite.base" class="TechDivision\Import\Observers\GenericCompositeObserver">
+            <call method="addObserver">
+                <argument id="import_product.observer.normalize.categories" type="service"/>
+            </call>
+            <call method="addObserver">
+                <argument id="import_product_url_rewrite.observer.url.rewrite.update" type="service"/>
+            </call>
+        </service>
+```
+The Composite has been added in `etc/configuration/operations.json`
+
+from 
+```
+...
+"add-update"
+     ...
+     "observers": [
+        {
+          "import": [
+             "import_product_url_rewrite.observer.url.rewrite.update"
+          ]
+        }
+      ]
+      ...
+```
+to
+```
+...
+"add-update"
+     ...
+     "observers": [
+        {
+          "import": [
+             "import_product_url_rewrite.observer.composite.url.rewrite.base"
+          ]
+        }
+      ]
+      ...
+```
+and once again
+```
+...
+"replace"
+    ...
+    "observers": [
+        {
+          "import": [
+            "import_product_url_rewrite.observer.clear.url.rewrite",
+            "import_product_url_rewrite.observer.url.rewrite"
+          ]
+        }
+    ]
+...
+```
+to
+```
+...
+"replace"
+     ...
+     "observers": [
+        {
+          "import": [
+             "import_product_url_rewrite.observer.composite.url.rewrite.base.replace"
+          ]
+        }
+      ]
+      ...
+```
 
 ## New Functionality
 

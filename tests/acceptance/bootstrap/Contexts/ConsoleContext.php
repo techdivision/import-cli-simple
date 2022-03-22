@@ -65,6 +65,14 @@ class ConsoleContext implements Context, KernelAwareContext
      */
     private $exitCode = 0;
 
+    private $dbHost = '';
+    private $dbPort = '';
+    private $dbUser = '';
+    private $dbName = '';
+    private $dbPassword = '';
+    private $magentoEdition = '';
+    private $magentoVersion = '';
+
     /**
      * The environment used to execute the Magento commands.
      *
