@@ -1,3 +1,17 @@
+# Version 3.8.55
+
+## Known Issues
+
+* Up from Magento 2 EE 2.1.10 using the single transaction mode has a massive performance impact (can only be used **WITHOUT** single transaction)
+
+## Bugfixes
+
+* import-customer-address: Update adresse with own _address_increment_id for unique identifier
+
+## Features
+
+* none
+
 # Version 3.8.54
 
 ## Known Issues
