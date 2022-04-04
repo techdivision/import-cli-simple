@@ -27,6 +27,7 @@
   * Clear properties after success unlock
   * Create validation callback for sku relations for grouped, configurables and bundles
   * Fix counter from 'skippedRow'
+  * Fix import with UTF-8 BOM and quoted headlines
 * import-app-simple: * Fix write error message before shutdown
 * import-product-url-rewrite: Duplicate error for url rewrites on replace shortcut
 * Fix website relation clean up on Magento Commerce
@@ -43,7 +44,9 @@
 
 ## Features
 
-* import-product: Add missing validation for min_qty, min_sale_qty, max_sale_qty, notify_stock_qty, qty_increments, weight fields
+* import-product: 
+  * Add missing validation for min_qty, min_sale_qty, max_sale_qty, notify_stock_qty, qty_increments, weight fields
+  * Optimize ProductValueLoader with bunches of import files
 * import-product-ee: Add missing validation for min_qty, min_sale_qty, max_sale_qty, notify_stock_qty, qty_increments, weight fields
 * import: 
   * Note attributes entity type for customer attribute
