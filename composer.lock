@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2d1a01f301a687433389c4afdf3af524",
+    "content-hash": "5364f0ba3d1f7471c19f233b7b608bcb",
     "packages": [
         {
             "name": "brick/math",
@@ -10916,7 +10916,7 @@
         },
         {
             "name": "techdivision/import-sample-data",
-            "version": "dev-master",
+            "version": "4.3.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-sample-data.git",
@@ -10931,7 +10931,6 @@
             "require": {
                 "php": ">=7.1.0"
             },
-            "default-branch": true,
             "type": "library",
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -10946,7 +10945,7 @@
             "description": "Pacemaker sample data for Magento 2 Community + Commerce Edition",
             "support": {
                 "issues": "https://github.com/techdivision/import-sample-data/issues",
-                "source": "https://github.com/techdivision/import-sample-data/tree/master"
+                "source": "https://github.com/techdivision/import-sample-data/tree/4.3.6"
             },
             "time": "2022-03-28T13:19:40+00:00"
         },
@@ -11118,8 +11117,7 @@
     ],
     "minimum-stability": "dev",
     "stability-flags": {
-        "behat/symfony2-extension": 20,
-        "techdivision/import-sample-data": 20
+        "behat/symfony2-extension": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,

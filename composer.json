@@ -60,7 +60,7 @@
         "behat/mink-goutte-driver": "1.1.*",
         "behat/symfony2-extension": "dev-master as 3.0.0",
         "phpcompatibility/php-compatibility": "*",
-        "techdivision/import-sample-data": "dev-master",
+        "techdivision/import-sample-data": "^4.3.5",
         "phpstan/phpstan": "^1.4"
     },
     "authors": [
@@ -95,10 +95,6 @@
         "bin/import-simple",
         "bin/import-simple.php"
     ],
-"scripts": {
-    "post-install-cmd": "\"vendor/bin/phpcs\" --config-set installed_paths vendor/phpcompatibility/php-compatibility",
-    "post-update-cmd" : "\"vendor/bin/phpcs\" --config-set installed_paths vendor/phpcompatibility/php-compatibility"
-},
     "config": {
         "allow-plugins": {
             "composer/package-versions-deprecated": false
