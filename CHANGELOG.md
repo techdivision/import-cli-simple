@@ -1,4 +1,4 @@
-# Version 4.0.0 -- coming soon --
+# Version 4.0.0
 
 * Min. PHP Version set to 7.3
 * Support PhpUnit 8.0
