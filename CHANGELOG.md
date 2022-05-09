@@ -1,3 +1,13 @@
+# Version 3.8.57
+
+## Known Issues
+
+* Up from Magento 2 EE 2.1.10 using the single transaction mode has a massive performance impact (can only be used **WITHOUT** single transaction)
+
+## Bugfixes
+
+* import-category: Prepare the store view code for set url_key as unique
+
 # Version 3.8.56
 
 ## Known Issues
