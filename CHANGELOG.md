@@ -1,3 +1,14 @@
+# Version 3.8.59
+
+## Known Issues
+
+* Up from Magento 2 EE 2.1.10 using the single transaction mode has a massive performance impact (can only be used **WITHOUT** single transaction)
+
+## Bugfixes
+
+* import-customer-address
+  * Don't update default addresses when not marked as default. Prevent resetting default address
+
 # Version 3.8.58
 
 ## Known Issues
