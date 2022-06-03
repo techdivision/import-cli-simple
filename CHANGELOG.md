@@ -1,3 +1,27 @@
+# Version 4.1.0
+
+* Min. PHP Version set to 7.3
+* Support PhpUnit 8.0
+* Please take a look at [UPGRADE-4.0.0](UPGRADE-4.0.0.md)
+
+## Features
+
+* import-customer-address: `_address_increment_id` for customer import CSV to prepend always create addresses
+
+## Bugfixes
+
+* import-customer 
+  * Default etc/configuration/black-list.json
+* import-customer-address
+  * Don't update default addresses when not marked as default. Prevent resetting default address
+* import-product
+  * Product import can have a tax_class_name `None`
+  * Fix error url-rewrite-import for an existing product on another store.
+  * Fix category assignments, if column categories does not exit:
+    * If categories column not exit and clean-up-category-product-relations is true, the assignment is not deleted. 
+* import-product-variant:
+    * Fix error for php8.1: The Exception code must not be empty
+
 # Version 4.0.0
 
 * Min. PHP Version set to 7.3
