@@ -9,7 +9,8 @@
 * none
 
 ## Bugfixes
-*  import-attribute: Fix import swatch attribute with `additional_data`
+* import-attribute: Fix import swatch attribute with `additional_data`
+* import-attribute: Fix import swatch attribute, calling the wrong sql-statements for the processor config
 
 # Version 4.1.0
 
