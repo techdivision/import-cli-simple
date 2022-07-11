@@ -1,4 +1,4 @@
-# Version 4.1.1 (coming soon)
+# Version 4.1.1
 
 * Min. PHP Version set to 7.3
 * Support PhpUnit 8.0
@@ -9,9 +9,14 @@
 * none
 
 ## Bugfixes
-* import-attribute: Fix import swatch attribute with `additional_data`
-* import-attribute: Fix import swatch attribute, calling the wrong sql-statements for the processor config
-
+* import
+  * Missing "copy" function in FilesystemTrait
+* import-attribute
+  * Fix import swatch attribute with `additional_data`
+  * Fix import swatch attribute, calling the wrong sql-statements for the processor config
+* import-product
+  * Implement Strict Mode in FileUploadObserver on missing file
+  
 # Version 4.1.0
 
 * Min. PHP Version set to 7.3
