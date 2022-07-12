@@ -1,3 +1,17 @@
+# Version 4.1.2
+
+* Min. PHP Version set to 7.3
+* Support PhpUnit 8.0
+* Please take a look at [UPGRADE-4.0.0](UPGRADE-4.0.0.md)
+
+## Features
+
+* none
+
+## Bugfixes
+* import-product (hotfix)
+  * Fix crash on Strict Mode definition in FileUploadObserver
+
 # Version 4.1.1
 
 * Min. PHP Version set to 7.3
