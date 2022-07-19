@@ -1,3 +1,17 @@
+# Version 4.1.3 (cmming soon)
+
+* Min. PHP Version set to 7.3
+* Support PhpUnit 8.0
+* Please take a look at [UPGRADE-4.0.0](UPGRADE-4.0.0.md)
+
+## Features
+
+* none
+
+## Bugfixes
+* import
+  * Fix PHP8.1 crash on null parameter instead array
+
 # Version 4.1.2
 
 * Min. PHP Version set to 7.3
