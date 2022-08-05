@@ -6,11 +6,18 @@
 
 ## Features
 
-* none
+* Add #PAC-353 new feature to get magento configuration from api in Pacemaker Enterprise
+* Add #PAC-215 option `config-output` as default false to report all configuration json files in logs
 
 ## Bugfixes
 * import
   * Fix PHP8.1 crash on null parameter instead array
+* import-customer: Pac-622: Bugfix- format invalid dob value
+* import-customer-address:
+  * Fix bugs:
+    * PAC-619: Customer Address Import - Error if customer not found
+    * PAC-613: Start Customer Address Import only if address information is included
+    * PAC-621: Allow mandatory fields with Empty Value if not required
 
 # Version 4.1.2
 
