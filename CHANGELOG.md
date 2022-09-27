@@ -1,3 +1,18 @@
+# Version 4.1.4 (coming soon)
+
+* Min. PHP Version set to 7.3
+* Support PhpUnit 8.0
+* Please take a look at [UPGRADE-4.0.0](UPGRADE-4.0.0.md)
+
+## Features
+
+# none
+
+## Bugfixes
+* import-product: 
+  * Fix has_options and required_options cleanup on product update
+  * Fix header-mapping.json `"allow_backorders": "backorders"` 
+
 # Version 4.1.3 
 
 * Min. PHP Version set to 7.3
