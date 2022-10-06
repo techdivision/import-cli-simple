@@ -11,7 +11,9 @@
 ## Bugfixes
 * import-product: 
   * Fix has_options and required_options cleanup on product update
-  * Fix header-mapping.json `"allow_backorders": "backorders"` 
+  * Fix header-mapping.json `"allow_backorders": "backorders"`
+* import-dbal-collection:  
+  * Fix API call with invalid URL
 
 # Version 4.1.3 
 
