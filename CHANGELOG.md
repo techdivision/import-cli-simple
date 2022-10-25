@@ -1,4 +1,4 @@
-# Version 4.1.4 (coming soon)
+# Version 4.2.0
 
 * Min. PHP Version set to 7.3
 * Support PhpUnit 8.0
@@ -6,14 +6,43 @@
 
 ## Features
 
-# none
+* import:
+  * Configurable default parameters "delimiter", "enclosure" and "escape" for the CSV reader
+    * define in configuration.json
+```
+  "delimiter": ",",
+  "enclosure": "\"",
+  "escape": "\u0000"
+```
+  * 'escape' is set to `null` by default to be backwward compatible with PHP 7.3
+* import-customer:
+  * new column `is_active`for customer import
+* import-customer-address:
+  * new column `is_active`for address import. Over customer import the column named `_address_is_active`.
+
 
 ## Bugfixes
 * import-product: 
   * Fix has_options and required_options cleanup on product update
   * Fix header-mapping.json `"allow_backorders": "backorders"`
+  * Fix set \Exception() parameter Compatible with php8.1
 * import-dbal-collection:  
   * Fix API call with invalid URL
+* import-cli:  
+  * Fix \Exception() parameter compatibility with php8.1
+* import:
+  * Define default configuration for CSV reader with Unicode `null` value for `escaper` to avoid crash on json_encoded data in CSV Columns
+* import-configuration-jms:
+  * Remove default definition from `CsvTrait` to set from configuration.json.
+  * see techdivison/import/CHANGELOG.md for more information
+* import-customer:
+  * Use strict mode handling in customer import
+  * remove created_at on update
+  * Format DOB without time
+  * Clear columns on update to update only fields that not null. Use `__EMPTY__VALUE__` instead
+* import-customer-address:
+  * fix crash on not existing configuration for `customer/address/telephone_show`
+  * Clear columns on update to update only fields that not null. Use `__EMPTY__VALUE__` instead
 
 # Version 4.1.3 
 
@@ -781,7 +810,7 @@
 * Add techdivision/import#162
 * Add techdivision/import#163
 * Add techdivision/import-product#146
-* Add techdivision/import-cli-simple#216
+  * Add techdivision/import-cli-simple#216
 * Add techdivision/import-configuration-jms#25
 * Add converter libraries to community version
 * Add new events that will be triggered before and after the header has been initialized
