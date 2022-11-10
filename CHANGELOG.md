@@ -1,3 +1,20 @@
+# Version 4.2.1 (coming soon)
+
+* Min. PHP Version set to 7.3
+* Support PhpUnit 8.0
+* Please take a look at [UPGRADE-4.0.0](UPGRADE-4.0.0.md)
+
+## Features
+
+* none
+
+
+## Bugfixes
+
+* import-product: 
+  * Fix stock status in legacy mode since Magento 2.4.4
+  * Extend Interface `ProductBunchProcessorInterface` with method `persistStockItemStatus()`
+
 # Version 4.2.0
 
 * Min. PHP Version set to 7.3
