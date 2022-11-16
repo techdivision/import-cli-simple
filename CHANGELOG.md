@@ -15,6 +15,9 @@
   * Fix stock status in legacy mode since Magento 2.4.4
   * Extend Interface `ProductBunchProcessorInterface` with method `persistStockItemStatus()`
 
+* import-customer-address: 
+  * Override address with existing customer and increment_id
+
 # Version 4.2.0
 
 * Min. PHP Version set to 7.3
