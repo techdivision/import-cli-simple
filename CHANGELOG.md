@@ -1,4 +1,4 @@
-# Version 4.2.1 (coming soon)
+# Version 4.2.1
 
 * Min. PHP Version set to 7.3
 * Support PhpUnit 8.0
@@ -10,6 +10,9 @@
 
 
 ## Bugfixes
+
+* import:
+  * Fix warning on validation.json output when `--clear-artefacts=true` (default behavior) is used 
 
 * import-product: 
   * Fix stock status in legacy mode since Magento 2.4.4

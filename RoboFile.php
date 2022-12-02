@@ -40,7 +40,7 @@ class RoboFile extends \Robo\Tasks
         'target.dir' => __DIR__ . '/target',
         'symfony.dir' => __DIR__ . '/symfony',
         'webapp.name' => 'import-cli-simple',
-        'webapp.version' => '4.2.0'
+        'webapp.version' => '4.2.1'
     );
 
     /**
