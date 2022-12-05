@@ -1,3 +1,19 @@
+# Version 4.2.2 (coming soon)
+
+* Min. PHP Version set to 7.3
+* Support PhpUnit 8.0
+* Please take a look at [UPGRADE-4.0.0](UPGRADE-4.0.0.md)
+
+## Features
+
+* none
+
+
+## Bugfixes
+
+* import:
+  * Fix import duplicate data for global eav_attribute
+
 # Version 4.2.1
 
 * Min. PHP Version set to 7.3
