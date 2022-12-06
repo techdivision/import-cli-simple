@@ -13,6 +13,7 @@
 
 * import:
   * Fix import duplicate data for global eav_attribute
+  * Fix clear empty value per row
 
 # Version 4.2.1
 
