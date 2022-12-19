@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c2af4658a7249351a813b452bf6a5cbb",
+    "content-hash": "cd47871fe6c8320355d35272e8b1eba6",
     "packages": [
         {
             "name": "brick/math",
@@ -141,31 +141,34 @@
         },
         {
             "name": "doctrine/annotations",
-            "version": "1.13.3",
+            "version": "1.14.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/annotations.git",
-                "reference": "648b0343343565c4a056bfc8392201385e8d89f0"
+                "reference": "9e034d7a70032d422169f27d8759e8d84abb4f51"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/annotations/zipball/648b0343343565c4a056bfc8392201385e8d89f0",
-                "reference": "648b0343343565c4a056bfc8392201385e8d89f0",
+                "url": "https://api.github.com/repos/doctrine/annotations/zipball/9e034d7a70032d422169f27d8759e8d84abb4f51",
+                "reference": "9e034d7a70032d422169f27d8759e8d84abb4f51",
                 "shasum": ""
             },
             "require": {
-                "doctrine/lexer": "1.*",
+                "doctrine/lexer": "^1 || ^2",
                 "ext-tokenizer": "*",
                 "php": "^7.1 || ^8.0",
                 "psr/cache": "^1 || ^2 || ^3"
             },
             "require-dev": {
                 "doctrine/cache": "^1.11 || ^2.0",
-                "doctrine/coding-standard": "^6.0 || ^8.1",
-                "phpstan/phpstan": "^1.4.10 || ^1.8.0",
-                "phpunit/phpunit": "^7.5 || ^8.0 || ^9.1.5",
-                "symfony/cache": "^4.4 || ^5.2",
+                "doctrine/coding-standard": "^9 || ^10",
+                "phpstan/phpstan": "~1.4.10 || ^1.8.0",
+                "phpunit/phpunit": "^7.5 || ^8.5 || ^9.5",
+                "symfony/cache": "^4.4 || ^5.4 || ^6",
                 "vimeo/psalm": "^4.10"
+            },
+            "suggest": {
+                "php": "PHP 8.0 or higher comes with attributes, a native replacement for annotations"
             },
             "type": "library",
             "autoload": {
@@ -208,9 +211,9 @@
             ],
             "support": {
                 "issues": "https://github.com/doctrine/annotations/issues",
-                "source": "https://github.com/doctrine/annotations/tree/1.13.3"
+                "source": "https://github.com/doctrine/annotations/tree/1.14.1"
             },
-            "time": "2022-07-02T10:48:51+00:00"
+            "time": "2022-12-12T12:46:12+00:00"
         },
         {
             "name": "doctrine/collections",
@@ -1116,16 +1119,16 @@
         },
         {
             "name": "phpstan/phpdoc-parser",
-            "version": "1.14.0",
+            "version": "1.15.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpdoc-parser.git",
-                "reference": "df1a79430e14e30cd192fe6c05842133d076e58d"
+                "reference": "5941477f100993652218928039d530b75a13a9ca"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpdoc-parser/zipball/df1a79430e14e30cd192fe6c05842133d076e58d",
-                "reference": "df1a79430e14e30cd192fe6c05842133d076e58d",
+                "url": "https://api.github.com/repos/phpstan/phpdoc-parser/zipball/5941477f100993652218928039d530b75a13a9ca",
+                "reference": "5941477f100993652218928039d530b75a13a9ca",
                 "shasum": ""
             },
             "require": {
@@ -1155,9 +1158,9 @@
             "description": "PHPDoc parser with support for nullable, intersection and generic types",
             "support": {
                 "issues": "https://github.com/phpstan/phpdoc-parser/issues",
-                "source": "https://github.com/phpstan/phpdoc-parser/tree/1.14.0"
+                "source": "https://github.com/phpstan/phpdoc-parser/tree/1.15.2"
             },
-            "time": "2022-11-27T19:09:16+00:00"
+            "time": "2022-12-16T06:42:48+00:00"
         },
         {
             "name": "psr/cache",
@@ -2642,16 +2645,16 @@
         },
         {
             "name": "techdivision/import",
-            "version": "17.3.4",
+            "version": "17.3.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import.git",
-                "reference": "1efb811be6fed90c0b67414706a943366e4474a1"
+                "reference": "c24f42ddc86e2bdff4f7e703dbcf30612866d1f1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import/zipball/1efb811be6fed90c0b67414706a943366e4474a1",
-                "reference": "1efb811be6fed90c0b67414706a943366e4474a1",
+                "url": "https://api.github.com/repos/techdivision/import/zipball/c24f42ddc86e2bdff4f7e703dbcf30612866d1f1",
+                "reference": "c24f42ddc86e2bdff4f7e703dbcf30612866d1f1",
                 "shasum": ""
             },
             "require": {
@@ -2709,9 +2712,9 @@
             "description": "A library supporting generic Magento 2 import functionality",
             "support": {
                 "issues": "https://github.com/techdivision/import/issues",
-                "source": "https://github.com/techdivision/import/tree/17.3.4"
+                "source": "https://github.com/techdivision/import/tree/17.3.5"
             },
-            "time": "2022-12-06T11:16:28+00:00"
+            "time": "2022-12-19T11:39:22+00:00"
         },
         {
             "name": "techdivision/import-app-simple",
@@ -3164,16 +3167,16 @@
         },
         {
             "name": "techdivision/import-configuration",
-            "version": "5.2.0",
+            "version": "5.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-configuration.git",
-                "reference": "9ed5923f06bcdc7680c4cea70d1f7ff2ebf28b1e"
+                "reference": "33c1682c66e1f4ca5135a8e36f4804b5d6661a90"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-configuration/zipball/9ed5923f06bcdc7680c4cea70d1f7ff2ebf28b1e",
-                "reference": "9ed5923f06bcdc7680c4cea70d1f7ff2ebf28b1e",
+                "url": "https://api.github.com/repos/techdivision/import-configuration/zipball/33c1682c66e1f4ca5135a8e36f4804b5d6661a90",
+                "reference": "33c1682c66e1f4ca5135a8e36f4804b5d6661a90",
                 "shasum": ""
             },
             "require": {
@@ -3211,22 +3214,22 @@
             "description": "The configuration interfaces for generic import functionality implementations",
             "support": {
                 "issues": "https://github.com/techdivision/import-configuration/issues",
-                "source": "https://github.com/techdivision/import-configuration/tree/5.2.0"
+                "source": "https://github.com/techdivision/import-configuration/tree/5.2.1"
             },
-            "time": "2022-08-05T13:18:30+00:00"
+            "time": "2022-12-19T11:39:54+00:00"
         },
         {
             "name": "techdivision/import-configuration-jms",
-            "version": "17.3.0",
+            "version": "17.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-configuration-jms.git",
-                "reference": "e0e507fa5346d54c74b97941750959c48eb93255"
+                "reference": "d4a266117d124c10347d2f6e3c3c06b6f669b64e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-configuration-jms/zipball/e0e507fa5346d54c74b97941750959c48eb93255",
-                "reference": "e0e507fa5346d54c74b97941750959c48eb93255",
+                "url": "https://api.github.com/repos/techdivision/import-configuration-jms/zipball/d4a266117d124c10347d2f6e3c3c06b6f669b64e",
+                "reference": "d4a266117d124c10347d2f6e3c3c06b6f669b64e",
                 "shasum": ""
             },
             "require": {
@@ -3269,9 +3272,9 @@
             "description": "Library providing a JMS based configuration implementation for Pacemaker",
             "support": {
                 "issues": "https://github.com/techdivision/import-configuration-jms/issues",
-                "source": "https://github.com/techdivision/import-configuration-jms/tree/17.3.0"
+                "source": "https://github.com/techdivision/import-configuration-jms/tree/17.3.1"
             },
-            "time": "2022-10-25T14:56:00+00:00"
+            "time": "2022-12-19T11:46:33+00:00"
         },
         {
             "name": "techdivision/import-converter",
@@ -3723,16 +3726,16 @@
         },
         {
             "name": "techdivision/import-dbal-collection",
-            "version": "1.1.1",
+            "version": "1.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-dbal-collection.git",
-                "reference": "afd81aa1d09e584c1751a296de4c892b04cdf921"
+                "reference": "554fdcec1d034d65aa732c02a637bfb117ffae8d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-dbal-collection/zipball/afd81aa1d09e584c1751a296de4c892b04cdf921",
-                "reference": "afd81aa1d09e584c1751a296de4c892b04cdf921",
+                "url": "https://api.github.com/repos/techdivision/import-dbal-collection/zipball/554fdcec1d034d65aa732c02a637bfb117ffae8d",
+                "reference": "554fdcec1d034d65aa732c02a637bfb117ffae8d",
                 "shasum": ""
             },
             "require": {
@@ -3775,9 +3778,9 @@
             "description": "Pacemaker library providing a hyperfast Magento 2 import DBAL functionality",
             "support": {
                 "issues": "https://github.com/techdivision/import-dbal-collection/issues",
-                "source": "https://github.com/techdivision/import-dbal-collection/tree/1.1.1"
+                "source": "https://github.com/techdivision/import-dbal-collection/tree/1.1.2"
             },
-            "time": "2022-10-06T15:56:05+00:00"
+            "time": "2022-12-19T11:36:01+00:00"
         },
         {
             "name": "techdivision/import-ee",
@@ -4506,16 +4509,16 @@
         },
         {
             "name": "techdivision/import-product-url-rewrite",
-            "version": "25.0.0",
+            "version": "25.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-product-url-rewrite.git",
-                "reference": "b33c2b32ec1d2b9cd9cd1d94cd62137bf9807bf9"
+                "reference": "534a331b5694deec0190000fd913300108d9b5a7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-product-url-rewrite/zipball/b33c2b32ec1d2b9cd9cd1d94cd62137bf9807bf9",
-                "reference": "b33c2b32ec1d2b9cd9cd1d94cd62137bf9807bf9",
+                "url": "https://api.github.com/repos/techdivision/import-product-url-rewrite/zipball/534a331b5694deec0190000fd913300108d9b5a7",
+                "reference": "534a331b5694deec0190000fd913300108d9b5a7",
                 "shasum": ""
             },
             "require": {
@@ -4555,9 +4558,9 @@
             "description": "Pacemaker library providing basic Magento 2 product URL rewrite import functionality",
             "support": {
                 "issues": "https://github.com/techdivision/import-product-url-rewrite/issues",
-                "source": "https://github.com/techdivision/import-product-url-rewrite/tree/25.0.0"
+                "source": "https://github.com/techdivision/import-product-url-rewrite/tree/25.0.1"
             },
-            "time": "2022-04-21T08:39:19+00:00"
+            "time": "2022-12-19T11:37:25+00:00"
         },
         {
             "name": "techdivision/import-product-variant",
@@ -5512,16 +5515,16 @@
         },
         {
             "name": "consolidation/annotated-command",
-            "version": "4.7.0",
+            "version": "4.7.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/consolidation/annotated-command.git",
-                "reference": "423715c6c5156d007e6d3357f7793d9dad510cd4"
+                "reference": "fd263e3e9341d29758025b1a9b2878e3247525be"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/consolidation/annotated-command/zipball/423715c6c5156d007e6d3357f7793d9dad510cd4",
-                "reference": "423715c6c5156d007e6d3357f7793d9dad510cd4",
+                "url": "https://api.github.com/repos/consolidation/annotated-command/zipball/fd263e3e9341d29758025b1a9b2878e3247525be",
+                "reference": "fd263e3e9341d29758025b1a9b2878e3247525be",
                 "shasum": ""
             },
             "require": {
@@ -5562,9 +5565,9 @@
             "description": "Initialize Symfony Console commands from annotated command class methods.",
             "support": {
                 "issues": "https://github.com/consolidation/annotated-command/issues",
-                "source": "https://github.com/consolidation/annotated-command/tree/4.7.0"
+                "source": "https://github.com/consolidation/annotated-command/tree/4.7.1"
             },
-            "time": "2022-11-22T21:28:39+00:00"
+            "time": "2022-12-06T22:57:25+00:00"
         },
         {
             "name": "consolidation/config",
@@ -7364,16 +7367,16 @@
         },
         {
             "name": "phpunit/php-code-coverage",
-            "version": "9.2.19",
+            "version": "9.2.22",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-code-coverage.git",
-                "reference": "c77b56b63e3d2031bd8997fcec43c1925ae46559"
+                "reference": "e4bf60d2220b4baaa0572986b5d69870226b06df"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/c77b56b63e3d2031bd8997fcec43c1925ae46559",
-                "reference": "c77b56b63e3d2031bd8997fcec43c1925ae46559",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/e4bf60d2220b4baaa0572986b5d69870226b06df",
+                "reference": "e4bf60d2220b4baaa0572986b5d69870226b06df",
                 "shasum": ""
             },
             "require": {
@@ -7429,7 +7432,7 @@
             ],
             "support": {
                 "issues": "https://github.com/sebastianbergmann/php-code-coverage/issues",
-                "source": "https://github.com/sebastianbergmann/php-code-coverage/tree/9.2.19"
+                "source": "https://github.com/sebastianbergmann/php-code-coverage/tree/9.2.22"
             },
             "funding": [
                 {
@@ -7437,7 +7440,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2022-11-18T07:47:47+00:00"
+            "time": "2022-12-18T16:40:55+00:00"
         },
         {
             "name": "phpunit/php-file-iterator",
@@ -7682,16 +7685,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "9.5.26",
+            "version": "9.5.27",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "851867efcbb6a1b992ec515c71cdcf20d895e9d2"
+                "reference": "a2bc7ffdca99f92d959b3f2270529334030bba38"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/851867efcbb6a1b992ec515c71cdcf20d895e9d2",
-                "reference": "851867efcbb6a1b992ec515c71cdcf20d895e9d2",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/a2bc7ffdca99f92d959b3f2270529334030bba38",
+                "reference": "a2bc7ffdca99f92d959b3f2270529334030bba38",
                 "shasum": ""
             },
             "require": {
@@ -7764,7 +7767,7 @@
             ],
             "support": {
                 "issues": "https://github.com/sebastianbergmann/phpunit/issues",
-                "source": "https://github.com/sebastianbergmann/phpunit/tree/9.5.26"
+                "source": "https://github.com/sebastianbergmann/phpunit/tree/9.5.27"
             },
             "funding": [
                 {
@@ -7780,7 +7783,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-10-28T06:00:21+00:00"
+            "time": "2022-12-09T07:31:23+00:00"
         },
         {
             "name": "react/promise",

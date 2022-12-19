@@ -1,4 +1,4 @@
-# Version 4.2.2 (coming soon)
+# Version 4.2.2
 
 * Min. PHP Version set to 7.3
 * Support PhpUnit 8.0
@@ -6,7 +6,18 @@
 
 ## Features
 
-* none
+* add new config for ignored attribute on update defined in configuration.json
+  * Example:
+    * Ignore attribute code `msrp_display_actual_price_type` from catalog_product entity on update value
+    * Ignore ALL attribute codes from catalog_category entity on update value
+```
+   "ignore-attribute-value-on-update": {
+        "catalog_product": [
+            "msrp_display_actual_price_type"
+        ],
+        "catalog_category": []
+    }
+```
 
 
 ## Bugfixes
@@ -14,6 +25,10 @@
 * import:
   * Fix import duplicate data for global eav_attribute
   * Fix clear empty value per row
+* import-product-url-rewrite:
+  * Url DB exception handle over strict-mode and ignore DB exceptions
+* import-dbal-collection:
+  * Fix PHP 8.1 deprecation warnings
 
 # Version 4.2.1
 
