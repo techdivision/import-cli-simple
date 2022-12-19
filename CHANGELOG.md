@@ -1,3 +1,19 @@
+# Version 4.2.3
+
+* Min. PHP Version set to 7.3
+* Support PhpUnit 8.0
+* Please take a look at [UPGRADE-4.0.0](UPGRADE-4.0.0.md)
+
+## Features
+
+* none
+
+## Bugfixes
+
+* import:
+  * php 8.1 compatibility
+
+
 # Version 4.2.2
 
 * Min. PHP Version set to 7.3
