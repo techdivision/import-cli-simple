@@ -13,6 +13,9 @@
 * import-product:
   * unset update_at from attribute by update statement to avoid old data
 
+* import-configuration-jms:
+  * fix php compatibility error
+
 # Version 4.2.3
 
 * Min. PHP Version set to 7.3
