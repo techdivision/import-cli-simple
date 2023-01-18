@@ -189,7 +189,7 @@ it is necessary to add additional callbacks to the product import configuration.
     "params" : [
       {
         "copy-images" : false,
-        "media-directory" : "projects/eglo/tmp"
+        "media-directory" : "projects/project-name/tmp"
       }
     ],
     "frontend-input-callbacks": [
