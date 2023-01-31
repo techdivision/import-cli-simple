@@ -6,7 +6,8 @@
 
 ## Features
 
-* none
+* import:
+  Extend multi/select callbacks cd cliwith strict mode
 
 ## Bugfixes
 
@@ -15,6 +16,10 @@
 
 * import-configuration-jms:
   * fix php compatibility error
+
+* import:
+* Fix Error for long character with UTF-8
+
 
 # Version 4.2.3
 
