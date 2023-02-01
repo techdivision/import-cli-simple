@@ -18,9 +18,11 @@
   * fix php compatibility error
 
 * import:
-* Fix Error for long character with UTF-8
+  * Fix Error for long character with UTF-8
 
-
+* import-customer:
+  * Override customer update with existing (website_id and increment_id) or (email and website_id)
+  
 # Version 4.2.3
 
 * Min. PHP Version set to 7.3
