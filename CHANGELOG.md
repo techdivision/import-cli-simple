@@ -7,7 +7,7 @@
 ## Features
 
 * import:
-  Extend multi/select callbacks cd cliwith strict mode
+  Extend multi/select callbacks with strict mode
 
 ## Bugfixes
 
