@@ -13,6 +13,7 @@
 
 * import-product:
   * unset update_at from attribute by update statement to avoid old data
+  * UrlKeyObserver: Optimize url_key function to extend/overwrite in own calculation
 
 * import-configuration-jms:
   * fix php compatibility error

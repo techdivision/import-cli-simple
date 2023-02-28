@@ -3775,16 +3775,16 @@
         },
         {
             "name": "techdivision/import-product",
-            "version": "25.1.2",
+            "version": "25.1.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-product.git",
-                "reference": "63b522856ab4c79fda742495fca73d1fc9d7cd68"
+                "reference": "7ca602676f50028a4b1b6bcdd6d2fa4d8ec34ba5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-product/zipball/63b522856ab4c79fda742495fca73d1fc9d7cd68",
-                "reference": "63b522856ab4c79fda742495fca73d1fc9d7cd68",
+                "url": "https://api.github.com/repos/techdivision/import-product/zipball/7ca602676f50028a4b1b6bcdd6d2fa4d8ec34ba5",
+                "reference": "7ca602676f50028a4b1b6bcdd6d2fa4d8ec34ba5",
                 "shasum": ""
             },
             "require": {
@@ -3824,9 +3824,9 @@
             "description": "Pacemaker library providing basic Magento 2 product import functionality",
             "support": {
                 "issues": "https://github.com/techdivision/import-product/issues",
-                "source": "https://github.com/techdivision/import-product/tree/25.1.2"
+                "source": "https://github.com/techdivision/import-product/tree/25.1.3"
             },
-            "time": "2023-02-24T13:55:49+00:00"
+            "time": "2023-02-28T18:25:19+00:00"
         },
         {
             "name": "techdivision/import-product-bundle",
@@ -5451,16 +5451,16 @@
         },
         {
             "name": "consolidation/annotated-command",
-            "version": "4.7.1",
+            "version": "4.8.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/consolidation/annotated-command.git",
-                "reference": "fd263e3e9341d29758025b1a9b2878e3247525be"
+                "reference": "8fefdcff0cdb61bc04e34323f626404d536786a5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/consolidation/annotated-command/zipball/fd263e3e9341d29758025b1a9b2878e3247525be",
-                "reference": "fd263e3e9341d29758025b1a9b2878e3247525be",
+                "url": "https://api.github.com/repos/consolidation/annotated-command/zipball/8fefdcff0cdb61bc04e34323f626404d536786a5",
+                "reference": "8fefdcff0cdb61bc04e34323f626404d536786a5",
                 "shasum": ""
             },
             "require": {
@@ -5501,9 +5501,9 @@
             "description": "Initialize Symfony Console commands from annotated command class methods.",
             "support": {
                 "issues": "https://github.com/consolidation/annotated-command/issues",
-                "source": "https://github.com/consolidation/annotated-command/tree/4.7.1"
+                "source": "https://github.com/consolidation/annotated-command/tree/4.8.1"
             },
-            "time": "2022-12-06T22:57:25+00:00"
+            "time": "2023-02-28T15:36:38+00:00"
         },
         {
             "name": "consolidation/config",
@@ -7298,23 +7298,23 @@
         },
         {
             "name": "phpunit/php-code-coverage",
-            "version": "9.2.24",
+            "version": "9.2.25",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-code-coverage.git",
-                "reference": "2cf940ebc6355a9d430462811b5aaa308b174bed"
+                "reference": "0e2b40518197a8c0d4b08bc34dfff1c99c508954"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/2cf940ebc6355a9d430462811b5aaa308b174bed",
-                "reference": "2cf940ebc6355a9d430462811b5aaa308b174bed",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/0e2b40518197a8c0d4b08bc34dfff1c99c508954",
+                "reference": "0e2b40518197a8c0d4b08bc34dfff1c99c508954",
                 "shasum": ""
             },
             "require": {
                 "ext-dom": "*",
                 "ext-libxml": "*",
                 "ext-xmlwriter": "*",
-                "nikic/php-parser": "^4.14",
+                "nikic/php-parser": "^4.15",
                 "php": ">=7.3",
                 "phpunit/php-file-iterator": "^3.0.3",
                 "phpunit/php-text-template": "^2.0.2",
@@ -7363,7 +7363,7 @@
             ],
             "support": {
                 "issues": "https://github.com/sebastianbergmann/php-code-coverage/issues",
-                "source": "https://github.com/sebastianbergmann/php-code-coverage/tree/9.2.24"
+                "source": "https://github.com/sebastianbergmann/php-code-coverage/tree/9.2.25"
             },
             "funding": [
                 {
@@ -7371,7 +7371,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2023-01-26T08:26:55+00:00"
+            "time": "2023-02-25T05:32:00+00:00"
         },
         {
             "name": "phpunit/php-file-iterator",
@@ -9687,16 +9687,16 @@
         },
         {
             "name": "symfony/mime",
-            "version": "v5.4.19",
+            "version": "v5.4.21",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/mime.git",
-                "reference": "a858429a9c704edc53fe057228cf9ca282ba48eb"
+                "reference": "ef57d9fb9cdd5e6b2ffc567d109865d10b6920cd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/mime/zipball/a858429a9c704edc53fe057228cf9ca282ba48eb",
-                "reference": "a858429a9c704edc53fe057228cf9ca282ba48eb",
+                "url": "https://api.github.com/repos/symfony/mime/zipball/ef57d9fb9cdd5e6b2ffc567d109865d10b6920cd",
+                "reference": "ef57d9fb9cdd5e6b2ffc567d109865d10b6920cd",
                 "shasum": ""
             },
             "require": {
@@ -9751,7 +9751,7 @@
                 "mime-type"
             ],
             "support": {
-                "source": "https://github.com/symfony/mime/tree/v5.4.19"
+                "source": "https://github.com/symfony/mime/tree/v5.4.21"
             },
             "funding": [
                 {
@@ -9767,7 +9767,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2023-01-09T05:43:46+00:00"
+            "time": "2023-02-21T19:46:44+00:00"
         },
         {
             "name": "symfony/polyfill-intl-idn",
