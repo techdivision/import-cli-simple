@@ -14,6 +14,8 @@
 * import-product:
   * unset update_at from attribute by update statement to avoid old data
   * UrlKeyObserver: Optimize url_key function to extend/overwrite in own calculation
+  * ProductInventory Mapping: fix header mapping for change set detection in cataloginventory_stock_item
+  * Don't reset Inventory Stock quantity and status if csv column are empty
 
 * import-configuration-jms:
   * fix php compatibility error
@@ -23,6 +25,10 @@
 
 * import-customer:
   * Override customer update with existing (website_id and increment_id) or (email and website_id)
+
+* import-app-simple:
+  * PHP 8.x third party library compatibility 
+  * Fix smyfony/console version 5 compatibility
   
 # Version 4.2.3
 
