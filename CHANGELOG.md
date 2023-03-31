@@ -7,7 +7,14 @@
 ## Features
 
 * import:
-  Extend multi/select callbacks with strict mode
+  * Extend multi/select callbacks with strict mode
+  * Introduct new argument --config-dir for magento app/etc directory
+ 
+* import-cli:
+  * Introduct new argument --config-dir for magento app/etc directory
+
+* import-configuration-jms:
+  * Introduct new argument --config-dir for magento app/etc directory
 
 ## Bugfixes
 
@@ -22,7 +29,14 @@
 
 * import:
   * Fix Error for long character with UTF-8
+  * Fix table metadata loader from tables with table prefix
 
+* import-product-link:
+  * Fix dynamic table name for tables with table prefix
+
+* import-product-variant:
+  * Fix dynamic table name for tables with table prefix
+  
 * import-customer:
   * Override customer update with existing (website_id and increment_id) or (email and website_id)
 
