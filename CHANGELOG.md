@@ -15,6 +15,7 @@
 
 * import-configuration-jms:
   * Introduct new argument --config-dir for magento app/etc directory
+  * Fix doctrine annotations 2 for PHP >= 8.0
 
 ## Bugfixes
 

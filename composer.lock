@@ -1125,16 +1125,16 @@
         },
         {
             "name": "phpstan/phpdoc-parser",
-            "version": "1.16.1",
+            "version": "1.20.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpdoc-parser.git",
-                "reference": "e27e92d939e2e3636f0a1f0afaba59692c0bf571"
+                "reference": "10553ab3f0337ff1a71433c3417d7eb2a3eec1fd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpdoc-parser/zipball/e27e92d939e2e3636f0a1f0afaba59692c0bf571",
-                "reference": "e27e92d939e2e3636f0a1f0afaba59692c0bf571",
+                "url": "https://api.github.com/repos/phpstan/phpdoc-parser/zipball/10553ab3f0337ff1a71433c3417d7eb2a3eec1fd",
+                "reference": "10553ab3f0337ff1a71433c3417d7eb2a3eec1fd",
                 "shasum": ""
             },
             "require": {
@@ -1164,9 +1164,9 @@
             "description": "PHPDoc parser with support for nullable, intersection and generic types",
             "support": {
                 "issues": "https://github.com/phpstan/phpdoc-parser/issues",
-                "source": "https://github.com/phpstan/phpdoc-parser/tree/1.16.1"
+                "source": "https://github.com/phpstan/phpdoc-parser/tree/1.20.0"
             },
-            "time": "2023-02-07T18:11:17+00:00"
+            "time": "2023-04-20T11:18:07+00:00"
         },
         {
             "name": "psr/cache",
@@ -3047,16 +3047,16 @@
         },
         {
             "name": "techdivision/import-cli",
-            "version": "12.2.0",
+            "version": "12.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-cli.git",
-                "reference": "f528cbb7d1a4279ba503f5204840a439f9bb318a"
+                "reference": "6f8ed490e6c81b44afc04e5bae3c7e8ecf76b787"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-cli/zipball/f528cbb7d1a4279ba503f5204840a439f9bb318a",
-                "reference": "f528cbb7d1a4279ba503f5204840a439f9bb318a",
+                "url": "https://api.github.com/repos/techdivision/import-cli/zipball/6f8ed490e6c81b44afc04e5bae3c7e8ecf76b787",
+                "reference": "6f8ed490e6c81b44afc04e5bae3c7e8ecf76b787",
                 "shasum": ""
             },
             "require": {
@@ -3102,9 +3102,9 @@
             "description": "Commands and Helpers to implement a CLI providing single-threaded Magento 2 importing functionality based on Pacemaker",
             "support": {
                 "issues": "https://github.com/techdivision/import-cli/issues",
-                "source": "https://github.com/techdivision/import-cli/tree/12.2.0"
+                "source": "https://github.com/techdivision/import-cli/tree/12.2.1"
             },
-            "time": "2023-03-30T10:49:23+00:00"
+            "time": "2023-04-20T18:44:41+00:00"
         },
         {
             "name": "techdivision/import-configuration",
@@ -3161,16 +3161,16 @@
         },
         {
             "name": "techdivision/import-configuration-jms",
-            "version": "17.4.0",
+            "version": "17.4.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-configuration-jms.git",
-                "reference": "e7d478fe2ff24a3bb9304f08ce5270515c8c61f8"
+                "reference": "f5de038c7eaccc23f4fa50f7077f844eb336c4eb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-configuration-jms/zipball/e7d478fe2ff24a3bb9304f08ce5270515c8c61f8",
-                "reference": "e7d478fe2ff24a3bb9304f08ce5270515c8c61f8",
+                "url": "https://api.github.com/repos/techdivision/import-configuration-jms/zipball/f5de038c7eaccc23f4fa50f7077f844eb336c4eb",
+                "reference": "f5de038c7eaccc23f4fa50f7077f844eb336c4eb",
                 "shasum": ""
             },
             "require": {
@@ -3213,9 +3213,9 @@
             "description": "Library providing a JMS based configuration implementation for Pacemaker",
             "support": {
                 "issues": "https://github.com/techdivision/import-configuration-jms/issues",
-                "source": "https://github.com/techdivision/import-configuration-jms/tree/17.4.0"
+                "source": "https://github.com/techdivision/import-configuration-jms/tree/17.4.1"
             },
-            "time": "2023-03-30T10:49:23+00:00"
+            "time": "2023-04-21T10:48:19+00:00"
         },
         {
             "name": "techdivision/import-converter",
@@ -6476,6 +6476,7 @@
                 "issues": "https://github.com/FriendsOfPHP/Goutte/issues",
                 "source": "https://github.com/FriendsOfPHP/Goutte/tree/master"
             },
+            "abandoned": "symfony/browser-kit",
             "time": "2015-05-05T21:14:57+00:00"
         },
         {
