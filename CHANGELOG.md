@@ -17,6 +17,9 @@
   * Introduct new argument --config-dir for magento app/etc directory
   * Fix doctrine annotations 2 for PHP >= 8.0
 
+* import-customer:
+  * Added strict mode handling for gender value
+
 ## Bugfixes
 
 * import-product:
@@ -31,6 +34,7 @@
 * import:
   * Fix Error for long character with UTF-8
   * Fix table metadata loader from tables with table prefix
+  * Fix records with attribute value 'No' or '0' are not created
 
 * import-product-link:
   * Fix dynamic table name for tables with table prefix
