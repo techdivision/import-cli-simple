@@ -20,6 +20,9 @@
 * import-customer:
   * Added strict mode handling for gender value
 
+* import-dbal-collection:
+  * Better error message on PDOException
+
 ## Bugfixes
 
 * import-product:
