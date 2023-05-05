@@ -25,6 +25,8 @@
 
 ## Bugfixes
 
+* Start fix php8.2 deprecated warnings
+
 * import-product:
   * unset update_at from attribute by update statement to avoid old data
   * UrlKeyObserver: Optimize url_key function to extend/overwrite in own calculation
@@ -51,6 +53,9 @@
 * import-app-simple:
   * PHP 8.x third party library compatibility 
   * Fix smyfony/console version 5 compatibility
+
+* import-attributes:
+  * Fix EntityLoader initialization of default values
   
 # Version 4.2.3
 

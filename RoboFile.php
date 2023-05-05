@@ -332,6 +332,7 @@ class RoboFile extends \Robo\Tasks
             $this->properties['vendor.dir'].'/techdivision/import-attribute/src/Utils/MemberNames.php',
             $this->properties['vendor.dir'].'/techdivision/import-attribute/src/Subjects/OptionSubject.php',
             $this->properties['vendor.dir'].'/techdivision/import-attribute/src/Loaders/RawEntityLoader.php',
+            $this->properties['vendor.dir'].'/techdivision/import-attribute-set/src/Loaders/RawEntityLoader.php',
             $this->properties['vendor.dir'].'/techdivision/import-category/src/Loaders/RawEntityLoader.php',
             $this->properties['vendor.dir'].'/techdivision/import-category/src/Services/CategoryBunchProcessor.php',
             $this->properties['vendor.dir'].'/techdivision/import-product/src/Loaders/RawEntityLoader.php',
