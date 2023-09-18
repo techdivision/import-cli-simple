@@ -24,6 +24,8 @@
   * Better error message on PDOException
 
 ## Bugfixes
+* Import-category & Import-category-ee #METSUP-32: 
+    * url rewrites for the multistore store views are updated unintentionally
 
 * Start fix php8.2 deprecated warnings
 
