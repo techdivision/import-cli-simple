@@ -24,6 +24,10 @@
   * Better error message on PDOException
 
 ## Bugfixes
+
+* #METSUP-40: fix URL-Suffix in initial-import
+  * Possibly clean an old cache entry with the correct ID at Multi Store Setup.
+* 
 * Import-category & Import-category-ee #METSUP-32: 
     * url rewrites for the multistore store views are updated unintentionally
 
