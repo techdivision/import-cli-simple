@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7db70267d802cc73937852208ec5e944",
+    "content-hash": "297aefe3bfac57d4e2ec2d93f02d89c8",
     "packages": [
         {
             "name": "brick/math",
@@ -3117,24 +3117,24 @@
         },
         {
             "name": "techdivision/import-cli",
-            "version": "12.3.0",
+            "version": "dev-pac-827",
             "source": {
                 "type": "git",
                 "url": "https://github.com/techdivision/import-cli.git",
-                "reference": "ba5e679e08ed4381bc9ba0aeef65c660955065ad"
+                "reference": "9c9514d4d90aca4366cf1fb87f206c659832fef0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techdivision/import-cli/zipball/ba5e679e08ed4381bc9ba0aeef65c660955065ad",
-                "reference": "ba5e679e08ed4381bc9ba0aeef65c660955065ad",
+                "url": "https://api.github.com/repos/techdivision/import-cli/zipball/9c9514d4d90aca4366cf1fb87f206c659832fef0",
+                "reference": "9c9514d4d90aca4366cf1fb87f206c659832fef0",
                 "shasum": ""
             },
             "require": {
                 "php": ">=7.3.0",
                 "ramsey/uuid": "^3.7|^3.8|^4.1|^4.2",
-                "symfony/config": "~2.8|~3.0|~4.0|~5.0",
+                "symfony/config": "~2.8|~3.0|~4.0|~5.0|~6.0",
                 "symfony/console": "~2.3,!=2.7.0|~4.0|~5.0",
-                "symfony/dependency-injection": "~2.3,!=2.7.0|~3.0|~4.0|~5.0",
+                "symfony/dependency-injection": "~2.3,!=2.7.0|~3.0|~4.0|~5.0|~6.0",
                 "symfony/expression-language": "~2.3,!=2.7.0|~4.0|~5.0",
                 "techdivision/import-app-simple": "^18.0.0",
                 "techdivision/import-configuration-jms": "^17.0.0"
@@ -3148,7 +3148,7 @@
                 "phpunit/phpunit": "^6.5.0|^8.0.0|~9.5.0",
                 "sebastian/phpcpd": "~3.0|~4.0|~5.0|~6.0",
                 "squizlabs/php_codesniffer": "~3.4.0|~3.6.0",
-                "symfony/http-kernel": "~2.0|~3.0|~4.0"
+                "symfony/http-kernel": "~2.0|~3.0|~4.0|~5.0|~6.0"
             },
             "type": "library",
             "autoload": {
@@ -3172,9 +3172,9 @@
             "description": "Commands and Helpers to implement a CLI providing single-threaded Magento 2 importing functionality based on Pacemaker",
             "support": {
                 "issues": "https://github.com/techdivision/import-cli/issues",
-                "source": "https://github.com/techdivision/import-cli/tree/12.3.0"
+                "source": "https://github.com/techdivision/import-cli/tree/pac-827"
             },
-            "time": "2023-07-10T16:37:46+00:00"
+            "time": "2023-10-02T10:13:13+00:00"
         },
         {
             "name": "techdivision/import-configuration",
@@ -10842,6 +10842,7 @@
     ],
     "minimum-stability": "stable",
     "stability-flags": {
+        "techdivision/import-cli": 20,
         "behat/symfony2-extension": 20
     },
     "prefer-stable": false,
