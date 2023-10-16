@@ -24,10 +24,15 @@
   * Better error message on PDOException
 
 ## Bugfixes
+
 * Make composer dependencies compatible with Magento 2.4.6 (PAC-827)
   * Update `symfony/dependency-injection` with version `~6.0`
   * Update `symfony/http-kernel` with version `~5.0 ~6.0`
   * Update `symfony/configl` with version `~6.0`
+
+  
+* #METSUP-40: fix URL-Suffix in initial-import
+  * Possibly clean an old cache entry with the correct ID at Multi Store Setup.
 
 
 * Import-category & Import-category-ee #METSUP-32: 
