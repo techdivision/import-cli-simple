@@ -1,4 +1,4 @@
-# Version 4.2.4 (Coming soon)
+# Version 4.2.4
 
 * Min. PHP Version set to 7.3
 * Support PhpUnit 8.0
@@ -9,9 +9,11 @@
 * import:
   * Extend multi/select callbacks with strict mode
   * Introduct new argument --config-dir for magento app/etc directory
+  * Preparation of a customer path for Magento backend storage of the configuration in `var/pacemaker/import/configuration`
  
 * import-cli:
   * Introduct new argument --config-dir for magento app/etc directory
+  * Preparation of a customer path for Magento backend storage of the configuration in `var/pacemaker/import/configuration`
 
 * import-configuration-jms:
   * Introduct new argument --config-dir for magento app/etc directory
