@@ -1,3 +1,17 @@
+# Version 4.2.5 (comming soon)
+
+* Min. PHP Version set to 7.3
+* Support PhpUnit 8.0
+* Please take a look at [UPGRADE-4.0.0](UPGRADE-4.0.0.md)
+
+## Features
+
+
+## Bugfixes
+
+* import
+  * Add cache for image types to avoid unnecessary database queries [#242](https://github.com/techdivision/import/pull/242) 
+
 # Version 4.2.4
 
 * Min. PHP Version set to 7.3
