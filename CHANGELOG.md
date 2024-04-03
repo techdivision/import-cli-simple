@@ -13,6 +13,8 @@
   * Add cache for image types to avoid unnecessary database queries [#242](https://github.com/techdivision/import/pull/242) 
 * import-product
   * Get delimiter value from configuration `\TechDivision\Import\Product\Observers\FileUploadObserver:process()`
+* import-configuration-jms
+  * Fix jms serializer dependency to doctrine/annotations (https://github.com/schmittjoh/serializer/issues/1537)   
 
 # Version 4.2.4
 
