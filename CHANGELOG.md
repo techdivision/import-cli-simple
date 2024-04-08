@@ -17,7 +17,8 @@
 * import-configuration-jms
   * Fix jms serializer dependency to doctrine/annotations (https://github.com/schmittjoh/serializer/issues/1537)   
 * Make composer dependencies compatible with Magento 2.4.7
-  * Update `symfony/console` with version `~6.0|~7.0`
+  * Update package `techdivision/import-cli` with `symfony/console` in version `~6.0|~7.0`
+  * Update package `techdivision/import` with`psr/log` with version `~2.0 ~3.0`
 
 # Version 4.2.4
 
