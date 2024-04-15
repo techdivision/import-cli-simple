@@ -1,11 +1,13 @@
-# Version 4.2.5 (comming soon)
+# Version 4.2.5
 
 * Min. PHP Version set to 7.3
 * Support PhpUnit 8.0
 * Please take a look at [UPGRADE-4.0.0](UPGRADE-4.0.0.md)
+* Updated composer package versions
 
 ## Features
 
+# none
 
 ## Bugfixes
 
