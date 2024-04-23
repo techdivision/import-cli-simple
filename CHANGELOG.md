@@ -1,3 +1,20 @@
+# Version 4.2.6 (coming soon)
+
+* Min. PHP Version set to 7.3
+* Support PhpUnit 8.0
+* Please take a look at [UPGRADE-4.0.0](UPGRADE-4.0.0.md)
+* Updated composer package versions
+
+## Features
+
+# none
+
+## Bugfixes
+
+* import
+  * Fix swiftmailer security bug
+  * Update swiftmailer/swiftmailer with version ^6.0.0
+
 # Version 4.2.5
 
 * Min. PHP Version set to 7.3
