@@ -14,6 +14,8 @@
 * import
   * Fix swiftmailer security bug
   * Update swiftmailer/swiftmailer with version ^6.0.0
+* Add new paramater `$clearCache` to the method `findOneBySku($sku, $clearCache = false)` to clearcache in module `techdivision/import-product`
+* Add new methode `removeCache(array $params = array())` in module `techdivision/import-dbal-collection`
 
 # Version 4.2.5
 
