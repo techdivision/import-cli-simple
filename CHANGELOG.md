@@ -11,11 +11,17 @@
 
 ## Bugfixes
 
-* import
+* **import**
   * Fix swiftmailer security bug
   * Update swiftmailer/swiftmailer with version ^6.0.0
-* Add new paramater `$clearCache` to the method `findOneBySku($sku, $clearCache = false)` to clearcache in module `techdivision/import-product`
-* Add new methode `removeCache(array $params = array())` in module `techdivision/import-dbal-collection`
+* **import-product:**
+  * Add new paramater `$clearCache` to the method `findOneBySku($sku, $clearCache = false)` to clearcache in module `techdivision/import-product`
+  * Add new methode `removeCache(array $params = array())` in module `techdivision/import-dbal-collection`
+* **import-product, import-product-ee, import-product-tier-price:**
+  * Fix issue: Remove the tier price for all products that are available through the fired listener
+      * Define a new method `addPrimarySkuToRowPkMapping` to map the SKU with the primary SKU of the row
+      * Define a new method `addPrimarySkuToPkMapping` to map the SKU with the primary SKU of the row for enterprise edition
+      * Define new `src/Utils/PrimarySkuToPkMappingUtil` to limit the listener just to tier price SKUs and entity/Row IDs.
 
 # Version 4.2.5
 
