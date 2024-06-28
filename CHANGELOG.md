@@ -1,3 +1,7 @@
+# Version 5.0.0 (coming soon)
+This is mostly a cleanup release offering stronger type guarantees for integrators with the changes, but there is no big new feature for end users.
+* The minimum supported PHP version is now 8.1.0.
+
 # Version 4.2.6 (coming soon)
 
 * Min. PHP Version set to 7.3
