@@ -60,9 +60,10 @@
         "behat/mink-extension": "^2.3.1",
         "dmore/chrome-mink-driver": "^2.9.3",
         "dmore/behat-chrome-extension": "^1.4.0",
-        "behat/mink-goutte-driver": "dev-master",
+        "behat/mink-goutte-driver": "dev-master as 3.0.0",
         "behat/symfony2-extension": "^2.1.5",
-        "phpcompatibility/php-compatibility": "^9.3.5"
+        "phpcompatibility/php-compatibility": "^9.3.5",
+        "techdivision/import-sample-data": "^4.3.5"
     },
     "authors": [
         {
@@ -106,5 +107,11 @@
         "allow-plugins": {
             "composer/package-versions-deprecated": false
         }
-    }
+    },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/techdivision/import-cache-collection"
+        }
+    ]
 }
