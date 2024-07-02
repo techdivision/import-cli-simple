@@ -3,7 +3,7 @@
     "description": "CLI providing single-threaded Magento 2 importing functionality based on Pacemaker",
     "license": "MIT",
     "require": {
-        "php": "~8.1|~8.2 ",
+        "php": "^8.1",
         "techdivision/import": "dev-compatibility-php-81",
         "techdivision/import-cli": "dev-compatibility-php-81",
         "techdivision/import-app-simple": "dev-compatibility-php-81",
