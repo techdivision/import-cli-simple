@@ -1,6 +1,11 @@
 # Version 5.0.0 (coming soon)
 This is mostly a cleanup release offering stronger type guarantees for integrators with the changes, but there is no big new feature for end users.
 * The minimum supported PHP version is now 8.1.0.
+* replace dependency `"behat/symfony2-extension"` and `"behat/mink-goutte-driver"` with `friends-of-behat/symfony-extension` and `"friends-of-behat/mink-browserkit-driver"`
+* Upgrade required dependency
+* Correction of the compatibility of functions
+  *  `src/Loggers/Handlers/HandlerWrapper.php::isHandling(array|LogRecord $record): bool`
+  *  `src/Loggers/Handlers/HandlerWrapper.php::handle(array|LogRecord $record): bool`
 
 # Version 4.2.6 (coming soon)
 
