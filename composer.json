@@ -4,8 +4,8 @@
     "license": "MIT",
     "require": {
         "php": ">=7.3.0",
-        "techdivision/import": "^17.8.0",
-        "techdivision/import-cli": "^12.5.2",
+        "techdivision/import": "^17.8.1",
+        "techdivision/import-cli": "^12.5.3",
         "techdivision/import-app-simple": "^18.0.3",
         "techdivision/import-configuration-jms": "^17.4.2",
         "techdivision/import-ee": "^16.0.0",
@@ -13,9 +13,9 @@
         "techdivision/import-attribute-set": "^17.0.1",
         "techdivision/import-customer": "^17.1.1",
         "techdivision/import-customer-address": "^17.0.6",
-        "techdivision/import-category": "^21.0.3",
+        "techdivision/import-category": "^21.1.0",
         "techdivision/import-category-ee": "^22.0.1",
-        "techdivision/import-product": "^25.3.1",
+        "techdivision/import-product": "^25.3.2",
         "techdivision/import-product-msi": "^20.1.0",
         "techdivision/import-product-tier-price": "^18.1.0",
         "techdivision/import-product-url-rewrite": "^25.0.4",
@@ -24,7 +24,7 @@
         "techdivision/import-product-bundle": "^25.0.1",
         "techdivision/import-product-variant": "^25.0.5",
         "techdivision/import-product-grouped": "^19.0.0",
-        "techdivision/import-product-ee": "^26.1.1",
+        "techdivision/import-product-ee": "^26.1.2",
         "techdivision/import-product-link-ee": "^27.0.0",
         "techdivision/import-product-media-ee": "^28.0.0",
         "techdivision/import-product-bundle-ee": "^27.0.0",
@@ -42,7 +42,7 @@
         "techdivision/import-dbal-collection": "^1.2.0",
         "techdivision/import-cache-collection": "^1.0.0",
         "techdivision/import-configuration": "^5.2.1",
-        "egulias/email-validator": "^3.2"
+        "egulias/email-validator": "^3.2.6"
     },
     "require-dev": {
         "doctrine/dbal": "2.5.*",
