@@ -1,4 +1,4 @@
-# Upgrade from 3.8.* to 4.0.0
+# Upgrade from 4.2.* to 5.0.0
 
 This is mostly a cleanup release offering stronger type guarantees for integrators with the changes, but there is no big new feature for end users.
 * The minimum supported PHP version is now 8.1.0.

@@ -1,6 +1,7 @@
-# Version 5.0.0 (coming soon)
-This is mostly a cleanup release offering stronger type guarantees for integrators with the changes, but there is no big new feature for end users.
-* The minimum supported PHP version is now 8.1.0.
+# Version 5.0.0
+Update from 4.2.x with minimum dependency on PHP 8.1 and third-party modules
+
+* Min. PHP Version set to 8.1.
 * replace dependency `"behat/symfony2-extension"` and `"behat/mink-goutte-driver"` with `friends-of-behat/symfony-extension` and `"friends-of-behat/mink-browserkit-driver"`
 * Upgrade required dependency
 * Correction of the compatibility of functions

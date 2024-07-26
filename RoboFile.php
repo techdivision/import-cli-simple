@@ -40,7 +40,7 @@ class RoboFile extends \Robo\Tasks
         'target.dir' => __DIR__ . '/target',
         'symfony.dir' => __DIR__ . '/symfony',
         'webapp.name' => 'import-cli-simple',
-        'webapp.version' => '4.2.6'
+        'webapp.version' => '5.0.0'
     );
 
     /**
@@ -348,6 +348,7 @@ class RoboFile extends \Robo\Tasks
             $this->properties['vendor.dir'].'/techdivision/import-converter-product-attribute/src/Observers/ProductToAttributeOptionValueConverterObserver.php',
             $this->properties['vendor.dir'].'/techdivision/import-customer-address/src/Observers/CustomerAddressAttributeObserver.php',
             $this->properties['vendor.dir'].'/techdivision/import-serializer-csv/src/CategoryCsvSerializer.php',
+            $this->properties['vendor.dir'].'/techdivision/import-product-tier-price/src/Utils/PrimarySkuToPkMappingUtil.php',
         );
 
         // run the copy past detector
