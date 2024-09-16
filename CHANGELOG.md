@@ -8,6 +8,23 @@ Update from 4.2.x with minimum dependency on PHP 8.1 and third-party modules
   *  `src/Loggers/Handlers/HandlerWrapper.php::isHandling(array|LogRecord $record): bool`
   *  `src/Loggers/Handlers/HandlerWrapper.php::handle(array|LogRecord $record): bool`
 
+## Features
+
+# none
+
+## Bugfixes
+* **import-product-link:**
+  * Fixing clean-up links if the data in the file is missing, the value is not set to \_\_EMPTY__VALUE__ and the clean-up links configuration is disabled
+* **import-product:**
+  * refactoring clean-up-links and clean-up-variants to remove old data from relation table
+* **import-product-grouped:**
+  * refactoring clean-up-links and clean-up-variants to remove old data from relation table
+* **import-product-variant:**
+  * refactoring clean-up-links and clean-up-variants to remove old data from relation table
+* **import-product-bundle:**
+  * Fix php warning undefined array key
+
+
 # Version 4.2.6
 
 * Min. PHP Version set to 7.3
