@@ -1,3 +1,22 @@
+# Version 5.0.1 (comming soon)
+
+## Features
+
+# none
+
+## Bugfixes
+
+* **import-product-link:**
+  * Fixing clean-up links if the data in the file is missing, the value is not set to \_\_EMPTY__VALUE__ and the clean-up links configuration is disabled
+* **import-product:**
+  * refactoring clean-up-links and clean-up-variants to remove old data from relation table
+* **import-product-grouped:**
+  * refactoring clean-up-links and clean-up-variants to remove old data from relation table
+* **import-product-variant:**
+  * refactoring clean-up-links and clean-up-variants to remove old data from relation table
+* **import-product-bundle:**
+  * Fix php warning undefined array key
+
 # Version 5.0.0
 Update from 4.2.x with minimum dependency on PHP 8.1 and third-party modules
 
@@ -13,17 +32,8 @@ Update from 4.2.x with minimum dependency on PHP 8.1 and third-party modules
 # none
 
 ## Bugfixes
-* **import-product-link:**
-  * Fixing clean-up links if the data in the file is missing, the value is not set to \_\_EMPTY__VALUE__ and the clean-up links configuration is disabled
-* **import-product:**
-  * refactoring clean-up-links and clean-up-variants to remove old data from relation table
-* **import-product-grouped:**
-  * refactoring clean-up-links and clean-up-variants to remove old data from relation table
-* **import-product-variant:**
-  * refactoring clean-up-links and clean-up-variants to remove old data from relation table
-* **import-product-bundle:**
-  * Fix php warning undefined array key
 
+# none
 
 # Version 4.2.6
 
