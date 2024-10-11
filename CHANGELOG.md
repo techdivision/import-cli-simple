@@ -2,7 +2,9 @@
 
 ## Features
 
-# none
+### import-product import-product-ee
+* New validation added, whether the product of the website is assigned to the current shop view line
+  * `"import.callback.store.in.website.validator"`
 
 ## Bugfixes
 
