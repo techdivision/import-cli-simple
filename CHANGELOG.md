@@ -12,6 +12,7 @@
   * Fixing clean-up links if the data in the file is missing, the value is not set to \_\_EMPTY__VALUE__ and the clean-up links configuration is disabled
 * **import-product:**
   * refactoring clean-up-links and clean-up-variants to remove old data from relation table
+  * PAC-959: Fix warning from `StoreWebsiteValidatorObserver` in multi website import
 * **import-product-grouped:**
   * refactoring clean-up-links and clean-up-variants to remove old data from relation table
 * **import-product-variant:**
