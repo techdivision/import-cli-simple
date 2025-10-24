@@ -2,6 +2,12 @@
 
 ## Features
 
+### PHP 8.4 Compatibility
+
+* Update dependencies
+* Add PHP 8.4 support
+* Replace abandoned `swiftmailer/swiftmailer` with `symfony/mailer`
+
 ### import-product import-product-ee
 * New validation added, whether the product of the website is assigned to the current shop view line
   * `"import_product.store.in.website.validator.observer"`
