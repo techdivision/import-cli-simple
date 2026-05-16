@@ -43,7 +43,7 @@ class AppKernel extends Kernel
      * @return iterable|\Symfony\Component\HttpKernel\Bundle\BundleInterface[] An iterable of bundle instances
      * @see \Symfony\Component\HttpKernel\KernelInterface::registerBundles()
      */
-    public function registerBundles()
+    public function registerBundles(): iterable
     {
 
         // load the environment variables
@@ -63,7 +63,7 @@ class AppKernel extends Kernel
      * @return void
      * @see \Symfony\Component\HttpKernel\KernelInterface::registerContainerConfiguration()
      */
-    public function registerContainerConfiguration(LoaderInterface $loader)
+    public function registerContainerConfiguration(LoaderInterface $loader): void
     {
         $loader->load(__DIR__.'/Resources/config/config_'.$this->getEnvironment().'.yml');
     }

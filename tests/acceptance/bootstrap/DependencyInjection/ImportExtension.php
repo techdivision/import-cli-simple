@@ -22,7 +22,7 @@ namespace TechDivision\Import\Cli\Simple\DependencyInjection;
 
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
-use Symfony\Component\DependencyInjection\Loader\XmlFileLoader;
+use TechDivision\Import\DependencyInjection\Loader\XmlFileLoader;
 use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 
 /**
@@ -36,14 +36,14 @@ use Symfony\Component\HttpKernel\DependencyInjection\Extension;
  */
 class ImportExtension extends Extension
 {
-
     /**
      * Load's the bundles DI configuration.
      *
      * @param array                                                   $configs   The array with the configuration
      * @param \Symfony\Component\DependencyInjection\ContainerBuilder $container The container instance
+     * @return void
      */
-    public function load(array $configs, ContainerBuilder $container)
+    public function load(array $configs, ContainerBuilder $container): void
     {
         $loader = new XmlFileLoader($container, new FileLocator(dirname(__DIR__) . '/Resources/config'));
         $loader->load('services.xml');

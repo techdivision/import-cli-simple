@@ -21,7 +21,7 @@
 // import the used classes
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
-use Symfony\Component\DependencyInjection\Loader\XmlFileLoader;
+use TechDivision\Import\DependencyInjection\Loader\XmlFileLoader;
 use TechDivision\Import\Cli\Utils\DependencyInjectionKeys;
 
 // initialize the DI container and set the vendor directory
