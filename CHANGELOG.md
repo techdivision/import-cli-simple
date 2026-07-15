@@ -1,3 +1,7 @@
+# Version 5.2.1 (comming soon)
+
+BUG: Fix composer dependency, remove phpcpd
+
 # Version 5.2.0
 
 ## Features
