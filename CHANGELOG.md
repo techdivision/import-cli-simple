@@ -2,10 +2,17 @@
 
 ## Features
 
-### import-attribute import-configuration-jms
+### import import-attribute import-configuration-jms
 
 * Add state detection to observers for "import:attributes", ensuring changes are only persisted when necessary
 * Skip unreadable/invalid JSON files, and no longer misflags empty but valid JSON as an error
+* Batch category name/path resolution
+
+## Bugfixes
+
+### import-ee
+
+* Fix table alias for category entity_id
 
 # Version 5.2.0
 
