@@ -1,3 +1,12 @@
+# Version 5.3.0
+
+## Features
+
+### import-attribute import-configuration-jms
+
+* Add state detection to observers for "import:attributes", ensuring changes are only persisted when necessary
+* Skip unreadable/invalid JSON files, and no longer misflags empty but valid JSON as an error
+
 # Version 5.2.0
 
 ## Features
