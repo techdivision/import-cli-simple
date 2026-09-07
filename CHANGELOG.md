@@ -1,6 +1,20 @@
-# Version 5.2.1 (comming soon)
+# Version 5.3.0
 
-BUG: Fix composer dependency, remove phpcpd
+## Features
+
+* **import-attribute:**
+  * Add state detection to observers for "import:attributes", ensuring changes are only persisted when necessary
+* **import-configuration-jms:**
+  * Skip unreadable/invalid JSON files, and no longer misflags empty but valid JSON as an error
+* **import:**
+  * Batch category name/path resolution
+
+## Bugfixes
+
+* Fix composer dependency, remove phpcpd
+
+* **import-ee:**
+  * Fix table alias for category entity_id
 
 # Version 5.2.0
 
