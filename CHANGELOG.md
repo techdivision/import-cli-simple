@@ -11,6 +11,8 @@
 
 ## Bugfixes
 
+* Fix composer dependency, remove phpcpd
+
 * **import-ee:**
   * Fix table alias for category entity_id
 
